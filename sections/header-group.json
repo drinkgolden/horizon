@@ -16,7 +16,7 @@
       "name": "Hero Splash (Above Header)",
       "settings": {
         "render_above_header": true,
-        "height_desktop": 70,
+        "height_desktop": 90,
         "height_mobile": 90,
         "image_desktop": "shopify://shop_images/iStock-641225382.jpg",
         "use_video": false,
