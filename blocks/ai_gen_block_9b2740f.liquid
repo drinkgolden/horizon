@@ -1,0 +1,551 @@
+{% doc %}
+  @prompt
+    An accordion style block that is full width and follows the style of the accordianin the horizon theme already however the accordion has two text boxes in each Roa one let aligned and one right aligned, the dividing lines go right across the page and instead of chevrons or arrows a hover will automatically open them and expand that line to reveal a text paragraph hidden. 
+    
+    can you make that >, ok the block needs to be full width 100% I can see padding on each sode of the accordion , ok make the text inputs match my website so I cna choose header or not and text zie to the ways that I have denied already ?
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-hover-accordion-{{ ai_gen_id }} {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    font-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
+    font-weight: {{ settings.type_body_font.weight }};
+    color: rgb({{ block.settings.color_scheme.settings.foreground.red }}, {{ block.settings.color_scheme.settings.foreground.green }}, {{ block.settings.color_scheme.settings.foreground.blue }});
+    background-color: rgb({{ block.settings.color_scheme.settings.background.red }}, {{ block.settings.color_scheme.settings.background.green }}, {{ block.settings.color_scheme.settings.background.blue }});
+  }
+
+  .ai-hover-accordion-item-{{ ai_gen_id }} {
+    border-bottom: 1px solid rgb({{ block.settings.color_scheme.settings.border.red }}, {{ block.settings.color_scheme.settings.border.green }}, {{ block.settings.color_scheme.settings.border.blue }});
+    transition: all 0.3s ease;
+    cursor: pointer;
+    padding-left: {{ block.settings.side_padding }}px;
+    padding-right: {{ block.settings.side_padding }}px;
+  }
+
+  .ai-hover-accordion-item-{{ ai_gen_id }}:first-child {
+    border-top: 1px solid rgb({{ block.settings.color_scheme.settings.border.red }}, {{ block.settings.color_scheme.settings.border.green }}, {{ block.settings.color_scheme.settings.border.blue }});
+  }
+
+  .ai-hover-accordion-header-{{ ai_gen_id }} {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: {{ block.settings.row_padding }}px 0;
+    transition: all 0.3s ease;
+  }
+
+  .ai-hover-accordion-item-{{ ai_gen_id }}:hover .ai-hover-accordion-header-{{ ai_gen_id }} {
+    padding: {{ block.settings.expanded_padding }}px 0;
+  }
+
+  .ai-hover-accordion-left-text-{{ ai_gen_id }} {
+    flex: 1;
+    text-align: left;
+    color: rgb({{ block.settings.color_scheme.settings.foreground_heading.red }}, {{ block.settings.color_scheme.settings.foreground_heading.green }}, {{ block.settings.color_scheme.settings.foreground_heading.blue }});
+  }
+
+  .ai-hover-accordion-right-text-{{ ai_gen_id }} {
+    flex: 1;
+    text-align: right;
+    color: rgb({{ block.settings.color_scheme.settings.foreground_heading.red }}, {{ block.settings.color_scheme.settings.foreground_heading.green }}, {{ block.settings.color_scheme.settings.foreground_heading.blue }});
+  }
+
+  {% comment %} Left text typography {% endcomment %}
+  {% if block.settings.left_text_type == 'h1' %}
+    .ai-hover-accordion-left-text-{{ ai_gen_id }} {
+      font-family: {% if settings.type_font_h1 == 'heading' %}{{ settings.type_heading_font.family }}{% else %}{{ settings.type_accent_font.family }}{% endif %}, {% if settings.type_font_h1 == 'heading' %}{{ settings.type_heading_font.fallback_families }}{% else %}{{ settings.type_accent_font.fallback_families }}{% endif %};
+      font-size: {{ settings.type_size_h1 }}px;
+      line-height: var(--font-{{ settings.type_line_height_h1 }});
+      letter-spacing: var(--font-{{ settings.type_letter_spacing_h1 }});
+      text-transform: {{ settings.type_case_h1 }};
+    }
+  {% elsif block.settings.left_text_type == 'h2' %}
+    .ai-hover-accordion-left-text-{{ ai_gen_id }} {
+      font-family: {% if settings.type_font_h2 == 'heading' %}{{ settings.type_heading_font.family }}{% else %}{{ settings.type_accent_font.family }}{% endif %}, {% if settings.type_font_h2 == 'heading' %}{{ settings.type_heading_font.fallback_families }}{% else %}{{ settings.type_accent_font.fallback_families }}{% endif %};
+      font-size: {{ settings.type_size_h2 }}px;
+      line-height: var(--font-{{ settings.type_line_height_h2 }});
+      letter-spacing: var(--font-{{ settings.type_letter_spacing_h2 }});
+      text-transform: {{ settings.type_case_h2 }};
+    }
+  {% elsif block.settings.left_text_type == 'h3' %}
+    .ai-hover-accordion-left-text-{{ ai_gen_id }} {
+      font-family: {% if settings.type_font_h3 == 'heading' %}{{ settings.type_heading_font.family }}{% elsif settings.type_font_h3 == 'accent' %}{{ settings.type_accent_font.family }}{% elsif settings.type_font_h3 == 'subheading' %}{{ settings.type_subheading_font.family }}{% else %}{{ settings.type_body_font.family }}{% endif %}, {% if settings.type_font_h3 == 'heading' %}{{ settings.type_heading_font.fallback_families }}{% elsif settings.type_font_h3 == 'accent' %}{{ settings.type_accent_font.fallback_families }}{% elsif settings.type_font_h3 == 'subheading' %}{{ settings.type_subheading_font.fallback_families }}{% else %}{{ settings.type_body_font.fallback_families }}{% endif %};
+      font-size: {{ settings.type_size_h3 }}px;
+      line-height: var(--font-{{ settings.type_line_height_h3 }});
+      letter-spacing: var(--font-{{ settings.type_letter_spacing_h3 }});
+      text-transform: {{ settings.type_case_h3 }};
+    }
+  {% elsif block.settings.left_text_type == 'h4' %}
+    .ai-hover-accordion-left-text-{{ ai_gen_id }} {
+      font-family: {% if settings.type_font_h4 == 'heading' %}{{ settings.type_heading_font.family }}{% elsif settings.type_font_h4 == 'accent' %}{{ settings.type_accent_font.family }}{% elsif settings.type_font_h4 == 'subheading' %}{{ settings.type_subheading_font.family }}{% else %}{{ settings.type_body_font.family }}{% endif %}, {% if settings.type_font_h4 == 'heading' %}{{ settings.type_heading_font.fallback_families }}{% elsif settings.type_font_h4 == 'accent' %}{{ settings.type_accent_font.fallback_families }}{% elsif settings.type_font_h4 == 'subheading' %}{{ settings.type_subheading_font.fallback_families }}{% else %}{{ settings.type_body_font.fallback_families }}{% endif %};
+      font-size: {{ settings.type_size_h4 }}px;
+      line-height: var(--font-{{ settings.type_line_height_h4 }});
+      letter-spacing: var(--font-{{ settings.type_letter_spacing_h4 }});
+      text-transform: {{ settings.type_case_h4 }};
+    }
+  {% elsif block.settings.left_text_type == 'h5' %}
+    .ai-hover-accordion-left-text-{{ ai_gen_id }} {
+      font-family: {% if settings.type_font_h5 == 'heading' %}{{ settings.type_heading_font.family }}{% elsif settings.type_font_h5 == 'accent' %}{{ settings.type_accent_font.family }}{% elsif settings.type_font_h5 == 'subheading' %}{{ settings.type_subheading_font.family }}{% else %}{{ settings.type_body_font.family }}{% endif %}, {% if settings.type_font_h5 == 'heading' %}{{ settings.type_heading_font.fallback_families }}{% elsif settings.type_font_h5 == 'accent' %}{{ settings.type_accent_font.fallback_families }}{% elsif settings.type_font_h5 == 'subheading' %}{{ settings.type_subheading_font.fallback_families }}{% else %}{{ settings.type_body_font.fallback_families }}{% endif %};
+      font-size: {{ settings.type_size_h5 }}px;
+      line-height: var(--font-{{ settings.type_line_height_h5 }});
+      letter-spacing: var(--font-{{ settings.type_letter_spacing_h5 }});
+      text-transform: {{ settings.type_case_h5 }};
+    }
+  {% elsif block.settings.left_text_type == 'h6' %}
+    .ai-hover-accordion-left-text-{{ ai_gen_id }} {
+      font-family: {% if settings.type_font_h6 == 'heading' %}{{ settings.type_heading_font.family }}{% elsif settings.type_font_h6 == 'accent' %}{{ settings.type_accent_font.family }}{% elsif settings.type_font_h6 == 'subheading' %}{{ settings.type_subheading_font.family }}{% else %}{{ settings.type_body_font.family }}{% endif %}, {% if settings.type_font_h6 == 'heading' %}{{ settings.type_heading_font.fallback_families }}{% elsif settings.type_font_h6 == 'accent' %}{{ settings.type_accent_font.fallback_families }}{% elsif settings.type_font_h6 == 'subheading' %}{{ settings.type_subheading_font.fallback_families }}{% else %}{{ settings.type_body_font.fallback_families }}{% endif %};
+      font-size: {{ settings.type_size_h6 }}px;
+      line-height: var(--font-{{ settings.type_line_height_h6 }});
+      letter-spacing: var(--font-{{ settings.type_letter_spacing_h6 }});
+      text-transform: {{ settings.type_case_h6 }};
+    }
+  {% else %}
+    .ai-hover-accordion-left-text-{{ ai_gen_id }} {
+      font-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
+      font-size: {{ settings.type_size_paragraph }}px;
+      line-height: var(--font-{{ settings.type_line_height_paragraph }});
+    }
+  {% endif %}
+
+  {% comment %} Right text typography {% endcomment %}
+  {% if block.settings.right_text_type == 'h1' %}
+    .ai-hover-accordion-right-text-{{ ai_gen_id }} {
+      font-family: {% if settings.type_font_h1 == 'heading' %}{{ settings.type_heading_font.family }}{% else %}{{ settings.type_accent_font.family }}{% endif %}, {% if settings.type_font_h1 == 'heading' %}{{ settings.type_heading_font.fallback_families }}{% else %}{{ settings.type_accent_font.fallback_families }}{% endif %};
+      font-size: {{ settings.type_size_h1 }}px;
+      line-height: var(--font-{{ settings.type_line_height_h1 }});
+      letter-spacing: var(--font-{{ settings.type_letter_spacing_h1 }});
+      text-transform: {{ settings.type_case_h1 }};
+    }
+  {% elsif block.settings.right_text_type == 'h2' %}
+    .ai-hover-accordion-right-text-{{ ai_gen_id }} {
+      font-family: {% if settings.type_font_h2 == 'heading' %}{{ settings.type_heading_font.family }}{% else %}{{ settings.type_accent_font.family }}{% endif %}, {% if settings.type_font_h2 == 'heading' %}{{ settings.type_heading_font.fallback_families }}{% else %}{{ settings.type_accent_font.fallback_families }}{% endif %};
+      font-size: {{ settings.type_size_h2 }}px;
+      line-height: var(--font-{{ settings.type_line_height_h2 }});
+      letter-spacing: var(--font-{{ settings.type_letter_spacing_h2 }});
+      text-transform: {{ settings.type_case_h2 }};
+    }
+  {% elsif block.settings.right_text_type == 'h3' %}
+    .ai-hover-accordion-right-text-{{ ai_gen_id }} {
+      font-family: {% if settings.type_font_h3 == 'heading' %}{{ settings.type_heading_font.family }}{% elsif settings.type_font_h3 == 'accent' %}{{ settings.type_accent_font.family }}{% elsif settings.type_font_h3 == 'subheading' %}{{ settings.type_subheading_font.family }}{% else %}{{ settings.type_body_font.family }}{% endif %}, {% if settings.type_font_h3 == 'heading' %}{{ settings.type_heading_font.fallback_families }}{% elsif settings.type_font_h3 == 'accent' %}{{ settings.type_accent_font.fallback_families }}{% elsif settings.type_font_h3 == 'subheading' %}{{ settings.type_subheading_font.fallback_families }}{% else %}{{ settings.type_body_font.fallback_families }}{% endif %};
+      font-size: {{ settings.type_size_h3 }}px;
+      line-height: var(--font-{{ settings.type_line_height_h3 }});
+      letter-spacing: var(--font-{{ settings.type_letter_spacing_h3 }});
+      text-transform: {{ settings.type_case_h3 }};
+    }
+  {% elsif block.settings.right_text_type == 'h4' %}
+    .ai-hover-accordion-right-text-{{ ai_gen_id }} {
+      font-family: {% if settings.type_font_h4 == 'heading' %}{{ settings.type_heading_font.family }}{% elsif settings.type_font_h4 == 'accent' %}{{ settings.type_accent_font.family }}{% elsif settings.type_font_h4 == 'subheading' %}{{ settings.type_subheading_font.family }}{% else %}{{ settings.type_body_font.family }}{% endif %}, {% if settings.type_font_h4 == 'heading' %}{{ settings.type_heading_font.fallback_families }}{% elsif settings.type_font_h4 == 'accent' %}{{ settings.type_accent_font.fallback_families }}{% elsif settings.type_font_h4 == 'subheading' %}{{ settings.type_subheading_font.fallback_families }}{% else %}{{ settings.type_body_font.fallback_families }}{% endif %};
+      font-size: {{ settings.type_size_h4 }}px;
+      line-height: var(--font-{{ settings.type_line_height_h4 }});
+      letter-spacing: var(--font-{{ settings.type_letter_spacing_h4 }});
+      text-transform: {{ settings.type_case_h4 }};
+    }
+  {% elsif block.settings.right_text_type == 'h5' %}
+    .ai-hover-accordion-right-text-{{ ai_gen_id }} {
+      font-family: {% if settings.type_font_h5 == 'heading' %}{{ settings.type_heading_font.family }}{% elsif settings.type_font_h5 == 'accent' %}{{ settings.type_accent_font.family }}{% elsif settings.type_font_h5 == 'subheading' %}{{ settings.type_subheading_font.family }}{% else %}{{ settings.type_body_font.family }}{% endif %}, {% if settings.type_font_h5 == 'heading' %}{{ settings.type_heading_font.fallback_families }}{% elsif settings.type_font_h5 == 'accent' %}{{ settings.type_accent_font.fallback_families }}{% elsif settings.type_font_h5 == 'subheading' %}{{ settings.type_subheading_font.fallback_families }}{% else %}{{ settings.type_body_font.fallback_families }}{% endif %};
+      font-size: {{ settings.type_size_h5 }}px;
+      line-height: var(--font-{{ settings.type_line_height_h5 }});
+      letter-spacing: var(--font-{{ settings.type_letter_spacing_h5 }});
+      text-transform: {{ settings.type_case_h5 }};
+    }
+  {% elsif block.settings.right_text_type == 'h6' %}
+    .ai-hover-accordion-right-text-{{ ai_gen_id }} {
+      font-family: {% if settings.type_font_h6 == 'heading' %}{{ settings.type_heading_font.family }}{% elsif settings.type_font_h6 == 'accent' %}{{ settings.type_accent_font.family }}{% elsif settings.type_font_h6 == 'subheading' %}{{ settings.type_subheading_font.family }}{% else %}{{ settings.type_body_font.family }}{% endif %}, {% if settings.type_font_h6 == 'heading' %}{{ settings.type_heading_font.fallback_families }}{% elsif settings.type_font_h6 == 'accent' %}{{ settings.type_accent_font.fallback_families }}{% elsif settings.type_font_h6 == 'subheading' %}{{ settings.type_subheading_font.fallback_families }}{% else %}{{ settings.type_body_font.fallback_families }}{% endif %};
+      font-size: {{ settings.type_size_h6 }}px;
+      line-height: var(--font-{{ settings.type_line_height_h6 }});
+      letter-spacing: var(--font-{{ settings.type_letter_spacing_h6 }});
+      text-transform: {{ settings.type_case_h6 }};
+    }
+  {% else %}
+    .ai-hover-accordion-right-text-{{ ai_gen_id }} {
+      font-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
+      font-size: {{ settings.type_size_paragraph }}px;
+      line-height: var(--font-{{ settings.type_line_height_paragraph }});
+    }
+  {% endif %}
+
+  .ai-hover-accordion-content-{{ ai_gen_id }} {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+    padding: 0;
+  }
+
+  .ai-hover-accordion-item-{{ ai_gen_id }}:hover .ai-hover-accordion-content-{{ ai_gen_id }} {
+    max-height: 500px;
+    opacity: 1;
+    padding: 0 0 {{ block.settings.content_padding }}px 0;
+  }
+
+  .ai-hover-accordion-content-inner-{{ ai_gen_id }} {
+    font-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
+    font-size: {{ settings.type_size_paragraph }}px;
+    line-height: var(--font-{{ settings.type_line_height_paragraph }});
+    color: rgb({{ block.settings.color_scheme.settings.foreground.red }}, {{ block.settings.color_scheme.settings.foreground.green }}, {{ block.settings.color_scheme.settings.foreground.blue }});
+  }
+
+  .ai-hover-accordion-content-inner-{{ ai_gen_id }} p {
+    margin: 0 0 1em 0;
+  }
+
+  .ai-hover-accordion-content-inner-{{ ai_gen_id }} p:last-child {
+    margin-bottom: 0;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-hover-accordion-item-{{ ai_gen_id }} {
+      padding-left: {{ block.settings.mobile_side_padding }}px;
+      padding-right: {{ block.settings.mobile_side_padding }}px;
+    }
+
+    .ai-hover-accordion-header-{{ ai_gen_id }} {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .ai-hover-accordion-left-text-{{ ai_gen_id }},
+    .ai-hover-accordion-right-text-{{ ai_gen_id }} {
+      text-align: left;
+      width: 100%;
+    }
+
+    .ai-hover-accordion-right-text-{{ ai_gen_id }} {
+      opacity: 0.8;
+    }
+  }
+{% endstyle %}
+
+<hover-accordion-{{ ai_gen_id }}
+  class="ai-hover-accordion-{{ ai_gen_id }}"
+  {{ block.shopify_attributes }}
+>
+  {% for i in (1..5) %}
+    {% liquid
+      assign left_text_key = 'row_' | append: i | append: '_left_text'
+      assign right_text_key = 'row_' | append: i | append: '_right_text'
+      assign content_key = 'row_' | append: i | append: '_content'
+      assign enabled_key = 'row_' | append: i | append: '_enabled'
+
+      assign left_text = block.settings[left_text_key]
+      assign right_text = block.settings[right_text_key]
+      assign content = block.settings[content_key]
+      assign enabled = block.settings[enabled_key]
+    %}
+
+    {% if enabled and left_text != blank %}
+      <div class="ai-hover-accordion-item-{{ ai_gen_id }}" data-row="{{ i }}">
+        <div class="ai-hover-accordion-header-{{ ai_gen_id }}">
+          <div class="ai-hover-accordion-left-text-{{ ai_gen_id }}">
+            {{ left_text }}
+          </div>
+          {% if right_text != blank %}
+            <div class="ai-hover-accordion-right-text-{{ ai_gen_id }}">
+              {{ right_text }}
+            </div>
+          {% endif %}
+        </div>
+        {% if content != blank %}
+          <div class="ai-hover-accordion-content-{{ ai_gen_id }}">
+            <div class="ai-hover-accordion-content-inner-{{ ai_gen_id }}">
+              {{ content }}
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+  {% endfor %}
+</hover-accordion-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class HoverAccordion{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.items = this.querySelectorAll('.ai-hover-accordion-item-{{ ai_gen_id }}');
+        this.setupEventListeners();
+      }
+
+      setupEventListeners() {
+        this.items.forEach((item) => {
+          const content = item.querySelector('.ai-hover-accordion-content-{{ ai_gen_id }}');
+          
+          if (content) {
+            item.addEventListener('mouseenter', () => {
+              this.expandItem(item);
+            });
+
+            item.addEventListener('mouseleave', () => {
+              this.collapseItem(item);
+            });
+          }
+        });
+      }
+
+      expandItem(item) {
+        const content = item.querySelector('.ai-hover-accordion-content-{{ ai_gen_id }}');
+        if (content) {
+          const contentInner = content.querySelector('.ai-hover-accordion-content-inner-{{ ai_gen_id }}');
+          content.style.maxHeight = contentInner.scrollHeight + 'px';
+        }
+      }
+
+      collapseItem(item) {
+        const content = item.querySelector('.ai-hover-accordion-content-{{ ai_gen_id }}');
+        if (content) {
+          content.style.maxHeight = '0px';
+        }
+      }
+    }
+
+    customElements.define('hover-accordion-{{ ai_gen_id }}', HoverAccordion{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Hover accordion",
+  "tag": null,
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "side_padding",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Side padding",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "mobile_side_padding",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "label": "Mobile side padding",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "row_padding",
+      "min": 10,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "label": "Row padding",
+      "default": 25
+    },
+    {
+      "type": "range",
+      "id": "expanded_padding",
+      "min": 15,
+      "max": 55,
+      "step": 5,
+      "unit": "px",
+      "label": "Expanded row padding",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "content_padding",
+      "min": 10,
+      "max": 40,
+      "step": 5,
+      "unit": "px",
+      "label": "Content padding",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "select",
+      "id": "left_text_type",
+      "label": "Left text style",
+      "options": [
+        { "value": "paragraph", "label": "Paragraph" },
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" }
+      ],
+      "default": "h4"
+    },
+    {
+      "type": "select",
+      "id": "right_text_type",
+      "label": "Right text style",
+      "options": [
+        { "value": "paragraph", "label": "Paragraph" },
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" }
+      ],
+      "default": "h6"
+    },
+    {
+      "type": "header",
+      "content": "Row 1"
+    },
+    {
+      "type": "checkbox",
+      "id": "row_1_enabled",
+      "label": "Enable row 1",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "row_1_left_text",
+      "label": "Left text",
+      "default": "Feature"
+    },
+    {
+      "type": "text",
+      "id": "row_1_right_text",
+      "label": "Right text",
+      "default": "Details"
+    },
+    {
+      "type": "richtext",
+      "id": "row_1_content",
+      "label": "Content",
+      "default": "<p>This is the expanded content that appears when you hover over this row. Add your detailed information here.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Row 2"
+    },
+    {
+      "type": "checkbox",
+      "id": "row_2_enabled",
+      "label": "Enable row 2",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "row_2_left_text",
+      "label": "Left text",
+      "default": "Specifications"
+    },
+    {
+      "type": "text",
+      "id": "row_2_right_text",
+      "label": "Right text",
+      "default": "Technical"
+    },
+    {
+      "type": "richtext",
+      "id": "row_2_content",
+      "label": "Content",
+      "default": "<p>Technical specifications and detailed information about this item can be found here.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Row 3"
+    },
+    {
+      "type": "checkbox",
+      "id": "row_3_enabled",
+      "label": "Enable row 3",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "row_3_left_text",
+      "label": "Left text",
+      "default": "Shipping"
+    },
+    {
+      "type": "text",
+      "id": "row_3_right_text",
+      "label": "Right text",
+      "default": "Delivery"
+    },
+    {
+      "type": "richtext",
+      "id": "row_3_content",
+      "label": "Content",
+      "default": "<p>Information about shipping options, delivery times, and related policies.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Row 4"
+    },
+    {
+      "type": "checkbox",
+      "id": "row_4_enabled",
+      "label": "Enable row 4",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "row_4_left_text",
+      "label": "Left text"
+    },
+    {
+      "type": "text",
+      "id": "row_4_right_text",
+      "label": "Right text"
+    },
+    {
+      "type": "richtext",
+      "id": "row_4_content",
+      "label": "Content"
+    },
+    {
+      "type": "header",
+      "content": "Row 5"
+    },
+    {
+      "type": "checkbox",
+      "id": "row_5_enabled",
+      "label": "Enable row 5",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "row_5_left_text",
+      "label": "Left text"
+    },
+    {
+      "type": "text",
+      "id": "row_5_right_text",
+      "label": "Right text"
+    },
+    {
+      "type": "richtext",
+      "id": "row_5_content",
+      "label": "Content"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hover accordion"
+    }
+  ]
+}
+{% endschema %}
