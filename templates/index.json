@@ -1812,28 +1812,14 @@
             "content_group",
             "text_blurb"
           ]
-        },
-        "button_primary": {
-          "type": "button",
-          "settings": {
-            "label": "Shop the fizz",
-            "link": "shopify://collections/all",
-            "open_in_new_tab": false,
-            "style_class": "button",
-            "width": "fit-content",
-            "custom_width": 100,
-            "width_mobile": "fit-content",
-            "custom_width_mobile": 100
-          }
         }
       },
       "block_order": [
-        "group_main",
-        "button_primary"
+        "group_main"
       ],
       "settings": {
         "render_above_header": true,
-        "show_scroll_button": true,
+        "show_scroll_button": false,
         "scroll_icon_color": "#FFFFFF",
         "media_type_1": "image",
         "image_1": "shopify://shop_images/iStock-641225382.jpg",
@@ -1852,8 +1838,8 @@
         "section_height_custom": 80,
         "color_scheme": "scheme-1",
         "toggle_overlay": true,
-        "overlay_color": "#000000",
-        "overlay_style": "solid",
+        "overlay_color": "#00000026",
+        "overlay_style": "gradient",
         "gradient_direction": "to top",
         "blurred_reflection": false,
         "reflection_opacity": 35,
