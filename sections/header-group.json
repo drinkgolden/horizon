@@ -27,7 +27,7 @@
         "overlay_opacity": 0,
         "alt": "Hero image",
         "object_position": "center center",
-        "show_scroll_button": true,
+        "show_scroll_button": false,
         "scroll_icon_color": "#ffffff"
       }
     },
