@@ -1,0 +1,147 @@
+{% comment %}
+  Golden — Hero Splash Section (Above Header with Fade)
+  Extended version with fade-to-white transition into main content.
+  Fully compatible with Shopify Horizon theme header behavior.
+{% endcomment %}
+
+<section id="hero-splash" class="hero-splash" data-render-above-header="{{ section.settings.render_above_header }}">
+  <div class="ghs__media" data-hero>
+    {% assign mobile_img = section.settings.image_mobile | default: section.settings.image_desktop %}
+    {% if section.settings.use_video and section.settings.video_url != blank %}
+      <video class="ghs__video" autoplay loop muted playsinline preload="metadata">
+        <source src="{{ section.settings.video_url }}" type="video/mp4">
+      </video>
+    {% else %}
+      <picture>
+        <source media="(max-width: 749px)" srcset="{{ mobile_img | image_url: width: 1200 }}">
+        <img class="ghs__image" src="{{ section.settings.image_desktop | image_url: width: 2400 }}" alt="{{ section.settings.alt | escape }}" loading="eager">
+      </picture>
+    {% endif %}
+
+    <div class="ghs__overlay" aria-hidden="true"></div>
+
+    {% if section.blocks.size > 0 %}
+      <div class="ghs__content ghs__content--{{ section.settings.text_position }}">
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'heading' %}
+              <h1 class="ghs__heading" {{ block.shopify_attributes }}>{{ block.settings.text }}</h1>
+            {% when 'subheading' %}
+              <p class="ghs__subheading" {{ block.shopify_attributes }}>{{ block.settings.text }}</p>
+            {% when 'button' %}
+              <a href="{{ block.settings.link }}" class="ghs__button btn" {{ block.shopify_attributes }}>{{ block.settings.label }}</a>
+          {% endcase %}
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if section.settings.show_scroll_button %}
+      <button type="button" class="ghs__scroll" aria-label="Scroll to next section" data-scroll-target>
+        <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="36" cy="36" r="35" stroke="currentColor" opacity="0.2"/>
+          <path d="M36 22v28M36 50l-8-8M36 50l8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    {% endif %}
+  </div>
+
+  <div class="ghs__fade"></div>
+</section>
+
+<style>
+  #hero-splash { position: relative; width: 100%; margin: 0; padding: 0; overflow: hidden; }
+  .ghs__media { position: relative; height: {{ section.settings.height_desktop | default: 100 }}vh; }
+  @media (max-width: 749px) { .ghs__media { height: {{ section.settings.height_mobile | default: 90 }}vh; } }
+  .ghs__image, .ghs__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: {{ section.settings.object_position | default: 'center center' }}; }
+  .ghs__overlay { position: absolute; inset: 0; background: {{ section.settings.overlay_color }}; opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }}; }
+  .ghs__content { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; color: {{ section.settings.text_color }}; padding: 4vw; }
+  .ghs__heading { font-size: clamp(28px, 5vw, 64px); line-height: 1.05; margin: 0 0 .3em; }
+  .ghs__subheading { font-size: clamp(16px, 2vw, 22px); opacity: .9; margin: 0 0 1em; }
+  .ghs__fade { position: absolute; bottom: 0; left: 0; right: 0; height: 120px; background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, #fff 100%); }
+
+  .ghs__scroll { position: absolute; left: 50%; bottom: clamp(24px, 6vh, 72px); transform: translateX(-50%); background: none; border: none; color: {{ section.settings.scroll_icon_color }}; cursor: pointer; }
+
+  html[data-hero-in-view="true"][data-hero-over-header="true"] header[role="banner"],
+  html[data-hero-in-view="true"][data-hero-over-header="true"] .shopify-section-header,
+  html[data-hero-in-view="true"][data-hero-over-header="true"] header.site-header { position: absolute; inset: 0 auto auto 0; width: 100%; background: transparent !important; box-shadow: none !important; transition: opacity .3s ease; }
+  html[data-hero-in-view="true"][data-hero-over-header="true"] header[role="banner"].is-sticky,
+  html[data-hero-in-view="true"][data-hero-over-header="true"] .shopify-section-header--stuck,
+  html[data-hero-in-view="true"][data-hero-over-header="true"] header.site-header.is-sticky { opacity: 0; pointer-events: none; }
+  html[data-hero-in-view="false"][data-hero-over-header="true"] header[role="banner"],
+  html[data-hero-in-view="false"][data-hero-over-header="true"] .shopify-section-header,
+  html[data-hero-in-view="false"][data-hero-over-header="true"] header.site-header { position: sticky; opacity: 1; pointer-events: auto; }
+</style>
+
+<script>
+  (function(){
+    var sectionEl = document.getElementById('hero-splash');
+    if(!sectionEl) return;
+    var renderAbove = sectionEl.getAttribute('data-render-above-header') === 'true';
+    document.documentElement.setAttribute('data-hero-over-header', renderAbove ? 'true' : 'false');
+    var heroTarget = sectionEl.querySelector('[data-hero]');
+    if('IntersectionObserver' in window && heroTarget){
+      var obs = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          var inView = entry.isIntersecting && entry.intersectionRatio > 0.1;
+          document.documentElement.setAttribute('data-hero-in-view', inView ? 'true' : 'false');
+        });
+      }, {threshold: [0, 0.1, 0.5, 0.9]});
+      obs.observe(heroTarget);
+    }
+    var scrollBtn = sectionEl.querySelector('[data-scroll-target]');
+    if(scrollBtn){
+      scrollBtn.addEventListener('click', function(){
+        var next = sectionEl.nextElementSibling;
+        if(next){ next.scrollIntoView({behavior:'smooth', block:'start'}); }
+      });
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Hero Splash",
+  "settings": [
+    {"type": "checkbox", "id": "render_above_header", "label": "Render above header", "default": true},
+    {"type": "range", "id": "height_desktop", "label": "Height (desktop, vh)", "min": 40, "max": 100, "step": 1, "unit": "vh", "default": 70},
+    {"type": "range", "id": "height_mobile", "label": "Height (mobile, vh)", "min": 50, "max": 100, "step": 1, "unit": "vh", "default": 90},
+
+    {"type": "image_picker", "id": "image_desktop", "label": "Desktop image"},
+    {"type": "image_picker", "id": "image_mobile", "label": "Mobile image (optional)"},
+
+    {"type": "checkbox", "id": "use_video", "label": "Use MP4 video instead of image", "default": false},
+    {"type": "text", "id": "video_url", "label": "Video URL (MP4)", "info": "Upload to Files or your CDN and paste the direct .mp4 URL."},
+
+    {"type": "select", "id": "text_position", "label": "Text vertical alignment", "default": "center", "options": [
+      {"value": "top", "label": "Top"},
+      {"value": "center", "label": "Center"},
+      {"value": "bottom", "label": "Bottom"}
+    ]},
+
+    {"type": "color", "id": "text_color", "label": "Text color", "default": "#FFFFFF"},
+    {"type": "color", "id": "overlay_color", "label": "Overlay color", "default": "#000000"},
+    {"type": "range", "id": "overlay_opacity", "label": "Overlay opacity (%)", "min": 0, "max": 100, "step": 2, "unit": "%", "default": 0},
+
+    {"type": "text", "id": "alt", "label": "Alt text", "default": "Hero image"},
+    {"type": "text", "id": "object_position", "label": "Focal point (CSS object-position)", "default": "center center"},
+
+    {"type": "checkbox", "id": "show_scroll_button", "label": "Show scroll button", "default": true},
+    {"type": "color", "id": "scroll_icon_color", "label": "Scroll icon color", "default": "#FFFFFF"}
+  ],
+  "blocks": [
+    {"type": "heading", "name": "Heading", "limit": 1, "settings": [
+      {"type": "text", "id": "text", "label": "Heading", "default": "Honey soda from Aotearoa"}
+    ]},
+    {"type": "subheading", "name": "Subheading", "limit": 1, "settings": [
+      {"type": "text", "id": "text", "label": "Subheading", "default": "Flavoured by flowers and fruits. All natural. Low cal."}
+    ]},
+    {"type": "button", "name": "Button", "limit": 1, "settings": [
+      {"type": "text", "id": "label", "label": "Label", "default": "Shop now"},
+      {"type": "url", "id": "link", "label": "Link"}
+    ]}
+  ],
+  "presets": [
+    {"name": "Hero Splash (Above Header)", "category": "Image"}
+  ]
+}
+{% endschema %}
