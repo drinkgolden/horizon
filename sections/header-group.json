@@ -11,58 +11,6 @@
   "type": "header",
   "name": "Header",
   "sections": {
-    "hero_splash_n8Qfcf": {
-      "type": "hero-splash",
-      "name": "Hero Splash (Above Header)",
-      "settings": {
-        "render_above_header": true,
-        "height_desktop": 90,
-        "height_mobile": 90,
-        "image_desktop": "shopify://shop_images/iStock-641225382.jpg",
-        "use_video": false,
-        "video_url": "",
-        "text_position": "center",
-        "text_color": "#ffffff",
-        "overlay_color": "#000000",
-        "overlay_opacity": 0,
-        "alt": "Hero image",
-        "object_position": "center center",
-        "show_scroll_button": false,
-        "scroll_icon_color": "#ffffff"
-      }
-    },
-    "blocks_p394yE": {
-      "type": "_blocks",
-      "name": "Hero splash",
-      "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "flex-end",
-        "vertical_alignment_flex_direction_column": "flex-start",
-        "gap": 12,
-        "section_width": "page-width",
-        "section_height": "",
-        "section_height_custom": 50,
-        "color_scheme": "",
-        "background_media": "image",
-        "video_position": "cover",
-        "background_image": "shopify://shop_images/iStock-641225382.jpg",
-        "background_image_position": "cover",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_radius": 0,
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "padding-block-start": 0,
-        "padding-block-end": 0
-      }
-    },
     "1758865186f34333b8": {
       "type": "_blocks",
       "blocks": {
@@ -215,8 +163,6 @@
     }
   },
   "order": [
-    "hero_splash_n8Qfcf",
-    "blocks_p394yE",
     "1758865186f34333b8",
     "header_section",
     "header_announcements_9jGBFp"
