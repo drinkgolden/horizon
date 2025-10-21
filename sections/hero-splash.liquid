@@ -1,147 +1,556 @@
 {% comment %}
-  Golden — Hero Splash Section (Above Header with Fade)
-  Extended version with fade-to-white transition into main content.
-  Fully compatible with Shopify Horizon theme header behavior.
+  Hero splash section with optional video support and header overlay behaviour.
+  Reuses Horizon spacing, color scheme, and button styles for better consistency.
 {% endcomment %}
 
-<section id="hero-splash" class="hero-splash" data-render-above-header="{{ section.settings.render_above_header }}">
-  <div class="ghs__media" data-hero>
-    {% assign mobile_img = section.settings.image_mobile | default: section.settings.image_desktop %}
-    {% if section.settings.use_video and section.settings.video_url != blank %}
-      <video class="ghs__video" autoplay loop muted playsinline preload="metadata">
-        <source src="{{ section.settings.video_url }}" type="video/mp4">
+{% liquid
+  assign fetch_priority = 'auto'
+  if section.index == 1
+    assign fetch_priority = 'high'
+  endif
+
+  assign loading_attr = 'lazy'
+  if fetch_priority == 'high'
+    assign loading_attr = 'eager'
+  endif
+
+  assign mobile_image = section.settings.image_mobile | default: section.settings.image_desktop
+  assign has_mobile_source = false
+  if section.settings.image_mobile != blank
+    assign has_mobile_source = true
+  endif
+  assign has_video = false
+  if section.settings.use_video and section.settings.video_url != blank
+    assign has_video = true
+  endif
+
+  assign alignment = section.settings.horizontal_alignment | default: 'center'
+  assign content_alignment_class = 'hero-splash__content-inner--align-' | append: alignment
+
+  assign button_justify = 'center'
+  case alignment
+    when 'left'
+      assign button_justify = 'flex-start'
+    when 'right'
+      assign button_justify = 'flex-end'
+  endcase
+
+  assign image_alt = section.settings.alt
+  if image_alt == blank and section.settings.image_desktop != blank
+    assign image_alt = section.settings.image_desktop.alt
+  endif
+  if image_alt == blank
+    assign image_alt = shop.name
+  endif
+%}
+
+{% capture section_style %}
+  {% render 'spacing-style', settings: section.settings %}
+  --hero-splash-height-desktop: {{ section.settings.height_desktop | default: 70 }}vh;
+  --hero-splash-height-mobile: {{ section.settings.height_mobile | default: 90 }}vh;
+  --hero-splash-text-color: {{ section.settings.text_color }};
+  --hero-splash-overlay-color: {{ section.settings.overlay_color }};
+  --hero-splash-overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+  --hero-splash-object-position: {{ section.settings.object_position | default: 'center center' }};
+  --hero-splash-max-width: min(72rem, 92vw);
+  --hero-splash-button-justify: {{ button_justify }};
+  --hero-splash-scroll-color: {{ section.settings.scroll_icon_color }};
+{% endcapture %}
+
+{% assign section_style = section_style | strip %}
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<section
+  id="HeroSplash-{{ section.id }}"
+  class="hero-splash section section--full-width spacing-style color-{{ section.settings.color_scheme }}{% if section.settings.render_above_header %} hero-splash--over-header{% endif %}"
+  data-section-type="hero-splash"
+  data-section-id="{{ section.id }}"
+  data-render-above-header="{{ section.settings.render_above_header }}"
+  style="{{ section_style }}"
+>
+  <div class="hero-splash__media" data-hero-splash-media>
+    {% if has_video %}
+      <video
+        class="hero-splash__video"
+        autoplay
+        loop
+        muted
+        playsinline
+        preload="metadata"
+      >
+        <source src="{{ section.settings.video_url | escape }}" type="video/mp4">
       </video>
-    {% else %}
+    {% elsif section.settings.image_desktop != blank %}
+      {% assign width_values = '832,1200,1600,1920,2560,3200,3840' | split: ',' %}
+      {% capture desktop_srcset %}
+        {% for width in width_values %}
+          {{ section.settings.image_desktop | image_url: width: width }} {{ width }}w{% unless forloop.last %}, {% endunless %}
+        {% endfor %}
+      {% endcapture %}
+      {% if has_mobile_source %}
+        {% capture mobile_srcset %}
+          {% for width in width_values %}
+            {{ mobile_image | image_url: width: width }} {{ width }}w{% unless forloop.last %}, {% endunless %}
+          {% endfor %}
+        {% endcapture %}
+      {% endif %}
       <picture>
-        <source media="(max-width: 749px)" srcset="{{ mobile_img | image_url: width: 1200 }}">
-        <img class="ghs__image" src="{{ section.settings.image_desktop | image_url: width: 2400 }}" alt="{{ section.settings.alt | escape }}" loading="eager">
+        {% if has_mobile_source %}
+          <source media="(max-width: 749px)" sizes="100vw" srcset="{{ mobile_srcset | strip }}">
+        {% endif %}
+        <img
+          class="hero-splash__image"
+          src="{{ section.settings.image_desktop | image_url: width: 1920 }}"
+          srcset="{{ desktop_srcset | strip }}"
+          sizes="100vw"
+          alt="{{ image_alt | escape }}"
+          loading="{{ loading_attr }}"
+          fetchpriority="{{ fetch_priority }}"
+        >
       </picture>
+    {% else %}
+      {{ 'hero-apparel-1' | placeholder_svg_tag: 'hero-splash__image hero-splash__placeholder' }}
     {% endif %}
 
-    <div class="ghs__overlay" aria-hidden="true"></div>
+    <span class="hero-splash__overlay" aria-hidden="true"></span>
+  </div>
 
-    {% if section.blocks.size > 0 %}
-      <div class="ghs__content ghs__content--{{ section.settings.text_position }}">
+  {% if section.blocks.size > 0 %}
+    <div class="hero-splash__content hero-splash__content--{{ section.settings.text_position | default: 'center' }}">
+      <div class="hero-splash__content-inner {{ content_alignment_class }}">
         {% for block in section.blocks %}
           {% case block.type %}
             {% when 'heading' %}
-              <h1 class="ghs__heading" {{ block.shopify_attributes }}>{{ block.settings.text }}</h1>
+              {% if block.settings.text != blank %}
+                <h1 class="hero-splash__heading" {{ block.shopify_attributes }}>
+                  {{ block.settings.text | escape }}
+                </h1>
+              {% endif %}
             {% when 'subheading' %}
-              <p class="ghs__subheading" {{ block.shopify_attributes }}>{{ block.settings.text }}</p>
+              {% if block.settings.text != blank %}
+                <p class="hero-splash__subheading" {{ block.shopify_attributes }}>
+                  {{ block.settings.text | escape | newline_to_br }}
+                </p>
+              {% endif %}
             {% when 'button' %}
-              <a href="{{ block.settings.link }}" class="ghs__button btn" {{ block.shopify_attributes }}>{{ block.settings.label }}</a>
+              {% assign button_link = block.settings.link %}
+              {% assign button_style = block.settings.button_style | default: 'button' %}
+              {% if button_style == 'link' %}
+                {% assign button_classes = 'hero-splash__action link hero-splash__link' %}
+              {% else %}
+                {% assign button_classes = 'hero-splash__action ' | append: button_style | append: ' hero-splash__button' %}
+              {% endif %}
+              <div class="hero-splash__actions" {{ block.shopify_attributes }}>
+                <a
+                  {% if button_link == blank %}
+                    role="link"
+                    aria-disabled="true"
+                  {% else %}
+                    href="{{ button_link }}"
+                  {% endif %}
+                  class="{{ button_classes }}"
+                  {% if block.settings.open_in_new_tab and button_link != blank %}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  {% endif %}
+                >
+                  {{ block.settings.label | escape }}
+                </a>
+              </div>
           {% endcase %}
         {% endfor %}
       </div>
-    {% endif %}
+    </div>
+  {% endif %}
 
-    {% if section.settings.show_scroll_button %}
-      <button type="button" class="ghs__scroll" aria-label="Scroll to next section" data-scroll-target>
-        <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <circle cx="36" cy="36" r="35" stroke="currentColor" opacity="0.2"/>
-          <path d="M36 22v28M36 50l-8-8M36 50l8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-    {% endif %}
-  </div>
+  {% if section.settings.show_scroll_button %}
+    <button
+      type="button"
+      class="hero-splash__scroll"
+      data-hero-splash-scroll
+      aria-label="{{ 'accessibility.skip_to_text' | t }}"
+    >
+      <svg width="72" height="72" viewBox="0 0 72 72" fill="none" aria-hidden="true">
+        <circle cx="36" cy="36" r="35" stroke="currentColor" opacity="0.2" />
+        <path d="M36 22v28M36 50l-8-8M36 50l8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </button>
+  {% endif %}
 
-  <div class="ghs__fade"></div>
+  {% if section.settings.show_fade %}
+    <div class="hero-splash__fade" aria-hidden="true"></div>
+  {% endif %}
 </section>
 
-<style>
-  #hero-splash { position: relative; width: 100%; margin: 0; padding: 0; overflow: hidden; }
-  .ghs__media { position: relative; height: {{ section.settings.height_desktop | default: 100 }}vh; }
-  @media (max-width: 749px) { .ghs__media { height: {{ section.settings.height_mobile | default: 90 }}vh; } }
-  .ghs__image, .ghs__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: {{ section.settings.object_position | default: 'center center' }}; }
-  .ghs__overlay { position: absolute; inset: 0; background: {{ section.settings.overlay_color }}; opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }}; }
-  .ghs__content { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; color: {{ section.settings.text_color }}; padding: 4vw; }
-  .ghs__heading { font-size: clamp(28px, 5vw, 64px); line-height: 1.05; margin: 0 0 .3em; }
-  .ghs__subheading { font-size: clamp(16px, 2vw, 22px); opacity: .9; margin: 0 0 1em; }
-  .ghs__fade { position: absolute; bottom: 0; left: 0; right: 0; height: 120px; background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, #fff 100%); }
+{% stylesheet %}
+  #HeroSplash-{{ section.id }} {
+    position: relative;
+    overflow: hidden;
+    color: var(--hero-splash-text-color);
+  }
 
-  .ghs__scroll { position: absolute; left: 50%; bottom: clamp(24px, 6vh, 72px); transform: translateX(-50%); background: none; border: none; color: {{ section.settings.scroll_icon_color }}; cursor: pointer; }
+  #HeroSplash-{{ section.id }} .hero-splash__media {
+    position: relative;
+    min-height: var(--hero-splash-height-desktop);
+  }
 
-  html[data-hero-in-view="true"][data-hero-over-header="true"] header[role="banner"],
-  html[data-hero-in-view="true"][data-hero-over-header="true"] .shopify-section-header,
-  html[data-hero-in-view="true"][data-hero-over-header="true"] header.site-header { position: absolute; inset: 0 auto auto 0; width: 100%; background: transparent !important; box-shadow: none !important; transition: opacity .3s ease; }
-  html[data-hero-in-view="true"][data-hero-over-header="true"] header[role="banner"].is-sticky,
-  html[data-hero-in-view="true"][data-hero-over-header="true"] .shopify-section-header--stuck,
-  html[data-hero-in-view="true"][data-hero-over-header="true"] header.site-header.is-sticky { opacity: 0; pointer-events: none; }
-  html[data-hero-in-view="false"][data-hero-over-header="true"] header[role="banner"],
-  html[data-hero-in-view="false"][data-hero-over-header="true"] .shopify-section-header,
-  html[data-hero-in-view="false"][data-hero-over-header="true"] header.site-header { position: sticky; opacity: 1; pointer-events: auto; }
-</style>
+  @media screen and (max-width: 749px) {
+    #HeroSplash-{{ section.id }} .hero-splash__media {
+      min-height: var(--hero-splash-height-mobile);
+    }
+  }
 
-<script>
-  (function(){
-    var sectionEl = document.getElementById('hero-splash');
-    if(!sectionEl) return;
-    var renderAbove = sectionEl.getAttribute('data-render-above-header') === 'true';
-    document.documentElement.setAttribute('data-hero-over-header', renderAbove ? 'true' : 'false');
-    var heroTarget = sectionEl.querySelector('[data-hero]');
-    if('IntersectionObserver' in window && heroTarget){
-      var obs = new IntersectionObserver(function(entries){
-        entries.forEach(function(entry){
-          var inView = entry.isIntersecting && entry.intersectionRatio > 0.1;
-          document.documentElement.setAttribute('data-hero-in-view', inView ? 'true' : 'false');
+  #HeroSplash-{{ section.id }} .hero-splash__image,
+  #HeroSplash-{{ section.id }} .hero-splash__video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: var(--hero-splash-object-position);
+  }
+
+  #HeroSplash-{{ section.id }} .hero-splash__video {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  #HeroSplash-{{ section.id }} .hero-splash__overlay {
+    position: absolute;
+    inset: 0;
+    background-color: var(--hero-splash-overlay-color);
+    opacity: var(--hero-splash-overlay-opacity);
+    pointer-events: none;
+  }
+
+  #HeroSplash-{{ section.id }} .hero-splash__content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    padding-block: clamp(48px, 12vh, 160px);
+    padding-inline: min(5vw, 80px);
+    z-index: 1;
+  }
+
+  #HeroSplash-{{ section.id }} .hero-splash__content--top {
+    justify-content: flex-start;
+  }
+
+  #HeroSplash-{{ section.id }} .hero-splash__content--center {
+    justify-content: center;
+  }
+
+  #HeroSplash-{{ section.id }} .hero-splash__content--bottom {
+    justify-content: flex-end;
+  }
+
+  #HeroSplash-{{ section.id }} .hero-splash__content-inner {
+    display: grid;
+    gap: clamp(16px, 2.5vw, 32px);
+    width: min(var(--hero-splash-max-width), 100%);
+    justify-items: center;
+    text-align: center;
+  }
+
+  #HeroSplash-{{ section.id }} .hero-splash__content-inner--align-left {
+    justify-items: start;
+    text-align: left;
+    margin-inline-end: auto;
+  }
+
+  #HeroSplash-{{ section.id }} .hero-splash__content-inner--align-center {
+    justify-items: center;
+    text-align: center;
+    margin-inline: auto;
+  }
+
+  #HeroSplash-{{ section.id }} .hero-splash__content-inner--align-right {
+    justify-items: end;
+    text-align: right;
+    margin-inline-start: auto;
+  }
+
+  #HeroSplash-{{ section.id }} .hero-splash__heading {
+    margin: 0;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: 0.98;
+    letter-spacing: -0.02em;
+  }
+
+  #HeroSplash-{{ section.id }} .hero-splash__subheading {
+    margin: 0;
+    font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+    line-height: 1.45;
+    color: color-mix(in srgb, var(--hero-splash-text-color) 85%, transparent);
+  }
+
+  @supports not (color: color-mix(in srgb, red 50%, white)) {
+    #HeroSplash-{{ section.id }} .hero-splash__subheading {
+      opacity: 0.82;
+    }
+  }
+
+  #HeroSplash-{{ section.id }} .hero-splash__actions {
+    display: inline-flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: var(--hero-splash-button-justify);
+    justify-self: var(--hero-splash-button-justify);
+  }
+
+  #HeroSplash-{{ section.id }} .hero-splash__action {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  #HeroSplash-{{ section.id }} .hero-splash__link {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  #HeroSplash-{{ section.id }} .hero-splash__fade {
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    height: clamp(64px, 12vh, 160px);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, var(--color-background) 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  #HeroSplash-{{ section.id }} .hero-splash__scroll {
+    position: absolute;
+    left: 50%;
+    bottom: clamp(24px, 6vh, 72px);
+    transform: translateX(-50%);
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--hero-splash-scroll-color);
+    cursor: pointer;
+    transition: transform var(--animation-speed) var(--animation-easing);
+    z-index: 2;
+  }
+
+  #HeroSplash-{{ section.id }} .hero-splash__scroll:hover {
+    transform: translate(-50%, -4px);
+  }
+
+  #HeroSplash-{{ section.id }} .hero-splash__scroll svg {
+    width: clamp(40px, 8vw, 72px);
+    height: clamp(40px, 8vw, 72px);
+  }
+
+  @media screen and (max-width: 749px) {
+    #HeroSplash-{{ section.id }} .hero-splash__content {
+      padding-block: clamp(32px, 10vh, 96px);
+      padding-inline: var(--page-gutter);
+    }
+
+    #HeroSplash-{{ section.id }} .hero-splash__scroll {
+      bottom: clamp(16px, 6vh, 48px);
+    }
+  }
+
+  .hero-splash--over-header {
+    margin-top: calc(var(--header-group-height, var(--header-height, 0px)) * -1);
+  }
+
+  html[data-hero-over-header="true"][data-hero-in-view="true"] #header-group {
+    position: fixed;
+    inset: auto 0 0 0;
+    width: 100%;
+    z-index: var(--layer-sticky, 40);
+    pointer-events: auto;
+  }
+
+  html[data-hero-over-header="true"][data-hero-in-view="true"] #header-group > * {
+    backdrop-filter: blur(12px);
+    background-color: rgb(var(--color-background-rgb, 255 255 255) / 0.78);
+    box-shadow: 0 -12px 32px rgb(var(--color-foreground-rgb, 0 0 0) / 0.08);
+  }
+
+  html[data-hero-over-header="true"][data-hero-in-view="true"] body {
+    padding-bottom: max(var(--header-group-height, var(--header-height, 0px)), 72px);
+  }
+{% endstylesheet %}
+
+{% javascript %}
+  (() => {
+    const SECTION_SELECTOR = '#HeroSplash-{{ section.id }}';
+    const observers = new WeakMap();
+
+    const updateHeaderState = () => {
+      const sections = document.querySelectorAll('[data-section-type="hero-splash"]');
+      const renderAbove = Array.from(sections).some((section) => section.dataset.renderAboveHeader === 'true');
+      const inView = Array.from(sections).some((section) => section.dataset.heroInView === 'true');
+
+      document.documentElement.setAttribute('data-hero-over-header', renderAbove ? 'true' : 'false');
+      document.documentElement.setAttribute('data-hero-in-view', inView ? 'true' : 'false');
+    };
+
+    const initSection = (sectionEl) => {
+      if (!sectionEl) return;
+
+      const mediaEl = sectionEl.querySelector('[data-hero-splash-media]');
+
+      if (observers.has(sectionEl)) {
+        observers.get(sectionEl)?.disconnect();
+      }
+
+      if ('IntersectionObserver' in window && mediaEl) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            const entry = entries[0];
+            const inView = entry && entry.isIntersecting && entry.intersectionRatio > 0.1;
+            sectionEl.dataset.heroInView = inView ? 'true' : 'false';
+            updateHeaderState();
+          },
+          { threshold: [0, 0.15, 0.5] }
+        );
+
+        observer.observe(mediaEl);
+        observers.set(sectionEl, observer);
+      } else {
+        sectionEl.dataset.heroInView = 'true';
+      }
+
+      const scrollButton = sectionEl.querySelector('[data-hero-splash-scroll]');
+      if (scrollButton && scrollButton.dataset.initialized !== 'true') {
+        scrollButton.addEventListener('click', () => {
+          const nextSection = sectionEl.nextElementSibling;
+          if (nextSection instanceof HTMLElement) {
+            nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
         });
-      }, {threshold: [0, 0.1, 0.5, 0.9]});
-      obs.observe(heroTarget);
-    }
-    var scrollBtn = sectionEl.querySelector('[data-scroll-target]');
-    if(scrollBtn){
-      scrollBtn.addEventListener('click', function(){
-        var next = sectionEl.nextElementSibling;
-        if(next){ next.scrollIntoView({behavior:'smooth', block:'start'}); }
-      });
-    }
+        scrollButton.dataset.initialized = 'true';
+      }
+
+      updateHeaderState();
+    };
+
+    const teardownSection = (sectionEl) => {
+      if (!sectionEl) return;
+      const observer = observers.get(sectionEl);
+      if (observer) {
+        observer.disconnect();
+        observers.delete(sectionEl);
+      }
+      sectionEl.dataset.heroInView = 'false';
+      updateHeaderState();
+    };
+
+    const sectionEl = document.querySelector(SECTION_SELECTOR);
+    initSection(sectionEl);
+
+    document.addEventListener('shopify:section:load', (event) => {
+      if (event.target?.id === 'shopify-section-{{ section.id }}') {
+        const newSection = event.target.querySelector(SECTION_SELECTOR);
+        initSection(newSection);
+      }
+    });
+
+    document.addEventListener('shopify:section:unload', (event) => {
+      if (event.target?.id === 'shopify-section-{{ section.id }}') {
+        const existingSection = event.target.querySelector(SECTION_SELECTOR) || sectionEl;
+        teardownSection(existingSection);
+      }
+    });
   })();
-</script>
+{% endjavascript %}
 
 {% schema %}
 {
-  "name": "Hero Splash",
+  "name": "Hero splash",
+  "tag": "section",
+  "class": "section-wrapper hero-splash-wrapper",
+  "disabled_on": {
+    "groups": ["header"]
+  },
   "settings": [
-    {"type": "checkbox", "id": "render_above_header", "label": "Render above header", "default": true},
-    {"type": "range", "id": "height_desktop", "label": "Height (desktop, vh)", "min": 40, "max": 100, "step": 1, "unit": "vh", "default": 70},
-    {"type": "range", "id": "height_mobile", "label": "Height (mobile, vh)", "min": 50, "max": 100, "step": 1, "unit": "vh", "default": 90},
-
-    {"type": "image_picker", "id": "image_desktop", "label": "Desktop image"},
-    {"type": "image_picker", "id": "image_mobile", "label": "Mobile image (optional)"},
-
-    {"type": "checkbox", "id": "use_video", "label": "Use MP4 video instead of image", "default": false},
-    {"type": "text", "id": "video_url", "label": "Video URL (MP4)", "info": "Upload to Files or your CDN and paste the direct .mp4 URL."},
-
-    {"type": "select", "id": "text_position", "label": "Text vertical alignment", "default": "center", "options": [
-      {"value": "top", "label": "Top"},
-      {"value": "center", "label": "Center"},
-      {"value": "bottom", "label": "Bottom"}
-    ]},
-
-    {"type": "color", "id": "text_color", "label": "Text color", "default": "#FFFFFF"},
-    {"type": "color", "id": "overlay_color", "label": "Overlay color", "default": "#000000"},
-    {"type": "range", "id": "overlay_opacity", "label": "Overlay opacity (%)", "min": 0, "max": 100, "step": 2, "unit": "%", "default": 0},
-
-    {"type": "text", "id": "alt", "label": "Alt text", "default": "Hero image"},
-    {"type": "text", "id": "object_position", "label": "Focal point (CSS object-position)", "default": "center center"},
-
-    {"type": "checkbox", "id": "show_scroll_button", "label": "Show scroll button", "default": true},
-    {"type": "color", "id": "scroll_icon_color", "label": "Scroll icon color", "default": "#FFFFFF"}
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "checkbox", "id": "render_above_header", "label": "Render above header", "default": true },
+    { "type": "checkbox", "id": "show_scroll_button", "label": "Show scroll button", "default": true },
+    { "type": "checkbox", "id": "show_fade", "label": "Show bottom fade", "default": true },
+    { "type": "range", "id": "height_desktop", "label": "Height (desktop, vh)", "min": 40, "max": 100, "step": 1, "unit": "vh", "default": 70 },
+    { "type": "range", "id": "height_mobile", "label": "Height (mobile, vh)", "min": 50, "max": 100, "step": 1, "unit": "vh", "default": 90 },
+    { "type": "image_picker", "id": "image_desktop", "label": "Desktop image" },
+    { "type": "image_picker", "id": "image_mobile", "label": "Mobile image (optional)" },
+    { "type": "checkbox", "id": "use_video", "label": "Use MP4 video instead of image", "default": false },
+    { "type": "text", "id": "video_url", "label": "Video URL (MP4)", "info": "Paste a direct .mp4 link uploaded to Files or a CDN." },
+    { "type": "text", "id": "alt", "label": "Alt text", "default": "Hero image" },
+    { "type": "text", "id": "object_position", "label": "Focal point (CSS object-position)", "default": "center center" },
+    {
+      "type": "select",
+      "id": "text_position",
+      "label": "Text vertical alignment",
+      "default": "center",
+      "options": [
+        { "value": "top", "label": "Top" },
+        { "value": "center", "label": "Center" },
+        { "value": "bottom", "label": "Bottom" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "horizontal_alignment",
+      "label": "Text horizontal alignment",
+      "default": "center",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+    { "type": "color", "id": "text_color", "label": "Text color", "default": "#FFFFFF" },
+    { "type": "color", "id": "overlay_color", "label": "Overlay color", "default": "#000000" },
+    { "type": "range", "id": "overlay_opacity", "label": "Overlay opacity (%)", "min": 0, "max": 100, "step": 2, "unit": "%", "default": 0 },
+    { "type": "color", "id": "scroll_icon_color", "label": "Scroll icon color", "default": "#FFFFFF" },
+    { "type": "range", "id": "padding-block-start", "label": "Top padding", "min": 0, "max": 120, "step": 1, "unit": "px", "default": 0 },
+    { "type": "range", "id": "padding-block-end", "label": "Bottom padding", "min": 0, "max": 120, "step": 1, "unit": "px", "default": 0 },
+    { "type": "range", "id": "padding-inline-start", "label": "Left padding", "min": 0, "max": 80, "step": 1, "unit": "px", "default": 0 },
+    { "type": "range", "id": "padding-inline-end", "label": "Right padding", "min": 0, "max": 80, "step": 1, "unit": "px", "default": 0 }
   ],
   "blocks": [
-    {"type": "heading", "name": "Heading", "limit": 1, "settings": [
-      {"type": "text", "id": "text", "label": "Heading", "default": "Honey soda from Aotearoa"}
-    ]},
-    {"type": "subheading", "name": "Subheading", "limit": 1, "settings": [
-      {"type": "text", "id": "text", "label": "Subheading", "default": "Flavoured by flowers and fruits. All natural. Low cal."}
-    ]},
-    {"type": "button", "name": "Button", "limit": 1, "settings": [
-      {"type": "text", "id": "label", "label": "Label", "default": "Shop now"},
-      {"type": "url", "id": "link", "label": "Link"}
-    ]}
+    {
+      "type": "heading",
+      "name": "Heading",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "text", "label": "Heading", "default": "Fresh fizz from Aotearoa" }
+      ]
+    },
+    {
+      "type": "subheading",
+      "name": "Subheading",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "text", "label": "Subheading", "default": "Flavoured by flowers and fruits. All natural. Low cal." }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Button",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Shop now" },
+        { "type": "url", "id": "link", "label": "Link" },
+        {
+          "type": "select",
+          "id": "button_style",
+          "label": "Button style",
+          "default": "button",
+          "options": [
+            { "value": "button", "label": "Primary button" },
+            { "value": "button-secondary", "label": "Secondary button" },
+            { "value": "link", "label": "Text link" }
+          ]
+        },
+        { "type": "checkbox", "id": "open_in_new_tab", "label": "Open in new tab", "default": false }
+      ]
+    }
   ],
   "presets": [
-    {"name": "Hero Splash (Above Header)", "category": "Image"}
+    { "name": "Hero splash", "category": "Image" }
   ]
 }
 {% endschema %}
