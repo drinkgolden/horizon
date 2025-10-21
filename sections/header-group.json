@@ -114,36 +114,6 @@
         "padding-block-end": 0
       }
     },
-    "header_announcements_9jGBFp": {
-      "type": "header-announcements",
-      "blocks": {
-        "announcement_BxgCk9": {
-          "type": "_announcement",
-          "settings": {
-            "text": "Spend ≥ $50 & Ship Free",
-            "link": "",
-            "font": "var(--font-subheading--family)",
-            "font_size": "0.75rem",
-            "weight": "",
-            "letter_spacing": "normal",
-            "case": "none"
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "announcement_BxgCk9"
-      ],
-      "name": "t:names.announcement_bar",
-      "settings": {
-        "speed": 5,
-        "section_width": "page-width",
-        "color_scheme": "scheme-1",
-        "divider_width": 1,
-        "padding-block-start": 15,
-        "padding-block-end": 15
-      }
-    },
     "header_section": {
       "type": "header",
       "blocks": {
@@ -198,7 +168,7 @@
         "localization_row": "top",
         "section_width": "page-width",
         "section_height": "standard",
-        "enable_sticky_header": "scroll-up",
+        "enable_sticky_header": "always",
         "divider_width": 0,
         "divider_size": "page-width",
         "border_width": 1,
@@ -212,13 +182,43 @@
         "enable_transparent_header_collection": false,
         "collection_color_scheme": "default"
       }
+    },
+    "header_announcements_9jGBFp": {
+      "type": "header-announcements",
+      "blocks": {
+        "announcement_BxgCk9": {
+          "type": "_announcement",
+          "settings": {
+            "text": "Spend ≥ $50 & Ship Free",
+            "link": "",
+            "font": "var(--font-subheading--family)",
+            "font_size": "0.75rem",
+            "weight": "",
+            "letter_spacing": "normal",
+            "case": "none"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "announcement_BxgCk9"
+      ],
+      "name": "t:names.announcement_bar",
+      "settings": {
+        "speed": 5,
+        "section_width": "page-width",
+        "color_scheme": "scheme-1",
+        "divider_width": 1,
+        "padding-block-start": 15,
+        "padding-block-end": 15
+      }
     }
   },
   "order": [
     "hero_splash_n8Qfcf",
     "blocks_p394yE",
     "1758865186f34333b8",
-    "header_announcements_9jGBFp",
-    "header_section"
+    "header_section",
+    "header_announcements_9jGBFp"
   ]
 }
