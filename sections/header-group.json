@@ -11,26 +11,6 @@
   "type": "header",
   "name": "Header",
   "sections": {
-    "hero_splash_n8Qfcf": {
-      "type": "hero-splash",
-      "name": "Hero Splash (Above Header)",
-      "settings": {
-        "render_above_header": true,
-        "height_desktop": 90,
-        "height_mobile": 90,
-        "image_desktop": "shopify://shop_images/iStock-641225382.jpg",
-        "use_video": false,
-        "video_url": "",
-        "text_position": "center",
-        "text_color": "#ffffff",
-        "overlay_color": "#000000",
-        "overlay_opacity": 0,
-        "alt": "Hero image",
-        "object_position": "center center",
-        "show_scroll_button": false,
-        "scroll_icon_color": "#ffffff"
-      }
-    },
     "blocks_p394yE": {
       "type": "_blocks",
       "name": "Hero splash",
@@ -164,7 +144,6 @@
     }
   },
   "order": [
-    "hero_splash_n8Qfcf",
     "blocks_p394yE",
     "header_section",
     "header_announcements_9jGBFp"
