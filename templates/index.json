@@ -197,7 +197,7 @@
         "button_primary"
       ],
       "settings": {
-        "render_above_header": false,
+        "render_above_header": true,
         "show_scroll_button": true,
         "scroll_icon_color": "#ffffff",
         "media_type_1": "image",
