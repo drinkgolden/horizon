@@ -1290,7 +1290,7 @@
               "type": "text",
               "name": "t:names.text",
               "settings": {
-                "text": "<p>All natural low cal sodas made from premium Mānuka honey and New Zealand grown fruits. </p>",
+                "text": "<p>All natural low cal sodas made from premium M\u0101nuka honey and New Zealand grown fruits. </p>",
                 "width": "fit-content",
                 "max_width": "none",
                 "alignment": "left",
@@ -1882,7 +1882,6 @@
     }
   },
   "order": [
-    "hero_splash_demo",
     "section_wi6VEg",
     "product_list_yjEzVT",
     "section_iGyAgn",
