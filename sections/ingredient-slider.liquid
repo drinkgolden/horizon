@@ -31,7 +31,10 @@
           {% for block in section.blocks %}
             {% liquid
               assign image = block.settings.image
-              assign has_image = image != blank
+              assign has_image = false
+              if image != blank
+                assign has_image = true
+              endif
               assign region = block.settings.region
               assign link = block.settings.link
             %}
