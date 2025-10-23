@@ -1,274 +1,283 @@
 {% comment %}
-  Featured Goods – curated grid for handcrafted or seasonal products.
+  Featured Goods – honey-toned grid inspired by Kōkako's Featured Goods Grid.
+  Desktop: responsive grid, Mobile: horizontal scroll with snap.
 {% endcomment %}
 
 {% liquid
+  assign collection = section.settings.collection
   assign section_id = 'FeaturedGoods-' | append: section.id
-  assign columns = section.settings.columns | default: 3
-  if columns < 1
-    assign columns = 1
+  assign products_to_show = section.settings.max_products | default: 4 | plus: 0
+  assign has_products = false
+  if collection != blank
+    if collection.products_count > 0
+      assign has_products = true
+    endif
   endif
 %}
 
-<section
-  id="{{ section_id }}"
-  class="featured-goods section color-{{ section.settings.color_scheme }}"
-  aria-label="{{ section.settings.heading | default: 'Featured goods' | escape }}"
->
-  <div class="section-background color-{{ section.settings.color_scheme }}"></div>
-  <div class="page-width featured-goods__inner">
-    {% if section.settings.heading != blank or section.settings.subheading != blank %}
-      <header class="featured-goods__header">
-        {% if section.settings.heading != blank %}
-          <h2 class="featured-goods__title">{{ section.settings.heading }}</h2>
-        {% endif %}
-        {% if section.settings.subheading != blank %}
-          <p class="featured-goods__subheading">{{ section.settings.subheading }}</p>
-        {% endif %}
-      </header>
+<section id="{{ section_id }}" class="section golden-featured-goods" aria-label="{{ section.settings.title | default: 'Featured goods' | escape }}">
+  <div class="golden-featured-goods__inner page-width">
+    {% if section.settings.title != blank %}
+      <div class="golden-featured-goods__heading">
+        <h2 class="golden-featured-goods__title">{{ section.settings.title }}</h2>
+      </div>
     {% endif %}
 
-    {% if section.blocks.size > 0 %}
-      <div class="featured-goods__grid" role="list">
-        {% for block in section.blocks %}
-          {% assign product = block.settings.product %}
-          <article
-            class="featured-goods__card{% if block.settings.highlight_card %} featured-goods__card--highlight{% endif %}"
-            role="listitem"
-            {{ block.shopify_attributes }}
-          >
-            {% if block.settings.tagline != blank %}
-              <p class="featured-goods__tagline">{{ block.settings.tagline }}</p>
-            {% endif %}
+    <div class="golden-featured-goods__grid{% if section.settings.enable_scroll_mobile %} golden-featured-goods__grid--scroll{% endif %}">
+      {% if has_products %}
+        {% for product in collection.products limit: products_to_show %}
+          {% liquid
+            assign variant = product.selected_or_first_available_variant
+            assign flavour_notes = ''
+            if product.metafields.custom.flavour_notes != blank
+              assign flavour_notes = product.metafields.custom.flavour_notes
+            elsif product.metafields.descriptors.flavour_notes != blank
+              assign flavour_notes = product.metafields.descriptors.flavour_notes
+            else
+              assign flavour_notes = product.description | strip_html | truncatewords: 14
+            endif
+            assign alt_text = product.featured_image.alt | default: product.title
+          %}
 
-            <div class="featured-goods__media">
-              {% if block.settings.image != blank %}
+          <article class="golden-featured-goods__card" data-product-card data-observe>
+            <a class="golden-featured-goods__media" href="{{ product.url }}">
+              {% if product.featured_image %}
                 {{
-                  block.settings.image
-                  | image_url: width: 900
+                  product.featured_image
+                  | image_url: width: 800
                   | image_tag:
                     loading: 'lazy',
-                    class: 'featured-goods__image',
-                    widths: '360, 540, 720, 900',
-                    sizes: '(min-width: 1200px) 360px, (min-width: 750px) 45vw, 80vw',
-                    alt: block.settings.image.alt | default: block.settings.title
-                }}
-              {% elsif product %}
-                {{
-                  product.featured_media
-                  | image_url: width: 900
-                  | image_tag:
-                    loading: 'lazy',
-                    class: 'featured-goods__image',
-                    widths: '360, 540, 720, 900',
-                    sizes: '(min-width: 1200px) 360px, (min-width: 750px) 45vw, 80vw',
-                    alt: product.featured_media.alt | default: product.title
+                    alt: alt_text,
+                    sizes: '(min-width: 990px) 25vw, (min-width: 750px) 33vw, 80vw',
+                    widths: '200, 360, 480, 720, 800',
+                    class: 'golden-featured-goods__image'
                 }}
               {% else %}
-                {{ 'image' | placeholder_svg_tag: 'placeholder featured-goods__image' }}
+                {{ 'image' | placeholder_svg_tag: 'placeholder golden-featured-goods__image' }}
               {% endif %}
-            </div>
+            </a>
 
-            <div class="featured-goods__content">
-              {% if block.settings.title != blank %}
-                <h3 class="featured-goods__item-title">{{ block.settings.title }}</h3>
-              {% elsif product %}
-                <h3 class="featured-goods__item-title">{{ product.title }}</h3>
+            <div class="golden-featured-goods__content">
+              <h3 class="golden-featured-goods__product-title">
+                <a href="{{ product.url }}">{{ product.title }}</a>
+              </h3>
+              {% if flavour_notes != blank %}
+                <p class="golden-featured-goods__descriptor">{{ flavour_notes }}</p>
               {% endif %}
+              <p class="golden-featured-goods__price">{{ variant.price | money }}</p>
 
-              {% if block.settings.description != blank %}
-                <p class="featured-goods__description">{{ block.settings.description }}</p>
-              {% elsif product %}
-                <p class="featured-goods__description">{{ product.description | strip_html | truncate: 140 }}</p>
-              {% endif %}
-
-              {% if block.settings.price_note != blank %}
-                <p class="featured-goods__price-note">{{ block.settings.price_note }}</p>
-              {% elsif product %}
-                <p class="featured-goods__price-note">
-                  {{ product.price | money }}
-                  {% if product.compare_at_price_max > product.price %}
-                    <span class="featured-goods__price-note--compare">{{ product.compare_at_price_max | money }}</span>
-                  {% endif %}
-                </p>
-              {% endif %}
-
-              {% if block.settings.link_label != blank and block.settings.link != blank %}
-                <a class="featured-goods__cta" href="{{ block.settings.link }}">
-                  {{ block.settings.link_label }}
-                </a>
-              {% elsif product %}
-                <a class="featured-goods__cta" href="{{ product.url }}">
-                  {{ 'products.product.view_product' | t | default: 'View product' }}
-                </a>
-              {% endif %}
+              <div class="golden-featured-goods__actions">
+                {% if product.available and variant %}
+                  {%- form 'product', product, class: 'golden-featured-goods__form' -%}
+                    <input type="hidden" name="id" value="{{ variant.id }}">
+                    <button type="submit" class="button button--primary" name="add">
+                      {{ 'products.product.add_to_cart' | t }}
+                    </button>
+                  {%- endform -%}
+                {% else %}
+                  <span class="golden-featured-goods__sold-out">{{ 'products.product.sold_out' | t }}</span>
+                {% endif %}
+                <a class="button button--secondary" href="{{ product.url }}">{{ 'general.accessibility.learn_more' | t | default: 'Learn more' }}</a>
+              </div>
             </div>
           </article>
         {% endfor %}
-      </div>
-    {% else %}
-      <div class="featured-goods__empty">
-        <p>{{ 'sections.featured_collection.no_products' | t }}</p>
-      </div>
-    {% endif %}
+      {% else %}
+        <div class="golden-featured-goods__placeholder">
+          {% for i in (1..products_to_show) %}
+            <article class="golden-featured-goods__card is-placeholder">
+              <div class="golden-featured-goods__media">
+                {{ 'image' | placeholder_svg_tag: 'placeholder golden-featured-goods__image' }}
+              </div>
+              <div class="golden-featured-goods__content">
+                <h3 class="golden-featured-goods__product-title">{{ 'sections.featured_collection.product' | t }}</h3>
+                <p class="golden-featured-goods__descriptor">{{ 'sections.featured_collection.no_product_description' | t }}</p>
+                <p class="golden-featured-goods__price">—</p>
+                <div class="golden-featured-goods__actions">
+                  <span class="button button--disabled">{{ 'products.product.add_to_cart' | t }}</span>
+                  <span class="button button--disabled">{{ 'sections.featured_product.learn_more' | t }}</span>
+                </div>
+              </div>
+            </article>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
   </div>
 
   <style>
     #{{ section_id }} {
-      --featured-goods-columns: {{ columns }};
-      --featured-goods-gap: clamp(1.75rem, 3vw, 2.5rem);
-      padding-block: clamp(3rem, 6vw, 5rem);
+      --golden-background: color-mix(in srgb, var(--color-base-background-1) 88%, #f2d6a2);
+      --golden-card-shadow: 0 18px 40px rgba(81, 63, 24, 0.08);
+      --golden-card-radius: 18px;
+      --golden-transition: transform 240ms ease, box-shadow 240ms ease;
+      padding-block: clamp(2.5rem, 6vw, 4.25rem);
+      background: var(--golden-background);
     }
 
     #{{ section_id }} .page-width {
       max-width: 1280px;
+      padding-inline: 2rem;
     }
 
-    #{{ section_id }} .featured-goods__header {
+    #{{ section_id }} .golden-featured-goods__heading {
+      margin-bottom: clamp(1.5rem, 4vw, 2.75rem);
       text-align: center;
-      margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
-      max-width: 720px;
-      margin-inline: auto;
     }
 
-    #{{ section_id }} .featured-goods__title {
-      margin: 0;
-      font-size: clamp(2rem, 2vw + 1rem, 3rem);
-    }
-
-    #{{ section_id }} .featured-goods__subheading {
-      margin: 0.75rem 0 0;
-      color: rgb(var(--color-foreground-secondary-rgb, 80 80 80));
-      line-height: 1.6;
-    }
-
-    #{{ section_id }} .featured-goods__grid {
-      display: grid;
-      gap: var(--featured-goods-gap);
-      grid-template-columns: repeat(var(--featured-goods-columns), minmax(0, 1fr));
-    }
-
-    #{{ section_id }} .featured-goods__card {
-      background: rgba(var(--color-base-background-1-rgb, 255 255 255), 0.88);
-      border-radius: 28px;
-      overflow: hidden;
-      display: grid;
-      gap: 1.5rem;
-      padding: clamp(1.75rem, 3vw, 2.5rem);
-      box-shadow: 0 20px 50px rgba(38, 24, 3, 0.12);
-      transition: transform 250ms ease, box-shadow 250ms ease;
-    }
-
-    #{{ section_id }} .featured-goods__card:hover,
-    #{{ section_id }} .featured-goods__card:focus-within {
-      transform: translateY(-8px);
-      box-shadow: 0 32px 65px rgba(38, 24, 3, 0.18);
-    }
-
-    #{{ section_id }} .featured-goods__card--highlight {
-      background: color-mix(in srgb, rgba(255, 244, 226, 0.95) 70%, #fff 30%);
-      border: 2px solid rgba(212, 177, 110, 0.35);
-    }
-
-    #{{ section_id }} .featured-goods__tagline {
-      margin: 0;
-      letter-spacing: 0.28em;
+    #{{ section_id }} .golden-featured-goods__title {
+      font-size: clamp(1.75rem, 2vw + 1rem, 2.75rem);
+      letter-spacing: 0.05em;
       text-transform: uppercase;
-      font-size: 0.75rem;
-      color: rgba(126, 93, 41, 0.75);
+      color: color-mix(in srgb, var(--color-base-text), #ad7d2e 25%);
+      margin: 0;
     }
 
-    #{{ section_id }} .featured-goods__media {
-      position: relative;
-      overflow: hidden;
-      border-radius: 20px;
-      aspect-ratio: 4 / 3;
-      background: rgba(255, 248, 234, 0.8);
-    }
-
-    #{{ section_id }} .featured-goods__image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 300ms ease;
-    }
-
-    #{{ section_id }} .featured-goods__card:hover .featured-goods__image,
-    #{{ section_id }} .featured-goods__card:focus-within .featured-goods__image {
-      transform: scale(1.06);
-    }
-
-    #{{ section_id }} .featured-goods__content {
+    #{{ section_id }} .golden-featured-goods__grid {
       display: grid;
-      gap: 0.75rem;
+      gap: clamp(1.5rem, 4vw, 2.25rem);
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     }
 
-    #{{ section_id }} .featured-goods__item-title {
-      margin: 0;
-      font-size: clamp(1.4rem, 1.5vw + 0.8rem, 2rem);
+    #{{ section_id }} .golden-featured-goods__grid--scroll {
+      overflow-x: auto;
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(80%, 1fr);
+      gap: 1.5rem;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 0.75rem;
     }
 
-    #{{ section_id }} .featured-goods__description {
-      margin: 0;
-      line-height: 1.65;
-      color: rgb(var(--color-foreground-secondary-rgb, 90 90 90));
+    #{{ section_id }} .golden-featured-goods__grid--scroll .golden-featured-goods__card {
+      scroll-snap-align: start;
     }
 
-    #{{ section_id }} .featured-goods__price-note {
-      margin: 0;
-      font-weight: 600;
-      color: rgba(118, 77, 29, 0.85);
-    }
-
-    #{{ section_id }} .featured-goods__price-note--compare {
-      text-decoration: line-through;
-      margin-left: 0.4rem;
-      font-weight: 400;
-      color: rgba(118, 77, 29, 0.55);
-    }
-
-    #{{ section_id }} .featured-goods__cta {
-      justify-self: start;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-weight: 600;
-      text-decoration: none;
-      padding: 0.65rem 1.25rem;
-      border-radius: 999px;
-      background: rgba(118, 77, 29, 0.1);
-      color: rgba(94, 58, 15, 0.92);
-      transition: background-color 200ms ease, color 200ms ease;
-    }
-
-    #{{ section_id }} .featured-goods__cta:hover,
-    #{{ section_id }} .featured-goods__cta:focus-visible {
-      background: rgba(118, 77, 29, 0.18);
-      color: rgba(94, 58, 15, 1);
-    }
-
-    #{{ section_id }} .featured-goods__empty {
-      text-align: center;
-      padding: 2rem;
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.7);
-    }
-
-    @media (max-width: 989px) {
-      #{{ section_id }} {
-        --featured-goods-columns: min(2, {{ columns }});
+    @media (min-width: 750px) {
+      #{{ section_id }} .golden-featured-goods__grid--scroll {
+        overflow: visible;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        grid-auto-flow: row;
+        grid-auto-columns: unset;
+        scroll-snap-type: none;
+        padding-bottom: 0;
       }
     }
 
-    @media (max-width: 749px) {
+    #{{ section_id }} .golden-featured-goods__card {
+      background: linear-gradient(180deg, rgba(255, 249, 235, 0.92), rgba(255, 242, 214, 0.98));
+      border-radius: var(--golden-card-radius);
+      box-shadow: var(--golden-card-shadow);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: var(--golden-transition);
+      min-height: 100%;
+      opacity: 0;
+      transform: translateY(24px);
+    }
+
+    #{{ section_id }} .golden-featured-goods__card.is-visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    #{{ section_id }} .golden-featured-goods__card:hover,
+    #{{ section_id }} .golden-featured-goods__card:focus-within {
+      transform: translateY(-6px) scale(1.01);
+      box-shadow: 0 20px 50px rgba(117, 85, 33, 0.22);
+    }
+
+    #{{ section_id }} .golden-featured-goods__media {
+      aspect-ratio: 1 / 1;
+      display: block;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.65);
+    }
+
+    #{{ section_id }} .golden-featured-goods__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 400ms ease;
+    }
+
+    #{{ section_id }} .golden-featured-goods__card:hover .golden-featured-goods__image,
+    #{{ section_id }} .golden-featured-goods__card:focus-within .golden-featured-goods__image {
+      transform: scale(1.04);
+    }
+
+    #{{ section_id }} .golden-featured-goods__content {
+      padding: clamp(1.5rem, 4vw, 2rem);
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    #{{ section_id }} .golden-featured-goods__product-title {
+      margin: 0;
+      font-size: 1.25rem;
+      color: color-mix(in srgb, var(--color-base-text), #8c6f35 30%);
+    }
+
+    #{{ section_id }} .golden-featured-goods__product-title a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    #{{ section_id }} .golden-featured-goods__descriptor {
+      margin: 0;
+      color: color-mix(in srgb, var(--color-base-text), #a17d41 45%);
+      line-height: 1.6;
+    }
+
+    #{{ section_id }} .golden-featured-goods__price {
+      margin: 0;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: color-mix(in srgb, var(--color-base-text), #8a6431 40%);
+    }
+
+    #{{ section_id }} .golden-featured-goods__actions {
+      margin-top: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    #{{ section_id }} .golden-featured-goods__sold-out {
+      font-style: italic;
+      color: color-mix(in srgb, var(--color-base-text), #ad7d2e 55%);
+    }
+
+    #{{ section_id }} .golden-featured-goods__actions .button {
+      min-width: 9rem;
+    }
+
+    #{{ section_id }} .golden-featured-goods__placeholder {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    #{{ section_id }} .golden-featured-goods__card.is-placeholder {
+      opacity: 0.55;
+      filter: grayscale(0.2);
+      transform: none;
+    }
+
+    @supports not (color: color-mix(in srgb, #ffffff 50%, #000000)) {
       #{{ section_id }} {
-        --featured-goods-columns: 1;
+        background: #f5ead5;
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      #{{ section_id }} .featured-goods__card,
-      #{{ section_id }} .featured-goods__image {
+      #{{ section_id }} .golden-featured-goods__card,
+      #{{ section_id }} .golden-featured-goods__image,
+      #{{ section_id }} .golden-featured-goods__card:hover,
+      #{{ section_id }} .golden-featured-goods__card:focus-within {
         transition-duration: 0ms !important;
         transform: none !important;
       }
@@ -276,78 +285,92 @@
   </style>
 </section>
 
+<script>
+  (function () {
+    var sectionId = '{{ section_id }}';
+
+    function revealCards(container) {
+      if (!container) return;
+
+      var cards = container.querySelectorAll('[data-observe]');
+      if (!cards.length) return;
+
+      if (!('IntersectionObserver' in window)) {
+        cards.forEach(function (card) {
+          card.classList.add('is-visible');
+        });
+        return;
+      }
+
+      var observer = new IntersectionObserver(
+        function (entries, observerInstance) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observerInstance.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+
+      cards.forEach(function (card) {
+        observer.observe(card);
+      });
+    }
+
+    function getSectionElement() {
+      return document.getElementById(sectionId);
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      revealCards(getSectionElement());
+    });
+
+    document.addEventListener('shopify:section:load', function (event) {
+      if (!event.detail || event.detail.sectionId !== '{{ section.id }}') {
+        return;
+      }
+
+      revealCards(getSectionElement());
+    });
+  })();
+</script>
+
 {% schema %}
 {
-  "name": "Featured goods",
+  "name": "Featured Goods",
   "settings": [
     {
       "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Featured goods"
+      "id": "title",
+      "label": "Section title",
+      "default": "Featured Goods"
     },
     {
-      "type": "textarea",
-      "id": "subheading",
-      "label": "Supporting text",
-      "default": "Notes from the syrup room, limited releases and seasonal favourites."
+      "type": "collection",
+      "id": "collection",
+      "label": "Choose collection"
     },
     {
       "type": "range",
-      "id": "columns",
-      "label": "Desktop columns",
-      "min": 1,
-      "max": 4,
-      "step": 1,
-      "default": 3
+      "id": "max_products",
+      "label": "Max products to show",
+      "min": 2,
+      "max": 6,
+      "default": 4
     },
     {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "Color scheme",
-      "default": "scheme-1"
+      "type": "checkbox",
+      "id": "enable_scroll_mobile",
+      "label": "Enable horizontal scroll on mobile",
+      "default": true
     }
   ],
-  "blocks": [
-    {
-      "type": "good",
-      "name": "Good",
-      "settings": [
-        { "type": "product", "id": "product", "label": "Product (optional)" },
-        { "type": "image_picker", "id": "image", "label": "Custom image" },
-        { "type": "text", "id": "tagline", "label": "Tagline", "default": "Limited release" },
-        { "type": "text", "id": "title", "label": "Title" },
-        { "type": "textarea", "id": "description", "label": "Description" },
-        { "type": "text", "id": "price_note", "label": "Price note" },
-        { "type": "checkbox", "id": "highlight_card", "label": "Highlight card", "default": false },
-        { "type": "text", "id": "link_label", "label": "Call-to-action label", "default": "Shop now" },
-        { "type": "url", "id": "link", "label": "Call-to-action link" }
-      ]
-    }
-  ],
-  "enabled_on": {
-    "templates": [
-      "index",
-      "collection",
-      "list-collections",
-      "product",
-      "page",
-      "article",
-      "blog"
-    ]
-  },
-  "disabled_on": {
-    "groups": ["header", "footer"]
-  },
   "presets": [
     {
-      "name": "Featured goods",
-      "category": "Golden",
-      "blocks": [
-        { "type": "good" },
-        { "type": "good" },
-        { "type": "good" }
-      ]
+      "name": "Featured Goods",
+      "category": "Golden"
     }
   ]
 }
