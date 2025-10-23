@@ -10,6 +10,54 @@ body {
   margin: 0;
   min-height: 100svh;
   font-variation-settings: 'slnt' 0;
+  position: relative;
+}
+
+body.has-grid-lines {
+  --grid-horizontal-pattern: repeating-linear-gradient(
+    to bottom,
+    var(--grid-line-color) 0,
+    var(--grid-line-color) var(--grid-line-weight),
+    transparent var(--grid-line-weight),
+    transparent var(--grid-horizontal-spacing)
+  );
+  --grid-vertical-pattern: repeating-linear-gradient(
+    to right,
+    var(--grid-line-color) 0,
+    var(--grid-line-color) var(--grid-line-weight),
+    transparent var(--grid-line-weight),
+    transparent var(--grid-vertical-spacing)
+  );
+}
+
+body.has-grid-lines::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: var(--layer-lowest);
+  background-image: var(--grid-horizontal-pattern);
+  background-repeat: repeat;
+}
+
+body.has-grid-lines.has-grid-lines--vertical::before {
+  background-image: var(--grid-horizontal-pattern), var(--grid-vertical-pattern);
+}
+
+body.has-grid-lines main .shopify-section {
+  border-top: var(--grid-line-weight) solid var(--grid-line-color);
+}
+
+body.has-grid-lines main
+  .shopify-section[data-grid-lines='false'],
+body.has-grid-lines main
+  .shopify-section.grid-lines-off {
+  border-top: none;
+}
+
+body.has-grid-lines main
+  .shopify-section:has([data-grid-lines='false']) {
+  border-top: none;
 }
 
 :root {
@@ -4283,4 +4331,3 @@ text-component {
     font-size: max(1rem, 100%);
   }
 }
-
