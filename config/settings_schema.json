@@ -345,6 +345,65 @@
     ]
   },
   {
+    "name": "Grid system",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "grid_enabled",
+        "label": "Enable grid overlay",
+        "default": false
+      },
+      {
+        "type": "color",
+        "id": "grid_line_color",
+        "label": "Grid line color",
+        "default": "#B8C9DF",
+        "alpha": true,
+        "visible_if": "{{ settings.grid_enabled }}"
+      },
+      {
+        "type": "range",
+        "id": "grid_line_weight",
+        "label": "Grid line weight",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "unit": "px",
+        "default": 1,
+        "visible_if": "{{ settings.grid_enabled }}"
+      },
+      {
+        "type": "range",
+        "id": "grid_horizontal_spacing",
+        "label": "Horizontal spacing",
+        "min": 24,
+        "max": 160,
+        "step": 4,
+        "unit": "px",
+        "default": 72,
+        "visible_if": "{{ settings.grid_enabled }}"
+      },
+      {
+        "type": "range",
+        "id": "grid_vertical_spacing",
+        "label": "Vertical spacing",
+        "min": 24,
+        "max": 200,
+        "step": 4,
+        "unit": "px",
+        "default": 112,
+        "visible_if": "{{ settings.grid_enabled }}"
+      },
+      {
+        "type": "checkbox",
+        "id": "grid_show_vertical_lines",
+        "label": "Show vertical lines",
+        "default": true,
+        "visible_if": "{{ settings.grid_enabled }}"
+      }
+    ]
+  },
+  {
     "name": "t:names.typography",
     "settings": [
       {
