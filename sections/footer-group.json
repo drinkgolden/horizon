@@ -191,14 +191,14 @@
           "type": "group",
           "name": "Email signup",
           "settings": {
-            "content_direction": "row",
+            "content_direction": "column",
             "vertical_on_mobile": true,
             "horizontal_alignment": "space-between",
             "vertical_alignment": "flex-end",
-            "align_baseline": false,
+            "align_baseline": true,
             "horizontal_alignment_flex_direction_column": "flex-start",
             "vertical_alignment_flex_direction_column": "center",
-            "gap": 44,
+            "gap": 32,
             "width": "fill",
             "custom_width": 100,
             "width_mobile": "fill",
@@ -329,7 +329,7 @@
               "type": "email-signup",
               "name": "Email input",
               "settings": {
-                "width": "fill",
+                "width": "custom",
                 "custom_width": 50,
                 "inherit_color_scheme": true,
                 "heading": "",
@@ -346,8 +346,8 @@
                 "button_type_preset": "paragraph",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
-                "padding-inline-start": 12,
-                "padding-inline-end": 12
+                "padding-inline-start": 24,
+                "padding-inline-end": 24
               },
               "blocks": {}
             }
