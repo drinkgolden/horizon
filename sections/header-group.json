@@ -64,7 +64,7 @@
         "localization_position": "left",
         "localization_row": "top",
         "section_width": "page-width",
-        "section_height": "standard",
+        "section_height": "compact",
         "enable_sticky_header": "always",
         "divider_width": 0,
         "divider_size": "page-width",
@@ -106,8 +106,8 @@
         "section_width": "full-width",
         "color_scheme": "scheme-1",
         "divider_width": 0,
-        "padding-block-start": 15,
-        "padding-block-end": 15
+        "padding-block-start": 12,
+        "padding-block-end": 12
       }
     }
   },
