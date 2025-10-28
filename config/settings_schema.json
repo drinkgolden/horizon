@@ -341,65 +341,48 @@
           "on_secondary_button": "secondary_button_text",
           "secondary_button_border": "secondary_button_border"
         }
+      },
+      {
+        "type": "header",
+        "content": "Golden color palettes"
+      },
+      {
+        "type": "textarea",
+        "id": "golden_color_palettes",
+        "label": "Predefined palettes",
+        "info": "JSON definitions consumed by component color scheme utility classes.",
+        "rows": 12,
+        "default": "[{\"id\": \"primary-honey\", \"name\": \"Primary \\u2014 Honey\", \"background\": \"#E1B87F\", \"text\": \"#FFFFFF\", \"border\": \"#FFFFFF\", \"link\": \"#FFFFFF\", \"link_hover\": \"#FFFFFFCC\"}, {\"id\": \"core-black\", \"name\": \"Core \\u2014 Black\", \"background\": \"#25282A\", \"text\": \"#FFFFFF\", \"border\": \"#FFFFFF\", \"link\": \"#FFFFFF\", \"link_hover\": \"#FFFFFFCC\"}, {\"id\": \"core-white\", \"name\": \"Core \\u2014 White\", \"background\": \"#FFFFFF\", \"text\": \"#25282A\", \"border\": \"#25282A\", \"link\": \"#25282A\", \"link_hover\": \"#25282A\"}, {\"id\": \"core-gray\", \"name\": \"Core \\u2014 Gray\", \"background\": \"#BBBCBC\", \"text\": \"#25282A\", \"border\": \"#FFFFFF\", \"link\": \"#25282A\", \"link_hover\": \"#25282A\"}, {\"id\": \"fruit-lemon\", \"name\": \"Fruit \\u2014 Lemon\", \"background\": \"#EED484\", \"text\": \"#FFFFFF\", \"border\": \"#FFFFFF\", \"link\": \"#FFFFFF\", \"link_hover\": \"#FFFFFFCC\"}, {\"id\": \"fruit-lime\", \"name\": \"Fruit \\u2014 Lime\", \"background\": \"#92ACA0\", \"text\": \"#FFFFFF\", \"border\": \"#FFFFFF\", \"link\": \"#FFFFFF\", \"link_hover\": \"#FFFFFFCC\"}, {\"id\": \"fruit-mandarin\", \"name\": \"Fruit \\u2014 Mandarin\", \"background\": \"#DB6B30\", \"text\": \"#FFFFFF\", \"border\": \"#FFFFFF\", \"link\": \"#FFFFFF\", \"link_hover\": \"#FFFFFFCC\"}, {\"id\": \"fruit-grapefruit\", \"name\": \"Fruit \\u2014 Grapefruit\", \"background\": \"#F8B5C4\", \"text\": \"#FFFFFF\", \"border\": \"#FFFFFF\", \"link\": \"#FFFFFF\", \"link_hover\": \"#FFFFFFCC\"}, {\"id\": \"fruit-blackcurrant\", \"name\": \"Fruit \\u2014 Blackcurrant\", \"background\": \"#395382\", \"text\": \"#FFFFFF\", \"border\": \"#FFFFFF\", \"link\": \"#FFFFFF\", \"link_hover\": \"#FFFFFFCC\"}, {\"id\": \"primary-honey-inverse\", \"name\": \"Primary \\u2014 Honey (Inverse)\", \"background\": \"#FFFFFF\", \"text\": \"#25282A\", \"border\": \"#E1B87F\", \"link\": \"#E1B87F\", \"link_hover\": \"#BBBCBC\"}, {\"id\": \"core-black-inverse\", \"name\": \"Core \\u2014 Black (Inverse)\", \"background\": \"#FFFFFF\", \"text\": \"#25282A\", \"border\": \"#25282A\", \"link\": \"#25282A\", \"link_hover\": \"#BBBCBC\"}, {\"id\": \"core-gray-inverse\", \"name\": \"Core \\u2014 Gray (Inverse)\", \"background\": \"#FFFFFF\", \"text\": \"#25282A\", \"border\": \"#BBBCBC\", \"link\": \"#BBBCBC\", \"link_hover\": \"#25282A\"}, {\"id\": \"fruit-lemon-inverse\", \"name\": \"Fruit \\u2014 Lemon (Inverse)\", \"background\": \"#FFFFFF\", \"text\": \"#25282A\", \"border\": \"#EED484\", \"link\": \"#EED484\", \"link_hover\": \"#25282A\"}, {\"id\": \"fruit-lime-inverse\", \"name\": \"Fruit \\u2014 Lime (Inverse)\", \"background\": \"#FFFFFF\", \"text\": \"#25282A\", \"border\": \"#92ACA0\", \"link\": \"#92ACA0\", \"link_hover\": \"#25282A\"}, {\"id\": \"fruit-mandarin-inverse\", \"name\": \"Fruit \\u2014 Mandarin (Inverse)\", \"background\": \"#FFFFFF\", \"text\": \"#25282A\", \"border\": \"#DB6B30\", \"link\": \"#DB6B30\", \"link_hover\": \"#25282A\"}, {\"id\": \"fruit-grapefruit-inverse\", \"name\": \"Fruit \\u2014 Grapefruit (Inverse)\", \"background\": \"#FFFFFF\", \"text\": \"#25282A\", \"border\": \"#F8B5C4\", \"link\": \"#F8B5C4\", \"link_hover\": \"#25282A\"}, {\"id\": \"fruit-blackcurrant-inverse\", \"name\": \"Fruit \\u2014 Blackcurrant (Inverse)\", \"background\": \"#FFFFFF\", \"text\": \"#25282A\", \"border\": \"#395382\", \"link\": \"#395382\", \"link_hover\": \"#25282A\"}]"
       }
     ]
   },
   {
-    "name": "Grid system",
+    "name": "Global section borders",
     "settings": [
       {
         "type": "checkbox",
-        "id": "grid_enabled",
-        "label": "Enable grid overlay",
+        "id": "show_global_section_borders",
+        "label": "Show section borders",
         "default": false
       },
       {
         "type": "color",
-        "id": "grid_line_color",
-        "label": "Grid line color",
-        "default": "#B8C9DF",
+        "id": "global_section_border_colour",
+        "label": "Border colour",
+        "default": "#000000",
         "alpha": true,
-        "visible_if": "{{ settings.grid_enabled }}"
+        "visible_if": "{{ settings.show_global_section_borders }}"
       },
       {
         "type": "range",
-        "id": "grid_line_weight",
-        "label": "Grid line weight",
-        "min": 1,
-        "max": 6,
+        "id": "global_section_border_thickness",
+        "label": "Border thickness",
+        "min": 0,
+        "max": 3,
+        "default": 1,
         "step": 1,
         "unit": "px",
-        "default": 1,
-        "visible_if": "{{ settings.grid_enabled }}"
-      },
-      {
-        "type": "range",
-        "id": "grid_horizontal_spacing",
-        "label": "Horizontal spacing",
-        "min": 24,
-        "max": 160,
-        "step": 4,
-        "unit": "px",
-        "default": 72,
-        "visible_if": "{{ settings.grid_enabled }}"
-      },
-      {
-        "type": "range",
-        "id": "grid_vertical_spacing",
-        "label": "Vertical spacing",
-        "min": 24,
-        "max": 200,
-        "step": 4,
-        "unit": "px",
-        "default": 112,
-        "visible_if": "{{ settings.grid_enabled }}"
-      },
-      {
-        "type": "checkbox",
-        "id": "grid_show_vertical_lines",
-        "label": "Show vertical lines",
-        "default": true,
-        "visible_if": "{{ settings.grid_enabled }}"
+        "visible_if": "{{ settings.show_global_section_borders }}"
       }
     ]
   },

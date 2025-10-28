@@ -1,0 +1,165 @@
+:root {
+  --color-background: #FFFFFF;
+  --color-foreground: #25282A;
+  --color-border: #25282A;
+  --color-link: #25282A;
+  --color-link-hover: #25282A;
+}
+
+.color-scheme {
+  background: var(--color-background);
+  color: var(--color-foreground);
+}
+
+.color-scheme a {
+  color: var(--color-link);
+}
+
+.color-scheme a:hover {
+  color: var(--color-link-hover);
+}
+
+.color-scheme .has-border,
+.color-scheme .section-border,
+.color-scheme [data-grid-line],
+.color-scheme .grid-line {
+  border-color: var(--color-border);
+}
+
+/* === Colored backgrounds (white text & white borders) === */
+.color-scheme--primary-honey {
+  --color-background: #E1B87F;
+  --color-foreground: #FFFFFF;
+  --color-border: #FFFFFF;
+  --color-link: #FFFFFF;
+  --color-link-hover: #FFFFFFCC;
+}
+
+.color-scheme--core-black {
+  --color-background: #25282A;
+  --color-foreground: #FFFFFF;
+  --color-border: #FFFFFF;
+  --color-link: #FFFFFF;
+  --color-link-hover: #FFFFFFCC;
+}
+
+.color-scheme--core-white {
+  --color-background: #FFFFFF;
+  --color-foreground: #25282A;
+  --color-border: #25282A;
+  --color-link: #25282A;
+  --color-link-hover: #BBBCBC;
+}
+
+.color-scheme--core-gray {
+  --color-background: #BBBCBC;
+  --color-foreground: #25282A;
+  --color-border: #FFFFFF;
+  --color-link: #25282A;
+  --color-link-hover: #25282A;
+}
+
+.color-scheme--fruit-lemon {
+  --color-background: #EED484;
+  --color-foreground: #FFFFFF;
+  --color-border: #FFFFFF;
+  --color-link: #FFFFFF;
+  --color-link-hover: #FFFFFFCC;
+}
+
+.color-scheme--fruit-lime {
+  --color-background: #92ACA0;
+  --color-foreground: #FFFFFF;
+  --color-border: #FFFFFF;
+  --color-link: #FFFFFF;
+  --color-link-hover: #FFFFFFCC;
+}
+
+.color-scheme--fruit-mandarin {
+  --color-background: #DB6B30;
+  --color-foreground: #FFFFFF;
+  --color-border: #FFFFFF;
+  --color-link: #FFFFFF;
+  --color-link-hover: #FFFFFFCC;
+}
+
+.color-scheme--fruit-grapefruit {
+  --color-background: #F8B5C4;
+  --color-foreground: #FFFFFF;
+  --color-border: #FFFFFF;
+  --color-link: #FFFFFF;
+  --color-link-hover: #FFFFFFCC;
+}
+
+.color-scheme--fruit-blackcurrant {
+  --color-background: #395382;
+  --color-foreground: #FFFFFF;
+  --color-border: #FFFFFF;
+  --color-link: #FFFFFF;
+  --color-link-hover: #FFFFFFCC;
+}
+
+/* === Inverse variants (white background, coloured accents for links/borders) === */
+.color-scheme--primary-honey-inverse {
+  --color-background: #FFFFFF;
+  --color-foreground: #25282A;
+  --color-border: #E1B87F;
+  --color-link: #E1B87F;
+  --color-link-hover: #BBBCBC;
+}
+
+.color-scheme--core-black-inverse {
+  --color-background: #FFFFFF;
+  --color-foreground: #25282A;
+  --color-border: #25282A;
+  --color-link: #25282A;
+  --color-link-hover: #BBBCBC;
+}
+
+.color-scheme--core-gray-inverse {
+  --color-background: #FFFFFF;
+  --color-foreground: #25282A;
+  --color-border: #BBBCBC;
+  --color-link: #BBBCBC;
+  --color-link-hover: #25282A;
+}
+
+.color-scheme--fruit-lemon-inverse {
+  --color-background: #FFFFFF;
+  --color-foreground: #25282A;
+  --color-border: #EED484;
+  --color-link: #EED484;
+  --color-link-hover: #25282A;
+}
+
+.color-scheme--fruit-lime-inverse {
+  --color-background: #FFFFFF;
+  --color-foreground: #25282A;
+  --color-border: #92ACA0;
+  --color-link: #92ACA0;
+  --color-link-hover: #25282A;
+}
+
+.color-scheme--fruit-mandarin-inverse {
+  --color-background: #FFFFFF;
+  --color-foreground: #25282A;
+  --color-border: #DB6B30;
+  --color-link: #DB6B30;
+  --color-link-hover: #25282A;
+}
+
+.color-scheme--fruit-grapefruit-inverse {
+  --color-background: #FFFFFF;
+  --color-foreground: #25282A;
+  --color-border: #F8B5C4;
+  --color-link: #F8B5C4;
+  --color-link-hover: #25282A;
+}
+
+.color-scheme--fruit-blackcurrant-inverse {
+  --color-background: #FFFFFF;
+  --color-foreground: #25282A;
+  --color-border: #395382;
+  --color-link: #395382;
+  --color-link-hover: #25282A;
+}

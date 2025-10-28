@@ -50,13 +50,6 @@
     {{ accent_font_bold_italic | font_face: font_display: 'swap' }}
   {% endif %}
 
-  {%- liquid
-    assign grid_line_color = settings.grid_line_color | default: '#B8C9DF'
-    assign grid_line_weight = settings.grid_line_weight | default: 1
-    assign grid_horizontal_spacing = settings.grid_horizontal_spacing | default: 72
-    assign grid_vertical_spacing = settings.grid_vertical_spacing | default: 112
-  -%}
-
   :root {
     /* Page Layout */
     --sidebar-width: 25rem;
@@ -66,12 +59,6 @@
     --narrow-page-width: 90rem;
     --normal-page-width: 120rem;
     --wide-page-width: 150rem;
-
-    /* Grid system */
-    --grid-line-color: {{ grid_line_color }};
-    --grid-line-weight: {{ grid_line_weight }}px;
-    --grid-horizontal-spacing: {{ grid_horizontal_spacing }}px;
-    --grid-vertical-spacing: {{ grid_vertical_spacing }}px;
 
     /* Section Heights */
     --section-height-small: 15rem;
