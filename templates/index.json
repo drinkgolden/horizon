@@ -975,7 +975,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<h2><em>Introducing</em></h2>",
+                    "text": "<h2><em>Sweetened by bees who live here</em></h2>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
@@ -1001,7 +1001,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<h1>Our Newest Arrivals</h1>",
+                    "text": "<h1>Golden Bay</h1>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
@@ -1089,9 +1089,9 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "blurred_reflection": false,
-        "reflection_opacity": 41,
-        "padding-block-start": 40,
-        "padding-block-end": 40
+        "reflection_opacity": 12,
+        "padding-block-start": 44,
+        "padding-block-end": 44
       }
     }
   },

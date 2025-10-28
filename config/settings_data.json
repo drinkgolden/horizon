@@ -14,7 +14,7 @@
     "logo_height": 36,
     "logo_height_mobile": 28,
     "favicon": "shopify://shop_images/tbti1atiamr11_png.webp",
-    "show_global_section_borders": true,
+    "show_global_section_borders": false,
     "global_section_border_thickness": 1,
     "type_body_font": "inter_n4",
     "type_subheading_font": "inter_n5",
