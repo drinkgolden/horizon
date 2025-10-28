@@ -64,7 +64,7 @@
           "settings": {
             "menu": "header-menu",
             "color_scheme": "scheme-1",
-            "type_font_primary_size": "0.875rem",
+            "type_font_primary_size": "1rem",
             "menu_font_style": "inverse",
             "type_font_primary_link": "subheading",
             "type_case_primary_link": "none",
@@ -118,7 +118,7 @@
         "announcement_BxgCk9": {
           "type": "_announcement",
           "settings": {
-            "text": "Spend \u2265 $50 & Ship Free",
+            "text": "Spend ≥ $50 & Ship Free",
             "link": "",
             "font": "var(--font-subheading--family)",
             "font_size": "0.75rem",
