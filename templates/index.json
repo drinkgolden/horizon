@@ -247,15 +247,15 @@
         "mobile_columns": "1",
         "mobile_card_size": "60cqw",
         "columns_gap": 0,
-        "rows_gap": 12,
+        "rows_gap": 24,
         "icons_style": "chevron_large",
         "icons_shape": "none",
         "section_width": "full-width",
         "horizontal_alignment": "center",
         "gap": 0,
         "color_scheme": "scheme-1",
-        "padding-block-start": 48,
-        "padding-block-end": 48
+        "padding-block-start": 24,
+        "padding-block-end": 24
       }
     },
     "section_GcL7hN": {
@@ -742,8 +742,8 @@
         "overlay_color": "#00000026",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 44,
-        "padding-block-end": 44
+        "padding-block-start": 24,
+        "padding-block-end": 24
       }
     },
     "featured_blog_posts_EgLy9B": {
