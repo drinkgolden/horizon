@@ -191,7 +191,7 @@
           "type": "group",
           "name": "Email signup",
           "settings": {
-            "content_direction": "column",
+            "content_direction": "row",
             "vertical_on_mobile": true,
             "horizontal_alignment": "space-between",
             "vertical_alignment": "flex-end",
@@ -263,8 +263,8 @@
                 "placeholder": "",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
-                "padding-inline-start": 24,
-                "padding-inline-end": 24
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
               },
               "blocks": {
                 "text_3L9Fjq": {
