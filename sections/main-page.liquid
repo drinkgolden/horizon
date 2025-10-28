@@ -1,10 +1,7 @@
 
-{% liquid
-  assign golden_scheme = section.settings.golden_color_scheme | default: 'primary-honey'
-%}
 
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
-<div class="section page-width-content color-{{ section.settings.color_scheme }} color-scheme color-scheme--{{ golden_scheme }}">
+<div class="section page-width-content color-{{ section.settings.color_scheme }}">
   <div
     class="
       spacing-style
@@ -69,31 +66,6 @@
       "id": "color_scheme",
       "label": "t:settings.color_scheme",
       "default": "scheme-1"
-    },
-    {
-      "type": "select",
-      "id": "golden_color_scheme",
-      "label": "Color scheme (Golden palettes)",
-      "default": "primary-honey",
-      "options": [
-        { "value": "primary-honey", "label": "Primary — Honey" },
-        { "value": "core-black", "label": "Core — Black" },
-        { "value": "core-white", "label": "Core — White" },
-        { "value": "core-gray", "label": "Core — Gray" },
-        { "value": "fruit-lemon", "label": "Fruit — Lemon" },
-        { "value": "fruit-lime", "label": "Fruit — Lime" },
-        { "value": "fruit-mandarin", "label": "Fruit — Mandarin" },
-        { "value": "fruit-grapefruit", "label": "Fruit — Grapefruit" },
-        { "value": "fruit-blackcurrant", "label": "Fruit — Blackcurrant" },
-        { "value": "primary-honey-inverse", "label": "Primary — Honey (Inverse)" },
-        { "value": "core-black-inverse", "label": "Core — Black (Inverse)" },
-        { "value": "core-gray-inverse", "label": "Core — Gray (Inverse)" },
-        { "value": "fruit-lemon-inverse", "label": "Fruit — Lemon (Inverse)" },
-        { "value": "fruit-lime-inverse", "label": "Fruit — Lime (Inverse)" },
-        { "value": "fruit-mandarin-inverse", "label": "Fruit — Mandarin (Inverse)" },
-        { "value": "fruit-grapefruit-inverse", "label": "Fruit — Grapefruit (Inverse)" },
-        { "value": "fruit-blackcurrant-inverse", "label": "Fruit — Blackcurrant (Inverse)" }
-      ]
     },
     {
       "type": "header",
