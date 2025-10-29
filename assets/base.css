@@ -18,7 +18,7 @@ body.has-side-columns::after {
   position: fixed;
   top: calc(var(--header-group-height, 0px) + var(--side-columns-overhang, 12px));
   bottom: 0;
-  width: var(--side-columns-width-desktop, 24px);
+  width: var(--side-columns-width-desktop, 2vw);
   pointer-events: none;
   z-index: var(--layer-lowest);
   background: var(--side-column-right-color, transparent);
@@ -39,7 +39,7 @@ body.has-side-columns::after {
 @media screen and (max-width: 749px) {
   body.has-side-columns.has-side-columns--mobile::before,
   body.has-side-columns.has-side-columns--mobile::after {
-    width: var(--side-columns-width-mobile, var(--side-columns-width-desktop, 12px));
+    width: var(--side-columns-width-mobile, var(--side-columns-width-desktop, 2vw));
   }
 
   body.has-side-columns:not(.has-side-columns--mobile)::before,
