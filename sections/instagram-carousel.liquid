@@ -18,6 +18,14 @@
     when 'landscape'
       assign aspect_value = '16 / 9'
   endcase
+  assign show_header = false
+  if section.settings.heading != blank or section.settings.subheading != blank
+    assign show_header = true
+  elsif section.settings.show_follow_button
+    if follow_link != blank or normalized_username != blank
+      assign show_header = true
+    endif
+  endif
 %}
 
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
@@ -27,10 +35,7 @@
   style="{% render 'spacing-style', settings: section.settings %}"
 >
   <div class="instagram-carousel">
-    {% if section.settings.heading != blank
-      or section.settings.subheading != blank
-      or (section.settings.show_follow_button and (follow_link != blank or normalized_username != blank))
-    %}
+    {% if show_header %}
       <div class="instagram-carousel__header">
         {% if section.settings.heading != blank %}
           <h2 class="instagram-carousel__title">{{ section.settings.heading }}</h2>
