@@ -13,11 +13,7 @@
   endif
 %}
 
-<section
-  id="{{ section_id }}"
-  class="section golden-ingredient-slider"
-  aria-label="{{ section.settings.heading | default: 'Ingredient slider' | escape }}"
->
+<section id="{{ section_id }}" class="section golden-ingredient-slider" aria-label="{{ section.settings.heading | default: 'Ingredient slider' | escape }}">
   <div class="page-width golden-ingredient-slider__inner">
     {% if section.settings.heading != blank %}
       <div class="golden-ingredient-slider__heading">
@@ -38,13 +34,7 @@
               assign region = block.settings.region
               assign link = block.settings.link
             %}
-            <article
-              id="{{ section_id }}-block-{{ forloop.index }}"
-              class="golden-ingredient-slider__slide"
-              role="listitem"
-              {{ block.shopify_attributes }}
-              data-observe
-            >
+            <article id="{{ section_id }}-block-{{ forloop.index }}" class="golden-ingredient-slider__slide" role="listitem" {{ block.shopify_attributes }} data-observe>
               {% if section.settings.enable_vertical_labels and region != blank %}
                 <span class="golden-ingredient-slider__region" aria-hidden="true">{{ region }}</span>
               {% endif %}
@@ -75,15 +65,7 @@
                   <p class="golden-ingredient-slider__description">{{ block.settings.description }}</p>
                 {% endif %}
                 {% if link != blank %}
-                  <a
-                    class="golden-ingredient-slider__link"
-                    href="{{ link }}"
-                    {% if block.settings.title != blank %}
-                      aria-label="{{ 'general.accessibility.learn_more_about' | t: item: block.settings.title | default: 'Learn more about ' | append: block.settings.title }}"
-                    {% endif %}
-                  >
-                    {{ 'general.accessibility.learn_more' | t | default: 'Learn more' }}
-                  </a>
+                  <a class="golden-ingredient-slider__link" href="{{ link }}">{{ 'general.accessibility.learn_more' | t | default: 'Learn more' }}</a>
                 {% endif %}
               </div>
             </article>
