@@ -12,6 +12,151 @@ body {
   font-variation-settings: 'slnt' 0;
 }
 
+body.has-side-columns::before,
+body.has-side-columns::after {
+  content: '';
+  position: fixed;
+  top: calc(var(--header-group-height, 0px) + var(--side-columns-overhang, 12px));
+  bottom: 0;
+  width: var(--side-columns-width-desktop, 24px);
+  pointer-events: none;
+  z-index: var(--layer-lowest);
+  background: var(--side-column-right-color, transparent);
+  backdrop-filter: none;
+}
+
+body.has-side-columns::before {
+  left: 0;
+  background: var(--side-column-left-color, transparent);
+  border-right: 1px solid var(--side-column-left-border-color, transparent);
+}
+
+body.has-side-columns::after {
+  right: 0;
+  border-left: 1px solid var(--side-column-right-border-color, transparent);
+}
+
+@media screen and (max-width: 749px) {
+  body.has-side-columns.has-side-columns--mobile::before,
+  body.has-side-columns.has-side-columns--mobile::after {
+    width: var(--side-columns-width-mobile, var(--side-columns-width-desktop, 12px));
+  }
+
+  body.has-side-columns:not(.has-side-columns--mobile)::before,
+  body.has-side-columns:not(.has-side-columns--mobile)::after {
+    content: none;
+  }
+}
+
+html.guided-scroll-root {
+  scroll-padding-top: calc(var(--header-group-height, 0px) + var(--guided-scroll-gap, 0px));
+  scroll-snap-type: y proximity;
+}
+
+@media screen and (max-width: 749px) {
+  html.guided-scroll-root:not(.guided-scroll-root--mobile) {
+    scroll-snap-type: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.guided-scroll-root {
+    scroll-snap-type: none;
+  }
+  body.has-guided-scroll #MainContent > .shopify-section {
+    scroll-snap-align: none;
+  }
+}
+
+body.has-guided-scroll #MainContent > .shopify-section {
+  scroll-snap-align: var(--guided-scroll-align, start);
+  scroll-snap-stop: normal;
+  scroll-margin-top: calc(var(--header-group-height, 0px) + var(--guided-scroll-gap, 0px));
+  scroll-margin-bottom: var(--guided-scroll-gap, 0px);
+}
+
+@media screen and (max-width: 749px) {
+  body.has-guided-scroll:not(.has-guided-scroll--mobile) #MainContent > .shopify-section {
+    scroll-snap-align: none;
+  }
+}
+
+.floating-motif-button {
+  position: fixed;
+  left: 50%;
+  bottom: var(--motif-button-vertical-offset, 16px);
+  transform: translateX(-50%);
+  width: min(var(--motif-button-max-width-desktop, 360px), calc(100vw - 32px));
+  z-index: var(--layer-heightened);
+  pointer-events: none;
+}
+
+.floating-motif-button__link {
+  position: relative;
+  display: inline-grid;
+  justify-items: center;
+  text-decoration: none;
+  pointer-events: auto;
+  width: 100%;
+}
+
+.floating-motif-button__surface {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding-block: 0.75rem;
+  padding-inline: clamp(1.5rem, 4vw, 2.5rem);
+  border-radius: 999px;
+  background: var(--motif-button-background, currentColor);
+  color: var(--motif-button-text-color, #ffffff);
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgb(0 0 0 / 0.18);
+  transition: transform 180ms ease-out, box-shadow 220ms ease-out;
+}
+
+.floating-motif-button__link:focus-visible .floating-motif-button__surface,
+.floating-motif-button__link:hover .floating-motif-button__surface {
+  transform: translateY(-2px);
+  box-shadow: 0 26px 52px rgb(0 0 0 / 0.22);
+}
+
+.floating-motif-button__motif {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.floating-motif-button__label {
+  position: relative;
+  z-index: 1;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: clamp(0.75rem, 0.6vw + 0.6rem, 0.95rem);
+}
+
+.floating-motif-button__link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 6px;
+  border-radius: 999px;
+}
+
+@media screen and (max-width: 989px) {
+  .floating-motif-button {
+    width: min(var(--motif-button-max-width-mobile, 220px), calc(100vw - 24px));
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .floating-motif-button__surface {
+    padding-block: 0.65rem;
+    padding-inline: clamp(1.25rem, 6vw, 1.9rem);
+  }
+}
+
 :root {
   --hover-lift-amount: 4px;
   --hover-scale-amount: 1.03;
