@@ -35,10 +35,10 @@
           "type": "text",
           "settings": {
             "text": "<p>Made with care and unconditionally loved by our customers, this signature bestseller exceeds all expectations.</p>",
-            "width": "fit-content",
+            "width": "100%",
             "max_width": "normal",
             "alignment": "left",
-            "type_preset": "paragraph",
+            "type_preset": "h5",
             "font": "var(--font-body--family)",
             "font_size": "1rem",
             "line_height": "normal",
