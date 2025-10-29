@@ -86,8 +86,8 @@
         "overlay_color": "#00000026",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 24,
-        "padding-block-end": 24
+        "padding-block-start": 64,
+        "padding-block-end": 64
       }
     },
     "product_list_yjEzVT": {
@@ -168,7 +168,7 @@
               "type": "_product-card-gallery",
               "name": "t:names.product_card_media",
               "settings": {
-                "image_ratio": "adapt",
+                "image_ratio": "portrait",
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
@@ -200,8 +200,8 @@
                 "corner_radius": 0,
                 "padding-block-start": 12,
                 "padding-block-end": 12,
-                "padding-inline-start": 12,
-                "padding-inline-end": 12
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
               },
               "blocks": {}
             },
@@ -254,8 +254,8 @@
         "horizontal_alignment": "center",
         "gap": 0,
         "color_scheme": "scheme-1",
-        "padding-block-start": 0,
-        "padding-block-end": 0
+        "padding-block-start": 64,
+        "padding-block-end": 64
       }
     },
     "section_GcL7hN": {
@@ -742,8 +742,8 @@
         "overlay_color": "#00000026",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 24,
-        "padding-block-end": 24
+        "padding-block-start": 64,
+        "padding-block-end": 64
       }
     },
     "featured_blog_posts_EgLy9B": {
@@ -884,8 +884,8 @@
         "section_width": "full-width",
         "gap": 24,
         "color_scheme": "scheme-2",
-        "padding-block-start": 24,
-        "padding-block-end": 24
+        "padding-block-start": 64,
+        "padding-block-end": 64
       }
     },
     "hero_pLECKM": {
@@ -1090,8 +1090,8 @@
         "gradient_direction": "to top",
         "blurred_reflection": false,
         "reflection_opacity": 12,
-        "padding-block-start": 24,
-        "padding-block-end": 24
+        "padding-block-start": 64,
+        "padding-block-end": 64
       }
     }
   },

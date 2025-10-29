@@ -396,7 +396,7 @@
         "padding-block-start": 12,
         "padding-block-end": 12,
         "padding-inline-start": 24,
-        "padding-inline-end": 12
+        "padding-inline-end": 24
       }
     }
   },
