@@ -1101,29 +1101,36 @@ p:not(.h1, .h2, .h3, .h4, .h5, .h6) a:where(:not(.button, .button-primary, .butt
 }
 
 #footer-group a:where(:not(.button, .button-primary, .button-secondary)) {
-  background-image: linear-gradient(currentColor, currentColor);
-  background-repeat: no-repeat;
-  background-position: 0 calc(100% + var(--footer-link-underline-offset, 1.2em));
-  background-size: 0% var(--footer-link-underline-thickness, 0.08em);
+  position: relative;
+  display: inline-block;
   text-decoration: none;
-  transition: text-decoration-color var(--animation-speed) var(--animation-easing),
-    color var(--animation-speed) var(--animation-easing),
-    background-size var(--animation-speed) var(--animation-easing);
+  overflow: visible;
 }
 
-#footer-group a:where(:not(.button, .button-primary, .button-secondary)):where(:hover, :focus-visible) {
-  background-size: 100% var(--footer-link-underline-thickness, 0.08em);
+#footer-group a:where(:not(.button, .button-primary, .button-secondary))::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: calc(-1 * var(--footer-link-underline-offset, 1.2em));
+  width: 100%;
+  height: var(--footer-link-underline-thickness, 0.08em);
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--animation-speed) var(--animation-easing);
 }
 
-#footer-group .social-icons__icon-wrapper a {
-  background-image: none;
-  background-size: 0;
+#footer-group a:where(:not(.button, .button-primary, .button-secondary)):where(:hover, :focus-visible)::after {
+  transform: scaleX(1);
+}
+
+#footer-group .social-icons__icon-wrapper a::after {
+  content: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  #footer-group a:where(:not(.button, .button-primary, .button-secondary)) {
-    transition: text-decoration-color var(--animation-speed) var(--animation-easing),
-      color var(--animation-speed) var(--animation-easing);
+  #footer-group a:where(:not(.button, .button-primary, .button-secondary))::after {
+    transition: none;
   }
 }
 
