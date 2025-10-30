@@ -1191,13 +1191,121 @@
         "padding-block-start": 64,
         "padding-block-end": 64
       }
+    },
+    "hero_carousel_XQ7y3A": {
+      "type": "hero-carousel",
+      "settings": {
+        "section_heading": "Golden moments to savor",
+        "section_subheading": "Immersive storytelling banners that highlight this season's signature releases.",
+        "primary_cta_label": "Shop the collection",
+        "primary_cta_url": "",
+        "secondary_cta_label": "",
+        "secondary_cta_url": "",
+        "layout_mode": "full_width",
+        "overlay_style": "dark",
+        "show_arrows": true,
+        "show_dots": true,
+        "autoplay": true,
+        "autoplay_interval": 5,
+        "color_scheme": "scheme-1",
+        "section_width": "full-width",
+        "padding-block-start": 48,
+        "padding-block-end": 48,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0
+      },
+      "blocks": {
+        "slide_default_1": {
+          "type": "slide",
+          "settings": {
+            "image": null,
+            "mobile_image": null,
+            "alt_text": "Golden Hour hero product display",
+            "heading": "Transparency in every drop",
+            "subheading": "Sustainably sourced botanicals, meticulously blended to brighten your ritual.",
+            "primary_label": "Shop botanicals",
+            "primary_url": "",
+            "secondary_label": "",
+            "secondary_url": ""
+          }
+        },
+        "slide_default_2": {
+          "type": "slide",
+          "settings": {
+            "image": null,
+            "mobile_image": null,
+            "alt_text": "Horizon seasonal collection",
+            "heading": "Crafted for golden hours",
+            "subheading": "Layered textures, soft gradients, and shimmering highs to match every mood.",
+            "primary_label": "Explore lookbook",
+            "primary_url": "",
+            "secondary_label": "",
+            "secondary_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_default_1",
+        "slide_default_2"
+      ]
+    },
+    "ingredients_slider_zDjTmK": {
+      "type": "ingredients-slider",
+      "settings": {
+        "heading": "What makes us Golden"
+      },
+      "blocks": {
+        "ingredient_honey": {
+          "type": "ingredient",
+          "settings": {
+            "title": "M\u0101nuka Honey",
+            "description": "Raw, UMF-certified honey harvested in small batches for unrivaled potency.",
+            "icon": null,
+            "image": null,
+            "url": "",
+            "bg_color": "#FFFDF8",
+            "text_color": "#1A1A1A"
+          }
+        },
+        "ingredient_fruit": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Sun-Dried Citrus",
+            "description": "Vibrant New Zealand citrus peels slow dried to lock in brightness and aroma.",
+            "icon": null,
+            "image": null,
+            "url": "",
+            "bg_color": "#FCEFEB",
+            "text_color": "#1A1A1A"
+          }
+        },
+        "ingredient_water": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Spring Water",
+            "description": "Mineral-rich alpine water filtered through volcanic rock for exceptional clarity.",
+            "icon": null,
+            "image": null,
+            "url": "",
+            "bg_color": "#E9F5FF",
+            "text_color": "#1A1A1A"
+          }
+        }
+      },
+      "block_order": [
+        "ingredient_honey",
+        "ingredient_fruit",
+        "ingredient_water"
+      ]
     }
   },
   "order": [
+    "hero_carousel_XQ7y3A",
     "section_wi6VEg",
     "product_list_yjEzVT",
     "featured_product_PX7Yym",
     "section_GcL7hN",
+    "ingredients_slider_zDjTmK",
     "featured_blog_posts_EgLy9B",
     "hero_pLECKM"
   ]
