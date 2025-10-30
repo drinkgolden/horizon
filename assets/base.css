@@ -1100,7 +1100,7 @@ p:not(.h1, .h2, .h3, .h4, .h5, .h6) a:where(:not(.button, .button-primary, .butt
   }
 }
 
-footer a:where(:not(.button, .button-primary, .button-secondary)) {
+#footer-group a:where(:not(.button, .button-primary, .button-secondary)) {
   background-image: linear-gradient(currentColor, currentColor);
   background-repeat: no-repeat;
   background-position: 0 100%;
@@ -1111,17 +1111,17 @@ footer a:where(:not(.button, .button-primary, .button-secondary)) {
     background-size var(--animation-speed) var(--animation-easing);
 }
 
-footer a:where(:not(.button, .button-primary, .button-secondary)):where(:hover, :focus-visible) {
+#footer-group a:where(:not(.button, .button-primary, .button-secondary)):where(:hover, :focus-visible) {
   background-size: 100% var(--footer-link-underline-thickness, 0.08em);
 }
 
-footer .social-icons__icon-wrapper a {
+#footer-group .social-icons__icon-wrapper a {
   background-image: none;
   background-size: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  footer a:where(:not(.button, .button-primary, .button-secondary)) {
+  #footer-group a:where(:not(.button, .button-primary, .button-secondary)) {
     transition: text-decoration-color var(--animation-speed) var(--animation-easing),
       color var(--animation-speed) var(--animation-easing);
   }
