@@ -579,8 +579,32 @@ p:empty {
 }
 
 /* Section gridline system */
-body.has-section-gridlines #MainContent .shopify-section > .section {
+body.has-section-gridlines #MainContent .shopify-section {
   position: relative;
+}
+
+body.has-section-gridlines
+  #MainContent
+  .shopify-section::before,
+body.has-section-gridlines
+  #MainContent
+  .shopify-section::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: var(--section-gridline-width, 1px);
+  background-color: var(--section-gridline-color, rgba(0, 0, 0, 0.08));
+  z-index: var(--layer-heightened);
+  pointer-events: none;
+}
+
+body.has-section-gridlines #MainContent .shopify-section::before {
+  top: 0;
+}
+
+body.has-section-gridlines #MainContent .shopify-section::after {
+  bottom: 0;
 }
 
 body.has-section-gridlines #MainContent .shopify-section + .shopify-section {
@@ -589,8 +613,11 @@ body.has-section-gridlines #MainContent .shopify-section + .shopify-section {
 
 body.has-section-gridlines
   #MainContent
-  .shopify-section:has(> .section.section--no-gridlines) {
-  margin-top: 0;
+  .shopify-section:has(> .section.section--no-gridlines)::before,
+body.has-section-gridlines
+  #MainContent
+  .shopify-section:has(> .section.section--no-gridlines)::after {
+  content: none;
 }
 
 body.has-section-gridlines
@@ -598,48 +625,6 @@ body.has-section-gridlines
   .shopify-section:has(> .section.section--no-gridlines)
   + .shopify-section {
   margin-top: 0;
-}
-
-body.has-section-gridlines
-  #MainContent
-  .shopify-section
-  > .section::before,
-body.has-section-gridlines
-  #MainContent
-  .shopify-section
-  > .section::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: var(--section-gridline-width, 1px);
-  background-color: var(--section-gridline-color, rgba(0, 0, 0, 0.08));
-  pointer-events: none;
-}
-
-body.has-section-gridlines
-  #MainContent
-  .shopify-section
-  > .section::before {
-  top: 0;
-}
-
-body.has-section-gridlines
-  #MainContent
-  .shopify-section
-  > .section::after {
-  bottom: 0;
-}
-
-body.has-section-gridlines
-  #MainContent
-  .shopify-section:has(> .section.section--no-gridlines)
-  > .section::before,
-body.has-section-gridlines
-  #MainContent
-  .shopify-section:has(> .section.section--no-gridlines)
-  > .section::after {
-  content: none;
 }
 
 /* For page-width sections, all content goes in the center column */
