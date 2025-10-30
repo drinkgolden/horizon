@@ -345,36 +345,6 @@
     ]
   },
   {
-    "name": "Global section borders",
-    "settings": [
-      {
-        "type": "checkbox",
-        "id": "show_global_section_borders",
-        "label": "Show section borders",
-        "default": false
-      },
-      {
-        "type": "color",
-        "id": "global_section_border_colour",
-        "label": "Border colour",
-        "default": "#000000",
-        "alpha": true,
-        "visible_if": "{{ settings.show_global_section_borders }}"
-      },
-      {
-        "type": "range",
-        "id": "global_section_border_thickness",
-        "label": "Border thickness",
-        "min": 0,
-        "max": 3,
-        "default": 1,
-        "step": 1,
-        "unit": "px",
-        "visible_if": "{{ settings.show_global_section_borders }}"
-      }
-    ]
-  },
-  {
     "name": "t:names.typography",
     "settings": [
       {
@@ -1592,6 +1562,35 @@
         "unit": "px",
         "default": 16,
         "visible_if": "{{ settings.enable_bottom_motif_button }}"
+      }
+    ]
+  },
+  {
+    "name": "Section gridlines",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "section_gridlines_enable",
+        "label": "Enable section gridlines",
+        "default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "Adds fine 1px dividers above and below each content section."
+      },
+      {
+        "type": "color",
+        "id": "section_gridline_color",
+        "label": "Gridline color",
+        "default": "#e5e5e5",
+        "alpha": true
+      },
+      {
+        "type": "color",
+        "id": "section_gridline_color_dark",
+        "label": "Gridline color on dark backgrounds",
+        "default": "rgba(255,255,255,0.12)",
+        "alpha": true
       }
     ]
   },

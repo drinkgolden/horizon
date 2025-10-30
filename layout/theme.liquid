@@ -43,36 +43,6 @@
     {{ content_for_header }}
 
     {{ 'font-override.css' | asset_url | stylesheet_tag }}
-    
-    {% if settings.show_global_section_borders %}
-      <style>
-        body.has-global-section-borders #MainContent > .shopify-section {
-          position: relative;
-        }
-
-        body.has-global-section-borders #MainContent > .shopify-section::before {
-          content: none;
-        }
-
-        body.has-global-section-borders #MainContent > .shopify-section.global-border-line::before {
-          content: '';
-          position: absolute;
-          left: calc((100% - 100vw) / 2);
-          width: 100vw;
-          top: calc(var(--global-section-border-width, 1px) * -0.5);
-          height: var(--global-section-border-width, 1px);
-          background: var(--global-section-border-color, currentColor);
-          pointer-events: none;
-          z-index: var(--layer-lowest, 0);
-        }
-
-        body.has-global-section-borders #MainContent > .shopify-section.global-border-first::before,
-        body.has-global-section-borders #MainContent > .shopify-section.global-border-last::before {
-          content: none;
-        }
-      </style>
-    {% endif %}
-
   </head>
 
   {% liquid
@@ -83,9 +53,6 @@
         assign body_classes = body_classes | append: ' has-side-columns--mobile'
       endif
     endif
-    if settings.show_global_section_borders
-      assign body_classes = body_classes | append: ' has-global-section-borders'
-    endif
     if settings.enable_guided_scroll
       assign body_classes = body_classes | append: ' has-guided-scroll'
       if settings.guided_scroll_enable_mobile
@@ -95,6 +62,11 @@
     if settings.enable_bottom_motif_button
       assign body_classes = body_classes | append: ' has-floating-motif-button'
     endif
+    if settings.section_gridlines_enable
+      assign body_classes = body_classes | append: ' has-section-gridlines'
+    endif
+    assign section_gridline_color = settings.section_gridline_color | default: '#e5e5e5'
+    assign section_gridline_color_dark = settings.section_gridline_color_dark | default: 'rgba(255,255,255,0.12)'
   %}
   {% capture body_style %}
     {% if settings.side_columns_enable %}
@@ -103,10 +75,6 @@
       --side-column-background-color: {{ settings.side_columns_background_color | default: 'transparent' }};
       --side-column-border-color: {{ settings.side_columns_border_color | default: 'transparent' }};
       --side-columns-overhang: 12px;
-    {% endif %}
-    {% if settings.show_global_section_borders %}
-      --global-section-border-color: {{ settings.global_section_border_colour | default: '#e0e0e0' }};
-      --global-section-border-width: {{ settings.global_section_border_thickness | default: 1 }}px;
     {% endif %}
     {% if settings.enable_guided_scroll %}
       --guided-scroll-gap: {{ settings.guided_scroll_section_gap | default: 48 }}px;
@@ -118,6 +86,11 @@
       --motif-button-vertical-offset: {{ settings.bottom_motif_button_vertical_offset | default: 16 }}px;
       --motif-button-background: {{ settings.bottom_motif_button_background | default: 'transparent' }};
       --motif-button-text-color: {{ settings.bottom_motif_button_text_color | default: '#ffffff' }};
+    {% endif %}
+    {% if section_gridline_color != blank or section_gridline_color_dark != blank %}
+      --section-gridline-color-default: {{ section_gridline_color }};
+      --section-gridline-color-dark: {{ section_gridline_color_dark }};
+      --section-gridline-width: 1px;
     {% endif %}
   {% endcapture %}
   <body

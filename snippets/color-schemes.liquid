@@ -70,6 +70,12 @@
         --color-selected-variant-hover-text: rgb({{ scheme.settings.selected_variant_hover_text_color.rgba }});
         --color-selected-variant-hover-border: rgb({{ scheme.settings.selected_variant_hover_border_color.rgba }});
 
+        {% if background_brightness < 64 %}
+          --section-gridline-color: var(--section-gridline-color-dark);
+        {% else %}
+          --section-gridline-color: var(--section-gridline-color-default);
+        {% endif %}
+
         --input-disabled-background-color: rgb(var(--color-foreground-rgb) / var(--opacity-10));
         --input-disabled-border-color: rgb(var(--color-foreground-rgb) / var(--opacity-5-15));
         --input-disabled-text-color: rgb(var(--color-foreground-rgb) / var(--opacity-50));

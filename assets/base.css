@@ -578,6 +578,37 @@ p:empty {
   z-index: var(--layer-section-background);
 }
 
+/* Section gridline system */
+body.has-section-gridlines #MainContent .shopify-section > .section {
+  position: relative;
+  border-block: var(--section-gridline-width, 1px) solid
+    var(--section-gridline-color, rgba(0, 0, 0, 0.08));
+}
+
+body.has-section-gridlines #MainContent .shopify-section + .shopify-section {
+  margin-top: calc(-1 * var(--section-gridline-width, 1px));
+}
+
+body.has-section-gridlines
+  #MainContent
+  .shopify-section:has(> .section.section--no-gridlines) {
+  margin-top: 0;
+}
+
+body.has-section-gridlines
+  #MainContent
+  .shopify-section:has(> .section.section--no-gridlines)
+  > .section {
+  border: 0;
+}
+
+body.has-section-gridlines
+  #MainContent
+  .shopify-section:has(> .section.section--no-gridlines)
+  + .shopify-section {
+  margin-top: 0;
+}
+
 /* For page-width sections, all content goes in the center column */
 .section--page-width > * {
   grid-column: 2;
