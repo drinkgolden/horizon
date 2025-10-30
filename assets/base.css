@@ -579,7 +579,7 @@ p:empty {
 }
 
 /* Section gridline system */
-body.has-section-gridlines #MainContent .shopify-section {
+body.has-section-gridlines :is(#MainContent, #header-group) .shopify-section {
   position: relative;
 }
 
@@ -587,7 +587,7 @@ body.has-section-gridlines
   #MainContent
   .shopify-section::before,
 body.has-section-gridlines
-  #MainContent
+  :is(#MainContent, #header-group)
   .shopify-section::after {
   content: '';
   position: absolute;
@@ -603,8 +603,14 @@ body.has-section-gridlines #MainContent .shopify-section::before {
   top: 0;
 }
 
-body.has-section-gridlines #MainContent .shopify-section::after {
+body.has-section-gridlines
+  :is(#MainContent, #header-group)
+  .shopify-section::after {
   bottom: 0;
+}
+
+body.has-section-gridlines #MainContent .shopify-section:first-child::before {
+  content: none;
 }
 
 body.has-section-gridlines #MainContent .shopify-section + .shopify-section {
@@ -615,7 +621,7 @@ body.has-section-gridlines
   #MainContent
   .shopify-section:has(> .section.section--no-gridlines)::before,
 body.has-section-gridlines
-  #MainContent
+  :is(#MainContent, #header-group)
   .shopify-section:has(> .section.section--no-gridlines)::after {
   content: none;
 }
