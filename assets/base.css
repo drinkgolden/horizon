@@ -622,6 +622,12 @@ body.has-section-gridlines
 
 body.has-section-gridlines
   #MainContent
+  .shopify-section:last-child::after {
+  content: none;
+}
+
+body.has-section-gridlines
+  #MainContent
   .shopify-section:has(> .section.section--no-gridlines)
   + .shopify-section {
   margin-top: 0;
