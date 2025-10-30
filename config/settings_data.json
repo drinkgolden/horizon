@@ -56,7 +56,7 @@
     "side_columns_border_color": "#fcfcfb",
     "section_gridlines_enable": true,
     "section_gridline_color": "#e5e5e5",
-    "section_gridline_color_dark": "rgba(255,255,255,0.12)",
+    "section_gridline_color_dark": "#e5e5e5",
     "page_transition_enabled": true,
     "transition_to_main_product": true,
     "card_hover_effect": "none",

@@ -94,8 +94,8 @@
         "overlay_color": "#00000026",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 48,
-        "padding-block-end": 48
+        "padding-block-start": 24,
+        "padding-block-end": 24
       }
     },
     "main": {
@@ -117,8 +117,8 @@
             "color_scheme": "",
             "padding-block-start": 12,
             "padding-block-end": 12,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0,
+            "padding-inline-start": 12,
+            "padding-inline-end": 12,
             "facets_margin_bottom": 8,
             "facets_margin_right": 20
           },
