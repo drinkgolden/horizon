@@ -457,9 +457,18 @@
       }
     }
   }
-.hero--splash {
-  --hero-splash-scroll-size: clamp(40px, 8vw, 72px);
-}
+
+  .hero-splash--over-header {
+    --hero-height-offset: 0px;
+  }
+
+  :root[data-hero-over-header='true'][data-hero-in-view='true'] .hero-splash--over-header .hero__container {
+    padding-bottom: calc(var(--padding-block-end, 0px) + var(--header-group-height, 0px));
+  }
+
+  .hero--splash {
+    --hero-splash-scroll-size: clamp(40px, 8vw, 72px);
+  }
 
 .hero--splash .hero-splash__scroll {
   position: absolute;
@@ -554,8 +563,12 @@
         return { sectionEl: null, observer: null };
       }
 
-      sectionEl.setAttribute('data-hero-in-view', 'false');
       initScrollButton(sectionEl);
+
+      const rect = sectionEl.getBoundingClientRect();
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
+      const isInView = rect.top < viewportHeight && rect.bottom > 0;
+      sectionEl.setAttribute('data-hero-in-view', isInView ? 'true' : 'false');
       updateHeaderState();
 
       const observer = connectObserver(sectionEl);
@@ -638,7 +651,7 @@
       "type": "checkbox",
       "id": "show_scroll_button",
       "label": "Show scroll indicator",
-      "default": false
+      "default": true
     },
     {
       "type": "color",
@@ -907,7 +920,7 @@
           "label": "t:options.custom"
         }
       ],
-      "default": "medium"
+      "default": "full-screen"
     },
     {
       "type": "range",
