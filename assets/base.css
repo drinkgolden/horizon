@@ -190,6 +190,25 @@ body.has-guided-scroll #MainContent > .shopify-section {
   --hover-transition-timing: ease-out;
   --surface-transition-duration: 0.3s;
   --surface-transition-timing: var(--ease-out-quad);
+  --duration-xs: 120ms;
+  --duration-sm: 200ms;
+  --duration-md: 360ms;
+  --duration-lg: 600ms;
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity var(--duration-md) var(--ease-out), transform var(--duration-md) var(--ease-out);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 html {

@@ -1,0 +1,882 @@
+{% comment %}
+  HERO CAROUSEL — Unified hero banner and image slider
+  Supports full-width, half-split, and mobile-split layouts
+{% endcomment %}
+
+{% liquid
+  assign slider_id = 'HeroCarousel-' | append: section.id
+  assign slide_count = section.blocks.size
+  assign show_controls = slide_count > 1
+%}
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<section
+  class="hero-carousel section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }} spacing-style"
+  style="{% render 'spacing-style', settings: section.settings %}"
+  aria-label="{{ section.settings.section_heading | default: 'Hero carousel' }}"
+  data-section-id="{{ section.id }}"
+  data-layout="{{ section.settings.layout_mode }}"
+  data-autoplay="{{ section.settings.autoplay | json }}"
+  data-interval="{{ section.settings.autoplay_interval | times: 1000 }}"
+>
+  <div class="hero-carousel__inner" data-layout="{{ section.settings.layout_mode }}">
+    <div class="hero-carousel__content" data-content>
+      {% if section.settings.section_heading %}
+        <h1 class="hero-carousel__heading">{{ section.settings.section_heading }}</h1>
+      {% endif %}
+      {% if section.settings.section_subheading %}
+        <p class="hero-carousel__subheading">{{ section.settings.section_subheading }}</p>
+      {% endif %}
+      {% if section.settings.primary_cta_label or section.settings.secondary_cta_label %}
+        <div class="hero-carousel__buttons">
+          {% if section.settings.primary_cta_label %}
+            <a
+              class="btn btn--primary"
+              href="{{ section.settings.primary_cta_url | default: '#' }}"
+            >{{ section.settings.primary_cta_label }}</a>
+          {% endif %}
+          {% if section.settings.secondary_cta_label %}
+            <a
+              class="btn btn--secondary"
+              href="{{ section.settings.secondary_cta_url | default: '#' }}"
+            >{{ section.settings.secondary_cta_label }}</a>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+
+    <div
+      class="hero-carousel__slider"
+      role="region"
+      aria-label="Promotional slides"
+      data-carousel
+    >
+      {% if section.settings.show_arrows and show_controls %}
+        <button
+          type="button"
+          class="hero-carousel__arrow hero-carousel__arrow--prev"
+          aria-label="Previous slide"
+          aria-controls="{{ slider_id }}"
+          data-carousel-prev
+        >
+          <span aria-hidden="true">&#10094;</span>
+        </button>
+      {% endif %}
+
+      <ul
+        id="{{ slider_id }}"
+        class="hero-carousel__track"
+        role="list"
+        aria-live="polite"
+        data-carousel-track
+      >
+        {% for block in section.blocks %}
+          {% assign heading = block.settings.heading | default: section.settings.section_heading %}
+          {% assign desktop_image = block.settings.image %}
+          {% assign mobile_image = block.settings.mobile_image | default: block.settings.image %}
+          {% assign primary_image = desktop_image | default: mobile_image %}
+          {% assign alt_text = block.settings.alt_text | default: heading | default: section.settings.section_heading | default: 'Promotional slide' %}
+          {% assign loading_attr = 'lazy' %}
+          {% assign fetchpriority_attr = 'auto' %}
+          {% if forloop.first %}
+            {% assign loading_attr = 'eager' %}
+            {% assign fetchpriority_attr = 'high' %}
+          {% endif %}
+          <li
+            class="hero-carousel__slide{% if forloop.first %} is-active{% endif %}"
+            role="group"
+            aria-roledescription="slide"
+            aria-label="{{ forloop.index }} of {{ slide_count }}"
+            aria-hidden="{% if forloop.first %}false{% else %}true{% endif %}"
+            id="{{ block.id }}"
+            data-carousel-slide
+            data-index="{{ forloop.index0 }}"
+            tabindex="{% if forloop.first %}0{% else %}-1{% endif %}"
+            {{ block.shopify_attributes }}
+          >
+            {% if primary_image %}
+              <picture class="hero-carousel__media">
+                {% if block.settings.mobile_image %}
+                  <source
+                    media="(max-width: 749px)"
+                    srcset="{{ mobile_image | image_url: width: 1100 }}"
+                  >
+                {% endif %}
+                {{ primary_image | image_url: width: 2400 | image_tag:
+                  alt: alt_text,
+                  class: 'hero-carousel__image',
+                  loading: loading_attr,
+                  fetchpriority: fetchpriority_attr
+                }}
+              </picture>
+            {% else %}
+              {{ 'lifestyle-1' | placeholder_svg_tag: 'hero-carousel__placeholder' }}
+            {% endif %}
+            <div class="hero-carousel__overlay hero-carousel__overlay--{{ section.settings.overlay_style }}">
+              {% if block.settings.heading %}
+                <h2 class="hero-carousel__slide-heading">{{ block.settings.heading }}</h2>
+              {% endif %}
+              {% if block.settings.subheading %}
+                <p class="hero-carousel__slide-subheading">{{ block.settings.subheading }}</p>
+              {% endif %}
+              {% if block.settings.primary_label or block.settings.secondary_label %}
+                <div class="hero-carousel__slide-buttons">
+                  {% if block.settings.primary_label %}
+                    <a
+                      class="btn btn--primary"
+                      href="{{ block.settings.primary_url | default: '#' }}"
+                    >{{ block.settings.primary_label }}</a>
+                  {% endif %}
+                  {% if block.settings.secondary_label %}
+                    <a
+                      class="btn btn--secondary"
+                      href="{{ block.settings.secondary_url | default: '#' }}"
+                    >{{ block.settings.secondary_label }}</a>
+                  {% endif %}
+                </div>
+              {% endif %}
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+
+      {% if section.settings.show_arrows and show_controls %}
+        <button
+          type="button"
+          class="hero-carousel__arrow hero-carousel__arrow--next"
+          aria-label="Next slide"
+          aria-controls="{{ slider_id }}"
+          data-carousel-next
+        >
+          <span aria-hidden="true">&#10095;</span>
+        </button>
+      {% endif %}
+
+      {% if section.settings.show_dots and show_controls %}
+        <div
+          class="hero-carousel__dots"
+          role="tablist"
+          aria-label="Select slide"
+          data-carousel-dots
+        >
+          {% for block in section.blocks %}
+            <button
+              type="button"
+              class="hero-carousel__dot{% if forloop.first %} is-active{% endif %}"
+              role="tab"
+              aria-controls="{{ block.id }}"
+              aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+              tabindex="{% if forloop.first %}0{% else %}-1{% endif %}"
+              data-index="{{ forloop.index0 }}"
+            >
+              <span class="visually-hidden">Slide {{ forloop.index }}</span>
+            </button>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  /* Styles compiled from assets/_hero-carousel.scss */
+  .hero-carousel {
+    position: relative;
+    padding-block: clamp(3.5rem, 5vw, 6rem);
+    overflow: hidden;
+  }
+
+  .hero-carousel__inner {
+    display: grid;
+    gap: var(--gap-3xl);
+    align-items: center;
+  }
+
+  .hero-carousel[data-layout='half_split'] .hero-carousel__inner,
+  .hero-carousel[data-layout='mobile_split'] .hero-carousel__inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  @media screen and (min-width: 990px) {
+    .hero-carousel[data-layout='half_split'] .hero-carousel__inner,
+    .hero-carousel[data-layout='mobile_split'] .hero-carousel__inner {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+  }
+
+  .hero-carousel[data-layout='full_width'] .hero-carousel__inner {
+    position: relative;
+  }
+
+  .hero-carousel[data-layout='full_width'] .hero-carousel__content {
+    position: absolute;
+    inset: clamp(1.5rem, 4vw, 3.5rem);
+    z-index: 2;
+    max-width: min(540px, 80vw);
+    color: var(--color-foreground);
+  }
+
+  .hero-carousel__content {
+    display: grid;
+    gap: var(--gap-lg);
+    max-width: 540px;
+    animation: hero-carousel-fade-up var(--duration-md) var(--ease-out) both;
+  }
+
+  .hero-carousel__heading {
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    line-height: 1.1;
+    margin: 0;
+  }
+
+  .hero-carousel__subheading {
+    margin: 0;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: rgb(var(--color-foreground-rgb) / 0.82);
+  }
+
+  .hero-carousel__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap-sm);
+  }
+
+  .hero-carousel__slider {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-carousel__track {
+    display: flex;
+    transition: transform var(--duration-lg) var(--ease-standard);
+    will-change: transform;
+  }
+
+  .hero-carousel__slide {
+    position: relative;
+    flex: 0 0 100%;
+    min-width: 0;
+    border-radius: var(--style-border-radius-cards, 20px);
+    overflow: hidden;
+    isolation: isolate;
+    display: grid;
+  }
+
+  .hero-carousel__slide::before {
+    content: '';
+    display: block;
+    padding-top: 52%;
+  }
+
+  .hero-carousel__media,
+  .hero-carousel__image,
+  .hero-carousel__overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero-carousel__image {
+    object-fit: cover;
+  }
+
+  .hero-carousel__overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: var(--gap-md);
+    padding: clamp(1.5rem, 4vw, 3rem);
+    color: var(--color-foreground);
+    background: linear-gradient(180deg, rgb(0 0 0 / 0) 0%, rgb(0 0 0 / 0.7) 100%);
+    transition: background var(--duration-sm) var(--ease-out);
+  }
+
+  .hero-carousel__overlay--light {
+    color: var(--color-foreground);
+    background: linear-gradient(180deg, rgb(255 255 255 / 0.15) 0%, rgb(0 0 0 / 0.45) 100%);
+  }
+
+  .hero-carousel__overlay--none {
+    background: none;
+  }
+
+  .hero-carousel__slide-heading {
+    margin: 0;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    line-height: 1.15;
+  }
+
+  .hero-carousel__slide-subheading {
+    margin: 0;
+    font-size: clamp(1rem, 1.8vw, 1.2rem);
+    color: rgb(var(--color-foreground-rgb) / 0.78);
+  }
+
+  .hero-carousel__slide-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap-sm);
+  }
+
+  .hero-carousel__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgb(var(--color-border-rgb) / 0.4);
+    background: rgb(var(--color-background-rgb, 255 255 255) / 0.86);
+    color: inherit;
+    cursor: pointer;
+    transition: transform var(--duration-sm) var(--ease-out), box-shadow var(--duration-sm) var(--ease-out);
+    z-index: 3;
+  }
+
+  .hero-carousel__arrow span {
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+
+  .hero-carousel__arrow:hover,
+  .hero-carousel__arrow:focus-visible {
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 10px 30px rgb(0 0 0 / 0.18);
+  }
+
+  .hero-carousel__arrow--prev {
+    left: clamp(0.75rem, 2vw, 1.5rem);
+  }
+
+  .hero-carousel__arrow--next {
+    right: clamp(0.75rem, 2vw, 1.5rem);
+  }
+
+  .hero-carousel__dots {
+    position: absolute;
+    bottom: clamp(1rem, 3vw, 2rem);
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-flex;
+    gap: var(--gap-xs);
+    z-index: 3;
+  }
+
+  .hero-carousel__dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 999px;
+    border: none;
+    padding: 0;
+    background: rgb(var(--color-background-rgb, 255 255 255) / 0.45);
+    cursor: pointer;
+    transition: transform var(--duration-sm) var(--ease-standard), background var(--duration-sm) var(--ease-standard);
+  }
+
+  .hero-carousel__dot.is-active {
+    transform: scale(1.15);
+    background: var(--color-accent, currentColor);
+  }
+
+  .hero-carousel__slide.is-active .hero-carousel__overlay {
+    animation: hero-carousel-reveal var(--duration-md) var(--ease-smooth) both;
+  }
+
+  .hero-carousel__slide:not(.is-active) {
+    pointer-events: none;
+  }
+
+  .hero-carousel__slide:not(.is-active) .btn {
+    pointer-events: none;
+  }
+
+  .hero-carousel[data-layout='mobile_split'] .hero-carousel__content {
+    order: -1;
+  }
+
+  .hero-carousel[data-layout='mobile_split'] .hero-carousel__slider {
+    margin-top: 0;
+  }
+
+  @media screen and (max-width: 989px) {
+    .hero-carousel {
+      padding-block: clamp(3rem, 10vw, 4rem);
+    }
+
+    .hero-carousel__inner {
+      gap: var(--gap-2xl);
+    }
+
+    .hero-carousel[data-layout='full_width'] .hero-carousel__content {
+      position: static;
+      max-width: none;
+      text-align: center;
+    }
+
+    .hero-carousel__content {
+      justify-items: center;
+      text-align: center;
+    }
+
+    .hero-carousel__buttons,
+    .hero-carousel__slide-buttons {
+      justify-content: center;
+    }
+
+    .hero-carousel__slide::before {
+      padding-top: 64%;
+    }
+
+    .hero-carousel__arrow {
+      display: none;
+    }
+
+    .hero-carousel__dots {
+      position: static;
+      transform: none;
+      margin-top: var(--gap-xl);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-carousel__track {
+      transition: none;
+    }
+
+    .hero-carousel__content,
+    .hero-carousel__slide.is-active .hero-carousel__overlay {
+      animation: none;
+    }
+  }
+
+  @keyframes hero-carousel-fade-up {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 16px, 0);
+    }
+
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @keyframes hero-carousel-reveal {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 18px, 0);
+    }
+
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+{% endstylesheet %}
+
+{% javascript %}
+class HeroCarousel {
+  constructor(section) {
+    this.section = section;
+    this.track = section.querySelector('[data-carousel-track]');
+    this.slides = Array.from(section.querySelectorAll('[data-carousel-slide]'));
+    this.prevButton = section.querySelector('[data-carousel-prev]');
+    this.nextButton = section.querySelector('[data-carousel-next]');
+    this.dotsContainer = section.querySelector('[data-carousel-dots]');
+    this.autoplayEnabled = section.dataset.autoplay === 'true';
+    this.intervalDuration = parseInt(section.dataset.interval, 10) || 5000;
+    this.index = 0;
+    this.timer = null;
+    this.isHovered = false;
+    this.prefersReducedMotion = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+    this.handlePrefersReducedMotionChange = () => {
+      if (!this.shouldAutoplay()) {
+        this.pauseAutoplay();
+      } else if (!this.timer) {
+        this.startAutoplay();
+      }
+    };
+
+    if (this.slides.length < 2) {
+      this.autoplayEnabled = false;
+    }
+
+    this.setup();
+    this.bindEvents();
+    this.update();
+
+    if (this.shouldAutoplay()) {
+      this.startAutoplay();
+    }
+  }
+
+  setup() {
+    this.slides.forEach((slide, index) => {
+      slide.setAttribute('aria-hidden', index === 0 ? 'false' : 'true');
+      slide.setAttribute('tabindex', index === 0 ? '0' : '-1');
+    });
+
+    if (this.dotsContainer && !this.dotsContainer.hasAttribute('data-ready')) {
+      this.dots = Array.from(this.dotsContainer.querySelectorAll('[data-index]'));
+      this.dotsContainer.setAttribute('data-ready', 'true');
+    } else {
+      this.dots = [];
+    }
+  }
+
+  bindEvents() {
+    this.onVisibilityChange = this.onVisibilityChange.bind(this);
+
+    this.nextButton?.addEventListener('click', () => this.goTo(this.index + 1));
+    this.prevButton?.addEventListener('click', () => this.goTo(this.index - 1));
+
+    if (this.dots?.length) {
+      this.dots.forEach((dot) => {
+        dot.addEventListener('click', () => {
+          const targetIndex = Number(dot.dataset.index);
+          this.goTo(targetIndex);
+        });
+      });
+    }
+
+    this.section.addEventListener('mouseenter', () => {
+      this.isHovered = true;
+      this.pauseAutoplay();
+    });
+
+    this.section.addEventListener('mouseleave', () => {
+      this.isHovered = false;
+      if (this.shouldAutoplay()) {
+        this.startAutoplay();
+      }
+    });
+
+    this.section.addEventListener('focusin', () => {
+      this.pauseAutoplay();
+    });
+
+    this.section.addEventListener('focusout', (event) => {
+      if ((!event.relatedTarget || !this.section.contains(event.relatedTarget)) && this.shouldAutoplay()) {
+        this.startAutoplay();
+      }
+    });
+
+    this.section.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        this.goTo(this.index + 1);
+      }
+
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        this.goTo(this.index - 1);
+      }
+    });
+
+    document.addEventListener('visibilitychange', this.onVisibilityChange);
+
+    if (this.prefersReducedMotion) {
+      if (typeof this.prefersReducedMotion.addEventListener === 'function') {
+        this.prefersReducedMotion.addEventListener('change', this.handlePrefersReducedMotionChange);
+      } else if (typeof this.prefersReducedMotion.addListener === 'function') {
+        this.prefersReducedMotion.addListener(this.handlePrefersReducedMotionChange);
+      }
+    }
+  }
+
+  onVisibilityChange() {
+    if (document.hidden) {
+      this.pauseAutoplay();
+    } else if (this.shouldAutoplay()) {
+      this.startAutoplay();
+    }
+  }
+
+  goTo(index) {
+    const slideCount = this.slides.length;
+    if (!slideCount) return;
+
+    const wrappedIndex = (index + slideCount) % slideCount;
+    this.index = wrappedIndex;
+    this.update();
+
+    if (this.shouldAutoplay()) {
+      this.startAutoplay();
+    }
+  }
+
+  update() {
+    const offset = this.index * -100;
+    this.track.style.transform = `translateX(${offset}%)`;
+
+    this.slides.forEach((slide, slideIndex) => {
+      const isActive = slideIndex === this.index;
+      slide.classList.toggle('is-active', isActive);
+      slide.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+      slide.setAttribute('tabindex', isActive ? '0' : '-1');
+    });
+
+    if (this.dots?.length) {
+      this.dots.forEach((dot, dotIndex) => {
+        const isActive = dotIndex === this.index;
+        dot.classList.toggle('is-active', isActive);
+        dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        dot.setAttribute('tabindex', isActive ? '0' : '-1');
+      });
+    }
+  }
+
+  shouldAutoplay() {
+    const reduceMotion = this.prefersReducedMotion?.matches;
+    return this.autoplayEnabled && !reduceMotion && !this.isHovered;
+  }
+
+  startAutoplay() {
+    this.pauseAutoplay();
+    this.timer = window.setInterval(() => {
+      this.goTo(this.index + 1);
+    }, this.intervalDuration);
+  }
+
+  pauseAutoplay() {
+    if (this.timer) {
+      window.clearInterval(this.timer);
+      this.timer = null;
+    }
+  }
+}
+
+const heroCarouselSections = document.querySelectorAll('.hero-carousel');
+heroCarouselSections.forEach((section) => {
+  if (!section.dataset.controller) {
+    section.dataset.controller = 'hero-carousel';
+    new HeroCarousel(section);
+  }
+});
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "Hero carousel",
+  "class": "hero-carousel-section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Main heading"
+    },
+    {
+      "type": "textarea",
+      "id": "section_subheading",
+      "label": "Subheading"
+    },
+    {
+      "type": "text",
+      "id": "primary_cta_label",
+      "label": "Primary CTA label"
+    },
+    {
+      "type": "url",
+      "id": "primary_cta_url",
+      "label": "Primary CTA link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_cta_label",
+      "label": "Secondary CTA label"
+    },
+    {
+      "type": "url",
+      "id": "secondary_cta_url",
+      "label": "Secondary CTA link"
+    },
+    {
+      "type": "select",
+      "id": "layout_mode",
+      "label": "Layout mode",
+      "options": [
+        { "value": "full_width", "label": "Full width" },
+        { "value": "half_split", "label": "Half split" },
+        { "value": "mobile_split", "label": "Mobile split" }
+      ],
+      "default": "full_width"
+    },
+    {
+      "type": "select",
+      "id": "overlay_style",
+      "label": "Overlay style",
+      "options": [
+        { "value": "dark", "label": "Dark gradient" },
+        { "value": "light", "label": "Light gradient" },
+        { "value": "none", "label": "None" }
+      ],
+      "default": "dark"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrows",
+      "label": "Show navigation arrows",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dots",
+      "label": "Show pagination dots",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Enable autoplay",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "autoplay_interval",
+      "label": "Autoplay interval (seconds)",
+      "min": 3,
+      "max": 10,
+      "step": 1,
+      "default": 5
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        { "value": "page-width", "label": "Page width" },
+        { "value": "full-width", "label": "Full width" }
+      ],
+      "default": "full-width"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Padding top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "Padding left",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "Padding right",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Slide image"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Mobile image override"
+        },
+        {
+          "type": "text",
+          "id": "alt_text",
+          "label": "Alt text"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Slide heading"
+        },
+        {
+          "type": "textarea",
+          "id": "subheading",
+          "label": "Slide subheading"
+        },
+        {
+          "type": "text",
+          "id": "primary_label",
+          "label": "Primary button label"
+        },
+        {
+          "type": "url",
+          "id": "primary_url",
+          "label": "Primary button link"
+        },
+        {
+          "type": "text",
+          "id": "secondary_label",
+          "label": "Secondary button label"
+        },
+        {
+          "type": "url",
+          "id": "secondary_url",
+          "label": "Secondary button link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero carousel",
+      "category": "Hero",
+      "blocks": [
+        {
+          "type": "slide",
+          "settings": {
+            "heading": "Discover our latest arrivals",
+            "subheading": "Seasonal fabrics, elevated silhouettes, and tactile finishes designed for every day.",
+            "primary_label": "Shop new in"
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "heading": "Build your capsule",
+            "subheading": "Layering essentials and statement pieces curated for you."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
