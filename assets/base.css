@@ -1111,7 +1111,7 @@ p:not(.h1, .h2, .h3, .h4, .h5, .h6) a:where(:not(.button, .button-primary, .butt
   content: '';
   position: absolute;
   left: 0;
-  bottom: calc(-1 * var(--footer-link-underline-offset, 1.2em));
+  bottom: calc(-1 * var(--footer-link-underline-offset, 0.24em));
   width: 100%;
   height: var(--footer-link-underline-thickness, 0.08em);
   background-color: currentColor;
