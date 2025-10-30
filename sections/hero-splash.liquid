@@ -3,7 +3,17 @@
   Adds header overlay handling and scroll indicator specifically for the splash experience.
 {% endcomment %}
 
+{% liquid
+  assign show_hero_splash = false
+  if request.page_type == 'index'
+    assign show_hero_splash = true
+  endif
+  if request.design_mode and template == 'index'
+    assign show_hero_splash = true
+  endif
+%}
 
+{% if show_hero_splash %}
 
 {% liquid
   assign media_count = 0
@@ -291,6 +301,8 @@
   </button>
 {% endif %}
 </div>
+
+{% endif %}
 
 {% stylesheet %}
   .hero-wrapper {
@@ -591,6 +603,7 @@
     });
   })();
 {% endjavascript %}
+
 {% schema %}
 {
   "name": "Hero splash",
