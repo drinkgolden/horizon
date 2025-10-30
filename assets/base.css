@@ -2557,7 +2557,6 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
     > .menu {
       width: auto;
       max-width: 100%;
-      /* Allow two menus per row when space permits, but fall back to full width on narrow screens */
       flex: 1 1 clamp(14rem, 50%, 100%);
     }
   }
