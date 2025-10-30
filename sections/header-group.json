@@ -272,7 +272,7 @@
         "localization_font_size": "1rem",
         "localization_position": "left",
         "localization_row": "top",
-        "section_width": "full-width",
+        "section_width": "page-width",
         "section_height": "standard",
         "enable_sticky_header": "always",
         "divider_width": 0,
