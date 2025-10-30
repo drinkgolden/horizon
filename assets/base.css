@@ -2553,6 +2553,12 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
     > .button {
       flex: 0 0 fit-content;
     }
+
+    > .menu {
+      width: auto;
+      max-width: 100%;
+      flex: 1 1 clamp(14rem, 50%, 100%);
+    }
   }
 }
 
