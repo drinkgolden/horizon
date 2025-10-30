@@ -1,0 +1,299 @@
+// Hero Carousel section styles
+// Compiled output is inlined via the {% stylesheet %} block inside sections/hero-carousel.liquid
+
+.hero-carousel {
+  position: relative;
+  padding-block: clamp(3.5rem, 5vw, 6rem);
+  overflow: hidden;
+
+  &__inner {
+    display: grid;
+    gap: var(--gap-3xl);
+    align-items: center;
+  }
+
+  &[data-layout='half_split'],
+  &[data-layout='mobile_split'] {
+    .hero-carousel__inner {
+      grid-template-columns: minmax(0, 1fr);
+
+      @media screen and (min-width: 990px) {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      }
+    }
+  }
+
+  &[data-layout='full_width'] {
+    .hero-carousel__inner {
+      position: relative;
+    }
+
+    .hero-carousel__content {
+      position: absolute;
+      inset: clamp(1.5rem, 4vw, 3.5rem);
+      z-index: 2;
+      max-width: min(540px, 80vw);
+      color: var(--color-foreground);
+    }
+  }
+
+  &__content {
+    display: grid;
+    gap: var(--gap-lg);
+    max-width: 540px;
+    animation: hero-carousel-fade-up var(--duration-md) var(--ease-out) both;
+  }
+
+  &__heading {
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    line-height: 1.1;
+    margin: 0;
+  }
+
+  &__subheading {
+    margin: 0;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: rgb(var(--color-foreground-rgb) / 0.82);
+  }
+
+  &__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap-sm);
+  }
+
+  &__slider {
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__track {
+    display: flex;
+    transition: transform var(--duration-lg) var(--ease-standard);
+    will-change: transform;
+  }
+
+  &__slide {
+    position: relative;
+    flex: 0 0 100%;
+    min-width: 0;
+    border-radius: var(--style-border-radius-cards, 20px);
+    overflow: hidden;
+    isolation: isolate;
+    display: grid;
+
+    &::before {
+      content: '';
+      display: block;
+      padding-top: 52%;
+    }
+
+    &.is-active .hero-carousel__overlay {
+      animation: hero-carousel-reveal var(--duration-md) var(--ease-smooth) both;
+    }
+
+    &:not(.is-active) {
+      pointer-events: none;
+
+      .btn {
+        pointer-events: none;
+      }
+    }
+  }
+
+  &__media,
+  &__image,
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__image {
+    object-fit: cover;
+  }
+
+  &__overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: var(--gap-md);
+    padding: clamp(1.5rem, 4vw, 3rem);
+    color: var(--color-foreground);
+    background: linear-gradient(180deg, rgb(0 0 0 / 0) 0%, rgb(0 0 0 / 0.7) 100%);
+    transition: background var(--duration-sm) var(--ease-out);
+
+    &--light {
+      color: var(--color-foreground);
+      background: linear-gradient(180deg, rgb(255 255 255 / 0.15) 0%, rgb(0 0 0 / 0.45) 100%);
+    }
+
+    &--none {
+      background: none;
+    }
+  }
+
+  &__slide-heading {
+    margin: 0;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    line-height: 1.15;
+  }
+
+  &__slide-subheading {
+    margin: 0;
+    font-size: clamp(1rem, 1.8vw, 1.2rem);
+    color: rgb(var(--color-foreground-rgb) / 0.78);
+  }
+
+  &__slide-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap-sm);
+  }
+
+  &__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgb(var(--color-border-rgb) / 0.4);
+    background: rgb(var(--color-background-rgb, 255 255 255) / 0.86);
+    color: inherit;
+    cursor: pointer;
+    transition: transform var(--duration-sm) var(--ease-out), box-shadow var(--duration-sm) var(--ease-out);
+    z-index: 3;
+
+    span {
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+
+    &:hover,
+    &:focus-visible {
+      transform: translateY(-50%) scale(1.05);
+      box-shadow: 0 10px 30px rgb(0 0 0 / 0.18);
+    }
+
+    &--prev {
+      left: clamp(0.75rem, 2vw, 1.5rem);
+    }
+
+    &--next {
+      right: clamp(0.75rem, 2vw, 1.5rem);
+    }
+  }
+
+  &__dots {
+    position: absolute;
+    bottom: clamp(1rem, 3vw, 2rem);
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-flex;
+    gap: var(--gap-xs);
+    z-index: 3;
+  }
+
+  &__dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 999px;
+    border: none;
+    padding: 0;
+    background: rgb(var(--color-background-rgb, 255 255 255) / 0.45);
+    cursor: pointer;
+    transition: transform var(--duration-sm) var(--ease-standard), background var(--duration-sm) var(--ease-standard);
+
+    &.is-active {
+      transform: scale(1.15);
+      background: var(--color-accent, currentColor);
+    }
+  }
+
+  &[data-layout='mobile_split'] {
+    .hero-carousel__content {
+      order: -1;
+    }
+
+    .hero-carousel__slider {
+      margin-top: 0;
+    }
+  }
+
+  @media screen and (max-width: 989px) {
+    padding-block: clamp(3rem, 10vw, 4rem);
+
+    &__inner {
+      gap: var(--gap-2xl);
+    }
+
+    &[data-layout='full_width'] .hero-carousel__content {
+      position: static;
+      max-width: none;
+      text-align: center;
+    }
+
+    &__content {
+      justify-items: center;
+      text-align: center;
+    }
+
+    &__buttons,
+    &__slide-buttons {
+      justify-content: center;
+    }
+
+    &__slide::before {
+      padding-top: 64%;
+    }
+
+    &__arrow {
+      display: none;
+    }
+
+    &__dots {
+      position: static;
+      transform: none;
+      margin-top: var(--gap-xl);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &__track {
+      transition: none;
+    }
+
+    &__content,
+    &__slide.is-active .hero-carousel__overlay {
+      animation: none;
+    }
+  }
+}
+
+@keyframes hero-carousel-fade-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes hero-carousel-reveal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
