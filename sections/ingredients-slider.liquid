@@ -1,0 +1,396 @@
+{% comment %}
+  INGREDIENTS SLIDER — Expandable CTA tiles inspired by Kokako's B2B section.
+{% endcomment %}
+
+{{ 'ingredients-slider.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="ingredients-slider"
+  aria-label="{{ section.settings.heading | default: 'Golden Ingredients' }}"
+>
+  <div class="page-width">
+    {% if section.settings.heading != blank %}
+      <h2 class="ingredients-slider__heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    <div class="ingredients-slider__grid" data-expandable-grid>
+      {% for block in section.blocks %}
+        {% liquid
+          assign card_id = 'IngredientsTrigger-' | append: block.id
+          assign panel_id = 'IngredientsPanel-' | append: block.id
+          assign card_title = block.settings.title | default: 'Ingredient'
+          assign icon_alt = block.settings.icon.alt | default: card_title
+          assign image_alt = block.settings.image.alt | default: card_title
+        %}
+        <div
+          class="ingredients-slider__card"
+          style="--bg-color: {{ block.settings.bg_color }}; --text-color: {{ block.settings.text_color }};"
+          data-card
+          {{ block.shopify_attributes }}
+        >
+          <button
+            type="button"
+            class="ingredients-slider__trigger"
+            id="{{ card_id }}"
+            aria-controls="{{ panel_id }}"
+            aria-expanded="false"
+            data-trigger
+          >
+            {% if block.settings.icon %}
+              <span class="ingredients-slider__icon">
+                {{
+                  block.settings.icon
+                  | image_url: width: 160
+                  | image_tag:
+                    alt: icon_alt,
+                    loading: 'lazy'
+                }}
+              </span>
+            {% endif %}
+
+            <span class="ingredients-slider__header">
+              <span class="ingredients-slider__title">{{ card_title }}</span>
+              <svg
+                class="ingredients-slider__arrow"
+                viewBox="0 0 20 20"
+                role="presentation"
+                aria-hidden="true"
+              >
+                <path
+                  d="M5 8l5 5 5-5"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+          </button>
+
+          <div
+            id="{{ panel_id }}"
+            class="ingredients-slider__panel"
+            role="region"
+            aria-labelledby="{{ card_id }}"
+            hidden
+            data-panel
+          >
+            <div class="ingredients-slider__panel-inner">
+              {% if block.settings.description != blank %}
+                <p class="ingredients-slider__desc">{{ block.settings.description }}</p>
+              {% endif %}
+
+              {% if block.settings.image %}
+                <div class="ingredients-slider__image">
+                  {{
+                    block.settings.image
+                    | image_url: width: 1400
+                    | image_tag:
+                      widths: '480, 720, 960, 1200, 1400',
+                      sizes: '(min-width: 1200px) 420px, (min-width: 750px) 50vw, 90vw',
+                      alt: image_alt,
+                      loading: 'lazy'
+                  }}
+                </div>
+              {% endif %}
+
+              {% if block.settings.url %}
+                <a
+                  href="{{ block.settings.url }}"
+                  class="button button--primary ingredients-slider__link"
+                >
+                  {{ 'general.accessibility.learn_more' | t }}
+                </a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Ingredients Slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section heading",
+      "default": "The Ingredients That Make Us Golden"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Ingredient Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Ingredient"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Expanded image"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "CTA URL"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Background colour",
+          "default": "#FFFDF8"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text colour",
+          "default": "#1A1A1A"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 3,
+  "presets": [
+    {
+      "name": "Ingredients Slider",
+      "category": "Content",
+      "blocks": [
+        {
+          "type": "ingredient",
+          "settings": {
+            "title": "Honey"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "title": "Fruit"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "title": "Water"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% javascript %}
+  (() => {
+    const sectionId = 'shopify-section-{{ section.id }}';
+
+    class ExpandableIngredients {
+      constructor(root) {
+        this.root = root;
+        this.grid = root.querySelector('[data-expandable-grid]');
+        this.cardMap = new WeakMap();
+        this.prefersReducedMotion =
+          typeof window.matchMedia === 'function'
+            ? window.matchMedia('(prefers-reduced-motion: reduce)')
+            : { matches: false };
+        this.cards = [];
+
+        if (!this.grid) {
+          return;
+        }
+
+        this.cards = Array.from(this.grid.querySelectorAll('[data-card]'));
+        this.cards.forEach((card) => this.setupCard(card));
+      }
+
+      setupCard(card) {
+        const trigger = card.querySelector('[data-trigger]');
+        const panel = card.querySelector('[data-panel]');
+
+        if (!trigger || !panel) {
+          return;
+        }
+
+        const data = {
+          trigger,
+          panel,
+          handleClick: () => this.toggleCard(card),
+        };
+
+        trigger.type = 'button';
+        trigger.setAttribute('aria-expanded', 'false');
+        panel.hidden = true;
+        panel.style.maxHeight = '0px';
+
+        trigger.addEventListener('click', data.handleClick);
+        this.cardMap.set(card, data);
+      }
+
+      toggleCard(card) {
+        if (!this.cardMap.has(card)) {
+          return;
+        }
+
+        const isOpen = card.dataset.open === 'true';
+
+        if (isOpen) {
+          this.closeCard(card);
+          return;
+        }
+
+        this.cards.forEach((otherCard) => {
+          if (otherCard !== card) {
+            this.closeCard(otherCard);
+          }
+        });
+
+        this.openCard(card);
+      }
+
+      openCard(card) {
+        const data = this.cardMap.get(card);
+        if (!data) {
+          return;
+        }
+
+        const { trigger, panel } = data;
+
+        card.dataset.open = 'true';
+        trigger.setAttribute('aria-expanded', 'true');
+        panel.hidden = false;
+
+        if (this.prefersReducedMotion.matches) {
+          panel.style.maxHeight = 'none';
+          return;
+        }
+
+        panel.style.maxHeight = '0px';
+        panel.offsetHeight; // force reflow
+        panel.style.maxHeight = `${panel.scrollHeight}px`;
+
+        const handleTransitionEnd = (event) => {
+          if (event.propertyName !== 'max-height') {
+            return;
+          }
+
+          panel.style.maxHeight = 'none';
+          panel.removeEventListener('transitionend', handleTransitionEnd);
+        };
+
+        panel.addEventListener('transitionend', handleTransitionEnd);
+      }
+
+      closeCard(card) {
+        const data = this.cardMap.get(card);
+        if (!data) {
+          return;
+        }
+
+        const { trigger, panel } = data;
+
+        if (card.dataset.open !== 'true' && panel.hidden) {
+          return;
+        }
+
+        trigger.setAttribute('aria-expanded', 'false');
+        card.removeAttribute('data-open');
+
+        if (panel.hidden) {
+          panel.style.maxHeight = '0px';
+          return;
+        }
+
+        if (this.prefersReducedMotion.matches) {
+          panel.style.maxHeight = '0px';
+          panel.hidden = true;
+          return;
+        }
+
+        panel.style.maxHeight = `${panel.scrollHeight}px`;
+        requestAnimationFrame(() => {
+          panel.style.maxHeight = '0px';
+        });
+
+        const handleTransitionEnd = (event) => {
+          if (event.propertyName !== 'max-height') {
+            return;
+          }
+
+          panel.hidden = true;
+          panel.style.maxHeight = '0px';
+          panel.removeEventListener('transitionend', handleTransitionEnd);
+        };
+
+        panel.addEventListener('transitionend', handleTransitionEnd);
+      }
+
+      destroy() {
+        this.cards.forEach((card) => {
+          const data = this.cardMap.get(card);
+
+          if (!data) {
+            return;
+          }
+
+          data.trigger.removeEventListener('click', data.handleClick);
+          data.panel.style.maxHeight = '0px';
+          data.panel.hidden = true;
+          card.removeAttribute('data-open');
+          this.cardMap.delete(card);
+        });
+      }
+    }
+
+    const hydrate = (root) => {
+      const sectionRoot = root instanceof HTMLElement ? root : null;
+      if (!sectionRoot) {
+        return null;
+      }
+
+      return new ExpandableIngredients(sectionRoot);
+    };
+
+    let instance = hydrate(document.getElementById(sectionId));
+
+    document.addEventListener('shopify:section:load', (event) => {
+      if (event.target?.id !== sectionId) {
+        return;
+      }
+
+      if (instance) {
+        instance.destroy();
+      }
+
+      instance = hydrate(event.target);
+    });
+
+    document.addEventListener('shopify:section:unload', (event) => {
+      if (event.target?.id !== sectionId) {
+        return;
+      }
+
+      if (instance) {
+        instance.destroy();
+        instance = null;
+      }
+    });
+  })();
+{% endjavascript %}
