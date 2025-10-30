@@ -55,7 +55,7 @@
     "side_columns_background_color": "#fcfcfb",
     "side_columns_border_color": "#fcfcfb",
     "page_transition_enabled": true,
-    "transition_to_main_product": false,
+    "transition_to_main_product": true,
     "card_hover_effect": "none",
     "badge_position": "top-right",
     "badge_corner_radius": 100,
