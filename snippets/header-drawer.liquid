@@ -834,19 +834,9 @@
   }
 
   .menu-drawer__list-item--divider {
-    position: relative;
-    border-block-end: none;
-  }
-
-  .menu-drawer__list-item--divider::after {
-    content: '';
-    position: absolute;
-    left: calc(var(--menu-drawer-inline-padding, var(--drawer-padding)) * -1);
-    right: calc(var(--menu-drawer-inline-padding, var(--drawer-padding)) * -1);
-    bottom: 0;
-    height: 1px;
-    pointer-events: none;
-    background-color: var(--color-border);
+    border-block-end: 1px solid var(--color-border);
+    margin-inline: calc(var(--menu-drawer-inline-padding, var(--drawer-padding)) * -1);
+    padding-inline: var(--menu-drawer-inline-padding, var(--drawer-padding));
   }
 
   .menu-drawer__list-item--deep:not(.menu-drawer__list-item--divider) .menu-drawer__menu {
