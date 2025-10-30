@@ -1105,13 +1105,14 @@ p:not(.h1, .h2, .h3, .h4, .h5, .h6) a:where(:not(.button, .button-primary, .butt
   display: inline-block;
   text-decoration: none;
   overflow: visible;
+  padding-bottom: var(--footer-link-underline-offset, 0.24em);
 }
 
 #footer-group a:where(:not(.button, .button-primary, .button-secondary))::after {
   content: '';
   position: absolute;
   left: 0;
-  bottom: calc(-1 * var(--footer-link-underline-offset, 0.24em));
+  bottom: 0;
   width: 100%;
   height: var(--footer-link-underline-thickness, 0.08em);
   background-color: currentColor;
@@ -1126,6 +1127,9 @@ p:not(.h1, .h2, .h3, .h4, .h5, .h6) a:where(:not(.button, .button-primary, .butt
 
 #footer-group .social-icons__icon-wrapper a::after {
   content: none;
+}
+#footer-group .social-icons__icon-wrapper a {
+  padding-bottom: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {
