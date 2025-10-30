@@ -711,19 +711,20 @@
 
   .menu-drawer {
     position: fixed;
-    transform: translateX(-100%);
+    transform: translateX(100%);
     visibility: hidden;
     height: var(--drawer-height);
     width: var(--drawer-width);
     max-width: var(--drawer-max-width);
     z-index: var(--layer-menu-drawer);
-    left: 0;
+    right: 0;
+    left: auto;
     top: 0;
     padding: 0;
     background-color: var(--color-background);
     overflow: auto;
     display: flex;
-    border-right: var(--style-border-drawer);
+    border-left: var(--style-border-drawer);
     box-shadow: var(--shadow-drawer);
     flex-direction: column;
 
@@ -833,7 +834,19 @@
   }
 
   .menu-drawer__list-item--divider {
-    border-block-end: 1px solid var(--color-border);
+    position: relative;
+    border-block-end: none;
+  }
+
+  .menu-drawer__list-item--divider::after {
+    content: '';
+    position: absolute;
+    left: calc(var(--menu-drawer-inline-padding, var(--drawer-padding)) * -1);
+    right: calc(var(--menu-drawer-inline-padding, var(--drawer-padding)) * -1);
+    bottom: 0;
+    height: 1px;
+    pointer-events: none;
+    background-color: var(--color-border);
   }
 
   .menu-drawer__list-item--deep:not(.menu-drawer__list-item--divider) .menu-drawer__menu {
@@ -845,7 +858,19 @@
   }
 
   .menu-drawer__menu-container--divider {
-    border-block-end: 1px solid var(--color-border);
+    position: relative;
+    border-block-end: none;
+  }
+
+  .menu-drawer__menu-container--divider::after {
+    content: '';
+    position: absolute;
+    left: calc(var(--menu-drawer-inline-padding, var(--drawer-padding)) * -1);
+    right: calc(var(--menu-drawer-inline-padding, var(--drawer-padding)) * -1);
+    bottom: 0;
+    height: 1px;
+    pointer-events: none;
+    background-color: var(--color-border);
   }
 
   .menu-drawer__menu > .menu-drawer__list-item {
@@ -1029,6 +1054,7 @@
     height: fit-content;
     padding: var(--padding-lg);
     will-change: transform;
+    align-self: flex-end;
   }
 
   .menu-drawer__back-button {
@@ -1085,10 +1111,11 @@
     width: 100%;
     top: 0;
     height: 100dvh;
-    left: 0;
+    right: 0;
+    left: auto;
     background-color: var(--color-background);
     z-index: var(--layer-flat);
-    transform: translateX(-5%);
+    transform: translateX(5%);
     visibility: hidden;
     overflow-y: auto;
     opacity: 0;
@@ -1142,7 +1169,7 @@
     0% {
       visibility: hidden;
       opacity: 0;
-      transform: translateX(-0.5rem);
+      transform: translateX(0.5rem);
     }
 
     100% {
@@ -1162,7 +1189,7 @@
     100% {
       visibility: hidden;
       opacity: 0;
-      transform: translateX(-1rem);
+      transform: translateX(1rem);
     }
   }
 {% endstylesheet %}
