@@ -149,7 +149,9 @@
       {{ content_for_layout }}
     </main>
 
-    {% sections 'footer-group' %}
+    <div id="footer-group">
+      {% sections 'footer-group' %}
+    </div>
 
     {% render 'search-modal' %}
 
