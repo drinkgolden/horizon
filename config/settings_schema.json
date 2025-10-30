@@ -1456,32 +1456,16 @@
       },
       {
         "type": "color",
-        "id": "side_columns_left_color",
-        "label": "Left column background",
+        "id": "side_columns_background_color",
+        "label": "Column background",
         "default": "#00000000",
         "alpha": true,
         "visible_if": "{{ settings.side_columns_enable }}"
       },
       {
         "type": "color",
-        "id": "side_columns_right_color",
-        "label": "Right column background",
-        "default": "#00000000",
-        "alpha": true,
-        "visible_if": "{{ settings.side_columns_enable }}"
-      },
-      {
-        "type": "color",
-        "id": "side_columns_left_border_color",
-        "label": "Left column border",
-        "default": "#000000",
-        "alpha": true,
-        "visible_if": "{{ settings.side_columns_enable }}"
-      },
-      {
-        "type": "color",
-        "id": "side_columns_right_border_color",
-        "label": "Right column border",
+        "id": "side_columns_border_color",
+        "label": "Column border",
         "default": "#000000",
         "alpha": true,
         "visible_if": "{{ settings.side_columns_enable }}"

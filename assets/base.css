@@ -21,19 +21,18 @@ body.has-side-columns::after {
   width: var(--side-columns-width-desktop, 2vw);
   pointer-events: none;
   z-index: var(--layer-lowest);
-  background: var(--side-column-right-color, transparent);
+  background: var(--side-column-background-color, transparent);
   backdrop-filter: none;
 }
 
 body.has-side-columns::before {
   left: 0;
-  background: var(--side-column-left-color, transparent);
-  border-right: 1px solid var(--side-column-left-border-color, transparent);
+  border-right: 1px solid var(--side-column-border-color, transparent);
 }
 
 body.has-side-columns::after {
   right: 0;
-  border-left: 1px solid var(--side-column-right-border-color, transparent);
+  border-left: 1px solid var(--side-column-border-color, transparent);
 }
 
 body.has-side-columns {

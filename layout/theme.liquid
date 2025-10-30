@@ -100,10 +100,8 @@
     {% if settings.side_columns_enable %}
       --side-columns-width-desktop: {{ settings.side_columns_width_desktop | default: 2 | append: 'vw' }};
       --side-columns-width-mobile: {{ settings.side_columns_width_mobile | default: 3.5 | append: 'vw' }};
-      --side-column-left-color: {{ settings.side_columns_left_color | default: 'transparent' }};
-      --side-column-right-color: {{ settings.side_columns_right_color | default: 'transparent' }};
-      --side-column-left-border-color: {{ settings.side_columns_left_border_color | default: 'transparent' }};
-      --side-column-right-border-color: {{ settings.side_columns_right_border_color | default: 'transparent' }};
+      --side-column-background-color: {{ settings.side_columns_background_color | default: 'transparent' }};
+      --side-column-border-color: {{ settings.side_columns_border_color | default: 'transparent' }};
       --side-columns-overhang: 12px;
     {% endif %}
     {% if settings.show_global_section_borders %}
