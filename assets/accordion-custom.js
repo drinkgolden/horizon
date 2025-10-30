@@ -32,6 +32,8 @@ class AccordionCustom extends HTMLElement {
     return this.dataset.closeWithEscape === 'true';
   }
 
+  #hoverMediaQuery = window.matchMedia('(any-hover: hover)');
+  #hoverOpened = false;
   #controller = new AbortController();
 
   connectedCallback() {
@@ -42,6 +44,8 @@ class AccordionCustom extends HTMLElement {
     this.addEventListener('keydown', this.#handleKeyDown, { signal });
     this.summary.addEventListener('click', this.handleClick, { signal });
     mediaQueryLarge.addEventListener('change', this.#handleMediaQueryChange, { signal });
+    this.addEventListener('pointerenter', this.#handlePointerEnter, { signal });
+    this.addEventListener('pointerleave', this.#handlePointerLeave, { signal });
   }
 
   /**
@@ -99,6 +103,32 @@ class AccordionCustom extends HTMLElement {
       this.summary.focus();
     }
   }
+
+  #handlePointerEnter = (event) => {
+    const supportsHover =
+      this.#hoverMediaQuery.matches || event.pointerType === 'mouse' || event.pointerType === 'pen';
+    if (!supportsHover) return;
+
+    if (this.details.open) {
+      this.#hoverOpened = false;
+      return;
+    }
+
+    this.details.open = true;
+    this.#hoverOpened = true;
+  };
+
+  #handlePointerLeave = (event) => {
+    const supportsHover =
+      this.#hoverMediaQuery.matches || event.pointerType === 'mouse' || event.pointerType === 'pen';
+    if (!supportsHover) return;
+
+    if (this.#hoverOpened) {
+      this.details.open = false;
+    }
+
+    this.#hoverOpened = false;
+  };
 }
 
 if (!customElements.get('accordion-custom')) {
