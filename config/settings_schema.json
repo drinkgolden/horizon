@@ -1566,6 +1566,35 @@
     ]
   },
   {
+    "name": "Section gridlines",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "section_gridlines_enable",
+        "label": "Enable section gridlines",
+        "default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "Adds fine 1px dividers above and below each content section."
+      },
+      {
+        "type": "color",
+        "id": "section_gridline_color",
+        "label": "Gridline color",
+        "default": "#e5e5e5",
+        "alpha": true
+      },
+      {
+        "type": "color",
+        "id": "section_gridline_color_dark",
+        "label": "Gridline color on dark backgrounds",
+        "default": "rgba(255,255,255,0.12)",
+        "alpha": true
+      }
+    ]
+  },
+  {
     "name": "t:names.animations",
     "settings": [
       {
