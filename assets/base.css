@@ -23,6 +23,7 @@ body.has-side-columns::after {
   z-index: var(--layer-lowest);
   background: var(--side-column-background-color, transparent);
   backdrop-filter: none;
+  box-sizing: border-box;
 }
 
 body.has-side-columns::before {
