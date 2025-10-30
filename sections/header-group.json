@@ -19,10 +19,10 @@
           "static": true,
           "settings": {
             "hide_logo_on_home_page": true,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
+            "padding-block-start": 12,
+            "padding-block-end": 12,
+            "padding-inline-start": 12,
+            "padding-inline-end": 12
           },
           "blocks": {}
         },
@@ -110,10 +110,10 @@
         "padding-block-end": 12
       }
     },
-    "hero_splash_AbqJ9P": {
+    "hero_splash_XBwPkP": {
       "type": "hero-splash",
       "blocks": {
-        "group_YGXXME": {
+        "group_XGkjE3": {
           "type": "group",
           "name": "t:names.group",
           "settings": {
@@ -153,7 +153,7 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "group_edwDJ9": {
+            "group_qp9mEH": {
               "type": "group",
               "name": "t:names.group",
               "settings": {
@@ -193,7 +193,7 @@
                 "padding-inline-end": 0
               },
               "blocks": {
-                "text_F4Pgkx": {
+                "text_fKjBcq": {
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
@@ -219,7 +219,7 @@
                   },
                   "blocks": {}
                 },
-                "text_MXbbgq": {
+                "text_JGNYgH": {
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
@@ -247,11 +247,11 @@
                 }
               },
               "block_order": [
-                "text_F4Pgkx",
-                "text_MXbbgq"
+                "text_fKjBcq",
+                "text_JGNYgH"
               ]
             },
-            "text_F6znNi": {
+            "text_eDCwdc": {
               "type": "text",
               "name": "t:names.text",
               "settings": {
@@ -279,15 +279,14 @@
             }
           },
           "block_order": [
-            "group_edwDJ9",
-            "text_F6znNi"
+            "group_qp9mEH",
+            "text_eDCwdc"
           ]
         }
       },
       "block_order": [
-        "group_YGXXME"
+        "group_XGkjE3"
       ],
-      "disabled": true,
       "name": "Hero splash (above header)",
       "settings": {
         "render_above_header": true,
@@ -321,8 +320,8 @@
     }
   },
   "order": [
-    "hero_splash_AbqJ9P",
     "header_section",
-    "header_announcements_9jGBFp"
+    "header_announcements_9jGBFp",
+    "hero_splash_XBwPkP"
   ]
 }
