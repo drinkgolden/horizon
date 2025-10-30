@@ -43,36 +43,6 @@
     {{ content_for_header }}
 
     {{ 'font-override.css' | asset_url | stylesheet_tag }}
-    
-    {% if settings.show_global_section_borders %}
-      <style>
-        body.has-global-section-borders #MainContent > .shopify-section {
-          position: relative;
-        }
-
-        body.has-global-section-borders #MainContent > .shopify-section::before {
-          content: none;
-        }
-
-        body.has-global-section-borders #MainContent > .shopify-section.global-border-line::before {
-          content: '';
-          position: absolute;
-          left: calc((100% - 100vw) / 2);
-          width: 100vw;
-          top: calc(var(--global-section-border-width, 1px) * -0.5);
-          height: var(--global-section-border-width, 1px);
-          background: var(--global-section-border-color, currentColor);
-          pointer-events: none;
-          z-index: var(--layer-lowest, 0);
-        }
-
-        body.has-global-section-borders #MainContent > .shopify-section.global-border-first::before,
-        body.has-global-section-borders #MainContent > .shopify-section.global-border-last::before {
-          content: none;
-        }
-      </style>
-    {% endif %}
-
   </head>
 
   {% liquid
@@ -82,9 +52,6 @@
       if settings.side_columns_enable_mobile
         assign body_classes = body_classes | append: ' has-side-columns--mobile'
       endif
-    endif
-    if settings.show_global_section_borders
-      assign body_classes = body_classes | append: ' has-global-section-borders'
     endif
     if settings.enable_guided_scroll
       assign body_classes = body_classes | append: ' has-guided-scroll'
@@ -103,10 +70,6 @@
       --side-column-background-color: {{ settings.side_columns_background_color | default: 'transparent' }};
       --side-column-border-color: {{ settings.side_columns_border_color | default: 'transparent' }};
       --side-columns-overhang: 12px;
-    {% endif %}
-    {% if settings.show_global_section_borders %}
-      --global-section-border-color: {{ settings.global_section_border_colour | default: '#e0e0e0' }};
-      --global-section-border-width: {{ settings.global_section_border_thickness | default: 1 }}px;
     {% endif %}
     {% if settings.enable_guided_scroll %}
       --guided-scroll-gap: {{ settings.guided_scroll_section_gap | default: 48 }}px;
