@@ -6,7 +6,10 @@
 {% liquid
   assign slider_id = 'HeroCarousel-' | append: section.id
   assign slide_count = section.blocks.size
-  assign show_controls = slide_count > 1
+  assign show_controls = false
+  if slide_count > 1
+    assign show_controls = true
+  endif
 %}
 
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
