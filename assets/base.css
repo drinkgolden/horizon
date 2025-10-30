@@ -1103,7 +1103,7 @@ p:not(.h1, .h2, .h3, .h4, .h5, .h6) a:where(:not(.button, .button-primary, .butt
 #footer-group a:where(:not(.button, .button-primary, .button-secondary)) {
   background-image: linear-gradient(currentColor, currentColor);
   background-repeat: no-repeat;
-  background-position: 0 100%;
+  background-position: 0 calc(100% + var(--footer-link-underline-offset, 1.2em));
   background-size: 0% var(--footer-link-underline-thickness, 0.08em);
   text-decoration: none;
   transition: text-decoration-color var(--animation-speed) var(--animation-easing),
