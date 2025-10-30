@@ -242,7 +242,7 @@
                 "heading": "Are any purchases final sale?",
                 "open_by_default": false,
                 "icon": "none",
-                "width": 20
+                "width": 24
               },
               "blocks": {
                 "text_D4QJLK": {
@@ -259,12 +259,12 @@
                     "letter_spacing": "normal",
                     "case": "none",
                     "wrap": "pretty",
-                    "color": "var(--color-foreground)",
+                    "color": "var(--color-foreground-heading)",
                     "background": false,
                     "background_color": "#00000026",
                     "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
+                    "padding-block-start": 12,
+                    "padding-block-end": 12,
                     "padding-inline-start": 24,
                     "padding-inline-end": 24
                   },
@@ -282,7 +282,7 @@
                 "heading": "When will I get my order?",
                 "open_by_default": false,
                 "icon": "none",
-                "width": 20
+                "width": 24
               },
               "blocks": {
                 "text_ffLGUB": {
@@ -304,10 +304,10 @@
                     "background": false,
                     "background_color": "#00000026",
                     "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
+                    "padding-block-start": 12,
+                    "padding-block-end": 12,
+                    "padding-inline-start": 24,
+                    "padding-inline-end": 24
                   },
                   "blocks": {}
                 }
@@ -323,7 +323,7 @@
                 "heading": "Where are your products manufactured?",
                 "open_by_default": false,
                 "icon": "none",
-                "width": 20
+                "width": 24
               },
               "blocks": {
                 "text_TQcwrL": {
@@ -345,10 +345,10 @@
                     "background": false,
                     "background_color": "#00000026",
                     "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
+                    "padding-block-start": 12,
+                    "padding-block-end": 12,
+                    "padding-inline-start": 24,
+                    "padding-inline-end": 24
                   },
                   "blocks": {}
                 }
@@ -364,7 +364,7 @@
                 "heading": "How much does shipping cost?",
                 "open_by_default": false,
                 "icon": "none",
-                "width": 20
+                "width": 24
               },
               "blocks": {
                 "text_EaPwVw": {
@@ -386,10 +386,10 @@
                     "background": false,
                     "background_color": "#00000026",
                     "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
+                    "padding-block-start": 12,
+                    "padding-block-end": 12,
+                    "padding-inline-start": 24,
+                    "padding-inline-end": 24
                   },
                   "blocks": {}
                 }
