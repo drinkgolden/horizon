@@ -1100,6 +1100,33 @@ p:not(.h1, .h2, .h3, .h4, .h5, .h6) a:where(:not(.button, .button-primary, .butt
   }
 }
 
+#footer-group a:where(:not(.button, .button-primary, .button-secondary)) {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% var(--footer-link-underline-thickness, 0.08em);
+  text-decoration: none;
+  transition: text-decoration-color var(--animation-speed) var(--animation-easing),
+    color var(--animation-speed) var(--animation-easing),
+    background-size var(--animation-speed) var(--animation-easing);
+}
+
+#footer-group a:where(:not(.button, .button-primary, .button-secondary)):where(:hover, :focus-visible) {
+  background-size: 100% var(--footer-link-underline-thickness, 0.08em);
+}
+
+#footer-group .social-icons__icon-wrapper a {
+  background-image: none;
+  background-size: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #footer-group a:where(:not(.button, .button-primary, .button-secondary)) {
+    transition: text-decoration-color var(--animation-speed) var(--animation-easing),
+      color var(--animation-speed) var(--animation-easing);
+  }
+}
+
 .container-background-image {
   background-repeat: no-repeat;
   background-size: cover;
