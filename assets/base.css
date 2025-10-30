@@ -16,7 +16,7 @@ body.has-side-columns::before,
 body.has-side-columns::after {
   content: '';
   position: fixed;
-  top: calc(var(--header-group-height, 0px) + var(--side-columns-overhang, 12px));
+  top: max(0px, calc(var(--header-height, 0px) - var(--side-columns-overhang, 12px)));
   bottom: 0;
   width: var(--side-columns-width-desktop, 2vw);
   pointer-events: none;
@@ -36,6 +36,18 @@ body.has-side-columns::after {
   border-left: 1px solid var(--side-column-right-border-color, transparent);
 }
 
+body.has-side-columns {
+  --side-columns-inline-desktop: var(--side-columns-width-desktop, 2vw);
+  --side-columns-inline-mobile: var(--side-columns-width-mobile, var(--side-columns-inline-desktop));
+}
+
+body.has-side-columns #MainContent,
+body.has-side-columns #footer-group {
+  padding-left: var(--side-columns-inline-desktop);
+  padding-right: var(--side-columns-inline-desktop);
+  box-sizing: border-box;
+}
+
 @media screen and (max-width: 749px) {
   body.has-side-columns.has-side-columns--mobile::before,
   body.has-side-columns.has-side-columns--mobile::after {
@@ -45,6 +57,18 @@ body.has-side-columns::after {
   body.has-side-columns:not(.has-side-columns--mobile)::before,
   body.has-side-columns:not(.has-side-columns--mobile)::after {
     content: none;
+  }
+
+  body.has-side-columns #MainContent,
+  body.has-side-columns #footer-group {
+    padding-left: var(--side-columns-inline-mobile);
+    padding-right: var(--side-columns-inline-mobile);
+  }
+
+  body.has-side-columns:not(.has-side-columns--mobile) #MainContent,
+  body.has-side-columns:not(.has-side-columns--mobile) #footer-group {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
