@@ -35,6 +35,14 @@
   if section.index == blank
     assign eager_loading = true
   endif
+
+  assign drawer_logo_size = settings.logo_height_mobile
+  if drawer_logo_size == blank
+    assign drawer_logo_size = settings.logo_height
+  endif
+  if drawer_logo_size == blank
+    assign drawer_logo_size = 72
+  endif
 %}
 
 <script
@@ -73,6 +81,7 @@
         motion-reduce
         color-{{ block_settings.color_scheme }}
       "
+      style="--menu-drawer-logo-size: {{ drawer_logo_size }}px;"
     >
       <div class="menu-drawer__branding">
         <a
@@ -764,12 +773,10 @@
   }
 
   .menu-drawer__branding-link {
-    width: 100%;
-    height: 100%;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    padding: var(--padding-lg);
+    width: 100%;
     text-decoration: none;
   }
 
@@ -784,7 +791,9 @@
   .menu-drawer__branding-logo {
     display: block;
     width: auto;
-    max-height: clamp(48px, 14vh, 120px);
+    height: auto;
+    max-height: 100%;
+    object-fit: contain;
   }
 
   .menu-drawer__branding-text {
@@ -856,15 +865,48 @@
       min-height: 100dvh;
       height: 100dvh;
       flex-direction: row;
+      --menu-drawer-brand-padding-inline: var(--padding-md);
+      --menu-drawer-brand-padding-block: var(--padding-xl);
     }
 
     .header__drawer--mobile .menu-drawer__branding {
       display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
       align-items: center;
-      justify-content: center;
-      width: clamp(64px, 20vw, 96px);
+      gap: var(--padding-lg);
+      flex: 0 0 calc(var(--menu-drawer-logo-size, 80px) + 2 * var(--menu-drawer-brand-padding-inline));
+      width: calc(var(--menu-drawer-logo-size, 80px) + 2 * var(--menu-drawer-brand-padding-inline));
+      padding: var(--menu-drawer-brand-padding-block) var(--menu-drawer-brand-padding-inline);
+      min-height: 100dvh;
       background-color: rgb(var(--color-foreground) 0.08);
       border-right: var(--style-border-drawer);
+      box-sizing: border-box;
+      flex-shrink: 0;
+    }
+
+    .header__drawer--mobile .menu-drawer__branding-link {
+      align-items: flex-start;
+      justify-content: center;
+      margin-block: 0;
+    }
+
+    .header__drawer--mobile .menu-drawer__branding-rotate {
+      height: var(--menu-drawer-logo-size, 80px);
+    }
+
+    .header__drawer--mobile .menu-drawer__branding-logo {
+      height: 100%;
+      max-height: none;
+    }
+
+    .header__drawer--mobile .menu-drawer__branding-text {
+      height: var(--menu-drawer-logo-size, 80px);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding-inline: var(--padding-2xs);
+      white-space: nowrap;
     }
 
     .header__drawer--mobile .menu-drawer__body {
