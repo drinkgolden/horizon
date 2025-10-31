@@ -1194,17 +1194,6 @@
     },
     "hero_carousel_XQ7y3A": {
       "type": "hero-carousel",
-      "settings": {
-        "heading": "Just landed, K\u014dkako Half-Caf Mugs.",
-        "meta_text": "Fairtrade \u00b7 Organic",
-        "color_scheme": "scheme-1",
-        "image_position": "left",
-        "content_alignment": "right",
-        "padding-block-start": 0,
-        "padding-block-end": 0,
-        "padding-inline-start": 0,
-        "padding-inline-end": 0
-      },
       "blocks": {
         "slide_default_1": {
           "type": "slide",
@@ -1212,7 +1201,6 @@
             "label": "Shop now",
             "url": "",
             "open_in_new_tab": false,
-            "image": null,
             "image_alt": "Golden Hour hero product display"
           }
         },
@@ -1222,7 +1210,6 @@
             "label": "I'm just browsing",
             "url": "",
             "open_in_new_tab": false,
-            "image": null,
             "image_alt": "Horizon seasonal collection"
           }
         }
@@ -1230,21 +1217,27 @@
       "block_order": [
         "slide_default_1",
         "slide_default_2"
-      ]
+      ],
+      "settings": {
+        "heading": "Just landed, Kōkako Half-Caf Mugs.",
+        "meta_text": "Fairtrade · Organic",
+        "color_scheme": "scheme-1",
+        "image_position": "left",
+        "content_alignment": "right",
+        "padding-block-start": 0,
+        "padding-block-end": 0,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0
+      }
     },
     "ingredients_slider_zDjTmK": {
       "type": "ingredients-slider",
-      "settings": {
-        "heading": "What makes us Golden"
-      },
       "blocks": {
         "ingredient_honey": {
           "type": "ingredient",
           "settings": {
-            "title": "M\u0101nuka Honey",
+            "title": "Mānuka Honey",
             "description": "Raw, UMF-certified honey harvested in small batches for unrivaled potency.",
-            "icon": null,
-            "image": null,
             "url": "",
             "bg_color": "#FFFDF8",
             "text_color": "#1A1A1A"
@@ -1255,8 +1248,6 @@
           "settings": {
             "title": "Sun-Dried Citrus",
             "description": "Vibrant New Zealand citrus peels slow dried to lock in brightness and aroma.",
-            "icon": null,
-            "image": null,
             "url": "",
             "bg_color": "#FCEFEB",
             "text_color": "#1A1A1A"
@@ -1267,8 +1258,6 @@
           "settings": {
             "title": "Spring Water",
             "description": "Mineral-rich alpine water filtered through volcanic rock for exceptional clarity.",
-            "icon": null,
-            "image": null,
             "url": "",
             "bg_color": "#E9F5FF",
             "text_color": "#1A1A1A"
@@ -1279,7 +1268,10 @@
         "ingredient_honey",
         "ingredient_fruit",
         "ingredient_water"
-      ]
+      ],
+      "settings": {
+        "heading": "What makes us Golden"
+      }
     }
   },
   "order": [
