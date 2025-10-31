@@ -1195,22 +1195,13 @@
     "hero_carousel_XQ7y3A": {
       "type": "hero-carousel",
       "settings": {
-        "section_heading": "Golden moments to savor",
-        "section_subheading": "Immersive storytelling banners that highlight this season's signature releases.",
-        "primary_cta_label": "Shop the collection",
-        "primary_cta_url": "",
-        "secondary_cta_label": "",
-        "secondary_cta_url": "",
-        "layout_mode": "full_width",
-        "overlay_style": "dark",
-        "show_arrows": true,
-        "show_dots": true,
-        "autoplay": true,
-        "autoplay_interval": 5,
+        "heading": "Just landed, K\u014dkako Half-Caf Mugs.",
+        "meta_text": "Fairtrade \u00b7 Organic",
         "color_scheme": "scheme-1",
-        "section_width": "full-width",
-        "padding-block-start": 48,
-        "padding-block-end": 48,
+        "image_position": "left",
+        "content_alignment": "right",
+        "padding-block-start": 0,
+        "padding-block-end": 0,
         "padding-inline-start": 0,
         "padding-inline-end": 0
       },
@@ -1218,29 +1209,21 @@
         "slide_default_1": {
           "type": "slide",
           "settings": {
+            "label": "Shop now",
+            "url": "",
+            "open_in_new_tab": false,
             "image": null,
-            "mobile_image": null,
-            "alt_text": "Golden Hour hero product display",
-            "heading": "Transparency in every drop",
-            "subheading": "Sustainably sourced botanicals, meticulously blended to brighten your ritual.",
-            "primary_label": "Shop botanicals",
-            "primary_url": "",
-            "secondary_label": "",
-            "secondary_url": ""
+            "image_alt": "Golden Hour hero product display"
           }
         },
         "slide_default_2": {
           "type": "slide",
           "settings": {
+            "label": "I'm just browsing",
+            "url": "",
+            "open_in_new_tab": false,
             "image": null,
-            "mobile_image": null,
-            "alt_text": "Horizon seasonal collection",
-            "heading": "Crafted for golden hours",
-            "subheading": "Layered textures, soft gradients, and shimmering highs to match every mood.",
-            "primary_label": "Explore lookbook",
-            "primary_url": "",
-            "secondary_label": "",
-            "secondary_url": ""
+            "image_alt": "Horizon seasonal collection"
           }
         }
       },
