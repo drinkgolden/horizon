@@ -5,7 +5,10 @@
 
 {% liquid
   assign color_scheme = section.settings.color_scheme | default: 'scheme-1'
-  assign has_blocks = section.blocks.size > 0
+  assign has_blocks = false
+  if section.blocks.size > 0
+    assign has_blocks = true
+  endif
 %}
 
 <div class="section-background color-{{ color_scheme }}"></div>
