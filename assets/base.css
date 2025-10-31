@@ -4243,6 +4243,140 @@ slideshow-arrows .slideshow-control.slideshow-control--style-none {
   text-decoration: none;
 }
 
+.section-resource-list--featured-goods {
+  --featured-goods-padding-block-start: max(var(--padding-block-start, 0px), 48px);
+  --featured-goods-padding-block-end: max(var(--padding-block-end, 0px), 48px);
+  --featured-goods-padding-inline-start: max(var(--padding-inline-start, 0px), 32px);
+  --featured-goods-padding-inline-end: max(var(--padding-inline-end, 0px), 32px);
+
+  border-block: 1px solid rgb(var(--color-foreground-rgb) / 0.12);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  row-gap: max(var(--gap, 0px), 24px);
+  column-gap: 0;
+}
+
+.section-resource-list--featured-goods.spacing-style {
+  padding-block: calc(var(--featured-goods-padding-block-start) + var(--section-top-offset, 0px))
+    var(--featured-goods-padding-block-end);
+  padding-inline: var(--featured-goods-padding-inline-start) var(--featured-goods-padding-inline-end);
+}
+
+.section-resource-list--featured-goods .section-resource-list__header {
+  grid-column: 1;
+  align-self: stretch;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-inline-end: 1px solid rgb(var(--color-foreground-rgb) / 0.12);
+  margin-inline-end: -1px;
+  padding-block: clamp(24px, 6vw, 72px);
+  padding-inline: clamp(12px, 3vw, 28px);
+}
+
+.section-resource-list--featured-goods .featured-goods__label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  gap: clamp(1rem, 0.5rem + 1vw, 1.75rem);
+  font-size: clamp(0.9rem, 0.8rem + 0.3vw, 1.1rem);
+  letter-spacing: 0.08em;
+}
+
+.section-resource-list--featured-goods .featured-goods__label-text {
+  display: inline-block;
+  white-space: nowrap;
+  font-weight: var(--font-body-bold-weight, 600);
+  color: inherit;
+}
+
+.section-resource-list--featured-goods .resource-list,
+.section-resource-list--featured-goods .section-resource-list__content {
+  grid-column: 1;
+}
+
+.resource-list--featured-goods {
+  display: block;
+}
+
+.resource-list--featured-goods .featured-goods__grid {
+  display: grid;
+  row-gap: max(var(--featured-goods-row-gap, 0px), 24px);
+  column-gap: max(var(--featured-goods-column-gap, 0px), 32px);
+  grid-template-columns: repeat(var(--featured-goods-mobile-columns, 1), minmax(0, 1fr));
+  justify-items: center;
+}
+
+.resource-list--featured-goods .resource-list__item {
+  display: flex;
+  justify-content: center;
+}
+
+.resource-list--featured-goods .resource-list__item > * {
+  flex: 1 1 auto;
+}
+
+.section-resource-list--featured-goods .product-card {
+  max-width: min(22rem, 100%);
+  margin-inline: auto;
+}
+
+.section-resource-list--featured-goods .product-card__content {
+  --horizontal-alignment: center;
+  --vertical-alignment: flex-start;
+  --gap: clamp(16px, 3vw, 28px);
+  --border-width: 0px;
+
+  text-align: center;
+  background: transparent;
+  box-shadow: none;
+}
+
+@media screen and (min-width: 750px) {
+  .section-resource-list--featured-goods {
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: max(var(--featured-goods-rail-gap, 0px), clamp(32px, 6vw, 96px));
+  }
+
+  .section-resource-list--featured-goods .section-resource-list__header {
+    grid-row: 1 / span 2;
+  }
+
+  .section-resource-list--featured-goods .resource-list,
+  .section-resource-list--featured-goods .section-resource-list__content {
+    grid-column: 2;
+  }
+
+  .resource-list--featured-goods .featured-goods__grid {
+    grid-template-columns: repeat(var(--featured-goods-columns, 3), minmax(0, 1fr));
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .section-resource-list--featured-goods .section-resource-list__header {
+    border-inline-end: none;
+    border-block-end: 1px solid rgb(var(--color-foreground-rgb) / 0.12);
+    margin-inline-end: 0;
+    padding-block-end: clamp(16px, 4vw, 32px);
+  }
+
+  .section-resource-list--featured-goods .featured-goods__label {
+    writing-mode: horizontal-tb;
+    transform: none;
+    justify-content: flex-start;
+    gap: 0.75rem;
+    letter-spacing: 0.06em;
+  }
+
+  .section-resource-list--featured-goods .featured-goods__label-text {
+    white-space: normal;
+  }
+}
+
 .resource-list__carousel {
   --slide-width: 60vw;
 
