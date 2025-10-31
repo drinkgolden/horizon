@@ -191,7 +191,7 @@
         }
       ],
       "default": "2",
-      "visible_if": "{{ (section.settings.layout_type == 'grid' or section.settings.layout_type == 'featured_goods') and section.settings.carousel_on_mobile == false }}"
+      "visible_if": "{{ section.settings.layout_type == 'grid' and section.settings.carousel_on_mobile == false or section.settings.layout_type == 'featured_goods' and section.settings.carousel_on_mobile == false }}"
     },
     {
       "type": "select",
@@ -264,7 +264,7 @@
         }
       ],
       "default": "arrow",
-      "visible_if": "{{ section.settings.layout_type != 'featured_goods' and (section.settings.layout_type == 'carousel' or section.settings.carousel_on_mobile == true) }}"
+      "visible_if": "{{ section.settings.layout_type == 'carousel' or section.settings.carousel_on_mobile == true }}"
     },
     {
       "type": "select",
@@ -285,7 +285,7 @@
         }
       ],
       "default": "none",
-      "visible_if": "{{ section.settings.layout_type != 'featured_goods' and section.settings.icons_style != 'none' and (section.settings.layout_type == 'carousel' or section.settings.carousel_on_mobile == true) }}"
+      "visible_if": "{{ section.settings.icons_style != 'none' and section.settings.layout_type == 'carousel' or section.settings.carousel_on_mobile == true }}"
     },
     {
       "type": "header",
