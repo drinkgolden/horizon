@@ -74,27 +74,48 @@
         color-{{ block_settings.color_scheme }}
       "
     >
-      <button
-        class="button button-unstyled close-button menu-drawer__close-button"
-        type="button"
-        aria-label="{{ 'actions.close' | t }}"
-        on:click="/close"
-      >
-        <span class="svg-wrapper header-drawer-icon header-drawer-icon--close">
-          {{- 'icon-close.svg' | inline_asset_content -}}
-        </span>
-      </button>
-      <nav
-        class="menu-drawer__navigation"
-        style="
-          {%- render 'menu-font-styles', settings: block_settings, menu_type: 'drawer' %}
-          {%- render 'submenu-font-styles', settings: block_settings %}
-        "
-      >
-        <ul
-          class="menu-drawer__menu has-submenu"
-          role="list"
+      <div class="menu-drawer__branding">
+        <a
+          href="{{ routes.root_url }}"
+          class="menu-drawer__branding-link"
+          aria-label="{{ shop.name | escape }}"
         >
+          <span class="menu-drawer__branding-rotate">
+            {% if settings.logo %}
+              {% assign menu_drawer_logo_alt = settings.logo.alt | default: shop.name %}
+              {{-
+                settings.logo
+                | image_url: width: 600
+                | image_tag: class: 'menu-drawer__branding-logo', alt: menu_drawer_logo_alt
+              -}}
+            {% else %}
+              <span class="menu-drawer__branding-text">{{ shop.name }}</span>
+            {% endif %}
+          </span>
+        </a>
+      </div>
+      <div class="menu-drawer__body">
+        <button
+          class="button button-unstyled close-button menu-drawer__close-button"
+          type="button"
+          aria-label="{{ 'actions.close' | t }}"
+          on:click="/close"
+        >
+          <span class="svg-wrapper header-drawer-icon header-drawer-icon--close">
+            {{- 'icon-close.svg' | inline_asset_content -}}
+          </span>
+        </button>
+        <nav
+          class="menu-drawer__navigation"
+          style="
+            {%- render 'menu-font-styles', settings: block_settings, menu_type: 'drawer' %}
+            {%- render 'submenu-font-styles', settings: block_settings %}
+          "
+        >
+          <ul
+            class="menu-drawer__menu has-submenu"
+            role="list"
+          >
           {%- comment -%}
             Handle menus with fewer than 3 levels of links
           {%- endcomment -%}
@@ -637,6 +658,7 @@
         </div>
       {% endif %}
     </div>
+  </div>
     <div
       class="menu-drawer__backdrop"
       on:click="header-drawer/close"
@@ -737,6 +759,52 @@
     }
   }
 
+  .menu-drawer__branding {
+    display: none;
+  }
+
+  .menu-drawer__branding-link {
+    width: 100%;
+    height: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--padding-lg);
+    text-decoration: none;
+  }
+
+  .menu-drawer__branding-rotate {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-90deg);
+    transform-origin: center;
+  }
+
+  .menu-drawer__branding-logo {
+    display: block;
+    width: auto;
+    max-height: clamp(48px, 14vh, 120px);
+  }
+
+  .menu-drawer__branding-text {
+    font-family: var(--menu-top-level-font-family);
+    font-weight: var(--menu-top-level-font-weight);
+    font-size: var(--menu-top-level-font-size);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--menu-top-level-font-color);
+    white-space: nowrap;
+  }
+
+  .menu-drawer__body {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    overflow-y: auto;
+  }
+
   .menu-drawer:has(details[open]) {
     overflow: initial;
   }
@@ -776,6 +844,38 @@
   .menu-drawer__inner-container {
     position: relative;
     height: 100%;
+  }
+
+  @media screen and (max-width: 749px) {
+    .header__drawer--mobile .menu-drawer {
+      width: 100vw;
+      max-width: none;
+      left: 0;
+      right: 0;
+      border-left: none;
+      min-height: 100dvh;
+      height: 100dvh;
+      flex-direction: row;
+    }
+
+    .header__drawer--mobile .menu-drawer__branding {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: clamp(64px, 20vw, 96px);
+      background-color: rgb(var(--color-foreground) 0.08);
+      border-right: var(--style-border-drawer);
+    }
+
+    .header__drawer--mobile .menu-drawer__body {
+      flex: 1 1 auto;
+      min-height: 100dvh;
+      overflow-y: auto;
+    }
+
+    .header__drawer--mobile .menu-drawer__navigation {
+      flex: 1 1 auto;
+    }
   }
 
   .menu-drawer__navigation-container {
