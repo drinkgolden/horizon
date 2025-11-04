@@ -55,8 +55,9 @@
 .dynamic-carousel__spine {
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: stretch;
-  justify-content: center;
+  justify-content: flex-start;
   height: 100%;
   width: var(--dynamic-carousel-spine-width);
   min-width: var(--dynamic-carousel-spine-width);
@@ -66,19 +67,25 @@
   background: var(--panel-background, var(--color-background));
   color: var(--panel-color, var(--color-foreground));
   cursor: pointer;
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
   transition: background var(--duration-md) var(--ease-smooth), color var(--duration-md) var(--ease-smooth), box-shadow var(--duration-md) var(--ease-smooth);
 }
 .dynamic-carousel__spine:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 4px;
 }
+.dynamic-carousel__spine .dynamic-carousel__spine-track {
+  position: relative;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
 .dynamic-carousel__spine .dynamic-carousel__spine-text {
   font-family: var(--font-heading-family, inherit);
   position: sticky;
-  inset-block-start: clamp(24px, 8vh, 64px);
-  margin-block: clamp(16px, 5vh, 48px);
+  inset-block-start: clamp(16px, 6vh, 48px);
+  inset-block-end: clamp(16px, 6vh, 48px);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -88,10 +95,12 @@
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
   transform: rotate(180deg);
   padding: clamp(8px, 1.5vw, 16px);
   border-radius: var(--radius-xl);
-  transition: transform var(--duration-md) var(--ease-smooth);
+  transition: transform var(--duration-md) var(--ease-smooth), color var(--duration-md) var(--ease-smooth);
 }
 .dynamic-carousel__spine .dynamic-carousel__spine-text--paragraph {
   font-size: clamp(0.85rem, 1.25vw, 1.05rem);

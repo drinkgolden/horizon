@@ -103,9 +103,11 @@
                 tabindex="{% if is_active %}0{% else %}-1{% endif %}"
                 data-dynamic-carousel-handle
               >
-                {% assign spine_text_style = block.settings.spine_text_style | default: 'h3' %}
-                <span class="dynamic-carousel__spine-text dynamic-carousel__spine-text--{{ spine_text_style }}">
-                  {{- block.settings.spine_heading | default: block.settings.heading | default: 'Slide heading' -}}
+                <span class="dynamic-carousel__spine-track">
+                  {% assign spine_text_style = block.settings.spine_text_style | default: 'h3' %}
+                  <span class="dynamic-carousel__spine-text dynamic-carousel__spine-text--{{ spine_text_style }}">
+                    {{- block.settings.spine_heading | default: block.settings.heading | default: 'Slide heading' -}}
+                  </span>
                 </span>
               </button>
 
