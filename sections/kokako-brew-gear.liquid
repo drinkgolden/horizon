@@ -1,0 +1,98 @@
+{% comment %}
+Kokako Brew Gear Promo Section – "Want to update your equipment?" callout with link to Brew Gear.
+Displays a heading, a CTA link, and an image of brew equipment.
+{% endcomment %}
+<section id="kokako-brew-gear-{{ section.id }}" class="kokako-brew-gear section"
+         data-section-id="{{ section.id }}" data-section-type="kokako-brew-gear">
+  <div class="kokako-brew-gear__inner">
+    <div class="kokako-brew-gear__text">
+      <h3 class="kokako-brew-gear__heading">{{ section.settings.gear_heading }}</h3>
+      <a href="{{ section.settings.cta_link }}" class="kokako-brew-gear__cta">
+        {{ section.settings.cta_label }}
+      </a>
+    </div>
+    {% if section.settings.gear_image %}
+      <div class="kokako-brew-gear__media">
+        <img src="{{ section.settings.gear_image | image_url: width: 600 }}"
+             alt="{{ section.settings.gear_image.alt | default: 'Brew Gear Image' }}" class="kokako-brew-gear__img" loading="lazy"
+             width="{{ section.settings.gear_image.width }}" height="{{ section.settings.gear_image.height }}">
+      </div>
+    {% endif %}
+  </div>
+  {% schema %}
+  {
+    "name": "Brew Gear Promo (Kokako)",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "gear_heading",
+        "label": "Heading",
+        "default": "Want to update your equipment?"
+      },
+      {
+        "type": "url",
+        "id": "cta_link",
+        "label": "CTA Link",
+        "default": "/collections/brew-gear"
+      },
+      {
+        "type": "text",
+        "id": "cta_label",
+        "label": "CTA Link Label",
+        "default": "Shop our brew gear"
+      },
+      {
+        "type": "image_picker",
+        "id": "gear_image",
+        "label": "Image"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Kokako Brew Gear Promo",
+        "category": "Custom"
+      }
+    ]
+  }
+  {% endschema %}
+</section>
+
+<style>
+/* Brew Gear Promo Section Styles */
+.kokako-brew-gear__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 1rem;
+}
+.kokako-brew-gear__text {
+  flex: 1 1 50%;
+}
+.kokako-brew-gear__heading {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+.kokako-brew-gear__cta {
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 1rem;
+}
+.kokako-brew-gear__media {
+  flex: 1 1 50%;
+  text-align: center;
+}
+.kokako-brew-gear__img {
+  max-width: 100%;
+  height: auto;
+}
+@media (max-width: 767px) {
+  .kokako-brew-gear__inner {
+    flex-direction: column;
+    text-align: center;
+  }
+  .kokako-brew-gear__text {
+    margin-bottom: 1.5rem;
+  }
+}
+</style>

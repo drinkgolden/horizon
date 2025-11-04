@@ -1,0 +1,158 @@
+{% comment %}
+Kokako Wholesale Partner Section – "Hey there, partner / Kia ora, e hoa".
+Includes a brief intro and three CTA blocks for Workplace, Cafes & Restaurants, and Retailers.
+Also supports a decorative animated bird image.
+{% endcomment %}
+<section id="kokako-partner-{{ section.id }}" class="kokako-partner section"
+         data-section-id="{{ section.id }}" data-section-type="kokako-partner">
+  <div class="kokako-partner__inner">
+    {% if section.settings.partner_image %}
+      <img src="{{ section.settings.partner_image | image_url: width: 600 }}"
+           alt="{{ section.settings.partner_image.alt | default: 'Partner Bird Animation' }}" class="kokako-partner__anim" loading="lazy"
+           width="{{ section.settings.partner_image.width }}" height="{{ section.settings.partner_image.height }}">
+    {% endif %}
+    <h2 class="kokako-partner__heading">{{ section.settings.partner_heading_en }}</h2>
+    <h2 class="kokako-partner__heading kokako-partner__heading--maori">{{ section.settings.partner_heading_mi }}</h2>
+    <p class="kokako-partner__intro">{{ section.settings.partner_intro }}</p>
+    <div class="kokako-partner__links">
+      {% for block in section.blocks %}
+        {% if block.type == 'partner_link' %}
+          <a href="{{ block.settings.link }}" class="kokako-partner__link-card" {{ block.shopify_attributes }}>
+            <strong>{{ block.settings.title }}</strong><br>
+            <span>{{ block.settings.subtitle }}</span>
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  {% schema %}
+  {
+    "name": "Wholesale Partner Section (Kokako)",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "partner_image",
+        "label": "Decorative Image (Animation)"
+      },
+      {
+        "type": "text",
+        "id": "partner_heading_en",
+        "label": "Heading (English)",
+        "default": "Hey there, partner"
+      },
+      {
+        "type": "text",
+        "id": "partner_heading_mi",
+        "label": "Heading (Māori)",
+        "default": "Kia ora, e hoa"
+      },
+      {
+        "type": "text",
+        "id": "partner_intro",
+        "label": "Intro Text",
+        "default": "We like to think we’re more than just a coffee supplier"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "partner_link",
+        "name": "Partner Link",
+        "settings": [
+          {
+            "type": "url",
+            "id": "link",
+            "label": "Link URL",
+            "default": ""
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": ""
+          },
+          {
+            "type": "text",
+            "id": "subtitle",
+            "label": "Subtitle",
+            "default": ""
+          }
+        ]
+      }
+    ],
+    "max_blocks": 3,
+    "presets": [
+      {
+        "name": "Kokako Wholesale Partner",
+        "category": "Custom"
+      }
+    ]
+  }
+  {% endschema %}
+</section>
+
+<style>
+/* Wholesale Partner Section Styles */
+.kokako-partner {
+  position: relative;
+  text-align: center;
+  padding: 3rem 1rem;
+}
+.kokako-partner__anim {
+  position: absolute;
+  top: -20px;
+  right: 0;
+  width: 200px;
+  opacity: 0.7;
+  pointer-events: none;
+}
+.kokako-partner__heading {
+  font-size: 1.6rem;
+  margin: 0;
+}
+.kokako-partner__heading--maori {
+  font-style: italic;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+.kokako-partner__intro {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+.kokako-partner__links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+.kokako-partner__link-card {
+  display: block;
+  padding: 1rem 1.5rem;
+  border: 2px solid #000;
+  text-align: center;
+  text-decoration: none;
+  color: #000;
+  width: 220px;
+}
+.kokako-partner__link-card strong {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+.kokako-partner__link-card span {
+  font-size: 0.95rem;
+}
+@media (max-width: 767px) {
+  .kokako-partner__anim {
+    display: none;
+  }
+  .kokako-partner__links {
+    flex-direction: column;
+    align-items: center;
+  }
+  .kokako-partner__link-card {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+</style>

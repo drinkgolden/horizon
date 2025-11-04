@@ -8,7 +8,8 @@
         <div class="accordion-content">
           <div class="accordion-image">
             {% if block.settings.image != blank %}
-              <img src="{{ block.settings.image | img_url: '720x' }}" alt="{{ block.settings.title }}">
+              <img src="{{ block.settings.image | img_url: '720x' }}" alt="{{ block.settings.title }}" loading="lazy"
+                width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}">
             {% endif %}
           </div>
           <div class="accordion-text">

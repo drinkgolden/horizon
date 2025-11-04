@@ -1,0 +1,86 @@
+{% comment %}
+Kokako Sustainability Section – "We’re playing the long game / E purei ana mātou i te kēmu roa".
+Shows English and Māori headings, a description, and a link to sustainability reports.
+{% endcomment %}
+<section id="kokako-sustainability-{{ section.id }}" class="kokako-sustainability section"
+         data-section-id="{{ section.id }}" data-section-type="kokako-sustainability">
+  <div class="kokako-sustainability__inner">
+    <h2 class="kokako-sustainability__heading">{{ section.settings.main_heading }}</h2>
+    <h2 class="kokako-sustainability__heading kokako-sustainability__heading--maori">{{ section.settings.sub_heading }}</h2>
+    <p class="kokako-sustainability__description">{{ section.settings.description }}</p>
+    <a href="{{ section.settings.reports_link }}" class="kokako-sustainability__link">
+      {{ section.settings.reports_label }}
+    </a>
+  </div>
+  {% schema %}
+  {
+    "name": "Sustainability Highlight (Kokako)",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "main_heading",
+        "label": "Main Heading (English)",
+        "default": "We’re playing the long game"
+      },
+      {
+        "type": "text",
+        "id": "sub_heading",
+        "label": "Sub-heading (Māori)",
+        "default": "E purei ana mātou i te kēmu roa"
+      },
+      {
+        "type": "text",
+        "id": "description",
+        "label": "Description Text",
+        "default": "If you’d like to see what we’ve achieved so far and our plans for the future, check out our biennial sustainability reports."
+      },
+      {
+        "type": "url",
+        "id": "reports_link",
+        "label": "Reports Link URL",
+        "default": "/pages/sustainability-reports"
+      },
+      {
+        "type": "text",
+        "id": "reports_label",
+        "label": "Reports Link Label",
+        "default": "Download Our Reports"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Kokako Sustainability Highlight",
+        "category": "Custom"
+      }
+    ]
+  }
+  {% endschema %}
+</section>
+
+<style>
+/* Sustainability Section Styles */
+.kokako-sustainability {
+  background: #f9f9f9;
+  text-align: center;
+  padding: 3rem 1rem;
+}
+.kokako-sustainability__heading {
+  font-size: 1.6rem;
+  margin: 0;
+}
+.kokako-sustainability__heading--maori {
+  font-style: italic;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+.kokako-sustainability__description {
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+  font-size: 1rem;
+}
+.kokako-sustainability__link {
+  font-weight: bold;
+  text-decoration: underline;
+}
+</style>
