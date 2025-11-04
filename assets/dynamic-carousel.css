@@ -55,7 +55,7 @@
 .dynamic-carousel__spine {
   position: relative;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
   height: 100%;
   width: var(--dynamic-carousel-spine-width);
@@ -76,6 +76,9 @@
 }
 .dynamic-carousel__spine .dynamic-carousel__spine-text {
   font-family: var(--font-heading-family, inherit);
+  position: sticky;
+  inset-block-start: clamp(24px, 8vh, 64px);
+  margin-block: clamp(16px, 5vh, 48px);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -83,14 +86,17 @@
   text-align: center;
   font-size: clamp(0.78rem, 1vw, 0.95rem);
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   transform: rotate(180deg);
+  padding: clamp(8px, 1.5vw, 16px);
+  border-radius: var(--radius-xl);
+  transition: transform var(--duration-md) var(--ease-smooth);
 }
 .dynamic-carousel__spine .dynamic-carousel__spine-text--paragraph {
   font-size: clamp(0.85rem, 1.25vw, 1.05rem);
   font-weight: 500;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   text-transform: none;
 }
 .dynamic-carousel__spine .dynamic-carousel__spine-text--overline {
@@ -136,6 +142,9 @@
 }
 .dynamic-carousel__item.is-active .dynamic-carousel__spine {
   box-shadow: inset 0 0 0 1px var(--dynamic-carousel-divider-strong);
+}
+.dynamic-carousel__item.is-active .dynamic-carousel__spine .dynamic-carousel__spine-text {
+  transform: rotate(180deg) translateX(0);
 }
 .dynamic-carousel__panel {
   flex: 1 1 auto;
