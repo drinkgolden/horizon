@@ -1,0 +1,110 @@
+{% comment %}
+Kokako Newsletter Section – "Join our newsletter to stay up to date on features and releases".
+Provides an email signup form.
+{% endcomment %}
+{% assign newsletter_form_id = 'NewsletterForm-' | append: section.id %}
+<section id="kokako-newsletter-{{ section.id }}" class="kokako-newsletter section"
+         data-section-id="{{ section.id }}" data-section-type="kokako-newsletter">
+  <div class="kokako-newsletter__inner">
+    <h4 class="kokako-newsletter__title">{{ section.settings.newsletter_text }}</h4>
+    {% form 'customer', id: newsletter_form_id %}
+      {% if form.posted_successfully? %}
+        <p class="kokako-newsletter__success">{{ section.settings.success_message }}</p>
+      {% else %}
+        {{ form.errors | default_errors }}
+        <div class="kokako-newsletter__form-group">
+          <input type="email" name="contact[email]" id="NewsletterEmail-{{ section.id }}"
+                 placeholder="{{ section.settings.placeholder_text }}" required class="kokako-newsletter__input">
+          <button type="submit" class="kokako-newsletter__button">
+            {{ section.settings.button_label }}
+          </button>
+        </div>
+      {% endif %}
+    {% endform %}
+  </div>
+  {% schema %}
+  {
+    "name": "Newsletter Signup (Kokako)",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "newsletter_text",
+        "label": "Newsletter Prompt",
+        "default": "Join our newsletter to stay up to date on features and releases"
+      },
+      {
+        "type": "text",
+        "id": "placeholder_text",
+        "label": "Email Placeholder",
+        "default": "Enter your email address"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button Label",
+        "default": "Subscribe"
+      },
+      {
+        "type": "text",
+        "id": "success_message",
+        "label": "Success Message",
+        "default": "Thank you for subscribing!"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Kokako Newsletter",
+        "category": "Custom"
+      }
+    ]
+  }
+  {% endschema %}
+</section>
+
+<style>
+/* Newsletter Section Styles */
+.kokako-newsletter {
+  background: #f2f2f2;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+.kokako-newsletter__title {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+.kokako-newsletter__form-group {
+  display: inline-flex;
+  max-width: 500px;
+  width: 100%;
+}
+.kokako-newsletter__input {
+  flex: 1 1 auto;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-right: none;
+}
+.kokako-newsletter__button {
+  flex: 0 0 auto;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background: #000;
+  color: #fff;
+  border: 1px solid #000;
+  cursor: pointer;
+}
+.kokako-newsletter__success {
+  font-weight: bold;
+  color: #336600;
+}
+@media (max-width: 600px) {
+  .kokako-newsletter__form-group {
+    flex-direction: column;
+  }
+  .kokako-newsletter__input {
+    border-right: 1px solid #ccc;
+    margin-bottom: 0.5rem;
+  }
+}
+</style>

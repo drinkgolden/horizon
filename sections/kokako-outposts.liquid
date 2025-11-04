@@ -1,0 +1,154 @@
+{% comment %}
+Kokako Outposts Section – displays physical locations (Commercial Bay café, Roastery, etc.).
+Includes an intro text with "Find your nearest outpost" link, and a list of location blocks (name, details, images).
+{% endcomment %}
+<section id="kokako-outposts-{{ section.id }}" class="kokako-outposts section"
+         data-section-id="{{ section.id }}" data-section-type="kokako-outposts">
+  <div class="kokako-outposts__inner">
+    <div class="kokako-outposts__intro">{{ section.settings.intro_text }}</div>
+    <p><a href="{{ section.settings.outposts_link }}" class="kokako-outposts__find-link">
+      {{ section.settings.outposts_label }}
+    </a></p>
+    <div class="kokako-outposts__locations-list">
+      {% for block in section.blocks %}
+        {% if block.type == 'location' %}
+        <div class="kokako-location-card" {{ block.shopify_attributes }}>
+          <h3 class="kokako-location-card__name">{{ block.settings.location_name }}</h3>
+          <div class="kokako-location-card__details">
+            {{ block.settings.location_details }}
+          </div>
+          <div class="kokako-location-card__images">
+            {% if block.settings.image_1 %}
+              <img src="{{ block.settings.image_1 | image_url: width: 400 }}"
+                   alt="{{ block.settings.location_name | append: ' image 1' }}" loading="lazy"
+                   width="{{ block.settings.image_1.width }}" height="{{ block.settings.image_1.height }}">
+            {% endif %}
+            {% if block.settings.image_2 %}
+              <img src="{{ block.settings.image_2 | image_url: width: 400 }}"
+                   alt="{{ block.settings.location_name | append: ' image 2' }}" loading="lazy"
+                   width="{{ block.settings.image_2.width }}" height="{{ block.settings.image_2.height }}">
+            {% endif %}
+          </div>
+        </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  {% schema %}
+  {
+    "name": "Outposts (Locations) (Kokako)",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "intro_text",
+        "label": "Intro Text",
+        "default": "<p>We proudly supply some of the best cafés, restaurants and retailers around.</p>"
+      },
+      {
+        "type": "url",
+        "id": "outposts_link",
+        "label": "View All Outposts Link",
+        "default": "/pages/outposts"
+      },
+      {
+        "type": "text",
+        "id": "outposts_label",
+        "label": "Link Label",
+        "default": "Find your nearest outpost"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "location",
+        "name": "Location",
+        "settings": [
+          {
+            "type": "text",
+            "id": "location_name",
+            "label": "Location Name",
+            "default": ""
+          },
+          {
+            "type": "richtext",
+            "id": "location_details",
+            "label": "Address & Hours Details",
+            "default": ""
+          },
+          {
+            "type": "image_picker",
+            "id": "image_1",
+            "label": "Image 1"
+          },
+          {
+            "type": "image_picker",
+            "id": "image_2",
+            "label": "Image 2 (optional)"
+          }
+        ]
+      }
+    ],
+    "max_blocks": 10,
+    "presets": [
+      {
+        "name": "Kokako Outposts",
+        "category": "Custom"
+      }
+    ]
+  }
+  {% endschema %}
+</section>
+
+<style>
+/* Outposts Section Styles */
+.kokako-outposts__intro {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+.kokako-outposts__find-link {
+  font-weight: bold;
+  text-decoration: underline;
+}
+.kokako-outposts__locations-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.kokako-location-card {
+  flex: 1 1 45%;
+  max-width: 45%;
+}
+.kokako-location-card__name {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+.kokako-location-card__details {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+.kokako-location-card__details p {
+  margin: 0;
+}
+.kokako-location-card__images img {
+  width: 48%;
+  margin-right: 4%;
+  margin-bottom: 1rem;
+}
+.kokako-location-card__images img:last-child {
+  margin-right: 0;
+}
+@media (max-width: 767px) {
+  .kokako-outposts__locations-list {
+    flex-direction: column;
+  }
+  .kokako-location-card {
+    max-width: 100%;
+  }
+  .kokako-location-card__images img {
+    width: 100%;
+    margin: 0 0 1rem;
+  }
+}
+</style>

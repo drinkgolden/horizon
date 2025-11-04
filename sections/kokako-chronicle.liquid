@@ -1,0 +1,111 @@
+{% comment %}
+Kokako Chronicle Blog Section – shows the blog section with heading and a couple of featured article links.
+{% endcomment %}
+<section id="kokako-chronicle-{{ section.id }}" class="kokako-chronicle section"
+         data-section-id="{{ section.id }}" data-section-type="kokako-chronicle">
+  <div class="kokako-chronicle__inner">
+    <div class="kokako-chronicle__header">
+      <h2 class="kokako-chronicle__heading">{{ section.settings.blog_heading }}</h2>
+      {% assign chronicle_blog = section.settings.blog_link %}
+      {% if chronicle_blog %}
+        <a href="{{ chronicle_blog.url }}" class="kokako-chronicle__view-all">
+          {{ section.settings.blog_link_text }}
+        </a>
+      {% else %}
+        <span class="kokako-chronicle__view-all">{{ section.settings.blog_link_text }}</span>
+      {% endif %}
+    </div>
+    <ul class="kokako-chronicle__articles">
+      {% for block in section.blocks %}
+        {% if block.type == 'article' and block.settings.article %}
+          {% assign art = block.settings.article %}
+          <li class="kokako-chronicle__article" {{ block.shopify_attributes }}>
+            <a href="{{ art.url }}">{{ 'blogs.article.read_more_title' | t: title: art.title }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+  {% schema %}
+  {
+    "name": "Chronicle Blog Section (Kokako)",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "blog_heading",
+        "label": "Section Heading",
+        "default": "The Kōkako Chronicle"
+      },
+      {
+        "type": "blog",
+        "id": "blog_link",
+        "label": "Blog (for View All link)"
+      },
+      {
+        "type": "text",
+        "id": "blog_link_text",
+        "label": "View All Link Text",
+        "default": "Explore our chronicle"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "article",
+        "name": "Featured Article",
+        "settings": [
+          {
+            "type": "article",
+            "id": "article",
+            "label": "Article"
+          }
+        ]
+      }
+    ],
+    "max_blocks": 4,
+    "presets": [
+      {
+        "name": "Kokako Chronicle",
+        "category": "Custom"
+      }
+    ]
+  }
+  {% endschema %}
+</section>
+
+<style>
+/* Chronicle Blog Section Styles */
+.kokako-chronicle__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+.kokako-chronicle__heading {
+  font-size: 1.5rem;
+  margin: 0;
+}
+.kokako-chronicle__view-all {
+  font-size: 1rem;
+  text-decoration: underline;
+  margin-top: 0.5rem;
+  display: inline-block;
+}
+.kokako-chronicle__articles {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.kokako-chronicle__article {
+  margin: 0.5rem 0;
+}
+.kokako-chronicle__article a {
+  text-decoration: none;
+  border-bottom: 1px solid #000;
+  padding-bottom: 2px;
+}
+.kokako-chronicle__article a:hover {
+  border-bottom-color: transparent;
+}
+</style>
