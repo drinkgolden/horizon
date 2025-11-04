@@ -34,3 +34,6 @@ This release focuses on accessibility improvements across the theme, adds infini
 - [Accessibility] Added h1 tags to page templates for SEO and accessibility
 - [Accessibility] Enhanced dialog accessibility with ARIA labeling
 - [Performance] Improved performance when opening / closing dialogs
+
+## Dev Deployment
+- Added `scripts/push-vertical-accordion.sh` helper to push the "Vertical Accordion" section to a specified Shopify environment via the CLI.
