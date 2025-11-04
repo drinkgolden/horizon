@@ -33,7 +33,7 @@
   style="{% if height_style != blank %}--dynamic-carousel-min-height: {{ height_style }};{% endif %}"
 >
   <div class="page-width dynamic-carousel__container">
-    {% if section.blocks.size > 0 %}
+    {% if section.blocks.size >= 2 %}
       <div
         class="dynamic-carousel__stage"
         data-dynamic-carousel-stage
@@ -185,6 +185,10 @@
             </article>
           {% endfor %}
         </div>
+      </div>
+    {% elsif section.blocks.size == 1 %}
+      <div class="dynamic-carousel__empty">
+        Add at least two slides to display the carousel.
       </div>
     {% else %}
       <div class="dynamic-carousel__empty">
@@ -474,7 +478,6 @@
     }
   ],
   "max_blocks": 6,
-  "min_blocks": 2,
   "presets": [
     {
       "name": "Dynamic Carousel",
