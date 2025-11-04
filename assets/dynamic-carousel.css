@@ -1,0 +1,393 @@
+.dynamic-carousel {
+  --dynamic-carousel-spine-width: clamp(60px, 6.5vw, 96px);
+  --dynamic-carousel-min-height: clamp(460px, 62svh, 720px);
+  --dynamic-carousel-divider-color: var(--border-style-line-color, rgb(17 50 85 / 0.16));
+  --dynamic-carousel-stage-background: color-mix(in srgb, currentColor 5%, transparent);
+  --dynamic-carousel-panel-background: var(--color-surface, #ffffff);
+  padding-block: var(--space-2xl);
+  color: var(--color-foreground, #0f2746);
+  background: var(--color-background, #f6f8fb);
+}
+.dynamic-carousel__container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+.dynamic-carousel__heading {
+  margin: 0;
+  font-size: clamp(1.75rem, 3.6vw, 2.75rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+.dynamic-carousel__intro {
+  max-width: min(720px, 100%);
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  line-height: 1.6;
+  color: color-mix(in srgb, currentColor 72%, transparent);
+}
+.dynamic-carousel__intro p:last-child {
+  margin-bottom: 0;
+}
+.dynamic-carousel__stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  align-items: stretch;
+  min-height: var(--dynamic-carousel-min-height);
+  border-radius: var(--radius-2xl);
+  border: 1px solid var(--dynamic-carousel-divider-color);
+  background: var(--dynamic-carousel-stage-background);
+  overflow: hidden;
+}
+.dynamic-carousel__rail {
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+  background: inherit;
+  grid-column: 1;
+}
+.dynamic-carousel__spine {
+  position: relative;
+  display: flex;
+  align-items: var(--spine-align, center);
+  justify-content: var(--spine-justify, center);
+  width: var(--dynamic-carousel-spine-width);
+  height: 100%;
+  padding-block: var(--spine-padding-block, var(--space-lg));
+  padding-inline: var(--spine-padding-inline, var(--space-sm));
+  border: none;
+  border-inline-end: 1px solid var(--dynamic-carousel-divider-color);
+  background: var(--spine-background, transparent);
+  color: var(--spine-color, currentColor);
+  cursor: pointer;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transition: background var(--duration-md) var(--ease-smooth), color var(--duration-md) var(--ease-smooth);
+}
+.dynamic-carousel__spine:last-child {
+  border-inline-end: none;
+}
+.dynamic-carousel__spine:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+.dynamic-carousel__spine.is-active,
+.dynamic-carousel__spine[aria-selected='true'] {
+  background: color-mix(in srgb, currentColor 8%, transparent);
+  box-shadow: inset 0 0 0 1px var(--spine-active-border, color-mix(in srgb, currentColor 10%, transparent));
+}
+.dynamic-carousel__spine-text {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  text-align: center;
+  font-size: clamp(0.78rem, 1vw, 0.95rem);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.dynamic-carousel__spine-text--paragraph {
+  font-size: clamp(0.85rem, 1.25vw, 1.05rem);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+.dynamic-carousel__spine-text--overline {
+  font-size: clamp(0.7rem, 0.9vw, 0.85rem);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.dynamic-carousel__spine-text--h1 {
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: -0.01em;
+}
+.dynamic-carousel__spine-text--h2 {
+  font-size: clamp(1.05rem, 1.8vw, 1.45rem);
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: -0.005em;
+}
+.dynamic-carousel__spine-text--h3 {
+  font-size: clamp(0.95rem, 1.5vw, 1.2rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+.dynamic-carousel__spine-text--h4 {
+  font-size: clamp(0.9rem, 1.3vw, 1.1rem);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.dynamic-carousel__spine-text--h5 {
+  font-size: clamp(0.85rem, 1.15vw, 1.05rem);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.dynamic-carousel__spine-text--h6 {
+  font-size: clamp(0.8rem, 1vw, 1rem);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.dynamic-carousel__panels {
+  position: relative;
+  isolation: isolate;
+  min-width: 0;
+  grid-column: 2;
+}
+.dynamic-carousel__panel {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: stretch;
+  padding: clamp(24px, 4vw, 56px);
+  background: var(--panel-background, var(--dynamic-carousel-panel-background));
+  color: var(--panel-color, currentColor);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--duration-md) var(--ease-smooth), visibility 0s var(--duration-md);
+}
+.dynamic-carousel__panel[hidden] {
+  display: block;
+  pointer-events: none;
+}
+.dynamic-carousel__panel.is-active {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+}
+.dynamic-carousel__panel-inner {
+  display: grid;
+  width: 100%;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(28px, 5vw, 56px);
+  align-items: stretch;
+}
+.dynamic-carousel__panel-inner--with-media {
+  grid-template-columns: minmax(0, 0.58fr) minmax(280px, 1fr);
+}
+.dynamic-carousel__media {
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  background: color-mix(in srgb, currentColor 10%, transparent);
+}
+.dynamic-carousel__media .dynamic-carousel__media-embed,
+.dynamic-carousel__media iframe,
+.dynamic-carousel__media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: none;
+  display: block;
+}
+.dynamic-carousel__media-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.dynamic-carousel__content {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 2.6vw, 24px);
+}
+.dynamic-carousel__content-header {
+  display: flex;
+  gap: clamp(12px, 2vw, 20px);
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.dynamic-carousel__titles {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.dynamic-carousel__eyebrow {
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, currentColor 58%, transparent);
+}
+.dynamic-carousel__title {
+  margin: 0;
+  font-size: clamp(1.65rem, 3vw, 2.4rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+.dynamic-carousel__summary {
+  margin: 0;
+  font-size: clamp(1rem, 1.4vw, 1.125rem);
+  color: color-mix(in srgb, currentColor 72%, transparent);
+}
+.dynamic-carousel__icon {
+  flex: none;
+  width: clamp(56px, 8vw, 76px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: color-mix(in srgb, currentColor 8%, transparent);
+}
+.dynamic-carousel__icon img {
+  width: 60%;
+  height: auto;
+}
+.dynamic-carousel__body,
+.dynamic-carousel__details {
+  font-size: clamp(1rem, 1.4vw, 1.1rem);
+  line-height: 1.6;
+  color: color-mix(in srgb, currentColor 82%, transparent);
+}
+.dynamic-carousel__body p:last-child,
+.dynamic-carousel__details p:last-child {
+  margin-bottom: 0;
+}
+.dynamic-carousel__details {
+  display: grid;
+  gap: 4px;
+}
+.dynamic-carousel__actions {
+  margin-top: auto;
+}
+.dynamic-carousel__button {
+  min-width: 0;
+}
+.dynamic-carousel__footer {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  justify-content: space-between;
+  padding: var(--space-lg) var(--space-xl);
+  border-radius: var(--radius-2xl);
+  border: 1px solid var(--dynamic-carousel-divider-color);
+  background: color-mix(in srgb, currentColor 4%, transparent);
+}
+.dynamic-carousel__footer-text {
+  font-size: clamp(1.125rem, 2.4vw, 1.5rem);
+  line-height: 1.5;
+  color: color-mix(in srgb, currentColor 72%, transparent);
+}
+.dynamic-carousel__footer-text p:last-child {
+  margin-bottom: 0;
+}
+.dynamic-carousel__footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-weight: 600;
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+}
+.dynamic-carousel__footer-link:after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  inset-block-start: 100%;
+  height: 2px;
+  margin-top: 2px;
+  background: currentColor;
+  mask: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.85) 16%, rgba(0, 0, 0, 0.85) 84%, transparent);
+  opacity: 0.4;
+  transition: opacity var(--duration-md) var(--ease-smooth);
+}
+.dynamic-carousel__footer-link:hover::after,
+.dynamic-carousel__footer-link:focus-visible::after {
+  opacity: 1;
+}
+.dynamic-carousel__empty {
+  padding: var(--space-xl);
+  text-align: center;
+  font-size: 1rem;
+  color: color-mix(in srgb, currentColor 65%, transparent);
+}
+@media (max-width: 1024px) {
+  .dynamic-carousel {
+    --dynamic-carousel-spine-width: clamp(52px, 7.5vw, 80px);
+    --dynamic-carousel-min-height: clamp(420px, 58svh, 620px);
+  }
+  .dynamic-carousel__panel {
+    padding: clamp(20px, 5vw, 40px);
+  }
+  .dynamic-carousel__panel-inner--with-media {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .dynamic-carousel__media {
+    max-height: 380px;
+  }
+}
+@media (max-width: 749px) {
+  .dynamic-carousel {
+    --dynamic-carousel-min-height: auto;
+  }
+  .dynamic-carousel__stage {
+    grid-template-columns: minmax(0, 1fr);
+    grid-auto-rows: auto;
+  }
+  .dynamic-carousel__rail {
+    order: -1;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    border-block-end: 1px solid var(--dynamic-carousel-divider-color);
+    background: transparent;
+  }
+  .dynamic-carousel__spine {
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+    transform: none;
+    width: auto;
+    min-width: 150px;
+    padding-inline: var(--space-lg);
+    scroll-snap-align: start;
+    border-inline-end: none;
+    border-inline-start: 1px solid var(--dynamic-carousel-divider-color);
+  }
+  .dynamic-carousel__spine:first-child {
+    border-inline-start: none;
+  }
+  .dynamic-carousel__panels {
+    position: static;
+  }
+  .dynamic-carousel__panel {
+    position: relative;
+    opacity: 1;
+    visibility: visible;
+    transition: none;
+    display: none;
+  }
+  .dynamic-carousel__panel[hidden] {
+    display: none;
+  }
+  .dynamic-carousel__panel.is-active {
+    display: flex;
+  }
+  .dynamic-carousel__panel-inner {
+    gap: var(--space-lg);
+  }
+  .dynamic-carousel__media {
+    max-height: 300px;
+  }
+  .dynamic-carousel__footer {
+    flex-direction: column;
+    text-align: center;
+  }
+  .dynamic-carousel__footer-link::after {
+    mask: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dynamic-carousel__spine {
+    transition: none;
+  }
+  .dynamic-carousel__panel {
+    transition: none;
+  }
+}

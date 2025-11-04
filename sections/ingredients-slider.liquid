@@ -1,18 +1,28 @@
 {% comment %}
-  DYNAMIC CAROUSEL — Vertically stacked spines that expand into a rich media panel.
+  DYNAMIC CAROUSEL — Vertical spines that expand into a rich media panel.
 {% endcomment %}
 
 {{ 'dynamic-carousel.css' | asset_url | stylesheet_tag }}
 
 {% liquid
   assign aria_label = section.settings.heading | default: 'Dynamic carousel'
-  assign height_setting = section.settings.section_height
-  assign height_style = ''
 
-  if height_setting == 'custom'
+  assign height_style = ''
+  if section.settings.section_height == 'custom'
     assign height_style = section.settings.section_height_custom | append: 'svh'
-  elsif height_setting != blank
-    assign height_style = 'var(--section-height-' | append: height_setting | append: ')'
+  elsif section.settings.section_height != blank
+    assign height_style = 'var(--section-height-' | append: section.settings.section_height | append: ')'
+  endif
+
+  assign stage_styles = ''
+  if section.settings.stage_background_color != blank
+    assign stage_styles = stage_styles | append: '--dynamic-carousel-stage-background:' | append: section.settings.stage_background_color | append: ';'
+  endif
+  if section.settings.divider_color != blank
+    assign stage_styles = stage_styles | append: '--dynamic-carousel-divider-color:' | append: section.settings.divider_color | append: ';'
+  endif
+  if section.settings.panel_background_color != blank
+    assign stage_styles = stage_styles | append: '--dynamic-carousel-panel-background:' | append: section.settings.panel_background_color | append: ';'
   endif
 
   assign has_footer = false
@@ -26,7 +36,7 @@
   aria-label="{{ aria_label | escape }}"
   style="{% if height_style != blank %}--dynamic-carousel-min-height: {{ height_style }};{% endif %}"
 >
-  <div class="page-width dynamic-carousel__inner">
+  <div class="page-width dynamic-carousel__container">
     {% if section.settings.heading != blank %}
       <h2 class="dynamic-carousel__heading">{{ section.settings.heading }}</h2>
     {% endif %}
@@ -36,178 +46,180 @@
     {% endif %}
 
     {% if section.blocks.size > 0 %}
-      <div class="dynamic-carousel__stage" data-dynamic-carousel-stage>
+      <div
+        class="dynamic-carousel__stage"
+        data-dynamic-carousel-stage{% if stage_styles != blank %} style="{{ stage_styles | strip }}"{% endif %}
+      >
         <div
-          class="dynamic-carousel__slides"
+          class="dynamic-carousel__rail"
           role="tablist"
-          aria-orientation="horizontal"
           aria-label="{{ aria_label | escape }}"
-          data-dynamic-carousel
+          aria-orientation="horizontal"
+          data-dynamic-carousel-rail
         >
           {% for block in section.blocks %}
             {% liquid
-              assign tab_id = 'DynamicCarouselTab-' | append: block.id
+              assign handle_id = 'DynamicCarouselTab-' | append: block.id
               assign panel_id = 'DynamicCarouselPanel-' | append: block.id
               assign is_active = forloop.first
 
-              capture slide_style
-                if block.settings.spine_text_color != blank
-                  echo '--spine-color:' | append: block.settings.spine_text_color | append: ';'
-                endif
-
+              capture handle_styles
                 if block.settings.spine_background_color != blank
                   echo '--spine-background:' | append: block.settings.spine_background_color | append: ';'
                 endif
-
-                if block.settings.slide_background_color != blank
-                  echo '--slide-background:' | append: block.settings.slide_background_color | append: ';'
+                if block.settings.spine_text_color != blank
+                  echo '--spine-color:' | append: block.settings.spine_text_color | append: ';'
+                endif
+                if block.settings.spine_active_border_color != blank
+                  echo '--spine-active-border:' | append: block.settings.spine_active_border_color | append: ';'
+                endif
+                if block.settings.spine_padding_block != blank
+                  echo '--spine-padding-block:' | append: block.settings.spine_padding_block | append: 'px;'
+                endif
+                if block.settings.spine_padding_inline != blank
+                  echo '--spine-padding-inline:' | append: block.settings.spine_padding_inline | append: 'px;'
+                endif
+                if block.settings.spine_alignment == 'start'
+                  echo '--spine-justify:flex-start;--spine-align:flex-start;'
+                elsif block.settings.spine_alignment == 'end'
+                  echo '--spine-justify:flex-end;--spine-align:flex-end;'
+                else
+                  echo '--spine-justify:center;--spine-align:center;'
                 endif
               endcapture
+
+              assign spine_text_style = block.settings.spine_text_style | default: 'h3'
+              assign spine_text_class = 'dynamic-carousel__spine-text dynamic-carousel__spine-text--' | append: spine_text_style
             %}
 
-            <article
-              class="dynamic-carousel__slide"
-              data-slide
-              data-active="{% if is_active %}true{% else %}false{% endif %}"
-              style="{{ slide_style | strip }}"
+            <button
+              type="button"
+              id="{{ handle_id }}"
+              class="dynamic-carousel__spine{% if is_active %} is-active{% endif %}"
+              role="tab"
+              aria-controls="{{ panel_id }}"
+              aria-selected="{% if is_active %}true{% else %}false{% endif %}"
+              aria-expanded="{% if is_active %}true{% else %}false{% endif %}"
+              tabindex="{% if is_active %}0{% else %}-1{% endif %}"
+              data-dynamic-carousel-handle
+              data-block-id="{{ block.id }}"{% if handle_styles != blank %} style="{{ handle_styles | strip }}"{% endif %}
               {{ block.shopify_attributes }}
             >
-              <button
-                type="button"
-                id="{{ tab_id }}"
-                class="dynamic-carousel__handle"
-                role="tab"
-                aria-controls="{{ panel_id }}"
-                aria-selected="{% if is_active %}true{% else %}false{% endif %}"
-                aria-expanded="{% if is_active %}true{% else %}false{% endif %}"
-                tabindex="{% if is_active %}0{% else %}-1{% endif %}"
-                data-handle
-              >
-                <span class="dynamic-carousel__handle-text">
-                  {{- block.settings.spine_heading | default: block.settings.heading | default: 'Slide heading' -}}
-                </span>
-              </button>
+              <span class="{{ spine_text_class }}">
+                {{- block.settings.spine_heading | default: block.settings.heading | default: 'Slide heading' -}}
+              </span>
+            </button>
+          {% endfor %}
+        </div>
 
-              {% capture media_markup %}
-                {% case block.settings.media_type %}
-                  {% when 'uploaded_video' %}
-                    {% if block.settings.video %}
-                      {% render 'video',
-                        video: block.settings.video,
-                        video_autoplay: block.settings.video_autoplay,
-                        video_loop: block.settings.video_loop,
-                        video_class: 'dynamic-carousel__media-embed',
-                        section_id: section.id,
-                        block: block
-                      %}
-                    {% endif %}
-                  {% when 'external_video' %}
-                    {% if block.settings.video_url %}
-                      {% liquid
-                        assign external_video = block.settings.video_url | video_url
-                        assign preview_image = block.settings.video_poster
-                      %}
-                      {% render 'video',
-                        video_from_url: true,
-                        video: external_video.id,
-                        video_type: external_video.type,
-                        video_autoplay: block.settings.video_autoplay,
-                        video_loop: block.settings.video_loop,
-                        video_preview_image: preview_image,
-                        video_alt: block.settings.heading | default: block.settings.spine_heading,
-                        video_class: 'dynamic-carousel__media-embed',
-                        section_id: section.id,
-                        block: block
-                      %}
-                    {% endif %}
-                  {% when 'image' %}
-                    {% if block.settings.image %}
-                      {{
-                        block.settings.image
-                        | image_url: width: 1600
-                        | image_tag:
-                          widths: '480, 720, 960, 1200, 1600',
-                          sizes: '(min-width: 1200px) 40vw, (min-width: 750px) 60vw, 92vw',
-                          loading: 'lazy',
-                          class: 'dynamic-carousel__media-image',
-                          alt: block.settings.heading | default: block.settings.spine_heading
-                      }}
-                    {% endif %}
-                {% endcase %}
-              {% endcapture %}
+        <div class="dynamic-carousel__panels" data-dynamic-carousel-panels>
+          {% for block in section.blocks %}
+            {% liquid
+              assign handle_id = 'DynamicCarouselTab-' | append: block.id
+              assign panel_id = 'DynamicCarouselPanel-' | append: block.id
+              assign is_active = forloop.first
+              assign panel_styles = ''
 
-              {% assign media_markup = media_markup | strip %}
+              if block.settings.panel_background_color != blank
+                assign panel_styles = panel_styles | append: '--panel-background:' | append: block.settings.panel_background_color | append: ';'
+              endif
+              if block.settings.panel_text_color != blank
+                assign panel_styles = panel_styles | append: '--panel-color:' | append: block.settings.panel_text_color | append: ';'
+              endif
 
-              <div
-                id="{{ panel_id }}"
-                class="dynamic-carousel__panel"
-                role="tabpanel"
-                aria-labelledby="{{ tab_id }}"
-                aria-hidden="{% unless is_active %}true{% else %}false{% endunless %}"
-                data-panel
-                {% unless is_active %}hidden{% endunless %}
-              >
-                <div class="dynamic-carousel__panel-inner{% if media_markup != blank %} dynamic-carousel__panel-inner--with-media{% endif %}">
-                  {% if media_markup != blank %}
-                    <div class="dynamic-carousel__media" data-dynamic-carousel-media>
-                      {{ media_markup }}
-                    </div>
-                  {% endif %}
+              capture media_markup
+                case block.settings.media_type
+                  when 'image'
+                    if block.settings.image
+                      echo block.settings.image | image_url: width: 1800 | image_tag: widths: '480, 720, 960, 1200, 1600, 1800', sizes: '(min-width: 1200px) 40vw, (min-width: 750px) 60vw, 100vw', loading: 'lazy', class: 'dynamic-carousel__media-image', alt: block.settings.heading | default: block.settings.spine_heading
+                    endif
+                  when 'uploaded_video'
+                    if block.settings.video
+                      render 'video', video: block.settings.video, video_autoplay: block.settings.video_autoplay, video_loop: block.settings.video_loop, video_class: 'dynamic-carousel__media-embed', section_id: section.id, block: block
+                    endif
+                  when 'external_video'
+                    if block.settings.video_url != blank
+                      assign external_video = block.settings.video_url | video_url
+                      render 'video', video_from_url: true, video: external_video.id, video_type: external_video.type, video_autoplay: block.settings.video_autoplay, video_loop: block.settings.video_loop, video_class: 'dynamic-carousel__media-embed', video_preview_image: block.settings.video_poster, video_alt: block.settings.heading | default: block.settings.spine_heading, section_id: section.id, block: block
+                    endif
+                endcase
+              endcapture
+              assign media_markup = media_markup | strip
+            %}
 
-                  <div class="dynamic-carousel__content">
-                    <div class="dynamic-carousel__content-header">
-                      <div class="dynamic-carousel__heading-group">
-                        {% if block.settings.eyebrow != blank %}
-                          <p class="dynamic-carousel__eyebrow">{{ block.settings.eyebrow }}</p>
-                        {% endif %}
+            <section
+              id="{{ panel_id }}"
+              class="dynamic-carousel__panel{% if media_markup != blank %} dynamic-carousel__panel--with-media{% endif %}{% if is_active %} is-active{% endif %}"
+              role="tabpanel"
+              aria-labelledby="{{ handle_id }}"
+              aria-hidden="{% unless is_active %}true{% else %}false{% endunless %}"
+              data-dynamic-carousel-panel
+              data-block-id="{{ block.id }}"{% if panel_styles != blank %} style="{{ panel_styles | strip }}"{% endif %}{% unless is_active %} hidden{% endunless %}
+            >
+              <div class="dynamic-carousel__panel-inner{% if media_markup != blank %} dynamic-carousel__panel-inner--with-media{% endif %}">
+                {% if media_markup != blank %}
+                  <div class="dynamic-carousel__media">
+                    {{ media_markup }}
+                  </div>
+                {% endif %}
 
-                        {% if block.settings.heading != blank %}
-                          <h3 class="dynamic-carousel__title">{{ block.settings.heading }}</h3>
-                        {% endif %}
+                <div class="dynamic-carousel__content">
+                  <div class="dynamic-carousel__content-header">
+                    <div class="dynamic-carousel__titles">
+                      {% if block.settings.eyebrow != blank %}
+                        <p class="dynamic-carousel__eyebrow">{{ block.settings.eyebrow }}</p>
+                      {% endif %}
 
-                        {% if block.settings.summary != blank %}
-                          <p class="dynamic-carousel__summary">
-                            {{- block.settings.summary | escape | newline_to_br -}}
-                          </p>
-                        {% endif %}
-                      </div>
+                      {% if block.settings.heading != blank %}
+                        <h3 class="dynamic-carousel__title">{{ block.settings.heading }}</h3>
+                      {% endif %}
 
-                      {% if block.settings.icon %}
-                        <div class="dynamic-carousel__icon">
-                          {{
-                            block.settings.icon
-                            | image_url: width: 120
-                            | image_tag:
-                              loading: 'lazy',
-                              widths: '80, 120, 160',
-                              alt: block.settings.icon_alt | default: ''
-                          }}
-                        </div>
+                      {% if block.settings.summary != blank %}
+                        <p class="dynamic-carousel__summary">
+                          {{- block.settings.summary | escape | newline_to_br -}}
+                        </p>
                       {% endif %}
                     </div>
 
-                    {% if block.settings.body != blank %}
-                      <div class="dynamic-carousel__body-text">{{ block.settings.body }}</div>
-                    {% endif %}
-
-                    {% if block.settings.details != blank %}
-                      <div class="dynamic-carousel__details">{{ block.settings.details }}</div>
-                    {% endif %}
-
-                    {% if block.settings.cta_label != blank and block.settings.cta_url != blank %}
-                      <div class="dynamic-carousel__actions">
-                        <a
-                          href="{{ block.settings.cta_url }}"
-                          class="button button--primary dynamic-carousel__button"
-                        >
-                          {{ block.settings.cta_label }}
-                        </a>
+                    {% if block.settings.icon %}
+                      <div class="dynamic-carousel__icon">
+                        {{
+                          block.settings.icon
+                          | image_url: width: 140
+                          | image_tag:
+                            widths: '80, 120, 160',
+                            loading: 'lazy',
+                            alt: block.settings.icon_alt | default: ''
+                        }}
                       </div>
                     {% endif %}
                   </div>
+
+                  {% if block.settings.body != blank %}
+                    <div class="dynamic-carousel__body">
+                      {{ block.settings.body }}
+                    </div>
+                  {% endif %}
+
+                  {% if block.settings.details != blank %}
+                    <div class="dynamic-carousel__details">
+                      {{ block.settings.details }}
+                    </div>
+                  {% endif %}
+
+                  {% if block.settings.cta_label != blank and block.settings.cta_url != blank %}
+                    <div class="dynamic-carousel__actions">
+                      <a
+                        href="{{ block.settings.cta_url }}"
+                        class="button button--primary dynamic-carousel__button"
+                      >
+                        {{ block.settings.cta_label }}
+                      </a>
+                    </div>
+                  {% endif %}
                 </div>
               </div>
-            </article>
+            </section>
           {% endfor %}
         </div>
       </div>
@@ -226,7 +238,7 @@
         {% if section.settings.footer_link_label != blank and section.settings.footer_link_url != blank %}
           <a class="dynamic-carousel__footer-link" href="{{ section.settings.footer_link_url }}">
             {{ section.settings.footer_link_label }}
-            <span class="dynamic-carousel__footer-icon" aria-hidden="true">&rarr;</span>
+            <span class="dynamic-carousel__footer-icon" aria-hidden="true">→</span>
           </a>
         {% endif %}
       </div>
@@ -252,12 +264,11 @@
     {
       "type": "select",
       "id": "section_height",
-      "label": "Carousel height",
-      "info": "Controls the minimum height of the expanded panel.",
+      "label": "Section height",
       "options": [
         {
           "value": "",
-          "label": "Natural"
+          "label": "Natural height"
         },
         {
           "value": "small",
@@ -286,12 +297,28 @@
       "type": "range",
       "id": "section_height_custom",
       "label": "Custom height",
-      "min": 30,
+      "min": 40,
       "max": 100,
       "step": 1,
       "unit": "svh",
       "default": 60,
       "visible_if": "{{ section.settings.section_height == 'custom' }}"
+    },
+    {
+      "type": "color",
+      "id": "stage_background_color",
+      "label": "Stage background colour"
+    },
+    {
+      "type": "color",
+      "id": "divider_color",
+      "label": "Divider colour",
+      "info": "Defaults to the global border colour."
+    },
+    {
+      "type": "color",
+      "id": "panel_background_color",
+      "label": "Default panel background"
     },
     {
       "type": "header",
@@ -300,14 +327,12 @@
     {
       "type": "richtext",
       "id": "footer_text",
-      "label": "Footer text",
-      "default": "<p>We proudly supply some of the best cafés, restaurants and retailers around.</p>"
+      "label": "Footer text"
     },
     {
       "type": "text",
       "id": "footer_link_label",
-      "label": "Footer link label",
-      "default": "Find your nearest outpost"
+      "label": "Footer link label"
     },
     {
       "type": "url",
@@ -327,34 +352,112 @@
           "default": "Commercial Bay"
         },
         {
+          "type": "select",
+          "id": "spine_text_style",
+          "label": "Spine text style",
+          "options": [
+            {
+              "value": "paragraph",
+              "label": "Paragraph"
+            },
+            {
+              "value": "h1",
+              "label": "Heading 1"
+            },
+            {
+              "value": "h2",
+              "label": "Heading 2"
+            },
+            {
+              "value": "h3",
+              "label": "Heading 3"
+            },
+            {
+              "value": "h4",
+              "label": "Heading 4"
+            },
+            {
+              "value": "h5",
+              "label": "Heading 5"
+            },
+            {
+              "value": "h6",
+              "label": "Heading 6"
+            },
+            {
+              "value": "overline",
+              "label": "Overline"
+            }
+          ],
+          "default": "h3"
+        },
+        {
+          "type": "select",
+          "id": "spine_alignment",
+          "label": "Spine text alignment",
+          "info": "Controls how the text sits within the spine.",
+          "options": [
+            {
+              "value": "start",
+              "label": "Top / Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "end",
+              "label": "Bottom / Right"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "range",
+          "id": "spine_padding_block",
+          "label": "Spine padding (vertical)",
+          "min": 8,
+          "max": 72,
+          "step": 2,
+          "unit": "px",
+          "default": 32
+        },
+        {
+          "type": "range",
+          "id": "spine_padding_inline",
+          "label": "Spine padding (horizontal)",
+          "min": 4,
+          "max": 40,
+          "step": 2,
+          "unit": "px",
+          "default": 16
+        },
+        {
           "type": "text",
           "id": "eyebrow",
-          "label": "Eyebrow label",
-          "info": "Optional label shown above the main heading when expanded."
+          "label": "Eyebrow label"
         },
         {
           "type": "text",
           "id": "heading",
-          "label": "Expanded heading",
+          "label": "Panel heading",
           "default": "9 Charles Street, Mount Eden, Auckland"
         },
         {
           "type": "textarea",
           "id": "summary",
-          "label": "Summary",
-          "info": "Short supporting copy shown beneath the heading."
+          "label": "Summary"
         },
         {
           "type": "richtext",
           "id": "body",
-          "label": "Body content",
-          "default": "<p>Share what makes this location special, who it serves, or what visitors can expect.</p>"
+          "label": "Body content"
         },
         {
           "type": "richtext",
           "id": "details",
           "label": "Details",
-          "info": "Use paragraphs or lists for opening hours, contact info, and additional calls to action."
+          "info": "Use for hours, addresses, or additional CTAs."
         },
         {
           "type": "select",
@@ -395,7 +498,7 @@
         {
           "type": "video_url",
           "id": "video_url",
-          "label": "Video URL",
+          "label": "External video URL",
           "accept": [
             "youtube",
             "vimeo"
@@ -406,7 +509,6 @@
           "type": "image_picker",
           "id": "video_poster",
           "label": "Poster image",
-          "info": "Shown before the video loads.",
           "visible_if": "{{ block.settings.media_type == 'external_video' }}"
         },
         {
@@ -426,7 +528,7 @@
         {
           "type": "image_picker",
           "id": "icon",
-          "label": "Icon"
+          "label": "Panel icon"
         },
         {
           "type": "text",
@@ -435,29 +537,38 @@
         },
         {
           "type": "color",
-          "id": "spine_text_color",
-          "label": "Spine text colour"
-        },
-        {
-          "type": "color",
           "id": "spine_background_color",
           "label": "Spine background colour"
         },
         {
           "type": "color",
-          "id": "slide_background_color",
-          "label": "Slide background colour"
+          "id": "spine_text_color",
+          "label": "Spine text colour"
+        },
+        {
+          "type": "color",
+          "id": "spine_active_border_color",
+          "label": "Active spine outline colour"
+        },
+        {
+          "type": "color",
+          "id": "panel_background_color",
+          "label": "Panel background colour"
+        },
+        {
+          "type": "color",
+          "id": "panel_text_color",
+          "label": "Panel text colour"
         },
         {
           "type": "text",
           "id": "cta_label",
-          "label": "Primary button label",
-          "default": "Plan your visit"
+          "label": "Button label"
         },
         {
           "type": "url",
           "id": "cta_url",
-          "label": "Primary button link"
+          "label": "Button link"
         }
       ]
     }
@@ -497,57 +608,31 @@
     const sectionId = 'shopify-section-{{ section.id }}';
 
     class DynamicCarousel {
-      constructor(root) {
-        this.root = root;
-        this.slides = Array.from(root.querySelectorAll('[data-slide]'));
-        this.slideData = [];
-        this.activeSlide = null;
+      constructor(stage) {
+        this.stage = stage;
+        this.handles = Array.from(stage.querySelectorAll('[data-dynamic-carousel-handle]'));
+        this.panels = Array.from(stage.querySelectorAll('[data-dynamic-carousel-panel]'));
+        this.activeIndex = this.handles.findIndex((handle) => handle.getAttribute('aria-selected') === 'true');
 
-        if (this.slides.length === 0) {
+        if (this.handles.length === 0 || this.panels.length === 0) {
           return;
         }
 
-        this.slides.forEach((slide) => this.setupSlide(slide));
-
-        const initialSlide =
-          this.slides.find((slide) => slide.dataset.active === 'true') || this.slides[0];
-
-        if (initialSlide) {
-          this.setActive(initialSlide, false);
+        if (this.activeIndex < 0) {
+          this.activeIndex = 0;
+          this.updateState(0, false);
+        } else {
+          this.updateState(this.activeIndex, false);
         }
 
-        this.root.dataset.initialized = 'true';
+        this.handles.forEach((handle, index) => {
+          handle.addEventListener('click', () => this.updateState(index, false));
+          handle.addEventListener('keydown', (event) => this.onKeydown(event, index));
+        });
       }
 
-      setupSlide(slide) {
-        const handle = slide.querySelector('[data-handle]');
-        const panel = slide.querySelector('[data-panel]');
-
-        if (!handle || !panel) {
-          return;
-        }
-
-        const data = {
-          slide,
-          handle,
-          panel,
-          onClick: (event) => {
-            event.preventDefault();
-            this.setActive(slide, false);
-          },
-          onKeydown: (event) => {
-            this.handleKeydown(event, slide);
-          },
-        };
-
-        handle.addEventListener('click', data.onClick);
-        handle.addEventListener('keydown', data.onKeydown);
-
-        this.slideData.push(data);
-      }
-
-      handleKeydown(event, slide) {
-        const keys = ['ArrowRight', 'ArrowLeft', 'Home', 'End'];
+      onKeydown(event, index) {
+        const keys = ['ArrowLeft', 'ArrowRight', 'Home', 'End'];
 
         if (!keys.includes(event.key)) {
           return;
@@ -555,105 +640,66 @@
 
         event.preventDefault();
 
-        const index = this.slides.indexOf(slide);
-
-        if (index === -1) {
-          return;
-        }
-
-        let targetIndex = index;
+        let nextIndex = index;
 
         switch (event.key) {
-          case 'ArrowRight':
-            targetIndex = (index + 1) % this.slides.length;
-            break;
           case 'ArrowLeft':
-            targetIndex = (index - 1 + this.slides.length) % this.slides.length;
+            nextIndex = (index - 1 + this.handles.length) % this.handles.length;
+            break;
+          case 'ArrowRight':
+            nextIndex = (index + 1) % this.handles.length;
             break;
           case 'Home':
-            targetIndex = 0;
+            nextIndex = 0;
             break;
           case 'End':
-            targetIndex = this.slides.length - 1;
+            nextIndex = this.handles.length - 1;
             break;
         }
 
-        const targetSlide = this.slides[targetIndex];
-
-        if (targetSlide) {
-          this.setActive(targetSlide, true);
-        }
+        this.updateState(nextIndex, true);
       }
 
-      setActive(targetSlide, focusHandle) {
-        if (!targetSlide || targetSlide === this.activeSlide) {
-          if (focusHandle && targetSlide) {
-            const handle = targetSlide.querySelector('[data-handle]');
-
-            if (handle) {
-              handle.focus();
-            }
+      updateState(targetIndex, focusHandle) {
+        if (targetIndex === this.activeIndex) {
+          if (focusHandle) {
+            this.handles[targetIndex]?.focus();
           }
-
           return;
         }
 
-        this.slideData.forEach((entry, index) => {
-          const isActive = entry.slide === targetSlide;
+        this.handles.forEach((handle, index) => {
+          const isActive = index === targetIndex;
+          handle.setAttribute('aria-selected', isActive ? 'true' : 'false');
+          handle.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+          handle.setAttribute('tabindex', isActive ? '0' : '-1');
+          handle.classList.toggle('is-active', isActive);
 
-          entry.slide.dataset.active = isActive ? 'true' : 'false';
-          entry.slide.classList.toggle('is-active', isActive);
-
-          entry.handle.setAttribute('aria-selected', isActive ? 'true' : 'false');
-          entry.handle.setAttribute('aria-expanded', isActive ? 'true' : 'false');
-          entry.handle.setAttribute('tabindex', isActive ? '0' : '-1');
-
-          if (isActive) {
-            entry.panel.removeAttribute('hidden');
-            entry.panel.setAttribute('aria-hidden', 'false');
-            entry.panel.dataset.entered = 'true';
-
-            if (focusHandle) {
-              entry.handle.focus();
-            }
-          } else {
-            entry.panel.setAttribute('aria-hidden', 'true');
-            entry.panel.setAttribute('hidden', '');
-            entry.panel.removeAttribute('data-entered');
+          if (isActive && focusHandle) {
+            handle.focus();
           }
         });
 
-        this.activeSlide = targetSlide;
+        this.panels.forEach((panel, index) => {
+          const isActive = index === targetIndex;
+
+          panel.classList.toggle('is-active', isActive);
+          panel.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+
+          if (isActive) {
+            panel.removeAttribute('hidden');
+          } else {
+            panel.setAttribute('hidden', '');
+          }
+        });
+
+        this.activeIndex = targetIndex;
       }
 
       destroy() {
-        this.slideData.forEach((entry, index) => {
-          entry.handle.removeEventListener('click', entry.onClick);
-          entry.handle.removeEventListener('keydown', entry.onKeydown);
-
-          const isFirst = index === 0;
-
-          entry.slide.dataset.active = isFirst ? 'true' : 'false';
-          entry.slide.classList.toggle('is-active', isFirst);
-
-          entry.handle.setAttribute('aria-selected', isFirst ? 'true' : 'false');
-          entry.handle.setAttribute('aria-expanded', isFirst ? 'true' : 'false');
-          entry.handle.setAttribute('tabindex', isFirst ? '0' : '-1');
-
-          if (isFirst) {
-            entry.panel.removeAttribute('hidden');
-            entry.panel.setAttribute('aria-hidden', 'false');
-            entry.panel.dataset.entered = 'true';
-          } else {
-            entry.panel.setAttribute('hidden', '');
-            entry.panel.setAttribute('aria-hidden', 'true');
-            entry.panel.removeAttribute('data-entered');
-          }
+        this.handles.forEach((handle) => {
+          handle.replaceWith(handle.cloneNode(true));
         });
-
-        this.slideData = [];
-        this.activeSlide = null;
-        delete this.root.dataset.initialized;
       }
     }
 
