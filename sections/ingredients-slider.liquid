@@ -47,38 +47,36 @@
           data-dynamic-carousel-rail
         >
           {% for block in section.blocks %}
-            {% liquid
-              assign handle_id = 'DynamicCarouselTab-' | append: block.id
-              assign panel_id = 'DynamicCarouselPanel-' | append: block.id
-              assign is_active = forloop.first
-              assign block_color_scheme = block.settings.color_scheme | default: section_color_scheme
+            {% assign handle_id = 'DynamicCarouselTab-' | append: block.id %}
+            {% assign panel_id = 'DynamicCarouselPanel-' | append: block.id %}
+            {% assign is_active = forloop.first %}
+            {% assign block_color_scheme = block.settings.color_scheme | default: section_color_scheme %}
 
-              capture handle_styles %}
-                --spine-background: var(--color-background);
-                --spine-color: var(--color-foreground);
-                --panel-background: var(--color-background);
-                --panel-color: var(--color-foreground);
-                {% if block.settings.spine_padding_block != blank %}
-                  --spine-padding-block: {{ block.settings.spine_padding_block }}px;
-                {% endif %}
-                {% if block.settings.spine_padding_inline != blank %}
-                  --spine-padding-inline: {{ block.settings.spine_padding_inline }}px;
-                {% endif %}
-                {% if block.settings.spine_alignment == 'start' %}
-                  --spine-justify:flex-start;
-                  --spine-align:flex-start;
-                {% elsif block.settings.spine_alignment == 'end' %}
-                  --spine-justify:flex-end;
-                  --spine-align:flex-end;
-                {% else %}
-                  --spine-justify:center;
-                  --spine-align:center;
-                {% endif %}
-              {% endcapture %}
+            {% capture handle_styles %}
+              --spine-background: var(--color-background);
+              --spine-color: var(--color-foreground);
+              --panel-background: var(--color-background);
+              --panel-color: var(--color-foreground);
+              {% if block.settings.spine_padding_block != blank %}
+                --spine-padding-block: {{ block.settings.spine_padding_block }}px;
+              {% endif %}
+              {% if block.settings.spine_padding_inline != blank %}
+                --spine-padding-inline: {{ block.settings.spine_padding_inline }}px;
+              {% endif %}
+              {% if block.settings.spine_alignment == 'start' %}
+                --spine-justify:flex-start;
+                --spine-align:flex-start;
+              {% elsif block.settings.spine_alignment == 'end' %}
+                --spine-justify:flex-end;
+                --spine-align:flex-end;
+              {% else %}
+                --spine-justify:center;
+                --spine-align:center;
+              {% endif %}
+            {% endcapture %}
 
-              assign spine_text_style = block.settings.spine_text_style | default: 'h3'
-              assign spine_text_class = 'dynamic-carousel__spine-text dynamic-carousel__spine-text--' | append: spine_text_style
-            %}
+            {% assign spine_text_style = block.settings.spine_text_style | default: 'h3' %}
+            {% assign spine_text_class = 'dynamic-carousel__spine-text dynamic-carousel__spine-text--' | append: spine_text_style %}
 
             <button
               type="button"
@@ -103,36 +101,34 @@
 
         <div class="dynamic-carousel__panels" data-dynamic-carousel-panels>
           {% for block in section.blocks %}
-            {% liquid
-              assign handle_id = 'DynamicCarouselTab-' | append: block.id
-              assign panel_id = 'DynamicCarouselPanel-' | append: block.id
-              assign is_active = forloop.first
-              assign block_color_scheme = block.settings.color_scheme | default: section_color_scheme
+            {% assign handle_id = 'DynamicCarouselTab-' | append: block.id %}
+            {% assign panel_id = 'DynamicCarouselPanel-' | append: block.id %}
+            {% assign is_active = forloop.first %}
+            {% assign block_color_scheme = block.settings.color_scheme | default: section_color_scheme %}
 
-              capture panel_styles %}
-                --panel-background: var(--color-background);
-                --panel-color: var(--color-foreground);
-              {% endcapture %}
+            {% capture panel_styles %}
+              --panel-background: var(--color-background);
+              --panel-color: var(--color-foreground);
+            {% endcapture %}
 
-              capture media_markup %}
-                {% case block.settings.media_type %}
-                  {% when 'image' %}
-                    {% if block.settings.image %}
-                      {{ block.settings.image | image_url: width: 1800 | image_tag: widths: '480, 720, 960, 1200, 1600, 1800', sizes: '(min-width: 1200px) 40vw, (min-width: 750px) 60vw, 100vw', loading: 'lazy', class: 'dynamic-carousel__media-image', alt: block.settings.heading | default: block.settings.spine_heading }}
-                    {% endif %}
-                  {% when 'uploaded_video' %}
-                    {% if block.settings.video %}
-                      {% render 'video', video: block.settings.video, video_autoplay: block.settings.video_autoplay, video_loop: block.settings.video_loop, video_class: 'dynamic-carousel__media-embed', section_id: section.id, block: block %}
-                    {% endif %}
-                  {% when 'external_video' %}
-                    {% if block.settings.video_url != blank %}
-                      {% assign external_video = block.settings.video_url | video_url %}
-                      {% render 'video', video_from_url: true, video: external_video.id, video_type: external_video.type, video_autoplay: block.settings.video_autoplay, video_loop: block.settings.video_loop, video_class: 'dynamic-carousel__media-embed', video_preview_image: block.settings.video_poster, video_alt: block.settings.heading | default: block.settings.spine_heading, section_id: section.id, block: block %}
-                    {% endif %}
-                {% endcase %}
-              {% endcapture %}
-              {% assign media_markup = media_markup | strip %}
-            %}
+            {% capture media_markup %}
+              {% case block.settings.media_type %}
+                {% when 'image' %}
+                  {% if block.settings.image %}
+                    {{ block.settings.image | image_url: width: 1800 | image_tag: widths: '480, 720, 960, 1200, 1600, 1800', sizes: '(min-width: 1200px) 40vw, (min-width: 750px) 60vw, 100vw', loading: 'lazy', class: 'dynamic-carousel__media-image', alt: block.settings.heading | default: block.settings.spine_heading }}
+                  {% endif %}
+                {% when 'uploaded_video' %}
+                  {% if block.settings.video %}
+                    {% render 'video', video: block.settings.video, video_autoplay: block.settings.video_autoplay, video_loop: block.settings.video_loop, video_class: 'dynamic-carousel__media-embed', section_id: section.id, block: block %}
+                  {% endif %}
+                {% when 'external_video' %}
+                  {% if block.settings.video_url != blank %}
+                    {% assign external_video = block.settings.video_url | video_url %}
+                    {% render 'video', video_from_url: true, video: external_video.id, video_type: external_video.type, video_autoplay: block.settings.video_autoplay, video_loop: block.settings.video_loop, video_class: 'dynamic-carousel__media-embed', video_preview_image: block.settings.video_poster, video_alt: block.settings.heading | default: block.settings.spine_heading, section_id: section.id, block: block %}
+                  {% endif %}
+              {% endcase %}
+            {% endcapture %}
+            {% assign media_markup = media_markup | strip %}
 
             <section
               id="{{ panel_id }}"
