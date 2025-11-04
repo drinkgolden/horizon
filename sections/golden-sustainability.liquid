@@ -1,20 +1,20 @@
 {% comment %}
-Kokako Sustainability Section – "We’re playing the long game / E purei ana mātou i te kēmu roa".
+Golden Sustainability Section – "We’re playing the long game / E purei ana mātou i te kēmu roa".
 Shows English and Māori headings, a description, and a link to sustainability reports.
 {% endcomment %}
-<section id="kokako-sustainability-{{ section.id }}" class="kokako-sustainability section"
-         data-section-id="{{ section.id }}" data-section-type="kokako-sustainability">
-  <div class="kokako-sustainability__inner">
-    <h2 class="kokako-sustainability__heading">{{ section.settings.main_heading }}</h2>
-    <h2 class="kokako-sustainability__heading kokako-sustainability__heading--maori">{{ section.settings.sub_heading }}</h2>
-    <p class="kokako-sustainability__description">{{ section.settings.description }}</p>
-    <a href="{{ section.settings.reports_link }}" class="kokako-sustainability__link">
+<section id="golden-sustainability-{{ section.id }}" class="golden-sustainability section"
+         data-section-id="{{ section.id }}" data-section-type="golden-sustainability">
+  <div class="golden-sustainability__inner">
+    <h2 class="golden-sustainability__heading">{{ section.settings.main_heading }}</h2>
+    <h2 class="golden-sustainability__heading golden-sustainability__heading--maori">{{ section.settings.sub_heading }}</h2>
+    <p class="golden-sustainability__description">{{ section.settings.description }}</p>
+    <a href="{{ section.settings.reports_link }}" class="golden-sustainability__link">
       {{ section.settings.reports_label }}
     </a>
   </div>
   {% schema %}
   {
-    "name": "Sustainability Highlight (Kokako)",
+    "name": "Golden Sustainability",
     "tag": "section",
     "settings": [
       {
@@ -50,7 +50,7 @@ Shows English and Māori headings, a description, and a link to sustainability r
     ],
     "presets": [
       {
-        "name": "Kokako Sustainability Highlight",
+        "name": "Golden Sustainability",
         "category": "Custom"
       }
     ]
@@ -60,26 +60,26 @@ Shows English and Māori headings, a description, and a link to sustainability r
 
 <style>
 /* Sustainability Section Styles */
-.kokako-sustainability {
+.golden-sustainability {
   background: #f9f9f9;
   text-align: center;
   padding: 3rem 1rem;
 }
-.kokako-sustainability__heading {
+.golden-sustainability__heading {
   font-size: 1.6rem;
   margin: 0;
 }
-.kokako-sustainability__heading--maori {
+.golden-sustainability__heading--maori {
   font-style: italic;
   font-weight: 400;
   margin-bottom: 1rem;
 }
-.kokako-sustainability__description {
+.golden-sustainability__description {
   max-width: 600px;
   margin: 0 auto 1.5rem;
   font-size: 1rem;
 }
-.kokako-sustainability__link {
+.golden-sustainability__link {
   font-weight: bold;
   text-decoration: underline;
 }

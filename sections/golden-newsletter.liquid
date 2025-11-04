@@ -1,21 +1,21 @@
 {% comment %}
-Kokako Newsletter Section – "Join our newsletter to stay up to date on features and releases".
+Golden Newsletter Section – "Join our newsletter to stay up to date on features and releases".
 Provides an email signup form.
 {% endcomment %}
 {% assign newsletter_form_id = 'NewsletterForm-' | append: section.id %}
-<section id="kokako-newsletter-{{ section.id }}" class="kokako-newsletter section"
-         data-section-id="{{ section.id }}" data-section-type="kokako-newsletter">
-  <div class="kokako-newsletter__inner">
-    <h4 class="kokako-newsletter__title">{{ section.settings.newsletter_text }}</h4>
+<section id="golden-newsletter-{{ section.id }}" class="golden-newsletter section"
+         data-section-id="{{ section.id }}" data-section-type="golden-newsletter">
+  <div class="golden-newsletter__inner">
+    <h4 class="golden-newsletter__title">{{ section.settings.newsletter_text }}</h4>
     {% form 'customer', id: newsletter_form_id %}
       {% if form.posted_successfully? %}
-        <p class="kokako-newsletter__success">{{ section.settings.success_message }}</p>
+        <p class="golden-newsletter__success">{{ section.settings.success_message }}</p>
       {% else %}
         {{ form.errors | default_errors }}
-        <div class="kokako-newsletter__form-group">
+        <div class="golden-newsletter__form-group">
           <input type="email" name="contact[email]" id="NewsletterEmail-{{ section.id }}"
-                 placeholder="{{ section.settings.placeholder_text }}" required class="kokako-newsletter__input">
-          <button type="submit" class="kokako-newsletter__button">
+                 placeholder="{{ section.settings.placeholder_text }}" required class="golden-newsletter__input">
+          <button type="submit" class="golden-newsletter__button">
             {{ section.settings.button_label }}
           </button>
         </div>
@@ -24,7 +24,7 @@ Provides an email signup form.
   </div>
   {% schema %}
   {
-    "name": "Newsletter Signup (Kokako)",
+    "name": "Golden Newsletter",
     "tag": "section",
     "settings": [
       {
@@ -54,7 +54,7 @@ Provides an email signup form.
     ],
     "presets": [
       {
-        "name": "Kokako Newsletter",
+        "name": "Golden Newsletter",
         "category": "Custom"
       }
     ]
@@ -64,28 +64,28 @@ Provides an email signup form.
 
 <style>
 /* Newsletter Section Styles */
-.kokako-newsletter {
+.golden-newsletter {
   background: #f2f2f2;
   padding: 2rem 1rem;
   text-align: center;
 }
-.kokako-newsletter__title {
+.golden-newsletter__title {
   font-size: 1.1rem;
   margin-bottom: 1rem;
 }
-.kokako-newsletter__form-group {
+.golden-newsletter__form-group {
   display: inline-flex;
   max-width: 500px;
   width: 100%;
 }
-.kokako-newsletter__input {
+.golden-newsletter__input {
   flex: 1 1 auto;
   padding: 0.5rem;
   font-size: 1rem;
   border: 1px solid #ccc;
   border-right: none;
 }
-.kokako-newsletter__button {
+.golden-newsletter__button {
   flex: 0 0 auto;
   padding: 0.5rem 1rem;
   font-size: 1rem;
@@ -94,15 +94,15 @@ Provides an email signup form.
   border: 1px solid #000;
   cursor: pointer;
 }
-.kokako-newsletter__success {
+.golden-newsletter__success {
   font-weight: bold;
   color: #336600;
 }
 @media (max-width: 600px) {
-  .kokako-newsletter__form-group {
+  .golden-newsletter__form-group {
     flex-direction: column;
   }
-  .kokako-newsletter__input {
+  .golden-newsletter__input {
     border-right: 1px solid #ccc;
     margin-bottom: 0.5rem;
   }

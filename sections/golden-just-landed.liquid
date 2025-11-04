@@ -1,21 +1,21 @@
 {% comment %}
-Kokako "Just Landed" Section – highlights the new Half-Caf Mugs.
-Includes a prominent heading and two CTA links, plus an optional decorative image (flying Kōkako bird).
+Golden "Just Landed" Section – highlights the new Half-Caf Mugs.
+Includes a prominent heading and two CTA links, plus an optional decorative image (flying Golden bird).
 {% endcomment %}
-<section id="kokako-just-landed-{{ section.id }}" class="kokako-just-landed section"
-         data-section-id="{{ section.id }}" data-section-type="kokako-just-landed">
-  <div class="kokako-just-landed__inner">
+<section id="golden-just-landed-{{ section.id }}" class="golden-just-landed section"
+         data-section-id="{{ section.id }}" data-section-type="golden-just-landed">
+  <div class="golden-just-landed__inner">
     {% if section.settings.decor_image %}
       <!-- Decorative flying bird image (positioned via CSS) -->
       <img src="{{ section.settings.decor_image | image_url: width: 720 }}"
-           alt="{{ section.settings.decor_image.alt | default: 'Flying Bird' }}" class="kokako-just-landed__decor" loading="lazy"
+           alt="{{ section.settings.decor_image.alt | default: 'Flying Bird' }}" class="golden-just-landed__decor" loading="lazy"
            width="{{ section.settings.decor_image.width }}" height="{{ section.settings.decor_image.height }}">
     {% endif %}
-    <h2 class="kokako-just-landed__heading">{{ section.settings.land_heading }}</h2>
-    <div class="kokako-just-landed__buttons">
+    <h2 class="golden-just-landed__heading">{{ section.settings.land_heading }}</h2>
+    <div class="golden-just-landed__buttons">
       {% for btn in section.blocks %}
         {% if btn.type == 'cta' %}
-          <a href="{{ btn.settings.link }}" class="kokako-just-landed__btn">
+          <a href="{{ btn.settings.link }}" class="golden-just-landed__btn">
             {{ btn.settings.label }}
           </a>
         {% endif %}
@@ -24,14 +24,14 @@ Includes a prominent heading and two CTA links, plus an optional decorative imag
   </div>
   {% schema %}
   {
-    "name": "Just Landed Feature (Kokako)",
+    "name": "Golden Just Landed",
     "tag": "section",
     "settings": [
       {
         "type": "text",
         "id": "land_heading",
         "label": "Feature Heading",
-        "default": "Just Landed, Kōkako Half-Caf Mugs."
+        "default": "Just Landed, Golden Half-Caf Mugs."
       },
       {
         "type": "image_picker",
@@ -61,10 +61,10 @@ Includes a prominent heading and two CTA links, plus an optional decorative imag
     "max_blocks": 2,
     "presets": [
       {
-        "name": "Kokako Just Landed Feature",
+        "name": "Golden Just Landed",
         "category": "Custom",
         "settings": {
-          "land_heading": "Just Landed, Kōkako Half-Caf Mugs."
+          "land_heading": "Just Landed, Golden Half-Caf Mugs."
         },
         "blocks": [
           {
@@ -90,17 +90,17 @@ Includes a prominent heading and two CTA links, plus an optional decorative imag
 
 <style>
 /* "Just Landed" Section Styles */
-.kokako-just-landed {
+.golden-just-landed {
   text-align: center;
   position: relative;
   padding: 4rem 1rem;
 }
-.kokako-just-landed__heading {
+.golden-just-landed__heading {
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
 }
-.kokako-just-landed__buttons a {
+.golden-just-landed__buttons a {
   display: inline-block;
   margin: 0 0.5rem;
   padding: 0.6rem 1.2rem;
@@ -109,7 +109,7 @@ Includes a prominent heading and two CTA links, plus an optional decorative imag
   font-weight: bold;
   color: #000;
 }
-.kokako-just-landed__decor {
+.golden-just-landed__decor {
   position: absolute;
   top: 0;
   right: 5%;
@@ -127,10 +127,10 @@ Includes a prominent heading and two CTA links, plus an optional decorative imag
 }
 /* Responsive: center the decor image on smaller screens or hide if needed */
 @media (max-width: 600px) {
-  .kokako-just-landed__decor {
+  .golden-just-landed__decor {
     display: none; /* Hide decorative image on narrow screens for simplicity */
   }
-  .kokako-just-landed__heading {
+  .golden-just-landed__heading {
     font-size: 1.5rem;
   }
 }

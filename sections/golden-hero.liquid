@@ -1,18 +1,18 @@
 {% comment %}
-Kokako Hero Section – replicates the "Welcome to Kōkako" banner with background media and two call-to-action buttons.
+Golden Hero Section – replicates the "Welcome to Golden" banner with background media and two call-to-action buttons.
 - If a video is set, it plays in the background (muted, loop).
 - If no video, a static image is used as background.
-- Displays "Welcome to Kōkako" heading text and two CTA buttons ("Shop now" and "I'm just browsing").
-- Also shows Fairtrade and Organic badges as per Kokako's hero.
+- Displays "Welcome to Golden" heading text and two CTA buttons ("Shop now" and "I'm just browsing").
+- Also shows Fairtrade and Organic badges similar to the Golden hero.
 {% endcomment %}
-<section id="kokako-hero-{{ section.id }}" class="kokako-hero section"
-         data-section-id="{{ section.id }}" data-section-type="kokako-hero">
-  <div class="kokako-hero__inner">
+<section id="golden-hero-{{ section.id }}" class="golden-hero section"
+         data-section-id="{{ section.id }}" data-section-type="golden-hero">
+  <div class="golden-hero__inner">
     <!-- Background media: video or image -->
-    <div class="kokako-hero__media">
+    <div class="golden-hero__media">
       {% if section.settings.hero_video %}
         <!-- Video background (auto-play, muted) -->
-        <video class="kokako-hero__video" autoplay muted playsinline loop>
+        <video class="golden-hero__video" autoplay muted playsinline loop>
           {% assign video_source = section.settings.hero_video.sources | where: 'format', 'mp4' | first %}
           {% unless video_source %}
             {% assign video_source = section.settings.hero_video.sources | first %}
@@ -24,23 +24,23 @@ Kokako Hero Section – replicates the "Welcome to Kōkako" banner with backgrou
       {% elsif section.settings.hero_image %}
         <!-- Static image background as fallback -->
         <img src="{{ section.settings.hero_image | image_url: width: 2000 }}"
-             alt="{{ section.settings.hero_image.alt | default: 'Hero background' }}" class="kokako-hero__image" loading="lazy"
+             alt="{{ section.settings.hero_image.alt | default: 'Hero background' }}" class="golden-hero__image" loading="lazy"
              width="{{ section.settings.hero_image.width }}" height="{{ section.settings.hero_image.height }}">
       {% endif %}
     </div>
     <!-- Hero content overlay -->
-    <div class="kokako-hero__content">
-      <h1 class="kokako-hero__heading">{{ section.settings.hero_heading }}</h1>
+    <div class="golden-hero__content">
+      <h1 class="golden-hero__heading">{{ section.settings.hero_heading }}</h1>
       {% if section.settings.show_badges %}
-        <ul class="kokako-hero__badges">
+        <ul class="golden-hero__badges">
           <li>Fairtrade</li>
           <li>Organic</li>
         </ul>
       {% endif %}
-      <div class="kokako-hero__buttons">
+      <div class="golden-hero__buttons">
         {% for btn in section.blocks %}
           {% if btn.type == 'cta' %}
-            <a href="{{ btn.settings.link }}" class="kokako-hero__btn{% if forloop.first %} kokako-hero__btn--primary{% endif %}">
+            <a href="{{ btn.settings.link }}" class="golden-hero__btn{% if forloop.first %} golden-hero__btn--primary{% endif %}">
               {{ btn.settings.label }}
             </a>
           {% endif %}
@@ -50,14 +50,14 @@ Kokako Hero Section – replicates the "Welcome to Kōkako" banner with backgrou
   </div>
   {% schema %}
   {
-    "name": "Homepage Hero (Kokako)",
+    "name": "Golden Hero",
     "tag": "section",
     "settings": [
       {
         "type": "text",
         "id": "hero_heading",
         "label": "Heading Text",
-        "default": "Welcome to Kōkako"
+        "default": "Welcome to Golden"
       },
       {
         "type": "image_picker",
@@ -98,10 +98,10 @@ Kokako Hero Section – replicates the "Welcome to Kōkako" banner with backgrou
     "max_blocks": 2,
     "presets": [
       {
-        "name": "Kokako Homepage Hero",
+        "name": "Golden Hero",
         "category": "Custom",
         "settings": {
-          "hero_heading": "Welcome to Kōkako",
+          "hero_heading": "Welcome to Golden",
           "show_badges": true
         },
         "blocks": [
@@ -128,7 +128,7 @@ Kokako Hero Section – replicates the "Welcome to Kōkako" banner with backgrou
 
 <style>
 /* Hero Section Styles */
-.kokako-hero {
+.golden-hero {
   position: relative;
   color: #fff;
   text-align: center;
@@ -139,29 +139,29 @@ Kokako Hero Section – replicates the "Welcome to Kōkako" banner with backgrou
   align-items: center;
   overflow: hidden;
 }
-.kokako-hero__media {
+.golden-hero__media {
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
   overflow: hidden;
   z-index: 1;
 }
-.kokako-hero__video, .kokako-hero__image {
+.golden-hero__video, .golden-hero__image {
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
   object-fit: cover;
 }
-.kokako-hero__content {
+.golden-hero__content {
   position: relative;
   z-index: 2;
   max-width: 600px;
   padding: 2rem;
 }
-.kokako-hero__heading {
+.golden-hero__heading {
   font-size: 3rem;
   margin-bottom: 1rem;
 }
-.kokako-hero__badges {
+.golden-hero__badges {
   list-style: none;
   padding: 0;
   margin: 0 0 1.5rem;
@@ -169,20 +169,20 @@ Kokako Hero Section – replicates the "Welcome to Kōkako" banner with backgrou
   justify-content: center;
   gap: 1rem;
 }
-.kokako-hero__badges li {
+.golden-hero__badges li {
   background: rgba(0,0,0,0.5);
   padding: 0.4rem 0.8rem;
   border-radius: 4px;
   font-size: 0.9rem;
   text-transform: uppercase;
 }
-.kokako-hero__buttons {
+.golden-hero__buttons {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
 }
-.kokako-hero__btn {
+.golden-hero__btn {
   display: inline-block;
   padding: 0.75rem 1.5rem;
   border: 2px solid #fff;
@@ -190,15 +190,15 @@ Kokako Hero Section – replicates the "Welcome to Kōkako" banner with backgrou
   color: #fff;
   font-weight: bold;
 }
-.kokako-hero__btn--primary {
+.golden-hero__btn--primary {
   background-color: #fff;
   color: #000;
 }
 /* Responsive adjustments */
 @media (max-width: 767px) {
-  .kokako-hero__heading { font-size: 2rem; }
-  .kokako-hero__badges li { font-size: 0.8rem; }
-  .kokako-hero__btn {
+  .golden-hero__heading { font-size: 2rem; }
+  .golden-hero__badges li { font-size: 0.8rem; }
+  .golden-hero__btn {
     width: 100%;
     text-align: center;
   }

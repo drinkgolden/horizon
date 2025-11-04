@@ -1,23 +1,23 @@
 {% comment %}
-Kokako Outposts Section – displays physical locations (Commercial Bay café, Roastery, etc.).
+Golden Outposts Section – displays physical locations (Commercial Bay café, Roastery, etc.).
 Includes an intro text with "Find your nearest outpost" link, and a list of location blocks (name, details, images).
 {% endcomment %}
-<section id="kokako-outposts-{{ section.id }}" class="kokako-outposts section"
-         data-section-id="{{ section.id }}" data-section-type="kokako-outposts">
-  <div class="kokako-outposts__inner">
-    <div class="kokako-outposts__intro">{{ section.settings.intro_text }}</div>
-    <p><a href="{{ section.settings.outposts_link }}" class="kokako-outposts__find-link">
+<section id="golden-outposts-{{ section.id }}" class="golden-outposts section"
+         data-section-id="{{ section.id }}" data-section-type="golden-outposts">
+  <div class="golden-outposts__inner">
+    <div class="golden-outposts__intro">{{ section.settings.intro_text }}</div>
+    <p><a href="{{ section.settings.outposts_link }}" class="golden-outposts__find-link">
       {{ section.settings.outposts_label }}
     </a></p>
-    <div class="kokako-outposts__locations-list">
+    <div class="golden-outposts__locations-list">
       {% for block in section.blocks %}
         {% if block.type == 'location' %}
-        <div class="kokako-location-card" {{ block.shopify_attributes }}>
-          <h3 class="kokako-location-card__name">{{ block.settings.location_name }}</h3>
-          <div class="kokako-location-card__details">
+        <div class="golden-location-card" {{ block.shopify_attributes }}>
+          <h3 class="golden-location-card__name">{{ block.settings.location_name }}</h3>
+          <div class="golden-location-card__details">
             {{ block.settings.location_details }}
           </div>
-          <div class="kokako-location-card__images">
+          <div class="golden-location-card__images">
             {% if block.settings.image_1 %}
               <img src="{{ block.settings.image_1 | image_url: width: 400 }}"
                    alt="{{ block.settings.location_name | append: ' image 1' }}" loading="lazy"
@@ -36,7 +36,7 @@ Includes an intro text with "Find your nearest outpost" link, and a list of loca
   </div>
   {% schema %}
   {
-    "name": "Outposts (Locations) (Kokako)",
+    "name": "Golden Outposts",
     "tag": "section",
     "settings": [
       {
@@ -91,7 +91,7 @@ Includes an intro text with "Find your nearest outpost" link, and a list of loca
     "max_blocks": 10,
     "presets": [
       {
-        "name": "Kokako Outposts",
+        "name": "Golden Outposts",
         "category": "Custom"
       }
     ]
@@ -101,52 +101,52 @@ Includes an intro text with "Find your nearest outpost" link, and a list of loca
 
 <style>
 /* Outposts Section Styles */
-.kokako-outposts__intro {
+.golden-outposts__intro {
   font-size: 1rem;
   margin-bottom: 0.5rem;
 }
-.kokako-outposts__find-link {
+.golden-outposts__find-link {
   font-weight: bold;
   text-decoration: underline;
 }
-.kokako-outposts__locations-list {
+.golden-outposts__locations-list {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
   margin-top: 2rem;
 }
-.kokako-location-card {
+.golden-location-card {
   flex: 1 1 45%;
   max-width: 45%;
 }
-.kokako-location-card__name {
+.golden-location-card__name {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
 }
-.kokako-location-card__details {
+.golden-location-card__details {
   font-size: 0.95rem;
   margin-bottom: 1rem;
   line-height: 1.4;
 }
-.kokako-location-card__details p {
+.golden-location-card__details p {
   margin: 0;
 }
-.kokako-location-card__images img {
+.golden-location-card__images img {
   width: 48%;
   margin-right: 4%;
   margin-bottom: 1rem;
 }
-.kokako-location-card__images img:last-child {
+.golden-location-card__images img:last-child {
   margin-right: 0;
 }
 @media (max-width: 767px) {
-  .kokako-outposts__locations-list {
+  .golden-outposts__locations-list {
     flex-direction: column;
   }
-  .kokako-location-card {
+  .golden-location-card {
     max-width: 100%;
   }
-  .kokako-location-card__images img {
+  .golden-location-card__images img {
     width: 100%;
     margin: 0 0 1rem;
   }
