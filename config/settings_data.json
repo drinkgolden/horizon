@@ -50,7 +50,6 @@
     "page_width": "narrow",
     "side_columns_enable": true,
     "side_columns_enable_mobile": true,
-    "side_columns_width_desktop": 4,
     "side_columns_width_mobile": 0,
     "side_columns_background_color": "#fcfcfb",
     "side_columns_border_color": "#fcfcfb",
