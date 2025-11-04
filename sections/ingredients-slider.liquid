@@ -34,6 +34,8 @@
   if height_style != blank
     assign section_style = section_style | append: '--section-min-height: ' | append: height_style | append: ';'
     assign section_style = section_style | append: '--dynamic-carousel-min-height: ' | append: height_style | append: ';'
+    assign section_style = section_style | append: 'min-height: ' | append: height_style | append: ';'
+    assign section_style = section_style | append: 'height: ' | append: height_style | append: ';'
   endif
 %}
 
