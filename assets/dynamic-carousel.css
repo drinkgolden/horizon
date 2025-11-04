@@ -12,6 +12,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  min-height: var(--dynamic-carousel-min-height);
 }
 .dynamic-carousel__container {
   display: flex;
@@ -26,6 +27,7 @@
   flex-direction: column;
   flex: 1 1 auto;
   min-height: var(--dynamic-carousel-min-height);
+  height: 100%;
   border-radius: var(--radius-2xl);
   border: 0;
   background: var(--color-background, #f6f8fb);
@@ -37,6 +39,7 @@
   flex: 1 1 auto;
   width: 100%;
   height: 100%;
+  min-height: 100%;
   overflow: hidden;
 }
 .dynamic-carousel__item {
@@ -47,6 +50,7 @@
   flex-direction: row;
   align-items: stretch;
   height: 100%;
+  min-height: 100%;
   transition: flex-basis var(--duration-lg) var(--ease-smooth), min-width var(--duration-lg) var(--ease-smooth);
 }
 .dynamic-carousel__item + .dynamic-carousel__item {
@@ -105,6 +109,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100%;
 }
 .dynamic-carousel__spine .dynamic-carousel__spine-text--paragraph {
   font-size: clamp(0.85rem, 1.25vw, 1.05rem);
@@ -163,6 +168,7 @@
   flex: 1 1 auto;
   display: flex;
   height: 100%;
+  min-height: 100%;
   padding: clamp(28px, 4vw, 64px);
   background: var(--panel-background, var(--color-background, #ffffff));
   color: var(--panel-color, var(--color-foreground, currentColor));
