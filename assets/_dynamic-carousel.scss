@@ -6,7 +6,7 @@
   --dynamic-carousel-open-width: 60%;
   --dynamic-carousel-closed-width: 12%;
   --dynamic-carousel-count: 3;
-  padding-block: var(--space-2xl);
+  padding: 0;
   background: var(--color-background, #f6f8fb);
   color: var(--color-foreground, #0f2746);
   display: flex;
@@ -17,7 +17,7 @@
   &__container {
     display: flex;
     flex-direction: column;
-    gap: var(--space-lg);
+    gap: 0;
     height: 100%;
     flex: 1 1 auto;
   }
@@ -29,6 +29,10 @@
     flex: 1 1 auto;
     min-height: var(--dynamic-carousel-min-height);
     height: 100%;
+    padding: var(--space-2xl) var(--space-2xl) var(--space-xl);
+    box-sizing: border-box;
+    padding: var(--space-2xl) var(--space-2xl) var(--space-xl);
+    box-sizing: border-box;
     border-radius: var(--radius-2xl);
     border: 0;
     background: var(--color-background, #f6f8fb);
@@ -357,6 +361,7 @@
     display: flex;
     justify-content: flex-end;
     padding: 0 var(--space-xl) var(--space-lg);
+    margin-top: var(--space-xl);
   }
 
   &__footer-link {
