@@ -571,7 +571,7 @@
           return 50;
         }
 
-        return 70 - (count - 2) * 5;
+        return Math.max(70 - (count - 2) * 5, 50);
       }
 
       setSizing() {

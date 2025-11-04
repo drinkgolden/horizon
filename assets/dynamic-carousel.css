@@ -6,7 +6,6 @@
   --dynamic-carousel-open-width: 60%;
   --dynamic-carousel-closed-width: 12%;
   --dynamic-carousel-count: 3;
-  --dynamic-carousel-sticky-top: clamp(16px, 4vh, 48px);
   padding-block: var(--space-2xl);
   background: var(--color-background, #f6f8fb);
   color: var(--color-foreground, #0f2746);
@@ -24,8 +23,7 @@
   flex: 1 1 auto;
   min-height: var(--dynamic-carousel-min-height);
   border-radius: var(--radius-2xl);
-  border-inline: 1px solid var(--dynamic-carousel-divider-color);
-  border-block: 0;
+  border: 0;
   background: var(--color-background, #f6f8fb);
   overflow: hidden;
 }
@@ -35,20 +33,20 @@
   flex: 1 1 auto;
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 .dynamic-carousel__item {
-  --closed-basis: clamp(72px, var(--dynamic-carousel-closed-width), 18%);
-  flex: 0 0 var(--closed-basis);
-  min-width: clamp(72px, var(--dynamic-carousel-closed-width), 18%);
+  --closed-basis: clamp(48px, var(--dynamic-carousel-closed-width), 18%);
+  flex: 0 1 var(--closed-basis);
+  min-width: clamp(48px, var(--dynamic-carousel-closed-width), 18%);
   display: flex;
   flex-direction: row;
   align-items: stretch;
   height: 100%;
-  border-inline-end: 1px solid var(--dynamic-carousel-divider-color);
   transition: flex-basis var(--duration-lg) var(--ease-smooth), min-width var(--duration-lg) var(--ease-smooth);
 }
-.dynamic-carousel__item:last-child {
-  border-inline-end: none;
+.dynamic-carousel__item + .dynamic-carousel__item {
+  border-inline-start: 1px solid var(--dynamic-carousel-divider-color);
 }
 .dynamic-carousel__item.is-active {
   flex: 1 1 var(--dynamic-carousel-open-width);
@@ -57,13 +55,14 @@
 .dynamic-carousel__spine {
   position: relative;
   display: flex;
+  align-items: center;
+  justify-content: center;
   height: 100%;
   width: var(--dynamic-carousel-spine-width);
   min-width: var(--dynamic-carousel-spine-width);
   padding-block: var(--spine-padding-block, clamp(24px, 6vh, 56px));
   padding-inline: var(--spine-padding-inline, clamp(12px, 1.5vw, 24px));
   border: none;
-  border-inline-end: 1px solid var(--dynamic-carousel-divider-color);
   background: var(--panel-background, var(--color-background));
   color: var(--panel-color, var(--color-foreground));
   cursor: pointer;
@@ -77,8 +76,6 @@
 }
 .dynamic-carousel__spine .dynamic-carousel__spine-text {
   font-family: var(--font-heading-family, inherit);
-  position: sticky;
-  inset-block-start: var(--dynamic-carousel-sticky-top);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -302,6 +299,7 @@
   .dynamic-carousel {
     --dynamic-carousel-spine-width: clamp(56px, 9vw, 88px);
     --dynamic-carousel-open-width: 62%;
+    --dynamic-carousel-closed-width: clamp(48px, 12%, 18%);
   }
   .dynamic-carousel__panel {
     padding: clamp(24px, 5vw, 48px);
@@ -330,7 +328,6 @@
   .dynamic-carousel__item {
     flex: 0 0 var(--dynamic-carousel-closed-width);
     min-width: var(--dynamic-carousel-closed-width);
-    border-inline-end: 1px solid var(--dynamic-carousel-divider-color);
     scroll-snap-align: start;
   }
   .dynamic-carousel__item.is-active {
@@ -345,7 +342,6 @@
     padding: var(--space-md) var(--space-lg);
   }
   .dynamic-carousel__spine .dynamic-carousel__spine-text {
-    position: static;
     transform: none;
   }
   .dynamic-carousel__panel {
