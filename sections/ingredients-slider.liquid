@@ -118,10 +118,26 @@
                 data-dynamic-carousel-panel
                 {% unless is_active %}hidden{% endunless %}
               >
-                <div class="dynamic-carousel__panel-inner{% if media_markup != blank %} dynamic-carousel__panel-inner--with-media{% endif %}">
-                  {% if media_markup != blank %}
+                {% assign has_media_asset = false %}
+                {% if media_markup != blank %}
+                  {% assign has_media_asset = true %}
+                {% endif %}
+                {% assign show_placeholder = false %}
+                {% if media_markup == blank and request.design_mode %}
+                  {% assign show_placeholder = true %}
+                {% endif %}
+                {% assign has_media_column = has_media_asset %}
+                {% if show_placeholder %}
+                  {% assign has_media_column = true %}
+                {% endif %}
+                <div class="dynamic-carousel__panel-inner{% if has_media_column %} dynamic-carousel__panel-inner--with-media{% endif %}">
+                  {% if has_media_asset %}
                     <div class="dynamic-carousel__media">
                       {{ media_markup }}
+                    </div>
+                  {% elsif show_placeholder %}
+                    <div class="dynamic-carousel__media dynamic-carousel__media--placeholder">
+                      {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
                     </div>
                   {% endif %}
 

@@ -174,6 +174,16 @@
   overflow: hidden;
   background: color-mix(in srgb, var(--panel-color, currentColor) 12%, transparent);
 }
+.dynamic-carousel__media--placeholder {
+  display: grid;
+  place-items: center;
+  background: color-mix(in srgb, var(--panel-color, currentColor) 6%, transparent);
+}
+.dynamic-carousel__media--placeholder svg {
+  width: min(60%, 220px);
+  height: auto;
+  color: color-mix(in srgb, var(--panel-color, currentColor) 35%, transparent);
+}
 .dynamic-carousel__media .dynamic-carousel__media-embed,
 .dynamic-carousel__media iframe,
 .dynamic-carousel__media video {
