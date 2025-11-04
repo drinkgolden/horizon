@@ -885,12 +885,154 @@
     },
     "ingredients_slider_zDjTmK": {
       "type": "ingredients-slider",
+      "blocks": {
+        "slide_cJaRRw": {
+          "type": "slide",
+          "settings": {
+            "spine_heading": "Commercial Bay",
+            "color_scheme": "scheme-3",
+            "spine_text_style": "h2",
+            "spine_padding_block": 32,
+            "spine_padding_inline": 16,
+            "eyebrow": "",
+            "heading": "9 Charles Street, Mount Eden, Auckland",
+            "summary": "",
+            "body": "",
+            "details": "",
+            "media_type": "image",
+            "video_url": "",
+            "video_autoplay": true,
+            "video_loop": true,
+            "icon_alt": "ergergeg",
+            "cta_label": "gegrerge",
+            "cta_url": ""
+          }
+        },
+        "slide_nVtLK7": {
+          "type": "slide",
+          "settings": {
+            "spine_heading": "Commercial Bay",
+            "color_scheme": "scheme-6",
+            "spine_text_style": "h2",
+            "spine_padding_block": 32,
+            "spine_padding_inline": 16,
+            "eyebrow": "",
+            "heading": "9 Charles Street, Mount Eden, Auckland",
+            "summary": "",
+            "body": "",
+            "details": "",
+            "media_type": "image",
+            "video_url": "",
+            "video_autoplay": true,
+            "video_loop": true,
+            "icon_alt": "",
+            "cta_label": "",
+            "cta_url": ""
+          }
+        },
+        "slide_rrnAET": {
+          "type": "slide",
+          "settings": {
+            "spine_heading": "Commercial Bay",
+            "color_scheme": "scheme-5",
+            "spine_text_style": "h2",
+            "spine_padding_block": 32,
+            "spine_padding_inline": 16,
+            "eyebrow": "",
+            "heading": "9 Charles Street, Mount Eden, Auckland",
+            "summary": "",
+            "body": "",
+            "details": "",
+            "media_type": "image",
+            "video_url": "",
+            "video_autoplay": true,
+            "video_loop": true,
+            "icon_alt": "",
+            "cta_label": "",
+            "cta_url": ""
+          }
+        },
+        "slide_EQqrxi": {
+          "type": "slide",
+          "settings": {
+            "spine_heading": "Commercial Bay",
+            "color_scheme": "scheme-2",
+            "spine_text_style": "h2",
+            "spine_padding_block": 32,
+            "spine_padding_inline": 16,
+            "eyebrow": "",
+            "heading": "9 Charles Street, Mount Eden, Auckland",
+            "summary": "",
+            "body": "",
+            "details": "",
+            "media_type": "image",
+            "video_url": "",
+            "video_autoplay": true,
+            "video_loop": true,
+            "icon_alt": "",
+            "cta_label": "",
+            "cta_url": ""
+          }
+        },
+        "slide_Lh96cL": {
+          "type": "slide",
+          "settings": {
+            "spine_heading": "Commercial Bay",
+            "color_scheme": "scheme-7",
+            "spine_text_style": "h2",
+            "spine_padding_block": 32,
+            "spine_padding_inline": 16,
+            "eyebrow": "",
+            "heading": "9 Charles Street, Mount Eden, Auckland",
+            "summary": "",
+            "body": "",
+            "details": "",
+            "media_type": "image",
+            "video_url": "",
+            "video_autoplay": true,
+            "video_loop": true,
+            "icon_alt": "",
+            "cta_label": "",
+            "cta_url": ""
+          }
+        },
+        "slide_DDgbrD": {
+          "type": "slide",
+          "settings": {
+            "spine_heading": "Commercial Bay",
+            "color_scheme": "",
+            "spine_text_style": "h3",
+            "spine_padding_block": 32,
+            "spine_padding_inline": 16,
+            "eyebrow": "",
+            "heading": "9 Charles Street, Mount Eden, Auckland",
+            "summary": "",
+            "body": "",
+            "details": "",
+            "media_type": "image",
+            "video_url": "",
+            "video_autoplay": true,
+            "video_loop": true,
+            "icon_alt": "",
+            "cta_label": "",
+            "cta_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_cJaRRw",
+        "slide_nVtLK7",
+        "slide_rrnAET",
+        "slide_EQqrxi",
+        "slide_Lh96cL",
+        "slide_DDgbrD"
+      ],
       "settings": {
-        "heading": "What makes us Golden",
-        "intro": "",
-        "section_height": "custom",
+        "accessibility_label": "",
+        "section_height": "large",
         "section_height_custom": 60,
-        "footer_text": "<p>We proudly supply some of the best cafés, restaurants and retailers around.</p>",
+        "section_color_scheme": "scheme-3",
+        "open_on_hover": true,
         "footer_link_label": "Find your nearest outpost",
         "footer_link_url": ""
       }
