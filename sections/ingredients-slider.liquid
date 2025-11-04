@@ -17,7 +17,7 @@
   assign section_color_scheme = section.settings.section_color_scheme | default: 'scheme-1'
 
   assign has_footer = false
-  if section.settings.footer_text != blank or section.settings.footer_link_label != blank
+  if section.settings.footer_link_label != blank and section.settings.footer_link_url != blank
     assign has_footer = true
   endif
 
@@ -38,23 +38,23 @@
         class="dynamic-carousel__stage"
         data-dynamic-carousel-stage
         data-interaction-mode="{{ interaction_mode }}"
+        data-slide-count="{{ section.blocks.size }}"
       >
         <div
-          class="dynamic-carousel__rail"
+          class="dynamic-carousel__items"
           role="tablist"
           aria-label="{{ aria_label | escape }}"
           aria-orientation="horizontal"
-          data-dynamic-carousel-rail
+          data-dynamic-carousel-items
         >
           {% for block in section.blocks %}
+            {% assign item_id = 'DynamicCarouselItem-' | append: block.id %}
             {% assign handle_id = 'DynamicCarouselTab-' | append: block.id %}
             {% assign panel_id = 'DynamicCarouselPanel-' | append: block.id %}
             {% assign is_active = forloop.first %}
             {% assign block_color_scheme = block.settings.color_scheme | default: section_color_scheme %}
 
-            {% capture handle_styles %}
-              --spine-background: var(--color-background);
-              --spine-color: var(--color-foreground);
+            {% capture item_styles %}
               --panel-background: var(--color-background);
               --panel-color: var(--color-foreground);
               {% if block.settings.spine_padding_block != blank %}
@@ -63,52 +63,6 @@
               {% if block.settings.spine_padding_inline != blank %}
                 --spine-padding-inline: {{ block.settings.spine_padding_inline }}px;
               {% endif %}
-              {% if block.settings.spine_alignment == 'start' %}
-                --spine-justify:flex-start;
-                --spine-align:flex-start;
-              {% elsif block.settings.spine_alignment == 'end' %}
-                --spine-justify:flex-end;
-                --spine-align:flex-end;
-              {% else %}
-                --spine-justify:center;
-                --spine-align:center;
-              {% endif %}
-            {% endcapture %}
-
-            {% assign spine_text_style = block.settings.spine_text_style | default: 'h3' %}
-            {% assign spine_text_class = 'dynamic-carousel__spine-text dynamic-carousel__spine-text--' | append: spine_text_style %}
-
-            <button
-              type="button"
-              id="{{ handle_id }}"
-              class="dynamic-carousel__spine color-{{ block_color_scheme }}{% if is_active %} is-active{% endif %}"
-              role="tab"
-              aria-controls="{{ panel_id }}"
-              aria-selected="{% if is_active %}true{% else %}false{% endif %}"
-              aria-expanded="{% if is_active %}true{% else %}false{% endif %}"
-              tabindex="{% if is_active %}0{% else %}-1{% endif %}"
-              data-dynamic-carousel-handle
-              data-block-id="{{ block.id }}"
-              style="{{ handle_styles | strip | replace: '  ', ' ' }}"
-              {{ block.shopify_attributes }}
-            >
-              <span class="{{ spine_text_class }}">
-                {{- block.settings.spine_heading | default: block.settings.heading | default: 'Slide heading' -}}
-              </span>
-            </button>
-          {% endfor %}
-        </div>
-
-        <div class="dynamic-carousel__panels" data-dynamic-carousel-panels>
-          {% for block in section.blocks %}
-            {% assign handle_id = 'DynamicCarouselTab-' | append: block.id %}
-            {% assign panel_id = 'DynamicCarouselPanel-' | append: block.id %}
-            {% assign is_active = forloop.first %}
-            {% assign block_color_scheme = block.settings.color_scheme | default: section_color_scheme %}
-
-            {% capture panel_styles %}
-              --panel-background: var(--color-background);
-              --panel-color: var(--color-foreground);
             {% endcapture %}
 
             {% capture media_markup %}
@@ -130,81 +84,105 @@
             {% endcapture %}
             {% assign media_markup = media_markup | strip %}
 
-            <section
-              id="{{ panel_id }}"
-              class="dynamic-carousel__panel color-{{ block_color_scheme }}{% if media_markup != blank %} dynamic-carousel__panel--with-media{% endif %}{% if is_active %} is-active{% endif %}"
-              role="tabpanel"
-              aria-labelledby="{{ handle_id }}"
-              aria-hidden="{% unless is_active %}true{% else %}false{% endunless %}"
-              data-dynamic-carousel-panel
+            <article
+              id="{{ item_id }}"
+              class="dynamic-carousel__item color-{{ block_color_scheme }}{% if is_active %} is-active{% endif %}"
+              data-dynamic-carousel-item
               data-block-id="{{ block.id }}"
-              style="{{ panel_styles | strip | replace: '  ', ' ' }}"
-              {% unless is_active %}hidden{% endunless %}
+              style="{{ item_styles | strip | replace: '  ', ' ' }}"
+              {{ block.shopify_attributes }}
             >
-              <div class="dynamic-carousel__panel-inner{% if media_markup != blank %} dynamic-carousel__panel-inner--with-media{% endif %}">
-                {% if media_markup != blank %}
-                  <div class="dynamic-carousel__media">
-                    {{ media_markup }}
-                  </div>
-                {% endif %}
+              <button
+                type="button"
+                id="{{ handle_id }}"
+                class="dynamic-carousel__spine"
+                role="tab"
+                aria-controls="{{ panel_id }}"
+                aria-selected="{% if is_active %}true{% else %}false{% endif %}"
+                aria-expanded="{% if is_active %}true{% else %}false{% endif %}"
+                tabindex="{% if is_active %}0{% else %}-1{% endif %}"
+                data-dynamic-carousel-handle
+              >
+                {% assign spine_text_style = block.settings.spine_text_style | default: 'h3' %}
+                <span class="dynamic-carousel__spine-text dynamic-carousel__spine-text--{{ spine_text_style }}">
+                  {{- block.settings.spine_heading | default: block.settings.heading | default: 'Slide heading' -}}
+                </span>
+              </button>
 
-                <div class="dynamic-carousel__content">
-                  <div class="dynamic-carousel__content-header">
-                    <div class="dynamic-carousel__titles">
-                      {% if block.settings.eyebrow != blank %}
-                        <p class="dynamic-carousel__eyebrow">{{ block.settings.eyebrow }}</p>
-                      {% endif %}
+              <section
+                id="{{ panel_id }}"
+                class="dynamic-carousel__panel{% if media_markup != blank %} dynamic-carousel__panel--with-media{% endif %}"
+                role="tabpanel"
+                aria-labelledby="{{ handle_id }}"
+                aria-hidden="{% unless is_active %}true{% else %}false{% endunless %}"
+                data-dynamic-carousel-panel
+                {% unless is_active %}hidden{% endunless %}
+              >
+                <div class="dynamic-carousel__panel-inner{% if media_markup != blank %} dynamic-carousel__panel-inner--with-media{% endif %}">
+                  {% if media_markup != blank %}
+                    <div class="dynamic-carousel__media">
+                      {{ media_markup }}
+                    </div>
+                  {% endif %}
 
-                      {% if block.settings.heading != blank %}
-                        <h3 class="dynamic-carousel__title">{{ block.settings.heading }}</h3>
-                      {% endif %}
+                  <div class="dynamic-carousel__content">
+                    <div class="dynamic-carousel__content-header">
+                      <div class="dynamic-carousel__titles">
+                        {% if block.settings.eyebrow != blank %}
+                          <p class="dynamic-carousel__eyebrow">{{ block.settings.eyebrow }}</p>
+                        {% endif %}
 
-                      {% if block.settings.summary != blank %}
-                        <p class="dynamic-carousel__summary">
-                          {{- block.settings.summary | escape | newline_to_br -}}
-                        </p>
+                        {% if block.settings.heading != blank %}
+                          <h3 class="dynamic-carousel__title">{{ block.settings.heading }}</h3>
+                        {% endif %}
+
+                        {% if block.settings.summary != blank %}
+                          <p class="dynamic-carousel__summary">
+                            {{- block.settings.summary | escape | newline_to_br -}}
+                          </p>
+                        {% endif %}
+                      </div>
+
+                      {% if block.settings.icon %}
+                        <div class="dynamic-carousel__icon">
+                          {{
+                            block.settings.icon
+                            | image_url: width: 140
+                            | image_tag:
+                              widths: '80, 120, 160',
+                              loading: 'lazy',
+                              alt: block.settings.icon_alt | default: ''
+                          }}
+                        </div>
                       {% endif %}
                     </div>
 
-                    {% if block.settings.icon %}
-                      <div class="dynamic-carousel__icon">
-                        {{
-                          block.settings.icon
-                          | image_url: width: 140
-                          | image_tag:
-                            widths: '80, 120, 160',
-                            loading: 'lazy',
-                            alt: block.settings.icon_alt | default: ''
-                        }}
+                    {% if block.settings.body != blank %}
+                      <div class="dynamic-carousel__body">
+                        {{ block.settings.body }}
+                      </div>
+                    {% endif %}
+
+                    {% if block.settings.details != blank %}
+                      <div class="dynamic-carousel__details">
+                        {{ block.settings.details }}
+                      </div>
+                    {% endif %}
+
+                    {% if block.settings.cta_label != blank and block.settings.cta_url != blank %}
+                      <div class="dynamic-carousel__actions">
+                        <a
+                          href="{{ block.settings.cta_url }}"
+                          class="button button--primary dynamic-carousel__button"
+                        >
+                          {{ block.settings.cta_label }}
+                        </a>
                       </div>
                     {% endif %}
                   </div>
-
-                  {% if block.settings.body != blank %}
-                    <div class="dynamic-carousel__body">
-                      {{ block.settings.body }}
-                    </div>
-                  {% endif %}
-
-                  {% if block.settings.details != blank %}
-                    <div class="dynamic-carousel__details">
-                      {{ block.settings.details }}
-                    </div>
-                  {% endif %}
-
-                  {% if block.settings.cta_label != blank and block.settings.cta_url != blank %}
-                    <div class="dynamic-carousel__actions">
-                      <a
-                        href="{{ block.settings.cta_url }}"
-                        class="button button--primary dynamic-carousel__button"
-                      >
-                        {{ block.settings.cta_label }}
-                      </a>
-                    </div>
-                  {% endif %}
                 </div>
-              </div>
-            </section>
+              </section>
+            </article>
           {% endfor %}
         </div>
       </div>
@@ -216,16 +194,10 @@
 
     {% if has_footer %}
       <div class="dynamic-carousel__footer">
-        {% if section.settings.footer_text != blank %}
-          <div class="dynamic-carousel__footer-text">{{ section.settings.footer_text }}</div>
-        {% endif %}
-
-        {% if section.settings.footer_link_label != blank and section.settings.footer_link_url != blank %}
-          <a class="dynamic-carousel__footer-link" href="{{ section.settings.footer_link_url }}">
-            {{ section.settings.footer_link_label }}
-            <span class="dynamic-carousel__footer-icon" aria-hidden="true">→</span>
-          </a>
-        {% endif %}
+        <a class="dynamic-carousel__footer-link" href="{{ section.settings.footer_link_url }}">
+          {{ section.settings.footer_link_label }}
+          <span class="dynamic-carousel__footer-icon" aria-hidden="true">→</span>
+        </a>
       </div>
     {% endif %}
   </div>
@@ -298,15 +270,6 @@
       "default": false
     },
     {
-      "type": "header",
-      "content": "Footer"
-    },
-    {
-      "type": "richtext",
-      "id": "footer_text",
-      "label": "Footer text"
-    },
-    {
       "type": "text",
       "id": "footer_link_label",
       "label": "Footer link label"
@@ -373,27 +336,6 @@
             }
           ],
           "default": "h3"
-        },
-        {
-          "type": "select",
-          "id": "spine_alignment",
-          "label": "Spine text alignment",
-          "info": "Controls how the text sits within the spine.",
-          "options": [
-            {
-              "value": "start",
-              "label": "Top / Left"
-            },
-            {
-              "value": "center",
-              "label": "Center"
-            },
-            {
-              "value": "end",
-              "label": "Bottom / Right"
-            }
-          ],
-          "default": "center"
         },
         {
           "type": "range",
@@ -531,7 +473,8 @@
       ]
     }
   ],
-  "max_blocks": 9,
+  "max_blocks": 6,
+  "min_blocks": 2,
   "presets": [
     {
       "name": "Dynamic Carousel",
@@ -568,24 +511,37 @@
     class DynamicCarousel {
       constructor(stage) {
         this.stage = stage;
-        this.handles = Array.from(stage.querySelectorAll('[data-dynamic-carousel-handle]'));
-        this.panels = Array.from(stage.querySelectorAll('[data-dynamic-carousel-panel]'));
-        this.activeIndex = this.handles.findIndex((handle) => handle.getAttribute('aria-selected') === 'true');
+        this.items = Array.from(stage.querySelectorAll('[data-dynamic-carousel-item]'));
+        this.handles = this.items.map((item) => item.querySelector('[data-dynamic-carousel-handle]'));
+        this.panels = this.items.map((item) => item.querySelector('[data-dynamic-carousel-panel]'));
         this.interactionMode = stage.dataset.interactionMode === 'hover' ? 'hover' : 'click';
         this.listeners = [];
+        this.activeIndex = this.items.findIndex((item) => item.classList.contains('is-active'));
 
-        if (this.handles.length === 0 || this.panels.length === 0) {
+        if (this.items.length < 2 || this.handles.includes(null) || this.panels.includes(null)) {
           return;
         }
 
         if (this.activeIndex < 0) {
           this.activeIndex = 0;
-          this.updateState(this.activeIndex, false);
         }
 
+        this.setSizing();
+        this.updateState(this.activeIndex, false);
+        this.bindEvents();
+      }
+
+      bindEvents() {
         this.handles.forEach((handle, index) => {
+          if (!handle) {
+            return;
+          }
+
           const handleListeners = {
-            click: () => this.updateState(index, false),
+            click: (event) => {
+              event.preventDefault();
+              this.updateState(index, false);
+            },
             keydown: (event) => this.onKeydown(event, index),
           };
 
@@ -601,6 +557,28 @@
 
           this.listeners.push({ handle, handleListeners });
         });
+      }
+
+      calculateOpenWidth(count) {
+        if (count <= 2) {
+          return 70;
+        }
+
+        if (count >= 6) {
+          return 50;
+        }
+
+        return 70 - (count - 2) * 5;
+      }
+
+      setSizing() {
+        const count = this.items.length;
+        const openWidth = this.calculateOpenWidth(count);
+        const closedWidth = count > 1 ? Math.max((100 - openWidth) / (count - 1), 6) : 0;
+
+        this.stage.style.setProperty('--dynamic-carousel-count', count);
+        this.stage.style.setProperty('--dynamic-carousel-open-width', `${openWidth}%`);
+        this.stage.style.setProperty('--dynamic-carousel-closed-width', `${closedWidth}%`);
       }
 
       onKeydown(event, index) {
@@ -640,28 +618,31 @@
           return;
         }
 
-        this.handles.forEach((handle, index) => {
+        this.items.forEach((item, index) => {
+          const handle = this.handles[index];
+          const panel = this.panels[index];
           const isActive = index === targetIndex;
-          handle.setAttribute('aria-selected', isActive ? 'true' : 'false');
-          handle.setAttribute('aria-expanded', isActive ? 'true' : 'false');
-          handle.setAttribute('tabindex', isActive ? '0' : '-1');
-          handle.classList.toggle('is-active', isActive);
 
-          if (isActive && focusHandle) {
-            handle.focus();
+          item.classList.toggle('is-active', isActive);
+
+          if (handle) {
+            handle.setAttribute('aria-selected', isActive ? 'true' : 'false');
+            handle.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+            handle.setAttribute('tabindex', isActive ? '0' : '-1');
+
+            if (isActive && focusHandle) {
+              handle.focus();
+            }
           }
-        });
 
-        this.panels.forEach((panel, index) => {
-          const isActive = index === targetIndex;
+          if (panel) {
+            panel.setAttribute('aria-hidden', isActive ? 'false' : 'true');
 
-          panel.classList.toggle('is-active', isActive);
-          panel.setAttribute('aria-hidden', isActive ? 'false' : 'true');
-
-          if (isActive) {
-            panel.removeAttribute('hidden');
-          } else {
-            panel.setAttribute('hidden', '');
+            if (isActive) {
+              panel.removeAttribute('hidden');
+            } else {
+              panel.setAttribute('hidden', '');
+            }
           }
         });
 

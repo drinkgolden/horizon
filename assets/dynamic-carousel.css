@@ -1,8 +1,12 @@
 .dynamic-carousel {
-  --dynamic-carousel-spine-width: clamp(60px, 6.5vw, 96px);
+  --dynamic-carousel-spine-width: clamp(64px, 7vw, 104px);
   --dynamic-carousel-min-height: clamp(460px, 62svh, 720px);
   --dynamic-carousel-divider-color: rgb(var(--color-border-rgb, 15 39 70) / var(--opacity-40-60, 0.4));
-  --dynamic-carousel-divider-color-strong: rgb(var(--color-border-rgb, 15 39 70) / var(--opacity-60, 0.6));
+  --dynamic-carousel-divider-strong: rgb(var(--color-border-rgb, 15 39 70) / var(--opacity-60, 0.6));
+  --dynamic-carousel-open-width: 60%;
+  --dynamic-carousel-closed-width: 12%;
+  --dynamic-carousel-count: 3;
+  --dynamic-carousel-sticky-top: clamp(16px, 4vh, 48px);
   padding-block: var(--space-2xl);
   background: var(--color-background, #f6f8fb);
   color: var(--color-foreground, #0f2746);
@@ -10,59 +14,69 @@
 .dynamic-carousel__container {
   display: flex;
   flex-direction: column;
-  gap: var(--space-xl);
+  gap: var(--space-lg);
 }
 .dynamic-carousel__stage {
   position: relative;
-  display: grid;
-  grid-template-columns: max-content minmax(0, 1fr);
-  align-items: stretch;
+  display: flex;
+  flex-direction: column;
   min-height: var(--dynamic-carousel-min-height);
   border-radius: var(--radius-2xl);
   border: 1px solid var(--dynamic-carousel-divider-color);
   background: var(--color-background, #f6f8fb);
   overflow: hidden;
 }
-.dynamic-carousel__rail {
+.dynamic-carousel__items {
   display: flex;
   align-items: stretch;
+  width: 100%;
   height: 100%;
-  background: inherit;
+}
+.dynamic-carousel__item {
+  --closed-basis: clamp(72px, var(--dynamic-carousel-closed-width), 18%);
+  flex: 0 0 var(--closed-basis);
+  min-width: clamp(72px, var(--dynamic-carousel-closed-width), 18%);
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  border-inline-end: 1px solid var(--dynamic-carousel-divider-color);
+  transition: flex-basis var(--duration-lg) var(--ease-smooth), min-width var(--duration-lg) var(--ease-smooth);
+}
+.dynamic-carousel__item:last-child {
+  border-inline-end: none;
+}
+.dynamic-carousel__item.is-active {
+  flex: 1 1 var(--dynamic-carousel-open-width);
+  min-width: var(--dynamic-carousel-open-width);
 }
 .dynamic-carousel__spine {
   position: relative;
   display: flex;
-  align-items: var(--spine-align, center);
-  justify-content: var(--spine-justify, center);
   width: var(--dynamic-carousel-spine-width);
-  height: 100%;
-  padding-block: var(--spine-padding-block, var(--space-xl));
-  padding-inline: var(--spine-padding-inline, var(--space-sm));
+  min-width: var(--dynamic-carousel-spine-width);
+  padding-block: var(--spine-padding-block, clamp(24px, 6vh, 56px));
+  padding-inline: var(--spine-padding-inline, clamp(12px, 1.5vw, 24px));
   border: none;
   border-inline-end: 1px solid var(--dynamic-carousel-divider-color);
-  background: var(--spine-background, var(--color-background, #f6f8fb));
-  color: var(--spine-color, var(--color-foreground, currentColor));
+  background: var(--panel-background, var(--color-background));
+  color: var(--panel-color, var(--color-foreground));
   cursor: pointer;
   writing-mode: vertical-rl;
   text-orientation: mixed;
   transition: background var(--duration-md) var(--ease-smooth), color var(--duration-md) var(--ease-smooth), box-shadow var(--duration-md) var(--ease-smooth);
 }
-.dynamic-carousel__spine:last-child {
-  border-inline-end: none;
-}
 .dynamic-carousel__spine:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 4px;
 }
-.dynamic-carousel__spine.is-active,
-.dynamic-carousel__spine[aria-selected='true'] {
-  box-shadow: inset 0 0 0 1px var(--dynamic-carousel-divider-color-strong);
-}
-.dynamic-carousel__spine-text {
+.dynamic-carousel__spine .dynamic-carousel__spine-text {
+  font-family: var(--font-heading-family, inherit);
+  position: sticky;
+  inset-block-start: var(--dynamic-carousel-sticky-top);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-xs);
+  gap: var(--space-sm);
   text-align: center;
   font-size: clamp(0.78rem, 1vw, 0.95rem);
   font-weight: 600;
@@ -70,64 +84,60 @@
   text-transform: uppercase;
   transform: rotate(180deg);
 }
-.dynamic-carousel__spine-text--paragraph {
+.dynamic-carousel__spine .dynamic-carousel__spine-text--paragraph {
   font-size: clamp(0.85rem, 1.25vw, 1.05rem);
   font-weight: 500;
   letter-spacing: 0.04em;
   text-transform: none;
 }
-.dynamic-carousel__spine-text--overline {
+.dynamic-carousel__spine .dynamic-carousel__spine-text--overline {
   font-size: clamp(0.7rem, 0.9vw, 0.85rem);
   letter-spacing: 0.2em;
   text-transform: uppercase;
 }
-.dynamic-carousel__spine-text--h1 {
+.dynamic-carousel__spine .dynamic-carousel__spine-text--h1 {
   font-size: clamp(1.2rem, 2vw, 1.6rem);
   font-weight: 700;
   text-transform: none;
   letter-spacing: -0.01em;
 }
-.dynamic-carousel__spine-text--h2 {
+.dynamic-carousel__spine .dynamic-carousel__spine-text--h2 {
   font-size: clamp(1.05rem, 1.8vw, 1.45rem);
   font-weight: 700;
   text-transform: none;
   letter-spacing: -0.005em;
 }
-.dynamic-carousel__spine-text--h3 {
-  font-size: clamp(0.95rem, 1.5vw, 1.2rem);
+.dynamic-carousel__spine .dynamic-carousel__spine-text--h3 {
+  font-size: clamp(0.95rem, 1.4vw, 1.2rem);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.14em;
 }
-.dynamic-carousel__spine-text--h4 {
+.dynamic-carousel__spine .dynamic-carousel__spine-text--h4 {
   font-size: clamp(0.9rem, 1.3vw, 1.1rem);
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
-.dynamic-carousel__spine-text--h5 {
+.dynamic-carousel__spine .dynamic-carousel__spine-text--h5 {
   font-size: clamp(0.85rem, 1.15vw, 1.05rem);
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
-.dynamic-carousel__spine-text--h6 {
+.dynamic-carousel__spine .dynamic-carousel__spine-text--h6 {
   font-size: clamp(0.8rem, 1vw, 1rem);
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
-.dynamic-carousel__panels {
-  position: relative;
-  isolation: isolate;
-  min-width: 0;
+.dynamic-carousel__item.is-active .dynamic-carousel__spine {
+  box-shadow: inset 0 0 0 1px var(--dynamic-carousel-divider-strong);
 }
 .dynamic-carousel__panel {
-  position: absolute;
-  inset: 0;
+  flex: 1 1 auto;
   display: flex;
-  align-items: stretch;
-  padding: clamp(24px, 4vw, 56px);
+  padding: clamp(28px, 4vw, 64px);
   background: var(--panel-background, var(--color-background, #ffffff));
   color: var(--panel-color, var(--color-foreground, currentColor));
   opacity: 0;
@@ -135,10 +145,9 @@
   transition: opacity var(--duration-md) var(--ease-smooth), visibility 0s var(--duration-md);
 }
 .dynamic-carousel__panel[hidden] {
-  display: block;
-  pointer-events: none;
+  display: none;
 }
-.dynamic-carousel__panel.is-active {
+.dynamic-carousel__item.is-active .dynamic-carousel__panel {
   opacity: 1;
   visibility: visible;
   transition-delay: 0s;
@@ -146,12 +155,15 @@
 .dynamic-carousel__panel-inner {
   display: grid;
   width: 100%;
-  grid-template-columns: minmax(0, 1fr);
-  gap: clamp(28px, 5vw, 56px);
+  grid-template-columns: minmax(0, 0.64fr) minmax(280px, 1fr);
+  gap: clamp(32px, 4.5vw, 72px);
   align-items: stretch;
 }
 .dynamic-carousel__panel-inner--with-media {
-  grid-template-columns: minmax(0, 0.58fr) minmax(280px, 1fr);
+  grid-template-columns: minmax(0, 0.6fr) minmax(280px, 1fr);
+}
+.dynamic-carousel__panel:not(.dynamic-carousel__panel--with-media) .dynamic-carousel__panel-inner {
+  grid-template-columns: minmax(0, 1fr);
 }
 .dynamic-carousel__media {
   border-radius: var(--radius-2xl);
@@ -176,11 +188,12 @@
 .dynamic-carousel__content {
   display: flex;
   flex-direction: column;
-  gap: clamp(16px, 2.6vw, 24px);
+  gap: clamp(18px, 2.5vw, 28px);
+  justify-content: flex-start;
 }
 .dynamic-carousel__content-header {
   display: flex;
-  gap: clamp(12px, 2vw, 20px);
+  gap: clamp(16px, 2vw, 24px);
   align-items: flex-start;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -188,7 +201,7 @@
 .dynamic-carousel__titles {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 .dynamic-carousel__eyebrow {
   margin: 0;
@@ -199,14 +212,14 @@
 }
 .dynamic-carousel__title {
   margin: 0;
-  font-size: clamp(1.65rem, 3vw, 2.4rem);
-  line-height: 1.1;
+  font-size: clamp(1.65rem, 2.6vw, 2.25rem);
+  line-height: 1.15;
   letter-spacing: -0.01em;
   color: var(--panel-color, currentColor);
 }
 .dynamic-carousel__summary {
   margin: 0;
-  font-size: clamp(1rem, 1.4vw, 1.125rem);
+  font-size: clamp(1rem, 1.3vw, 1.125rem);
   color: color-mix(in srgb, var(--panel-color, currentColor) 72%, transparent);
 }
 .dynamic-carousel__icon {
@@ -224,8 +237,8 @@
 }
 .dynamic-carousel__body,
 .dynamic-carousel__details {
-  font-size: clamp(1rem, 1.4vw, 1.1rem);
-  line-height: 1.6;
+  font-size: clamp(1rem, 1.25vw, 1.1rem);
+  line-height: 1.7;
   color: color-mix(in srgb, var(--panel-color, currentColor) 82%, transparent);
 }
 .dynamic-carousel__body p:last-child,
@@ -234,7 +247,7 @@
 }
 .dynamic-carousel__details {
   display: grid;
-  gap: 4px;
+  gap: 6px;
 }
 .dynamic-carousel__actions {
   margin-top: auto;
@@ -244,21 +257,8 @@
 }
 .dynamic-carousel__footer {
   display: flex;
-  align-items: center;
-  gap: var(--space-md);
-  justify-content: space-between;
-  padding: var(--space-lg) var(--space-xl);
-  border-radius: var(--radius-2xl);
-  border: 1px solid var(--dynamic-carousel-divider-color);
-  background: color-mix(in srgb, var(--color-background, #f6f8fb) 96%, transparent);
-}
-.dynamic-carousel__footer-text {
-  font-size: clamp(1.125rem, 2.4vw, 1.5rem);
-  line-height: 1.5;
-  color: color-mix(in srgb, var(--color-foreground, currentColor) 72%, transparent);
-}
-.dynamic-carousel__footer-text p:last-child {
-  margin-bottom: 0;
+  justify-content: flex-end;
+  padding: 0 var(--space-xl) var(--space-lg);
 }
 .dynamic-carousel__footer-link {
   display: inline-flex;
@@ -275,7 +275,7 @@
   inset-inline: 0;
   inset-block-start: 100%;
   height: 2px;
-  margin-top: 2px;
+  margin-top: 3px;
   background: currentColor;
   mask: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.85) 16%, rgba(0, 0, 0, 0.85) 84%, transparent);
   opacity: 0.4;
@@ -293,84 +293,75 @@
 }
 @media (max-width: 1024px) {
   .dynamic-carousel {
-    --dynamic-carousel-spine-width: clamp(52px, 7.5vw, 80px);
-    --dynamic-carousel-min-height: clamp(420px, 58svh, 620px);
+    --dynamic-carousel-spine-width: clamp(56px, 9vw, 88px);
+    --dynamic-carousel-open-width: 62%;
   }
   .dynamic-carousel__panel {
-    padding: clamp(20px, 5vw, 40px);
+    padding: clamp(24px, 5vw, 48px);
   }
-  .dynamic-carousel__panel-inner--with-media {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .dynamic-carousel__media {
-    max-height: 380px;
+  .dynamic-carousel__panel-inner {
+    gap: clamp(24px, 4vw, 40px);
   }
 }
 @media (max-width: 749px) {
   .dynamic-carousel {
     --dynamic-carousel-min-height: auto;
+    --dynamic-carousel-open-width: 88%;
+    --dynamic-carousel-closed-width: 48%;
+    --dynamic-carousel-spine-width: clamp(56px, 22vw, 96px);
   }
   .dynamic-carousel__stage {
-    grid-template-columns: minmax(0, 1fr);
-    grid-auto-rows: auto;
+    border-radius: 0;
+    border-width: 0;
   }
-  .dynamic-carousel__rail {
-    order: -1;
-    display: flex;
+  .dynamic-carousel__items {
+    flex-direction: row;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     border-block-end: 1px solid var(--dynamic-carousel-divider-color);
-    background: transparent;
+  }
+  .dynamic-carousel__item {
+    flex: 0 0 var(--dynamic-carousel-closed-width);
+    min-width: var(--dynamic-carousel-closed-width);
+    border-inline-end: 1px solid var(--dynamic-carousel-divider-color);
+    scroll-snap-align: start;
+  }
+  .dynamic-carousel__item.is-active {
+    flex: 0 0 var(--dynamic-carousel-open-width);
+    min-width: var(--dynamic-carousel-open-width);
   }
   .dynamic-carousel__spine {
     writing-mode: horizontal-tb;
-    text-orientation: mixed;
     transform: none;
     width: auto;
-    min-width: 150px;
-    padding-inline: var(--space-lg);
-    scroll-snap-align: start;
-    border-inline-end: none;
-    border-inline-start: 1px solid var(--dynamic-carousel-divider-color);
+    min-width: clamp(140px, 46vw, 220px);
+    padding: var(--space-md) var(--space-lg);
   }
-  .dynamic-carousel__spine:first-child {
-    border-inline-start: none;
-  }
-  .dynamic-carousel__spine-text {
+  .dynamic-carousel__spine .dynamic-carousel__spine-text {
+    position: static;
     transform: none;
   }
-  .dynamic-carousel__panels {
-    position: static;
-  }
   .dynamic-carousel__panel {
-    position: relative;
-    opacity: 1;
-    visibility: visible;
-    transition: none;
-    display: none;
+    padding: var(--space-lg) var(--space-lg) var(--space-xl);
   }
-  .dynamic-carousel__panel[hidden] {
-    display: none;
-  }
-  .dynamic-carousel__panel.is-active {
-    display: flex;
-  }
-  .dynamic-carousel__panel-inner {
+  .dynamic-carousel__panel-inner,
+  .dynamic-carousel__panel-inner--with-media {
+    grid-template-columns: minmax(0, 1fr);
     gap: var(--space-lg);
   }
   .dynamic-carousel__media {
-    max-height: 300px;
+    max-height: 320px;
   }
   .dynamic-carousel__footer {
-    flex-direction: column;
-    text-align: center;
+    justify-content: center;
+    padding: var(--space-lg) 0 0;
   }
   .dynamic-carousel__footer-link::after {
     mask: none;
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .dynamic-carousel__spine {
+  .dynamic-carousel__item {
     transition: none;
   }
   .dynamic-carousel__panel {
