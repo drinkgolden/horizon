@@ -757,6 +757,10 @@ body.has-section-gridlines-vertical
   --section-min-height: var(--section-height-large);
 }
 
+.section--height-extra-large {
+  --section-min-height: var(--section-height-extra-large);
+}
+
 .section--height-full-screen {
   --section-min-height: 100svh;
 }
