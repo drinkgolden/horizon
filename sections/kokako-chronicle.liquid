@@ -1,0 +1,85 @@
+{% comment %}
+  Kokako chronicle blog section highlighting featured articles.
+{% endcomment %}
+<section id="kokako-chronicle-{{ section.id }}" class="kokako-chronicle section" data-section-id="{{ section.id }}" data-section-type="kokako-chronicle">
+  <div class="kokako-chronicle__inner">
+    <div class="kokako-chronicle__header">
+      <h2 class="kokako-chronicle__heading">{{ section.settings.blog_heading }}</h2>
+      {% assign chronicle_blog = section.settings.blog_link %}
+      {% if chronicle_blog %}
+        <a href="{{ chronicle_blog.url }}" class="kokako-chronicle__view-all">{{ section.settings.blog_link_text }}</a>
+      {% else %}
+        <span class="kokako-chronicle__view-all">{{ section.settings.blog_link_text }}</span>
+      {% endif %}
+    </div>
+    <ul class="kokako-chronicle__articles">
+      {% for block in section.blocks %}
+        {% if block.type == 'article' and block.settings.article %}
+          {% assign article = block.settings.article %}
+          <li class="kokako-chronicle__article" {{ block.shopify_attributes }}>
+            <a href="{{ article.url }}">{{ 'blogs.article.read_more_title' | t: title: article.title | default: article.title }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Chronicle Blog Section (Kokako)",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "blog_heading",
+      "label": "Section Heading",
+      "default": "The Kōkako Chronicle"
+    },
+    {
+      "type": "blog",
+      "id": "blog_link",
+      "label": "Blog (for View All link)"
+    },
+    {
+      "type": "text",
+      "id": "blog_link_text",
+      "label": "View All Link Text",
+      "default": "Explore our chronicle"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "article",
+      "name": "Featured Article",
+      "settings": [
+        {
+          "type": "article",
+          "id": "article",
+          "label": "Article"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Chronicle Blog Section (Kokako)",
+      "category": "Custom"
+    }
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "article",
+        "settings": {}
+      },
+      {
+        "type": "article",
+        "settings": {}
+      }
+    ]
+  }
+}
+{% endschema %}
