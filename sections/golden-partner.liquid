@@ -26,69 +26,69 @@ Also supports a decorative animated bird image.
     </div>
   </div>
   {% schema %}
-  {
-    "name": "Golden Partner",
-    "tag": "section",
-    "settings": [
-      {
-        "type": "image_picker",
-        "id": "partner_image",
-        "label": "Decorative Image (Animation)"
-      },
-      {
-        "type": "text",
-        "id": "partner_heading_en",
-        "label": "Heading (English)",
-        "default": "Hey there, partner"
-      },
-      {
-        "type": "text",
-        "id": "partner_heading_mi",
-        "label": "Heading (Māori)",
-        "default": "Kia ora, e hoa"
-      },
-      {
-        "type": "text",
-        "id": "partner_intro",
-        "label": "Intro Text",
-        "default": "We like to think we’re more than just a coffee supplier"
-      }
-    ],
-    "blocks": [
-      {
-        "type": "partner_link",
-        "name": "Partner Link",
-        "settings": [
-          {
-            "type": "url",
-            "id": "link",
-            "label": "Link URL",
-            "default": ""
-          },
-          {
-            "type": "text",
-            "id": "title",
-            "label": "Title",
-            "default": ""
-          },
-          {
-            "type": "text",
-            "id": "subtitle",
-            "label": "Subtitle",
-            "default": ""
-          }
-        ]
-      }
-    ],
-    "max_blocks": 3,
-    "presets": [
-      {
-        "name": "Golden Partner",
-        "category": "Custom"
-      }
-    ]
-  }
-  {% endschema %}
+{
+  "name": "Golden Partner",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "partner_image",
+      "label": "Decorative Image (Animation)"
+    },
+    {
+      "type": "text",
+      "id": "partner_heading_en",
+      "label": "Heading (English)",
+      "default": "Hey there, partner"
+    },
+    {
+      "type": "text",
+      "id": "partner_heading_mi",
+      "label": "Heading (Māori)",
+      "default": "Kia ora, e hoa"
+    },
+    {
+      "type": "text",
+      "id": "partner_intro",
+      "label": "Intro Text",
+      "default": "We like to think we’re more than just a coffee supplier"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "partner_link",
+      "name": "Partner Link",
+      "settings": [
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link URL",
+          "default": ""
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": ""
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": ""
+        }
+      ]
+    }
+  ],
+  "max_blocks": 3,
+  "presets": [
+    {
+      "name": "Golden Partner",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
 </section>
 
 <style>

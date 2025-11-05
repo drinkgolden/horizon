@@ -50,45 +50,45 @@ Golden Featured Goods Section – displays a selection of products with image, n
     </div>
   </div>
   {% schema %}
-  {
-    "name": "Golden Featured Goods",
-    "tag": "section",
-    "settings": [
-      {
-        "type": "text",
-        "id": "section_heading",
-        "label": "Section Heading",
-        "default": "Featured goods"
-      }
-    ],
-    "blocks": [
-      {
-        "type": "product",
-        "name": "Featured Product",
-        "settings": [
-          {
-            "type": "product",
-            "id": "product",
-            "label": "Product"
-          },
-          {
-            "type": "text",
-            "id": "subtext",
-            "label": "Flavour Notes (optional)",
-            "default": ""
-          }
-        ]
-      }
-    ],
-    "max_blocks": 6,
-    "presets": [
-      {
-        "name": "Golden Featured Goods",
-        "category": "Custom"
-      }
-    ]
-  }
-  {% endschema %}
+{
+  "name": "Golden Featured Goods",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading",
+      "default": "Featured goods"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Featured Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "text",
+          "id": "subtext",
+          "label": "Flavour Notes (optional)",
+          "default": ""
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Golden Featured Goods",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
 </section>
 
 <style>

@@ -27,50 +27,50 @@ Golden Chronicle Blog Section – shows the blog section with heading and a coup
     </ul>
   </div>
   {% schema %}
-  {
-    "name": "Golden Chronicle",
-    "tag": "section",
-    "settings": [
-      {
-        "type": "text",
-        "id": "blog_heading",
-        "label": "Section Heading",
-        "default": "The Golden Chronicle"
-      },
-      {
-        "type": "blog",
-        "id": "blog_link",
-        "label": "Blog (for View All link)"
-      },
-      {
-        "type": "text",
-        "id": "blog_link_text",
-        "label": "View All Link Text",
-        "default": "Explore our chronicle"
-      }
-    ],
-    "blocks": [
-      {
-        "type": "article",
-        "name": "Featured Article",
-        "settings": [
-          {
-            "type": "article",
-            "id": "article",
-            "label": "Article"
-          }
-        ]
-      }
-    ],
-    "max_blocks": 4,
-    "presets": [
-      {
-        "name": "Golden Chronicle",
-        "category": "Custom"
-      }
-    ]
-  }
-  {% endschema %}
+{
+  "name": "Golden Chronicle",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "blog_heading",
+      "label": "Section Heading",
+      "default": "The Golden Chronicle"
+    },
+    {
+      "type": "blog",
+      "id": "blog_link",
+      "label": "Blog (for View All link)"
+    },
+    {
+      "type": "text",
+      "id": "blog_link_text",
+      "label": "View All Link Text",
+      "default": "Explore our chronicle"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "article",
+      "name": "Featured Article",
+      "settings": [
+        {
+          "type": "article",
+          "id": "article",
+          "label": "Article"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Golden Chronicle",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
 </section>
 
 <style>

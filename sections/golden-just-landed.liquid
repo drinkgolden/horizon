@@ -23,69 +23,69 @@ Includes a prominent heading and two CTA links, plus an optional decorative imag
     </div>
   </div>
   {% schema %}
-  {
-    "name": "Golden Just Landed",
-    "tag": "section",
-    "settings": [
-      {
-        "type": "text",
-        "id": "land_heading",
-        "label": "Feature Heading",
-        "default": "Just Landed, Golden Half-Caf Mugs."
-      },
-      {
-        "type": "image_picker",
-        "id": "decor_image",
-        "label": "Decorative Image (e.g. flying bird)"
-      }
-    ],
-    "blocks": [
-      {
-        "type": "cta",
-        "name": "CTA Link",
-        "settings": [
-          {
-            "type": "url",
-            "id": "link",
-            "label": "Link URL"
-          },
-          {
-            "type": "text",
-            "id": "label",
-            "label": "Link Label",
-            "default": "Learn more"
-          }
-        ]
-      }
-    ],
-    "max_blocks": 2,
-    "presets": [
-      {
-        "name": "Golden Just Landed",
-        "category": "Custom",
-        "settings": {
-          "land_heading": "Just Landed, Golden Half-Caf Mugs."
+{
+  "name": "Golden Just Landed",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "land_heading",
+      "label": "Feature Heading",
+      "default": "Just Landed, Golden Half-Caf Mugs."
+    },
+    {
+      "type": "image_picker",
+      "id": "decor_image",
+      "label": "Decorative Image (e.g. flying bird)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "cta",
+      "name": "CTA Link",
+      "settings": [
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link URL"
         },
-        "blocks": [
-          {
-            "type": "cta",
-            "settings": {
-              "link": "/products/half-caf-mugs",
-              "label": "Shop now"
-            }
-          },
-          {
-            "type": "cta",
-            "settings": {
-              "link": "#main-content",
-              "label": "I'm just browsing"
-            }
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Link Label",
+          "default": "Learn more"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 2,
+  "presets": [
+    {
+      "name": "Golden Just Landed",
+      "category": "Custom",
+      "settings": {
+        "land_heading": "Just Landed, Golden Half-Caf Mugs."
+      },
+      "blocks": [
+        {
+          "type": "cta",
+          "settings": {
+            "link": "/products/half-caf-mugs",
+            "label": "Shop now"
           }
-        ]
-      }
-    ]
-  }
-  {% endschema %}
+        },
+        {
+          "type": "cta",
+          "settings": {
+            "link": "#main-content",
+            "label": "I'm just browsing"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
 </section>
 
 <style>

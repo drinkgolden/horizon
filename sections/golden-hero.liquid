@@ -49,81 +49,81 @@ Golden Hero Section – replicates the "Welcome to Golden" banner with backgroun
     </div>
   </div>
   {% schema %}
-  {
-    "name": "Golden Hero",
-    "tag": "section",
-    "settings": [
-      {
-        "type": "text",
-        "id": "hero_heading",
-        "label": "Heading Text",
-        "default": "Welcome to Golden"
-      },
-      {
-        "type": "image_picker",
-        "id": "hero_image",
-        "label": "Background Image"
-      },
-      {
-        "type": "video",
-        "id": "hero_video",
-        "label": "Background Video"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_badges",
-        "label": "Show Fairtrade & Organic Badges",
-        "default": true
-      }
-    ],
-    "blocks": [
-      {
-        "type": "cta",
-        "name": "CTA Button",
-        "settings": [
-          {
-            "type": "url",
-            "id": "link",
-            "label": "Button Link"
-          },
-          {
-            "type": "text",
-            "id": "label",
-            "label": "Button Label",
-            "default": "Click me"
-          }
-        ]
-      }
-    ],
-    "max_blocks": 2,
-    "presets": [
-      {
-        "name": "Golden Hero",
-        "category": "Custom",
-        "settings": {
-          "hero_heading": "Welcome to Golden",
-          "show_badges": true
+{
+  "name": "Golden Hero",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "hero_heading",
+      "label": "Heading Text",
+      "default": "Welcome to Golden"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "video",
+      "id": "hero_video",
+      "label": "Background Video"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_badges",
+      "label": "Show Fairtrade & Organic Badges",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "cta",
+      "name": "CTA Button",
+      "settings": [
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Button Link"
         },
-        "blocks": [
-          {
-            "type": "cta",
-            "settings": {
-              "link": "/collections/all",
-              "label": "Shop now"
-            }
-          },
-          {
-            "type": "cta",
-            "settings": {
-              "link": "#main-content",
-              "label": "I'm just browsing"
-            }
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Button Label",
+          "default": "Click me"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 2,
+  "presets": [
+    {
+      "name": "Golden Hero",
+      "category": "Custom",
+      "settings": {
+        "hero_heading": "Welcome to Golden",
+        "show_badges": true
+      },
+      "blocks": [
+        {
+          "type": "cta",
+          "settings": {
+            "link": "/collections/all",
+            "label": "Shop now"
           }
-        ]
-      }
-    ]
-  }
-  {% endschema %}
+        },
+        {
+          "type": "cta",
+          "settings": {
+            "link": "#main-content",
+            "label": "I'm just browsing"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
 </section>
 
 <style>

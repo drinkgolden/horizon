@@ -20,42 +20,42 @@ Displays a heading, a CTA link, and an image of brew equipment.
     {% endif %}
   </div>
   {% schema %}
-  {
-    "name": "Golden Brew Gear",
-    "tag": "section",
-    "settings": [
-      {
-        "type": "text",
-        "id": "gear_heading",
-        "label": "Heading",
-        "default": "Want to update your equipment?"
-      },
-      {
-        "type": "url",
-        "id": "cta_link",
-        "label": "CTA Link",
-        "default": "/collections/brew-gear"
-      },
-      {
-        "type": "text",
-        "id": "cta_label",
-        "label": "CTA Link Label",
-        "default": "Shop our brew gear"
-      },
-      {
-        "type": "image_picker",
-        "id": "gear_image",
-        "label": "Image"
-      }
-    ],
-    "presets": [
-      {
-        "name": "Golden Brew Gear",
-        "category": "Custom"
-      }
-    ]
-  }
-  {% endschema %}
+{
+  "name": "Golden Brew Gear",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "gear_heading",
+      "label": "Heading",
+      "default": "Want to update your equipment?"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "CTA Link",
+      "default": "/collections/brew-gear"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "CTA Link Label",
+      "default": "Shop our brew gear"
+    },
+    {
+      "type": "image_picker",
+      "id": "gear_image",
+      "label": "Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Golden Brew Gear",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
 </section>
 
 <style>

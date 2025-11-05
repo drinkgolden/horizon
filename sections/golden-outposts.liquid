@@ -35,68 +35,68 @@ Includes an intro text with "Find your nearest outpost" link, and a list of loca
     </div>
   </div>
   {% schema %}
-  {
-    "name": "Golden Outposts",
-    "tag": "section",
-    "settings": [
-      {
-        "type": "richtext",
-        "id": "intro_text",
-        "label": "Intro Text",
-        "default": "<p>We proudly supply some of the best cafés, restaurants and retailers around.</p>"
-      },
-      {
-        "type": "url",
-        "id": "outposts_link",
-        "label": "View All Outposts Link",
-        "default": "/pages/outposts"
-      },
-      {
-        "type": "text",
-        "id": "outposts_label",
-        "label": "Link Label",
-        "default": "Find your nearest outpost"
-      }
-    ],
-    "blocks": [
-      {
-        "type": "location",
-        "name": "Location",
-        "settings": [
-          {
-            "type": "text",
-            "id": "location_name",
-            "label": "Location Name",
-            "default": ""
-          },
-          {
-            "type": "richtext",
-            "id": "location_details",
-            "label": "Address & Hours Details",
-            "default": ""
-          },
-          {
-            "type": "image_picker",
-            "id": "image_1",
-            "label": "Image 1"
-          },
-          {
-            "type": "image_picker",
-            "id": "image_2",
-            "label": "Image 2 (optional)"
-          }
-        ]
-      }
-    ],
-    "max_blocks": 10,
-    "presets": [
-      {
-        "name": "Golden Outposts",
-        "category": "Custom"
-      }
-    ]
-  }
-  {% endschema %}
+{
+  "name": "Golden Outposts",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "intro_text",
+      "label": "Intro Text",
+      "default": "<p>We proudly supply some of the best cafés, restaurants and retailers around.</p>"
+    },
+    {
+      "type": "url",
+      "id": "outposts_link",
+      "label": "View All Outposts Link",
+      "default": "/pages/outposts"
+    },
+    {
+      "type": "text",
+      "id": "outposts_label",
+      "label": "Link Label",
+      "default": "Find your nearest outpost"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "location",
+      "name": "Location",
+      "settings": [
+        {
+          "type": "text",
+          "id": "location_name",
+          "label": "Location Name",
+          "default": ""
+        },
+        {
+          "type": "richtext",
+          "id": "location_details",
+          "label": "Address & Hours Details",
+          "default": ""
+        },
+        {
+          "type": "image_picker",
+          "id": "image_1",
+          "label": "Image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Image 2 (optional)"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    {
+      "name": "Golden Outposts",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
 </section>
 
 <style>
