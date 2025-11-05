@@ -1,750 +1,528 @@
-{% comment %}
-  DYNAMIC CAROUSEL — Vertical spines that expand into a rich media panel.
-{% endcomment %}
 
-{{ 'dynamic-carousel.css' | asset_url | stylesheet_tag }}
 
-{% liquid
-  assign aria_label = section.settings.accessibility_label | default: 'Dynamic carousel'
+{% capture children %}
+  {% content_for 'blocks' %}
+{% endcapture %}
 
-  assign height_style = ''
-  if section.settings.section_height == 'custom'
-    assign height_style = section.settings.section_height_custom | append: 'svh'
-  elsif section.settings.section_height != blank
-    assign height_style = 'var(--section-height-' | append: section.settings.section_height | append: ')'
-  endif
-
-  assign section_color_scheme = section.settings.section_color_scheme | default: 'scheme-1'
-
-  assign has_footer = false
-  if section.settings.footer_link_label != blank and section.settings.footer_link_url != blank
-    assign has_footer = true
-  endif
-
-  assign interaction_mode = 'click'
-  if section.settings.open_on_hover
-    assign interaction_mode = 'hover'
-  endif
-
-  assign section_height_class = ''
-  if section.settings.section_height != blank and section.settings.section_height != 'custom'
-    assign section_height_class = ' section--height-' | append: section.settings.section_height
-  endif
-  assign section_style = ''
-  if height_style != blank
-    assign section_style = section_style | append: '--section-min-height: ' | append: height_style | append: ';'
-    assign section_style = section_style | append: '--dynamic-carousel-min-height: ' | append: height_style | append: ';'
-    assign section_style = section_style | append: 'min-height: ' | append: height_style | append: ';'
-    assign section_style = section_style | append: 'height: ' | append: height_style | append: ';'
-  endif
-%}
-
-<div class="section-background color-{{ section_color_scheme }}"></div>
-<section
-  class="section section--full-width dynamic-carousel-section color-{{ section_color_scheme }}{{ section_height_class }}"
-  aria-label="{{ aria_label | escape }}"
-  {% if section_style != '' %}
-    style="{{ section_style }}"
-  {% endif %}
-  data-dynamic-carousel-section
->
-  <div class="section-content-wrapper dynamic-carousel-section__wrapper">
-    <div class="dynamic-carousel color-{{ section_color_scheme }}">
-      <div class="page-width dynamic-carousel__container">
-        {% if section.blocks.size >= 2 %}
-          <div
-            class="dynamic-carousel__stage"
-            data-dynamic-carousel-stage
-            data-interaction-mode="{{ interaction_mode }}"
-            data-slide-count="{{ section.blocks.size }}"
-          >
-            <div
-              class="dynamic-carousel__items"
-              role="tablist"
-              aria-label="{{ aria_label | escape }}"
-              aria-orientation="horizontal"
-              data-dynamic-carousel-items
-            >
-              {% for block in section.blocks %}
-                {% assign item_id = 'DynamicCarouselItem-' | append: block.id %}
-                {% assign handle_id = 'DynamicCarouselTab-' | append: block.id %}
-                {% assign panel_id = 'DynamicCarouselPanel-' | append: block.id %}
-                {% assign is_active = forloop.first %}
-                {% assign block_color_scheme = block.settings.color_scheme | default: section_color_scheme %}
-
-                {% capture item_styles %}
-                  --panel-background: var(--color-background);
-                  --panel-color: var(--color-foreground);
-                  {% if block.settings.spine_padding_block != blank %}
-                    --spine-padding-block: {{ block.settings.spine_padding_block }}px;
-                  {% endif %}
-                  {% if block.settings.spine_padding_inline != blank %}
-                    --spine-padding-inline: {{ block.settings.spine_padding_inline }}px;
-                  {% endif %}
-                {% endcapture %}
-
-                {% capture media_markup %}
-                  {% case block.settings.media_type %}
-                    {% when 'image' %}
-                      {% if block.settings.image %}
-                        {{ block.settings.image | image_url: width: 1800 | image_tag: widths: '480, 720, 960, 1200, 1600, 1800', sizes: '(min-width: 1200px) 40vw, (min-width: 750px) 60vw, 100vw', loading: 'lazy', class: 'dynamic-carousel__media-image', alt: block.settings.heading | default: block.settings.spine_heading }}
-                      {% endif %}
-                    {% when 'uploaded_video' %}
-                      {% if block.settings.video %}
-                        {% render 'video', video: block.settings.video, video_autoplay: block.settings.video_autoplay, video_loop: block.settings.video_loop, video_class: 'dynamic-carousel__media-embed', section_id: section.id, block: block %}
-                      {% endif %}
-                    {% when 'external_video' %}
-                      {% if block.settings.video_url != blank %}
-                        {% assign external_video = block.settings.video_url | video_url %}
-                        {% render 'video', video_from_url: true, video: external_video.id, video_type: external_video.type, video_autoplay: block.settings.video_autoplay, video_loop: block.settings.video_loop, video_class: 'dynamic-carousel__media-embed', video_preview_image: block.settings.video_poster, video_alt: block.settings.heading | default: block.settings.spine_heading, section_id: section.id, block: block %}
-                      {% endif %}
-                  {% endcase %}
-                {% endcapture %}
-                {% assign media_markup = media_markup | strip %}
-
-                <article
-                  id="{{ item_id }}"
-                  class="dynamic-carousel__item color-{{ block_color_scheme }}{% if is_active %} is-active{% endif %}"
-                  data-dynamic-carousel-item
-                  data-block-id="{{ block.id }}"
-                  style="{{ item_styles | strip | replace: '  ', ' ' }}"
-                  {{ block.shopify_attributes }}
-                >
-                  <button
-                    type="button"
-                    id="{{ handle_id }}"
-                    class="dynamic-carousel__spine"
-                    role="tab"
-                    aria-controls="{{ panel_id }}"
-                    aria-selected="{% if is_active %}true{% else %}false{% endif %}"
-                    aria-expanded="{% if is_active %}true{% else %}false{% endif %}"
-                    tabindex="{% if is_active %}0{% else %}-1{% endif %}"
-                    data-dynamic-carousel-handle
-                  >
-                    <span class="dynamic-carousel__spine-track">
-                      {% assign spine_text_style = block.settings.spine_text_style | default: 'h3' %}
-                      <span class="dynamic-carousel__spine-text dynamic-carousel__spine-text--{{ spine_text_style }}">
-                        {{- block.settings.spine_heading | default: block.settings.heading | default: 'Slide heading' -}}
-                      </span>
-                    </span>
-                  </button>
-
-                  <section
-                    id="{{ panel_id }}"
-                    class="dynamic-carousel__panel{% if media_markup != blank %} dynamic-carousel__panel--with-media{% endif %}"
-                    role="tabpanel"
-                    aria-labelledby="{{ handle_id }}"
-                    aria-hidden="{% unless is_active %}true{% else %}false{% endunless %}"
-                    data-dynamic-carousel-panel
-                    {% unless is_active %}hidden{% endunless %}
-                  >
-                    {% assign has_media_asset = false %}
-                    {% if media_markup != blank %}
-                      {% assign has_media_asset = true %}
-                    {% endif %}
-                    {% assign show_placeholder = false %}
-                    {% if media_markup == blank and request.design_mode %}
-                      {% assign show_placeholder = true %}
-                    {% endif %}
-                    {% assign has_media_column = has_media_asset %}
-                    {% if show_placeholder %}
-                      {% assign has_media_column = true %}
-                    {% endif %}
-                    <div class="dynamic-carousel__panel-inner{% if has_media_column %} dynamic-carousel__panel-inner--with-media{% endif %}">
-                      {% if has_media_asset %}
-                        <div class="dynamic-carousel__media">
-                          {{ media_markup }}
-                        </div>
-                      {% elsif show_placeholder %}
-                        <div class="dynamic-carousel__media dynamic-carousel__media--placeholder">
-                          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
-                        </div>
-                      {% endif %}
-
-                      <div class="dynamic-carousel__content">
-                        <div class="dynamic-carousel__content-header">
-                          <div class="dynamic-carousel__titles">
-                            {% if block.settings.eyebrow != blank %}
-                              <p class="dynamic-carousel__eyebrow">{{ block.settings.eyebrow }}</p>
-                            {% endif %}
-
-                            {% if block.settings.heading != blank %}
-                              <h3 class="dynamic-carousel__title">{{ block.settings.heading }}</h3>
-                            {% endif %}
-
-                            {% if block.settings.summary != blank %}
-                              <p class="dynamic-carousel__summary">
-                                {{- block.settings.summary | escape | newline_to_br -}}
-                              </p>
-                            {% endif %}
-                          </div>
-
-                          {% if block.settings.icon %}
-                            <div class="dynamic-carousel__icon">
-                              {{
-                                block.settings.icon
-                                | image_url: width: 140
-                                | image_tag:
-                                  widths: '80, 120, 160',
-                                  loading: 'lazy',
-                                  alt: block.settings.icon_alt | default: ''
-                              }}
-                            </div>
-                          {% endif %}
-                        </div>
-
-                        {% if block.settings.body != blank %}
-                          <div class="dynamic-carousel__body">
-                            {{ block.settings.body }}
-                          </div>
-                        {% endif %}
-
-                        {% if block.settings.details != blank %}
-                          <div class="dynamic-carousel__details">
-                            {{ block.settings.details }}
-                          </div>
-                        {% endif %}
-
-                        {% if block.settings.cta_label != blank and block.settings.cta_url != blank %}
-                          <div class="dynamic-carousel__actions">
-                            <a
-                              href="{{ block.settings.cta_url }}"
-                              class="button button--primary dynamic-carousel__button"
-                            >
-                              {{ block.settings.cta_label }}
-                            </a>
-                          </div>
-                        {% endif %}
-                      </div>
-                    </div>
-                  </section>
-                </article>
-              {% endfor %}
-            </div>
-          </div>
-        {% elsif section.blocks.size == 1 %}
-          <div class="dynamic-carousel__empty">
-            Add at least two slides to display the carousel.
-          </div>
-        {% else %}
-          <div class="dynamic-carousel__empty">
-            {{ 'sections.general.no_content' | t: section_name: section.name }}
-          </div>
-        {% endif %}
-
-        {% if has_footer %}
-          <div class="dynamic-carousel__footer">
-            <a class="dynamic-carousel__footer-link" href="{{ section.settings.footer_link_url }}">
-              {{ section.settings.footer_link_label }}
-              <span class="dynamic-carousel__footer-icon" aria-hidden="true">→</span>
-            </a>
-          </div>
-        {% endif %}
-      </div>
-    </div>
-  </div>
-</section>
+{% render 'section', section: section, children: children %}
 
 {% schema %}
 {
   "name": "Dynamic Carousel",
+  "class": "section-wrapper",
+  "blocks": [
+    {
+      "type": "@theme"
+    },
+    {
+      "type": "@app"
+    },
+    {
+      "type": "_divider"
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header"]
+  },
   "settings": [
     {
-      "type": "text",
-      "id": "accessibility_label",
-      "label": "Accessible label",
-      "info": "Used by assistive technology in place of a visible heading."
+      "type": "header",
+      "content": "t:content.layout"
+    },
+    {
+      "type": "select",
+      "id": "content_direction",
+      "label": "t:settings.direction",
+      "options": [
+        {
+          "value": "column",
+          "label": "t:options.vertical"
+        },
+        {
+          "value": "row",
+          "label": "t:options.horizontal"
+        }
+      ],
+      "default": "column"
+    },
+    {
+      "type": "checkbox",
+      "id": "vertical_on_mobile",
+      "label": "t:settings.vertical_on_mobile",
+      "default": true,
+      "visible_if": "{{ section.settings.content_direction == 'row' }}"
+    },
+    {
+      "type": "select",
+      "id": "horizontal_alignment",
+      "label": "t:settings.alignment",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "t:options.left"
+        },
+        {
+          "value": "center",
+          "label": "t:options.center"
+        },
+        {
+          "value": "flex-end",
+          "label": "t:options.right"
+        },
+        {
+          "value": "space-between",
+          "label": "t:options.space_between"
+        }
+      ],
+      "default": "flex-start",
+      "visible_if": "{{ section.settings.content_direction == 'row' }}"
+    },
+    {
+      "type": "select",
+      "id": "vertical_alignment",
+      "label": "t:settings.position",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "t:options.top"
+        },
+        {
+          "value": "center",
+          "label": "t:options.center"
+        },
+        {
+          "value": "flex-end",
+          "label": "t:options.bottom"
+        }
+      ],
+      "default": "center",
+      "visible_if": "{{ section.settings.content_direction == 'row' }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "align_baseline",
+      "label": "t:settings.align_baseline",
+      "default": false,
+      "visible_if": "{{ section.settings.vertical_alignment == 'flex-end' }}"
+    },
+    {
+      "type": "select",
+      "id": "horizontal_alignment_flex_direction_column",
+      "label": "t:settings.alignment",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "t:options.left"
+        },
+        {
+          "value": "center",
+          "label": "t:options.center"
+        },
+        {
+          "value": "flex-end",
+          "label": "t:options.right"
+        }
+      ],
+      "default": "flex-start",
+      "visible_if": "{{ section.settings.content_direction != 'row' }}"
+    },
+    {
+      "type": "select",
+      "id": "vertical_alignment_flex_direction_column",
+      "label": "t:settings.position",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "t:options.top"
+        },
+        {
+          "value": "center",
+          "label": "t:options.center"
+        },
+        {
+          "value": "flex-end",
+          "label": "t:options.bottom"
+        },
+        {
+          "value": "space-between",
+          "label": "t:options.space_between"
+        }
+      ],
+      "default": "center",
+      "visible_if": "{{ section.settings.content_direction == 'column' }}"
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "t:settings.gap",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "t:content.size"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "t:settings.width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "t:options.page"
+        },
+        {
+          "value": "full-width",
+          "label": "t:options.full"
+        }
+      ],
+      "default": "page-width"
     },
     {
       "type": "select",
       "id": "section_height",
-      "label": "Section height",
+      "label": "t:settings.height",
       "options": [
         {
           "value": "",
-          "label": "Natural height"
+          "label": "t:options.auto"
         },
         {
           "value": "small",
-          "label": "Small"
+          "label": "t:options.small"
         },
         {
           "value": "medium",
-          "label": "Medium"
+          "label": "t:options.medium"
         },
         {
           "value": "large",
-          "label": "Large"
+          "label": "t:options.large"
         },
         {
-          "value": "extra-large",
-          "label": "Extra large"
+          "value": "full-screen",
+          "label": "t:options.full_screen"
         },
         {
           "value": "custom",
-          "label": "Custom"
+          "label": "t:options.custom"
         }
       ],
-      "default": "custom"
+      "default": ""
     },
     {
       "type": "range",
       "id": "section_height_custom",
-      "label": "Custom height",
-      "min": 40,
+      "label": "t:settings.custom_height",
+      "min": 0,
       "max": 100,
       "step": 1,
-      "unit": "svh",
-      "default": 60,
+      "default": 50,
+      "unit": "%",
       "visible_if": "{{ section.settings.section_height == 'custom' }}"
     },
     {
+      "type": "header",
+      "content": "t:content.appearance"
+    },
+    {
       "type": "color_scheme",
-      "id": "section_color_scheme",
-      "label": "Section color scheme",
+      "id": "color_scheme",
+      "label": "t:settings.color_scheme",
       "default": "scheme-1"
     },
     {
-      "type": "checkbox",
-      "id": "open_on_hover",
-      "label": "Open slides on hover",
-      "info": "When enabled, hovering or focusing a spine opens its panel.",
-      "default": false
-    },
-    {
-      "type": "text",
-      "id": "footer_link_label",
-      "label": "Footer link label"
-    },
-    {
-      "type": "url",
-      "id": "footer_link_url",
-      "label": "Footer link"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "slide",
-      "name": "Slide",
-      "settings": [
+      "type": "select",
+      "id": "background_media",
+      "label": "t:settings.background_media",
+      "options": [
         {
-          "type": "text",
-          "id": "spine_heading",
-          "label": "Spine heading",
-          "default": "Commercial Bay"
+          "value": "none",
+          "label": "t:options.none"
         },
         {
-          "type": "color_scheme",
-          "id": "color_scheme",
-          "label": "Slide color scheme",
-          "info": "Applies to the spine and the expanded panel."
+          "value": "image",
+          "label": "t:options.image"
         },
         {
-          "type": "select",
-          "id": "spine_text_style",
-          "label": "Spine text style",
-          "options": [
-            {
-              "value": "paragraph",
-              "label": "Paragraph"
-            },
-            {
-              "value": "h1",
-              "label": "Heading 1"
-            },
-            {
-              "value": "h2",
-              "label": "Heading 2"
-            },
-            {
-              "value": "h3",
-              "label": "Heading 3"
-            },
-            {
-              "value": "h4",
-              "label": "Heading 4"
-            },
-            {
-              "value": "h5",
-              "label": "Heading 5"
-            },
-            {
-              "value": "h6",
-              "label": "Heading 6"
-            },
-            {
-              "value": "overline",
-              "label": "Overline"
-            }
-          ],
-          "default": "h3"
-        },
-        {
-          "type": "range",
-          "id": "spine_padding_block",
-          "label": "Spine padding (vertical)",
-          "min": 8,
-          "max": 72,
-          "step": 2,
-          "unit": "px",
-          "default": 32
-        },
-        {
-          "type": "range",
-          "id": "spine_padding_inline",
-          "label": "Spine padding (horizontal)",
-          "min": 4,
-          "max": 40,
-          "step": 2,
-          "unit": "px",
-          "default": 16
-        },
-        {
-          "type": "text",
-          "id": "eyebrow",
-          "label": "Eyebrow label"
-        },
-        {
-          "type": "text",
-          "id": "heading",
-          "label": "Panel heading",
-          "default": "9 Charles Street, Mount Eden, Auckland"
-        },
-        {
-          "type": "textarea",
-          "id": "summary",
-          "label": "Summary"
-        },
-        {
-          "type": "richtext",
-          "id": "body",
-          "label": "Body content"
-        },
-        {
-          "type": "richtext",
-          "id": "details",
-          "label": "Details",
-          "info": "Use for hours, addresses, or additional CTAs."
-        },
-        {
-          "type": "select",
-          "id": "media_type",
-          "label": "Media type",
-          "options": [
-            {
-              "value": "image",
-              "label": "Image"
-            },
-            {
-              "value": "uploaded_video",
-              "label": "Uploaded video"
-            },
-            {
-              "value": "external_video",
-              "label": "External video"
-            },
-            {
-              "value": "none",
-              "label": "None"
-            }
-          ],
-          "default": "image"
-        },
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image",
-          "visible_if": "{{ block.settings.media_type == 'image' }}"
-        },
-        {
-          "type": "video",
-          "id": "video",
-          "label": "Video",
-          "visible_if": "{{ block.settings.media_type == 'uploaded_video' }}"
-        },
-        {
-          "type": "video_url",
-          "id": "video_url",
-          "label": "External video URL",
-          "accept": [
-            "youtube",
-            "vimeo"
-          ],
-          "visible_if": "{{ block.settings.media_type == 'external_video' }}"
-        },
-        {
-          "type": "image_picker",
-          "id": "video_poster",
-          "label": "Poster image",
-          "visible_if": "{{ block.settings.media_type == 'external_video' }}"
-        },
-        {
-          "type": "checkbox",
-          "id": "video_autoplay",
-          "label": "Autoplay video",
-          "default": true,
-          "visible_if": "{{ block.settings.media_type != 'image' and block.settings.media_type != 'none' }}"
-        },
-        {
-          "type": "checkbox",
-          "id": "video_loop",
-          "label": "Loop video",
-          "default": true,
-          "visible_if": "{{ block.settings.media_type != 'image' and block.settings.media_type != 'none' }}"
-        },
-        {
-          "type": "image_picker",
-          "id": "icon",
-          "label": "Panel icon"
-        },
-        {
-          "type": "text",
-          "id": "icon_alt",
-          "label": "Icon alt text"
-        },
-        {
-          "type": "text",
-          "id": "cta_label",
-          "label": "Button label"
-        },
-        {
-          "type": "url",
-          "id": "cta_url",
-          "label": "Button link"
+          "value": "video",
+          "label": "t:options.video"
         }
-      ]
+      ],
+      "default": "none"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "t:settings.video",
+      "visible_if": "{{ section.settings.background_media == 'video' }}"
+    },
+    {
+      "type": "select",
+      "id": "video_position",
+      "label": "t:settings.video_position",
+      "options": [
+        {
+          "value": "cover",
+          "label": "t:options.cover"
+        },
+        {
+          "value": "contain",
+          "label": "t:options.contain"
+        }
+      ],
+      "default": "cover",
+      "visible_if": "{{ section.settings.background_media == 'video' }}"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "t:settings.image",
+      "visible_if": "{{ section.settings.background_media == 'image' }}"
+    },
+    {
+      "type": "select",
+      "id": "background_image_position",
+      "label": "t:settings.image_position",
+      "options": [
+        {
+          "value": "cover",
+          "label": "t:options.cover"
+        },
+        {
+          "value": "fit",
+          "label": "t:options.fit"
+        }
+      ],
+      "default": "cover",
+      "visible_if": "{{ section.settings.background_media == 'image' }}"
+    },
+    {
+      "type": "select",
+      "id": "border",
+      "label": "t:settings.borders",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:options.none"
+        },
+        {
+          "value": "solid",
+          "label": "t:options.solid"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "range",
+      "id": "border_width",
+      "min": 0,
+      "max": 10,
+      "step": 0.5,
+      "unit": "px",
+      "label": "t:settings.border_width",
+      "default": 1,
+      "visible_if": "{{ section.settings.border != 'none' }}"
+    },
+    {
+      "type": "range",
+      "id": "border_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "t:settings.border_opacity",
+      "default": 100,
+      "visible_if": "{{ section.settings.border != 'none' }}"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "t:settings.border_radius",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "checkbox",
+      "id": "toggle_overlay",
+      "label": "t:settings.background_overlay"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "t:settings.overlay_color",
+      "alpha": true,
+      "default": "#00000026",
+      "visible_if": "{{ section.settings.toggle_overlay }}"
+    },
+    {
+      "type": "select",
+      "id": "overlay_style",
+      "label": "t:settings.overlay_style",
+      "options": [
+        {
+          "value": "solid",
+          "label": "t:options.solid"
+        },
+        {
+          "value": "gradient",
+          "label": "t:options.gradient"
+        }
+      ],
+      "default": "solid",
+      "visible_if": "{{ section.settings.toggle_overlay }}"
+    },
+    {
+      "type": "select",
+      "id": "gradient_direction",
+      "label": "t:settings.gradient_direction",
+      "options": [
+        {
+          "value": "to top",
+          "label": "t:options.up"
+        },
+        {
+          "value": "to bottom",
+          "label": "t:options.down"
+        }
+      ],
+      "default": "to top",
+      "visible_if": "{{ section.settings.toggle_overlay and section.settings.overlay_style == 'gradient' }}"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
     }
   ],
-  "max_blocks": 6,
   "presets": [
     {
       "name": "Dynamic Carousel",
       "category": "Golden custom section",
-      "blocks": [
-        {
-          "type": "slide",
+      "blocks": {
+        "group_1": {
+          "type": "group",
           "settings": {
-            "spine_heading": "Commercial Bay"
-          }
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "space-between",
+            "gap": 32,
+            "inherit_color_scheme": false,
+            "color_scheme": "scheme-5",
+            "background_media": "image",
+            "placeholder": "hero-apparel-2",
+            "height": "fill",
+            "padding-block-start": 40,
+            "padding-block-end": 40,
+            "padding-inline-start": 40,
+            "padding-inline-end": 40
+          },
+          "blocks": {
+            "spacer": {
+              "type": "spacer",
+              "settings": {
+                "size": "pixel",
+                "pixel_size": 16
+              }
+            },
+            "text_1": {
+              "type": "text",
+              "settings": {
+                "text": "t:html_defaults.new_arrivals_h3",
+                "type_preset": "h3",
+                "width": "fit-content",
+                "alignment": "center"
+              }
+            },
+            "button": {
+              "type": "button",
+              "settings": {
+                "label": "t:text_defaults.shop_now_button_label",
+                "link": "shopify://collections/all",
+                "style_class": "link"
+              }
+            }
+          },
+          "block_order": ["spacer", "text_1", "button"]
         },
-        {
-          "type": "slide",
+        "group_2": {
+          "type": "group",
           "settings": {
-            "spine_heading": "Roastery Roller Door"
-          }
-        },
-        {
-          "type": "slide",
-          "settings": {
-            "spine_heading": "Wholesale HQ"
-          }
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "space-between",
+            "gap": 32,
+            "inherit_color_scheme": false,
+            "color_scheme": "scheme-5",
+            "background_media": "image",
+            "placeholder": "hero-apparel-1",
+            "height": "fill",
+            "padding-block-start": 40,
+            "padding-block-end": 40,
+            "padding-inline-start": 40,
+            "padding-inline-end": 40
+          },
+          "blocks": {
+            "spacer": {
+              "type": "spacer",
+              "settings": {
+                "size": "pixel",
+                "pixel_size": 16
+              }
+            },
+            "text_1": {
+              "type": "text",
+              "settings": {
+                "text": "t:html_defaults.bestseller_h3",
+                "type_preset": "h3",
+                "width": "fit-content",
+                "alignment": "center"
+              }
+            },
+            "button": {
+              "type": "button",
+              "settings": {
+                "label": "t:text_defaults.shop_now_button_label",
+                "link": "shopify://collections/all",
+                "style_class": "link"
+              }
+            }
+          },
+          "block_order": ["spacer", "text_1", "button"]
         }
-      ]
+      },
+      "block_order": ["group_1", "group_2"],
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "gap": 0,
+        "section_width": "full-width",
+        "section_height": "large"
+      }
     }
   ]
 }
 {% endschema %}
-
-{% javascript %}
-  (() => {
-    const sectionId = 'shopify-section-{{ section.id }}';
-
-    class DynamicCarousel {
-      constructor(stage) {
-        this.stage = stage;
-        this.items = Array.from(stage.querySelectorAll('[data-dynamic-carousel-item]'));
-        this.handles = this.items.map((item) => item.querySelector('[data-dynamic-carousel-handle]'));
-        this.panels = this.items.map((item) => item.querySelector('[data-dynamic-carousel-panel]'));
-        this.interactionMode = stage.dataset.interactionMode === 'hover' ? 'hover' : 'click';
-        this.listeners = [];
-        this.activeIndex = this.items.findIndex((item) => item.classList.contains('is-active'));
-
-        if (this.items.length < 2 || this.handles.includes(null) || this.panels.includes(null)) {
-          return;
-        }
-
-        if (this.activeIndex < 0) {
-          this.activeIndex = 0;
-        }
-
-        this.setSizing();
-        this.updateState(this.activeIndex, false);
-        this.bindEvents();
-      }
-
-      bindEvents() {
-        this.handles.forEach((handle, index) => {
-          if (!handle) {
-            return;
-          }
-
-          const handleListeners = {
-            click: (event) => {
-              event.preventDefault();
-              this.updateState(index, false);
-            },
-            keydown: (event) => this.onKeydown(event, index),
-          };
-
-          handle.addEventListener('click', handleListeners.click);
-          handle.addEventListener('keydown', handleListeners.keydown);
-
-          if (this.interactionMode === 'hover') {
-            handleListeners.pointerenter = () => this.updateState(index, false);
-            handleListeners.focus = () => this.updateState(index, false);
-            handle.addEventListener('pointerenter', handleListeners.pointerenter);
-            handle.addEventListener('focus', handleListeners.focus);
-          }
-
-          this.listeners.push({ handle, handleListeners });
-        });
-      }
-
-      calculateOpenWidth(count) {
-        if (count <= 2) {
-          return 70;
-        }
-
-        if (count >= 6) {
-          return 50;
-        }
-
-        return Math.max(70 - (count - 2) * 5, 50);
-      }
-
-      setSizing() {
-        const count = this.items.length;
-        const openWidth = this.calculateOpenWidth(count);
-        const closedWidth = count > 1 ? Math.max((100 - openWidth) / (count - 1), 6) : 0;
-
-        this.stage.style.setProperty('--dynamic-carousel-count', count);
-        this.stage.style.setProperty('--dynamic-carousel-open-width', `${openWidth}%`);
-        this.stage.style.setProperty('--dynamic-carousel-closed-width', `${closedWidth}%`);
-      }
-
-      onKeydown(event, index) {
-        const keys = ['ArrowLeft', 'ArrowRight', 'Home', 'End'];
-
-        if (!keys.includes(event.key)) {
-          return;
-        }
-
-        event.preventDefault();
-
-        let nextIndex = index;
-
-        switch (event.key) {
-          case 'ArrowLeft':
-            nextIndex = (index - 1 + this.handles.length) % this.handles.length;
-            break;
-          case 'ArrowRight':
-            nextIndex = (index + 1) % this.handles.length;
-            break;
-          case 'Home':
-            nextIndex = 0;
-            break;
-          case 'End':
-            nextIndex = this.handles.length - 1;
-            break;
-        }
-
-        this.updateState(nextIndex, true);
-      }
-
-      updateState(targetIndex, focusHandle) {
-        if (targetIndex === this.activeIndex) {
-          if (focusHandle) {
-            this.handles[targetIndex]?.focus();
-          }
-          return;
-        }
-
-        this.items.forEach((item, index) => {
-          const handle = this.handles[index];
-          const panel = this.panels[index];
-          const isActive = index === targetIndex;
-
-          item.classList.toggle('is-active', isActive);
-
-          if (handle) {
-            handle.setAttribute('aria-selected', isActive ? 'true' : 'false');
-            handle.setAttribute('aria-expanded', isActive ? 'true' : 'false');
-            handle.setAttribute('tabindex', isActive ? '0' : '-1');
-
-            if (isActive && focusHandle) {
-              handle.focus();
-            }
-          }
-
-          if (panel) {
-            panel.setAttribute('aria-hidden', isActive ? 'false' : 'true');
-
-            if (isActive) {
-              panel.removeAttribute('hidden');
-            } else {
-              panel.setAttribute('hidden', '');
-            }
-          }
-        });
-
-        this.activeIndex = targetIndex;
-      }
-
-      destroy() {
-        this.listeners.forEach(({ handle, handleListeners }) => {
-          handle.removeEventListener('click', handleListeners.click);
-          handle.removeEventListener('keydown', handleListeners.keydown);
-
-          if (handleListeners.pointerenter) {
-            handle.removeEventListener('pointerenter', handleListeners.pointerenter);
-          }
-
-          if (handleListeners.focus) {
-            handle.removeEventListener('focus', handleListeners.focus);
-          }
-        });
-
-        this.listeners = [];
-      }
-    }
-
-    const hydrate = (sectionEl) => {
-      if (!(sectionEl instanceof HTMLElement)) {
-        return null;
-      }
-
-      const stage = sectionEl.querySelector('[data-dynamic-carousel-stage]');
-
-      if (!stage) {
-        return null;
-      }
-
-      return new DynamicCarousel(stage);
-    };
-
-    let instance = hydrate(document.getElementById(sectionId));
-
-    document.addEventListener('shopify:section:load', (event) => {
-      if (event.target?.id !== sectionId) {
-        return;
-      }
-
-      if (instance) {
-        instance.destroy();
-      }
-
-      instance = hydrate(event.target);
-    });
-
-    document.addEventListener('shopify:section:unload', (event) => {
-      if (event.target?.id !== sectionId) {
-        return;
-      }
-
-      if (instance) {
-        instance.destroy();
-        instance = null;
-      }
-    });
-  })();
-{% endjavascript %}
