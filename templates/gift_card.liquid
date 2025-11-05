@@ -12,9 +12,7 @@
         }
       }
     </script>
-    {% # theme-check-disable ParserBlockingScript %}
-    <script src="{{ 'critical.js' | asset_url }}"></script>
-    {% # theme-check-enable ParserBlockingScript %}
+    <script src="{{ 'critical.js' | asset_url }}" defer></script>
     <script
       src="{{ 'qr-code-image.js' | asset_url }}"
       type="module"

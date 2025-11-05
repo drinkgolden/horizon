@@ -1,0 +1,113 @@
+{% comment %}
+Kokako 20-Year Anniversary Section – shows the "Twenty years has flown by" story with a link to the 20+ years timeline.
+Includes an optional image and a text block with heading and paragraph.
+{% endcomment %}
+<section id="kokako-anniversary-{{ section.id }}" class="kokako-anniversary section"
+         data-section-id="{{ section.id }}" data-section-type="kokako-anniversary">
+  <div class="kokako-anniversary__inner">
+    {% if section.settings.anniv_image %}
+      <div class="kokako-anniversary__media">
+        <img src="{{ section.settings.anniv_image | image_url: width: 800 }}"
+             alt="{{ section.settings.anniv_image.alt | default: 'Anniversary Image' }}"
+             class="kokako-anniversary__img" loading="lazy"
+             width="{{ section.settings.anniv_image.width }}" height="{{ section.settings.anniv_image.height }}">
+      </div>
+    {% endif %}
+    <div class="kokako-anniversary__text">
+      <h2 class="kokako-anniversary__heading">{{ section.settings.anniv_heading }}</h2>
+      <div class="kokako-anniversary__paragraph">{{ section.settings.anniv_text }}</div>
+      <a href="{{ section.settings.link_url }}" class="kokako-anniversary__link">
+        {{ section.settings.link_label }}
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+/* Anniversary Section Styles */
+.kokako-anniversary__inner {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 3rem 1rem;
+}
+.kokako-anniversary__media {
+  flex: 1 1 50%;
+  text-align: center;
+}
+.kokako-anniversary__img {
+  max-width: 100%;
+  height: auto;
+}
+.kokako-anniversary__text {
+  flex: 1 1 50%;
+}
+.kokako-anniversary__heading {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+.kokako-anniversary__paragraph {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+.kokako-anniversary__link {
+  font-weight: bold;
+  text-decoration: underline;
+}
+@media (max-width: 767px) {
+  .kokako-anniversary__inner {
+    flex-direction: column;
+    text-align: center;
+  }
+  .kokako-anniversary__text {
+    max-width: 600px;
+  }
+  .kokako-anniversary__heading {
+    font-size: 1.5rem;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Anniversary Story (Kokako)",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anniv_heading",
+      "label": "Heading",
+      "default": "Twenty years has flown by"
+    },
+    {
+      "type": "richtext",
+      "id": "anniv_text",
+      "label": "Story Text",
+      "default": "<p>You know how it is with birthdays – they sneak up on you. One day we were selling coffee from a cart in Aotea Square, the next we were supplying cafés, restaurants and retailers throughout New Zealand.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "anniv_image",
+      "label": "Side Image (optional)"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "CTA Link",
+      "default": "/pages/our-story"
+    },
+    {
+      "type": "text",
+      "id": "link_label",
+      "label": "CTA Link Label",
+      "default": "Take a look back"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Kokako Anniversary Story",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

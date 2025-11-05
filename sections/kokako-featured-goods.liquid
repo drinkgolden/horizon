@@ -1,0 +1,174 @@
+{% comment %}
+Kokako Featured Goods Section – displays a selection of products with image, name, flavour notes, price, and actions (Add to Cart, Learn More).
+{% endcomment %}
+<section id="kokako-featured-{{ section.id }}" class="kokako-featured-goods section"
+         data-section-id="{{ section.id }}" data-section-type="kokako-featured-goods">
+  <div class="kokako-featured-goods__inner">
+    <h3 class="kokako-featured-goods__title">{{ section.settings.section_heading }}</h3>
+    <div class="kokako-featured-goods__grid">
+      {% for block in section.blocks %}
+        {% if block.type == 'product' and block.settings.product %}
+          {% assign prod = block.settings.product %}
+          {% assign featured_image = prod.featured_image %}
+          <div class="kokako-product-card" {{ block.shopify_attributes }}>
+            <div class="kokako-product-card__image">
+              <a href="{{ prod.url }}">
+                {% if featured_image %}
+                  <img src="{{ featured_image | image_url: width: 400 }}"
+                       alt="{{ featured_image.alt | default: prod.title | escape }}" loading="lazy"
+                       width="{{ featured_image.width }}" height="{{ featured_image.height }}">
+                {% else %}
+                  {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
+                {% endif %}
+              </a>
+            </div>
+            <div class="kokako-product-card__info">
+              <div class="kokako-product-card__name">{{ prod.title }}</div>
+              {% if block.settings.subtext != blank %}
+                <div class="kokako-product-card__subtext">{{ block.settings.subtext }}</div>
+              {% endif %}
+              <div class="kokako-product-card__price">
+                {% if prod.price_varies %}
+                  {{ 'products.product.from_text' | t }} {{ prod.price_min | money }}
+                {% else %}
+                  {{ prod.price | money }}
+                {% endif %}
+              </div>
+              <div class="kokako-product-card__actions">
+                {% assign first_variant = prod.selected_or_first_available_variant %}
+                {% if first_variant %}
+                  <form method="post" action="/cart/add" class="kokako-add-to-cart-form">
+                    <input type="hidden" name="id" value="{{ first_variant.id }}">
+                    {% if first_variant.available %}
+                      <button type="submit" class="kokako-add-to-cart">{{ 'products.product.add_to_cart' | t }}</button>
+                    {% else %}
+                      <button type="submit" class="kokako-add-to-cart" disabled>{{ 'products.product.sold_out' | t }}</button>
+                    {% endif %}
+                  </form>
+                {% endif %}
+                <a href="{{ prod.url }}" class="kokako-learn-more">{{ 'sections.slideshow.learn_more' | t }}</a>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+/* Featured Goods Section Styles */
+.kokako-featured-goods__title {
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 2rem 0 1.5rem;
+}
+.kokako-featured-goods__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+.kokako-product-card {
+  width: 300px;
+  text-align: left;
+}
+.kokako-product-card__image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.kokako-product-card__name {
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+.kokako-product-card__subtext {
+  font-size: 0.9rem;
+  color: #555;
+}
+.kokako-product-card__price {
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+.kokako-product-card__actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.kokako-add-to-cart-form {
+  margin: 0;
+}
+.kokako-add-to-cart {
+  background: #000;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+}
+.kokako-add-to-cart[disabled] {
+  background: #888;
+  cursor: not-allowed;
+}
+.kokako-learn-more {
+  text-decoration: underline;
+  font-size: 0.9rem;
+}
+@media (max-width: 767px) {
+  .kokako-featured-goods__grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  .kokako-product-card {
+    width: 100%;
+    max-width: 400px;
+  }
+  .kokako-product-card__actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .kokako-learn-more {
+    margin-top: 0.5rem;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Featured Goods (Kokako)",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading",
+      "default": "Featured goods"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Featured Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "text",
+          "id": "subtext",
+          "label": "Flavour Notes (optional)",
+          "default": ""
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Kokako Featured Goods",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
