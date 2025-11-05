@@ -884,7 +884,7 @@
       }
     },
     "ingredients_slider_zDjTmK": {
-      "type": "ingredients-slider",
+      "type": "vertical-accordian",
       "blocks": {
         "slide_cJaRRw": {
           "type": "slide",
