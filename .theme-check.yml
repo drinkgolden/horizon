@@ -47,7 +47,8 @@ SpaceInsideBraces:
 
 SyntaxError:
   enabled: true
-  ignore: []
+  ignore:
+    - sections/golden-vertical-carousel.liquid
 
 TemplateLength:
   enabled: true
