@@ -2589,8 +2589,12 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   margin-inline: var(--margin-inline-start) var(--margin-inline-end);
 }
 
-.section-content-wrapper[data-split-showcase="true"] {
+.section-content-wrapper[data-split-showcase] {
   --split-divider-color-default: var(--vertical-divider-color, rgb(var(--color-foreground-rgb) / var(--opacity-15)));
+}
+
+.section-content-wrapper[data-split-showcase="static"] > .group-block:not(:first-child) {
+  border-inline-start: 1px solid var(--split-divider-color, var(--split-divider-color-default));
 }
 
 slideshow-component[data-split-showcase-carousel] {
@@ -2610,11 +2614,11 @@ slideshow-component[data-split-showcase-carousel] slideshow-container {
 slideshow-component[data-split-showcase-carousel] slideshow-slides {
   display: flex;
   gap: var(--split-showcase-gap, clamp(16px, 3vw, 32px));
-  padding-block: 16px;
-  margin-block: -16px;
   scroll-snap-type: x mandatory;
-  scroll-padding-inline: var(--peek-next-slide-size, clamp(40px, 12vw, 96px));
+  scroll-padding-inline: 0;
   align-items: stretch;
+  margin: 0;
+  padding: 0;
 }
 
 slideshow-component[data-split-showcase-carousel] slideshow-slide.split-showcase__slide {

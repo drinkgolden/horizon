@@ -18,7 +18,13 @@
     {%- endunless -%}
   {%- endfor -%}
 {%- endif -%}
+{%- assign split_mode = '' -%}
 {%- if is_split_showcase -%}
+  {%- if section.blocks.size > 5 -%}
+    {%- assign split_mode = 'carousel' -%}
+  {%- else -%}
+    {%- assign split_mode = 'static' -%}
+  {%- endif -%}
   {%- assign split_divider_color = section.settings.split_divider_color | default: settings.vertical_divider_color | default: '#d9d9d9' -%}
 {%- endif -%}
 {%- if is_split_showcase -%}
@@ -60,7 +66,13 @@
 
   <div
     class="border-style custom-section-content"
-    style="{% render 'border-override', settings: section.settings %}{% if is_split_showcase %} overflow:hidden;{% endif %}"
+    style="
+      {% render 'border-override', settings: section.settings %}
+      {% if is_split_showcase %}
+        --split-divider-color: {{ split_divider_color }};
+        {% if split_mode == 'carousel' %}overflow: hidden;{% endif %}
+      {% endif %}
+    "
   >
     {% if section.settings.toggle_overlay %}
       {% render 'overlay', settings: section.settings, layer: '0' %}
@@ -77,11 +89,14 @@
       style="
         {% render 'layout-panel-style', settings: section.settings %}
         {% render 'spacing-style', settings: section.settings %}
+        {% if is_split_showcase %}
+          --split-divider-color: {{ split_divider_color }};
+        {% endif %}
       "
       data-testid="section-content"
-      {% if is_split_showcase %}data-split-showcase="true"{% endif %}
+      {% if is_split_showcase %}data-split-showcase="{{ split_mode }}"{% endif %}
     >
-      {% if is_split_showcase %}
+      {% if is_split_showcase and split_mode == 'carousel' %}
         {% render 'split-showcase-carousel', section: section, split_divider_color: split_divider_color %}
       {% else %}
         {{ children }}

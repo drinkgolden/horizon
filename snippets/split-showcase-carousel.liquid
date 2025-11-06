@@ -2,6 +2,10 @@
   assign split_divider_color = split_divider_color | default: '#d9d9d9'
   assign split_gap = section.settings.gap | default: 16
   assign slideshow_ref = 'split-showcase-' | append: section.id
+  assign slideshow_gutters = ''
+  if section.settings.section_width == 'page-width'
+    assign slideshow_gutters = 'start end'
+  endif
 -%}
 
 {%- capture split_showcase_slides -%}
@@ -23,10 +27,10 @@
   class: 'split-showcase__carousel',
   slides: split_showcase_slides,
   slide_count: section.blocks.size,
-  slideshow_gutters: 'start end',
+  slideshow_gutters: slideshow_gutters,
   auto_hide_controls: true,
   infinite: false,
   show_arrows: false,
   attributes: 'data-split-showcase-carousel',
-  style: '--split-showcase-gap: ' | append: split_gap | append: 'px; --split-divider-color: ' | append: split_divider_color | append: '; --peek-next-slide-size: clamp(40px, 12vw, 96px);'
+  style: '--split-showcase-gap: ' | append: split_gap | append: 'px; --split-divider-color: ' | append: split_divider_color | append: ';'
 %}
