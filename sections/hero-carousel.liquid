@@ -103,6 +103,8 @@
   {% endif %}
 </section>
 
+{% assign collapse_breakpoint = section.settings.mobile_breakpoint | default: 989 %}
+
 {% stylesheet %}
   .hero-carousel {
     --hero-carousel-divider-color: var(--section-gridline-color, rgba(0, 0, 0, 0.08));
@@ -244,7 +246,7 @@
     justify-items: flex-end;
   }
 
-  @media (max-width: 989px) {
+  @media (max-width: {{ collapse_breakpoint }}px) {
     .hero-carousel__frame {
       grid-template-columns: minmax(0, 1fr);
       min-height: auto;
@@ -378,6 +380,20 @@ document.querySelectorAll('[data-hero-carousel]').forEach((section) => {
         { "value": "left", "label": "Left align" },
         { "value": "right", "label": "Right align" }
       ]
+    },
+    {
+      "type": "header",
+      "content": "Responsive layout"
+    },
+    {
+      "type": "range",
+      "id": "mobile_breakpoint",
+      "label": "Collapse breakpoint",
+      "min": 480,
+      "max": 1400,
+      "step": 10,
+      "unit": "px",
+      "default": 989
     },
     {
       "type": "header",

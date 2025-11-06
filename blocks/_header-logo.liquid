@@ -95,14 +95,17 @@
     margin-inline: calc(-1 * var(--padding-inline-start));
 
     &[data-hidden-on-home-page] {
-      display: none;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 240ms ease;
 
       #header-component:is(
           [sticky='always']:not([data-scroll-direction='none']),
           [sticky='scroll-up'][data-scroll-direction='up']
         )
         & {
-        display: flex;
+        opacity: 1;
+        visibility: visible;
       }
     }
 
@@ -136,6 +139,11 @@
 
   .header-logo__image-container--inverse {
     display: var(--header-logo-inverse-display, none);
+  }
+
+  #header-component[data-logo-reveal='visible'] .header-logo[data-hidden-on-home-page] {
+    opacity: 1;
+    visibility: visible;
   }
 {% endstylesheet %}
 

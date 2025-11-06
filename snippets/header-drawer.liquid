@@ -44,6 +44,8 @@
   assign drawer_logo_alt = block_settings.drawer_logo_alt_text | default: drawer_logo_image.alt | default: shop.name
   assign drawer_logo_alt = drawer_logo_alt | strip
 
+  assign drawer_color_scheme = block_settings.drawer_color_scheme | default: block_settings.color_scheme
+
   assign drawer_logo_size = block_settings.drawer_logo_size
   if drawer_logo_size == blank or drawer_logo_size == 0
     assign drawer_logo_size = settings.logo_height_mobile
@@ -122,10 +124,10 @@
     </summary>
     <div
       data-header-drawer
-      class="
+        class="
         menu-drawer
         motion-reduce
-        color-{{ block_settings.color_scheme }}
+        color-{{ drawer_color_scheme }}
       "
       style="
         --menu-drawer-logo-size: {{ drawer_logo_size }}px;
