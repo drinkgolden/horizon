@@ -1,28 +1,41 @@
 (() => {
+  const MIN_SPINES = 2;
+  const CAROUSEL_THRESHOLD = 5;
+  const MAX_VISIBLE_COLLAPSED = 4;
+  const DRAG_THRESHOLD = 6;
+
   class SplitShowcaseController {
     constructor(container) {
       this.container = container;
       this.section = container.closest('.shopify-section') || document;
       this.spines = Array.from(container.querySelectorAll('.group-block'));
-      if (this.spines.length < 2) {
+
+      if (this.spines.length < MIN_SPINES) {
         return;
       }
 
       this.container.dataset.splitShowcaseInitialised = 'true';
 
-      const computedGap = parseFloat(getComputedStyle(container).gap) || 0;
-      this.container.style.setProperty('--split-showcase-gap', `${computedGap}px`);
+      this.gap = parseFloat(getComputedStyle(container).gap) || 0;
+      this.container.style.setProperty('--split-showcase-gap', `${this.gap}px`);
 
-      this.isCarousel = this.spines.length > 5;
+      this.isCarousel = this.spines.length > CAROUSEL_THRESHOLD;
       this.offset = 0;
 
+      this.dragState = {
+        active: false,
+        startX: 0,
+        startOffset: 0,
+        moved: false,
+        justDragged: false,
+        pointerId: null
+      };
+
       if (this.isCarousel) {
-        this.initialiseCarousel();
+        this.setupCarousel();
       } else {
         this.container.classList.add('split-showcase--static');
-        this.spines.forEach((group, index) => {
-          this.decorateSpine(group, index);
-        });
+        this.spines.forEach((spine, index) => this.decorateSpine(spine, index));
       }
 
       this.setActive(0, { force: true });
@@ -35,25 +48,26 @@
 
       if (this.section && window.Shopify && Shopify.designMode) {
         this.section.addEventListener('shopify:block:select', (event) => {
-          if (this.container.contains(event.target)) {
-            this.setActiveByBlockId(event.target.id);
-          }
+          if (!this.container.contains(event.target)) return;
+          this.setActiveByBlockId(event.target.id);
         });
+      }
+
+      if (window.Shopify && Shopify.designMode) {
+        requestAnimationFrame(() => this.setActive(0, { force: true }));
       }
     }
 
-    decorateSpine(group, index) {
-      group.classList.add('split-showcase__spine');
-      group.dataset.splitShowcaseIndex = String(index);
-      group.setAttribute('role', 'tab');
-      group.setAttribute('aria-selected', 'false');
-      group.setAttribute('tabindex', '0');
+    decorateSpine(spine, index) {
+      spine.classList.add('split-showcase__spine');
+      spine.dataset.splitShowcaseIndex = String(index);
+      spine.setAttribute('role', 'tab');
+      spine.setAttribute('aria-selected', 'false');
+      spine.setAttribute('tabindex', '0');
 
-      group.addEventListener('click', () => {
-        this.setActive(index);
-      });
+      spine.addEventListener('click', () => this.setActive(index));
 
-      group.addEventListener('keydown', (event) => {
+      spine.addEventListener('keydown', (event) => {
         const { key } = event;
         if (key === 'Enter' || key === ' ') {
           event.preventDefault();
@@ -72,39 +86,95 @@
       });
     }
 
-    initialiseCarousel() {
+    setupCarousel() {
       this.container.classList.add('split-showcase--carousel');
 
       const track = document.createElement('div');
       track.className = 'split-showcase__track';
 
-      this.spines.forEach((group, index) => {
-        this.decorateSpine(group, index);
-      track.appendChild(group);
-    });
+      this.spines.forEach((spine, index) => {
+        this.decorateSpine(spine, index);
+        track.appendChild(spine);
+      });
 
-    this.container.appendChild(track);
-    this.track = track;
-    this.spines = Array.from(track.children);
+      this.container.appendChild(track);
+      this.track = track;
+      this.spines = Array.from(track.children);
 
-    this.onWheel = (event) => {
-      const delta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
-      if (delta !== 0) {
-        event.preventDefault();
-          this.scrollBy(delta);
-        }
+      this.bindPointerEvents();
+      this.handleWheel = this.onWheel.bind(this);
+      this.track.addEventListener('wheel', this.handleWheel, { passive: false });
+    }
+
+    bindPointerEvents() {
+      this.handlePointerDown = (event) => {
+        if (event.pointerType === 'mouse' && event.button !== 0) return;
+        this.dragState.active = true;
+        this.dragState.pointerId = event.pointerId;
+        this.dragState.startX = event.clientX;
+        this.dragState.startOffset = this.offset;
+        this.dragState.moved = false;
+        this.dragState.justDragged = false;
+        this.track.setPointerCapture(event.pointerId);
       };
 
-      track.addEventListener('wheel', this.onWheel, { passive: false });
+      this.handlePointerMove = (event) => {
+        if (!this.dragState.active || event.pointerId !== this.dragState.pointerId) return;
+        const dx = event.clientX - this.dragState.startX;
+        if (Math.abs(dx) > DRAG_THRESHOLD) {
+          this.dragState.moved = true;
+        }
+        this.setOffset(this.dragState.startOffset - dx, { immediate: true });
+        event.preventDefault();
+      };
+
+      this.handlePointerUp = (event) => {
+        if (!this.dragState.active || event.pointerId !== this.dragState.pointerId) return;
+        if (this.track.hasPointerCapture(event.pointerId)) {
+          this.track.releasePointerCapture(event.pointerId);
+        }
+        if (this.dragState.moved) {
+          event.preventDefault();
+        }
+        const dragged = this.dragState.moved;
+        this.dragState.active = false;
+        this.dragState.pointerId = null;
+        this.dragState.moved = false;
+        this.dragState.justDragged = dragged;
+      };
+
+      this.track.addEventListener('pointerdown', this.handlePointerDown);
+      this.track.addEventListener('pointermove', this.handlePointerMove);
+      this.track.addEventListener('pointerup', this.handlePointerUp);
+      this.track.addEventListener('pointercancel', this.handlePointerUp);
+
+      this.track.addEventListener('click', (event) => {
+        if (this.dragState.justDragged) {
+          event.preventDefault();
+          event.stopPropagation();
+          this.dragState.justDragged = false;
+        }
+      }, true);
     }
 
     destroy() {
       if (this.resizeObserver) {
         this.resizeObserver.disconnect();
       }
-      if (this.track && this.onWheel) {
-        this.track.removeEventListener('wheel', this.onWheel);
+      if (this.track) {
+        this.track.removeEventListener('pointerdown', this.handlePointerDown);
+        this.track.removeEventListener('pointermove', this.handlePointerMove);
+        this.track.removeEventListener('pointerup', this.handlePointerUp);
+        this.track.removeEventListener('pointercancel', this.handlePointerUp);
+        this.track.removeEventListener('wheel', this.handleWheel);
       }
+    }
+
+    onWheel(event) {
+      const delta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
+      if (!delta) return;
+      event.preventDefault();
+      this.scrollBy(delta);
     }
 
     setActive(index, { force = false } = {}) {
@@ -114,88 +184,70 @@
       }
       this.activeIndex = clamped;
 
-      this.spines.forEach((group, i) => {
+      this.spines.forEach((spine, i) => {
         const isActive = i === clamped;
-        group.classList.toggle('split-showcase__spine--active', isActive);
-        group.setAttribute('aria-selected', String(isActive));
+        spine.classList.toggle('split-showcase__spine--active', isActive);
+        spine.setAttribute('aria-selected', String(isActive));
       });
 
       if (this.isCarousel) {
-        this.updateOffset();
+        this.ensureInView();
       }
     }
 
     setActiveByBlockId(id) {
-      const index = this.spines.findIndex((group) => group.id === id || group.contains(document.getElementById(id)));
+      const index = this.spines.findIndex((spine) => spine.id === id || spine.contains(document.getElementById(id)));
       if (index >= 0) {
         this.setActive(index);
+      }
+    }
+
+    setOffset(desired, { immediate = false } = {}) {
+      if (!this.track) return;
+      const containerWidth = this.container.clientWidth || 1;
+      const trackWidth = this.track.scrollWidth;
+      const maxOffset = Math.max(trackWidth - containerWidth, 0);
+      const clamped = Math.max(0, Math.min(desired, maxOffset));
+      this.offset = clamped;
+
+      if (immediate) {
+        this.track.style.transition = 'none';
+        this.track.style.transform = `translateX(-${clamped}px)`;
+        this.track.offsetWidth;
+        this.track.style.transition = '';
+      } else {
+        this.track.style.transform = `translateX(-${clamped}px)`;
       }
     }
 
     recalculate() {
       if (!this.isCarousel) return;
       const containerWidth = this.container.clientWidth || 1;
-      const count = this.spines.length;
-      const gap = parseFloat(getComputedStyle(this.container).getPropertyValue('--split-showcase-gap')) || 0;
+      const collapsedMin = 72;
+      const collapsedMax = 140;
+      const collapsed = Math.min(collapsedMax, Math.max(collapsedMin, containerWidth * 0.2));
 
-      const minCollapsed = 72;
-      const maxCollapsed = 140;
-      const collapsed = Math.min(maxCollapsed, Math.max(minCollapsed, containerWidth * 0.20));
-
-      const visibleCollapsed = Math.min(Math.max(count - 1, 0), 4);
-      const availableForActive = containerWidth - visibleCollapsed * (collapsed + gap);
-      let expanded = Math.max(containerWidth * 0.5, availableForActive);
+      const visibleCollapsed = Math.min(Math.max(this.spines.length - 1, 0), MAX_VISIBLE_COLLAPSED);
+      const availableForActive = containerWidth - visibleCollapsed * (collapsed + this.gap);
+      let expanded = Math.max(containerWidth * 0.55, availableForActive);
       expanded = Math.min(expanded, containerWidth - collapsed * Math.max(visibleCollapsed - 1, 0));
 
       this.container.style.setProperty('--split-spine-collapsed', `${collapsed}px`);
       this.container.style.setProperty('--split-spine-expanded', `${expanded}px`);
 
-      this.updateOffset(true);
+      this.ensureInView({ immediate: true });
     }
 
-    updateOffset(immediate = false) {
-      if (!this.track) return;
-      const containerWidth = this.container.clientWidth;
-      const trackWidth = this.track.scrollWidth;
+    ensureInView({ immediate = false } = {}) {
+      if (!this.isCarousel) return;
       const active = this.spines[this.activeIndex];
       if (!active) return;
-
-      const extra = Math.max(trackWidth - containerWidth, 0);
-      if (extra <= 0) {
-        this.offset = 0;
-        this.track.style.transform = 'translateX(0)';
-        return;
-      }
-
-      const activeLeft = active.offsetLeft;
-      const activeWidth = active.offsetWidth;
-      let desired = activeLeft + activeWidth / 2 - containerWidth / 2;
-      desired = Math.max(0, Math.min(desired, extra));
-
-      this.offset = desired;
-      if (immediate) {
-        this.track.style.transition = 'none';
-        void this.track.offsetWidth;
-        this.track.style.transform = `translateX(-${desired}px)`;
-        void this.track.offsetWidth;
-        this.track.style.transition = '';
-      } else {
-        this.track.style.transform = `translateX(-${desired}px)`;
-      }
+      const desired = Math.max(0, active.offsetLeft - this.gap);
+      this.setOffset(desired, { immediate });
     }
 
     scrollBy(delta) {
-      if (!this.track) return;
-      const containerWidth = this.container.clientWidth;
-      const trackWidth = this.track.scrollWidth;
-      const extra = Math.max(trackWidth - containerWidth, 0);
-      if (extra <= 0) return;
-
-      const step = delta;
-      let desired = this.offset + step;
-      desired = Math.max(0, Math.min(desired, extra));
-      this.offset = desired;
-      this.track.style.transform = `translateX(-${desired}px)`;
+      this.setOffset(this.offset + delta);
     }
   }
 

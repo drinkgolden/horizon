@@ -339,7 +339,7 @@
           "primary_button_border": "primary_button_border",
           "secondary_button": "secondary_button_background",
           "on_secondary_button": "secondary_button_text",
-        "secondary_button_border": "secondary_button_border"
+          "secondary_button_border": "secondary_button_border"
         }
       }
     ]
@@ -1603,6 +1603,12 @@
         "label": "Gridline color on dark backgrounds",
         "default": "rgba(255,255,255,0.12)",
         "alpha": true
+      },
+      {
+        "type": "color",
+        "id": "vertical_divider_color",
+        "label": "Vertical divider color",
+        "default": "#d9d9d9"
       }
     ]
   },

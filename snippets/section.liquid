@@ -18,6 +18,9 @@
     {%- endunless -%}
   {%- endfor -%}
 {%- endif -%}
+{%- if is_split_showcase -%}
+  {%- assign split_divider_color = section.settings.split_divider_color | default: settings.vertical_divider_color | default: '#d9d9d9' -%}
+{%- endif -%}
 
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
 <div
@@ -71,8 +74,8 @@
       style="
         {% render 'layout-panel-style', settings: section.settings %}
         {% render 'spacing-style', settings: section.settings %}
-        {% if is_split_showcase and section.settings.split_divider_color != blank %}
-          --split-divider-color: {{ section.settings.split_divider_color }};
+        {% if is_split_showcase %}
+          --split-divider-color: {{ split_divider_color }};
         {% endif %}
       "
       data-testid="section-content"
