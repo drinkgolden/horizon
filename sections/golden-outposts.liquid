@@ -1,43 +1,48 @@
 {% comment %}
-Golden Outposts Section – displays physical locations (Commercial Bay café, Roastery, etc.).
-Includes an intro text with "Find your nearest outpost" link, and a list of location blocks (name, details, images).
+  Golden outposts listing showcasing configurable location cards and intro copy.
 {% endcomment %}
-<section id="golden-outposts-{{ section.id }}" class="golden-outposts section"
-         data-section-id="{{ section.id }}" data-section-type="golden-outposts">
+<section id="golden-outposts-{{ section.id }}" class="golden-outposts section" data-section-id="{{ section.id }}" data-section-type="golden-outposts">
   <div class="golden-outposts__inner">
     <div class="golden-outposts__intro">{{ section.settings.intro_text }}</div>
-    <p><a href="{{ section.settings.outposts_link }}" class="golden-outposts__find-link">
-      {{ section.settings.outposts_label }}
-    </a></p>
+    <p><a href="{{ section.settings.outposts_link }}" class="golden-outposts__find-link">{{ section.settings.outposts_label }}</a></p>
     <div class="golden-outposts__locations-list">
       {% for block in section.blocks %}
         {% if block.type == 'location' %}
-        <div class="golden-location-card" {{ block.shopify_attributes }}>
-          <h3 class="golden-location-card__name">{{ block.settings.location_name }}</h3>
-          <div class="golden-location-card__details">
-            {{ block.settings.location_details }}
+          <div class="golden-location-card" {{ block.shopify_attributes }}>
+            <h3 class="golden-location-card__name">{{ block.settings.location_name }}</h3>
+            <div class="golden-location-card__details">{{ block.settings.location_details }}</div>
+            <div class="golden-location-card__images">
+              {% if block.settings.image_1 %}
+                <img
+                  src="{{ block.settings.image_1 | image_url: width: 400 }}"
+                  alt="{{ block.settings.location_name | append: ' image 1' | escape }}"
+                  loading="lazy"
+                  width="{{ block.settings.image_1.width }}"
+                  height="{{ block.settings.image_1.height }}"
+                >
+              {% endif %}
+              {% if block.settings.image_2 %}
+                <img
+                  src="{{ block.settings.image_2 | image_url: width: 400 }}"
+                  alt="{{ block.settings.location_name | append: ' image 2' | escape }}"
+                  loading="lazy"
+                  width="{{ block.settings.image_2.width }}"
+                  height="{{ block.settings.image_2.height }}"
+                >
+              {% endif %}
+            </div>
           </div>
-          <div class="golden-location-card__images">
-            {% if block.settings.image_1 %}
-              <img src="{{ block.settings.image_1 | image_url: width: 400 }}"
-                   alt="{{ block.settings.location_name | append: ' image 1' }}" loading="lazy"
-                   width="{{ block.settings.image_1.width }}" height="{{ block.settings.image_1.height }}">
-            {% endif %}
-            {% if block.settings.image_2 %}
-              <img src="{{ block.settings.image_2 | image_url: width: 400 }}"
-                   alt="{{ block.settings.location_name | append: ' image 2' }}" loading="lazy"
-                   width="{{ block.settings.image_2.width }}" height="{{ block.settings.image_2.height }}">
-            {% endif %}
-          </div>
-        </div>
         {% endif %}
       {% endfor %}
     </div>
   </div>
-  {% schema %}
+</section>
+
+{% schema %}
 {
   "name": "Golden Outposts",
   "tag": "section",
+  "class": "section",
   "settings": [
     {
       "type": "richtext",
@@ -94,61 +99,24 @@ Includes an intro text with "Find your nearest outpost" link, and a list of loca
       "name": "Golden Outposts",
       "category": "Golden"
     }
-  ]
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "location",
+        "settings": {
+          "location_name": "Golden Commercial Bay",
+          "location_details": "<p>Level 1 Commercial Bay, 7/21 Queen St, Auckland CBD<br />Weekdays: 6:45am — 3:30pm<br />Saturday: 8:30am — 4pm<br />Sunday: 9am — 4pm</p>"
+        }
+      },
+      {
+        "type": "location",
+        "settings": {
+          "location_name": "Roastery Roller Door",
+          "location_details": "<p>9 Charles Street, Mt Eden, Auckland<br />Weekdays: 8am — 4:30pm<br />Weekends: Closed</p>"
+        }
+      }
+    ]
+  }
 }
 {% endschema %}
-</section>
-
-<style>
-/* Outposts Section Styles */
-.golden-outposts__intro {
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-}
-.golden-outposts__find-link {
-  font-weight: bold;
-  text-decoration: underline;
-}
-.golden-outposts__locations-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  margin-top: 2rem;
-}
-.golden-location-card {
-  flex: 1 1 45%;
-  max-width: 45%;
-}
-.golden-location-card__name {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-}
-.golden-location-card__details {
-  font-size: 0.95rem;
-  margin-bottom: 1rem;
-  line-height: 1.4;
-}
-.golden-location-card__details p {
-  margin: 0;
-}
-.golden-location-card__images img {
-  width: 48%;
-  margin-right: 4%;
-  margin-bottom: 1rem;
-}
-.golden-location-card__images img:last-child {
-  margin-right: 0;
-}
-@media (max-width: 767px) {
-  .golden-outposts__locations-list {
-    flex-direction: column;
-  }
-  .golden-location-card {
-    max-width: 100%;
-  }
-  .golden-location-card__images img {
-    width: 100%;
-    margin: 0 0 1rem;
-  }
-}
-</style>

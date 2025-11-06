@@ -1,28 +1,32 @@
 {% comment %}
-Golden Brew Gear Promo Section – "Want to update your equipment?" callout with link to Brew Gear.
-Displays a heading, a CTA link, and an image of brew equipment.
+  Golden brew gear promo section with heading, CTA, and optional imagery.
 {% endcomment %}
-<section id="golden-brew-gear-{{ section.id }}" class="golden-brew-gear section"
-         data-section-id="{{ section.id }}" data-section-type="golden-brew-gear">
+<section id="golden-brew-gear-{{ section.id }}" class="golden-brew-gear section" data-section-id="{{ section.id }}" data-section-type="golden-brew-gear">
   <div class="golden-brew-gear__inner">
     <div class="golden-brew-gear__text">
       <h3 class="golden-brew-gear__heading">{{ section.settings.gear_heading }}</h3>
-      <a href="{{ section.settings.cta_link }}" class="golden-brew-gear__cta">
-        {{ section.settings.cta_label }}
-      </a>
+      <a href="{{ section.settings.cta_link }}" class="golden-brew-gear__cta">{{ section.settings.cta_label }}</a>
     </div>
     {% if section.settings.gear_image %}
       <div class="golden-brew-gear__media">
-        <img src="{{ section.settings.gear_image | image_url: width: 600 }}"
-             alt="{{ section.settings.gear_image.alt | default: 'Brew Gear Image' }}" class="golden-brew-gear__img" loading="lazy"
-             width="{{ section.settings.gear_image.width }}" height="{{ section.settings.gear_image.height }}">
+        <img
+          src="{{ section.settings.gear_image | image_url: width: 600 }}"
+          alt="{{ section.settings.gear_image.alt | default: 'Brew gear' | escape }}"
+          class="golden-brew-gear__img"
+          loading="lazy"
+          width="{{ section.settings.gear_image.width }}"
+          height="{{ section.settings.gear_image.height }}"
+        >
       </div>
     {% endif %}
   </div>
-  {% schema %}
+</section>
+
+{% schema %}
 {
   "name": "Golden Brew Gear",
   "tag": "section",
+  "class": "section",
   "settings": [
     {
       "type": "text",
@@ -56,43 +60,3 @@ Displays a heading, a CTA link, and an image of brew equipment.
   ]
 }
 {% endschema %}
-</section>
-
-<style>
-/* Brew Gear Promo Section Styles */
-.golden-brew-gear__inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 2rem 1rem;
-}
-.golden-brew-gear__text {
-  flex: 1 1 50%;
-}
-.golden-brew-gear__heading {
-  font-size: 1.4rem;
-  margin-bottom: 0.5rem;
-}
-.golden-brew-gear__cta {
-  font-weight: bold;
-  text-decoration: underline;
-  font-size: 1rem;
-}
-.golden-brew-gear__media {
-  flex: 1 1 50%;
-  text-align: center;
-}
-.golden-brew-gear__img {
-  max-width: 100%;
-  height: auto;
-}
-@media (max-width: 767px) {
-  .golden-brew-gear__inner {
-    flex-direction: column;
-    text-align: center;
-  }
-  .golden-brew-gear__text {
-    margin-bottom: 1.5rem;
-  }
-}
-</style>

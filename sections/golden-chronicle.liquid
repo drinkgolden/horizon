@@ -1,16 +1,13 @@
 {% comment %}
-Golden Chronicle Blog Section – shows the blog section with heading and a couple of featured article links.
+  Golden chronicle blog section highlighting featured articles.
 {% endcomment %}
-<section id="golden-chronicle-{{ section.id }}" class="golden-chronicle section"
-         data-section-id="{{ section.id }}" data-section-type="golden-chronicle">
+<section id="golden-chronicle-{{ section.id }}" class="golden-chronicle section" data-section-id="{{ section.id }}" data-section-type="golden-chronicle">
   <div class="golden-chronicle__inner">
     <div class="golden-chronicle__header">
       <h2 class="golden-chronicle__heading">{{ section.settings.blog_heading }}</h2>
       {% assign chronicle_blog = section.settings.blog_link %}
       {% if chronicle_blog %}
-        <a href="{{ chronicle_blog.url }}" class="golden-chronicle__view-all">
-          {{ section.settings.blog_link_text }}
-        </a>
+        <a href="{{ chronicle_blog.url }}" class="golden-chronicle__view-all">{{ section.settings.blog_link_text }}</a>
       {% else %}
         <span class="golden-chronicle__view-all">{{ section.settings.blog_link_text }}</span>
       {% endif %}
@@ -18,18 +15,21 @@ Golden Chronicle Blog Section – shows the blog section with heading and a coup
     <ul class="golden-chronicle__articles">
       {% for block in section.blocks %}
         {% if block.type == 'article' and block.settings.article %}
-          {% assign art = block.settings.article %}
+          {% assign article = block.settings.article %}
           <li class="golden-chronicle__article" {{ block.shopify_attributes }}>
-            <a href="{{ art.url }}">{{ 'blogs.article.read_more_title' | t: title: art.title }}</a>
+            <a href="{{ article.url }}">{{ 'blogs.article.read_more_title' | t: title: article.title | default: article.title }}</a>
           </li>
         {% endif %}
       {% endfor %}
     </ul>
   </div>
-  {% schema %}
+</section>
+
+{% schema %}
 {
   "name": "Golden Chronicle",
   "tag": "section",
+  "class": "section",
   "settings": [
     {
       "type": "text",
@@ -68,44 +68,20 @@ Golden Chronicle Blog Section – shows the blog section with heading and a coup
       "name": "Golden Chronicle",
       "category": "Golden"
     }
-  ]
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "article",
+        "settings": {
+        }
+      },
+      {
+        "type": "article",
+        "settings": {
+        }
+      }
+    ]
+  }
 }
 {% endschema %}
-</section>
-
-<style>
-/* Chronicle Blog Section Styles */
-.golden-chronicle__header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-bottom: 1rem;
-}
-.golden-chronicle__heading {
-  font-size: 1.5rem;
-  margin: 0;
-}
-.golden-chronicle__view-all {
-  font-size: 1rem;
-  text-decoration: underline;
-  margin-top: 0.5rem;
-  display: inline-block;
-}
-.golden-chronicle__articles {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.golden-chronicle__article {
-  margin: 0.5rem 0;
-}
-.golden-chronicle__article a {
-  text-decoration: none;
-  border-bottom: 1px solid #000;
-  padding-bottom: 2px;
-}
-.golden-chronicle__article a:hover {
-  border-bottom-color: transparent;
-}
-</style>

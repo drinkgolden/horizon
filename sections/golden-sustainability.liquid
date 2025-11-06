@@ -1,21 +1,20 @@
 {% comment %}
-Golden Sustainability Section – "We’re playing the long game / E purei ana mātou i te kēmu roa".
-Shows English and Māori headings, a description, and a link to sustainability reports.
+  Golden sustainability highlight with bilingual headings and CTA link.
 {% endcomment %}
-<section id="golden-sustainability-{{ section.id }}" class="golden-sustainability section"
-         data-section-id="{{ section.id }}" data-section-type="golden-sustainability">
+<section id="golden-sustainability-{{ section.id }}" class="golden-sustainability section" data-section-id="{{ section.id }}" data-section-type="golden-sustainability">
   <div class="golden-sustainability__inner">
     <h2 class="golden-sustainability__heading">{{ section.settings.main_heading }}</h2>
     <h2 class="golden-sustainability__heading golden-sustainability__heading--maori">{{ section.settings.sub_heading }}</h2>
     <p class="golden-sustainability__description">{{ section.settings.description }}</p>
-    <a href="{{ section.settings.reports_link }}" class="golden-sustainability__link">
-      {{ section.settings.reports_label }}
-    </a>
+    <a href="{{ section.settings.reports_link }}" class="golden-sustainability__link">{{ section.settings.reports_label }}</a>
   </div>
-  {% schema %}
+</section>
+
+{% schema %}
 {
   "name": "Golden Sustainability",
   "tag": "section",
+  "class": "section",
   "settings": [
     {
       "type": "text",
@@ -56,31 +55,3 @@ Shows English and Māori headings, a description, and a link to sustainability r
   ]
 }
 {% endschema %}
-</section>
-
-<style>
-/* Sustainability Section Styles */
-.golden-sustainability {
-  background: #f9f9f9;
-  text-align: center;
-  padding: 3rem 1rem;
-}
-.golden-sustainability__heading {
-  font-size: 1.6rem;
-  margin: 0;
-}
-.golden-sustainability__heading--maori {
-  font-style: italic;
-  font-weight: 400;
-  margin-bottom: 1rem;
-}
-.golden-sustainability__description {
-  max-width: 600px;
-  margin: 0 auto 1.5rem;
-  font-size: 1rem;
-}
-.golden-sustainability__link {
-  font-weight: bold;
-  text-decoration: underline;
-}
-</style>

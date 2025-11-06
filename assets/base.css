@@ -4854,7 +4854,7 @@ text-component {
 }
 
 /* Kokako section styles */
-.kokako-hero {
+.golden-hero {
   position: relative;
   color: #fff;
   text-align: center;
@@ -4864,36 +4864,36 @@ text-component {
   align-items: center;
   overflow: hidden;
 }
-.kokako-hero__inner {
+.golden-hero__inner {
   position: relative;
   width: 100%;
 }
-.kokako-hero__media {
+.golden-hero__media {
   position: absolute;
   inset: 0;
   overflow: hidden;
   z-index: 1;
 }
-.kokako-hero__video,
-.kokako-hero__image {
+.golden-hero__video,
+.golden-hero__image {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.kokako-hero__content {
+.golden-hero__content {
   position: relative;
   z-index: 2;
   max-width: 600px;
   margin: 0 auto;
   padding: 2rem;
 }
-.kokako-hero__heading {
+.golden-hero__heading {
   font-size: clamp(2rem, 4vw, 3rem);
   margin-bottom: 1rem;
 }
-.kokako-hero__badges {
+.golden-hero__badges {
   list-style: none;
   padding: 0;
   margin: 0 0 1.5rem;
@@ -4901,20 +4901,20 @@ text-component {
   justify-content: center;
   gap: 1rem;
 }
-.kokako-hero__badges li {
+.golden-hero__badges li {
   background: rgba(0, 0, 0, 0.5);
   padding: 0.4rem 0.8rem;
   border-radius: 4px;
   font-size: 0.9rem;
   text-transform: uppercase;
 }
-.kokako-hero__buttons {
+.golden-hero__buttons {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
 }
-.kokako-hero__btn {
+.golden-hero__btn {
   display: inline-block;
   padding: 0.75rem 1.5rem;
   border: 2px solid currentColor;
@@ -4923,43 +4923,43 @@ text-component {
   font-weight: 700;
   background: transparent;
 }
-.kokako-hero__btn--primary {
+.golden-hero__btn--primary {
   background-color: #fff;
   color: #000;
 }
 
-.kokako-just-landed {
+.golden-just-landed {
   text-align: center;
   position: relative;
   padding: 4rem 1rem;
 }
-.kokako-just-landed__inner {
+.golden-just-landed__inner {
   position: relative;
   max-width: 960px;
   margin: 0 auto;
 }
-.kokako-just-landed__decor {
+.golden-just-landed__decor {
   position: absolute;
   top: 0;
   right: 5%;
   width: 150px;
   max-width: 30%;
-  animation: kokako-fly-in 4s ease-in-out infinite alternate;
+  animation: golden-fly-in 4s ease-in-out infinite alternate;
   pointer-events: none;
   z-index: 1;
 }
-.kokako-just-landed__heading {
+.golden-just-landed__heading {
   font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 600;
   margin-bottom: 1.5rem;
 }
-.kokako-just-landed__buttons {
+.golden-just-landed__buttons {
   display: inline-flex;
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
 }
-.kokako-just-landed__btn {
+.golden-just-landed__btn {
   display: inline-block;
   padding: 0.6rem 1.2rem;
   border: 2px solid currentColor;
@@ -4968,7 +4968,7 @@ text-component {
   color: inherit;
 }
 
-@keyframes kokako-fly-in {
+@keyframes golden-fly-in {
   0% {
     transform: translateX(100%) translateY(0);
     opacity: 0;
@@ -4982,7 +4982,7 @@ text-component {
   }
 }
 
-.kokako-anniversary__inner {
+.golden-anniversary__inner {
   display: flex;
   align-items: center;
   gap: 2rem;
@@ -4990,89 +4990,89 @@ text-component {
   max-width: 1100px;
   margin: 0 auto;
 }
-.kokako-anniversary__media {
+.golden-anniversary__media {
   flex: 1 1 50%;
   text-align: center;
 }
-.kokako-anniversary__img {
+.golden-anniversary__img {
   max-width: 100%;
   height: auto;
 }
-.kokako-anniversary__text {
+.golden-anniversary__text {
   flex: 1 1 50%;
 }
-.kokako-anniversary__heading {
+.golden-anniversary__heading {
   font-size: clamp(1.5rem, 3vw, 1.8rem);
   margin-bottom: 1rem;
 }
-.kokako-anniversary__paragraph {
+.golden-anniversary__paragraph {
   font-size: 1rem;
   margin-bottom: 1.5rem;
 }
-.kokako-anniversary__link {
+.golden-anniversary__link {
   font-weight: 700;
   text-decoration: underline;
 }
 
-.kokako-featured-goods__title {
+.golden-featured-goods__title {
   text-align: center;
   font-size: 1.5rem;
   margin: 2rem 0 1.5rem;
 }
-.kokako-featured-goods__grid {
+.golden-featured-goods__grid {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
   justify-content: center;
 }
-.kokako-featured-goods__inner {
+.golden-featured-goods__inner {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem 3rem;
 }
-.kokako-product-card {
+.golden-product-card {
   width: 300px;
   text-align: left;
 }
-.kokako-product-card__image img {
+.golden-product-card__image img {
   width: 100%;
   height: auto;
   display: block;
 }
-.kokako-product-card__name {
+.golden-product-card__name {
   font-weight: 700;
   margin-top: 0.5rem;
 }
-.kokako-product-card__subtext {
+.golden-product-card__subtext {
   font-size: 0.9rem;
   color: #555;
 }
-.kokako-product-card__price {
+.golden-product-card__price {
   font-weight: 700;
   margin: 0.5rem 0;
 }
-.kokako-product-card__actions {
+.golden-product-card__actions {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
-.kokako-add-to-cart {
+.golden-add-to-cart {
   background: #000;
   color: #fff;
   padding: 0.5rem 1rem;
   border: none;
   cursor: pointer;
 }
-.kokako-add-to-cart[disabled] {
+.golden-add-to-cart[disabled] {
   background: #888;
   cursor: not-allowed;
 }
-.kokako-learn-more {
+.golden-learn-more {
   text-decoration: underline;
   font-size: 0.9rem;
 }
 
-.kokako-brew-gear__inner {
+.golden-brew-gear__inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -5080,106 +5080,106 @@ text-component {
   max-width: 1100px;
   margin: 0 auto;
 }
-.kokako-brew-gear__text {
+.golden-brew-gear__text {
   flex: 1 1 50%;
 }
-.kokako-brew-gear__heading {
+.golden-brew-gear__heading {
   font-size: 1.4rem;
   margin-bottom: 0.5rem;
 }
-.kokako-brew-gear__cta {
+.golden-brew-gear__cta {
   font-weight: 700;
   text-decoration: underline;
   font-size: 1rem;
 }
-.kokako-brew-gear__media {
+.golden-brew-gear__media {
   flex: 1 1 50%;
   text-align: center;
 }
-.kokako-brew-gear__img {
+.golden-brew-gear__img {
   max-width: 100%;
   height: auto;
 }
 
-.kokako-sustainability {
+.golden-sustainability {
   background: #f9f9f9;
   text-align: center;
   padding: 3rem 1rem;
 }
-.kokako-sustainability__inner {
+.golden-sustainability__inner {
   max-width: 960px;
   margin: 0 auto;
 }
-.kokako-sustainability__heading {
+.golden-sustainability__heading {
   font-size: 1.6rem;
   margin: 0;
 }
-.kokako-sustainability__heading--maori {
+.golden-sustainability__heading--maori {
   font-style: italic;
   font-weight: 400;
   margin-bottom: 1rem;
 }
-.kokako-sustainability__description {
+.golden-sustainability__description {
   max-width: 600px;
   margin: 0 auto 1.5rem;
   font-size: 1rem;
 }
-.kokako-sustainability__link {
+.golden-sustainability__link {
   font-weight: 700;
   text-decoration: underline;
 }
 
-.kokako-outposts__intro {
+.golden-outposts__intro {
   font-size: 1rem;
   margin-bottom: 0.5rem;
 }
-.kokako-outposts__find-link {
+.golden-outposts__find-link {
   font-weight: 700;
   text-decoration: underline;
 }
-.kokako-outposts__locations-list {
+.golden-outposts__locations-list {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
   margin-top: 2rem;
 }
-.kokako-outposts__inner {
+.golden-outposts__inner {
   max-width: 1100px;
   margin: 0 auto;
   padding: 3rem 1rem;
 }
-.kokako-location-card {
+.golden-location-card {
   flex: 1 1 45%;
   max-width: 45%;
 }
-.kokako-location-card__name {
+.golden-location-card__name {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
 }
-.kokako-location-card__details {
+.golden-location-card__details {
   font-size: 0.95rem;
   margin-bottom: 1rem;
   line-height: 1.4;
 }
-.kokako-location-card__images img {
+.golden-location-card__images img {
   width: 48%;
   margin-right: 4%;
   margin-bottom: 1rem;
 }
-.kokako-location-card__images img:last-child {
+.golden-location-card__images img:last-child {
   margin-right: 0;
 }
 
-.kokako-partner {
+.golden-partner {
   position: relative;
   text-align: center;
   padding: 3rem 1rem;
 }
-.kokako-partner__inner {
+.golden-partner__inner {
   max-width: 960px;
   margin: 0 auto;
 }
-.kokako-partner__anim {
+.golden-partner__anim {
   position: absolute;
   top: -20px;
   right: 0;
@@ -5187,26 +5187,26 @@ text-component {
   opacity: 0.7;
   pointer-events: none;
 }
-.kokako-partner__heading {
+.golden-partner__heading {
   font-size: 1.6rem;
   margin: 0;
 }
-.kokako-partner__heading--maori {
+.golden-partner__heading--maori {
   font-style: italic;
   font-weight: 400;
   margin-bottom: 1rem;
 }
-.kokako-partner__intro {
+.golden-partner__intro {
   font-size: 1rem;
   margin-bottom: 2rem;
 }
-.kokako-partner__links {
+.golden-partner__links {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
 }
-.kokako-partner__link-card {
+.golden-partner__link-card {
   display: block;
   padding: 1rem 1.5rem;
   border: 2px solid currentColor;
@@ -5215,79 +5215,79 @@ text-component {
   color: inherit;
   width: 220px;
 }
-.kokako-partner__link-card strong {
+.golden-partner__link-card strong {
   display: block;
   font-weight: 600;
   margin-bottom: 0.3rem;
 }
-.kokako-partner__link-card span {
+.golden-partner__link-card span {
   font-size: 0.95rem;
 }
 
-.kokako-chronicle__header {
+.golden-chronicle__header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   margin-bottom: 1rem;
 }
-.kokako-chronicle__inner {
+.golden-chronicle__inner {
   max-width: 960px;
   margin: 0 auto;
   padding: 3rem 1rem;
 }
-.kokako-chronicle__heading {
+.golden-chronicle__heading {
   font-size: 1.5rem;
   margin: 0;
 }
-.kokako-chronicle__view-all {
+.golden-chronicle__view-all {
   font-size: 1rem;
   text-decoration: underline;
   margin-top: 0.5rem;
 }
-.kokako-chronicle__articles {
+.golden-chronicle__articles {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-.kokako-chronicle__article {
+.golden-chronicle__article {
   margin: 0.5rem 0;
 }
-.kokako-chronicle__article a {
+.golden-chronicle__article a {
   text-decoration: none;
   border-bottom: 1px solid currentColor;
   padding-bottom: 2px;
 }
-.kokako-chronicle__article a:hover {
+.golden-chronicle__article a:hover {
   border-bottom-color: transparent;
 }
 
-.kokako-newsletter {
+.golden-newsletter {
   background: #f2f2f2;
   padding: 2rem 1rem;
   text-align: center;
 }
-.kokako-newsletter__inner {
+.golden-newsletter__inner {
   max-width: 640px;
   margin: 0 auto;
 }
-.kokako-newsletter__title {
+.golden-newsletter__title {
   font-size: 1.1rem;
   margin-bottom: 1rem;
 }
-.kokako-newsletter__form-group {
+.golden-newsletter__form-group {
   display: inline-flex;
   max-width: 500px;
   width: 100%;
 }
-.kokako-newsletter__input {
+.golden-newsletter__input {
   flex: 1 1 auto;
   padding: 0.5rem;
   font-size: 1rem;
   border: 1px solid #ccc;
   border-right: none;
 }
-.kokako-newsletter__button {
+.golden-newsletter__button {
   flex: 0 0 auto;
   padding: 0.5rem 1rem;
   font-size: 1rem;
@@ -5296,62 +5296,62 @@ text-component {
   border: 1px solid #000;
   cursor: pointer;
 }
-.kokako-newsletter__success {
+.golden-newsletter__success {
   font-weight: 700;
   color: #336600;
 }
-.kokako-newsletter__error {
+.golden-newsletter__error {
   margin-top: 0.5rem;
   font-size: 0.9rem;
   color: #c00;
 }
 
 @media (max-width: 767px) {
-  .kokako-hero__heading {
+  .golden-hero__heading {
     font-size: 2rem;
   }
-  .kokako-hero__btn {
+  .golden-hero__btn {
     width: 100%;
     text-align: center;
   }
-  .kokako-just-landed__decor {
+  .golden-just-landed__decor {
     display: none;
   }
-  .kokako-anniversary__inner,
-  .kokako-brew-gear__inner {
+  .golden-anniversary__inner,
+  .golden-brew-gear__inner {
     flex-direction: column;
     text-align: center;
   }
-  .kokako-product-card {
+  .golden-product-card {
     width: 100%;
     max-width: 400px;
   }
-  .kokako-product-card__actions {
+  .golden-product-card__actions {
     flex-direction: column;
     align-items: flex-start;
   }
-  .kokako-location-card {
+  .golden-location-card {
     max-width: 100%;
   }
-  .kokako-location-card__images img {
+  .golden-location-card__images img {
     width: 100%;
     margin-right: 0;
   }
-  .kokako-partner__anim {
+  .golden-partner__anim {
     display: none;
   }
-  .kokako-partner__links {
+  .golden-partner__links {
     flex-direction: column;
     align-items: center;
   }
-  .kokako-partner__link-card {
+  .golden-partner__link-card {
     width: 100%;
     max-width: 300px;
   }
-  .kokako-newsletter__form-group {
+  .golden-newsletter__form-group {
     flex-direction: column;
   }
-  .kokako-newsletter__input {
+  .golden-newsletter__input {
     border-right: 1px solid #ccc;
     margin-bottom: 0.5rem;
   }

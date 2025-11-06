@@ -1,34 +1,27 @@
 {% comment %}
-Golden Hero Section – replicates the "Welcome to Golden" banner with background media and two call-to-action buttons.
-- If a video is set, it plays in the background (muted, loop).
-- If no video, a static image is used as background.
-- Displays "Welcome to Golden" heading text and two CTA buttons ("Shop now" and "I'm just browsing").
-- Also shows Fairtrade and Organic badges similar to the Golden hero.
+  Golden Hero Section replicating the "Welcome to Golden" banner with background media and two call-to-action buttons.
 {% endcomment %}
-<section id="golden-hero-{{ section.id }}" class="golden-hero section"
-         data-section-id="{{ section.id }}" data-section-type="golden-hero">
+<section id="golden-hero-{{ section.id }}" class="golden-hero section" data-section-id="{{ section.id }}" data-section-type="golden-hero">
   <div class="golden-hero__inner">
-    <!-- Background media: video or image -->
     <div class="golden-hero__media">
       {% if section.settings.hero_video %}
-        <!-- Video background (auto-play, muted) -->
         <video class="golden-hero__video" autoplay muted playsinline loop>
-          {% assign video_source = section.settings.hero_video.sources | where: 'format', 'mp4' | first %}
-          {% unless video_source %}
-            {% assign video_source = section.settings.hero_video.sources | first %}
-          {% endunless %}
-          {% if video_source %}
-            <source src="{{ video_source.url }}" type="video/mp4">
+          {% assign hero_video_source = section.settings.hero_video.sources | first %}
+          {% if hero_video_source %}
+            <source src="{{ hero_video_source.url }}" type="video/mp4">
           {% endif %}
         </video>
       {% elsif section.settings.hero_image %}
-        <!-- Static image background as fallback -->
-        <img src="{{ section.settings.hero_image | image_url: width: 2000 }}"
-             alt="{{ section.settings.hero_image.alt | default: 'Hero background' }}" class="golden-hero__image" loading="lazy"
-             width="{{ section.settings.hero_image.width }}" height="{{ section.settings.hero_image.height }}">
+        <img
+          src="{{ section.settings.hero_image | image_url: width: 2000 }}"
+          alt="{{ section.settings.hero_image.alt | default: 'Hero background' | escape }}"
+          class="golden-hero__image"
+          loading="lazy"
+          width="{{ section.settings.hero_image.width }}"
+          height="{{ section.settings.hero_image.height }}"
+        >
       {% endif %}
     </div>
-    <!-- Hero content overlay -->
     <div class="golden-hero__content">
       <h1 class="golden-hero__heading">{{ section.settings.hero_heading }}</h1>
       {% if section.settings.show_badges %}
@@ -40,7 +33,7 @@ Golden Hero Section – replicates the "Welcome to Golden" banner with backgroun
       <div class="golden-hero__buttons">
         {% for btn in section.blocks %}
           {% if btn.type == 'cta' %}
-            <a href="{{ btn.settings.link }}" class="golden-hero__btn{% if forloop.first %} golden-hero__btn--primary{% endif %}">
+            <a href="{{ btn.settings.link }}" class="golden-hero__btn{% if forloop.first %} golden-hero__btn--primary{% endif %}" {{ btn.shopify_attributes }}>
               {{ btn.settings.label }}
             </a>
           {% endif %}
@@ -48,10 +41,13 @@ Golden Hero Section – replicates the "Welcome to Golden" banner with backgroun
       </div>
     </div>
   </div>
-  {% schema %}
+</section>
+
+{% schema %}
 {
   "name": "Golden Hero",
   "tag": "section",
+  "class": "section",
   "settings": [
     {
       "type": "text",
@@ -99,108 +95,26 @@ Golden Hero Section – replicates the "Welcome to Golden" banner with backgroun
   "presets": [
     {
       "name": "Golden Hero",
-      "category": "Golden",
-      "settings": {
-        "hero_heading": "Welcome to Golden",
-        "show_badges": true
-      },
-      "blocks": [
-        {
-          "type": "cta",
-          "settings": {
-            "link": "/collections/all",
-            "label": "Shop now"
-          }
-        },
-        {
-          "type": "cta",
-          "settings": {
-            "link": "#main-content",
-            "label": "I'm just browsing"
-          }
-        }
-      ]
+      "category": "Golden"
     }
-  ]
-}
-{% endschema %}
-</section>
-
-<style>
-/* Hero Section Styles */
-.golden-hero {
-  position: relative;
-  color: #fff;
-  text-align: center;
-  /* Ensure hero takes full viewport height */
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-.golden-hero__media {
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  overflow: hidden;
-  z-index: 1;
-}
-.golden-hero__video, .golden-hero__image {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
-}
-.golden-hero__content {
-  position: relative;
-  z-index: 2;
-  max-width: 600px;
-  padding: 2rem;
-}
-.golden-hero__heading {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-.golden-hero__badges {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 1.5rem;
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-}
-.golden-hero__badges li {
-  background: rgba(0,0,0,0.5);
-  padding: 0.4rem 0.8rem;
-  border-radius: 4px;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-}
-.golden-hero__buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-}
-.golden-hero__btn {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  border: 2px solid #fff;
-  text-decoration: none;
-  color: #fff;
-  font-weight: bold;
-}
-.golden-hero__btn--primary {
-  background-color: #fff;
-  color: #000;
-}
-/* Responsive adjustments */
-@media (max-width: 767px) {
-  .golden-hero__heading { font-size: 2rem; }
-  .golden-hero__badges li { font-size: 0.8rem; }
-  .golden-hero__btn {
-    width: 100%;
-    text-align: center;
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "cta",
+        "settings": {
+          "link": "/collections/all",
+          "label": "Shop now"
+        }
+      },
+      {
+        "type": "cta",
+        "settings": {
+          "link": "#main-content",
+          "label": "I'm just browsing"
+        }
+      }
+    ]
   }
 }
-</style>
+{% endschema %}
