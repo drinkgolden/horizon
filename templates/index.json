@@ -9,44 +9,6 @@
  */
 {
   "sections": {
-    "hero_carousel_XQ7y3A": {
-      "type": "hero-carousel",
-      "blocks": {
-        "slide_default_1": {
-          "type": "slide",
-          "settings": {
-            "label": "Shop now",
-            "url": "",
-            "open_in_new_tab": false,
-            "image_alt": "Golden Hour hero product display"
-          }
-        },
-        "slide_default_2": {
-          "type": "slide",
-          "settings": {
-            "label": "I'm just browsing",
-            "url": "",
-            "open_in_new_tab": false,
-            "image_alt": "Horizon seasonal collection"
-          }
-        }
-      },
-      "block_order": [
-        "slide_default_1",
-        "slide_default_2"
-      ],
-      "settings": {
-        "heading": "Just landed, Golden Half-Caf Mugs.",
-        "meta_text": "Fairtrade · Organic",
-        "color_scheme": "scheme-1",
-        "image_position": "left",
-        "content_alignment": "left",
-        "padding-block-start": 0,
-        "padding-block-end": 0,
-        "padding-inline-start": 0,
-        "padding-inline-end": 0
-      }
-    },
     "section_wi6VEg": {
       "type": "section",
       "blocks": {
@@ -128,6 +90,44 @@
         "padding-block-end": 64
       }
     },
+    "hero_carousel_XQ7y3A": {
+      "type": "hero-carousel",
+      "blocks": {
+        "slide_default_1": {
+          "type": "slide",
+          "settings": {
+            "label": "Shop now",
+            "url": "",
+            "open_in_new_tab": false,
+            "image_alt": "Golden Hour hero product display"
+          }
+        },
+        "slide_default_2": {
+          "type": "slide",
+          "settings": {
+            "label": "I'm just browsing",
+            "url": "",
+            "open_in_new_tab": false,
+            "image_alt": "Horizon seasonal collection"
+          }
+        }
+      },
+      "block_order": [
+        "slide_default_1",
+        "slide_default_2"
+      ],
+      "settings": {
+        "heading": "Just landed, Golden Half-Caf Mugs.",
+        "meta_text": "Fairtrade · Organic",
+        "color_scheme": "scheme-1",
+        "image_position": "left",
+        "content_alignment": "left",
+        "padding-block-start": 0,
+        "padding-block-end": 0,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0
+      }
+    },
     "featured_product_PX7Yym": {
       "type": "featured-product",
       "blocks": {
@@ -181,6 +181,7 @@
             "featured-product-price": {
               "type": "_featured-product-price",
               "name": "t:names.price",
+              "disabled": true,
               "static": true,
               "settings": {
                 "show_sale_price_first": true,
@@ -892,26 +893,11 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
-            },
-            "button_txYpCK": {
-              "type": "button",
-              "settings": {
-                "label": "Shop now",
-                "link": "shopify://collections/all",
-                "open_in_new_tab": false,
-                "style_class": "link",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
             }
           },
           "block_order": [
             "spacer_wWyrVc",
-            "text_UQ3y3L",
-            "button_txYpCK"
+            "text_UQ3y3L"
           ]
         },
         "group_appWMp": {
@@ -990,26 +976,11 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
-            },
-            "button_JYGJzb": {
-              "type": "button",
-              "settings": {
-                "label": "Shop now",
-                "link": "shopify://collections/all",
-                "open_in_new_tab": false,
-                "style_class": "link",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
             }
           },
           "block_order": [
             "spacer_hawy6c",
-            "text_UEjjY4",
-            "button_JYGJzb"
+            "text_UEjjY4"
           ]
         },
         "group_ywHqPy": {
@@ -1088,26 +1059,11 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
-            },
-            "button_D6jW63": {
-              "type": "button",
-              "settings": {
-                "label": "Shop now",
-                "link": "shopify://collections/all",
-                "open_in_new_tab": false,
-                "style_class": "link",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
             }
           },
           "block_order": [
             "spacer_m6aMgt",
-            "text_YfbkLC",
-            "button_D6jW63"
+            "text_YfbkLC"
           ]
         },
         "group_ngYxhT": {
@@ -1186,26 +1142,11 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
-            },
-            "button_TkAEAa": {
-              "type": "button",
-              "settings": {
-                "label": "Shop now",
-                "link": "shopify://collections/all",
-                "open_in_new_tab": false,
-                "style_class": "link",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
             }
           },
           "block_order": [
             "spacer_KGqmkR",
-            "text_Ea4XXY",
-            "button_TkAEAa"
+            "text_Ea4XXY"
           ]
         },
         "group_aVgTHP": {
@@ -1284,26 +1225,11 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
-            },
-            "button_6yAj8y": {
-              "type": "button",
-              "settings": {
-                "label": "Shop now",
-                "link": "shopify://collections/all",
-                "open_in_new_tab": false,
-                "style_class": "link",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
             }
           },
           "block_order": [
             "spacer_Yj6MFU",
-            "text_yY6KRP",
-            "button_6yAj8y"
+            "text_yY6KRP"
           ]
         },
         "group_iYnP9W": {
@@ -1382,26 +1308,11 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
-            },
-            "button_cJTHQH": {
-              "type": "button",
-              "settings": {
-                "label": "Shop now",
-                "link": "shopify://collections/all",
-                "open_in_new_tab": false,
-                "style_class": "link",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
             }
           },
           "block_order": [
             "spacer_EnWJwd",
-            "text_ipEX3D",
-            "button_cJTHQH"
+            "text_ipEX3D"
           ]
         }
       },
