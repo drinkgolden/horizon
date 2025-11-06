@@ -67,20 +67,17 @@
         {
           "type": "url",
           "id": "link",
-          "label": "Link URL",
-          "default": ""
+          "label": "Link URL"
         },
         {
           "type": "text",
           "id": "title",
-          "label": "Title",
-          "default": ""
+          "label": "Title"
         },
         {
           "type": "text",
           "id": "subtitle",
-          "label": "Subtitle",
-          "default": ""
+          "label": "Subtitle"
         }
       ]
     }
@@ -89,36 +86,34 @@
   "presets": [
     {
       "name": "Golden Partner",
-      "category": "Golden"
+      "category": "Golden",
+      "blocks": [
+        {
+          "type": "partner_link",
+          "settings": {
+            "title": "Workplace",
+            "subtitle": "Get coffee for your office",
+            "link": ""
+          }
+        },
+        {
+          "type": "partner_link",
+          "settings": {
+            "title": "Cafes & Restaurants",
+            "subtitle": "Join forces with us",
+            "link": ""
+          }
+        },
+        {
+          "type": "partner_link",
+          "settings": {
+            "title": "Retailers",
+            "subtitle": "Stock Golden",
+            "link": ""
+          }
+        }
+      ]
     }
-  ],
-  "default": {
-    "blocks": [
-      {
-        "type": "partner_link",
-        "settings": {
-          "title": "Workplace",
-          "subtitle": "Get coffee for your office",
-          "link": ""
-        }
-      },
-      {
-        "type": "partner_link",
-        "settings": {
-          "title": "Cafes & Restaurants",
-          "subtitle": "Join forces with us",
-          "link": ""
-        }
-      },
-      {
-        "type": "partner_link",
-        "settings": {
-          "title": "Retailers",
-          "subtitle": "Stock Golden",
-          "link": ""
-        }
-      }
-    ]
-  }
+  ]
 }
 {% endschema %}

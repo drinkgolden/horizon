@@ -53,8 +53,7 @@
     {
       "type": "url",
       "id": "outposts_link",
-      "label": "View All Outposts Link",
-      "default": "/pages/outposts"
+      "label": "View All Outposts Link"
     },
     {
       "type": "text",
@@ -71,14 +70,12 @@
         {
           "type": "text",
           "id": "location_name",
-          "label": "Location Name",
-          "default": ""
+          "label": "Location Name"
         },
         {
           "type": "richtext",
           "id": "location_details",
-          "label": "Address & Hours Details",
-          "default": ""
+          "label": "Address & Hours Details"
         },
         {
           "type": "image_picker",
@@ -97,26 +94,24 @@
   "presets": [
     {
       "name": "Golden Outposts",
-      "category": "Golden"
+      "category": "Golden",
+      "blocks": [
+        {
+          "type": "location",
+          "settings": {
+            "location_name": "Golden Commercial Bay",
+            "location_details": "<p>Level 1 Commercial Bay, 7/21 Queen St, Auckland CBD<br />Weekdays: 6:45am — 3:30pm<br />Saturday: 8:30am — 4pm<br />Sunday: 9am — 4pm</p>"
+          }
+        },
+        {
+          "type": "location",
+          "settings": {
+            "location_name": "Roastery Roller Door",
+            "location_details": "<p>9 Charles Street, Mt Eden, Auckland<br />Weekdays: 8am — 4:30pm<br />Weekends: Closed</p>"
+          }
+        }
+      ]
     }
-  ],
-  "default": {
-    "blocks": [
-      {
-        "type": "location",
-        "settings": {
-          "location_name": "Golden Commercial Bay",
-          "location_details": "<p>Level 1 Commercial Bay, 7/21 Queen St, Auckland CBD<br />Weekdays: 6:45am — 3:30pm<br />Saturday: 8:30am — 4pm<br />Sunday: 9am — 4pm</p>"
-        }
-      },
-      {
-        "type": "location",
-        "settings": {
-          "location_name": "Roastery Roller Door",
-          "location_details": "<p>9 Charles Street, Mt Eden, Auckland<br />Weekdays: 8am — 4:30pm<br />Weekends: Closed</p>"
-        }
-      }
-    ]
-  }
+  ]
 }
 {% endschema %}

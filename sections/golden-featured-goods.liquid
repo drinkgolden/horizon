@@ -78,8 +78,7 @@
         {
           "type": "text",
           "id": "subtext",
-          "label": "Flavour Notes (optional)",
-          "default": ""
+          "label": "Flavour Notes (optional)"
         }
       ]
     }
@@ -88,30 +87,28 @@
   "presets": [
     {
       "name": "Golden Featured Goods",
-      "category": "Golden"
+      "category": "Golden",
+      "blocks": [
+        {
+          "type": "product",
+          "settings": {
+            "subtext": "Chocolate · Caramel · Spice"
+          }
+        },
+        {
+          "type": "product",
+          "settings": {
+            "subtext": "Red Currant · Tropical Fruit · Butterscotch"
+          }
+        },
+        {
+          "type": "product",
+          "settings": {
+            "subtext": "Dark Chocolate · Hazelnut · Orange"
+          }
+        }
+      ]
     }
-  ],
-  "default": {
-    "blocks": [
-      {
-        "type": "product",
-        "settings": {
-          "subtext": "Chocolate · Caramel · Spice"
-        }
-      },
-      {
-        "type": "product",
-        "settings": {
-          "subtext": "Red Currant · Tropical Fruit · Butterscotch"
-        }
-      },
-      {
-        "type": "product",
-        "settings": {
-          "subtext": "Dark Chocolate · Hazelnut · Orange"
-        }
-      }
-    ]
-  }
+  ]
 }
 {% endschema %}
