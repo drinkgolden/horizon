@@ -2589,6 +2589,10 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   margin-inline: var(--margin-inline-start) var(--margin-inline-end);
 }
 
+.section-content-wrapper[data-split-showcase="true"] > .group-block + .group-block {
+  border-inline-start: 1px solid rgb(var(--color-foreground-rgb) / var(--opacity-15));
+}
+
 /* Size style */
 .size-style {
   width: var(--size-style-width-mobile, var(--size-style-width));

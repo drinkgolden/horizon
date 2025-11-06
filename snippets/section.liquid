@@ -5,6 +5,20 @@
   @param {string} children - The children of the section
 {%- enddoc -%}
 
+{%- assign is_split_showcase = false -%}
+{%- if section.blocks.size > 0
+  and section.settings.content_direction == 'row'
+  and section.settings.section_height == 'large'
+  and section.settings.section_width == 'full-width' -%}
+  {%- assign is_split_showcase = true -%}
+  {%- for block in section.blocks -%}
+    {%- unless block.type == 'group' -%}
+      {%- assign is_split_showcase = false -%}
+      {%- break -%}
+    {%- endunless -%}
+  {%- endfor -%}
+{%- endif -%}
+
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
 <div
   class="section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }}"
@@ -59,6 +73,7 @@
         {% render 'spacing-style', settings: section.settings %}
       "
       data-testid="section-content"
+      {% if is_split_showcase %}data-split-showcase="true"{% endif %}
     >
       {{ children }}
     </div>
