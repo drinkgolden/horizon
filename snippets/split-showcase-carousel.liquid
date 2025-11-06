@@ -13,10 +13,17 @@
     {%- capture block_content -%}
       {% render block %}
     {%- endcapture -%}
+    {%- assign slide_classes = 'split-showcase__slide' -%}
+    {%- if forloop.first -%}
+      {%- assign slide_classes = slide_classes | append: ' split-showcase__slide--first' -%}
+    {%- endif -%}
+    {%- if forloop.last -%}
+      {%- assign slide_classes = slide_classes | append: ' split-showcase__slide--last' -%}
+    {%- endif -%}
     {% render 'slideshow-slide',
       index: forloop.index0,
       children: block_content,
-      class: 'split-showcase__slide',
+      class: slide_classes,
       attributes: 'data-block-id="' | append: block.id | append: '"'
     %}
   {%- endfor -%}

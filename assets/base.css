@@ -2593,10 +2593,6 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   --split-divider-color-default: var(--vertical-divider-color, rgb(var(--color-foreground-rgb) / var(--opacity-15)));
 }
 
-.section-content-wrapper[data-split-showcase="static"] > .group-block:not(:first-child) {
-  border-inline-start: 1px solid var(--split-divider-color, var(--split-divider-color-default));
-}
-
 slideshow-component[data-split-showcase-carousel] {
   display: block;
   width: 100%;
@@ -2638,13 +2634,13 @@ slideshow-component[data-split-showcase-carousel] slideshow-slide.split-showcase
   inset-inline-start: 0;
   width: 1px;
   background: var(--split-divider-color);
-  opacity: 0;
+  opacity: 1;
   pointer-events: none;
   transition: opacity 240ms ease;
 }
 
-slideshow-component[data-split-showcase-carousel] slideshow-slide.split-showcase__slide + slideshow-slide.split-showcase__slide::before {
-  opacity: 1;
+slideshow-component[data-split-showcase-carousel] slideshow-slide.split-showcase__slide--first::before {
+  opacity: 0;
 }
 
 slideshow-component[data-split-showcase-carousel] slideshow-slide.split-showcase__slide[aria-hidden="false"] {

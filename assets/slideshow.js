@@ -80,7 +80,12 @@ export class Slideshow extends Component {
 
     if (this.#scroll) {
       const { scroller } = this.refs;
-      scroller.removeEventListener('mousedown', this.#handleMouseDown);
+      if (scroller) {
+        scroller.removeEventListener('mousedown', this.#handleMouseDown);
+        if (this.hasAttribute('data-split-showcase-carousel')) {
+          scroller.removeEventListener('wheel', this.#handleSplitShowcaseWheel);
+        }
+      }
       this.#scroll.destroy();
     }
 
@@ -456,6 +461,9 @@ export class Slideshow extends Component {
     });
 
     scroller.addEventListener('mousedown', this.#handleMouseDown);
+    if (this.hasAttribute('data-split-showcase-carousel')) {
+      scroller.addEventListener('wheel', this.#handleSplitShowcaseWheel, { passive: false });
+    }
 
     this.addEventListener('mouseenter', this.suspend);
     this.addEventListener('mouseleave', this.resume);
@@ -564,6 +572,39 @@ export class Slideshow extends Component {
   };
 
   #dragging = false;
+
+  /**
+   * Enables vertical wheel gestures to scroll the split showcase horizontally on desktop.
+   * @param {WheelEvent} event
+   */
+  #handleSplitShowcaseWheel = (event) => {
+    if (!this.#scroll) return;
+    if (!this.refs.scroller) return;
+
+    const { scroller } = this.refs;
+    if (scroller.scrollWidth <= scroller.clientWidth + 1) return;
+
+    const absDeltaY = Math.abs(event.deltaY);
+    const absDeltaX = Math.abs(event.deltaX);
+
+    if (absDeltaY === 0 || absDeltaY <= absDeltaX) return;
+
+    let delta = event.deltaY;
+    if (event.deltaMode === 1) {
+      delta *= 16;
+    } else if (event.deltaMode === 2) {
+      delta *= scroller.clientWidth;
+    }
+
+    const maxScrollLeft = scroller.scrollWidth - scroller.clientWidth;
+    const scrollLeft = scroller.scrollLeft;
+    const atBoundary = (delta < 0 && scrollLeft <= 0) || (delta > 0 && scrollLeft >= maxScrollLeft);
+
+    if (atBoundary) return;
+
+    event.preventDefault();
+    this.#scroll.by(delta, { instant: false });
+  };
 
   /**
    * Handles the 'mousedown' event to start dragging slides.
