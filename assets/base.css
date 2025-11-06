@@ -2594,24 +2594,20 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
 }
 
 .section-content-wrapper[data-split-showcase="true"].split-showcase--carousel {
-  overflow-x: auto;
-  overflow-y: visible;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
   --split-spine-collapsed: 9rem;
   --split-spine-expanded: min(36rem, 70%);
-}
-
-.section-content-wrapper[data-split-showcase="true"].split-showcase--carousel::-webkit-scrollbar {
-  display: none;
 }
 
 .section-content-wrapper[data-split-showcase="true"].split-showcase--carousel > .group-block {
   flex: 0 0 var(--split-spine-collapsed);
   max-width: var(--split-spine-collapsed);
   transition: flex-basis 220ms ease, max-width 220ms ease, transform 220ms ease;
-  scroll-snap-align: center;
   position: relative;
+  min-width: 0;
 }
 
 .section-content-wrapper[data-split-showcase="true"].split-showcase--carousel > .group-block:not(:first-child)::before {
