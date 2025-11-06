@@ -55,14 +55,39 @@
     assign drawer_logo_size = 80
   endif
 
-  assign drawer_logo_padding_block = block_settings.drawer_logo_padding_block
-  if drawer_logo_padding_block == blank
-    assign drawer_logo_padding_block = 48
+  assign old_logo_padding_block = block_settings.drawer_logo_padding_block
+  assign old_logo_padding_inline = block_settings.drawer_logo_padding_inline
+
+  assign drawer_logo_padding_block_start = block_settings.drawer_logo_padding_block_start
+  if drawer_logo_padding_block_start == blank
+    assign drawer_logo_padding_block_start = old_logo_padding_block
+  endif
+  if drawer_logo_padding_block_start == blank
+    assign drawer_logo_padding_block_start = 48
   endif
 
-  assign drawer_logo_padding_inline = block_settings.drawer_logo_padding_inline
-  if drawer_logo_padding_inline == blank
-    assign drawer_logo_padding_inline = 24
+  assign drawer_logo_padding_block_end = block_settings.drawer_logo_padding_block_end
+  if drawer_logo_padding_block_end == blank
+    assign drawer_logo_padding_block_end = old_logo_padding_block
+  endif
+  if drawer_logo_padding_block_end == blank
+    assign drawer_logo_padding_block_end = 48
+  endif
+
+  assign drawer_logo_padding_inline_start = block_settings.drawer_logo_padding_inline_start
+  if drawer_logo_padding_inline_start == blank
+    assign drawer_logo_padding_inline_start = old_logo_padding_inline
+  endif
+  if drawer_logo_padding_inline_start == blank
+    assign drawer_logo_padding_inline_start = 24
+  endif
+
+  assign drawer_logo_padding_inline_end = block_settings.drawer_logo_padding_inline_end
+  if drawer_logo_padding_inline_end == blank
+    assign drawer_logo_padding_inline_end = old_logo_padding_inline
+  endif
+  if drawer_logo_padding_inline_end == blank
+    assign drawer_logo_padding_inline_end = 24
   endif
 %}
 
@@ -104,8 +129,10 @@
       "
       style="
         --menu-drawer-logo-size: {{ drawer_logo_size }}px;
-        --menu-drawer-brand-padding-block: {{ drawer_logo_padding_block }}px;
-        --menu-drawer-brand-padding-inline: {{ drawer_logo_padding_inline }}px;
+        --menu-drawer-brand-padding-block-start: {{ drawer_logo_padding_block_start }}px;
+        --menu-drawer-brand-padding-block-end: {{ drawer_logo_padding_block_end }}px;
+        --menu-drawer-brand-padding-inline-start: {{ drawer_logo_padding_inline_start }}px;
+        --menu-drawer-brand-padding-inline-end: {{ drawer_logo_padding_inline_end }}px;
       "
     >
       <div class="menu-drawer__branding">
@@ -889,8 +916,10 @@
       min-height: 100dvh;
       height: 100dvh;
       flex-direction: row;
-      --menu-drawer-brand-padding-inline: var(--padding-md);
-      --menu-drawer-brand-padding-block: var(--padding-xl);
+      --menu-drawer-brand-padding-inline-start: var(--padding-md);
+      --menu-drawer-brand-padding-inline-end: var(--padding-md);
+      --menu-drawer-brand-padding-block-start: var(--padding-xl);
+      --menu-drawer-brand-padding-block-end: var(--padding-xl);
     }
 
     .header__drawer--mobile .menu-drawer__branding {
@@ -899,9 +928,21 @@
       justify-content: flex-start;
       align-items: center;
       gap: var(--padding-lg);
-      flex: 0 0 calc(var(--menu-drawer-logo-size, 80px) + 2 * var(--menu-drawer-brand-padding-inline));
-      width: calc(var(--menu-drawer-logo-size, 80px) + 2 * var(--menu-drawer-brand-padding-inline));
-      padding: var(--menu-drawer-brand-padding-block) var(--menu-drawer-brand-padding-inline);
+      flex: 0 0 calc(
+        var(--menu-drawer-logo-size, 80px) +
+        var(--menu-drawer-brand-padding-inline-start, var(--padding-md)) +
+        var(--menu-drawer-brand-padding-inline-end, var(--padding-md))
+      );
+      width: calc(
+        var(--menu-drawer-logo-size, 80px) +
+        var(--menu-drawer-brand-padding-inline-start, var(--padding-md)) +
+        var(--menu-drawer-brand-padding-inline-end, var(--padding-md))
+      );
+      padding:
+        var(--menu-drawer-brand-padding-block-start, var(--padding-xl))
+        var(--menu-drawer-brand-padding-inline-end, var(--padding-md))
+        var(--menu-drawer-brand-padding-block-end, var(--padding-xl))
+        var(--menu-drawer-brand-padding-inline-start, var(--padding-md));
       min-height: 100dvh;
       background-color: rgb(var(--color-foreground) 0.08);
       border-right: var(--style-border-drawer);
