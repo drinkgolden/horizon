@@ -1,6 +1,5 @@
 {% liquid
   assign split_divider_color = section.settings.split_divider_color | default: settings.vertical_divider_color | default: '#d9d9d9'
-  assign has_header = section.settings.heading != blank or section.settings.subheading != blank
 %}
 
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
@@ -15,7 +14,7 @@
   "
   style="{% render 'spacing-style', settings: section.settings %}"
 >
-  {% if has_header %}
+  {% if section.settings.heading != blank or section.settings.subheading != blank %}
     <div class="book-spines__header">
       {% if section.settings.heading != blank %}
         <h2 class="book-spines__heading">
