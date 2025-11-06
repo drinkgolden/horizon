@@ -108,7 +108,7 @@
           "foreground": "#25282a",
           "primary": "#25282a",
           "primary_hover": "#333333",
-          "border": "#25282a",
+          "border": "#fcfcfb",
           "shadow": "#25282a",
           "primary_button_background": "#25282a",
           "primary_button_text": "#fcfcfb",
