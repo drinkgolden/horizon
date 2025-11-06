@@ -458,6 +458,7 @@ export class Slideshow extends Component {
       onScroll: this.#handleScroll,
       onScrollStart: this.#onTransitionInit,
       onScrollEnd: this.#onTransitionEnd,
+      axis: this.hasAttribute('data-split-showcase-carousel') ? 'x' : undefined,
     });
 
     scroller.addEventListener('mousedown', this.#handleMouseDown);
@@ -603,7 +604,7 @@ export class Slideshow extends Component {
     if (atBoundary) return;
 
     event.preventDefault();
-    this.#scroll.by(delta, { instant: false });
+    scroller.scrollBy({ left: delta, behavior: 'smooth' });
   };
 
   /**
