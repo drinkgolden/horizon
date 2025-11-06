@@ -4,7 +4,6 @@
   assign alignment = block.settings.content_alignment | default: 'flex-start'
   assign spine_text = block.settings.spine_label | default: block.settings.heading
   assign heading_tag = block.settings.heading_tag | default: 'h3'
-  assign has_image = block.settings.image != blank
   assign overlay_alpha = block.settings.overlay_opacity | default: 0 | times: 0.01
   assign overlay_color = block.settings.overlay_color | default: '#000000'
   assign overlay_rgb = overlay_color | color_to_rgb
@@ -38,7 +37,7 @@
   {{ block.shopify_attributes }}
 >
   <div class="group-block__media-wrapper">
-    {% if has_image %}
+    {% if block.settings.image != blank %}
       {% render 'background-media',
         background_media: 'image',
         background_image: block.settings.image,
@@ -98,10 +97,9 @@
       {% endif %}
 
       {% if block.settings.button_label != blank %}
-        {% assign has_link = block.settings.button_link != blank %}
         {% assign button_style = block.settings.button_style | default: 'button' %}
         <a
-          {% if has_link %}
+          {% if block.settings.button_link != blank %}
             href="{{ block.settings.button_link }}"
           {% else %}
             role="link"
@@ -115,7 +113,7 @@
               {{ button_style }}
             {% endif %}
           "
-          {% if block.settings.open_in_new_tab and has_link %}
+          {% if block.settings.open_in_new_tab and block.settings.button_link != blank %}
             target="_blank"
             rel="noopener noreferrer"
           {% endif %}
