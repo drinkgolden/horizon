@@ -20,14 +20,7 @@
 {%- endif -%}
 {%- assign split_mode = '' -%}
 {%- if is_split_showcase -%}
-  {%- if section.blocks.size > 5 -%}
-    {%- assign split_mode = 'carousel' -%}
-  {%- else -%}
-    {%- assign split_mode = 'static' -%}
-  {%- endif -%}
-  {%- assign split_divider_color = section.settings.split_divider_color | default: settings.vertical_divider_color | default: '#d9d9d9' -%}
-{%- endif -%}
-{%- if is_split_showcase -%}
+  {%- assign split_mode = 'carousel' -%}
   {%- assign split_divider_color = section.settings.split_divider_color | default: settings.vertical_divider_color | default: '#d9d9d9' -%}
 {%- endif -%}
 
@@ -68,12 +61,9 @@
     class="border-style custom-section-content"
     style="
       {% render 'border-override', settings: section.settings %}
+      overflow: hidden;
       {% if is_split_showcase %}
         --split-divider-color: {{ split_divider_color }};
-        {% if split_mode == 'carousel' %}overflow: hidden;{% endif %}
-      {% endif %}
-      {% if section.settings.border != 'none' %}
-        overflow: hidden;
       {% endif %}
     "
   >
