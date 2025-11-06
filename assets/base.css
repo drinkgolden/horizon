@@ -2593,63 +2593,71 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   --split-divider-color-default: var(--vertical-divider-color, rgb(var(--color-foreground-rgb) / var(--opacity-15)));
 }
 
-.section-content-wrapper[data-split-showcase="true"]:not(.split-showcase--carousel) > .group-block:not(:first-child) {
-  border-inline-start: 1px solid var(--split-divider-color, var(--split-divider-color-default));
-}
-
-.section-content-wrapper[data-split-showcase="true"].split-showcase--carousel {
-  position: relative;
+slideshow-component[data-split-showcase-carousel] {
+  display: block;
   width: 100%;
-  max-width: 100%;
-  overflow: hidden;
-  --split-spine-collapsed: clamp(60px, 12vw, 104px);
+  --split-divider-color-default: var(--vertical-divider-color, rgb(var(--color-foreground-rgb) / var(--opacity-15)));
+  --split-divider-color: var(--split-divider-color, var(--split-divider-color-default));
+  --split-spine-collapsed: clamp(60px, 12vw, 96px);
   --split-spine-expanded: min(42rem, 72%);
 }
 
-.section-content-wrapper[data-split-showcase="true"].split-showcase--carousel .split-showcase__track {
+slideshow-component[data-split-showcase-carousel] slideshow-container {
+  overflow: hidden;
+  width: 100%;
+}
+
+slideshow-component[data-split-showcase-carousel] slideshow-slides {
   display: flex;
-  gap: var(--split-showcase-gap, var(--gap, 32px));
-  will-change: transform;
-  transition: transform 280ms ease;
-  touch-action: pan-y;
-  user-select: none;
-  cursor: grab;
+  gap: var(--split-showcase-gap, clamp(16px, 3vw, 32px));
+  padding-block: 16px;
+  margin-block: -16px;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--peek-next-slide-size, clamp(40px, 12vw, 96px));
   align-items: stretch;
 }
 
-.section-content-wrapper[data-split-showcase="true"].split-showcase--carousel .split-showcase__spine {
+slideshow-component[data-split-showcase-carousel] slideshow-slide.split-showcase__slide {
   flex: 0 0 var(--split-spine-collapsed);
   max-width: var(--split-spine-collapsed);
   min-width: 0;
-  transition: flex-basis 220ms ease, max-width 220ms ease, transform 220ms ease;
+  scroll-snap-align: start;
   position: relative;
   cursor: pointer;
+  transition: flex-basis 240ms ease, max-width 240ms ease, transform 240ms ease;
 }
 
-.section-content-wrapper[data-split-showcase="true"].split-showcase--carousel .split-showcase__spine + .split-showcase__spine::before {
+slideshow-component[data-split-showcase-carousel] slideshow-slide.split-showcase__slide::before {
   content: "";
   position: absolute;
   inset-block: var(--padding-block-start, 0) var(--padding-block-end, 0);
   inset-inline-start: 0;
   width: 1px;
-  background: var(--split-divider-color, var(--split-divider-color-default));
+  background: var(--split-divider-color);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 240ms ease;
 }
 
-.section-content-wrapper[data-split-showcase="true"].split-showcase--carousel .split-showcase__spine--active {
+slideshow-component[data-split-showcase-carousel] slideshow-slide.split-showcase__slide + slideshow-slide.split-showcase__slide::before {
+  opacity: 1;
+}
+
+slideshow-component[data-split-showcase-carousel] slideshow-slide.split-showcase__slide[aria-hidden="false"] {
   flex: 0 0 var(--split-spine-expanded);
   max-width: var(--split-spine-expanded);
 }
 
-.section-content-wrapper[data-split-showcase="true"].split-showcase--carousel .split-showcase__spine:focus-visible {
+slideshow-component[data-split-showcase-carousel] slideshow-slide.split-showcase__slide:focus-visible {
   outline: 2px solid rgb(var(--color-foreground-rgb));
   outline-offset: -4px;
 }
 
-.section-content-wrapper[data-split-showcase="true"].split-showcase--carousel .split-showcase__spine .group-block-content {
-  transition: transform 220ms ease;
+slideshow-component[data-split-showcase-carousel] slideshow-slide.split-showcase__slide .group-block-content {
+  transition: transform 240ms ease;
 }
 
-.section-content-wrapper[data-split-showcase="true"].split-showcase--carousel .split-showcase__spine--active .group-block-content {
+slideshow-component[data-split-showcase-carousel] slideshow-slide.split-showcase__slide[aria-hidden="false"] .group-block-content {
   transform: scale(1.02);
 }
 
