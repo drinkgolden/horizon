@@ -125,6 +125,7 @@
         "color_scheme": "scheme-1",
         "image_position": "left",
         "content_alignment": "left",
+        "mobile_breakpoint": 1000,
         "padding-block-start": 24,
         "padding-block-end": 24,
         "padding-inline-start": 0,
