@@ -27,7 +27,7 @@
     justify-content: center;
   }
 
-  #shopify-section-{{ section.id }} .section-content-wrapper.layout-panel-flex > .group-block .text-block {
+  #shopify-section-{{ section.id }} .section-content-wrapper.layout-panel-flex > .group-block .gvc__label {
     display: inline-block;
     transform: rotate(-90deg);
     transform-origin: center;
@@ -70,6 +70,11 @@
     groups.forEach((group) => {
       group.style.setProperty('--padding-inline-start', `${padding}px`);
       group.style.setProperty('--padding-inline-end', `${padding}px`);
+
+      const label = group.querySelector(':scope .group-block-content > .text-block');
+      if (label && !label.classList.contains('gvc__label')) {
+        label.classList.add('gvc__label');
+      }
     });
   };
 
