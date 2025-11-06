@@ -1581,12 +1581,6 @@
         "default": true
       },
       {
-        "type": "checkbox",
-        "id": "section_gridlines_vertical",
-        "label": "Show vertical dividers",
-        "default": false
-      },
-      {
         "type": "paragraph",
         "content": "Adds fine 1px dividers above and below each content section, and optional vertical rails inside the global borders."
       },

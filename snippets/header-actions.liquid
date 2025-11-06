@@ -193,14 +193,20 @@
 
   header-actions {
     display: flex;
+    gap: var(--gap-sm);
 
     @media screen and (max-width: 749px) {
       justify-self: flex-end;
+      gap: var(--gap-xs);
     }
   }
 
   .header__column--right header-actions {
     margin-inline-start: calc(var(--gap-md) * -1);
+
+    @media screen and (max-width: 749px) {
+      margin-inline-start: 0;
+    }
   }
 
   .header-actions__action {
@@ -209,6 +215,9 @@
     cursor: pointer;
     display: flex;
     justify-content: center;
+    align-items: center;
+    width: var(--minimum-touch-target, 44px);
+    height: var(--minimum-touch-target, 44px);
   }
 
   .header-actions__action .svg-wrapper {

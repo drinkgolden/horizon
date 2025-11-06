@@ -9,12 +9,25 @@
   if section.blocks.size > 0
     assign has_blocks = true
   endif
+  assign collapse_breakpoint = section.settings.mobile_breakpoint | default: 750
+  assign content_padding_block = section.settings.content_padding_block | default: 40
+  assign content_padding_inline = section.settings.content_padding_inline | default: 40
+  assign trigger_padding_block = section.settings.trigger_padding_block | default: 12
+  assign trigger_padding_inline = section.settings.trigger_padding_inline | default: 24
+  assign divider_color = section.settings.divider_color | default: settings.section_gridline_color | default: '#e5e5e5'
 %}
 
 <div class="section-background color-{{ color_scheme }}"></div>
 <section
   class="hero-carousel section section--full-width color-{{ color_scheme }} spacing-style hero-carousel--image-{{ section.settings.image_position }} hero-carousel--align-{{ section.settings.content_alignment }}"
-  style="{% render 'spacing-style', settings: section.settings %}"
+  style="
+    {% render 'spacing-style', settings: section.settings %}
+    --hero-content-padding-block: {{ content_padding_block }}px;
+    --hero-content-padding-inline: {{ content_padding_inline }}px;
+    --hero-trigger-padding-block: {{ trigger_padding_block }}px;
+    --hero-trigger-padding-inline: {{ trigger_padding_inline }}px;
+    --hero-carousel-divider-color-value: {{ divider_color }};
+  "
   aria-label="{{ section.settings.heading | strip_html | default: 'Hero carousel' }}"
   data-section-id="{{ section.id }}"
   data-hero-carousel
@@ -65,7 +78,10 @@
         {% if has_blocks %}
           <div class="hero-carousel__triggers">
             {% for block in section.blocks %}
-              {% assign label = block.settings.label | default: 'Slide ' | append: forloop.index %}
+              {% assign label = block.settings.label %}
+              {% if label == blank %}
+                {% assign label = 'Slide ' | append: forloop.index %}
+              {% endif %}
               {% assign url = block.settings.url %}
               {% assign open_new = block.settings.open_in_new_tab %}
               <a
@@ -103,11 +119,9 @@
   {% endif %}
 </section>
 
-{% assign collapse_breakpoint = section.settings.mobile_breakpoint | default: 990 %}
-
 {% stylesheet %}
   .hero-carousel {
-    --hero-carousel-divider-color: var(--section-gridline-color, rgba(0, 0, 0, 0.08));
+    --hero-carousel-divider-color: var(--hero-carousel-divider-color-value, var(--section-gridline-color, rgba(0, 0, 0, 0.08)));
     position: relative;
     padding-block: 0;
   }
@@ -162,7 +176,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: clamp(2.5rem, 5vw, 4rem);
+    padding-block: var(--hero-content-padding-block, clamp(2.5rem, 5vw, 4rem));
+    padding-inline: var(--hero-content-padding-inline, clamp(2.5rem, 5vw, 4rem));
   }
 
   .hero-carousel__content-inner {
@@ -190,7 +205,8 @@
     align-items: center;
     justify-content: center;
     min-height: 3.25rem;
-    padding-inline: clamp(1.5rem, 4vw, 2.5rem);
+    padding-block: var(--hero-trigger-padding-block, 12px);
+    padding-inline: var(--hero-trigger-padding-inline, clamp(1.5rem, 4vw, 2.5rem));
     background: transparent;
     color: currentColor;
     text-decoration: none;
@@ -393,7 +409,7 @@ document.querySelectorAll('[data-hero-carousel]').forEach((section) => {
       "max": 1400,
       "step": 10,
       "unit": "px",
-      "default": 990
+      "default": 750
     },
     {
       "type": "header",
@@ -434,6 +450,48 @@ document.querySelectorAll('[data-hero-carousel]').forEach((section) => {
       "max": 80,
       "step": 4,
       "default": 0
+    },
+    {
+      "type": "range",
+      "id": "content_padding_block",
+      "label": "Content padding (top & bottom)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "content_padding_inline",
+      "label": "Content padding (sides)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "trigger_padding_block",
+      "label": "Button padding (top & bottom)",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "trigger_padding_inline",
+      "label": "Button padding (sides)",
+      "min": 0,
+      "max": 80,
+      "step": 2,
+      "default": 24
+    },
+    {
+      "type": "color",
+      "id": "divider_color",
+      "label": "Divider color",
+      "default": "#e5e5e5"
     }
   ],
   "blocks": [

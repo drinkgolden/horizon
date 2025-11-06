@@ -598,121 +598,66 @@ p:empty {
 }
 
 /* Section gridline system */
-body.has-section-gridlines-horizontal :is(#MainContent, #header-group) .shopify-section {
-  position: relative;
-}
+@media screen and (min-width: 750px) {
+  body.has-section-gridlines-horizontal :is(#MainContent, #header-group) .shopify-section {
+    position: relative;
+  }
 
-body.has-section-gridlines-horizontal
-  #MainContent
-  .shopify-section::before,
-body.has-section-gridlines-horizontal
-  :is(#MainContent, #header-group)
-  .shopify-section::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: var(--section-gridline-width, 1px);
-  background-color: var(--section-gridline-color, rgba(0, 0, 0, 0.08));
-  z-index: var(--layer-heightened);
-  pointer-events: none;
-}
+  body.has-section-gridlines-horizontal
+    #MainContent
+    .shopify-section::before,
+  body.has-section-gridlines-horizontal
+    :is(#MainContent, #header-group)
+    .shopify-section::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: var(--section-gridline-width, 1px);
+    background-color: var(--section-gridline-color, rgba(0, 0, 0, 0.08));
+    z-index: var(--layer-heightened);
+    pointer-events: none;
+  }
 
-body.has-section-gridlines-horizontal #MainContent .shopify-section::before {
-  top: 0;
-}
+  body.has-section-gridlines-horizontal #MainContent .shopify-section::before {
+    top: 0;
+  }
 
-body.has-section-gridlines-horizontal
-  :is(#MainContent, #header-group)
-  .shopify-section::after {
-  bottom: 0;
-}
+  body.has-section-gridlines-horizontal
+    :is(#MainContent, #header-group)
+    .shopify-section::after {
+    bottom: 0;
+  }
 
-body.has-section-gridlines-horizontal #MainContent .shopify-section:first-child::before {
-  content: none;
-}
+  body.has-section-gridlines-horizontal #MainContent .shopify-section:first-child::before {
+    content: none;
+  }
 
-body.has-section-gridlines-horizontal #MainContent .shopify-section + .shopify-section {
-  margin-top: calc(-1 * var(--section-gridline-width, 1px));
-}
+  body.has-section-gridlines-horizontal #MainContent .shopify-section + .shopify-section {
+    margin-top: calc(-1 * var(--section-gridline-width, 1px));
+  }
 
-body.has-section-gridlines-horizontal
-  #MainContent
-  .shopify-section:has(> .section.section--no-gridlines)::before,
-body.has-section-gridlines-horizontal
-  :is(#MainContent, #header-group)
-  .shopify-section:has(> .section.section--no-gridlines)::after {
-  content: none;
-}
+  body.has-section-gridlines-horizontal
+    #MainContent
+    .shopify-section:has(> .section.section--no-gridlines)::before,
+  body.has-section-gridlines-horizontal
+    :is(#MainContent, #header-group)
+    .shopify-section:has(> .section.section--no-gridlines)::after {
+    content: none;
+  }
 
-body.has-section-gridlines-horizontal
-  #MainContent
-  .shopify-section:last-child::after {
-  content: none;
-}
+  body.has-section-gridlines-horizontal
+    #MainContent
+    .shopify-section:last-child::after {
+    content: none;
+  }
 
-body.has-section-gridlines-horizontal
-  #MainContent
-  .shopify-section:has(> .section.section--no-gridlines)
-  + .shopify-section {
-  margin-top: 0;
-}
-
-body.has-section-gridlines-vertical
-  :is(#MainContent, #header-group)
-  .shopify-section
-  > .section
-  > .custom-section-content {
-  position: relative;
-}
-
-body.has-section-gridlines-vertical
-  :is(#MainContent, #header-group)
-  .shopify-section
-  > .section
-  > .custom-section-content::before,
-body.has-section-gridlines-vertical
-  :is(#MainContent, #header-group)
-  .shopify-section
-  > .section
-  > .custom-section-content::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: var(--section-gridline-width, 1px);
-  background-color: var(--section-gridline-color, rgba(0, 0, 0, 0.08));
-  z-index: var(--layer-heightened);
-  pointer-events: none;
-}
-
-body.has-section-gridlines-vertical
-  :is(#MainContent, #header-group)
-  .shopify-section
-  > .section
-  > .custom-section-content::before {
-  left: 0;
-}
-
-body.has-section-gridlines-vertical
-  :is(#MainContent, #header-group)
-  .shopify-section
-  > .section
-  > .custom-section-content::after {
-  right: 0;
-}
-
-body.has-section-gridlines-vertical
-  :is(#MainContent, #header-group)
-  .shopify-section:has(> .section.section--no-gridlines)
-  > .section
-  > .custom-section-content::before,
-body.has-section-gridlines-vertical
-  :is(#MainContent, #header-group)
-  .shopify-section:has(> .section.section--no-gridlines)
-  > .section
-  > .custom-section-content::after {
-  content: none;
+  body.has-section-gridlines-horizontal
+    #MainContent
+    .shopify-section:has(> .section.section--no-gridlines)
+    + .shopify-section {
+    margin-top: 0;
+  }
 }
 
 /* For page-width sections, all content goes in the center column */
