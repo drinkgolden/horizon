@@ -2589,8 +2589,64 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   margin-inline: var(--margin-inline-start) var(--margin-inline-end);
 }
 
-.section-content-wrapper[data-split-showcase="true"] > .group-block + .group-block {
+.section-content-wrapper[data-split-showcase="true"] > .group-block:not(:first-child) {
   border-inline-start: 1px solid rgb(var(--color-foreground-rgb) / var(--opacity-15));
+}
+
+.section-content-wrapper[data-split-showcase="true"].split-showcase--carousel {
+  overflow-x: auto;
+  overflow-y: visible;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  --split-spine-collapsed: 9rem;
+  --split-spine-expanded: min(36rem, 70%);
+}
+
+.section-content-wrapper[data-split-showcase="true"].split-showcase--carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.section-content-wrapper[data-split-showcase="true"].split-showcase--carousel > .group-block {
+  flex: 0 0 var(--split-spine-collapsed);
+  max-width: var(--split-spine-collapsed);
+  transition: flex-basis 220ms ease, max-width 220ms ease, transform 220ms ease;
+  scroll-snap-align: center;
+  position: relative;
+}
+
+.section-content-wrapper[data-split-showcase="true"].split-showcase--carousel > .group-block:not(:first-child)::before {
+  content: "";
+  position: absolute;
+  inset-block: var(--padding-block-start, 0) var(--padding-block-end, 0);
+  inset-inline-start: 0;
+  width: 1px;
+  background: rgb(var(--color-foreground-rgb) / var(--opacity-15));
+}
+
+.section-content-wrapper[data-split-showcase="true"].split-showcase--carousel > .group-block:first-child {
+  border-inline-start: none;
+}
+
+.section-content-wrapper[data-split-showcase="true"].split-showcase--carousel > .group-block.split-showcase__spine--active {
+  flex: 0 0 var(--split-spine-expanded);
+  max-width: var(--split-spine-expanded);
+}
+
+.section-content-wrapper[data-split-showcase="true"].split-showcase--carousel > .group-block {
+  cursor: pointer;
+}
+
+.section-content-wrapper[data-split-showcase="true"].split-showcase--carousel > .group-block:focus-visible {
+  outline: 2px solid rgb(var(--color-foreground-rgb));
+  outline-offset: -4px;
+}
+
+.section-content-wrapper[data-split-showcase="true"].split-showcase--carousel > .group-block .group-block-content {
+  transition: transform 220ms ease;
+}
+
+.section-content-wrapper[data-split-showcase="true"].split-showcase--carousel > .group-block.split-showcase__spine--active .group-block-content {
+  transform: scale(1.02);
 }
 
 /* Size style */

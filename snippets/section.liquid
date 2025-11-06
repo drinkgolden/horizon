@@ -77,6 +77,9 @@
     >
       {{ children }}
     </div>
+    {% if is_split_showcase %}
+      {{ 'split-showcase.js' | asset_url | script_tag }}
+    {% endif %}
   </div>
 </div>
 
