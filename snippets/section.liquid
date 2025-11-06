@@ -72,6 +72,9 @@
         --split-divider-color: {{ split_divider_color }};
         {% if split_mode == 'carousel' %}overflow: hidden;{% endif %}
       {% endif %}
+      {% if section.settings.border != 'none' %}
+        overflow: hidden;
+      {% endif %}
     "
   >
     {% if section.settings.toggle_overlay %}
