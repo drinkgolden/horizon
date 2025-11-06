@@ -301,14 +301,19 @@
     --header-logo-display: none;
     --header-logo-inverse-display: block;
 
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
+    position: relative;
 
     /* transparent color scheme on .header should never apply its background color */
     background-color: transparent;
     z-index: var(--layer-overlay);
+  }
+
+  .header[transparent='always'] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
 
     &[transparent='not-sticky'][data-sticky-state='active'],
     /* Only show opaque background when hovering over menu items with children (mega menu)
