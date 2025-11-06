@@ -7,6 +7,102 @@
 
 {% render 'section', section: section, children: children %}
 
+{% stylesheet %}
+  #shopify-section-{{ section.id }} .section-content-wrapper.layout-panel-flex {
+    --spine-count: 4;
+  }
+
+  #shopify-section-{{ section.id }} .section-content-wrapper.layout-panel-flex > .group-block {
+    min-width: 0;
+    flex: 1 1 var(--spine-basis, 16rem);
+    max-width: var(--spine-basis, 16rem);
+  }
+
+  #shopify-section-{{ section.id }} .section-content-wrapper.layout-panel-flex > .group-block + .group-block {
+    border-inline-start: 1px solid rgb(var(--color-foreground-rgb) / var(--opacity-15));
+  }
+
+  #shopify-section-{{ section.id }} .section-content-wrapper.layout-panel-flex > .group-block .group-block-content {
+    align-items: center;
+    justify-content: center;
+  }
+
+  #shopify-section-{{ section.id }} .section-content-wrapper.layout-panel-flex > .group-block .text-block {
+    display: inline-block;
+    transform: rotate(-90deg);
+    transform-origin: center;
+    white-space: nowrap;
+  }
+{% endstylesheet %}
+
+{% javascript %}
+(() => {
+  const sectionId = 'shopify-section-{{ section.id }}';
+  const sectionEl = document.getElementById(sectionId);
+  if (!sectionEl || sectionEl.dataset.goldenVerticalCarouselInit === 'true') return;
+
+  sectionEl.dataset.goldenVerticalCarouselInit = 'true';
+
+  const track = sectionEl.querySelector('.section-content-wrapper');
+  if (!track) return;
+
+  const setMeasurements = () => {
+    const groups = track.querySelectorAll('.group-block');
+    const count = groups.length || 1;
+    track.style.setProperty('--spine-count', count);
+
+    const gap = parseFloat(getComputedStyle(track).gap) || 0;
+    const available = track.clientWidth;
+    const basis = count
+      ? Math.max(0, (available - gap * (count - 1)) / count)
+      : available;
+
+    track.style.setProperty('--spine-basis', `${basis}px`);
+
+    let padding = Math.round(basis / 4);
+    const maxPadding = Math.max(8, Math.floor(basis / 2) - 4);
+    padding = Math.max(12, Math.min(32, padding));
+    padding = Math.min(maxPadding, padding);
+    if (!Number.isFinite(padding) || padding < 8) {
+      padding = 12;
+    }
+
+    groups.forEach((group) => {
+      group.style.setProperty('--padding-inline-start', `${padding}px`);
+      group.style.setProperty('--padding-inline-end', `${padding}px`);
+    });
+  };
+
+  setMeasurements();
+
+  if (window.ResizeObserver) {
+    const observer = new ResizeObserver(() => setMeasurements());
+    observer.observe(track);
+    if (window.Shopify && Shopify.designMode) {
+      document.addEventListener('shopify:section:unload', (event) => {
+        if (event.target.id === sectionId) {
+          observer.disconnect();
+        }
+      });
+    }
+  } else {
+    window.addEventListener('resize', setMeasurements);
+  }
+
+  if (window.Shopify && Shopify.designMode) {
+    document.addEventListener('shopify:block:select', (event) => {
+      if (sectionEl.contains(event.target)) setMeasurements();
+    });
+    document.addEventListener('shopify:block:deselect', (event) => {
+      if (sectionEl.contains(event.target)) setMeasurements();
+    });
+    document.addEventListener('shopify:section:load', (event) => {
+      if (event.target.id === sectionId) setMeasurements();
+    });
+  }
+})();
+{% endjavascript %}
+
 {% schema %}
 {
   "name": "Golden Vertical Carousel",
