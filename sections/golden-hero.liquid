@@ -95,26 +95,24 @@
   "presets": [
     {
       "name": "Golden Hero",
-      "category": "Golden"
+      "category": "Golden",
+      "blocks": [
+        {
+          "type": "cta",
+          "settings": {
+            "link": "/collections/all",
+            "label": "Shop now"
+          }
+        },
+        {
+          "type": "cta",
+          "settings": {
+            "link": "#main-content",
+            "label": "I'm just browsing"
+          }
+        }
+      ]
     }
-  ],
-  "default": {
-    "blocks": [
-      {
-        "type": "cta",
-        "settings": {
-          "link": "/collections/all",
-          "label": "Shop now"
-        }
-      },
-      {
-        "type": "cta",
-        "settings": {
-          "link": "#main-content",
-          "label": "I'm just browsing"
-        }
-      }
-    ]
-  }
+  ]
 }
 {% endschema %}
