@@ -36,12 +36,33 @@
     assign eager_loading = true
   endif
 
-  assign drawer_logo_size = settings.logo_height_mobile
-  if drawer_logo_size == blank
+  assign drawer_logo_image = block_settings.drawer_logo_image
+  if drawer_logo_image == blank
+    assign drawer_logo_image = settings.logo
+  endif
+
+  assign drawer_logo_alt = block_settings.drawer_logo_alt_text | default: drawer_logo_image.alt | default: shop.name
+  assign drawer_logo_alt = drawer_logo_alt | strip
+
+  assign drawer_logo_size = block_settings.drawer_logo_size
+  if drawer_logo_size == blank or drawer_logo_size == 0
+    assign drawer_logo_size = settings.logo_height_mobile
+  endif
+  if drawer_logo_size == blank or drawer_logo_size == 0
     assign drawer_logo_size = settings.logo_height
   endif
-  if drawer_logo_size == blank
-    assign drawer_logo_size = 72
+  if drawer_logo_size == blank or drawer_logo_size == 0
+    assign drawer_logo_size = 80
+  endif
+
+  assign drawer_logo_padding_block = block_settings.drawer_logo_padding_block
+  if drawer_logo_padding_block == blank
+    assign drawer_logo_padding_block = 48
+  endif
+
+  assign drawer_logo_padding_inline = block_settings.drawer_logo_padding_inline
+  if drawer_logo_padding_inline == blank
+    assign drawer_logo_padding_inline = 24
   endif
 %}
 
@@ -81,7 +102,11 @@
         motion-reduce
         color-{{ block_settings.color_scheme }}
       "
-      style="--menu-drawer-logo-size: {{ drawer_logo_size }}px;"
+      style="
+        --menu-drawer-logo-size: {{ drawer_logo_size }}px;
+        --menu-drawer-brand-padding-block: {{ drawer_logo_padding_block }}px;
+        --menu-drawer-brand-padding-inline: {{ drawer_logo_padding_inline }}px;
+      "
     >
       <div class="menu-drawer__branding">
         <a
@@ -90,13 +115,12 @@
           aria-label="{{ shop.name | escape }}"
         >
           <span class="menu-drawer__branding-rotate">
-            {% if settings.logo %}
-              {% assign menu_drawer_logo_alt = settings.logo.alt | default: shop.name %}
-              {{-
-                settings.logo
+            {% if drawer_logo_image %}
+              {{
+                drawer_logo_image
                 | image_url: width: 600
-                | image_tag: class: 'menu-drawer__branding-logo', alt: menu_drawer_logo_alt
-              -}}
+                | image_tag: class: 'menu-drawer__branding-logo', alt: drawer_logo_alt
+              }}
             {% else %}
               <span class="menu-drawer__branding-text">{{ shop.name }}</span>
             {% endif %}

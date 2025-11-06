@@ -1,0 +1,290 @@
+{% liquid
+  assign bg_color = section.settings.background_color | default: '#0c0c14'
+  assign text_color = section.settings.text_color | default: '#ffffff'
+  assign accent_color = section.settings.accent_color | default: text_color
+  assign letters = section.settings.vertical_text | default: 'GOLDEN' | split: ''
+  assign figure_id = 'golden-can-' | append: section.id
+
+  assign sr_text = ''
+  for block in section.blocks
+    if block.type == 'label_line' and block.settings.line_text != blank
+      assign sr_text = sr_text | append: block.settings.line_text | append: '. '
+    endif
+  endfor
+%}
+
+<section
+  class="golden-can-section"
+  style="--golden-can-bg: {{ bg_color }}; --golden-can-text: {{ text_color }}; --golden-can-accent: {{ accent_color }};"
+>
+  <figure
+    class="golden-can"
+    role="img"
+    aria-labelledby="{{ figure_id }}-title"
+    aria-describedby="{{ figure_id }}-desc"
+  >
+    <div class="golden-can__visual" aria-hidden="true">
+      {% if section.settings.can_image != blank %}
+        {{
+          section.settings.can_image
+          | image_url: width: 900
+          | image_tag: loading: 'lazy', alt: ''
+        }}
+      {% endif %}
+      <div class="golden-can__copy">
+        {% for block in section.blocks %}
+          {% if block.type == 'label_line' and block.settings.line_text != blank %}
+            <p class="golden-can__line golden-can__line--{{ forloop.index }}">
+              {{ block.settings.line_text }}
+            </p>
+          {% endif %}
+        {% endfor %}
+      </div>
+      <div class="golden-can__vertical" aria-hidden="true">
+        {% for letter in letters %}
+          <span>{{ letter }}</span>
+        {% endfor %}
+      </div>
+    </div>
+
+    <figcaption class="golden-can__caption">
+      {% if section.settings.heading != blank %}
+        <strong id="{{ figure_id }}-title">{{ section.settings.heading }}</strong>
+      {% endif %}
+      {% if section.settings.description != blank %}
+        <span class="golden-can__description">{{ section.settings.description }}</span>
+      {% endif %}
+      <span class="golden-can__sr-text" id="{{ figure_id }}-desc">
+        {% if section.settings.accessible_label != blank %}
+          {{ section.settings.accessible_label }}
+        {% elsif sr_text != blank %}
+          {{ sr_text | strip }}
+        {% else %}
+          {{ 'Golden Lemon Mānuka Soda can mark' }}
+        {% endif %}
+      </span>
+    </figcaption>
+  </figure>
+</section>
+
+{% schema %}
+{
+  "name": "Golden can mark",
+  "class": "section-golden-can-mark",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background colour",
+      "default": "#0c0c14"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text colour",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Vertical text colour",
+      "default": "#f8cc2e"
+    },
+    {
+      "type": "image_picker",
+      "id": "can_image",
+      "label": "Optional can artwork"
+    },
+    {
+      "type": "text",
+      "id": "vertical_text",
+      "label": "Vertical wordmark",
+      "default": "GOLDEN"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Caption title",
+      "default": "Golden Lemon Mānuka Soda"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Caption copy",
+      "default": "<p>Our signature flat-lay can mark with editable flavour notes.</p>"
+    },
+    {
+      "type": "textarea",
+      "id": "accessible_label",
+      "label": "Screen reader description",
+      "info": "Overrides the auto-generated description for screen readers."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "label_line",
+      "name": "Text line",
+      "settings": [
+        {
+          "type": "text",
+          "id": "line_text",
+          "label": "Copy",
+          "default": "Lemon Mānuka Soda"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 7,
+  "presets": [
+    {
+      "name": "Golden can mark",
+      "category": "Golden",
+      "blocks": [
+        {
+          "type": "label_line",
+          "settings": {
+            "line_text": "330 mL"
+          }
+        },
+        {
+          "type": "label_line",
+          "settings": {
+            "line_text": "MGO 83+"
+          }
+        },
+        {
+          "type": "label_line",
+          "settings": {
+            "line_text": "Low Cal"
+          }
+        },
+        {
+          "type": "label_line",
+          "settings": {
+            "line_text": "Product of Aotearoa"
+          }
+        },
+        {
+          "type": "label_line",
+          "settings": {
+            "line_text": "Vitamin C"
+          }
+        },
+        {
+          "type": "label_line",
+          "settings": {
+            "line_text": "Lemon Mānuka Soda"
+          }
+        },
+        {
+          "type": "label_line",
+          "settings": {
+            "line_text": "LEMON"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+  .golden-can-section {
+    display: flex;
+    justify-content: center;
+    padding: clamp(2rem, 6vw, 4rem) 0;
+    background-color: var(--golden-can-bg);
+  }
+
+  .golden-can {
+    --copy-font: 'Gangster Grotesk', var(--font-body-family, sans-serif);
+    color: var(--golden-can-text);
+    max-width: clamp(240px, 55vw, 360px);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .golden-can__visual {
+    position: relative;
+    display: grid;
+    place-items: center;
+    padding-inline: clamp(1.5rem, 4vw, 3rem);
+  }
+
+  .golden-can__visual img {
+    display: block;
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+    mix-blend-mode: screen;
+  }
+
+  .golden-can__copy {
+    position: absolute;
+    inset: clamp(10%, 14vw, 18%) clamp(12%, 6vw, 10%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-transform: uppercase;
+    gap: 0.2em;
+  }
+
+  .golden-can__line {
+    font-family: var(--copy-font);
+    font-size: clamp(0.9rem, 1.6vw, 1.25rem);
+    letter-spacing: 0.04em;
+    margin: 0;
+  }
+
+  .golden-can__line--7 {
+    letter-spacing: 0.12em;
+  }
+
+  .golden-can__vertical {
+    position: absolute;
+    right: clamp(4%, 3vw, 6%);
+    bottom: clamp(8%, 5vw, 10%);
+    display: flex;
+    flex-direction: column-reverse;
+    gap: clamp(0.35rem, 1vw, 0.6rem);
+    font-family: var(--copy-font);
+    font-size: clamp(1rem, 2vw, 1.4rem);
+    color: var(--golden-can-accent);
+  }
+
+  .golden-can__vertical span {
+    display: block;
+    letter-spacing: 0.2em;
+  }
+
+  .golden-can__caption {
+    display: grid;
+    gap: 0.5rem;
+    color: inherit;
+  }
+
+  .golden-can__caption strong {
+    font-family: var(--copy-font);
+    font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+    letter-spacing: 0.05em;
+  }
+
+  .golden-can__description :where(p) {
+    margin: 0;
+  }
+
+  .golden-can__sr-text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+{% endstylesheet %}
