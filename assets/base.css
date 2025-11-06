@@ -2602,8 +2602,8 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   width: 100%;
   max-width: 100%;
   overflow: hidden;
-  --split-spine-collapsed: 9rem;
-  --split-spine-expanded: min(36rem, 70%);
+  --split-spine-collapsed: clamp(60px, 12vw, 104px);
+  --split-spine-expanded: min(42rem, 72%);
 }
 
 .section-content-wrapper[data-split-showcase="true"].split-showcase--carousel .split-showcase__track {

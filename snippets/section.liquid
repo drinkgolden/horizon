@@ -57,7 +57,7 @@
 
   <div
     class="border-style custom-section-content"
-    style="{% render 'border-override', settings: section.settings %}"
+    style="{% render 'border-override', settings: section.settings %}{% if is_split_showcase %} overflow:hidden;{% endif %}"
   >
     {% if section.settings.toggle_overlay %}
       {% render 'overlay', settings: section.settings, layer: '0' %}
