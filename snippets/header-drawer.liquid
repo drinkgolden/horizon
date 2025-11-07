@@ -35,70 +35,6 @@
   if section.index == blank
     assign eager_loading = true
   endif
-
-  assign drawer_logo_image = block_settings.drawer_logo_image
-  if drawer_logo_image == blank
-    assign drawer_logo_image = settings.logo
-  endif
-
-  assign drawer_logo_alt = block_settings.drawer_logo_alt_text | default: drawer_logo_image.alt | default: shop.name
-  assign drawer_logo_alt = drawer_logo_alt | strip
-
-  assign drawer_color_scheme = block_settings.drawer_color_scheme | default: block_settings.color_scheme
-
-  assign drawer_logo_size = block_settings.drawer_logo_size
-  if drawer_logo_size == blank or drawer_logo_size == 0
-    assign drawer_logo_size = settings.logo_height_mobile
-  endif
-  if drawer_logo_size == blank or drawer_logo_size == 0
-    assign drawer_logo_size = settings.logo_height
-  endif
-  if drawer_logo_size == blank or drawer_logo_size == 0
-    assign drawer_logo_size = 80
-  endif
-
-  assign old_logo_padding_block = block_settings.drawer_logo_padding_block
-  assign old_logo_padding_inline = block_settings.drawer_logo_padding_inline
-
-  assign drawer_logo_padding_block_start = block_settings.drawer_logo_padding_block_start
-  if drawer_logo_padding_block_start == blank
-    assign drawer_logo_padding_block_start = old_logo_padding_block
-  endif
-  if drawer_logo_padding_block_start == blank
-    assign drawer_logo_padding_block_start = 48
-  endif
-
-  assign drawer_logo_padding_block_end = block_settings.drawer_logo_padding_block_end
-  if drawer_logo_padding_block_end == blank
-    assign drawer_logo_padding_block_end = old_logo_padding_block
-  endif
-  if drawer_logo_padding_block_end == blank
-    assign drawer_logo_padding_block_end = 48
-  endif
-
-  assign drawer_logo_padding_inline_start = block_settings.drawer_logo_padding_inline_start
-  if drawer_logo_padding_inline_start == blank
-    assign drawer_logo_padding_inline_start = old_logo_padding_inline
-  endif
-  if drawer_logo_padding_inline_start == blank
-    assign drawer_logo_padding_inline_start = 24
-  endif
-
-  assign drawer_logo_padding_inline_end = block_settings.drawer_logo_padding_inline_end
-  if drawer_logo_padding_inline_end == blank
-    assign drawer_logo_padding_inline_end = old_logo_padding_inline
-  endif
-  if drawer_logo_padding_inline_end == blank
-    assign drawer_logo_padding_inline_end = 24
-  endif
-
-  assign drawer_logo_column_width = block_settings.drawer_logo_column_width
-  if drawer_logo_column_width == blank
-    assign drawer_logo_column_width = drawer_logo_size
-  endif
-
-  assign drawer_logo_gap = block_settings.drawer_logo_gap | default: 16
-  assign drawer_divider_color = settings.section_gridline_color | default: '#e5e5e5'
 %}
 
 <script
@@ -135,84 +71,30 @@
       class="
         menu-drawer
         motion-reduce
-        color-{{ drawer_color_scheme }}
-      "
-      style="
-        --menu-drawer-logo-size: {{ drawer_logo_size }}px;
-        --menu-drawer-brand-padding-block-start: {{ drawer_logo_padding_block_start }}px;
-        --menu-drawer-brand-padding-block-end: {{ drawer_logo_padding_block_end }}px;
-        --menu-drawer-brand-padding-inline-start: {{ drawer_logo_padding_inline_start }}px;
-        --menu-drawer-brand-padding-inline-end: {{ drawer_logo_padding_inline_end }}px;
-        --menu-drawer-logo-column-width: {{ drawer_logo_column_width }}px;
-        --menu-drawer-brand-gap: {{ drawer_logo_gap }}px;
-        --menu-drawer-divider-color: {{ drawer_divider_color }};
+        color-{{ block_settings.color_scheme }}
       "
     >
-      <div class="menu-drawer__branding">
-        <a
-          href="{{ routes.root_url }}"
-          class="menu-drawer__branding-link"
-          aria-label="{{ shop.name | escape }}"
+      <button
+        class="button button-unstyled close-button menu-drawer__close-button"
+        type="button"
+        aria-label="{{ 'actions.close' | t }}"
+        on:click="/close"
+      >
+        <span class="svg-wrapper header-drawer-icon header-drawer-icon--close">
+          {{- 'icon-close.svg' | inline_asset_content -}}
+        </span>
+      </button>
+      <nav
+        class="menu-drawer__navigation"
+        style="
+          {%- render 'menu-font-styles', settings: block_settings, menu_type: 'drawer' %}
+          {%- render 'submenu-font-styles', settings: block_settings %}
+        "
+      >
+        <ul
+          class="menu-drawer__menu has-submenu"
+          role="list"
         >
-          <span class="menu-drawer__branding-rotate">
-            {% if drawer_logo_image %}
-              {{
-                drawer_logo_image
-                | image_url: width: 600
-                | image_tag: class: 'menu-drawer__branding-logo', alt: drawer_logo_alt
-              }}
-            {% else %}
-              <span class="menu-drawer__branding-text">{{ shop.name }}</span>
-            {% endif %}
-          </span>
-        </a>
-      </div>
-      <div class="menu-drawer__body">
-        <div class="menu-drawer__top-row">
-          <div class="menu-drawer__utility-actions">
-            {% if shop.customer_accounts_enabled %}
-              <button
-                type="button"
-                class="menu-drawer__utility-button"
-                data-mobile-account-trigger
-                data-fallback-url="{{ routes.account_login_url }}"
-                aria-label="{{ 'accessibility.account' | t }}"
-              >
-                {{- 'icon-account.svg' | inline_asset_content -}}
-              </button>
-            {% endif %}
-            <button
-              type="button"
-              class="menu-drawer__utility-button"
-              data-mobile-cart-trigger
-              data-fallback-url="{{ routes.cart_url }}"
-              aria-label="{{ 'accessibility.cart' | t }}"
-            >
-              {{- 'icon-cart.svg' | inline_asset_content -}}
-            </button>
-          </div>
-          <button
-            class="button button-unstyled close-button menu-drawer__close-button"
-            type="button"
-            aria-label="{{ 'actions.close' | t }}"
-            on:click="/close"
-          >
-            <span class="svg-wrapper header-drawer-icon header-drawer-icon--close">
-              {{- 'icon-close.svg' | inline_asset_content -}}
-            </span>
-          </button>
-        </div>
-        <nav
-          class="menu-drawer__navigation"
-          style="
-            {%- render 'menu-font-styles', settings: block_settings, menu_type: 'drawer' %}
-            {%- render 'submenu-font-styles', settings: block_settings %}
-          "
-        >
-          <ul
-            class="menu-drawer__menu has-submenu"
-            role="list"
-          >
           {%- comment -%}
             Handle menus with fewer than 3 levels of links
           {%- endcomment -%}
@@ -368,7 +250,7 @@
             {%- for link in linklist.links -%}
               {% assign animation_index = animation_index | plus: 1 %}
               <li
-                class="menu-drawer__list-item{% if block_settings.drawer_dividers %} menu-drawer__list-item--divider{% endif %}"
+                class="menu-drawer__list-item"
                 style="--menu-drawer-animation-index: {{ animation_index }};"
               >
                 {%- if link.links != blank -%}
@@ -377,7 +259,7 @@
                   {%- endcomment -%}
                   <details
                     id="Details-menu-drawer-menu-item-{{ forloop.index }}"
-                    class="menu-drawer__menu-container"
+                    class="menu-drawer__menu-container{% if block_settings.drawer_dividers %} menu-drawer__menu-container--divider{% endif %}"
                   >
                     <summary
                       id="HeaderDrawer-{{ link.handle }}"
@@ -755,44 +637,12 @@
         </div>
       {% endif %}
     </div>
-  </div>
     <div
       class="menu-drawer__backdrop"
       on:click="header-drawer/close"
     ></div>
   </details>
 </header-drawer>
-
-{% javascript %}
-  if (!window.__goldenDrawerUtilityBound) {
-    window.__goldenDrawerUtilityBound = true;
-
-    document.addEventListener('click', (event) => {
-      const accountTrigger = event.target.closest('[data-mobile-account-trigger]');
-      if (accountTrigger) {
-        event.preventDefault();
-        const originalAccountButton = document.querySelector('[data-account-drawer-trigger]');
-        if (originalAccountButton) {
-          originalAccountButton.click();
-        } else if (accountTrigger.dataset.fallbackUrl) {
-          window.location.href = accountTrigger.dataset.fallbackUrl;
-        }
-        return;
-      }
-
-      const cartTrigger = event.target.closest('[data-mobile-cart-trigger]');
-      if (cartTrigger) {
-        event.preventDefault();
-        const originalCartButton = document.querySelector('[data-cart-drawer-trigger]');
-        if (originalCartButton) {
-          originalCartButton.click();
-        } else if (cartTrigger.dataset.fallbackUrl) {
-          window.location.href = cartTrigger.dataset.fallbackUrl;
-        }
-      }
-    });
-  }
-{% endjavascript %}
 
 {% stylesheet %}
   .header__icon--menu {
@@ -861,20 +711,19 @@
 
   .menu-drawer {
     position: fixed;
-    transform: translateX(100%);
+    transform: translateX(-100%);
     visibility: hidden;
     height: var(--drawer-height);
     width: var(--drawer-width);
     max-width: var(--drawer-max-width);
     z-index: var(--layer-menu-drawer);
-    right: 0;
-    left: auto;
+    left: 0;
     top: 0;
     padding: 0;
     background-color: var(--color-background);
     overflow: auto;
     display: flex;
-    border-left: var(--style-border-drawer);
+    border-right: var(--style-border-drawer);
     box-shadow: var(--shadow-drawer);
     flex-direction: column;
 
@@ -885,52 +734,6 @@
     .header__drawer--desktop & {
       height: 100vh;
     }
-  }
-
-  .menu-drawer__branding {
-    display: none;
-  }
-
-  .menu-drawer__branding-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    text-decoration: none;
-  }
-
-  .menu-drawer__branding-rotate {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transform: rotate(-90deg);
-    transform-origin: center;
-  }
-
-  .menu-drawer__branding-logo {
-    display: block;
-    width: auto;
-    height: auto;
-    max-height: 100%;
-    object-fit: contain;
-  }
-
-  .menu-drawer__branding-text {
-    font-family: var(--menu-top-level-font-family);
-    font-weight: var(--menu-top-level-font-weight);
-    font-size: var(--menu-top-level-font-size);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--menu-top-level-font-color);
-    white-space: nowrap;
-  }
-
-  .menu-drawer__body {
-    flex: 1 1 auto;
-    display: flex;
-    flex-direction: column;
-    min-height: 100%;
-    overflow-y: auto;
   }
 
   .menu-drawer:has(details[open]) {
@@ -972,81 +775,6 @@
   .menu-drawer__inner-container {
     position: relative;
     height: 100%;
-  }
-
-  @media screen and (max-width: 749px) {
-    .header__drawer--mobile .menu-drawer {
-      width: 100vw;
-      max-width: none;
-      left: 0;
-      right: 0;
-      border-left: none;
-      min-height: 100dvh;
-      height: 100dvh;
-      flex-direction: row;
-    }
-
-    .header__drawer--mobile .menu-drawer__branding {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      gap: var(--menu-drawer-brand-gap, var(--padding-lg));
-      flex: 0 0 calc(
-        var(--menu-drawer-logo-column-width, var(--menu-drawer-logo-size, 80px)) +
-        var(--menu-drawer-brand-padding-inline-start, var(--padding-md)) +
-        var(--menu-drawer-brand-padding-inline-end, var(--padding-md))
-      );
-      width: calc(
-        var(--menu-drawer-logo-column-width, var(--menu-drawer-logo-size, 80px)) +
-        var(--menu-drawer-brand-padding-inline-start, var(--padding-md)) +
-        var(--menu-drawer-brand-padding-inline-end, var(--padding-md))
-      );
-      padding:
-        var(--menu-drawer-brand-padding-block-start, var(--padding-xl))
-        var(--menu-drawer-brand-padding-inline-end, var(--padding-md))
-        var(--menu-drawer-brand-padding-block-end, var(--padding-xl))
-        var(--menu-drawer-brand-padding-inline-start, var(--padding-md));
-      min-height: 100dvh;
-      background-color: rgb(var(--color-foreground) 0.08);
-      border-right: 1px solid var(--menu-drawer-divider-color, #e5e5e5);
-      box-sizing: border-box;
-      flex-shrink: 0;
-    }
-
-    .header__drawer--mobile .menu-drawer__branding-link {
-      align-items: flex-start;
-      justify-content: center;
-      margin-block: 0;
-    }
-
-    .header__drawer--mobile .menu-drawer__branding-rotate {
-      height: var(--menu-drawer-logo-size, 80px);
-    }
-
-    .header__drawer--mobile .menu-drawer__branding-logo {
-      height: 100%;
-      max-height: none;
-    }
-
-    .header__drawer--mobile .menu-drawer__branding-text {
-      height: var(--menu-drawer-logo-size, 80px);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding-inline: var(--padding-2xs);
-      white-space: nowrap;
-    }
-
-    .header__drawer--mobile .menu-drawer__body {
-      flex: 1 1 auto;
-      min-height: 100dvh;
-      overflow-y: auto;
-    }
-
-    .header__drawer--mobile .menu-drawer__navigation {
-      flex: 1 1 auto;
-    }
   }
 
   .menu-drawer__navigation-container {
@@ -1106,12 +834,6 @@
 
   .menu-drawer__list-item--divider {
     border-block-end: 1px solid var(--color-border);
-    margin-inline: calc(var(--menu-drawer-inline-padding, var(--drawer-padding)) * -1);
-    padding-inline: var(--menu-drawer-inline-padding, var(--drawer-padding));
-  }
-
-  .menu-drawer__menu > .menu-drawer__list-item--divider:first-child {
-    border-block-start: 1px solid var(--color-border);
   }
 
   .menu-drawer__list-item--deep:not(.menu-drawer__list-item--divider) .menu-drawer__menu {
@@ -1120,6 +842,10 @@
 
   .menu-drawer__list-item--flat.menu-drawer__list-item--divider .menu-drawer__menu {
     margin-block-start: -0.4rem;
+  }
+
+  .menu-drawer__menu-container--divider {
+    border-block-end: 1px solid var(--color-border);
   }
 
   .menu-drawer__menu > .menu-drawer__list-item {
@@ -1303,59 +1029,6 @@
     height: fit-content;
     padding: var(--padding-lg);
     will-change: transform;
-    align-self: flex-end;
-  }
-
-  .menu-drawer__top-row {
-    display: none;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .menu-drawer__utility-actions {
-    display: none;
-  }
-
-  .menu-drawer__utility-button {
-    border: none;
-    background: transparent;
-    padding: 0;
-    width: var(--minimum-touch-target);
-    height: var(--minimum-touch-target);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-foreground);
-    cursor: pointer;
-  }
-
-  .menu-drawer__utility-button svg {
-    width: var(--icon-size-sm);
-    height: var(--icon-size-sm);
-    color: currentColor;
-    fill: currentColor;
-  }
-
-  @media screen and (max-width: 749px) {
-    .menu-drawer__top-row {
-      display: flex;
-      padding-inline: var(--padding-sm);
-      padding-block: var(--padding-xs);
-      gap: var(--gap-sm);
-    }
-
-    .menu-drawer__utility-actions {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: var(--gap-xs);
-      flex: 1;
-    }
-
-    .menu-drawer__close-button {
-      padding: var(--padding-xs);
-      margin-inline-start: var(--gap-sm);
-    }
   }
 
   .menu-drawer__back-button {
@@ -1412,11 +1085,10 @@
     width: 100%;
     top: 0;
     height: 100dvh;
-    right: 0;
-    left: auto;
+    left: 0;
     background-color: var(--color-background);
     z-index: var(--layer-flat);
-    transform: translateX(5%);
+    transform: translateX(-5%);
     visibility: hidden;
     overflow-y: auto;
     opacity: 0;
@@ -1470,7 +1142,7 @@
     0% {
       visibility: hidden;
       opacity: 0;
-      transform: translateX(0.5rem);
+      transform: translateX(-0.5rem);
     }
 
     100% {
@@ -1490,7 +1162,7 @@
     100% {
       visibility: hidden;
       opacity: 0;
-      transform: translateX(1rem);
+      transform: translateX(-1rem);
     }
   }
 {% endstylesheet %}

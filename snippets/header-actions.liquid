@@ -17,7 +17,7 @@
   {% else %}
     <a
       href="{{ routes.cart_url }}"
-      class="header-actions__action header-actions__cart action__cart"
+      class="header-actions__action action__cart"
       aria-label="{{ 'accessibility.cart' | t }}"
       aria-describedby="cart-bubble-text"
     >
@@ -193,22 +193,14 @@
 
   header-actions {
     display: flex;
-    align-items: center;
-    gap: var(--gap-sm);
-  }
 
-  @media screen and (max-width: 749px) {
-    header-actions {
-      display: none;
+    @media screen and (max-width: 749px) {
+      justify-self: flex-end;
     }
   }
 
   .header__column--right header-actions {
     margin-inline-start: calc(var(--gap-md) * -1);
-
-    @media screen and (max-width: 749px) {
-      margin-inline-start: 0;
-    }
   }
 
   .header-actions__action {
@@ -217,9 +209,6 @@
     cursor: pointer;
     display: flex;
     justify-content: center;
-    align-items: center;
-    width: var(--minimum-touch-target, 44px);
-    height: var(--minimum-touch-target, 44px);
   }
 
   .header-actions__action .svg-wrapper {
@@ -238,21 +227,6 @@
     --cart-bubble-right: 2.5px;
 
     position: relative;
-  }
-
-  .header-actions__account,
-  .header-actions__cart {
-    margin: 0;
-  }
-
-  @media screen and (max-width: 749px) {
-    .header-actions__account {
-      order: -1;
-    }
-
-    .header-actions__cart {
-      order: 0;
-    }
   }
 
   .header-actions__cart-icon .cart-bubble {

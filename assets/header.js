@@ -53,12 +53,6 @@ class HeaderComponent extends Component {
   #timeout = null;
 
   /**
-   * Intersection observer that reveals the logo once the hero scrolls out of view
-   * @type {IntersectionObserver | null}
-   */
-  #logoObserver = null;
-
-  /**
    * The duration to wait for hiding animation, when sticky behavior is 'scroll-up'
    * @constant {number}
    */
@@ -200,8 +194,6 @@ class HeaderComponent extends Component {
         document.addEventListener('scroll', this.#handleWindowScroll);
       }
     }
-
-    this.#initLogoRevealObserver();
   }
 
   disconnectedCallback() {
@@ -211,39 +203,6 @@ class HeaderComponent extends Component {
     this.removeEventListener('overflowMinimum', this.#handleOverflowMinimum);
     document.removeEventListener('scroll', this.#handleWindowScroll);
     document.body.style.setProperty('--header-height', '0px');
-    this.#logoObserver?.disconnect();
-  }
-
-  /**
-   * Reveals the hidden logo once the first main section scrolls out of view
-   */
-  #initLogoRevealObserver() {
-    if (!document.body.classList.contains('template-index')) return;
-
-    const hiddenLogos = this.querySelectorAll('[data-hidden-on-home-page]');
-    if (!hiddenLogos.length) return;
-
-    const firstSection = document.querySelector('#MainContent .shopify-section');
-    if (!firstSection) return;
-
-    const updateState = (isVisible) => {
-      this.dataset.logoReveal = isVisible ? 'visible' : 'hidden';
-    };
-
-    const observer = new IntersectionObserver(([entry]) => {
-      if (!entry) return;
-      updateState(!entry.isIntersecting);
-    }, {
-      rootMargin: `-${this.offsetHeight}px 0px 0px 0px`,
-      threshold: 0,
-    });
-
-    observer.observe(firstSection);
-    this.#logoObserver = observer;
-
-    // Initialize state synchronously
-    const initialRect = firstSection.getBoundingClientRect();
-    updateState(initialRect.top <= this.offsetHeight);
   }
 }
 
