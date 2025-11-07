@@ -538,61 +538,43 @@
     }
 
     @media screen and (max-width: 749px) {
-      display: flex;
+      --header-template-columns: auto 1fr auto;
+
+      grid-template-columns: var(--header-template-columns);
+      grid-template-areas: 'left center right';
+      grid-column: 1 / -1;
+      column-gap: var(--gap-sm);
       align-items: center;
-      justify-content: center;
-      gap: 0;
-      padding-block: var(--padding-xs);
-      padding-inline: calc(var(--padding-lg) + var(--minimum-touch-target));
-      position: relative;
-      min-height: calc(var(--minimum-touch-target) + var(--padding-xs) * 2);
-      width: 100%;
+      padding-block: 0;
+      padding-inline: var(--padding-xs);
     }
   }
 
   @media screen and (max-width: 749px) {
-    .header-logo {
-      margin: 0 auto;
+    .header__column--left {
+      gap: var(--gap-sm);
+    }
+
+    .header__column--center {
       justify-content: center;
       text-align: center;
-      width: 100%;
+
+      .header-logo {
+        width: 100%;
+        justify-content: center;
+
+        a {
+          margin-inline: auto;
+        }
+      }
     }
 
-    .account-drawer,
-    header-actions,
-    .header__drawer {
-      position: absolute;
-      top: var(--padding-xs);
-      z-index: 2;
-    }
-
-    .account-drawer {
-      left: var(--padding-xs);
+    .header__column--right {
       display: flex;
       align-items: center;
-      justify-content: center;
-    }
-
-    .account-drawer .account-button {
-      width: var(--minimum-touch-target);
-      height: var(--minimum-touch-target);
-    }
-
-    header-actions {
-      right: calc(var(--minimum-touch-target) + var(--padding-xs) * 2);
-      display: flex;
-      align-items: center;
-      gap: var(--gap-xs);
-      padding: 0;
-      margin-inline-start: 0;
-    }
-
-    .header__drawer {
-      right: var(--padding-xs);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: var(--minimum-touch-target);
+      justify-content: flex-end;
+      gap: var(--gap-sm);
+      width: auto;
     }
   }
 
