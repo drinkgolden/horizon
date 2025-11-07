@@ -90,23 +90,37 @@
         color-{{ drawer_color_scheme }}
       "
     >
-      <div class="menu-drawer__layout">
+      <div
+        class="menu-drawer__layout"
+        style="{{ brand_column_style }}"
+      >
         <div class="menu-drawer__brand-column">
-          <a
-            href="{{ routes.root_url }}"
-            class="menu-drawer__brand-link focus-inset"
-            aria-label="{{ shop.name | escape }}"
-          >
-            {% if drawer_logo_image %}
-              {{
-                drawer_logo_image
-                | image_url: width: 600
-                | image_tag: class: 'menu-drawer__brand-logo', alt: drawer_logo_alt
-              }}
-            {% else %}
-              <span class="menu-drawer__brand-text">{{ drawer_brand_text | escape }}</span>
-            {% endif %}
-          </a>
+          {% assign brand_slots = 'top,bottom' | split: ',' %}
+          {% for slot in brand_slots %}
+            {% liquid
+              assign slot_image = drawer_logo_top_image
+              if slot == 'bottom'
+                assign slot_image = drawer_logo_bottom_image
+              endif
+            %}
+            <div class="menu-drawer__brand-slot menu-drawer__brand-slot--{{ slot }}">
+              <a
+                href="{{ routes.root_url }}"
+                class="menu-drawer__brand-link focus-inset"
+                aria-label="{{ shop.name | escape }}"
+              >
+                {% if slot_image %}
+                  {{
+                    slot_image
+                    | image_url: width: 800
+                    | image_tag: class: 'menu-drawer__brand-logo-image', alt: drawer_logo_alt
+                  }}
+                {% else %}
+                  <span class="menu-drawer__brand-text">{{ drawer_brand_text | escape }}</span>
+                {% endif %}
+              </a>
+            </div>
+          {% endfor %}
         </div>
         <div class="menu-drawer__body">
           <div class="menu-drawer__top-bar">
@@ -796,7 +810,7 @@
     font-weight: 600;
   }
 
-  .menu-drawer__brand-logo {
+  .menu-drawer__brand-logo-image {
     display: block;
     width: 100%;
     height: auto;
@@ -807,12 +821,15 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
     letter-spacing: 0.25em;
     text-transform: uppercase;
     font-family: var(--font-heading--family, var(--font-body--family));
     font-size: 0.95rem;
+  }
+
+  .menu-drawer__brand-slot {
+    width: 100%;
+  }
   }
 
   .menu-drawer__accordion-icon svg {
