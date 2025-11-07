@@ -9,9 +9,13 @@
   if section.blocks.size > 0
     assign has_blocks = true
   endif
-  assign collapse_breakpoint = section.settings.mobile_breakpoint | default: 750
+  assign collapse_breakpoint = 749
   assign content_padding_block = section.settings.content_padding_block | default: 40
   assign content_padding_inline = section.settings.content_padding_inline | default: 40
+  assign mobile_content_padding_block = section.settings.mobile_content_padding_block | default: content_padding_block
+  assign mobile_content_padding_inline = section.settings.mobile_content_padding_inline | default: content_padding_inline
+  assign mobile_media_padding_block = section.settings.mobile_media_padding_block | default: 0
+  assign mobile_media_padding_inline = section.settings.mobile_media_padding_inline | default: 0
   assign trigger_padding_block = section.settings.trigger_padding_block | default: 12
   assign trigger_padding_inline = section.settings.trigger_padding_inline | default: 24
   assign divider_color = section.settings.divider_color | default: settings.section_gridline_color | default: '#e5e5e5'
@@ -24,6 +28,10 @@
     {% render 'spacing-style', settings: section.settings %}
     --hero-content-padding-block: {{ content_padding_block }}px;
     --hero-content-padding-inline: {{ content_padding_inline }}px;
+    --hero-content-padding-block-mobile: {{ mobile_content_padding_block }}px;
+    --hero-content-padding-inline-mobile: {{ mobile_content_padding_inline }}px;
+    --hero-media-padding-block-mobile: {{ mobile_media_padding_block }}px;
+    --hero-media-padding-inline-mobile: {{ mobile_media_padding_inline }}px;
     --hero-trigger-padding-block: {{ trigger_padding_block }}px;
     --hero-trigger-padding-inline: {{ trigger_padding_inline }}px;
     --hero-carousel-divider-color-value: {{ divider_color }};
@@ -50,13 +58,21 @@
             data-media-index="{{ forloop.index0 }}"
             {{ block.shopify_attributes }}
           >
-            {% if block.settings.image %}
-              {{ block.settings.image | image_url: width: 2800 | image_tag:
-                alt: alt_text,
-                class: 'hero-carousel__image',
-                loading: loading_attr,
-                fetchpriority: fetchpriority_attr
-              }}
+            {% assign desktop_image = block.settings.image %}
+            {% assign mobile_image = block.settings.mobile_image %}
+            {% assign fallback_image = desktop_image | default: mobile_image %}
+            {% if fallback_image %}
+              <picture class="hero-carousel__picture">
+                {% if mobile_image %}
+                  <source media="(max-width: 749px)" srcset="{{ mobile_image | image_url: width: 1600 }}">
+                {% endif %}
+                {{ fallback_image | image_url: width: 2800 | image_tag:
+                  alt: alt_text,
+                  class: 'hero-carousel__image',
+                  loading: loading_attr,
+                  fetchpriority: fetchpriority_attr
+                }}
+              </picture>
             {% else %}
               {{ 'hero-apparel-1' | placeholder_svg_tag: 'hero-carousel__placeholder' }}
             {% endif %}
@@ -149,6 +165,7 @@
   .hero-carousel__media {
     position: relative;
     overflow: hidden;
+    box-sizing: border-box;
   }
 
   .hero-carousel__media-item {
@@ -162,6 +179,12 @@
   .hero-carousel__media-item.is-active {
     opacity: 1;
     pointer-events: auto;
+  }
+
+  .hero-carousel__picture {
+    width: 100%;
+    height: 100%;
+    display: block;
   }
 
   .hero-carousel__image,
@@ -274,10 +297,13 @@
 
     .hero-carousel__media {
       aspect-ratio: 4 / 5;
+      padding-block: var(--hero-media-padding-block-mobile, 0);
+      padding-inline: var(--hero-media-padding-inline-mobile, 0);
     }
 
     .hero-carousel__content {
-      padding-block: clamp(2rem, 6vw, 3rem);
+      padding-block: var(--hero-content-padding-block-mobile, clamp(2rem, 6vw, 3rem));
+      padding-inline: var(--hero-content-padding-inline-mobile, clamp(1.5rem, 4vw, 2.5rem));
     }
 
     .hero-carousel__triggers {
@@ -399,20 +425,6 @@ document.querySelectorAll('[data-hero-carousel]').forEach((section) => {
     },
     {
       "type": "header",
-      "content": "Responsive layout"
-    },
-    {
-      "type": "range",
-      "id": "mobile_breakpoint",
-      "label": "Collapse breakpoint",
-      "min": 480,
-      "max": 1400,
-      "step": 10,
-      "unit": "px",
-      "default": 750
-    },
-    {
-      "type": "header",
       "content": "Spacing"
     },
     {
@@ -488,6 +500,46 @@ document.querySelectorAll('[data-hero-carousel]').forEach((section) => {
       "default": 24
     },
     {
+      "type": "header",
+      "content": "Mobile layout"
+    },
+    {
+      "type": "range",
+      "id": "mobile_content_padding_block",
+      "label": "Mobile content padding (top & bottom)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "mobile_content_padding_inline",
+      "label": "Mobile content padding (sides)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "mobile_media_padding_block",
+      "label": "Mobile image padding (top & bottom)",
+      "min": 0,
+      "max": 80,
+      "step": 2,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "mobile_media_padding_inline",
+      "label": "Mobile image padding (sides)",
+      "min": 0,
+      "max": 80,
+      "step": 2,
+      "default": 0
+    },
+    {
       "type": "color",
       "id": "divider_color",
       "label": "Divider color",
@@ -519,6 +571,12 @@ document.querySelectorAll('[data-hero-carousel]').forEach((section) => {
           "type": "image_picker",
           "id": "image",
           "label": "Slide image"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Mobile slide image",
+          "info": "Shown on screens 749px wide or smaller."
         },
         {
           "type": "text",

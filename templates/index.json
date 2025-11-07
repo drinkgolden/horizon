@@ -125,16 +125,10 @@
         "color_scheme": "scheme-1",
         "image_position": "left",
         "content_alignment": "left",
-        "mobile_breakpoint": 1400,
         "padding-block-start": 24,
         "padding-block-end": 24,
         "padding-inline-start": 0,
-        "padding-inline-end": 0,
-        "content_padding_block": 40,
-        "content_padding_inline": 40,
-        "trigger_padding_block": 12,
-        "trigger_padding_inline": 24,
-        "divider_color": "#e5e5e5"
+        "padding-inline-end": 0
       }
     },
     "section_GcL7hN": {
