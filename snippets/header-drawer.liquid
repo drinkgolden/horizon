@@ -168,16 +168,40 @@
         </a>
       </div>
       <div class="menu-drawer__body">
-        <button
-          class="button button-unstyled close-button menu-drawer__close-button"
-          type="button"
-          aria-label="{{ 'actions.close' | t }}"
-          on:click="/close"
-        >
-          <span class="svg-wrapper header-drawer-icon header-drawer-icon--close">
-            {{- 'icon-close.svg' | inline_asset_content -}}
-          </span>
-        </button>
+        <div class="menu-drawer__top-row">
+          <div class="menu-drawer__utility-actions" aria-label="{{ 'accessibility.secondary_navigation' | t }}">
+            {% if shop.customer_accounts_enabled %}
+              <button
+                type="button"
+                class="menu-drawer__utility-button"
+                data-mobile-account-trigger
+                data-fallback-url="{{ routes.account_login_url }}"
+                aria-label="{{ 'accessibility.account' | t }}"
+              >
+                {{- 'icon-account.svg' | inline_asset_content -}}
+              </button>
+            {% endif %}
+            <button
+              type="button"
+              class="menu-drawer__utility-button"
+              data-mobile-cart-trigger
+              data-fallback-url="{{ routes.cart_url }}"
+              aria-label="{{ 'accessibility.cart' | t }}"
+            >
+              {{- 'icon-cart.svg' | inline_asset_content -}}
+            </button>
+          </div>
+          <button
+            class="button button-unstyled close-button menu-drawer__close-button"
+            type="button"
+            aria-label="{{ 'actions.close' | t }}"
+            on:click="/close"
+          >
+            <span class="svg-wrapper header-drawer-icon header-drawer-icon--close">
+              {{- 'icon-close.svg' | inline_asset_content -}}
+            </span>
+          </button>
+        </div>
         <nav
           class="menu-drawer__navigation"
           style="
