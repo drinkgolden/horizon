@@ -763,6 +763,37 @@
   </details>
 </header-drawer>
 
+{% javascript %}
+  if (!window.__goldenDrawerUtilityBound) {
+    window.__goldenDrawerUtilityBound = true;
+
+    document.addEventListener('click', (event) => {
+      const accountTrigger = event.target.closest('[data-mobile-account-trigger]');
+      if (accountTrigger) {
+        event.preventDefault();
+        const originalAccountButton = document.querySelector('[data-account-drawer-trigger]');
+        if (originalAccountButton) {
+          originalAccountButton.click();
+        } else if (accountTrigger.dataset.fallbackUrl) {
+          window.location.href = accountTrigger.dataset.fallbackUrl;
+        }
+        return;
+      }
+
+      const cartTrigger = event.target.closest('[data-mobile-cart-trigger]');
+      if (cartTrigger) {
+        event.preventDefault();
+        const originalCartButton = document.querySelector('[data-cart-drawer-trigger]');
+        if (originalCartButton) {
+          originalCartButton.click();
+        } else if (cartTrigger.dataset.fallbackUrl) {
+          window.location.href = cartTrigger.dataset.fallbackUrl;
+        }
+      }
+    });
+  }
+{% endjavascript %}
+
 {% stylesheet %}
   .header__icon--menu {
     position: initial;
