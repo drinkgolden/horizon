@@ -568,6 +568,14 @@
 
     .account-drawer {
       left: var(--padding-xs);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .account-drawer .account-button {
+      width: var(--minimum-touch-target);
+      height: var(--minimum-touch-target);
     }
 
     header-actions {
@@ -576,6 +584,7 @@
       align-items: center;
       gap: var(--gap-xs);
       padding: 0;
+      margin-inline-start: 0;
     }
 
     .header__drawer {
