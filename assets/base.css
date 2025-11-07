@@ -16,7 +16,10 @@ body.has-side-columns::before,
 body.has-side-columns::after {
   content: '';
   position: fixed;
-  top: max(0px, calc(var(--header-height, 0px) - var(--side-columns-overhang, 12px)));
+  top: max(
+    0px,
+    calc(var(--header-group-height, var(--header-height, 0px)) - var(--side-columns-overhang, 12px))
+  );
   bottom: 0;
   width: var(--side-columns-width-desktop, 2vw);
   pointer-events: none;
