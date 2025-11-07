@@ -94,6 +94,8 @@
         "logo_position": "center",
         "menu_position": "right",
         "menu_row": "top",
+        "drawer_logo_top_image": "shopify://shop_images/Wordmark_Vertical.svg",
+        "drawer_logo_bottom_image": "shopify://shop_images/tbti1atiamr11_png.webp",
         "show_search": true,
         "search_position": "left",
         "search_row": "top",
