@@ -19,6 +19,17 @@
   assign drawer_brand_text = block_settings.drawer_brand_text | default: shop.name
   assign drawer_logo_image = block_settings.drawer_logo_image
   assign drawer_logo_alt = block_settings.drawer_logo_alt | default: drawer_logo_image.alt | default: drawer_brand_text
+  assign drawer_logo_top_image = block_settings.drawer_logo_top_image | default: drawer_logo_image
+  assign drawer_logo_bottom_image = block_settings.drawer_logo_bottom_image | default: drawer_logo_image
+  assign drawer_brand_column_width_value = block_settings.drawer_brand_column_width
+  if drawer_brand_column_width_value == blank
+    assign drawer_brand_column_width_value = 15
+  endif
+  assign drawer_brand_column_padding_value = block_settings.drawer_brand_column_padding
+  if drawer_brand_column_padding_value == blank
+    assign drawer_brand_column_padding_value = 16
+  endif
+  assign brand_column_style = '--drawer-brand-column-width: ' | append: drawer_brand_column_width_value | append: 'vw;' | append: ' --drawer-brand-column-padding: ' | append: drawer_brand_column_padding_value | append: 'px;'
 
   if block_settings.menu_style == 'featured_collections'
     assign ratio = block_settings.featured_collections_aspect_ratio
