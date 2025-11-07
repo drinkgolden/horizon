@@ -17,7 +17,7 @@
   {% else %}
     <a
       href="{{ routes.cart_url }}"
-      class="header-actions__action action__cart"
+      class="header-actions__action header-actions__cart action__cart"
       aria-label="{{ 'accessibility.cart' | t }}"
       aria-describedby="cart-bubble-text"
     >
@@ -236,6 +236,31 @@
     --cart-bubble-right: 2.5px;
 
     position: relative;
+  }
+
+  .header-actions__account {
+    margin-right: auto;
+  }
+
+  .header-actions__cart {
+    margin-left: auto;
+  }
+
+  @media screen and (max-width: 749px) {
+    .header__columns header-actions {
+      grid-column: 1 / -1;
+      grid-row: 1;
+      justify-content: space-between;
+      padding-inline: var(--padding-2xs);
+    }
+
+    .header-actions__account {
+      justify-self: flex-start;
+    }
+
+    .header-actions__cart {
+      justify-self: flex-end;
+    }
   }
 
   .header-actions__cart-icon .cart-bubble {

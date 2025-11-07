@@ -1442,48 +1442,7 @@
       },
       {
         "type": "header",
-        "content": "Guided scrolling"
-      },
-      {
-        "type": "checkbox",
-        "id": "enable_guided_scroll",
-        "label": "Enable guided scroll",
-        "default": false
-      },
-      {
-        "type": "checkbox",
-        "id": "guided_scroll_enable_mobile",
-        "label": "Enable guided scroll on mobile",
-        "default": false,
-        "visible_if": "{{ settings.enable_guided_scroll }}"
-      },
-      {
-        "type": "select",
-        "id": "guided_scroll_alignment",
-        "label": "Scroll snap alignment",
-        "options": [
-          {
-            "value": "start",
-            "label": "Start"
-          },
-          {
-            "value": "center",
-            "label": "Center"
-          }
-        ],
-        "default": "start",
-        "visible_if": "{{ settings.enable_guided_scroll }}"
-      },
-      {
-        "type": "range",
-        "id": "guided_scroll_section_gap",
-        "label": "Snap buffer",
-        "min": 0,
-        "max": 200,
-        "step": 4,
-        "unit": "px",
-        "default": 48,
-        "visible_if": "{{ settings.enable_guided_scroll }}"
+        "content": "Floating motif button"
       },
       {
         "type": "header",
