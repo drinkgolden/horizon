@@ -104,7 +104,7 @@
         "localization_position": "right",
         "localization_row": "bottom",
         "section_width": "full-width",
-        "section_height": "compact",
+        "section_height": "standard",
         "enable_sticky_header": "scroll-up",
         "divider_width": 0,
         "divider_size": "page-width",
