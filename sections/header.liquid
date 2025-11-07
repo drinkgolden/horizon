@@ -383,14 +383,6 @@
     position: relative;
   }
 
-  #header-group::after {
-    content: '';
-    display: block;
-    height: var(--section-gridline-width, 1px);
-    background-color: var(--section-gridline-color, rgba(0, 0, 0, 0.08));
-    margin-inline: var(--page-margin, 0px);
-  }
-
   #header-group:has(#header-component[sticky]) {
     display: contents;
   }
@@ -448,10 +440,6 @@
   .header__row--top.divider--page-width .header__columns,
   .header__row--bottom {
     border-bottom: var(--border-bottom-width) solid var(--color-border);
-  }
-
-  .header__row.section--no-gridlines {
-    border-bottom: 0;
   }
 
   @media screen and (max-width: 749px) {
