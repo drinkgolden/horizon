@@ -247,19 +247,18 @@
   }
 
   @media screen and (max-width: 749px) {
-    .header__columns header-actions {
-      grid-column: 1 / -1;
-      grid-row: 1;
-      justify-content: space-between;
+    header-actions {
       padding-inline: var(--padding-2xs);
     }
 
     .header-actions__account {
-      justify-self: flex-start;
+      order: -1;
+      margin-right: auto;
     }
 
     .header-actions__cart {
-      justify-self: flex-end;
+      order: 0;
+      margin-left: auto;
     }
   }
 
