@@ -1136,7 +1136,7 @@
       align-items: center;
       border-right: 1px solid var(--menu-drawer-line-color);
       padding: var(--drawer-brand-column-padding, var(--padding-lg));
-      gap: var(--padding-md);
+      gap: var(--drawer-brand-column-padding, var(--padding-lg));
     }
 
     .header__drawer--mobile .menu-drawer__brand-slot {
@@ -1148,10 +1148,12 @@
     }
 
     .header__drawer--mobile .menu-drawer__brand-slot--top {
+      justify-content: center;
       align-items: flex-start;
     }
 
     .header__drawer--mobile .menu-drawer__brand-slot--bottom {
+      justify-content: center;
       align-items: flex-end;
     }
 
@@ -1170,10 +1172,11 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      max-width: none;
     }
 
     .header__drawer--mobile .menu-drawer__brand-logo-image {
-      width: 100%;
+      width: min(100%, 28vh);
       height: auto;
     }
 
