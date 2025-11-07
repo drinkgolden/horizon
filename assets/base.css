@@ -41,6 +41,23 @@ body.has-side-columns {
   --side-columns-inline-mobile: var(--side-columns-width-mobile, var(--side-columns-inline-desktop));
 }
 
+body.has-side-columns #header-group {
+  position: relative;
+  isolation: isolate;
+}
+
+body.has-side-columns #header-group::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-group-height, var(--header-height, 0px));
+  background: var(--color-background);
+  z-index: -0.5;
+  pointer-events: none;
+}
+
 body.has-side-columns #MainContent,
 body.has-side-columns #footer-group {
   padding-left: var(--side-columns-inline-desktop);
