@@ -1306,6 +1306,58 @@
     align-self: flex-end;
   }
 
+  .menu-drawer__top-row {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .menu-drawer__utility-actions {
+    display: none;
+  }
+
+  .menu-drawer__utility-button {
+    border: none;
+    background: transparent;
+    padding: 0;
+    width: var(--minimum-touch-target);
+    height: var(--minimum-touch-target);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-foreground);
+    cursor: pointer;
+  }
+
+  .menu-drawer__utility-button svg {
+    width: var(--icon-size-sm);
+    height: var(--icon-size-sm);
+    color: currentColor;
+    fill: currentColor;
+  }
+
+  @media screen and (max-width: 749px) {
+    .menu-drawer__top-row {
+      display: flex;
+      padding-inline: var(--padding-sm);
+      padding-block: var(--padding-xs);
+      gap: var(--gap-sm);
+    }
+
+    .menu-drawer__utility-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: var(--gap-xs);
+      flex: 1;
+    }
+
+    .menu-drawer__close-button {
+      padding: var(--padding-xs);
+      margin-inline-start: var(--gap-sm);
+    }
+  }
+
   .menu-drawer__back-button {
     display: flex;
     width: 100%;
