@@ -832,7 +832,7 @@
   }
 
   .menu-drawer__accordion-icon svg {
-    transform: rotate(90deg);
+    transform: rotate(-90deg);
     transition: transform var(--animation-speed) var(--animation-easing);
   }
 
@@ -1167,8 +1167,7 @@
 
     .header__drawer--mobile .menu-drawer__brand-logo-image,
     .header__drawer--mobile .menu-drawer__brand-text {
-      transform: rotate(-90deg);
-      transform-origin: center;
+      transform: none;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -1401,9 +1400,8 @@
     display: flex;
     flex-direction: column;
     padding: 0;
-    margin-block: auto var(--padding-sm);
-    margin-inline-start: var(--padding-xl);
-    background-color: rgb(var(--color-foreground) 0.03);
+    margin: 0;
+    background-color: transparent;
   }
 
   .menu-drawer__account {
