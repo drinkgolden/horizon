@@ -1125,24 +1125,57 @@
 
     .header__drawer--mobile .menu-drawer__layout {
       display: grid;
-      grid-template-columns: minmax(52px, 92px) 1fr;
+      grid-template-columns: minmax(52px, var(--drawer-brand-column-width, 18vw)) 1fr;
       min-height: 100vh;
       min-height: 100dvh;
     }
 
     .header__drawer--mobile .menu-drawer__brand-column {
       display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
       border-right: 1px solid var(--menu-drawer-line-color);
+      padding: var(--drawer-brand-column-padding, var(--padding-lg));
+      gap: var(--padding-md);
+    }
+
+    .header__drawer--mobile .menu-drawer__brand-slot {
+      flex: 0 0 auto;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .header__drawer--mobile .menu-drawer__brand-slot--top {
+      align-items: flex-start;
+    }
+
+    .header__drawer--mobile .menu-drawer__brand-slot--bottom {
+      align-items: flex-end;
     }
 
     .header__drawer--mobile .menu-drawer__brand-link {
       padding: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
-    .header__drawer--mobile .menu-drawer__brand-logo {
-      max-width: calc(100% - var(--padding-sm));
+    .header__drawer--mobile .menu-drawer__brand-logo-image,
+    .header__drawer--mobile .menu-drawer__brand-text {
+      transform: rotate(-90deg);
+      transform-origin: center;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .header__drawer--mobile .menu-drawer__brand-logo-image {
+      width: 100%;
+      height: auto;
     }
 
     .header__drawer--mobile .menu-drawer__body {
