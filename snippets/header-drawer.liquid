@@ -153,8 +153,8 @@
                         class="menu-drawer__menu-item menu-drawer__menu-item--mainlist menu-drawer__animated-element focus-inset"
                       >
                         <span class="menu-drawer__menu-item-text wrap-text">{{ link.title | escape }}</span>
-                        <span class="svg-wrapper icon-plus">
-                          {{- 'icon-plus.svg' | inline_asset_content -}}
+                        <span class="svg-wrapper icon-caret menu-drawer__accordion-icon">
+                          {{- 'icon-caret.svg' | inline_asset_content -}}
                         </span>
                       </summary>
                       {% liquid
@@ -401,9 +401,9 @@
                                         <span class="menu-drawer__menu-item-text wrap-text">
                                           {{- childlink.title | escape -}}
                                         </span>
-                                        <span class="svg-wrapper icon-plus">
-                                          {{- 'icon-plus.svg' | inline_asset_content -}}
-                                        </span>
+                      <span class="svg-wrapper icon-caret menu-drawer__accordion-icon">
+                        {{- 'icon-caret.svg' | inline_asset_content -}}
+                      </span>
                                       </summary>
                                       {% liquid
                                         assign render_link_image = false
@@ -802,6 +802,15 @@
     text-transform: uppercase;
     font-family: var(--font-heading--family, var(--font-body--family));
     font-size: 0.95rem;
+  }
+
+  .menu-drawer__accordion-icon svg {
+    transform: rotate(-90deg);
+    transition: transform var(--animation-speed) var(--animation-easing);
+  }
+
+  .menu-drawer details[open] > summary .menu-drawer__accordion-icon svg {
+    transform: rotate(0deg);
   }
 
   .menu-drawer__body {
