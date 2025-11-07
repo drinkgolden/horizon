@@ -11,36 +11,6 @@
   "type": "header",
   "name": "Header",
   "sections": {
-    "header_announcements_9jGBFp": {
-      "type": "header-announcements",
-      "blocks": {
-        "announcement_BxgCk9": {
-          "type": "_announcement",
-          "settings": {
-            "text": "Spend ≥ $50 & Ship Free",
-            "link": "",
-            "font": "var(--font-body--family)",
-            "font_size": "0.75rem",
-            "weight": "",
-            "letter_spacing": "tight",
-            "case": "none"
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "announcement_BxgCk9"
-      ],
-      "name": "t:names.announcement_bar",
-      "settings": {
-        "speed": 10,
-        "section_width": "page-width",
-        "color_scheme": "scheme-1",
-        "divider_width": 0,
-        "padding-block-start": 12,
-        "padding-block-end": 12
-      }
-    },
     "header_section": {
       "type": "header",
       "blocks": {
@@ -119,10 +89,40 @@
         "enable_transparent_header_collection": false,
         "collection_color_scheme": "default"
       }
+    },
+    "header_announcements_9jGBFp": {
+      "type": "header-announcements",
+      "blocks": {
+        "announcement_BxgCk9": {
+          "type": "_announcement",
+          "settings": {
+            "text": "Spend ≥ $50 & Ship Free",
+            "link": "",
+            "font": "var(--font-body--family)",
+            "font_size": "0.75rem",
+            "weight": "",
+            "letter_spacing": "tight",
+            "case": "none"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "announcement_BxgCk9"
+      ],
+      "name": "t:names.announcement_bar",
+      "settings": {
+        "speed": 10,
+        "section_width": "page-width",
+        "color_scheme": "scheme-1",
+        "divider_width": 0,
+        "padding-block-start": 12,
+        "padding-block-end": 12
+      }
     }
   },
   "order": [
-    "header_announcements_9jGBFp",
-    "header_section"
+    "header_section",
+    "header_announcements_9jGBFp"
   ]
 }
