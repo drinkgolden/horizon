@@ -17,10 +17,10 @@
   assign image_border_radius = block_settings.image_border_radius
   assign drawer_color_scheme = block_settings.drawer_color_scheme | default: block_settings.color_scheme
   assign drawer_brand_text = block_settings.drawer_brand_text | default: shop.name
-  assign drawer_logo_image = block_settings.drawer_logo_image | default: section.settings.drawer_logo_image
+  assign drawer_logo_image = block_settings.drawer_logo_image
   assign drawer_logo_alt = block_settings.drawer_logo_alt | default: drawer_logo_image.alt | default: drawer_brand_text
-  assign drawer_logo_top_image = block_settings.drawer_logo_top_image | default: section.settings.drawer_logo_top_image | default: drawer_logo_image
-  assign drawer_logo_bottom_image = block_settings.drawer_logo_bottom_image | default: section.settings.drawer_logo_bottom_image | default: drawer_logo_image
+  assign drawer_logo_top_image = block_settings.drawer_logo_top_image | default: drawer_logo_image
+  assign drawer_logo_bottom_image = block_settings.drawer_logo_bottom_image | default: drawer_logo_image
   assign drawer_brand_column_width_value = block_settings.drawer_brand_column_width
   if drawer_brand_column_width_value == blank
     assign drawer_brand_column_width_value = 15
@@ -1243,11 +1243,6 @@
       padding: 0;
       border-top: 0;
       width: 100%;
-    }
-
-    .header__drawer--mobile .menu-drawer__menu.has-submenu,
-    .header__drawer--mobile .menu-drawer__menu--childlist:not(:has(.menu-drawer__animated-element)) {
-      margin-block-end: 0;
     }
 
     .header__drawer--mobile .menu-drawer__utility-links,
