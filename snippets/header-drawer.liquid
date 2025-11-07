@@ -1083,6 +1083,7 @@
       border-right: none;
       box-shadow: none;
       --menu-drawer-line-color: rgb(var(--color-foreground-rgb, 17 17 17) / 0.35);
+      --drawer-mobile-horizontal-pad: clamp(var(--padding-md), 4vw, var(--padding-2xl));
     }
 
     .header__drawer--mobile .menu-drawer__layout {
@@ -1094,22 +1095,17 @@
 
     .header__drawer--mobile .menu-drawer__brand-column {
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
       align-items: center;
-      padding-block: var(--padding-lg);
-      padding-inline: var(--padding-xs);
+      justify-content: center;
       border-right: 1px solid var(--menu-drawer-line-color);
-      gap: var(--gap-md);
     }
 
     .header__drawer--mobile .menu-drawer__brand-link {
-      writing-mode: vertical-rl;
-      text-orientation: mixed;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      font-family: var(--font-heading--family, var(--font-body--family));
-      font-size: 0.95rem;
+      padding: 0;
+    }
+
+    .header__drawer--mobile .menu-drawer__brand-logo {
+      max-width: calc(100% - var(--padding-sm));
     }
 
     .header__drawer--mobile .menu-drawer__body {
@@ -1121,7 +1117,7 @@
 
     .header__drawer--mobile .menu-drawer__top-bar {
       border-bottom: 1px solid var(--menu-drawer-line-color);
-      padding: var(--padding-md) clamp(var(--padding-md), 4vw, var(--padding-2xl));
+      padding: var(--padding-md) var(--drawer-mobile-horizontal-pad);
     }
 
     .header__drawer--mobile .menu-drawer__close-button {
@@ -1132,21 +1128,29 @@
       position: relative;
       flex: 1;
       overflow-y: auto;
-      padding: var(--padding-lg) clamp(var(--padding-md), 4vw, var(--padding-2xl));
+      padding: 0;
     }
 
     .header__drawer--mobile .menu-drawer__navigation > .menu-drawer__menu {
       border-top: 1px solid var(--menu-drawer-line-color);
-      margin-block-end: 0;
-      padding-inline: 0;
+      margin: 0;
+      padding: 0;
+      width: 100%;
     }
 
-    .header__drawer--mobile .menu-drawer__navigation .menu-drawer__list-item {
+    .header__drawer--mobile .menu-drawer__navigation .menu-drawer__list-item,
+    .header__drawer--mobile .menu-drawer__navigation .menu-drawer__menu-container {
       border-bottom: 1px solid var(--menu-drawer-line-color);
+      margin: 0;
+      padding: 0;
+      width: 100%;
     }
 
-    .header__drawer--mobile .menu-drawer__menu-item {
+    .header__drawer--mobile .menu-drawer__menu-item,
+    .header__drawer--mobile .menu-drawer__menu summary.menu-drawer__menu-item {
+      width: 100%;
       padding-block: var(--padding-lg);
+      padding-inline: var(--drawer-mobile-horizontal-pad);
     }
 
     .header__drawer--mobile .menu-drawer__menu-item > .svg-wrapper {
@@ -1154,9 +1158,22 @@
       padding-inline-start: var(--padding-md);
     }
 
+    .header__drawer--mobile .menu-drawer__menu--childlist,
+    .header__drawer--mobile .menu-drawer__menu--grandchildlist {
+      margin: 0;
+      padding: 0;
+      border-top: 1px solid var(--menu-drawer-line-color);
+      width: 100%;
+    }
+
+    .header__drawer--mobile .menu-drawer__menu--childlist .menu-drawer__list-item:last-child,
+    .header__drawer--mobile .menu-drawer__menu--grandchildlist .menu-drawer__list-item:last-child {
+      border-bottom: none;
+    }
+
     .header__drawer--mobile .menu-drawer__utility-links,
     .header__drawer--mobile .menu-drawer__featured-content {
-      padding-inline: clamp(var(--padding-md), 4vw, var(--padding-2xl));
+      padding-inline: var(--drawer-mobile-horizontal-pad);
     }
 
     .header__drawer--mobile .menu-drawer__utility-links {
@@ -1175,17 +1192,17 @@
     .header__drawer--mobile .menu-drawer__submenu {
       left: 0;
       width: 100%;
-      padding-inline: clamp(var(--padding-md), 4vw, var(--padding-2xl));
-      padding-block: var(--padding-lg);
+      padding: 0;
       border-top: 1px solid var(--menu-drawer-line-color);
+      background-color: var(--color-background);
     }
 
     .header__drawer--mobile .menu-drawer__submenu .menu-drawer__menu {
       border-top: 0;
-      padding-inline: 0;
     }
 
-    .header__drawer--mobile .menu-drawer__submenu .menu-drawer__list-item {
+    .header__drawer--mobile .menu-drawer__submenu .menu-drawer__list-item,
+    .header__drawer--mobile .menu-drawer__submenu .menu-drawer__menu-container {
       border-bottom: 1px solid var(--menu-drawer-line-color);
     }
   }
