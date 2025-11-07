@@ -193,11 +193,14 @@
 
   header-actions {
     display: flex;
+    align-items: center;
     gap: var(--gap-sm);
+  }
 
-    @media screen and (max-width: 749px) {
-      justify-self: flex-end;
+  @media screen and (max-width: 749px) {
+    header-actions {
       gap: var(--gap-xs);
+      padding-inline: var(--padding-2xs);
     }
   }
 
@@ -238,27 +241,18 @@
     position: relative;
   }
 
-  .header-actions__account {
-    margin-right: auto;
-  }
-
+  .header-actions__account,
   .header-actions__cart {
-    margin-left: auto;
+    margin: 0;
   }
 
   @media screen and (max-width: 749px) {
-    header-actions {
-      padding-inline: var(--padding-2xs);
-    }
-
     .header-actions__account {
       order: -1;
-      margin-right: auto;
     }
 
     .header-actions__cart {
       order: 0;
-      margin-left: auto;
     }
   }
 
