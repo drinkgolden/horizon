@@ -1249,19 +1249,25 @@
     .header__drawer--mobile .menu-drawer__utility-links,
     .header__drawer--mobile .menu-drawer__featured-content {
       padding-inline: var(--drawer-mobile-horizontal-pad);
+      border-top: 1px solid var(--menu-drawer-line-color);
     }
 
     .header__drawer--mobile .menu-drawer__utility-links {
       margin: 0;
-      border-top: 0;
       border-bottom: 0;
       padding-block: var(--padding-lg);
       background: transparent;
     }
 
     .header__drawer--mobile .menu-drawer__featured-content {
-      border-top: 0;
       padding-block: var(--padding-lg);
+    }
+
+    .header__drawer--mobile
+      .menu-drawer__navigation
+      > .menu-drawer__menu
+      > .menu-drawer__list-item:last-child {
+      border-bottom: 0;
     }
 
     .header__drawer--mobile .menu-drawer__submenu {
