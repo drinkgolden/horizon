@@ -17,6 +17,8 @@
   assign image_border_radius = block_settings.image_border_radius
   assign drawer_color_scheme = block_settings.drawer_color_scheme | default: block_settings.color_scheme
   assign drawer_brand_text = block_settings.drawer_brand_text | default: shop.name
+  assign drawer_logo_image = block_settings.drawer_logo_image
+  assign drawer_logo_alt = block_settings.drawer_logo_alt | default: drawer_logo_image.alt | default: drawer_brand_text
 
   if block_settings.menu_style == 'featured_collections'
     assign ratio = block_settings.featured_collections_aspect_ratio
@@ -84,7 +86,15 @@
             class="menu-drawer__brand-link focus-inset"
             aria-label="{{ shop.name | escape }}"
           >
-            <span class="menu-drawer__brand-text">{{ drawer_brand_text | escape }}</span>
+            {% if drawer_logo_image %}
+              {{
+                drawer_logo_image
+                | image_url: width: 600
+                | image_tag: class: 'menu-drawer__brand-logo', alt: drawer_logo_alt
+              }}
+            {% else %}
+              <span class="menu-drawer__brand-text">{{ drawer_brand_text | escape }}</span>
+            {% endif %}
           </a>
         </div>
         <div class="menu-drawer__body">
