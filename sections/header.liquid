@@ -538,56 +538,52 @@
     }
 
     @media screen and (max-width: 749px) {
-      --header-template-columns: auto 1fr auto;
-
-      grid-template-columns: var(--header-template-columns);
-      grid-template-areas: 'left center right';
-      grid-column: 1 / -1;
-      column-gap: var(--gap-sm);
+      display: flex;
       align-items: center;
-      padding-block: 0;
-      padding-inline: var(--padding-xs);
+      justify-content: center;
+      gap: 0;
+      padding-block: var(--padding-xs);
+      padding-inline: calc(var(--padding-lg) + var(--minimum-touch-target));
+      position: relative;
+      min-height: calc(var(--minimum-touch-target) + var(--padding-xs) * 2);
+      width: 100%;
     }
   }
 
   @media screen and (max-width: 749px) {
-    .header__column--left {
-      gap: var(--gap-sm);
-    }
-
-    .header__column--center {
+    .header-logo {
+      margin: 0 auto;
       justify-content: center;
       text-align: center;
-
-      .header-logo {
-        width: 100%;
-        justify-content: center;
-
-        a {
-          margin-inline: auto;
-        }
-      }
+      width: 100%;
     }
 
-    .header__column--right {
+    .account-drawer,
+    header-actions,
+    .header__drawer {
+      position: absolute;
+      top: var(--padding-xs);
+      z-index: 2;
+    }
+
+    .account-drawer {
+      left: var(--padding-xs);
+    }
+
+    header-actions {
+      right: calc(var(--minimum-touch-target) + var(--padding-xs) * 2);
       display: flex;
       align-items: center;
-      justify-content: flex-end;
-      gap: var(--gap-sm);
-      width: auto;
-    }
-
-    .header__column--right header-actions {
-      display: flex;
       gap: var(--gap-xs);
-      align-items: center;
-      justify-content: flex-end;
-      flex: 0 0 auto;
-      margin-left: auto;
+      padding: 0;
     }
 
-    .header__column--right .header__drawer {
-      flex-shrink: 0;
+    .header__drawer {
+      right: var(--padding-xs);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: var(--minimum-touch-target);
     }
   }
 
