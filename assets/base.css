@@ -625,6 +625,23 @@ body.has-section-gridlines-horizontal
     + .shopify-section {
     margin-top: 0;
   }
+
+  /* Never draw gridlines within the header group */
+  body.has-section-gridlines
+    #header-group
+    .shopify-section::before,
+  body.has-section-gridlines
+    #header-group
+    .shopify-section::after {
+    content: none;
+  }
+
+  body.has-section-gridlines
+    #header-group
+    .shopify-section
+    + .shopify-section {
+    margin-top: 0;
+  }
 }
 
 /* For page-width sections, all content goes in the center column */
