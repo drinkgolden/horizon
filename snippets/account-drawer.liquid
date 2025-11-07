@@ -11,7 +11,7 @@
   class="account-drawer"
   {{ block.shopify_attributes }}
 >
-  {% render 'account-button', attributes: 'data-account-drawer-trigger on:click="/showDialog"' %}
+  {% render 'account-button', attributes: 'on:click="/showDialog"' %}
   <dialog
     ref="dialog"
     class="color-{{ settings.popover_color_scheme }} dialog-modal dialog-drawer dialog-bottom-sheet account-drawer__dialog"
