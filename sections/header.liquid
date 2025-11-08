@@ -389,7 +389,12 @@
     right: 0;
     bottom: 0;
     height: var(--border-bottom-width, 0px);
-    background-color: var(--color-border);
+    background-image: linear-gradient(
+      to top,
+      var(--color-border) 0%,
+      var(--color-border) calc(var(--border-bottom-width, 0px)),
+      transparent calc(var(--border-bottom-width, 0px))
+    );
     z-index: inherit;
     pointer-events: none;
   }
