@@ -381,6 +381,22 @@
     position: relative;
   }
 
+  header-component {
+    position: relative;
+  }
+
+  header-component::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: var(--border-bottom-width, 0px);
+    background-color: var(--color-border);
+    z-index: var(--layer-heightened);
+    pointer-events: none;
+  }
+
   #header-group:has(#header-component[sticky]) {
     display: contents;
   }
