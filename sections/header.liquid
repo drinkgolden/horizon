@@ -158,14 +158,6 @@
   endif
 
   assign class = 'header'
-  assign header_component_style = '--header-border-width: ' | append: section.settings.border_width | append: 'px;'
-  assign header_border_scheme = section.settings.color_scheme_top
-  if bottom_row_blocks.size > 0 and section.settings.color_scheme_bottom != blank
-    assign header_border_scheme = section.settings.color_scheme_bottom
-  endif
-  assign header_border_color = header_border_scheme.settings.border | default: ''
-  assign header_component_style = header_component_style | append: '--header-border-color: ' | append: header_border_color | append: ';'
-  assign header_component_class = 'color-' | append: header_border_scheme.id
 
   if transparent_color_scheme
     assign class = class | append: ' ' | append: transparent_color_scheme
@@ -198,8 +190,7 @@
 
 <header-component
   id="header-component"
-  class="{{ class }} {{ header_component_class }}"
-  style="{{ header_component_style }}"
+  class="{{ class }}"
   {% if transparent %}
     transparent="{{ transparent }}"
   {% endif %}
@@ -389,7 +380,6 @@
   header-component {
     position: relative;
     z-index: var(--layer-overlay);
-    pointer-events: none;
   }
 
   header-component::after {
@@ -398,13 +388,10 @@
     left: 0;
     right: 0;
     bottom: 0;
-    height: var(--header-border-width, 0px);
-    background-color: var(--header-border-color, var(--color-border));
+    height: var(--border-bottom-width, 0px);
+    background-color: var(--color-border);
+    z-index: inherit;
     pointer-events: none;
-  }
-
-  header-component > * {
-    pointer-events: auto;
   }
 
   #header-group:has(#header-component[sticky]) {
@@ -440,7 +427,6 @@
     /* will default to bg from its color scheme unless --header-bg-color is transparent */
     background-color: var(--header-bg-color, var(--color-background));
   }
-
 
   .header__row--top:not(.divider--page-width),
   .header__row--top.divider--page-width .header__columns,
@@ -614,10 +600,6 @@
     padding-block: calc(2 * var(--header-padding));
     margin-inline: calc(-1 * var(--gap-xl) / 2);
     padding-inline: calc(var(--gap-xl) / 2);
-  }
-
-  .mega-menu__grid {
-    border-top: var(--header-border-width, 0px) solid var(--header-border-color, var(--color-border));
   }
 
   /* Set header paddings based on height setting */
