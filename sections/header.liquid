@@ -414,14 +414,7 @@
   }
 
   .header__row:last-of-type::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: var(--header-border-width, 0px);
-    background-color: var(--color-border);
-    pointer-events: none;
+    content: none;
   }
 
   .header__row--top:not(.divider--page-width),
