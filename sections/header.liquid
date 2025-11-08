@@ -379,7 +379,7 @@
 
   header-component {
     position: relative;
-    z-index: var(--layer-header, 2);
+    z-index: var(--layer-overlay);
   }
 
   header-component::after {
@@ -390,7 +390,7 @@
     bottom: 0;
     height: var(--border-bottom-width, 0px);
     background-color: var(--color-border);
-    z-index: var(--layer-heightened);
+    z-index: inherit;
     pointer-events: none;
   }
 
