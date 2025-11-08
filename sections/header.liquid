@@ -158,6 +158,7 @@
   endif
 
   assign class = 'header'
+  assign header_component_style = '--header-border-width: ' | append: section.settings.border_width | append: 'px;'
 
   if transparent_color_scheme
     assign class = class | append: ' ' | append: transparent_color_scheme
@@ -191,6 +192,7 @@
 <header-component
   id="header-component"
   class="{{ class }}"
+  style="{{ header_component_style }}"
   {% if transparent %}
     transparent="{{ transparent }}"
   {% endif %}
@@ -388,12 +390,12 @@
     left: 0;
     right: 0;
     bottom: 0;
-    height: var(--border-bottom-width, 0px);
+    height: var(--header-border-width, 0px);
     background-image: linear-gradient(
       to top,
       var(--color-border) 0%,
-      var(--color-border) calc(var(--border-bottom-width, 0px)),
-      transparent calc(var(--border-bottom-width, 0px))
+      var(--color-border) calc(var(--header-border-width, 0px)),
+      transparent calc(var(--header-border-width, 0px))
     );
     z-index: inherit;
     pointer-events: none;
