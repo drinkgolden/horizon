@@ -278,20 +278,13 @@
     padding-inline: var(--padding-inline);
     clip-path: rect(0 100% var(--submenu-height) 0); /* stylelint-disable-line */
     transition: clip-path var(--submenu-animation-speed) var(--ease-out-cubic);
-  }
-
-  .menu-list__list-item:where(:not([slot='overflow'])) > .menu-list__submenu {
-    &::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: var(--border-bottom-width, 0px);
-      background-color: var(--color-border);
-      pointer-events: none;
-      z-index: 1;
-    }
+    background-image: linear-gradient(
+      to bottom,
+      transparent calc(100% - var(--border-bottom-width, 0px)),
+      var(--color-border) calc(100% - var(--border-bottom-width, 0px)),
+      var(--color-border)
+    );
+    background-repeat: no-repeat;
   }
 
   /* Show the submenus on hover */
