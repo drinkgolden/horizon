@@ -73,6 +73,7 @@
             "featured_collections_aspect_ratio": "16 / 9",
             "image_border_radius": 0,
             "drawer_logo_image": "shopify://shop_images/Wordmark_Vertical.svg",
+            "drawer_brand_logo_image": "shopify://shop_images/Wordmark_Vertical.svg",
             "drawer_logo_alt_text": "",
             "drawer_logo_size": 200,
             "drawer_logo_padding_block_start": 0,
