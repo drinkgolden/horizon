@@ -164,9 +164,8 @@
     assign header_border_scheme = section.settings.color_scheme_bottom
   endif
   assign header_border_color = header_border_scheme.settings.border | default: ''
-  if header_border_color != ''
-    assign header_component_style = header_component_style | append: '--header-border-color: ' | append: header_border_color | append: ';'
-  endif
+  assign header_component_style = header_component_style | append: '--header-border-color: ' | append: header_border_color | append: ';'
+  assign header_component_class = 'color-' | append: header_border_scheme
 
   if transparent_color_scheme
     assign class = class | append: ' ' | append: transparent_color_scheme
