@@ -379,28 +379,6 @@
     position: relative;
   }
 
-  header-component {
-    position: relative;
-    z-index: var(--layer-overlay);
-  }
-
-  header-component::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: var(--header-border-width, 0px);
-    background-image: linear-gradient(
-      to top,
-      var(--color-border) 0%,
-      var(--color-border) calc(var(--header-border-width, 0px)),
-      transparent calc(var(--header-border-width, 0px))
-    );
-    z-index: inherit;
-    pointer-events: none;
-  }
-
   #header-group:has(#header-component[sticky]) {
     display: contents;
   }
@@ -433,6 +411,17 @@
 
     /* will default to bg from its color scheme unless --header-bg-color is transparent */
     background-color: var(--header-bg-color, var(--color-background));
+  }
+
+  .header__row:last-of-type::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: var(--header-border-width, 0px);
+    background-color: var(--color-border);
+    pointer-events: none;
   }
 
   .header__row--top:not(.divider--page-width),
