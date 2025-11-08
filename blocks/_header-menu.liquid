@@ -280,6 +280,20 @@
     transition: clip-path var(--submenu-animation-speed) var(--ease-out-cubic);
   }
 
+  .menu-list__list-item:where(:not([slot='overflow'])) > .menu-list__submenu {
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: var(--border-bottom-width, 0px);
+      background-color: var(--color-border);
+      pointer-events: none;
+      z-index: 1;
+    }
+  }
+
   /* Show the submenus on hover */
   .menu-list__list-item:has([aria-expanded='true']) > .menu-list__submenu,
   /* Show the overflow menu when a menu item is hovered */
