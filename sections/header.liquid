@@ -228,11 +228,7 @@
           assign border_bottom_setting_id = 'border_width'
       endcase
 
-      if row == 'top'
-        assign style = '--border-bottom-width: 0px; --border-bottom-width-mobile: 0px; '
-      else
-        assign style = '--border-bottom-width: [width]px; ' | replace: '[width]', section.settings[border_bottom_setting_id]
-      endif
+      assign style = '--border-bottom-width: [width]px; ' | replace: '[width]', section.settings[border_bottom_setting_id]
     %}
 
     {% capture content %}
