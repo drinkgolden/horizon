@@ -9,12 +9,42 @@
   if section.blocks.size > 0
     assign has_blocks = true
   endif
+  assign heading_tag = section.settings.heading_tag | default: 'h1'
+  assign allowed_heading_tags = 'h1,h2,h3,h4,h5,h6' | split: ','
+  unless allowed_heading_tags contains heading_tag
+    assign heading_tag = 'h2'
+  endunless
 %}
+
+{% capture section_style %}
+  {% render 'spacing-style', settings: section.settings %}
+  {% if section.settings.image_background_color != blank %}
+    --hero-carousel-media-background: {{ section.settings.image_background_color }};
+  {% endif %}
+  {% assign media_aspect_ratio = section.settings.media_aspect_ratio | default: 'auto' %}
+  {% assign media_aspect_ratio_value = '' %}
+  {% case media_aspect_ratio %}
+    {% when 'landscape' %}
+      {% assign media_aspect_ratio_value = '16 / 9' %}
+    {% when 'portrait' %}
+      {% assign media_aspect_ratio_value = '4 / 5' %}
+    {% when 'square' %}
+      {% assign media_aspect_ratio_value = '1 / 1' %}
+    {% when 'custom' %}
+      {% assign custom_ratio = section.settings.media_aspect_ratio_custom | strip %}
+      {% if custom_ratio != blank %}
+        {% assign media_aspect_ratio_value = custom_ratio %}
+      {% endif %}
+  {% endcase %}
+  {% if media_aspect_ratio_value != blank %}
+    --hero-carousel-media-aspect: {{ media_aspect_ratio_value }};
+  {% endif %}
+{% endcapture %}
 
 <div class="section-background color-{{ color_scheme }}"></div>
 <section
   class="hero-carousel section section--full-width color-{{ color_scheme }} spacing-style hero-carousel--image-{{ section.settings.image_position }} hero-carousel--align-{{ section.settings.content_alignment }}"
-  style="{% render 'spacing-style', settings: section.settings %}"
+  style="{{ section_style | strip }}"
   aria-label="{{ section.settings.heading | strip_html | default: 'Hero carousel' }}"
   data-section-id="{{ section.id }}"
   data-hero-carousel
@@ -32,19 +62,38 @@
               assign fetchpriority_attr = 'high'
             endif
           %}
+          {% liquid
+            assign desktop_image = block.settings.image
+            assign mobile_image = block.settings.mobile_image
+            if desktop_image == blank and mobile_image != blank
+              assign desktop_image = mobile_image
+            endif
+          %}
           <div
-            class="hero-carousel__media-item{% if forloop.first %} is-active{% endif %}"
+            class="hero-carousel__media-item{% if forloop.first %} is-active{% endif %}{% if mobile_image %} hero-carousel__media-item--has-mobile{% endif %}"
             data-media-index="{{ forloop.index0 }}"
             {{ block.shopify_attributes }}
           >
-            {% if block.settings.image %}
-              {{ block.settings.image | image_url: width: 2800 | image_tag:
+
+            {% if desktop_image %}
+              {{ desktop_image | image_url: width: 2800 | image_tag:
                 alt: alt_text,
-                class: 'hero-carousel__image',
+                class: 'hero-carousel__image hero-carousel__image--desktop',
                 loading: loading_attr,
                 fetchpriority: fetchpriority_attr
               }}
-            {% else %}
+            {% endif %}
+
+            {% if mobile_image %}
+              {{ mobile_image | image_url: width: 1800 | image_tag:
+                alt: alt_text,
+                class: 'hero-carousel__image hero-carousel__image--mobile',
+                loading: loading_attr,
+                fetchpriority: fetchpriority_attr
+              }}
+            {% endif %}
+
+            {% if desktop_image == blank %}
               {{ 'hero-apparel-1' | placeholder_svg_tag: 'hero-carousel__placeholder' }}
             {% endif %}
           </div>
@@ -59,13 +108,13 @@
     <div class="hero-carousel__content">
       <div class="hero-carousel__content-inner">
         {% if section.settings.heading %}
-          <h1 class="hero-carousel__heading">{{ section.settings.heading }}</h1>
+          <{{ heading_tag }} class="hero-carousel__heading">{{ section.settings.heading }}</{{ heading_tag }}>
         {% endif %}
 
         {% if has_blocks %}
           <div class="hero-carousel__triggers">
             {% for block in section.blocks %}
-              {% assign label = block.settings.label | default: 'Slide ' | append: forloop.index %}
+              {% assign label = block.settings.label | default: 'Slide' %}
               {% assign url = block.settings.url %}
               {% assign open_new = block.settings.open_in_new_tab %}
               <a
@@ -133,6 +182,8 @@
   .hero-carousel__media {
     position: relative;
     overflow: hidden;
+    background-color: var(--hero-carousel-media-background, transparent);
+    aspect-ratio: var(--hero-carousel-media-aspect, auto);
   }
 
   .hero-carousel__media-item {
@@ -154,6 +205,10 @@
     height: 100%;
     object-fit: cover;
     display: block;
+  }
+
+  .hero-carousel__image--mobile {
+    display: none;
   }
 
   .hero-carousel__content {
@@ -234,14 +289,26 @@
     grid-column: 1;
   }
 
+  .hero-carousel--align-left .hero-carousel__content {
+    justify-content: flex-start;
+  }
+
+  .hero-carousel--align-right .hero-carousel__content {
+    justify-content: flex-end;
+  }
+
   .hero-carousel--align-left .hero-carousel__content-inner {
     text-align: left;
     justify-items: flex-start;
+    margin-inline-start: clamp(1rem, 3vw, 2rem);
+    margin-inline-end: auto;
   }
 
   .hero-carousel--align-right .hero-carousel__content-inner {
     text-align: right;
     justify-items: flex-end;
+    margin-inline-end: clamp(1rem, 3vw, 2rem);
+    margin-inline-start: auto;
   }
 
   @media (max-width: 989px) {
@@ -255,7 +322,7 @@
     }
 
     .hero-carousel__media {
-      aspect-ratio: 4 / 5;
+      aspect-ratio: var(--hero-carousel-media-aspect, 4 / 5);
     }
 
     .hero-carousel__content {
@@ -269,6 +336,18 @@
     .hero-carousel__trigger:not(:last-child) {
       border-inline-end: none;
       border-bottom: var(--section-gridline-width, 1px) solid var(--hero-carousel-divider-color);
+    }
+
+    .hero-carousel__media-item--has-mobile .hero-carousel__image--desktop {
+      display: none;
+    }
+
+    .hero-carousel__media-item--has-mobile .hero-carousel__image--mobile {
+      display: block;
+    }
+
+    .hero-carousel__content-inner {
+      margin-inline: 0;
     }
   }
 
@@ -348,6 +427,18 @@ document.querySelectorAll('[data-hero-carousel]').forEach((section) => {
       "default": "Just landed, Kōkako Half-Caf Mugs."
     },
     {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Heading level",
+      "default": "h1",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" }
+      ]
+    },
+    {
       "type": "textarea",
       "id": "meta_text",
       "label": "Meta row text",
@@ -358,6 +449,35 @@ document.querySelectorAll('[data-hero-carousel]').forEach((section) => {
       "id": "color_scheme",
       "label": "Color scheme",
       "default": "scheme-1"
+    },
+    {
+      "type": "color",
+      "id": "image_background_color",
+      "label": "Image panel background",
+      "default": "",
+      "info": "Shown behind the hero image and while it loads."
+    },
+    {
+      "type": "select",
+      "id": "media_aspect_ratio",
+      "label": "Image panel aspect ratio",
+      "default": "auto",
+      "options": [
+        { "value": "auto", "label": "Auto" },
+        { "value": "landscape", "label": "Landscape (16:9)" },
+        { "value": "portrait", "label": "Portrait (4:5)" },
+        { "value": "square", "label": "Square (1:1)" },
+        { "value": "custom", "label": "Custom" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "media_aspect_ratio_custom",
+      "label": "Custom aspect ratio",
+      "info": "Use CSS syntax such as 3 / 2.",
+      "default": "",
+      "placeholder": "3 / 2",
+      "visible_if": "{{ section.settings.media_aspect_ratio == 'custom' }}"
     },
     {
       "type": "select",
@@ -445,6 +565,12 @@ document.querySelectorAll('[data-hero-carousel]').forEach((section) => {
           "type": "image_picker",
           "id": "image",
           "label": "Slide image"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Mobile image",
+          "info": "Optional image shown below 990px. Falls back to the main slide image when empty."
         },
         {
           "type": "text",
