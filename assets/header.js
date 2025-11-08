@@ -216,28 +216,41 @@ onDocumentLoaded(() => {
 
   // Update header group height on resize of any child
   if (headerGroup) {
-    const resizeObserver = new ResizeObserver(() => calculateHeaderGroupHeight(header, headerGroup));
+    const updateHeaderGroupHeight = () => {
+      const headerGroupHeight = calculateHeaderGroupHeight(header, headerGroup);
+      document.body.style.setProperty('--header-group-height', `${headerGroupHeight}px`);
+    };
+
+    const resizeObserver = new ResizeObserver(updateHeaderGroupHeight);
 
     // Observe all children of the header group
     const children = headerGroup.children;
     for (let i = 0; i < children.length; i++) {
       const element = children[i];
-      if (element === header || !(element instanceof HTMLElement)) continue;
+      if (!(element instanceof HTMLElement)) continue;
       resizeObserver.observe(element);
     }
 
+    updateHeaderGroupHeight();
+
     // Also observe the header group itself for child changes
     const mutationObserver = new MutationObserver((mutations) => {
+      let shouldUpdate = false;
       for (const mutation of mutations) {
         if (mutation.type === 'childList') {
           // Re-observe all children when the list changes
           const children = headerGroup.children;
           for (let i = 0; i < children.length; i++) {
             const element = children[i];
-            if (element === header || !(element instanceof HTMLElement)) continue;
+            if (!(element instanceof HTMLElement)) continue;
             resizeObserver.observe(element);
           }
+          shouldUpdate = true;
         }
+      }
+
+      if (shouldUpdate) {
+        updateHeaderGroupHeight();
       }
     });
 
