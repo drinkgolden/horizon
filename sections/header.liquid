@@ -159,6 +159,14 @@
 
   assign class = 'header'
   assign header_component_style = '--header-border-width: ' | append: section.settings.border_width | append: 'px;'
+  assign header_border_scheme = section.settings.color_scheme_top
+  if bottom_row_blocks.size > 0 and section.settings.color_scheme_bottom != blank
+    assign header_border_scheme = section.settings.color_scheme_bottom
+  endif
+  assign header_border_color = header_border_scheme.settings.border | default: ''
+  if header_border_color != ''
+    assign header_component_style = header_component_style | append: '--header-border-color: ' | append: header_border_color | append: ';'
+  endif
 
   if transparent_color_scheme
     assign class = class | append: ' ' | append: transparent_color_scheme
@@ -379,6 +387,27 @@
     position: relative;
   }
 
+  header-component {
+    position: relative;
+    z-index: var(--layer-overlay);
+    pointer-events: none;
+  }
+
+  header-component::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: var(--header-border-width, 0px);
+    background-color: var(--header-border-color, var(--color-border));
+    pointer-events: none;
+  }
+
+  header-component > * {
+    pointer-events: auto;
+  }
+
   #header-group:has(#header-component[sticky]) {
     display: contents;
   }
@@ -413,9 +442,6 @@
     background-color: var(--header-bg-color, var(--color-background));
   }
 
-  .header__row:last-of-type::after {
-    content: none;
-  }
 
   .header__row--top:not(.divider--page-width),
   .header__row--top.divider--page-width .header__columns,
