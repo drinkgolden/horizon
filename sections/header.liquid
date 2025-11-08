@@ -165,7 +165,7 @@
   endif
   assign header_border_color = header_border_scheme.settings.border | default: ''
   assign header_component_style = header_component_style | append: '--header-border-color: ' | append: header_border_color | append: ';'
-  assign header_component_class = 'color-' | append: header_border_scheme
+  assign header_component_class = 'color-' | append: header_border_scheme.id
 
   if transparent_color_scheme
     assign class = class | append: ' ' | append: transparent_color_scheme
@@ -616,8 +616,8 @@
     padding-inline: calc(var(--gap-xl) / 2);
   }
 
-  .mega-menu__submenu {
-    border-top: var(--header-border-width, 0px) solid var(--color-border);
+  .mega-menu {
+    border-top: var(--header-border-width, 0px) solid var(--header-border-color, var(--color-border));
   }
 
   /* Set header paddings based on height setting */
