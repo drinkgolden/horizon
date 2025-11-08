@@ -5,7 +5,6 @@
     assign order = 'mobile_search,logo,menu,localization,search,actions'
   endif
 
-  assign rows = 'top,bottom' | split: ','
   assign search_style = 'none'
 
   if section.settings.show_search
@@ -143,6 +142,12 @@
   endif
 
   assign bottom_row_blocks = bottom_row_blocks | split: ',' | compact
+
+  assign rows = 'top'
+  if bottom_row_blocks.size > 0
+    assign rows = rows | append: ',bottom'
+  endif
+  assign rows = rows | split: ','
 
   if section.settings.section_height == 'compact'
     assign header_height_class = ' header--compact'
