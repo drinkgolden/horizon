@@ -668,22 +668,15 @@
     z-index: var(--layer-raised);
   }
 
-  media-gallery slideshow-component {
-    position: relative;
-  }
-
   media-gallery slideshow-controls[controls-on-media]:not([thumbnails]) {
-    left: var(--padding-sm);
-    right: var(--padding-sm);
-    bottom: var(--padding-xs);
+    bottom: var(--padding-2xs);
     align-items: flex-end;
-    justify-content: center;
   }
 
   media-gallery
     slideshow-controls[controls-on-media]:not([thumbnails])
     .slideshow-controls__dots {
-    padding: var(--padding-3xs) var(--padding-md);
+    padding: var(--padding-2xs) var(--padding-md);
   }
 
   .media-gallery__mobile-controls {
