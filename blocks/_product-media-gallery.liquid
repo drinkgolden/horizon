@@ -668,6 +668,17 @@
     z-index: var(--layer-raised);
   }
 
+  media-gallery slideshow-controls[controls-on-media]:not([thumbnails]) {
+    bottom: var(--padding-2xs);
+    align-items: flex-end;
+  }
+
+  media-gallery
+    slideshow-controls[controls-on-media]:not([thumbnails])
+    .slideshow-controls__dots {
+    padding: var(--padding-2xs) var(--padding-md);
+  }
+
   .media-gallery__mobile-controls {
     grid-area: auto;
   }
