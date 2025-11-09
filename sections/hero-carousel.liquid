@@ -414,7 +414,8 @@ class HeroCarouselTriggers {
     const nextMedia = this.mediaItems[index];
     if (nextTrigger) nextTrigger.classList.add('is-active');
     if (nextMedia) nextMedia.classList.add('is-active');
-    this.applyMediaColorScheme(nextMedia?.dataset.mediaColorScheme);
+    const nextMediaColorScheme = nextMedia ? nextMedia.dataset.mediaColorScheme : undefined;
+    this.applyMediaColorScheme(nextMediaColorScheme);
 
     this.activeIndex = index;
   }
