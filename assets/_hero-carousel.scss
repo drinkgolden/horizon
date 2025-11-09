@@ -2,6 +2,7 @@
 
 .hero-carousel {
   --hero-carousel-divider-color: var(--section-gridline-color, rgba(0, 0, 0, 0.08));
+  --hero-carousel-gap: clamp(1.5rem, 4vw, 3rem);
   position: relative;
   padding-block: 0;
 
@@ -11,6 +12,7 @@
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     align-items: stretch;
     min-height: clamp(420px, 60vw, 720px);
+    column-gap: var(--hero-carousel-gap);
 
     &::after {
       content: "";
@@ -29,6 +31,10 @@
     overflow: hidden;
     background-color: var(--color-background, transparent);
     aspect-ratio: var(--hero-carousel-media-aspect-desktop, var(--hero-carousel-media-aspect, auto));
+    padding: clamp(2rem, 4vw, 3rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   &__media-item {
@@ -145,8 +151,6 @@
     .hero-carousel__content-inner {
       text-align: left;
       justify-items: flex-start;
-      margin-inline-start: clamp(1rem, 3vw, 2rem);
-      margin-inline-end: auto;
     }
   }
 
@@ -158,8 +162,6 @@
     .hero-carousel__content-inner {
       text-align: right;
       justify-items: flex-end;
-      margin-inline-end: clamp(1rem, 3vw, 2rem);
-      margin-inline-start: auto;
     }
   }
 
