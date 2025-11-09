@@ -28,7 +28,7 @@
     position: relative;
     overflow: hidden;
     background-color: var(--color-background, transparent);
-    aspect-ratio: var(--hero-carousel-media-aspect, auto);
+    aspect-ratio: var(--hero-carousel-media-aspect-desktop, var(--hero-carousel-media-aspect, auto));
   }
 
   &__media-item {
@@ -174,7 +174,10 @@
     }
 
     &__media {
-      aspect-ratio: var(--hero-carousel-media-aspect, 4 / 5);
+      aspect-ratio: var(
+        --hero-carousel-media-aspect-mobile,
+        var(--hero-carousel-media-aspect-desktop, var(--hero-carousel-media-aspect, 4 / 5))
+      );
     }
 
     &__content {

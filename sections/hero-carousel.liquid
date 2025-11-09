@@ -14,32 +14,85 @@
   unless allowed_heading_tags contains heading_tag
     assign heading_tag = 'h2'
   endunless
+
+  assign media_aspect_ratio = section.settings.media_aspect_ratio | default: 'auto'
+  assign media_aspect_ratio_value = ''
+  case media_aspect_ratio
+    when 'landscape'
+      assign media_aspect_ratio_value = '16 / 9'
+    when 'portrait'
+      assign media_aspect_ratio_value = '4 / 5'
+    when 'square'
+      assign media_aspect_ratio_value = '1 / 1'
+    when 'custom'
+      assign custom_ratio = section.settings.media_aspect_ratio_custom | strip
+      if custom_ratio != blank
+        assign media_aspect_ratio_value = custom_ratio
+      endif
+  endcase
+
   assign initial_media_color_scheme = color_scheme
+  assign initial_desktop_aspect = media_aspect_ratio_value
+  assign initial_mobile_aspect = media_aspect_ratio_value
+
   if has_blocks
     assign first_block = section.blocks | first
     if first_block.settings.media_color_scheme != blank
       assign initial_media_color_scheme = first_block.settings.media_color_scheme
+    endif
+
+    assign first_desktop_image = first_block.settings.image
+    assign first_mobile_image = first_block.settings.mobile_image
+    if first_desktop_image == blank and first_mobile_image != blank
+      assign first_desktop_image = first_mobile_image
+    endif
+    if first_mobile_image == blank
+      assign first_mobile_image = first_desktop_image
+    endif
+
+    assign first_desktop_ratio_setting = first_block.settings.desktop_image_ratio | default: 'adapt'
+    assign first_desktop_ratio_value = ''
+    case first_desktop_ratio_setting
+      when 'landscape'
+        assign first_desktop_ratio_value = '16 / 9'
+      when 'portrait'
+        assign first_desktop_ratio_value = '4 / 5'
+      when 'square'
+        assign first_desktop_ratio_value = '1 / 1'
+      when 'adapt'
+        if first_desktop_image != blank and first_desktop_image.aspect_ratio != blank
+          assign first_desktop_ratio_value = first_desktop_image.aspect_ratio
+        endif
+    endcase
+
+    assign first_mobile_ratio_setting = first_block.settings.mobile_image_ratio | default: first_desktop_ratio_setting
+    assign first_mobile_ratio_value = ''
+    case first_mobile_ratio_setting
+      when 'landscape'
+        assign first_mobile_ratio_value = '16 / 9'
+      when 'portrait'
+        assign first_mobile_ratio_value = '4 / 5'
+      when 'square'
+        assign first_mobile_ratio_value = '1 / 1'
+      when 'adapt'
+        if first_mobile_image != blank and first_mobile_image.aspect_ratio != blank
+          assign first_mobile_ratio_value = first_mobile_image.aspect_ratio
+        elsif first_desktop_ratio_value != ''
+          assign first_mobile_ratio_value = first_desktop_ratio_value
+        endif
+    endcase
+
+    if first_desktop_ratio_value != ''
+      assign initial_desktop_aspect = first_desktop_ratio_value
+    endif
+    if first_mobile_ratio_value != ''
+      assign initial_mobile_aspect = first_mobile_ratio_value
     endif
   endif
 %}
 
 {% capture section_style %}
   {% render 'spacing-style', settings: section.settings %}
-  {% assign media_aspect_ratio = section.settings.media_aspect_ratio | default: 'auto' %}
-  {% assign media_aspect_ratio_value = '' %}
-  {% case media_aspect_ratio %}
-    {% when 'landscape' %}
-      {% assign media_aspect_ratio_value = '16 / 9' %}
-    {% when 'portrait' %}
-      {% assign media_aspect_ratio_value = '4 / 5' %}
-    {% when 'square' %}
-      {% assign media_aspect_ratio_value = '1 / 1' %}
-    {% when 'custom' %}
-      {% assign custom_ratio = section.settings.media_aspect_ratio_custom | strip %}
-      {% if custom_ratio != blank %}
-        {% assign media_aspect_ratio_value = custom_ratio %}
-      {% endif %}
-  {% endcase %}
   {% if media_aspect_ratio_value != blank %}
     --hero-carousel-media-aspect: {{ media_aspect_ratio_value }};
   {% endif %}
@@ -54,11 +107,24 @@
   data-hero-carousel
 >
   <div class="hero-carousel__frame">
+    {% capture media_inline_style %}
+      {% if initial_desktop_aspect != blank %}
+        --hero-carousel-media-aspect-desktop: {{ initial_desktop_aspect }};
+      {% endif %}
+      {% if initial_mobile_aspect != blank %}
+        --hero-carousel-media-aspect-mobile: {{ initial_mobile_aspect }};
+      {% endif %}
+    {% endcapture %}
     <div
       class="hero-carousel__media color-{{ initial_media_color_scheme }}"
       data-hero-media
       data-active-color-scheme="{{ initial_media_color_scheme }}"
       data-default-color-scheme="{{ initial_media_color_scheme }}"
+      data-active-aspect-desktop="{{ initial_desktop_aspect }}"
+      data-active-aspect-mobile="{{ initial_mobile_aspect }}"
+      data-default-aspect-desktop="{{ initial_desktop_aspect | default: media_aspect_ratio_value }}"
+      data-default-aspect-mobile="{{ initial_mobile_aspect | default: media_aspect_ratio_value }}"
+      style="{{ media_inline_style | strip }}"
     >
       {% if has_blocks %}
         {% for block in section.blocks %}
@@ -78,11 +144,53 @@
               assign desktop_image = mobile_image
             endif
             assign block_media_color_scheme = block.settings.media_color_scheme | default: color_scheme
+            assign desktop_ratio_setting = block.settings.desktop_image_ratio | default: 'adapt'
+            assign desktop_ratio_value = ''
+            case desktop_ratio_setting
+              when 'landscape'
+                assign desktop_ratio_value = '16 / 9'
+              when 'portrait'
+                assign desktop_ratio_value = '4 / 5'
+              when 'square'
+                assign desktop_ratio_value = '1 / 1'
+              when 'adapt'
+                if desktop_image != blank and desktop_image.aspect_ratio != blank
+                  assign desktop_ratio_value = desktop_image.aspect_ratio
+                endif
+            endcase
+            assign mobile_ratio_setting = block.settings.mobile_image_ratio | default: desktop_ratio_setting
+            assign mobile_ratio_value = ''
+            case mobile_ratio_setting
+              when 'landscape'
+                assign mobile_ratio_value = '16 / 9'
+              when 'portrait'
+                assign mobile_ratio_value = '4 / 5'
+              when 'square'
+                assign mobile_ratio_value = '1 / 1'
+              when 'adapt'
+                if mobile_image != blank and mobile_image.aspect_ratio != blank
+                  assign mobile_ratio_value = mobile_image.aspect_ratio
+                elsif desktop_ratio_value != ''
+                  assign mobile_ratio_value = desktop_ratio_value
+                endif
+            endcase
+            if desktop_ratio_value == '' and media_aspect_ratio_value != ''
+              assign desktop_ratio_value = media_aspect_ratio_value
+            endif
+            if mobile_ratio_value == ''
+              if desktop_ratio_value != ''
+                assign mobile_ratio_value = desktop_ratio_value
+              elsif media_aspect_ratio_value != ''
+                assign mobile_ratio_value = media_aspect_ratio_value
+              endif
+            endif
           %}
           <div
             class="hero-carousel__media-item{% if forloop.first %} is-active{% endif %}{% if mobile_image %} hero-carousel__media-item--has-mobile{% endif %}"
             data-media-index="{{ forloop.index0 }}"
             data-media-color-scheme="{{ block_media_color_scheme }}"
+            data-media-aspect-desktop="{{ desktop_ratio_value }}"
+            data-media-aspect-mobile="{{ mobile_ratio_value }}"
             {{ block.shopify_attributes }}
           >
 
@@ -194,7 +302,7 @@
     position: relative;
     overflow: hidden;
     background-color: var(--color-background, transparent);
-    aspect-ratio: var(--hero-carousel-media-aspect, auto);
+    aspect-ratio: var(--hero-carousel-media-aspect-desktop, var(--hero-carousel-media-aspect, auto));
   }
 
   .hero-carousel__media-item {
@@ -333,7 +441,10 @@
     }
 
     .hero-carousel__media {
-      aspect-ratio: var(--hero-carousel-media-aspect, 4 / 5);
+      aspect-ratio: var(
+        --hero-carousel-media-aspect-mobile,
+        var(--hero-carousel-media-aspect-desktop, var(--hero-carousel-media-aspect, 4 / 5))
+      );
     }
 
     .hero-carousel__content {
@@ -416,6 +527,7 @@ class HeroCarouselTriggers {
     if (nextMedia) nextMedia.classList.add('is-active');
     const nextMediaColorScheme = nextMedia ? nextMedia.dataset.mediaColorScheme : undefined;
     this.applyMediaColorScheme(nextMediaColorScheme);
+    this.applyMediaAspectRatio(nextMedia);
 
     this.activeIndex = index;
   }
@@ -435,6 +547,31 @@ class HeroCarouselTriggers {
       this.mediaContainer.dataset.activeColorScheme = nextScheme;
     } else {
       this.mediaContainer.dataset.activeColorScheme = '';
+    }
+  }
+
+  applyMediaAspectRatio(mediaElement) {
+    if (!this.mediaContainer) return;
+
+    const defaultDesktop = this.mediaContainer.dataset.defaultAspectDesktop;
+    const defaultMobile = this.mediaContainer.dataset.defaultAspectMobile;
+    const nextDesktop = mediaElement?.dataset.mediaAspectDesktop || defaultDesktop || '';
+    const nextMobile = mediaElement?.dataset.mediaAspectMobile || defaultMobile || '';
+
+    if (nextDesktop) {
+      this.mediaContainer.style.setProperty('--hero-carousel-media-aspect-desktop', nextDesktop);
+      this.mediaContainer.dataset.activeAspectDesktop = nextDesktop;
+    } else {
+      this.mediaContainer.style.removeProperty('--hero-carousel-media-aspect-desktop');
+      this.mediaContainer.dataset.activeAspectDesktop = '';
+    }
+
+    if (nextMobile) {
+      this.mediaContainer.style.setProperty('--hero-carousel-media-aspect-mobile', nextMobile);
+      this.mediaContainer.dataset.activeAspectMobile = nextMobile;
+    } else {
+      this.mediaContainer.style.removeProperty('--hero-carousel-media-aspect-mobile');
+      this.mediaContainer.dataset.activeAspectMobile = '';
     }
   }
 }
@@ -597,10 +734,36 @@ document.querySelectorAll('[data-hero-carousel]').forEach((section) => {
           "label": "Slide image"
         },
         {
+          "type": "select",
+          "id": "desktop_image_ratio",
+          "label": "Desktop image aspect ratio",
+          "info": "t:info.aspect_ratio_adjusted",
+          "options": [
+            { "value": "adapt", "label": "t:options.auto" },
+            { "value": "portrait", "label": "t:options.portrait" },
+            { "value": "square", "label": "t:options.square" },
+            { "value": "landscape", "label": "t:options.landscape" }
+          ],
+          "default": "adapt"
+        },
+        {
           "type": "image_picker",
           "id": "mobile_image",
           "label": "Mobile image",
           "info": "Optional image shown below 990px. Falls back to the main slide image when empty."
+        },
+        {
+          "type": "select",
+          "id": "mobile_image_ratio",
+          "label": "Mobile image aspect ratio",
+          "info": "t:info.aspect_ratio_adjusted",
+          "options": [
+            { "value": "adapt", "label": "t:options.auto" },
+            { "value": "portrait", "label": "t:options.portrait" },
+            { "value": "square", "label": "t:options.square" },
+            { "value": "landscape", "label": "t:options.landscape" }
+          ],
+          "default": "adapt"
         },
         {
           "type": "text",
