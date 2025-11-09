@@ -14,13 +14,17 @@
   unless allowed_heading_tags contains heading_tag
     assign heading_tag = 'h2'
   endunless
+  assign initial_media_color_scheme = color_scheme
+  if has_blocks
+    assign first_block = section.blocks | first
+    if first_block.settings.media_color_scheme != blank
+      assign initial_media_color_scheme = first_block.settings.media_color_scheme
+    endif
+  endif
 %}
 
 {% capture section_style %}
   {% render 'spacing-style', settings: section.settings %}
-  {% if section.settings.image_background_color != blank %}
-    --hero-carousel-media-background: {{ section.settings.image_background_color }};
-  {% endif %}
   {% assign media_aspect_ratio = section.settings.media_aspect_ratio | default: 'auto' %}
   {% assign media_aspect_ratio_value = '' %}
   {% case media_aspect_ratio %}
@@ -50,7 +54,12 @@
   data-hero-carousel
 >
   <div class="hero-carousel__frame">
-    <div class="hero-carousel__media" data-hero-media>
+    <div
+      class="hero-carousel__media color-{{ initial_media_color_scheme }}"
+      data-hero-media
+      data-active-color-scheme="{{ initial_media_color_scheme }}"
+      data-default-color-scheme="{{ initial_media_color_scheme }}"
+    >
       {% if has_blocks %}
         {% for block in section.blocks %}
           {% liquid
@@ -68,10 +77,12 @@
             if desktop_image == blank and mobile_image != blank
               assign desktop_image = mobile_image
             endif
+            assign block_media_color_scheme = block.settings.media_color_scheme | default: color_scheme
           %}
           <div
             class="hero-carousel__media-item{% if forloop.first %} is-active{% endif %}{% if mobile_image %} hero-carousel__media-item--has-mobile{% endif %}"
             data-media-index="{{ forloop.index0 }}"
+            data-media-color-scheme="{{ block_media_color_scheme }}"
             {{ block.shopify_attributes }}
           >
 
@@ -182,7 +193,7 @@
   .hero-carousel__media {
     position: relative;
     overflow: hidden;
-    background-color: var(--hero-carousel-media-background, transparent);
+    background-color: var(--color-background, transparent);
     aspect-ratio: var(--hero-carousel-media-aspect, auto);
   }
 
@@ -366,6 +377,7 @@
 class HeroCarouselTriggers {
   constructor(section) {
     this.section = section;
+    this.mediaContainer = section.querySelector('[data-hero-media]');
     this.triggers = Array.from(section.querySelectorAll('[data-trigger-index]'));
     this.mediaItems = Array.from(section.querySelectorAll('[data-media-index]'));
     this.activeIndex = this.triggers.findIndex((trigger) => trigger.classList.contains('is-active'));
@@ -402,8 +414,27 @@ class HeroCarouselTriggers {
     const nextMedia = this.mediaItems[index];
     if (nextTrigger) nextTrigger.classList.add('is-active');
     if (nextMedia) nextMedia.classList.add('is-active');
+    this.applyMediaColorScheme(nextMedia?.dataset.mediaColorScheme);
 
     this.activeIndex = index;
+  }
+
+  applyMediaColorScheme(scheme) {
+    if (!this.mediaContainer) return;
+
+    const previousScheme = this.mediaContainer.dataset.activeColorScheme;
+    if (previousScheme) {
+      this.mediaContainer.classList.remove(`color-${previousScheme}`);
+    }
+
+    const nextScheme = scheme || this.mediaContainer.dataset.defaultColorScheme;
+
+    if (nextScheme) {
+      this.mediaContainer.classList.add(`color-${nextScheme}`);
+      this.mediaContainer.dataset.activeColorScheme = nextScheme;
+    } else {
+      this.mediaContainer.dataset.activeColorScheme = '';
+    }
   }
 }
 
@@ -449,12 +480,6 @@ document.querySelectorAll('[data-hero-carousel]').forEach((section) => {
       "id": "color_scheme",
       "label": "Color scheme",
       "default": "scheme-1"
-    },
-    {
-      "type": "color",
-      "id": "image_background_color",
-      "label": "Image panel background",
-      "info": "Shown behind the hero image and while it loads."
     },
     {
       "type": "select",
@@ -558,6 +583,12 @@ document.querySelectorAll('[data-hero-carousel]').forEach((section) => {
           "type": "checkbox",
           "id": "open_in_new_tab",
           "label": "Open in new tab"
+        },
+        {
+          "type": "color_scheme",
+          "id": "media_color_scheme",
+          "label": "Image panel color scheme",
+          "info": "Controls the background color shown behind this slide's image."
         },
         {
           "type": "image_picker",
