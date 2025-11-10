@@ -56,7 +56,6 @@
     "section_gridlines_enable": true,
     "section_gridline_color": "#e5e5e5",
     "section_gridline_color_dark": "#e5e5e5",
-    "vertical_divider_color": "#00000003",
     "page_transition_enabled": true,
     "transition_to_main_product": true,
     "card_hover_effect": "none",

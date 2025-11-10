@@ -39,7 +39,7 @@
     {{ 'font-override.css' | asset_url | stylesheet_tag }}
     <style id="SplitShowcaseDividerColor">
       :root {
-        --vertical-divider-color: {{ settings.vertical_divider_color | default: '#e5e5e5' }};
+        --vertical-divider-color: {{ section_gridline_color | default: '#e5e5e5' }};
       }
     </style>
   </head>
