@@ -598,7 +598,10 @@ body.has-section-gridlines-horizontal
     left: 0;
     right: 0;
     height: var(--section-gridline-width, 1px);
-    background-color: var(--section-gridline-color, rgba(0, 0, 0, 0.08));
+    background-color: var(
+      --section-gridline-color,
+      var(--section-gridline-color-default, rgba(0, 0, 0, 0.08))
+    );
     z-index: var(--layer-heightened);
     pointer-events: none;
   }
