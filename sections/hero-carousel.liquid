@@ -274,7 +274,6 @@
 {% stylesheet %}
   .hero-carousel {
     --hero-carousel-divider-color: var(--section-gridline-color, rgba(0, 0, 0, 0.08));
-    --hero-carousel-gap: clamp(1.5rem, 4vw, 3rem);
     position: relative;
     padding-block: 0;
   }
@@ -285,7 +284,7 @@
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     align-items: stretch;
     min-height: clamp(420px, 60vw, 720px);
-    column-gap: var(--hero-carousel-gap);
+    column-gap: 0;
   }
 
   .hero-carousel__frame::after {
@@ -416,6 +415,18 @@
     grid-column: 1;
   }
 
+  @media (min-width: 990px) {
+    .hero-carousel--image-left .hero-carousel__media {
+      padding-inline-end: 0;
+      padding-right: 0;
+    }
+
+    .hero-carousel--image-right .hero-carousel__media {
+      padding-inline-start: 0;
+      padding-left: 0;
+    }
+  }
+
   .hero-carousel--align-left .hero-carousel__content {
     justify-content: flex-start;
   }
@@ -449,6 +460,7 @@
         --hero-carousel-media-aspect-mobile,
         var(--hero-carousel-media-aspect-desktop, var(--hero-carousel-media-aspect, 4 / 5))
       );
+      border-bottom: var(--section-gridline-width, 1px) solid var(--hero-carousel-divider-color);
     }
 
     .hero-carousel__content {
