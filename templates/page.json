@@ -322,9 +322,9 @@
           "type": "button",
           "name": "t:names.button",
           "settings": {
-            "label": "Shop now",
+            "label": "Shop Golden",
             "link": "shopify://collections/all",
-            "open_in_new_tab": false,
+            "open_in_new_tab": true,
             "style_class": "button",
             "width": "fit-content",
             "custom_width": 100,
