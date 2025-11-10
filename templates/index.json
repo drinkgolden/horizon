@@ -102,6 +102,8 @@
             "open_in_new_tab": false,
             "media_color_scheme": "",
             "image": "shopify://shop_images/BLACKCURRANT_FRONT.png",
+            "desktop_image_ratio": "adapt",
+            "mobile_image_ratio": "adapt",
             "image_alt": "Golden Hour hero product display"
           }
         },
@@ -113,6 +115,8 @@
             "open_in_new_tab": false,
             "media_color_scheme": "",
             "image": "shopify://shop_images/LEMON_HONEY_SODA_FRONT.png",
+            "desktop_image_ratio": "adapt",
+            "mobile_image_ratio": "adapt",
             "image_alt": "Horizon seasonal collection"
           }
         }
@@ -1177,7 +1181,7 @@
                 "letter_spacing": "normal",
                 "case": "none",
                 "wrap": "pretty",
-                "color": "var(--color-foreground)",
+                "color": "var(--color-primary)",
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
