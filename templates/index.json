@@ -9,55 +9,6 @@
  */
 {
   "sections": {
-    "hero_carousel_G9KFCF": {
-      "type": "hero-carousel",
-      "blocks": {
-        "slide_pCCANw": {
-          "type": "slide",
-          "settings": {
-            "label": "Shop now",
-            "url": "",
-            "open_in_new_tab": false,
-            "media_color_scheme": "",
-            "image": "shopify://shop_images/R0003273_1.jpg",
-            "desktop_image_ratio": "adapt",
-            "mobile_image_ratio": "adapt",
-            "image_alt": ""
-          }
-        },
-        "slide_WxXbYf": {
-          "type": "slide",
-          "settings": {
-            "label": "I'm just browsing",
-            "url": "",
-            "open_in_new_tab": false,
-            "media_color_scheme": "",
-            "desktop_image_ratio": "adapt",
-            "mobile_image_ratio": "adapt",
-            "image_alt": ""
-          }
-        }
-      },
-      "block_order": [
-        "slide_pCCANw",
-        "slide_WxXbYf"
-      ],
-      "name": "Hero carousel",
-      "settings": {
-        "heading": "Just landed, Kōkako Half-Caf Mugs.",
-        "heading_tag": "h1",
-        "meta_text": "Fairtrade · Organic",
-        "color_scheme": "",
-        "media_aspect_ratio": "auto",
-        "media_aspect_ratio_custom": "",
-        "image_position": "left",
-        "content_alignment": "right",
-        "padding-block-start": 0,
-        "padding-block-end": 0,
-        "padding-inline-start": 0,
-        "padding-inline-end": 0
-      }
-    },
     "section_wi6VEg": {
       "type": "section",
       "blocks": {
@@ -261,6 +212,55 @@
         "gradient_direction": "to top",
         "padding-block-start": 64,
         "padding-block-end": 0
+      }
+    },
+    "hero_carousel_G9KFCF": {
+      "type": "hero-carousel",
+      "blocks": {
+        "slide_pCCANw": {
+          "type": "slide",
+          "settings": {
+            "label": "Shop now",
+            "url": "",
+            "open_in_new_tab": false,
+            "media_color_scheme": "",
+            "image": "shopify://shop_images/R0003273_1.jpg",
+            "desktop_image_ratio": "adapt",
+            "mobile_image_ratio": "adapt",
+            "image_alt": ""
+          }
+        },
+        "slide_WxXbYf": {
+          "type": "slide",
+          "settings": {
+            "label": "I'm just browsing",
+            "url": "",
+            "open_in_new_tab": false,
+            "media_color_scheme": "",
+            "desktop_image_ratio": "adapt",
+            "mobile_image_ratio": "adapt",
+            "image_alt": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_pCCANw",
+        "slide_WxXbYf"
+      ],
+      "name": "Hero carousel",
+      "settings": {
+        "heading": "Just landed, Kōkako Half-Caf Mugs.",
+        "heading_tag": "h1",
+        "meta_text": "Fairtrade · Organic",
+        "color_scheme": "",
+        "media_aspect_ratio": "auto",
+        "media_aspect_ratio_custom": "",
+        "image_position": "left",
+        "content_alignment": "right",
+        "padding-block-start": 0,
+        "padding-block-end": 0,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0
       }
     },
     "section_GcL7hN": {
@@ -1636,8 +1636,8 @@
     }
   },
   "order": [
-    "hero_carousel_G9KFCF",
     "section_wi6VEg",
+    "hero_carousel_G9KFCF",
     "section_GcL7hN",
     "product_list_DK8mhr",
     "hero_4qYT43",
