@@ -836,7 +836,7 @@
       "blocks": {
         "group_QWc3QY": {
           "type": "group",
-          "name": "Cherry",
+          "name": "Blackcurrant Hero",
           "settings": {
             "content_direction": "row",
             "vertical_on_mobile": true,
@@ -878,6 +878,7 @@
         },
         "group_3Qxp6U": {
           "type": "group",
+          "name": "Lemon Hero",
           "settings": {
             "content_direction": "column",
             "vertical_on_mobile": true,
