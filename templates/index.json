@@ -836,6 +836,7 @@
       "blocks": {
         "group_QWc3QY": {
           "type": "group",
+          "name": "Cherry",
           "settings": {
             "content_direction": "row",
             "vertical_on_mobile": true,
@@ -1825,6 +1826,7 @@
         },
         "group_mNzUPT": {
           "type": "group",
+          "name": "Lemon",
           "settings": {
             "content_direction": "column",
             "vertical_on_mobile": true,
@@ -1894,6 +1896,7 @@
         },
         "group_FxcKVw": {
           "type": "group",
+          "name": "Mandarin",
           "settings": {
             "content_direction": "column",
             "vertical_on_mobile": true,
@@ -1963,6 +1966,7 @@
         },
         "group_ghnXpN": {
           "type": "group",
+          "name": "Lime",
           "settings": {
             "content_direction": "column",
             "vertical_on_mobile": true,
@@ -2032,6 +2036,7 @@
         },
         "group_rj34YL": {
           "type": "group",
+          "name": "Grapefruit",
           "settings": {
             "content_direction": "column",
             "vertical_on_mobile": true,
@@ -2101,6 +2106,7 @@
         },
         "group_q8eVmK": {
           "type": "group",
+          "name": "Cherry",
           "settings": {
             "content_direction": "column",
             "vertical_on_mobile": true,
