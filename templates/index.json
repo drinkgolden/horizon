@@ -58,7 +58,7 @@
             "accordion_row_tC79jm": {
               "type": "_accordion-row",
               "settings": {
-                "heading": "Honey Soda",
+                "heading": "Mānuka Honey Soda",
                 "open_by_default": false,
                 "icon": "none",
                 "width": 12
@@ -211,7 +211,7 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 64,
-        "padding-block-end": 0
+        "padding-block-end": 64
       }
     },
     "section_GcL7hN": {
@@ -849,7 +849,7 @@
             "custom_width": 100,
             "width_mobile": "fill",
             "custom_width_mobile": 100,
-            "height": "fit",
+            "height": "fill",
             "custom_height": 100,
             "inherit_color_scheme": false,
             "color_scheme": "scheme-1",
@@ -914,25 +914,7 @@
             "padding-inline-start": 24,
             "padding-inline-end": 24
           },
-          "blocks": {
-            "button_WjTf3E": {
-              "type": "button",
-              "settings": {
-                "label": "Shop now",
-                "link": "shopify://collections/all",
-                "open_in_new_tab": false,
-                "style_class": "link",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "button_WjTf3E"
-          ]
+          "blocks": {}
         }
       },
       "block_order": [
@@ -953,7 +935,7 @@
         "section_height": "large",
         "section_height_custom": 50,
         "color_scheme": "",
-        "background_media": "image",
+        "background_media": "none",
         "video_position": "cover",
         "background_image": "shopify://shop_images/R0003355.jpg",
         "background_image_position": "cover",
@@ -966,8 +948,8 @@
         "overlay_color": "#00000026",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 0,
-        "padding-block-end": 0
+        "padding-block-start": 64,
+        "padding-block-end": 64
       }
     },
     "featured_blog_posts_EgLy9B": {
@@ -1439,7 +1421,7 @@
         "blurred_reflection": false,
         "reflection_opacity": 12,
         "padding-block-start": 64,
-        "padding-block-end": 0
+        "padding-block-end": 64
       }
     },
     "section_km3qqt": {
@@ -1461,7 +1443,7 @@
             "width_mobile": "fill",
             "custom_width_mobile": 100,
             "height": "fill",
-            "custom_height": 100,
+            "custom_height": 78,
             "inherit_color_scheme": false,
             "color_scheme": "scheme-2",
             "background_media": "none",
@@ -1478,18 +1460,18 @@
             "link": "",
             "open_in_new_tab": false,
             "placeholder": "hero-apparel-2",
-            "padding-block-start": 40,
-            "padding-block-end": 40,
-            "padding-inline-start": 40,
-            "padding-inline-end": 40
+            "padding-block-start": 24,
+            "padding-block-end": 24,
+            "padding-inline-start": 24,
+            "padding-inline-end": 24
           },
           "blocks": {
             "text_kQKWiE": {
               "type": "text",
               "settings": {
-                "text": "<h3>New arrivals</h3>",
-                "width": "fit-content",
-                "max_width": "normal",
+                "text": "<h3>Blackcurrant</h3>",
+                "width": "100%",
+                "max_width": "none",
                 "alignment": "center",
                 "type_preset": "h3",
                 "font": "var(--font-body--family)",
@@ -1508,25 +1490,79 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
-            },
-            "button_Crmy9g": {
-              "type": "button",
+            }
+          },
+          "block_order": [
+            "text_kQKWiE"
+          ]
+        },
+        "group_JJTDr4": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "space-between",
+            "gap": 32,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fill",
+            "custom_height": 78,
+            "inherit_color_scheme": false,
+            "color_scheme": "scheme-4",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": true,
+            "overlay_color": "#395382",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "hero-apparel-2",
+            "padding-block-start": 24,
+            "padding-block-end": 24,
+            "padding-inline-start": 24,
+            "padding-inline-end": 24
+          },
+          "blocks": {
+            "text_Qam9De": {
+              "type": "text",
               "settings": {
-                "label": "Shop now",
-                "link": "shopify://collections/all",
-                "open_in_new_tab": false,
-                "style_class": "link",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
+                "text": "<h3>Blackcurrant</h3>",
+                "width": "100%",
+                "max_width": "none",
+                "alignment": "center",
+                "type_preset": "h3",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
               },
               "blocks": {}
             }
           },
           "block_order": [
-            "text_kQKWiE",
-            "button_Crmy9g"
+            "text_Qam9De"
           ]
         },
         "group_mNzUPT": {
@@ -1562,18 +1598,18 @@
             "link": "",
             "open_in_new_tab": false,
             "placeholder": "hero-apparel-2",
-            "padding-block-start": 40,
-            "padding-block-end": 40,
-            "padding-inline-start": 40,
-            "padding-inline-end": 40
+            "padding-block-start": 24,
+            "padding-block-end": 24,
+            "padding-inline-start": 24,
+            "padding-inline-end": 24
           },
           "blocks": {
             "text_MFL3Bd": {
               "type": "text",
               "settings": {
-                "text": "<h3>New arrivals</h3>",
-                "width": "fit-content",
-                "max_width": "normal",
+                "text": "<h3>Lemon</h3>",
+                "width": "100%",
+                "max_width": "none",
                 "alignment": "center",
                 "type_preset": "h3",
                 "font": "var(--font-body--family)",
@@ -1592,25 +1628,10 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
-            },
-            "button_f7THeL": {
-              "type": "button",
-              "settings": {
-                "label": "Shop now",
-                "link": "shopify://collections/all",
-                "open_in_new_tab": false,
-                "style_class": "link",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
             }
           },
           "block_order": [
-            "text_MFL3Bd",
-            "button_f7THeL"
+            "text_MFL3Bd"
           ]
         },
         "group_FxcKVw": {
@@ -1646,18 +1667,18 @@
             "link": "",
             "open_in_new_tab": false,
             "placeholder": "hero-apparel-2",
-            "padding-block-start": 40,
-            "padding-block-end": 40,
-            "padding-inline-start": 40,
-            "padding-inline-end": 40
+            "padding-block-start": 24,
+            "padding-block-end": 24,
+            "padding-inline-start": 24,
+            "padding-inline-end": 24
           },
           "blocks": {
             "text_mA9hEC": {
               "type": "text",
               "settings": {
-                "text": "<h3>New arrivals</h3>",
-                "width": "fit-content",
-                "max_width": "normal",
+                "text": "<h3>Mandarin</h3>",
+                "width": "100%",
+                "max_width": "none",
                 "alignment": "center",
                 "type_preset": "h3",
                 "font": "var(--font-body--family)",
@@ -1676,25 +1697,10 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
-            },
-            "button_3RUgJV": {
-              "type": "button",
-              "settings": {
-                "label": "Shop now",
-                "link": "shopify://collections/all",
-                "open_in_new_tab": false,
-                "style_class": "link",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
             }
           },
           "block_order": [
-            "text_mA9hEC",
-            "button_3RUgJV"
+            "text_mA9hEC"
           ]
         },
         "group_ghnXpN": {
@@ -1730,18 +1736,18 @@
             "link": "",
             "open_in_new_tab": false,
             "placeholder": "hero-apparel-2",
-            "padding-block-start": 40,
-            "padding-block-end": 40,
-            "padding-inline-start": 40,
-            "padding-inline-end": 40
+            "padding-block-start": 24,
+            "padding-block-end": 24,
+            "padding-inline-start": 24,
+            "padding-inline-end": 24
           },
           "blocks": {
             "text_wpkRpU": {
               "type": "text",
               "settings": {
-                "text": "<h3>New arrivals</h3>",
-                "width": "fit-content",
-                "max_width": "normal",
+                "text": "<h3>Lime</h3>",
+                "width": "100%",
+                "max_width": "none",
                 "alignment": "center",
                 "type_preset": "h3",
                 "font": "var(--font-body--family)",
@@ -1760,25 +1766,10 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
-            },
-            "button_pUTnRw": {
-              "type": "button",
-              "settings": {
-                "label": "Shop now",
-                "link": "shopify://collections/all",
-                "open_in_new_tab": false,
-                "style_class": "link",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
             }
           },
           "block_order": [
-            "text_wpkRpU",
-            "button_pUTnRw"
+            "text_wpkRpU"
           ]
         },
         "group_rj34YL": {
@@ -1799,8 +1790,8 @@
             "height": "fill",
             "custom_height": 100,
             "inherit_color_scheme": false,
-            "color_scheme": "scheme-5",
-            "background_media": "image",
+            "color_scheme": "scheme-8",
+            "background_media": "none",
             "video_position": "cover",
             "background_image_position": "cover",
             "border": "none",
@@ -1814,31 +1805,18 @@
             "link": "",
             "open_in_new_tab": false,
             "placeholder": "hero-apparel-2",
-            "padding-block-start": 40,
-            "padding-block-end": 40,
-            "padding-inline-start": 40,
-            "padding-inline-end": 40
+            "padding-block-start": 24,
+            "padding-block-end": 24,
+            "padding-inline-start": 24,
+            "padding-inline-end": 24
           },
           "blocks": {
-            "spacer_bc7KxF": {
-              "type": "spacer",
-              "settings": {
-                "size": "pixel",
-                "percent_size": 100,
-                "pixel_size": 16,
-                "custom_mobile_size": false,
-                "size_mobile": "percent",
-                "percent_size_mobile": 100,
-                "pixel_size_mobile": 120
-              },
-              "blocks": {}
-            },
             "text_8crAYa": {
               "type": "text",
               "settings": {
-                "text": "<h3>New arrivals</h3>",
-                "width": "fit-content",
-                "max_width": "normal",
+                "text": "<h3>Grapefruit</h3>",
+                "width": "100%",
+                "max_width": "none",
                 "alignment": "center",
                 "type_preset": "h3",
                 "font": "var(--font-body--family)",
@@ -1857,26 +1835,10 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
-            },
-            "button_cii7f7": {
-              "type": "button",
-              "settings": {
-                "label": "Shop now",
-                "link": "shopify://collections/all",
-                "open_in_new_tab": false,
-                "style_class": "link",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
             }
           },
           "block_order": [
-            "spacer_bc7KxF",
-            "text_8crAYa",
-            "button_cii7f7"
+            "text_8crAYa"
           ]
         },
         "group_q8eVmK": {
@@ -1897,8 +1859,8 @@
             "height": "fill",
             "custom_height": 100,
             "inherit_color_scheme": false,
-            "color_scheme": "scheme-5",
-            "background_media": "image",
+            "color_scheme": "scheme-3",
+            "background_media": "none",
             "video_position": "cover",
             "background_image_position": "cover",
             "border": "none",
@@ -1912,31 +1874,18 @@
             "link": "",
             "open_in_new_tab": false,
             "placeholder": "hero-apparel-1",
-            "padding-block-start": 40,
-            "padding-block-end": 40,
-            "padding-inline-start": 40,
-            "padding-inline-end": 40
+            "padding-block-start": 24,
+            "padding-block-end": 24,
+            "padding-inline-start": 24,
+            "padding-inline-end": 24
           },
           "blocks": {
-            "spacer_pgWPeV": {
-              "type": "spacer",
-              "settings": {
-                "size": "pixel",
-                "percent_size": 100,
-                "pixel_size": 16,
-                "custom_mobile_size": false,
-                "size_mobile": "percent",
-                "percent_size_mobile": 100,
-                "pixel_size_mobile": 120
-              },
-              "blocks": {}
-            },
             "text_wwwRCk": {
               "type": "text",
               "settings": {
-                "text": "<h3>Bestsellers</h3>",
-                "width": "fit-content",
-                "max_width": "normal",
+                "text": "<h3>Cherry</h3>",
+                "width": "100%",
+                "max_width": "none",
                 "alignment": "center",
                 "type_preset": "h3",
                 "font": "var(--font-body--family)",
@@ -1955,31 +1904,16 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
-            },
-            "button_bEtVke": {
-              "type": "button",
-              "settings": {
-                "label": "Shop now",
-                "link": "shopify://collections/all",
-                "open_in_new_tab": false,
-                "style_class": "link",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
             }
           },
           "block_order": [
-            "spacer_pgWPeV",
-            "text_wwwRCk",
-            "button_bEtVke"
+            "text_wwwRCk"
           ]
         }
       },
       "block_order": [
         "group_78wnze",
+        "group_JJTDr4",
         "group_mNzUPT",
         "group_FxcKVw",
         "group_ghnXpN",
@@ -1997,8 +1931,8 @@
         "vertical_alignment_flex_direction_column": "center",
         "gap": 0,
         "section_width": "full-width",
-        "section_height": "small",
-        "section_height_custom": 50,
+        "section_height": "custom",
+        "section_height_custom": 0,
         "color_scheme": "",
         "background_media": "none",
         "video_position": "cover",
