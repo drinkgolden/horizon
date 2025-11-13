@@ -14,6 +14,18 @@
     "migrated_footer_content": {
       "type": "section",
       "blocks": {
+        "divider_twRRgw": {
+          "type": "_divider",
+          "name": "t:names.divider",
+          "settings": {
+            "thickness": 1,
+            "corner_radius": "square",
+            "width_percent": 100,
+            "padding-block-start": 12,
+            "padding-block-end": 12
+          },
+          "blocks": {}
+        },
         "group_cGJPxi": {
           "type": "group",
           "name": "t:names.group",
@@ -318,6 +330,7 @@
         }
       },
       "block_order": [
+        "divider_twRRgw",
         "group_cGJPxi",
         "group_tbFfTQ"
       ],
@@ -347,8 +360,8 @@
         "overlay_color": "#00000026",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 12,
-        "padding-block-end": 24
+        "padding-block-start": 32,
+        "padding-block-end": 32
       }
     },
     "footer_utilities": {
@@ -381,8 +394,8 @@
         "gap": 0,
         "divider_thickness": 0,
         "color_scheme": "scheme-1",
-        "padding-block-start": 12,
-        "padding-block-end": 12,
+        "padding-block-start": 24,
+        "padding-block-end": 24,
         "padding-inline-start": 24,
         "padding-inline-end": 24
       }

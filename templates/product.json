@@ -263,12 +263,7 @@
                 "padding-block-start": 12,
                 "padding-block-end": 12,
                 "padding-inline-start": 12,
-                "padding-inline-end": 12,
-                "header_padding_block": 0,
-                "header_padding_inline": 0,
-                "content_padding_block": 0,
-                "content_padding_inline": 0,
-                "divider_padding_block": 0
+                "padding-inline-end": 12
               },
               "blocks": {
                 "accordion_row_tGJFzd": {
