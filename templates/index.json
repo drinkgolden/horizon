@@ -1522,7 +1522,7 @@
             "border_width": 1,
             "border_opacity": 100,
             "border_radius": 0,
-            "toggle_overlay": true,
+            "toggle_overlay": false,
             "overlay_color": "#395382",
             "overlay_style": "solid",
             "gradient_direction": "to top",
@@ -1538,7 +1538,7 @@
             "text_Qam9De": {
               "type": "text",
               "settings": {
-                "text": "<h3>Blackcurrant</h3>",
+                "text": "<h3>Ginger</h3>",
                 "width": "100%",
                 "max_width": "none",
                 "alignment": "center",
