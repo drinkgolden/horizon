@@ -12,8 +12,9 @@
     position: relative;
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    align-items: stretch;
-    min-height: clamp(420px, 60vw, 720px);
+    align-items: center;
+    justify-content: center;
+    min-height: var(--hero-carousel-frame-height, clamp(420px, 60vw, 720px));
     column-gap: 0;
 
     &::after {
