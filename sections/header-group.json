@@ -11,6 +11,27 @@
   "type": "header",
   "name": "Header",
   "sections": {
+    "logo_VYCtBA": {
+      "type": "logo",
+      "disabled": true,
+      "name": "t:names.logo",
+      "settings": {
+        "inverse": true,
+        "font": "heading",
+        "unit": "percent",
+        "pixel_height": 320,
+        "percent_width": 100,
+        "custom_mobile_size": true,
+        "unit_mobile": "percent",
+        "percent_width_mobile": 100,
+        "pixel_height_mobile": 120,
+        "section_width": "page-width",
+        "alignment_horizontal": "center",
+        "color_scheme": "scheme-2",
+        "padding-block-start": 32,
+        "padding-block-end": 32
+      }
+    },
     "header_announcements_9jGBFp": {
       "type": "header-announcements",
       "blocks": {
@@ -35,7 +56,7 @@
       "settings": {
         "speed": 10,
         "section_width": "full-width",
-        "color_scheme": "scheme-8",
+        "color_scheme": "scheme-5",
         "divider_width": 0,
         "padding-block-start": 12,
         "padding-block-end": 12
@@ -129,6 +150,7 @@
     }
   },
   "order": [
+    "logo_VYCtBA",
     "header_announcements_9jGBFp",
     "header_section"
   ]
