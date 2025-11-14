@@ -12,22 +12,26 @@
     "section_wi6VEg": {
       "type": "section",
       "blocks": {
-        "logo_VywKwD": {
-          "type": "logo",
+        "image_rfErAJ": {
+          "type": "image",
+          "name": "t:names.image",
           "settings": {
-            "inverse": false,
-            "font": "heading",
-            "unit": "percent",
-            "percent_width": 100,
-            "pixel_height": 48,
-            "custom_mobile_size": true,
-            "unit_mobile": "percent",
-            "percent_width_mobile": 100,
-            "pixel_height_mobile": 160,
-            "padding-block-start": 84,
-            "padding-block-end": 84,
-            "padding-inline-start": 32,
-            "padding-inline-end": 32
+            "image": "shopify://shop_images/GOLDENBLACK.svg",
+            "link": "",
+            "image_ratio": "adapt",
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 24,
+            "padding-block-end": 24,
+            "padding-inline-start": 24,
+            "padding-inline-end": 24
           },
           "blocks": {}
         },
@@ -44,7 +48,7 @@
             "border_width": 1,
             "border_opacity": 100,
             "border_radius": 0,
-            "padding-block-start": 0,
+            "padding-block-start": 24,
             "padding-block-end": 0,
             "padding-inline-start": 24,
             "padding-inline-end": 24
@@ -176,7 +180,7 @@
         }
       },
       "block_order": [
-        "logo_VywKwD",
+        "image_rfErAJ",
         "accordion_YkG8mU"
       ],
       "name": "t:names.large_logo",
@@ -206,7 +210,7 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 64,
-        "padding-block-end": 0
+        "padding-block-end": 52
       }
     },
     "section_GcL7hN": {
@@ -840,7 +844,7 @@
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "flex-start",
             "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
+            "gap": 24,
             "width": "fill",
             "custom_width": 100,
             "width_mobile": "fill",
@@ -892,20 +896,34 @@
               },
               "blocks": {}
             },
+            "spacer_dXFQ79": {
+              "type": "spacer",
+              "name": "t:names.spacer",
+              "settings": {
+                "size": "percent",
+                "percent_size": 100,
+                "pixel_size": 120,
+                "custom_mobile_size": false,
+                "size_mobile": "percent",
+                "percent_size_mobile": 100,
+                "pixel_size_mobile": 120
+              },
+              "blocks": {}
+            },
             "accordion_HwUnGy": {
               "type": "accordion",
               "name": "t:names.accordion",
               "settings": {
                 "icon": "caret",
                 "dividers": true,
-                "type_preset": "h4",
+                "type_preset": "h3",
                 "inherit_color_scheme": true,
                 "color_scheme": "",
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
                 "border_radius": 0,
-                "padding-block-start": 0,
+                "padding-block-start": 24,
                 "padding-block-end": 0,
                 "padding-inline-start": 12,
                 "padding-inline-end": 12
@@ -914,10 +932,10 @@
                 "accordion_row_FccpwP": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "Golden Bay Mānuka Honey",
+                    "heading": "Canterbury Blackcurrants",
                     "open_by_default": false,
                     "icon": "none",
-                    "width": 20
+                    "width": 24
                   },
                   "blocks": {
                     "text_TpcBnK": {
@@ -938,10 +956,10 @@
                         "background": false,
                         "background_color": "#00000026",
                         "corner_radius": 0,
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
+                        "padding-block-start": 12,
+                        "padding-block-end": 12,
+                        "padding-inline-start": 12,
+                        "padding-inline-end": 12
                       },
                       "blocks": {}
                     }
@@ -953,10 +971,10 @@
                 "accordion_row_yEeha8": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "Canterbury Blackcurrants",
+                    "heading": "Shop Golden Blackcurrant",
                     "open_by_default": false,
                     "icon": "none",
-                    "width": 20
+                    "width": 24
                   },
                   "blocks": {
                     "text_bzTpgD": {
@@ -977,10 +995,10 @@
                         "background": false,
                         "background_color": "#00000026",
                         "corner_radius": 0,
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
+                        "padding-block-start": 12,
+                        "padding-block-end": 12,
+                        "padding-inline-start": 12,
+                        "padding-inline-end": 12
                       },
                       "blocks": {}
                     }
@@ -988,56 +1006,17 @@
                   "block_order": [
                     "text_bzTpgD"
                   ]
-                },
-                "accordion_row_ibywDC": {
-                  "type": "_accordion-row",
-                  "settings": {
-                    "heading": "Manufacturing",
-                    "open_by_default": false,
-                    "icon": "none",
-                    "width": 20
-                  },
-                  "blocks": {
-                    "text_ADC4Hz": {
-                      "type": "text",
-                      "settings": {
-                        "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.</p>",
-                        "width": "100%",
-                        "max_width": "normal",
-                        "alignment": "left",
-                        "type_preset": "rte",
-                        "font": "var(--font-body--family)",
-                        "font_size": "1rem",
-                        "line_height": "normal",
-                        "letter_spacing": "normal",
-                        "case": "none",
-                        "wrap": "pretty",
-                        "color": "var(--color-foreground)",
-                        "background": false,
-                        "background_color": "#00000026",
-                        "corner_radius": 0,
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "text_ADC4Hz"
-                  ]
                 }
               },
               "block_order": [
                 "accordion_row_FccpwP",
-                "accordion_row_yEeha8",
-                "accordion_row_ibywDC"
+                "accordion_row_yEeha8"
               ]
             }
           },
           "block_order": [
             "image_JaKJVk",
+            "spacer_dXFQ79",
             "accordion_HwUnGy"
           ]
         },
@@ -1052,7 +1031,7 @@
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "flex-start",
             "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
+            "gap": 24,
             "width": "fill",
             "custom_width": 100,
             "width_mobile": "fill",
@@ -1104,20 +1083,34 @@
               },
               "blocks": {}
             },
+            "spacer_qEzE8z": {
+              "type": "spacer",
+              "name": "t:names.spacer",
+              "settings": {
+                "size": "percent",
+                "percent_size": 100,
+                "pixel_size": 120,
+                "custom_mobile_size": false,
+                "size_mobile": "percent",
+                "percent_size_mobile": 100,
+                "pixel_size_mobile": 120
+              },
+              "blocks": {}
+            },
             "accordion_zEnQry": {
               "type": "accordion",
               "name": "t:names.accordion",
               "settings": {
                 "icon": "caret",
                 "dividers": true,
-                "type_preset": "h4",
+                "type_preset": "h3",
                 "inherit_color_scheme": true,
                 "color_scheme": "",
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
                 "border_radius": 0,
-                "padding-block-start": 0,
+                "padding-block-start": 24,
                 "padding-block-end": 0,
                 "padding-inline-start": 12,
                 "padding-inline-end": 12
@@ -1126,10 +1119,10 @@
                 "accordion_row_fnW7FW": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "Return policy",
+                    "heading": "Wairoa Lemons",
                     "open_by_default": false,
                     "icon": "none",
-                    "width": 20
+                    "width": 24
                   },
                   "blocks": {
                     "text_r4taQ8": {
@@ -1150,10 +1143,10 @@
                         "background": false,
                         "background_color": "#00000026",
                         "corner_radius": 0,
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
+                        "padding-block-start": 12,
+                        "padding-block-end": 12,
+                        "padding-inline-start": 12,
+                        "padding-inline-end": 12
                       },
                       "blocks": {}
                     }
@@ -1165,10 +1158,10 @@
                 "accordion_row_g96AmP": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "Wairoa Lemons",
+                    "heading": "Shop Lemon",
                     "open_by_default": false,
                     "icon": "none",
-                    "width": 20
+                    "width": 24
                   },
                   "blocks": {
                     "text_pYBXG9": {
@@ -1189,10 +1182,10 @@
                         "background": false,
                         "background_color": "#00000026",
                         "corner_radius": 0,
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
+                        "padding-block-start": 12,
+                        "padding-block-end": 12,
+                        "padding-inline-start": 12,
+                        "padding-inline-end": 12
                       },
                       "blocks": {}
                     }
@@ -1200,56 +1193,17 @@
                   "block_order": [
                     "text_pYBXG9"
                   ]
-                },
-                "accordion_row_hU4hbW": {
-                  "type": "_accordion-row",
-                  "settings": {
-                    "heading": "Manufacturing",
-                    "open_by_default": false,
-                    "icon": "none",
-                    "width": 20
-                  },
-                  "blocks": {
-                    "text_naBXbb": {
-                      "type": "text",
-                      "settings": {
-                        "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.</p>",
-                        "width": "100%",
-                        "max_width": "normal",
-                        "alignment": "left",
-                        "type_preset": "rte",
-                        "font": "var(--font-body--family)",
-                        "font_size": "1rem",
-                        "line_height": "normal",
-                        "letter_spacing": "normal",
-                        "case": "none",
-                        "wrap": "pretty",
-                        "color": "var(--color-foreground)",
-                        "background": false,
-                        "background_color": "#00000026",
-                        "corner_radius": 0,
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "text_naBXbb"
-                  ]
                 }
               },
               "block_order": [
                 "accordion_row_fnW7FW",
-                "accordion_row_g96AmP",
-                "accordion_row_hU4hbW"
+                "accordion_row_g96AmP"
               ]
             }
           },
           "block_order": [
             "image_4FN3CU",
+            "spacer_qEzE8z",
             "accordion_zEnQry"
           ]
         }
@@ -1285,8 +1239,8 @@
         "overlay_color": "#00000026",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 42,
-        "padding-block-end": 42
+        "padding-block-start": 24,
+        "padding-block-end": 24
       }
     },
     "hero_kCVtyD": {
@@ -1645,8 +1599,8 @@
         "gradient_direction": "to top",
         "blurred_reflection": false,
         "reflection_opacity": 75,
-        "padding-block-start": 40,
-        "padding-block-end": 40
+        "padding-block-start": 24,
+        "padding-block-end": 0
       }
     },
     "featured_blog_posts_EgLy9B": {
@@ -1729,7 +1683,7 @@
                 "show_alignment": false,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
-                "padding-inline-start": 0,
+                "padding-inline-start": 12,
                 "padding-inline-end": 0
               },
               "blocks": {}
@@ -1752,9 +1706,10 @@
             "blog-post-description": {
               "type": "_blog-post-description",
               "name": "t:names.excerpt",
+              "disabled": true,
               "static": true,
               "settings": {
-                "type_preset": "rte",
+                "type_preset": "paragraph",
                 "font": "var(--font-body--family)",
                 "font_size": "1rem",
                 "line_height": "normal",
@@ -2350,8 +2305,8 @@
         "vertical_alignment_flex_direction_column": "center",
         "gap": 0,
         "section_width": "full-width",
-        "section_height": "custom",
-        "section_height_custom": 44,
+        "section_height": "",
+        "section_height_custom": 0,
         "color_scheme": "",
         "background_media": "none",
         "video_position": "cover",
