@@ -44,6 +44,18 @@
 {% stylesheet %}
   .accordion-row {
     width: 100%;
+    position: relative;
+  }
+
+  .accordion-row::before {
+    content: '';
+    position: absolute;
+    top: calc(var(--padding-block-start, 0px) * -1);
+    bottom: calc(var(--padding-block-end, 0px) * -1);
+    left: calc(var(--padding-inline-start, 0px) * -1);
+    right: calc(var(--padding-inline-end, 0px) * -1);
+    background-color: var(--color-background);
+    z-index: -1;
   }
 
   .accordion-row__inner {
