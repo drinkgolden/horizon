@@ -581,6 +581,13 @@ p:empty {
   z-index: var(--layer-section-background);
 }
 
+.header-section .section-background {
+  position: absolute;
+  inset: 0;
+  z-index: var(--layer-section-background);
+  pointer-events: none;
+}
+
 /* Section gridline system */
 @media screen and (min-width: 750px) {
 body.has-section-gridlines-horizontal #MainContent .shopify-section {
@@ -1253,7 +1260,7 @@ summary::-webkit-details-marker {
 
 /* When header is transparent, pull the first main content section up to sit under the floating header */
 body:has(.header[transparent]) .content-for-layout > .shopify-section:first-child {
-  margin-top: calc(var(--header-group-height) * -1);
+  margin-top: calc(var(--header-height, 0px) * -1);
 }
 
 body:has(.header[transparent]) #header-group > *:not(.header-section) {
@@ -2540,6 +2547,21 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
 
 .section-content-wrapper[data-split-showcase] {
   --split-divider-color-default: var(--vertical-divider-color, rgb(var(--color-foreground-rgb) / var(--opacity-15)));
+}
+
+.section-content-wrapper[data-split-showcase]:not([data-split-showcase='carousel']) > .group-block {
+  position: relative;
+}
+
+.section-content-wrapper[data-split-showcase]:not([data-split-showcase='carousel']) > .group-block + .group-block {
+  border-inline-start: 1px solid var(--split-divider-color, var(--split-divider-color-default));
+}
+
+@media screen and (max-width: 749px) {
+  .section-content-wrapper[data-split-showcase]:not([data-split-showcase='carousel']) > .group-block + .group-block {
+    border-inline-start: 0;
+    border-block-start: 1px solid var(--split-divider-color, var(--split-divider-color-default));
+  }
 }
 
 slideshow-component[data-split-showcase-carousel] {

@@ -11,6 +11,27 @@
   "type": "header",
   "name": "Header",
   "sections": {
+    "logo_VYCtBA": {
+      "type": "logo",
+      "disabled": true,
+      "name": "t:names.logo",
+      "settings": {
+        "inverse": true,
+        "font": "heading",
+        "unit": "percent",
+        "pixel_height": 320,
+        "percent_width": 100,
+        "custom_mobile_size": true,
+        "unit_mobile": "percent",
+        "percent_width_mobile": 100,
+        "pixel_height_mobile": 120,
+        "section_width": "page-width",
+        "alignment_horizontal": "center",
+        "color_scheme": "scheme-2",
+        "padding-block-start": 32,
+        "padding-block-end": 32
+      }
+    },
     "header_announcements_9jGBFp": {
       "type": "header-announcements",
       "blocks": {
@@ -110,8 +131,8 @@
         "localization_font_size": "1rem",
         "localization_position": "right",
         "localization_row": "bottom",
-        "section_width": "full-width",
-        "section_height": "compact",
+        "section_width": "page-width",
+        "section_height": "standard",
         "enable_sticky_header": "always",
         "divider_width": 0,
         "divider_size": "page-width",
@@ -119,7 +140,7 @@
         "color_scheme_top": "scheme-1",
         "color_scheme_bottom": "",
         "color_scheme_transparent": "scheme-2",
-        "enable_transparent_header_home": true,
+        "enable_transparent_header_home": false,
         "home_color_scheme": "inverse",
         "enable_transparent_header_product": false,
         "product_color_scheme": "default",
@@ -129,6 +150,7 @@
     }
   },
   "order": [
+    "logo_VYCtBA",
     "header_announcements_9jGBFp",
     "header_section"
   ]
