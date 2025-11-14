@@ -2545,20 +2545,20 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   margin-inline: var(--margin-inline-start) var(--margin-inline-end);
 }
 
-.section-content-wrapper[data-split-showcase] {
+.section-content-wrapper[data-split-divider] {
   --split-divider-color-default: var(--vertical-divider-color, rgb(var(--color-foreground-rgb) / var(--opacity-15)));
 }
 
-.section-content-wrapper[data-split-showcase]:not([data-split-showcase='carousel']) > .group-block {
+.section-content-wrapper[data-split-divider] > .group-block {
   position: relative;
 }
 
-.section-content-wrapper[data-split-showcase]:not([data-split-showcase='carousel']) > .group-block + .group-block {
+.section-content-wrapper[data-split-divider] > .group-block + .group-block {
   border-inline-start: 1px solid var(--split-divider-color, var(--split-divider-color-default));
 }
 
 @media screen and (max-width: 749px) {
-  .section-content-wrapper[data-split-showcase]:not([data-split-showcase='carousel']) > .group-block + .group-block {
+  .section-content-wrapper[data-split-divider].mobile-column > .group-block + .group-block {
     border-inline-start: 0;
     border-block-start: 1px solid var(--split-divider-color, var(--split-divider-color-default));
   }
