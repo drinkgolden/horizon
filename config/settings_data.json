@@ -9,7 +9,7 @@
  */
 {
   "current": {
-    "logo": "shopify://shop_images/GOLDENBLACK.svg",
+    "logo": "shopify://shop_images/tbti1atiamr11_png.webp",
     "logo_inverse": "shopify://shop_images/GOLDEN_WHITE_OVERLAY_LOGO.svg",
     "logo_height": 36,
     "logo_height_mobile": 28,
@@ -278,7 +278,7 @@
           "primary_button_hover_background": "#ffffffd9",
           "primary_button_hover_text": "#25282a",
           "primary_button_hover_border": "#fcfcfb",
-          "secondary_button_background": "#00000000",
+          "secondary_button_background": "rgba(0,0,0,0)",
           "secondary_button_text": "#fcfcfb",
           "secondary_button_border": "#fcfcfb",
           "secondary_button_hover_background": "#ffffff1f",
