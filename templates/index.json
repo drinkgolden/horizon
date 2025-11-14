@@ -192,7 +192,7 @@
         "align_baseline": false,
         "horizontal_alignment_flex_direction_column": "flex-start",
         "vertical_alignment_flex_direction_column": "space-between",
-        "gap": 12,
+        "gap": 24,
         "section_width": "full-width",
         "section_height": "custom",
         "section_height_custom": 40,
@@ -210,7 +210,7 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 64,
-        "padding-block-end": 52
+        "padding-block-end": 64
       }
     },
     "section_GcL7hN": {
@@ -843,7 +843,7 @@
             "vertical_alignment": "center",
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "space-between",
             "gap": 24,
             "width": "fill",
             "custom_width": 100,
@@ -889,24 +889,10 @@
                 "border_width": 1,
                 "border_opacity": 100,
                 "border_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
+                "padding-block-start": 24,
+                "padding-block-end": 24,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "spacer_dXFQ79": {
-              "type": "spacer",
-              "name": "t:names.spacer",
-              "settings": {
-                "size": "percent",
-                "percent_size": 100,
-                "pixel_size": 120,
-                "custom_mobile_size": false,
-                "size_mobile": "percent",
-                "percent_size_mobile": 100,
-                "pixel_size_mobile": 120
               },
               "blocks": {}
             },
@@ -1016,7 +1002,6 @@
           },
           "block_order": [
             "image_JaKJVk",
-            "spacer_dXFQ79",
             "accordion_HwUnGy"
           ]
         },
@@ -1030,7 +1015,7 @@
             "vertical_alignment": "center",
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "space-between",
             "gap": 24,
             "width": "fill",
             "custom_width": 100,
@@ -1076,24 +1061,10 @@
                 "border_width": 1,
                 "border_opacity": 100,
                 "border_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
+                "padding-block-start": 24,
+                "padding-block-end": 24,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "spacer_qEzE8z": {
-              "type": "spacer",
-              "name": "t:names.spacer",
-              "settings": {
-                "size": "percent",
-                "percent_size": 100,
-                "pixel_size": 120,
-                "custom_mobile_size": false,
-                "size_mobile": "percent",
-                "percent_size_mobile": 100,
-                "pixel_size_mobile": 120
               },
               "blocks": {}
             },
@@ -1203,7 +1174,6 @@
           },
           "block_order": [
             "image_4FN3CU",
-            "spacer_qEzE8z",
             "accordion_zEnQry"
           ]
         }
