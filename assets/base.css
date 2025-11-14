@@ -2553,14 +2553,25 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   position: relative;
 }
 
-.section-content-wrapper[data-split-divider] > .group-block + .group-block {
-  border-inline-start: 1px solid var(--split-divider-color, var(--split-divider-color-default));
+.section-content-wrapper[data-split-divider] > .group-block + .group-block::before {
+  content: '';
+  position: absolute;
+  top: calc(var(--padding-block-start, 0px) * -1);
+  bottom: calc(var(--padding-block-end, 0px) * -1);
+  left: calc((var(--gap, 0px) / 2) * -1);
+  width: 1px;
+  background-color: var(--split-divider-color, var(--split-divider-color-default));
+  pointer-events: none;
 }
 
 @media screen and (max-width: 749px) {
-  .section-content-wrapper[data-split-divider].mobile-column > .group-block + .group-block {
-    border-inline-start: 0;
-    border-block-start: 1px solid var(--split-divider-color, var(--split-divider-color-default));
+  .section-content-wrapper[data-split-divider].mobile-column > .group-block + .group-block::before {
+    top: auto;
+    bottom: calc((var(--gap, 0px) / 2) * -1);
+    left: calc(var(--padding-inline-start, 0px) * -1);
+    right: calc(var(--padding-inline-end, 0px) * -1);
+    width: auto;
+    height: 1px;
   }
 }
 
