@@ -135,7 +135,7 @@
         "section_height": "standard",
         "enable_sticky_header": "always",
         "divider_width": 0,
-        "divider_size": "page-width",
+        "divider_size": "full-width",
         "border_width": 1,
         "color_scheme_top": "scheme-1",
         "color_scheme_bottom": "",
