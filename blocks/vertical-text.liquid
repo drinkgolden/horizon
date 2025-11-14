@@ -13,22 +13,24 @@
 
 {% stylesheet %}
   .vertical-text-block--vertical {
-    writing-mode: vertical-lr;
+    writing-mode: vertical-rl;
     text-orientation: sideways;
-    white-space: normal;
+    transform: rotate(180deg);
+    transform-origin: center;
   }
 
   @media screen and (max-width: 749px) {
     .vertical-text-block--vertical.vertical-text-block--mobile-horizontal {
       writing-mode: horizontal-tb;
       text-orientation: mixed;
+      transform: none;
     }
   }
 {% endstylesheet %}
 
 {% schema %}
 {
-  "name": "Vertical text",
+  "name": "t:names.vertical_text",
   "tag": null,
   "settings": [
     {
@@ -422,17 +424,10 @@
   ],
   "presets": [
     {
-      "name": "t:names.text",
+      "name": "t:names.vertical_text",
       "category": "t:categories.basic",
       "settings": {
         "text": "t:html_defaults.make_things_better_extended"
-      }
-    },
-    {
-      "name": "t:names.heading",
-      "category": "t:categories.basic",
-      "settings": {
-        "text": "t:html_defaults.new_arrivals_h2"
       }
     }
   ]
