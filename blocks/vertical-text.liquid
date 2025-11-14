@@ -1,39 +1,27 @@
 {% assign block_settings = block.settings %}
 {% liquid
-  assign vertical_classes = ''
+  assign vertical_classes = 'vertical-text-block'
   if block_settings.display_vertically
-    assign vertical_classes = 'vertical-text-block vertical-text-block--rotated'
+    assign vertical_classes = vertical_classes | append: ' vertical-text-block--vertical'
     if block_settings.horizontal_on_mobile
       assign vertical_classes = vertical_classes | append: ' vertical-text-block--mobile-horizontal'
     endif
-  else
-    assign vertical_classes = 'vertical-text-block'
   endif
 %}
 
 {% render 'text', block: block, class: vertical_classes %}
 
 {% stylesheet %}
-  .vertical-text-block {
-    display: inline-flex;
-  }
-
-  .vertical-text-block:not(.vertical-text-block--rotated) {
-    display: block;
-  }
-
-  .vertical-text-block--rotated {
-    transform: rotate(-90deg);
-    transform-origin: top left;
-    white-space: nowrap;
+  .vertical-text-block--vertical {
+    writing-mode: vertical-lr;
+    text-orientation: sideways;
+    white-space: normal;
   }
 
   @media screen and (max-width: 749px) {
-    .vertical-text-block--rotated.vertical-text-block--mobile-horizontal {
-      display: block;
-      transform: none;
-      transform-origin: initial;
-      white-space: normal;
+    .vertical-text-block--vertical.vertical-text-block--mobile-horizontal {
+      writing-mode: horizontal-tb;
+      text-orientation: mixed;
     }
   }
 {% endstylesheet %}
