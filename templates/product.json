@@ -21,12 +21,12 @@
             "image_gap": 24,
             "large_first_image": false,
             "icons_style": "chevron",
-            "slideshow_controls_style": "counter",
+            "slideshow_controls_style": "dots",
             "slideshow_mobile_controls_style": "dots",
             "thumbnail_position": "bottom",
             "thumbnail_width": 72,
-            "aspect_ratio": "adapt",
-            "constrain_to_viewport": false,
+            "aspect_ratio": "1/1.25",
+            "constrain_to_viewport": true,
             "media_fit": "contain",
             "media_radius": 0,
             "extend_media": true,
@@ -44,7 +44,7 @@
           "type": "_product-details",
           "static": true,
           "settings": {
-            "width": "fit-content",
+            "width": "custom",
             "custom_width": 100,
             "width_mobile": "fill",
             "custom_width_mobile": 100,
@@ -61,8 +61,8 @@
             "border_width": 1,
             "border_opacity": 100,
             "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
+            "padding-block-start": 24,
+            "padding-block-end": 24,
             "padding-inline-start": 0,
             "padding-inline-end": 0
           },
@@ -271,6 +271,8 @@
                   "settings": {
                     "heading": "Return policy",
                     "open_by_default": false,
+                    "inherit_color_scheme": true,
+                    "color_scheme": "",
                     "icon": "none",
                     "width": 24
                   },
@@ -310,6 +312,8 @@
                   "settings": {
                     "heading": "Shipping",
                     "open_by_default": false,
+                    "inherit_color_scheme": true,
+                    "color_scheme": "",
                     "icon": "none",
                     "width": 24
                   },
@@ -349,6 +353,8 @@
                   "settings": {
                     "heading": "Manufacturing",
                     "open_by_default": false,
+                    "inherit_color_scheme": true,
+                    "color_scheme": "",
                     "icon": "none",
                     "width": 24
                   },
@@ -405,7 +411,7 @@
         "content_width": "content-full-width",
         "desktop_media_position": "left",
         "equal_columns": true,
-        "limit_details_width": false,
+        "limit_details_width": true,
         "gap": 0,
         "color_scheme": "",
         "padding-block-start": 0,

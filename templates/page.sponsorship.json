@@ -189,12 +189,7 @@
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
-            "padding-inline-end": 0,
-            "header_padding_block": 12,
-            "header_padding_inline": 24,
-            "content_padding_block": 0,
-            "content_padding_inline": 0,
-            "divider_padding_block": 0
+            "padding-inline-end": 0
           },
           "blocks": {
             "accordion_row_WiwbxN": {

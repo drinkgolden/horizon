@@ -842,10 +842,32 @@
   }
 
   .menu-drawer__body {
+    --drawer-border-scale: 0;
+
     flex: 1;
     display: flex;
     flex-direction: column;
     padding: var(--padding-lg);
+    position: relative;
+  }
+
+  .menu-drawer__body::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 1px;
+    background-color: #e5e5e5;
+    transform: scaleX(var(--drawer-border-scale));
+    transform-origin: center;
+    transition: transform var(--drawer-animation-speed, var(--animation-speed)) ease;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .menu-drawer-container[open] .menu-drawer__body {
+    --drawer-border-scale: 1;
   }
 
   .menu-drawer__top-bar {

@@ -96,6 +96,9 @@
   {% if media_aspect_ratio_value != blank %}
     --hero-carousel-media-aspect: {{ media_aspect_ratio_value }};
   {% endif %}
+  {% if section.settings.frame_height != 'default' %}
+    --hero-carousel-frame-height: {{ section.settings.frame_height }};
+  {% endif %}
 {% endcapture %}
 
 <div class="section-background color-{{ color_scheme }}"></div>
@@ -285,8 +288,9 @@
     position: relative;
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    align-items: stretch;
-    min-height: clamp(420px, 60vw, 720px);
+    align-items: center;
+    justify-content: center;
+    min-height: var(--hero-carousel-frame-height, clamp(420px, 60vw, 720px));
     column-gap: 0;
   }
 
@@ -313,6 +317,15 @@
     justify-content: center;
     box-sizing: border-box;
     width: 100%;
+  }
+
+  @media screen and (min-width: 990px) {
+    .hero-carousel__media {
+      align-self: stretch;
+      aspect-ratio: auto;
+      height: 100%;
+      padding-block: 0;
+    }
   }
 
   .hero-carousel__media-item {
@@ -678,6 +691,19 @@ document.querySelectorAll('[data-hero-carousel]').forEach((section) => {
         { "value": "left", "label": "Left align" },
         { "value": "right", "label": "Right align" }
       ]
+    },
+    {
+      "type": "select",
+      "id": "frame_height",
+      "label": "Section height",
+      "options": [
+        { "value": "default", "label": "Default" },
+        { "value": "70vh", "label": "70% of viewport" },
+        { "value": "80vh", "label": "80% of viewport" },
+        { "value": "90vh", "label": "90% of viewport" },
+        { "value": "100vh", "label": "Full viewport" }
+      ],
+      "default": "default"
     },
     {
       "type": "header",

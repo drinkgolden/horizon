@@ -266,6 +266,7 @@
   .overflow-menu::part(overflow) {
     --submenu-content-opacity: 0;
     --submenu-content-animation: opacity calc(var(--submenu-animation-speed) * 0.75) var(--animation-easing);
+    --submenu-border-scale: 0;
 
     box-shadow: var(--shadow-drawer);
     visibility: hidden;
@@ -280,6 +281,22 @@
     transition: clip-path var(--submenu-animation-speed) var(--ease-out-cubic);
   }
 
+  .menu-list__list-item:where(:not([slot='overflow'])) > .menu-list__submenu::before,
+  .overflow-menu::part(overflow)::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 1px;
+    background-color: #e5e5e5;
+    transform: scaleX(var(--submenu-border-scale));
+    transform-origin: center;
+    transition: transform var(--submenu-animation-speed) var(--ease-out-cubic);
+    pointer-events: none;
+    z-index: 1;
+  }
+
   /* Show the submenus on hover */
   .menu-list__list-item:has([aria-expanded='true']) > .menu-list__submenu,
   /* Show the overflow menu when a menu item is hovered */
@@ -288,12 +305,14 @@
   .menu-list__submenu:is(:hover),
   .overflow-menu::part(overflow):hover {
     --submenu-content-opacity: 1;
+    --submenu-border-scale: 1;
 
     visibility: visible;
   }
 
   .menu-list__list-item:has([data-animating]) > .menu-list__submenu {
     --submenu-content-opacity: 0;
+    --submenu-border-scale: 0;
 
     visibility: visible;
 
