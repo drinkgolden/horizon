@@ -189,7 +189,12 @@
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
-            "padding-inline-end": 0
+            "padding-inline-end": 0,
+            "header_padding_block": 6,
+            "header_padding_inline": 6,
+            "content_padding_block": 0,
+            "content_padding_inline": 0,
+            "divider_padding_block": 0
           },
           "blocks": {
             "accordion_row_HNMWDV": {

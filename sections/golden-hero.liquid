@@ -1,0 +1,118 @@
+{% comment %}
+  Golden Hero Section replicating the "Welcome to Golden" banner with background media and two call-to-action buttons.
+{% endcomment %}
+<section id="golden-hero-{{ section.id }}" class="golden-hero section" data-section-id="{{ section.id }}" data-section-type="golden-hero">
+  <div class="golden-hero__inner">
+    <div class="golden-hero__media">
+      {% if section.settings.hero_video %}
+        <video class="golden-hero__video" autoplay muted playsinline loop>
+          {% assign hero_video_source = section.settings.hero_video.sources | first %}
+          {% if hero_video_source %}
+            <source src="{{ hero_video_source.url }}" type="video/mp4">
+          {% endif %}
+        </video>
+      {% elsif section.settings.hero_image %}
+        <img
+          src="{{ section.settings.hero_image | image_url: width: 2000 }}"
+          alt="{{ section.settings.hero_image.alt | default: 'Hero background' | escape }}"
+          class="golden-hero__image"
+          loading="lazy"
+          width="{{ section.settings.hero_image.width }}"
+          height="{{ section.settings.hero_image.height }}"
+        >
+      {% endif %}
+    </div>
+    <div class="golden-hero__content">
+      <h1 class="golden-hero__heading">{{ section.settings.hero_heading }}</h1>
+      {% if section.settings.show_badges %}
+        <ul class="golden-hero__badges">
+          <li>Fairtrade</li>
+          <li>Organic</li>
+        </ul>
+      {% endif %}
+      <div class="golden-hero__buttons">
+        {% for btn in section.blocks %}
+          {% if btn.type == 'cta' %}
+            <a href="{{ btn.settings.link }}" class="golden-hero__btn{% if forloop.first %} golden-hero__btn--primary{% endif %}" {{ btn.shopify_attributes }}>
+              {{ btn.settings.label }}
+            </a>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Golden Hero",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "hero_heading",
+      "label": "Heading Text",
+      "default": "Welcome to Golden"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "video",
+      "id": "hero_video",
+      "label": "Background Video"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_badges",
+      "label": "Show Fairtrade & Organic Badges",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "cta",
+      "name": "CTA Button",
+      "settings": [
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Button Link"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Button Label",
+          "default": "Click me"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 2,
+  "presets": [
+    {
+      "name": "Golden Hero",
+      "category": "Golden",
+      "blocks": [
+        {
+          "type": "cta",
+          "settings": {
+            "link": "/collections/all",
+            "label": "Shop now"
+          }
+        },
+        {
+          "type": "cta",
+          "settings": {
+            "link": "#main-content",
+            "label": "I'm just browsing"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

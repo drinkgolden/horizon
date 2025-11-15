@@ -266,7 +266,6 @@
   .overflow-menu::part(overflow) {
     --submenu-content-opacity: 0;
     --submenu-content-animation: opacity calc(var(--submenu-animation-speed) * 0.75) var(--animation-easing);
-    --submenu-border-scale: 0;
 
     box-shadow: var(--shadow-drawer);
     visibility: hidden;
@@ -279,22 +278,13 @@
     padding-inline: var(--padding-inline);
     clip-path: rect(0 100% var(--submenu-height) 0); /* stylelint-disable-line */
     transition: clip-path var(--submenu-animation-speed) var(--ease-out-cubic);
-  }
-
-  .menu-list__list-item:where(:not([slot='overflow'])) > .menu-list__submenu::before,
-  .overflow-menu::part(overflow)::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    height: 1px;
-    background-color: #e5e5e5;
-    transform: scaleX(var(--submenu-border-scale));
-    transform-origin: center;
-    transition: transform var(--submenu-animation-speed) var(--ease-out-cubic);
-    pointer-events: none;
-    z-index: 1;
+    background-image: linear-gradient(
+      to bottom,
+      transparent calc(100% - var(--border-bottom-width, 0px)),
+      var(--color-border) calc(100% - var(--border-bottom-width, 0px)),
+      var(--color-border)
+    );
+    background-repeat: no-repeat;
   }
 
   /* Show the submenus on hover */
@@ -305,14 +295,12 @@
   .menu-list__submenu:is(:hover),
   .overflow-menu::part(overflow):hover {
     --submenu-content-opacity: 1;
-    --submenu-border-scale: 1;
 
     visibility: visible;
   }
 
   .menu-list__list-item:has([data-animating]) > .menu-list__submenu {
     --submenu-content-opacity: 0;
-    --submenu-border-scale: 0;
 
     visibility: visible;
 
@@ -856,11 +844,7 @@
       "type": "header",
       "content": "Drawer branding"
     },
-    {
-      "type": "image_picker",
-      "id": "drawer_brand_logo_image",
-      "label": "Drawer branding logo"
-    },
+    
     {
       "type": "text",
       "id": "drawer_logo_alt_text",

@@ -217,6 +217,7 @@
     --hero-border-style: {{ section.settings.border }};
     --hero-border-width: {{ section.settings.border_width }}px;
     --hero-border-opacity: {{ section.settings.border_opacity }}%;
+    --hero-splash-scroll-color: {{ section.settings.scroll_icon_color }};
     --blur-opacity: {{ section.settings.reflection_opacity | divided_by: 100.0 }};
     {% if section.settings.section_height == 'custom' %}
       --hero-min-height: {{ section.settings.section_height_custom }}svh;
@@ -285,6 +286,20 @@
       {% content_for 'blocks' %}
     </div>
   </div>
+
+{% if section.settings.show_scroll_button %}
+  <button
+    type="button"
+    class="hero-splash__scroll"
+    data-hero-splash-scroll
+    aria-label="{{ 'accessibility.skip_to_text' | t }}"
+  >
+    <svg width="72" height="72" viewBox="0 0 72 72" fill="none" aria-hidden="true">
+      <circle cx="36" cy="36" r="35" stroke="currentColor" opacity="0.2" />
+      <path d="M36 22v28M36 50l-8-8M36 50l8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  </button>
+{% endif %}
 </div>
 
 {% endif %}
@@ -296,7 +311,7 @@
 
   /* Being extra specific in the selector for performance reasons */
   body:has(> #header-group > .header-section > #header-component) .hero-wrapper:first-child {
-    --hero-height-offset: var(--header-height, 0px);
+    --hero-height-offset: var(--header-group-height, 0);
   }
 
   .hero {
@@ -463,6 +478,37 @@
     padding-bottom: calc(var(--padding-block-end, 0px) + var(--header-group-height, 0px));
   }
 
+  .hero--splash {
+    --hero-splash-scroll-size: clamp(40px, 8vw, 72px);
+  }
+
+.hero--splash .hero-splash__scroll {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(24px, 6vh, 72px);
+  transform: translate(-50%, 0);
+  width: var(--hero-splash-scroll-size);
+  height: var(--hero-splash-scroll-size);
+  border: none;
+  background: none;
+  color: var(--hero-splash-scroll-color, #ffffff);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: var(--layer-overlay);
+  transition: transform var(--animation-speed) var(--animation-easing);
+}
+
+.hero--splash .hero-splash__scroll svg {
+  width: 100%;
+  height: 100%;
+}
+
+.hero--splash .hero-splash__scroll:hover {
+  transform: translate(-50%, -6px);
+}
+
 
 {% endstylesheet %}
 
@@ -479,6 +525,22 @@
       const anyInView = sections.some((section) => section.dataset.renderAboveHeader === 'true' && section.dataset.heroInView === 'true');
       document.documentElement.setAttribute('data-hero-over-header', hasOverHeader ? 'true' : 'false');
       document.documentElement.setAttribute('data-hero-in-view', anyInView ? 'true' : 'false');
+    };
+
+    const initScrollButton = (sectionEl) => {
+      const button = sectionEl?.querySelector('[data-hero-splash-scroll]');
+      if (!button || button.dataset.initialized === 'true') {
+        return;
+      }
+
+      button.addEventListener('click', () => {
+        const next = sectionEl.nextElementSibling;
+        if (next instanceof HTMLElement) {
+          next.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+
+      button.dataset.initialized = 'true';
     };
 
     const connectObserver = (sectionEl) => {
@@ -512,6 +574,8 @@
       if (!sectionEl) {
         return { sectionEl: null, observer: null };
       }
+
+      initScrollButton(sectionEl);
 
       const rect = sectionEl.getBoundingClientRect();
       const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
@@ -593,6 +657,18 @@
       "id": "render_above_header",
       "label": "Render above header",
       "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_scroll_button",
+      "label": "Show scroll indicator",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "scroll_icon_color",
+      "label": "Scroll indicator color",
+      "default": "#FFFFFF"
     },
     {
       "type": "header",
@@ -1142,7 +1218,9 @@
         "toggle_overlay": true,
         "overlay_style": "gradient",
         "gradient_direction": "to top",
-        "render_above_header": true
+        "render_above_header": true,
+        "show_scroll_button": true,
+        "scroll_icon_color": "#FFFFFF"
       }
     }
   ]

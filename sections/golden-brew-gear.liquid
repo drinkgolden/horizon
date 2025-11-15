@@ -1,0 +1,61 @@
+{% comment %}
+  Golden brew gear promo section with heading, CTA, and optional imagery.
+{% endcomment %}
+<section id="golden-brew-gear-{{ section.id }}" class="golden-brew-gear section" data-section-id="{{ section.id }}" data-section-type="golden-brew-gear">
+  <div class="golden-brew-gear__inner">
+    <div class="golden-brew-gear__text">
+      <h3 class="golden-brew-gear__heading">{{ section.settings.gear_heading }}</h3>
+      <a href="{{ section.settings.cta_link }}" class="golden-brew-gear__cta">{{ section.settings.cta_label }}</a>
+    </div>
+    {% if section.settings.gear_image %}
+      <div class="golden-brew-gear__media">
+        <img
+          src="{{ section.settings.gear_image | image_url: width: 600 }}"
+          alt="{{ section.settings.gear_image.alt | default: 'Brew gear' | escape }}"
+          class="golden-brew-gear__img"
+          loading="lazy"
+          width="{{ section.settings.gear_image.width }}"
+          height="{{ section.settings.gear_image.height }}"
+        >
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Golden Brew Gear",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "gear_heading",
+      "label": "Heading",
+      "default": "Want to update your equipment?"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "CTA Link"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "CTA Link Label",
+      "default": "Shop our brew gear"
+    },
+    {
+      "type": "image_picker",
+      "id": "gear_image",
+      "label": "Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Golden Brew Gear",
+      "category": "Golden"
+    }
+  ]
+}
+{% endschema %}

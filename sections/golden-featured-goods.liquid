@@ -1,0 +1,114 @@
+{% comment %}
+  Golden featured goods grid featuring configurable product cards.
+{% endcomment %}
+<section id="golden-featured-{{ section.id }}" class="golden-featured-goods section" data-section-id="{{ section.id }}" data-section-type="golden-featured-goods">
+  <div class="golden-featured-goods__inner">
+    <h3 class="golden-featured-goods__title">{{ section.settings.section_heading }}</h3>
+    <div class="golden-featured-goods__grid">
+      {% for block in section.blocks %}
+        {% if block.type == 'product' and block.settings.product %}
+          {% assign product = block.settings.product %}
+          <div class="golden-product-card" {{ block.shopify_attributes }}>
+            <div class="golden-product-card__image">
+              <a href="{{ product.url }}">
+                <img
+                  src="{{ product.featured_image | image_url: width: 400 }}"
+                  alt="{{ product.featured_image.alt | default: product.title | escape }}"
+                  loading="lazy"
+                  width="{{ product.featured_image.width }}"
+                  height="{{ product.featured_image.height }}"
+                >
+              </a>
+            </div>
+            <div class="golden-product-card__info">
+              <div class="golden-product-card__name">{{ product.title }}</div>
+              {% if block.settings.subtext != blank %}
+                <div class="golden-product-card__subtext">{{ block.settings.subtext }}</div>
+              {% endif %}
+              <div class="golden-product-card__price">
+                {% if product.price_varies %}
+                  {{ 'products.product.from_lowest_price_html' | t: price: product.price_min | default: product.price_min | money }}
+                {% else %}
+                  {{ product.price | money }}
+                {% endif %}
+              </div>
+              <div class="golden-product-card__actions">
+                {% assign first_variant = product.selected_or_first_available_variant %}
+                <form method="post" action="/cart/add" class="golden-add-to-cart-form">
+                  <input type="hidden" name="id" value="{{ first_variant.id }}">
+                  {% if first_variant.available %}
+                    <button type="submit" class="golden-add-to-cart">{{ 'products.product.add_to_cart' | t }}</button>
+                  {% else %}
+                    <button type="submit" class="golden-add-to-cart" disabled>{{ 'products.product.sold_out' | t }}</button>
+                  {% endif %}
+                </form>
+                <a href="{{ product.url }}" class="golden-learn-more">{{ 'products.product.view_full_details' | t }}</a>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Golden Featured Goods",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading",
+      "default": "Featured goods"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Featured Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "text",
+          "id": "subtext",
+          "label": "Flavour Notes (optional)"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Golden Featured Goods",
+      "category": "Golden",
+      "blocks": [
+        {
+          "type": "product",
+          "settings": {
+            "subtext": "Chocolate · Caramel · Spice"
+          }
+        },
+        {
+          "type": "product",
+          "settings": {
+            "subtext": "Red Currant · Tropical Fruit · Butterscotch"
+          }
+        },
+        {
+          "type": "product",
+          "settings": {
+            "subtext": "Dark Chocolate · Hazelnut · Orange"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

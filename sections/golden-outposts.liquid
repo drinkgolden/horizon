@@ -1,0 +1,117 @@
+{% comment %}
+  Golden outposts listing showcasing configurable location cards and intro copy.
+{% endcomment %}
+<section id="golden-outposts-{{ section.id }}" class="golden-outposts section" data-section-id="{{ section.id }}" data-section-type="golden-outposts">
+  <div class="golden-outposts__inner">
+    <div class="golden-outposts__intro">{{ section.settings.intro_text }}</div>
+    <p><a href="{{ section.settings.outposts_link }}" class="golden-outposts__find-link">{{ section.settings.outposts_label }}</a></p>
+    <div class="golden-outposts__locations-list">
+      {% for block in section.blocks %}
+        {% if block.type == 'location' %}
+          <div class="golden-location-card" {{ block.shopify_attributes }}>
+            <h3 class="golden-location-card__name">{{ block.settings.location_name }}</h3>
+            <div class="golden-location-card__details">{{ block.settings.location_details }}</div>
+            <div class="golden-location-card__images">
+              {% if block.settings.image_1 %}
+                <img
+                  src="{{ block.settings.image_1 | image_url: width: 400 }}"
+                  alt="{{ block.settings.location_name | append: ' image 1' | escape }}"
+                  loading="lazy"
+                  width="{{ block.settings.image_1.width }}"
+                  height="{{ block.settings.image_1.height }}"
+                >
+              {% endif %}
+              {% if block.settings.image_2 %}
+                <img
+                  src="{{ block.settings.image_2 | image_url: width: 400 }}"
+                  alt="{{ block.settings.location_name | append: ' image 2' | escape }}"
+                  loading="lazy"
+                  width="{{ block.settings.image_2.width }}"
+                  height="{{ block.settings.image_2.height }}"
+                >
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Golden Outposts",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "intro_text",
+      "label": "Intro Text",
+      "default": "<p>We proudly supply some of the best cafés, restaurants and retailers around.</p>"
+    },
+    {
+      "type": "url",
+      "id": "outposts_link",
+      "label": "View All Outposts Link"
+    },
+    {
+      "type": "text",
+      "id": "outposts_label",
+      "label": "Link Label",
+      "default": "Find your nearest outpost"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "location",
+      "name": "Location",
+      "settings": [
+        {
+          "type": "text",
+          "id": "location_name",
+          "label": "Location Name"
+        },
+        {
+          "type": "richtext",
+          "id": "location_details",
+          "label": "Address & Hours Details"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_1",
+          "label": "Image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Image 2 (optional)"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    {
+      "name": "Golden Outposts",
+      "category": "Golden",
+      "blocks": [
+        {
+          "type": "location",
+          "settings": {
+            "location_name": "Golden Commercial Bay",
+            "location_details": "<p>Level 1 Commercial Bay, 7/21 Queen St, Auckland CBD<br />Weekdays: 6:45am — 3:30pm<br />Saturday: 8:30am — 4pm<br />Sunday: 9am — 4pm</p>"
+          }
+        },
+        {
+          "type": "location",
+          "settings": {
+            "location_name": "Roastery Roller Door",
+            "location_details": "<p>9 Charles Street, Mt Eden, Auckland<br />Weekdays: 8am — 4:30pm<br />Weekends: Closed</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,119 @@
+{% comment %}
+  Golden wholesale partner section with configurable CTA cards and optional decorative imagery.
+{% endcomment %}
+<section id="golden-partner-{{ section.id }}" class="golden-partner section" data-section-id="{{ section.id }}" data-section-type="golden-partner">
+  <div class="golden-partner__inner">
+    {% if section.settings.partner_image %}
+      <img
+        src="{{ section.settings.partner_image | image_url: width: 600 }}"
+        alt="{{ section.settings.partner_image.alt | default: 'Decorative image' | escape }}"
+        class="golden-partner__anim"
+        loading="lazy"
+        width="{{ section.settings.partner_image.width }}"
+        height="{{ section.settings.partner_image.height }}"
+      >
+    {% endif %}
+    <h2 class="golden-partner__heading">{{ section.settings.partner_heading_en }}</h2>
+    <h2 class="golden-partner__heading golden-partner__heading--maori">{{ section.settings.partner_heading_mi }}</h2>
+    <p class="golden-partner__intro">{{ section.settings.partner_intro }}</p>
+    <div class="golden-partner__links">
+      {% for block in section.blocks %}
+        {% if block.type == 'partner_link' %}
+          <a href="{{ block.settings.link }}" class="golden-partner__link-card" {{ block.shopify_attributes }}>
+            <strong>{{ block.settings.title }}</strong><br>
+            <span>{{ block.settings.subtitle }}</span>
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Golden Partner",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "partner_image",
+      "label": "Decorative Image (Animation)"
+    },
+    {
+      "type": "text",
+      "id": "partner_heading_en",
+      "label": "Heading (English)",
+      "default": "Hey there, partner"
+    },
+    {
+      "type": "text",
+      "id": "partner_heading_mi",
+      "label": "Heading (Māori)",
+      "default": "Kia ora, e hoa"
+    },
+    {
+      "type": "text",
+      "id": "partner_intro",
+      "label": "Intro Text",
+      "default": "We like to think we’re more than just a coffee supplier"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "partner_link",
+      "name": "Partner Link",
+      "settings": [
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link URL"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 3,
+  "presets": [
+    {
+      "name": "Golden Partner",
+      "category": "Golden",
+      "blocks": [
+        {
+          "type": "partner_link",
+          "settings": {
+            "title": "Workplace",
+            "subtitle": "Get coffee for your office",
+            "link": ""
+          }
+        },
+        {
+          "type": "partner_link",
+          "settings": {
+            "title": "Cafes & Restaurants",
+            "subtitle": "Join forces with us",
+            "link": ""
+          }
+        },
+        {
+          "type": "partner_link",
+          "settings": {
+            "title": "Retailers",
+            "subtitle": "Stock Golden",
+            "link": ""
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

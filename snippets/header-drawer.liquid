@@ -17,9 +17,8 @@
   assign image_border_radius = block_settings.image_border_radius
   assign drawer_color_scheme = block_settings.drawer_color_scheme | default: block_settings.color_scheme
   assign drawer_brand_text = block_settings.drawer_brand_text | default: shop.name
-  assign drawer_brand_logo_image = block_settings.drawer_brand_logo_image | default: section.settings.drawer_brand_logo_image
-  assign drawer_logo_image = block_settings.drawer_logo_image | default: section.settings.drawer_logo_image | default: drawer_brand_logo_image
-  assign drawer_logo_alt = block_settings.drawer_logo_alt | default: block_settings.drawer_logo_alt_text | default: drawer_logo_image.alt | default: drawer_brand_text
+  assign drawer_logo_image = block_settings.drawer_logo_image | default: section.settings.drawer_logo_image
+  assign drawer_logo_alt = block_settings.drawer_logo_alt | default: drawer_logo_image.alt | default: drawer_brand_text
   assign drawer_logo_top_image = block_settings.drawer_logo_top_image | default: section.settings.drawer_logo_top_image | default: drawer_logo_image
   assign drawer_logo_bottom_image = block_settings.drawer_logo_bottom_image | default: section.settings.drawer_logo_bottom_image | default: drawer_logo_image
   assign drawer_brand_column_width_value = block_settings.drawer_brand_column_width
@@ -842,32 +841,10 @@
   }
 
   .menu-drawer__body {
-    --drawer-border-scale: 0;
-
     flex: 1;
     display: flex;
     flex-direction: column;
     padding: var(--padding-lg);
-    position: relative;
-  }
-
-  .menu-drawer__body::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    height: 1px;
-    background-color: #e5e5e5;
-    transform: scaleX(var(--drawer-border-scale));
-    transform-origin: center;
-    transition: transform var(--drawer-animation-speed, var(--animation-speed)) ease;
-    pointer-events: none;
-    z-index: 1;
-  }
-
-  .menu-drawer-container[open] .menu-drawer__body {
-    --drawer-border-scale: 1;
   }
 
   .menu-drawer__top-bar {
