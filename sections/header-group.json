@@ -11,6 +11,27 @@
   "type": "header",
   "name": "Header",
   "sections": {
+    "logo_VYCtBA": {
+      "type": "logo",
+      "disabled": true,
+      "name": "t:names.logo",
+      "settings": {
+        "inverse": true,
+        "font": "heading",
+        "unit": "percent",
+        "pixel_height": 320,
+        "percent_width": 100,
+        "custom_mobile_size": true,
+        "unit_mobile": "percent",
+        "percent_width_mobile": 100,
+        "pixel_height_mobile": 120,
+        "section_width": "page-width",
+        "alignment_horizontal": "center",
+        "color_scheme": "scheme-2",
+        "padding-block-start": 32,
+        "padding-block-end": 32
+      }
+    },
     "header_announcements_9jGBFp": {
       "type": "header-announcements",
       "blocks": {
@@ -35,7 +56,7 @@
       "settings": {
         "speed": 10,
         "section_width": "full-width",
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-5",
         "divider_width": 0,
         "padding-block-start": 12,
         "padding-block-end": 12
@@ -64,15 +85,19 @@
             "color_scheme": "scheme-1",
             "drawer_color_scheme": "scheme-2",
             "drawer_brand_text": "",
+            "drawer_brand_column_width": 15,
+            "drawer_brand_column_padding": 16,
+            "drawer_logo_image": "shopify://shop_images/Wordmark_Vertical.svg",
+            "drawer_logo_alt": "Golden",
             "type_font_primary_size": "1rem",
             "menu_font_style": "inverse",
             "type_font_primary_link": "body",
             "type_case_primary_link": "none",
             "menu_style": "featured_products",
-            "featured_products_aspect_ratio": "4 / 5",
+            "featured_products_aspect_ratio": "adapt",
             "featured_collections_aspect_ratio": "16 / 9",
             "image_border_radius": 0,
-            "drawer_logo_image": "shopify://shop_images/Wordmark_Vertical.svg",
+            "drawer_brand_logo_image": "shopify://shop_images/Wordmark_Vertical.svg",
             "drawer_logo_alt_text": "",
             "drawer_logo_size": 200,
             "drawer_logo_padding_block_start": 0,
@@ -106,11 +131,11 @@
         "localization_font_size": "1rem",
         "localization_position": "right",
         "localization_row": "bottom",
-        "section_width": "full-width",
+        "section_width": "page-width",
         "section_height": "standard",
         "enable_sticky_header": "always",
         "divider_width": 0,
-        "divider_size": "full-width",
+        "divider_size": "page-width",
         "border_width": 1,
         "color_scheme_top": "scheme-1",
         "color_scheme_bottom": "",
@@ -125,6 +150,7 @@
     }
   },
   "order": [
+    "logo_VYCtBA",
     "header_announcements_9jGBFp",
     "header_section"
   ]
