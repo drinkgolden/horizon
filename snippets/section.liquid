@@ -21,7 +21,7 @@
 {%- assign split_mode = '' -%}
 {%- if is_split_showcase -%}
   {%- assign split_mode = 'carousel' -%}
-  {%- assign split_divider_color = section.settings.split_divider_color | default: settings.vertical_divider_color | default: '#d9d9d9' -%}
+  {%- assign split_divider_color = section.settings.split_divider_color | default: settings.section_gridline_color | default: '#d9d9d9' -%}
 {%- endif -%}
 
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
@@ -117,7 +117,7 @@
     )
     > main
     > .section-wrapper:first-child {
-    --section-height-offset: var(--header-group-height, 0);
+    --section-height-offset: var(--header-height, 0px);
   }
 
   .custom-section-background {
