@@ -278,13 +278,6 @@
     padding-inline: var(--padding-inline);
     clip-path: rect(0 100% var(--submenu-height) 0); /* stylelint-disable-line */
     transition: clip-path var(--submenu-animation-speed) var(--ease-out-cubic);
-    background-image: linear-gradient(
-      to bottom,
-      transparent calc(100% - var(--border-bottom-width, 0px)),
-      var(--color-border) calc(100% - var(--border-bottom-width, 0px)),
-      var(--color-border)
-    );
-    background-repeat: no-repeat;
   }
 
   /* Show the submenus on hover */
@@ -844,7 +837,11 @@
       "type": "header",
       "content": "Drawer branding"
     },
-    
+    {
+      "type": "image_picker",
+      "id": "drawer_brand_logo_image",
+      "label": "Drawer branding logo"
+    },
     {
       "type": "text",
       "id": "drawer_logo_alt_text",

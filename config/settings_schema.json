@@ -1525,37 +1525,43 @@
     ]
   },
   {
-    "name": "Section lines",
+    "name": "Section gridlines",
     "settings": [
       {
         "type": "checkbox",
         "id": "section_gridlines_enable",
-        "label": "Show vertical divider line",
+        "label": "Enable section gridlines",
         "default": true
       },
       {
         "type": "checkbox",
         "id": "section_gridlines_horizontal",
-        "label": "Show horizontal lines between sections",
+        "label": "Show horizontal dividers",
         "default": true
       },
       {
         "type": "paragraph",
-        "content": "Controls the thin 1px dividers that separate content. Vertical lines run between split layouts; horizontal lines appear between stacked sections."
+        "content": "Adds fine 1px dividers above and below each content section, and optional vertical rails inside the global borders."
       },
       {
         "type": "color",
         "id": "section_gridline_color",
-        "label": "Line color",
+        "label": "Gridline color",
         "default": "#e5e5e5",
         "alpha": true
       },
       {
         "type": "color",
         "id": "section_gridline_color_dark",
-        "label": "Line color on dark backgrounds",
+        "label": "Gridline color on dark backgrounds",
         "default": "rgba(255,255,255,0.12)",
         "alpha": true
+      },
+      {
+        "type": "color",
+        "id": "vertical_divider_color",
+        "label": "Vertical divider color",
+        "default": "#d9d9d9"
       }
     ]
   },
