@@ -339,7 +339,7 @@
           "primary_button_border": "primary_button_border",
           "secondary_button": "secondary_button_background",
           "on_secondary_button": "secondary_button_text",
-        "secondary_button_border": "secondary_button_border"
+          "secondary_button_border": "secondary_button_border"
         }
       }
     ]
@@ -1442,48 +1442,7 @@
       },
       {
         "type": "header",
-        "content": "Guided scrolling"
-      },
-      {
-        "type": "checkbox",
-        "id": "enable_guided_scroll",
-        "label": "Enable guided scroll",
-        "default": false
-      },
-      {
-        "type": "checkbox",
-        "id": "guided_scroll_enable_mobile",
-        "label": "Enable guided scroll on mobile",
-        "default": false,
-        "visible_if": "{{ settings.enable_guided_scroll }}"
-      },
-      {
-        "type": "select",
-        "id": "guided_scroll_alignment",
-        "label": "Scroll snap alignment",
-        "options": [
-          {
-            "value": "start",
-            "label": "Start"
-          },
-          {
-            "value": "center",
-            "label": "Center"
-          }
-        ],
-        "default": "start",
-        "visible_if": "{{ settings.enable_guided_scroll }}"
-      },
-      {
-        "type": "range",
-        "id": "guided_scroll_section_gap",
-        "label": "Snap buffer",
-        "min": 0,
-        "max": 200,
-        "step": 4,
-        "unit": "px",
-        "default": 48,
-        "visible_if": "{{ settings.enable_guided_scroll }}"
+        "content": "Floating motif button"
       },
       {
         "type": "header",
@@ -1575,8 +1534,14 @@
         "default": true
       },
       {
+        "type": "checkbox",
+        "id": "section_gridlines_horizontal",
+        "label": "Show horizontal dividers",
+        "default": true
+      },
+      {
         "type": "paragraph",
-        "content": "Adds fine 1px dividers above and below each content section."
+        "content": "Adds fine 1px dividers above and below each content section, and optional vertical rails inside the global borders."
       },
       {
         "type": "color",
@@ -1591,6 +1556,12 @@
         "label": "Gridline color on dark backgrounds",
         "default": "rgba(255,255,255,0.12)",
         "alpha": true
+      },
+      {
+        "type": "color",
+        "id": "vertical_divider_color",
+        "label": "Vertical divider color",
+        "default": "#d9d9d9"
       }
     ]
   },

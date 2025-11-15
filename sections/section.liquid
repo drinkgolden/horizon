@@ -21,9 +21,6 @@
       "type": "_divider"
     }
   ],
-  "disabled_on": {
-    "groups": ["header"]
-  },
   "settings": [
     {
       "type": "header",
@@ -337,6 +334,13 @@
       "label": "t:settings.border_opacity",
       "default": 100,
       "visible_if": "{{ section.settings.border != 'none' }}"
+    },
+    {
+      "type": "color",
+      "id": "split_divider_color",
+      "label": "Split showcase divider color",
+      "info": "Only affects Split Showcase sections.",
+      "default": "#d9d9d9"
     },
     {
       "type": "range",

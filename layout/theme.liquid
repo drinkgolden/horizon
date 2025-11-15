@@ -4,12 +4,6 @@
   if request.design_mode
     assign html_classes = html_classes | append: ' shopify-design-mode'
   endif
-  if settings.enable_guided_scroll
-    assign html_classes = html_classes | append: ' guided-scroll-root'
-    if settings.guided_scroll_enable_mobile
-      assign html_classes = html_classes | append: ' guided-scroll-root--mobile'
-    endif
-  endif
 %}
 <html class="{{ html_classes }}" lang="{{ request.locale.iso_code }}">
   <head>
@@ -43,6 +37,11 @@
     {{ content_for_header }}
 
     {{ 'font-override.css' | asset_url | stylesheet_tag }}
+    <style id="SplitShowcaseDividerColor">
+      :root {
+        --vertical-divider-color: {{ section_gridline_color | default: '#e5e5e5' }};
+      }
+    </style>
   </head>
 
   {% liquid
@@ -53,17 +52,14 @@
         assign body_classes = body_classes | append: ' has-side-columns--mobile'
       endif
     endif
-    if settings.enable_guided_scroll
-      assign body_classes = body_classes | append: ' has-guided-scroll'
-      if settings.guided_scroll_enable_mobile
-        assign body_classes = body_classes | append: ' has-guided-scroll--mobile'
-      endif
-    endif
     if settings.enable_bottom_motif_button
       assign body_classes = body_classes | append: ' has-floating-motif-button'
     endif
     if settings.section_gridlines_enable
       assign body_classes = body_classes | append: ' has-section-gridlines'
+      if settings.section_gridlines_horizontal
+        assign body_classes = body_classes | append: ' has-section-gridlines-horizontal'
+      endif
     endif
     assign section_gridline_color = settings.section_gridline_color | default: '#e5e5e5'
     assign section_gridline_color_dark = settings.section_gridline_color_dark | default: 'rgba(255,255,255,0.12)'
@@ -75,10 +71,6 @@
       --side-column-background-color: {{ settings.side_columns_background_color | default: 'transparent' }};
       --side-column-border-color: {{ settings.side_columns_border_color | default: 'transparent' }};
       --side-columns-overhang: 12px;
-    {% endif %}
-    {% if settings.enable_guided_scroll %}
-      --guided-scroll-gap: {{ settings.guided_scroll_section_gap | default: 48 }}px;
-      --guided-scroll-align: {{ settings.guided_scroll_alignment | default: 'start' }};
     {% endif %}
     {% if settings.enable_bottom_motif_button %}
       --motif-button-max-width-desktop: {{ settings.bottom_motif_button_max_width_desktop | default: 360 }}px;
