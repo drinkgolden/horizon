@@ -380,7 +380,7 @@
           "type": "footer-policy-list",
           "settings": {
             "font_size": "0.75rem",
-            "case": "none"
+            "case": "uppercase"
           },
           "blocks": {}
         }
@@ -393,7 +393,7 @@
         "section_width": "full-width",
         "gap": 0,
         "divider_thickness": 0,
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-6",
         "padding-block-start": 24,
         "padding-block-end": 24,
         "padding-inline-start": 24,
