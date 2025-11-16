@@ -55,7 +55,7 @@
               "settings": {
                 "heading": "Mānuka Honey Soda",
                 "open_by_default": false,
-                "inherit_color_scheme": true,
+                "inherit_color_scheme": false,
                 "color_scheme": "",
                 "icon": "none",
                 "width": 12
@@ -1940,7 +1940,7 @@
             "gap": 0,
             "width": "fill",
             "custom_width": 100,
-            "width_mobile": "fit-content",
+            "width_mobile": "fill",
             "custom_width_mobile": 100,
             "height": "fill",
             "custom_height": 78,
@@ -1966,40 +1966,15 @@
             "padding-inline-end": 24
           },
           "blocks": {
-            "text_kQKWiE": {
-              "type": "text",
-              "settings": {
-                "text": "<h4>Blackcurrant</h4>",
-                "width": "100%",
-                "max_width": "none",
-                "alignment": "center",
-                "type_preset": "h4",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
             "vertical_text_RN7Fje": {
               "type": "vertical-text",
               "name": "t:names.text",
               "settings": {
                 "display_vertically": true,
                 "horizontal_on_mobile": true,
-                "text": "<p>We make things that work better and last longer. Our products solve real problems with clean design and honest materials.</p>",
+                "text": "<h3>BLACKCURRANT</h3>",
                 "width": "fit-content",
-                "max_width": "normal",
+                "max_width": "none",
                 "alignment": "left",
                 "type_preset": "rte",
                 "font": "var(--font-body--family)",
@@ -2021,13 +1996,12 @@
             }
           },
           "block_order": [
-            "text_kQKWiE",
             "vertical_text_RN7Fje"
           ]
         },
-        "group_JJTDr4": {
+        "group_KrYQaD": {
           "type": "group",
-          "name": "Ginger",
+          "name": "GINGER",
           "settings": {
             "content_direction": "column",
             "vertical_on_mobile": true,
@@ -2035,11 +2009,11 @@
             "vertical_alignment": "center",
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "center",
-            "vertical_alignment_flex_direction_column": "space-between",
-            "gap": 32,
+            "vertical_alignment_flex_direction_column": "flex-start",
+            "gap": 0,
             "width": "fill",
             "custom_width": 100,
-            "width_mobile": "fit-content",
+            "width_mobile": "fill",
             "custom_width_mobile": 100,
             "height": "fill",
             "custom_height": 78,
@@ -2061,18 +2035,21 @@
             "placeholder": "hero-apparel-2",
             "padding-block-start": 24,
             "padding-block-end": 24,
-            "padding-inline-start": 12,
-            "padding-inline-end": 12
+            "padding-inline-start": 24,
+            "padding-inline-end": 24
           },
           "blocks": {
-            "text_Qam9De": {
-              "type": "text",
+            "vertical_text_rGG4bN": {
+              "type": "vertical-text",
+              "name": "t:names.text",
               "settings": {
-                "text": "<h4>Ginger</h4>",
-                "width": "100%",
+                "display_vertically": true,
+                "horizontal_on_mobile": true,
+                "text": "<h3>GINGER</h3>",
+                "width": "fit-content",
                 "max_width": "none",
-                "alignment": "center",
-                "type_preset": "h4",
+                "alignment": "left",
+                "type_preset": "rte",
                 "font": "var(--font-body--family)",
                 "font_size": "1rem",
                 "line_height": "normal",
@@ -2092,12 +2069,12 @@
             }
           },
           "block_order": [
-            "text_Qam9De"
+            "vertical_text_rGG4bN"
           ]
         },
-        "group_mNzUPT": {
+        "group_HiJjyb": {
           "type": "group",
-          "name": "Lemon",
+          "name": "LEMON",
           "settings": {
             "content_direction": "column",
             "vertical_on_mobile": true,
@@ -2105,14 +2082,14 @@
             "vertical_alignment": "center",
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "center",
-            "vertical_alignment_flex_direction_column": "space-between",
-            "gap": 32,
+            "vertical_alignment_flex_direction_column": "flex-start",
+            "gap": 0,
             "width": "fill",
             "custom_width": 100,
-            "width_mobile": "fit-content",
+            "width_mobile": "fill",
             "custom_width_mobile": 100,
             "height": "fill",
-            "custom_height": 100,
+            "custom_height": 78,
             "inherit_color_scheme": false,
             "color_scheme": "scheme-5",
             "background_media": "none",
@@ -2123,7 +2100,7 @@
             "border_opacity": 100,
             "border_radius": 0,
             "toggle_overlay": false,
-            "overlay_color": "#00000026",
+            "overlay_color": "#395382",
             "overlay_style": "solid",
             "gradient_direction": "to top",
             "link": "",
@@ -2135,14 +2112,17 @@
             "padding-inline-end": 24
           },
           "blocks": {
-            "text_MFL3Bd": {
-              "type": "text",
+            "vertical_text_4E3tRU": {
+              "type": "vertical-text",
+              "name": "t:names.text",
               "settings": {
-                "text": "<h3>Lemon</h3>",
-                "width": "100%",
+                "display_vertically": true,
+                "horizontal_on_mobile": true,
+                "text": "<h3>LEMON</h3>",
+                "width": "fit-content",
                 "max_width": "none",
-                "alignment": "center",
-                "type_preset": "h4",
+                "alignment": "left",
+                "type_preset": "rte",
                 "font": "var(--font-body--family)",
                 "font_size": "1rem",
                 "line_height": "normal",
@@ -2162,12 +2142,12 @@
             }
           },
           "block_order": [
-            "text_MFL3Bd"
+            "vertical_text_4E3tRU"
           ]
         },
-        "group_FxcKVw": {
+        "group_wEXUqE": {
           "type": "group",
-          "name": "Mandarin",
+          "name": "MANDARIN",
           "settings": {
             "content_direction": "column",
             "vertical_on_mobile": true,
@@ -2175,14 +2155,14 @@
             "vertical_alignment": "center",
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "center",
-            "vertical_alignment_flex_direction_column": "space-between",
-            "gap": 32,
+            "vertical_alignment_flex_direction_column": "flex-start",
+            "gap": 0,
             "width": "fill",
             "custom_width": 100,
-            "width_mobile": "fit-content",
+            "width_mobile": "fill",
             "custom_width_mobile": 100,
             "height": "fill",
-            "custom_height": 100,
+            "custom_height": 78,
             "inherit_color_scheme": false,
             "color_scheme": "scheme-7",
             "background_media": "none",
@@ -2193,7 +2173,7 @@
             "border_opacity": 100,
             "border_radius": 0,
             "toggle_overlay": false,
-            "overlay_color": "#00000026",
+            "overlay_color": "#395382",
             "overlay_style": "solid",
             "gradient_direction": "to top",
             "link": "",
@@ -2205,14 +2185,17 @@
             "padding-inline-end": 24
           },
           "blocks": {
-            "text_mA9hEC": {
-              "type": "text",
+            "vertical_text_kzYdVr": {
+              "type": "vertical-text",
+              "name": "t:names.text",
               "settings": {
-                "text": "<h3>Mandarin</h3>",
-                "width": "100%",
+                "display_vertically": true,
+                "horizontal_on_mobile": true,
+                "text": "<h3>MANDARIN</h3>",
+                "width": "fit-content",
                 "max_width": "none",
-                "alignment": "center",
-                "type_preset": "h4",
+                "alignment": "left",
+                "type_preset": "rte",
                 "font": "var(--font-body--family)",
                 "font_size": "1rem",
                 "line_height": "normal",
@@ -2232,12 +2215,12 @@
             }
           },
           "block_order": [
-            "text_mA9hEC"
+            "vertical_text_kzYdVr"
           ]
         },
-        "group_ghnXpN": {
+        "group_3GBhy3": {
           "type": "group",
-          "name": "Lime",
+          "name": "LIME",
           "settings": {
             "content_direction": "column",
             "vertical_on_mobile": true,
@@ -2245,14 +2228,14 @@
             "vertical_alignment": "center",
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "center",
-            "vertical_alignment_flex_direction_column": "space-between",
-            "gap": 32,
+            "vertical_alignment_flex_direction_column": "flex-start",
+            "gap": 0,
             "width": "fill",
             "custom_width": 100,
-            "width_mobile": "fit-content",
+            "width_mobile": "fill",
             "custom_width_mobile": 100,
             "height": "fill",
-            "custom_height": 100,
+            "custom_height": 78,
             "inherit_color_scheme": false,
             "color_scheme": "scheme-6",
             "background_media": "none",
@@ -2263,7 +2246,7 @@
             "border_opacity": 100,
             "border_radius": 0,
             "toggle_overlay": false,
-            "overlay_color": "#00000026",
+            "overlay_color": "#395382",
             "overlay_style": "solid",
             "gradient_direction": "to top",
             "link": "",
@@ -2275,14 +2258,17 @@
             "padding-inline-end": 24
           },
           "blocks": {
-            "text_wpkRpU": {
-              "type": "text",
+            "vertical_text_tdHa8t": {
+              "type": "vertical-text",
+              "name": "t:names.text",
               "settings": {
-                "text": "<h3>Lime</h3>",
-                "width": "100%",
+                "display_vertically": true,
+                "horizontal_on_mobile": true,
+                "text": "<h3>LIME</h3>",
+                "width": "fit-content",
                 "max_width": "none",
-                "alignment": "center",
-                "type_preset": "h4",
+                "alignment": "left",
+                "type_preset": "rte",
                 "font": "var(--font-body--family)",
                 "font_size": "1rem",
                 "line_height": "normal",
@@ -2302,12 +2288,12 @@
             }
           },
           "block_order": [
-            "text_wpkRpU"
+            "vertical_text_tdHa8t"
           ]
         },
-        "group_rj34YL": {
+        "group_bCtEiP": {
           "type": "group",
-          "name": "Grapefruit",
+          "name": "GRAPEFRUIT",
           "settings": {
             "content_direction": "column",
             "vertical_on_mobile": true,
@@ -2315,14 +2301,14 @@
             "vertical_alignment": "center",
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "center",
-            "vertical_alignment_flex_direction_column": "space-between",
-            "gap": 32,
+            "vertical_alignment_flex_direction_column": "flex-start",
+            "gap": 0,
             "width": "fill",
             "custom_width": 100,
-            "width_mobile": "fit-content",
+            "width_mobile": "fill",
             "custom_width_mobile": 100,
             "height": "fill",
-            "custom_height": 100,
+            "custom_height": 78,
             "inherit_color_scheme": false,
             "color_scheme": "scheme-8",
             "background_media": "none",
@@ -2333,7 +2319,7 @@
             "border_opacity": 100,
             "border_radius": 0,
             "toggle_overlay": false,
-            "overlay_color": "#00000026",
+            "overlay_color": "#395382",
             "overlay_style": "solid",
             "gradient_direction": "to top",
             "link": "",
@@ -2345,14 +2331,17 @@
             "padding-inline-end": 24
           },
           "blocks": {
-            "text_8crAYa": {
-              "type": "text",
+            "vertical_text_Ni7q9d": {
+              "type": "vertical-text",
+              "name": "t:names.text",
               "settings": {
-                "text": "<h3>Grapefruit</h3>",
-                "width": "100%",
+                "display_vertically": true,
+                "horizontal_on_mobile": true,
+                "text": "<h3>GRAPEFRUIT</h3>",
+                "width": "fit-content",
                 "max_width": "none",
-                "alignment": "center",
-                "type_preset": "h4",
+                "alignment": "left",
+                "type_preset": "rte",
                 "font": "var(--font-body--family)",
                 "font_size": "1rem",
                 "line_height": "normal",
@@ -2372,12 +2361,12 @@
             }
           },
           "block_order": [
-            "text_8crAYa"
+            "vertical_text_Ni7q9d"
           ]
         },
-        "group_q8eVmK": {
+        "group_qMJG8b": {
           "type": "group",
-          "name": "Cherry",
+          "name": "CHERRY",
           "settings": {
             "content_direction": "column",
             "vertical_on_mobile": true,
@@ -2385,14 +2374,14 @@
             "vertical_alignment": "center",
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "center",
-            "vertical_alignment_flex_direction_column": "space-between",
-            "gap": 32,
+            "vertical_alignment_flex_direction_column": "flex-start",
+            "gap": 0,
             "width": "fill",
             "custom_width": 100,
-            "width_mobile": "fit-content",
+            "width_mobile": "fill",
             "custom_width_mobile": 100,
             "height": "fill",
-            "custom_height": 100,
+            "custom_height": 78,
             "inherit_color_scheme": false,
             "color_scheme": "scheme-3",
             "background_media": "none",
@@ -2403,26 +2392,29 @@
             "border_opacity": 100,
             "border_radius": 0,
             "toggle_overlay": false,
-            "overlay_color": "#00000026",
+            "overlay_color": "#395382",
             "overlay_style": "solid",
             "gradient_direction": "to top",
             "link": "",
             "open_in_new_tab": false,
-            "placeholder": "hero-apparel-1",
+            "placeholder": "hero-apparel-2",
             "padding-block-start": 24,
             "padding-block-end": 24,
             "padding-inline-start": 24,
             "padding-inline-end": 24
           },
           "blocks": {
-            "text_wwwRCk": {
-              "type": "text",
+            "vertical_text_CDGUFF": {
+              "type": "vertical-text",
+              "name": "t:names.text",
               "settings": {
-                "text": "<h3>Cherry</h3>",
+                "display_vertically": true,
+                "horizontal_on_mobile": true,
+                "text": "<h3>CHERRY</h3>",
                 "width": "fit-content",
                 "max_width": "none",
-                "alignment": "center",
-                "type_preset": "h4",
+                "alignment": "left",
+                "type_preset": "rte",
                 "font": "var(--font-body--family)",
                 "font_size": "1rem",
                 "line_height": "normal",
@@ -2442,18 +2434,18 @@
             }
           },
           "block_order": [
-            "text_wwwRCk"
+            "vertical_text_CDGUFF"
           ]
         }
       },
       "block_order": [
         "group_78wnze",
-        "group_JJTDr4",
-        "group_mNzUPT",
-        "group_FxcKVw",
-        "group_ghnXpN",
-        "group_rj34YL",
-        "group_q8eVmK"
+        "group_KrYQaD",
+        "group_HiJjyb",
+        "group_wEXUqE",
+        "group_3GBhy3",
+        "group_bCtEiP",
+        "group_qMJG8b"
       ],
       "name": "t:names.split_showcase",
       "settings": {
