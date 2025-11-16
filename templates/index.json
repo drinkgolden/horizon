@@ -80,7 +80,7 @@
                     "background_color": "#00000026",
                     "corner_radius": 0,
                     "padding-block-start": 0,
-                    "padding-block-end": 0,
+                    "padding-block-end": 12,
                     "padding-inline-start": 0,
                     "padding-inline-end": 0
                   },
@@ -96,7 +96,7 @@
               "settings": {
                 "heading": "Product of New Zealand",
                 "open_by_default": false,
-                "inherit_color_scheme": true,
+                "inherit_color_scheme": false,
                 "color_scheme": "",
                 "icon": "none",
                 "width": 12
@@ -121,7 +121,7 @@
                     "background_color": "#00000026",
                     "corner_radius": 0,
                     "padding-block-start": 0,
-                    "padding-block-end": 0,
+                    "padding-block-end": 12,
                     "padding-inline-start": 0,
                     "padding-inline-end": 0
                   },
@@ -137,7 +137,7 @@
               "settings": {
                 "heading": "Low Cal",
                 "open_by_default": false,
-                "inherit_color_scheme": true,
+                "inherit_color_scheme": false,
                 "color_scheme": "",
                 "icon": "none",
                 "width": 12
@@ -162,7 +162,7 @@
                     "background_color": "#00000026",
                     "corner_radius": 0,
                     "padding-block-start": 0,
-                    "padding-block-end": 0,
+                    "padding-block-end": 12,
                     "padding-inline-start": 0,
                     "padding-inline-end": 0
                   },
@@ -198,7 +198,7 @@
         "section_width": "full-width",
         "section_height": "custom",
         "section_height_custom": 40,
-        "color_scheme": "scheme-7",
+        "color_scheme": "scheme-5",
         "background_media": "none",
         "video_position": "cover",
         "background_image_position": "cover",
@@ -690,6 +690,47 @@
         "padding-block-end": 42
       }
     },
+    "marquee_qq9cG8": {
+      "type": "marquee",
+      "blocks": {
+        "text_ddgJPp": {
+          "type": "text",
+          "settings": {
+            "text": "<h4>DAILY BREAD PEACHES BOWLER BEAU DELI </h4>",
+            "width": "100%",
+            "max_width": "none",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "tight",
+            "letter_spacing": "tight",
+            "case": "none",
+            "wrap": "nowrap",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_ddgJPp"
+      ],
+      "name": "t:names.marquee_section",
+      "settings": {
+        "movement_direction": "normal",
+        "color_scheme": "scheme-8",
+        "padding-block-start": 24,
+        "padding-block-end": 24,
+        "gap_between_elements": 24
+      }
+    },
     "hero_kCVtyD": {
       "type": "hero",
       "blocks": {
@@ -967,8 +1008,8 @@
                       "settings": {
                         "heading": "Return policy",
                         "open_by_default": false,
-                        "inherit_color_scheme": true,
-                        "color_scheme": "",
+                        "inherit_color_scheme": false,
+                        "color_scheme": "scheme-c5fa6718-0a4b-4ae8-a694-49004d9a95f8",
                         "icon": "none",
                         "width": 20
                       },
@@ -2581,6 +2622,7 @@
   "order": [
     "section_wi6VEg",
     "section_KKkpbN",
+    "marquee_qq9cG8",
     "hero_kCVtyD",
     "section_TdbYrW",
     "featured_blog_posts_EgLy9B",
