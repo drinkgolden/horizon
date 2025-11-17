@@ -1,0 +1,246 @@
+{% assign section_settings = section.settings %}
+<div
+  class="accordion accordion--section-{{ section.id }} accordion--{{ section_settings.icon }} border-style spacing-style force-full-width{% if section_settings.inherit_color_scheme == false %} color-{{ section_settings.color_scheme }}{% endif %}{% if section_settings.dividers %} accordion--dividers{% endif %}"
+  style="
+    --summary-font-family: var(--font-{{ section_settings.type_preset }}--family);
+    --summary-font-style: var(--font-{{ section_settings.type_preset }}--style);
+    --summary-font-weight: var(--font-{{ section_settings.type_preset }}--weight);
+    --summary-font-size: var(--font-{{ section_settings.type_preset }}--size);
+    --summary-font-line-height: var(--font-{{ section_settings.type_preset }}--line-height);
+    --summary-font-case: var(--font-{{ section_settings.type_preset }}--case);
+    {% render 'spacing-style', settings: section_settings %}
+    {% render 'border-override', settings: section_settings %}
+    --accordion-divider-color: var(--color-border);
+  "
+  data-section-id="{{ section.id }}"
+>
+  {% for block in section.blocks %}
+    {% render block %}
+  {% endfor %}
+</div>
+
+{% stylesheet %}
+  .accordion {
+    flex: 1;
+    width: 100%;
+  }
+
+  .accordion accordion-custom {
+    display: block;
+  }
+
+  .accordion accordion-custom .details {
+    box-sizing: border-box;
+    width: calc(100% + var(--padding-inline-start, 0px) + var(--padding-inline-end, 0px));
+    margin-inline-start: calc(var(--padding-inline-start, 0px) * -1);
+    margin-inline-end: calc(var(--padding-inline-end, 0px) * -1);
+  }
+
+  .accordion summary {
+    padding-inline-start: var(--padding-inline-start, 0px);
+    padding-inline-end: var(--padding-inline-end, 0px);
+    padding-block: var(--padding-sm);
+  }
+
+  .accordion accordion-custom .details-content {
+    padding-inline-start: var(--padding-inline-start, 0px);
+    padding-inline-end: var(--padding-inline-end, 0px);
+    padding-block-start: 0;
+    padding-block-end: 0;
+  }
+
+  .accordion--dividers {
+    --show-fallback-borders: 0;
+  }
+
+  .accordion--dividers:not([class*='color-'])[style*='--border-width: 0'],
+  .accordion--dividers:not([class*='color-'])[style*='--border-style: none'] {
+    --show-fallback-borders: 1;
+  }
+
+  .accordion--dividers .accordion-row + .accordion-row .details {
+    border-block-start: var(--style-border-width) solid var(--accordion-divider-color, var(--color-border));
+  }
+
+  .accordion--dividers .accordion-row:first-child .details {
+    border-block-start: calc(var(--style-border-width) * var(--show-fallback-borders)) solid
+      var(--accordion-divider-color, var(--color-border));
+  }
+
+  .accordion--dividers .accordion-row:last-child .details {
+    border-block-end: calc(var(--style-border-width) * var(--show-fallback-borders)) solid
+      var(--accordion-divider-color, var(--color-border));
+  }
+
+  .accordion--dividers .details-content {
+    padding-block-end: var(--padding-sm);
+  }
+
+  .accordion--caret .icon-plus,
+  .accordion--plus .icon-caret {
+    display: none;
+  }
+
+  .accordion .details__header {
+    font-family: var(--summary-font-family);
+    font-style: var(--summary-font-style);
+    font-weight: var(--summary-font-weight);
+    font-size: var(--summary-font-size);
+    line-height: var(--summary-font-line-height);
+    text-transform: var(--summary-font-case);
+    min-height: var(--minimum-touch-target);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Dual reveal accordion",
+  "tag": "section",
+  "class": "dual-reveal-accordion",
+  "blocks": [
+    {
+      "type": "dual-accordion-row",
+      "name": "Dual accordion row"
+    }
+  ],
+  "settings": [
+    {
+      "type": "select",
+      "id": "icon",
+      "label": "Icon style",
+      "options": [
+        {
+          "value": "caret",
+          "label": "Caret"
+        },
+        {
+          "value": "plus",
+          "label": "Plus"
+        }
+      ],
+      "default": "caret"
+    },
+    {
+      "type": "checkbox",
+      "id": "dividers",
+      "label": "Show dividers",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "type_preset",
+      "label": "Heading preset",
+      "options": [
+        {
+          "value": "",
+          "label": "Default"
+        },
+        {
+          "value": "paragraph",
+          "label": "Paragraph"
+        },
+        {
+          "value": "h1",
+          "label": "H1"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h3",
+          "label": "H3"
+        },
+        {
+          "value": "h4",
+          "label": "H4"
+        },
+        {
+          "value": "h5",
+          "label": "H5"
+        },
+        {
+          "value": "h6",
+          "label": "H6"
+        }
+      ],
+      "default": "h6"
+    },
+    {
+      "type": "checkbox",
+      "id": "inherit_color_scheme",
+      "label": "Inherit color scheme",
+      "default": true
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1",
+      "visible_if": "{{ section.settings.inherit_color_scheme == false }}"
+    },
+    {
+      "type": "header",
+      "content": "Borders"
+    },
+    {
+      "type": "select",
+      "id": "border",
+      "label": "Style",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "solid",
+          "label": "Solid"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "range",
+      "id": "border_width",
+      "min": 0,
+      "max": 10,
+      "step": 0.5,
+      "unit": "px",
+      "label": "Border width",
+      "default": 1,
+      "visible_if": "{{ section.settings.border != 'none' }}"
+    },
+    {
+      "type": "range",
+      "id": "border_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Border opacity",
+      "default": 100,
+      "visible_if": "{{ section.settings.border != 'none' }}"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Dual reveal accordion",
+      "blocks": [
+        {
+          "type": "dual-accordion-row"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
