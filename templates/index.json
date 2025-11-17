@@ -37,7 +37,7 @@
           "settings": {
             "icon": "caret",
             "dividers": true,
-            "type_preset": "h2",
+            "type_preset": "h4",
             "inherit_color_scheme": true,
             "color_scheme": "",
             "border": "none",
@@ -1051,41 +1051,15 @@
                 "padding-inline-end": 0
               },
               "blocks": {
-                "text_DeLfjH": {
-                  "type": "text",
-                  "name": "t:names.heading",
-                  "settings": {
-                    "text": "<h2><em>Introducing</em></h2>",
-                    "width": "100%",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "h6",
-                    "font": "var(--font-accent--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "color": "var(--color-foreground)",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 24,
-                    "padding-inline-end": 24
-                  },
-                  "blocks": {}
-                },
                 "text_QwUNnd": {
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<h1>New arrivals</h1>",
+                    "text": "<h1>Honey From Here</h1>",
                     "width": "100%",
-                    "max_width": "normal",
+                    "max_width": "narrow",
                     "alignment": "left",
-                    "type_preset": "h2",
+                    "type_preset": "h3",
                     "font": "var(--font-body--family)",
                     "font_size": "1rem",
                     "line_height": "normal",
@@ -1105,7 +1079,6 @@
                 }
               },
               "block_order": [
-                "text_DeLfjH",
                 "text_QwUNnd"
               ]
             },
@@ -1117,7 +1090,7 @@
                 "width": "fit-content",
                 "max_width": "none",
                 "alignment": "left",
-                "type_preset": "rte",
+                "type_preset": "paragraph",
                 "font": "var(--font-body--family)",
                 "font_size": "1rem",
                 "line_height": "normal",
@@ -1342,7 +1315,7 @@
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
-            "type_preset": "h3",
+            "type_preset": "h4",
             "font": "var(--font-body--family)",
             "font_size": "1rem",
             "line_height": "tight",
@@ -1404,7 +1377,7 @@
                 "case": "none",
                 "wrap": "pretty",
                 "color": "var(--color-foreground)",
-                "text": "<h4>{{ closest.article.title }}</h4>",
+                "text": "<h5>{{ closest.article.title }}</h5>",
                 "read_only": false,
                 "alignment": "left",
                 "show_alignment": false,
@@ -1567,7 +1540,7 @@
               "settings": {
                 "display_vertically": true,
                 "horizontal_on_mobile": true,
-                "text": "<h3>BLACKCURRANT</h3>",
+                "text": "<h4>BLACKCURRANT</h4>",
                 "width": "fit-content",
                 "max_width": "none",
                 "alignment": "left",
@@ -1640,7 +1613,7 @@
               "settings": {
                 "display_vertically": true,
                 "horizontal_on_mobile": true,
-                "text": "<h3>GINGER</h3>",
+                "text": "<h4>GINGER</h4>",
                 "width": "fit-content",
                 "max_width": "none",
                 "alignment": "left",
@@ -1713,7 +1686,7 @@
               "settings": {
                 "display_vertically": true,
                 "horizontal_on_mobile": true,
-                "text": "<h3>LEMON</h3>",
+                "text": "<h4>LEMON</h4>",
                 "width": "fit-content",
                 "max_width": "none",
                 "alignment": "left",
@@ -1786,7 +1759,7 @@
               "settings": {
                 "display_vertically": true,
                 "horizontal_on_mobile": true,
-                "text": "<h3>MANDARIN</h3>",
+                "text": "<h4>MANDARIN</h4>",
                 "width": "fit-content",
                 "max_width": "none",
                 "alignment": "left",
@@ -1859,7 +1832,7 @@
               "settings": {
                 "display_vertically": true,
                 "horizontal_on_mobile": true,
-                "text": "<h3>LIME</h3>",
+                "text": "<h4>LIME</h4>",
                 "width": "fit-content",
                 "max_width": "none",
                 "alignment": "left",
@@ -1932,7 +1905,7 @@
               "settings": {
                 "display_vertically": true,
                 "horizontal_on_mobile": true,
-                "text": "<h3>GRAPEFRUIT</h3>",
+                "text": "<h4>GRAPEFRUIT</h4>",
                 "width": "fit-content",
                 "max_width": "none",
                 "alignment": "left",
@@ -2005,7 +1978,7 @@
               "settings": {
                 "display_vertically": true,
                 "horizontal_on_mobile": true,
-                "text": "<h3>CHERRY</h3>",
+                "text": "<h4>CHERRY</h4>",
                 "width": "fit-content",
                 "max_width": "none",
                 "alignment": "left",
@@ -2266,11 +2239,11 @@
                 "text_xNrdkc": {
                   "type": "text",
                   "settings": {
-                    "text": "<h2>Natural Ingredients</h2>",
+                    "text": "<h2>All Natural Ingredients</h2>",
                     "width": "100%",
-                    "max_width": "normal",
+                    "max_width": "none",
                     "alignment": "center",
-                    "type_preset": "h3",
+                    "type_preset": "h4",
                     "font": "var(--font-body--family)",
                     "font_size": "1rem",
                     "line_height": "normal",
@@ -2416,11 +2389,11 @@
                 "text_jH8bze": {
                   "type": "text",
                   "settings": {
-                    "text": "<h2>New Zealand grown Honey and fruit</h2>",
+                    "text": "<h3>New Zealand Grown Fruits</h3>",
                     "width": "100%",
-                    "max_width": "normal",
+                    "max_width": "none",
                     "alignment": "center",
-                    "type_preset": "h3",
+                    "type_preset": "h4",
                     "font": "var(--font-body--family)",
                     "font_size": "1rem",
                     "line_height": "normal",
@@ -2566,18 +2539,18 @@
                 "text_EjNhNN": {
                   "type": "text",
                   "settings": {
-                    "text": "<h2>Low Calorie</h2>",
+                    "text": "<h2>Sweetened with Premium Mānuka</h2>",
                     "width": "100%",
-                    "max_width": "normal",
+                    "max_width": "none",
                     "alignment": "center",
-                    "type_preset": "h3",
+                    "type_preset": "h4",
                     "font": "var(--font-body--family)",
                     "font_size": "1rem",
                     "line_height": "normal",
                     "letter_spacing": "normal",
                     "case": "none",
                     "wrap": "pretty",
-                    "color": "var(--color-foreground)",
+                    "color": "var(--color-foreground-heading)",
                     "background": false,
                     "background_color": "#00000026",
                     "corner_radius": 0,
