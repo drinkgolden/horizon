@@ -2,6 +2,11 @@
 
 {% liquid
   assign max_items = section.settings.max_products
+  assign featured_goods_gap_setting = section.settings.columns_gap | default: 24
+  capture featured_goods_gap_rem
+    render 'css-rem-value', value: featured_goods_gap_setting
+  endcapture
+  assign featured_goods_gap_rem = featured_goods_gap_rem | strip
 %}
 
 {% capture header_content %}
@@ -23,7 +28,7 @@
     {% render 'spacing-style', settings: section.settings %}
     {% render 'gap-style', value: section.settings.gap %}
     {% if section.settings.layout_type == 'featured_goods' %}
-      --featured-goods-rail-gap: {{ section.settings.columns_gap | default: 24 }}px;
+      --featured-goods-rail-gap: {{ featured_goods_gap_rem }};
     {% endif %}
   "
 >

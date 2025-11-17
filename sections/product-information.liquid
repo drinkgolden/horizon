@@ -36,6 +36,11 @@
     when 'content-full-width'
       assign content_width = 'full-width'
   endcase
+
+  capture product_gap_rem
+    render 'css-rem-value', value: section.settings.gap
+  endcapture
+  assign product_gap_rem = product_gap_rem | strip
 %}
 
 <script type="application/ld+json">
@@ -45,7 +50,7 @@
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
 <div
   class="product-information section section--{{ content_width }} spacing-style color-{{ section.settings.color_scheme }} relative"
-  style="{% render 'spacing-style', settings: section.settings %} --gap: {{ section.settings.gap }}px;"
+  style="{% render 'spacing-style', settings: section.settings %} --gap: {{ product_gap_rem }};"
 >
   {% if section.settings.desktop_media_position == 'left' and product_has_media %}
     {% assign product_href = '#ProductInformation-' | append: section.id %}
