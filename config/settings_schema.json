@@ -399,13 +399,9 @@
         "content": "t:content.paragraph"
       },
       {
-        "type": "number_decimal",
+        "type": "number",
         "id": "type_size_paragraph",
         "label": "t:settings.size",
-        "unit": "rem",
-        "min": 0.5,
-        "max": 6,
-        "step": 0.0625,
         "default": 0.875
       },
       {
@@ -449,13 +445,9 @@
         "default": "heading"
       },
       {
-        "type": "number_decimal",
+        "type": "number",
         "id": "type_size_h1",
         "label": "t:settings.size",
-        "unit": "rem",
-        "min": 1,
-        "max": 12,
-        "step": 0.125,
         "default": 4.5
       },
       {
@@ -535,13 +527,9 @@
         "default": "heading"
       },
       {
-        "type": "number_decimal",
+        "type": "number",
         "id": "type_size_h2",
         "label": "t:settings.size",
-        "unit": "rem",
-        "min": 0.75,
-        "max": 10,
-        "step": 0.125,
         "default": 3
       },
       {
@@ -629,13 +617,9 @@
         "default": "heading"
       },
       {
-        "type": "number_decimal",
+        "type": "number",
         "id": "type_size_h3",
         "label": "t:settings.size",
-        "unit": "rem",
-        "min": 0.5,
-        "max": 8,
-        "step": 0.125,
         "default": 2
       },
       {
@@ -723,13 +707,9 @@
         "default": "subheading"
       },
       {
-        "type": "number_decimal",
+        "type": "number",
         "id": "type_size_h4",
         "label": "t:settings.size",
-        "unit": "rem",
-        "min": 0.5,
-        "max": 6,
-        "step": 0.125,
         "default": 1.5
       },
       {
@@ -817,13 +797,9 @@
         "default": "subheading"
       },
       {
-        "type": "number_decimal",
+        "type": "number",
         "id": "type_size_h5",
         "label": "t:settings.size",
-        "unit": "rem",
-        "min": 0.5,
-        "max": 4,
-        "step": 0.0625,
         "default": 1.125
       },
       {
@@ -911,13 +887,9 @@
         "default": "subheading"
       },
       {
-        "type": "number_decimal",
+        "type": "number",
         "id": "type_size_h6",
         "label": "t:settings.size",
-        "unit": "rem",
-        "min": 0.5,
-        "max": 3,
-        "step": 0.0625,
         "default": 1
       },
       {
