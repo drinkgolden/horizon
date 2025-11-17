@@ -399,10 +399,11 @@
         "content": "t:content.paragraph"
       },
       {
-        "type": "number",
+        "type": "text",
         "id": "type_size_paragraph",
         "label": "t:settings.size",
-        "default": 0.875
+        "default": "0.875",
+        "info": "Enter rem values such as 1.25. Legacy px values still work."
       },
       {
         "type": "select",
@@ -445,10 +446,11 @@
         "default": "heading"
       },
       {
-        "type": "number",
+        "type": "text",
         "id": "type_size_h1",
         "label": "t:settings.size",
-        "default": 4.5
+        "default": "4.5",
+        "info": "Enter rem values such as 3.5. Legacy px values still work."
       },
       {
         "type": "select",
@@ -527,10 +529,11 @@
         "default": "heading"
       },
       {
-        "type": "number",
+        "type": "text",
         "id": "type_size_h2",
         "label": "t:settings.size",
-        "default": 3
+        "default": "3",
+        "info": "Enter rem values such as 3.5. Legacy px values still work."
       },
       {
         "type": "select",
@@ -617,10 +620,11 @@
         "default": "heading"
       },
       {
-        "type": "number",
+        "type": "text",
         "id": "type_size_h3",
         "label": "t:settings.size",
-        "default": 2
+        "default": "2",
+        "info": "Enter rem values such as 2.5. Legacy px values still work."
       },
       {
         "type": "select",
@@ -707,10 +711,11 @@
         "default": "subheading"
       },
       {
-        "type": "number",
+        "type": "text",
         "id": "type_size_h4",
         "label": "t:settings.size",
-        "default": 1.5
+        "default": "1.5",
+        "info": "Enter rem values such as 1.75. Legacy px values still work."
       },
       {
         "type": "select",
@@ -797,10 +802,11 @@
         "default": "subheading"
       },
       {
-        "type": "number",
+        "type": "text",
         "id": "type_size_h5",
         "label": "t:settings.size",
-        "default": 1.125
+        "default": "1.125",
+        "info": "Enter rem values such as 1.25. Legacy px values still work."
       },
       {
         "type": "select",
@@ -887,10 +893,11 @@
         "default": "subheading"
       },
       {
-        "type": "number",
+        "type": "text",
         "id": "type_size_h6",
         "label": "t:settings.size",
-        "default": 1
+        "default": "1",
+        "info": "Enter rem values such as 1.1. Legacy px values still work."
       },
       {
         "type": "select",
