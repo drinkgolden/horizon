@@ -135,7 +135,7 @@
             "accordion_row_Tw6tXy": {
               "type": "_accordion-row",
               "settings": {
-                "heading": "Low Cal",
+                "heading": "All Natural",
                 "open_by_default": false,
                 "inherit_color_scheme": false,
                 "color_scheme": "",
@@ -172,12 +172,55 @@
               "block_order": [
                 "text_NwWUeb"
               ]
+            },
+            "accordion_row_X7EJnN": {
+              "type": "_accordion-row",
+              "name": "t:names.accordion_row",
+              "settings": {
+                "heading": "High Grade Mānuka in every can",
+                "open_by_default": false,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_cPDmQd": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>We will work quickly to ship your order as soon as possible. Once your order has shipped, you will receive an email with further information. Delivery times vary depending on your location.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_cPDmQd"
+              ]
             }
           },
           "block_order": [
             "accordion_row_tC79jm",
             "accordion_row_Nxp9pH",
-            "accordion_row_Tw6tXy"
+            "accordion_row_Tw6tXy",
+            "accordion_row_X7EJnN"
           ]
         }
       },
@@ -198,7 +241,7 @@
         "section_width": "full-width",
         "section_height": "custom",
         "section_height_custom": 40,
-        "color_scheme": "scheme-5",
+        "color_scheme": "scheme-8",
         "background_media": "none",
         "video_position": "cover",
         "background_image_position": "cover",
