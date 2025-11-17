@@ -1227,7 +1227,7 @@
                   "settings": {
                     "icon": "caret",
                     "dividers": true,
-                    "type_preset": "h6",
+                    "type_preset": "h4",
                     "inherit_color_scheme": true,
                     "color_scheme": "",
                     "border": "none",
@@ -1245,7 +1245,7 @@
                       "settings": {
                         "heading": "Return policy",
                         "open_by_default": false,
-                        "inherit_color_scheme": false,
+                        "inherit_color_scheme": true,
                         "color_scheme": "scheme-5",
                         "icon": "none",
                         "width": 20
