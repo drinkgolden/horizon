@@ -1,15 +1,11 @@
-{% liquid
-  assign image = settings.iwt_image
-  assign heading = settings.iwt_heading
-  assign text = settings.iwt_text
-  assign button_label = settings.iwt_button_label
-  assign button_link = settings.iwt_button_link
-  assign position = settings.iwt_image_position | default: 'left'
-%}
+{% assign image = settings.iwt_image %}
+{% assign heading = settings.iwt_heading %}
+{% assign text = settings.iwt_text %}
+{% assign button_label = settings.iwt_button_label %}
+{% assign button_link = settings.iwt_button_link %}
+{% assign position = settings.iwt_image_position | default: 'left' %}
 
-{% if image == blank and heading == blank and text == blank and button_label == blank %}
-  {% return %}
-{% endif %}
+{% unless image == blank and heading == blank and text == blank and button_label == blank %}
 
 <div class="special-row__section special-row__section--iwt special-row__section--iwt-{{ position }}" data-slot="{{ slot }}">
   {% if image != blank %}
@@ -35,3 +31,4 @@
     {% endif %}
   </div>
 </div>
+{% endunless %}

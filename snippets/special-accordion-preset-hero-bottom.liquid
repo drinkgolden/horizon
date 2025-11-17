@@ -1,15 +1,11 @@
-{% liquid
-  assign background_image = settings.hero_background_image
-  assign kicker = settings.hero_kicker
-  assign heading = settings.hero_heading
-  assign text = settings.hero_text
-  assign button_label = settings.hero_button_label
-  assign button_link = settings.hero_button_link
+{% assign background_image = settings.hero_background_image %}
+{% assign kicker = settings.hero_kicker %}
+{% assign heading = settings.hero_heading %}
+{% assign text = settings.hero_text %}
+{% assign button_label = settings.hero_button_label %}
+{% assign button_link = settings.hero_button_link %}
 
-  unless background_image != blank or heading != blank or text != blank
-    return
-  endunless
-%}
+{% if background_image != blank or heading != blank or text != blank %}
 
 <div class="special-row__section special-row__section--hero" data-slot="{{ slot }}">
   <div class="special-row__hero-media">
@@ -42,3 +38,4 @@
     </div>
   </div>
 </div>
+{% endif %}

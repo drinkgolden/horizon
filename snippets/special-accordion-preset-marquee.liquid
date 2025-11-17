@@ -1,35 +1,30 @@
-{% liquid
-  assign raw_lines = settings.marquee_lines | newline_to_br | split: '<br />'
-  assign lines = ''
-  for line in raw_lines
-    assign text = line | strip
-    if text == blank
-      continue
-    endif
-    capture lines
-      {{ lines }}
-      <span class="special-row__marquee-item">{{ text }}</span>
-    endcapture
-  endfor
-%}
+{% assign raw_lines = settings.marquee_lines | newline_to_br | split: '<br />' %}
 
-{% if lines == blank %}
-  {% return %}
-{% endif %}
+{% capture lines %}
+  {% for line in raw_lines %}
+    {% assign text = line | strip %}
+    {% if text == blank %}
+      {% continue %}
+    {% endif %}
+    <span class="special-row__marquee-item">{{ text }}</span>
+  {% endfor %}
+{% endcapture %}
 
-<div class="special-row__section special-row__section--marquee" data-slot="{{ slot }}" data-lazy-preset="marquee">
-  <marquee-component
-    class="special-row__marquee"
-    data-speed-factor="20"
-    data-movement-direction="{{ settings.marquee_direction | default: 'normal' }}"
-    style="--marquee-gap: {{ settings.marquee_gap | default: 24 }}px;"
-  >
-    <div class="marquee__wrapper" ref="wrapper">
-      <div class="marquee__content" ref="content">
-        <div class="marquee__repeated-items" ref="marqueeItems[]">
-          {{ lines }}
+{% if lines != blank %}
+  <div class="special-row__section special-row__section--marquee" data-slot="{{ slot }}" data-lazy-preset="marquee">
+    <marquee-component
+      class="special-row__marquee"
+      data-speed-factor="20"
+      data-movement-direction="{{ settings.marquee_direction | default: 'normal' }}"
+      style="--marquee-gap: {{ settings.marquee_gap | default: 24 }}px;"
+    >
+      <div class="marquee__wrapper" ref="wrapper">
+        <div class="marquee__content" ref="content">
+          <div class="marquee__repeated-items" ref="marqueeItems[]">
+            {{ lines }}
+          </div>
         </div>
       </div>
-    </div>
-  </marquee-component>
-</div>
+    </marquee-component>
+  </div>
+{% endif %}

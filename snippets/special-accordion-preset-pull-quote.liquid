@@ -1,13 +1,9 @@
-{% liquid
-  assign quote = settings.pull_quote_text
-  assign attribution = settings.pull_quote_attribution
-  assign button_label = settings.pull_quote_button_label
-  assign button_link = settings.pull_quote_button_link
-%}
+{% assign quote = settings.pull_quote_text %}
+{% assign attribution = settings.pull_quote_attribution %}
+{% assign button_label = settings.pull_quote_button_label %}
+{% assign button_link = settings.pull_quote_button_link %}
 
-{% if quote == blank and attribution == blank and button_label == blank %}
-  {% return %}
-{% endif %}
+{% unless quote == blank and attribution == blank and button_label == blank %}
 
 <div class="special-row__section special-row__section--pull-quote" data-slot="{{ slot }}">
   {% if quote != blank %}
@@ -22,3 +18,4 @@
     </a>
   {% endif %}
 </div>
+{% endunless %}

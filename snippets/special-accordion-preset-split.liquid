@@ -1,11 +1,7 @@
-{% liquid
-  assign left_has = settings.split_left_image != blank or settings.split_left_heading != blank or settings.split_left_text != blank or settings.split_left_button_label != blank
-  assign right_has = settings.split_right_image != blank or settings.split_right_heading != blank or settings.split_right_text != blank or settings.split_right_button_label != blank
-%}
+{% assign left_has = settings.split_left_image != blank or settings.split_left_heading != blank or settings.split_left_text != blank or settings.split_left_button_label != blank %}
+{% assign right_has = settings.split_right_image != blank or settings.split_right_heading != blank or settings.split_right_text != blank or settings.split_right_button_label != blank %}
 
-{% unless left_has or right_has %}
-  {% return %}
-{% endunless %}
+{% if left_has or right_has %}
 
 <div class="special-row__section special-row__section--split" data-slot="{{ slot }}">
   {% if left_has %}
@@ -61,3 +57,4 @@
     </div>
   {% endif %}
 </div>
+{% endif %}
