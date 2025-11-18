@@ -5,11 +5,7 @@
 <div class="section-background color-{{ s.color_scheme }}"></div>
 <div class="section section--{{ s.section_width }} color-{{ s.color_scheme }}">
   <div
-    class="accordion-container spacing-style"
-    style="{% render 'spacing-style', settings: s %}"
-  >
-    <div
-      class="accordion accordion--section-{{ section.id }} accordion--{{ s.icon }} border-style spacing-style{% if s.dividers %} accordion--dividers{% endif %}"
+    class="accordion accordion--section-{{ section.id }} accordion--{{ s.icon }} border-style spacing-style force-full-width{% if s.dividers %} accordion--dividers{% endif %}"
       style="
         --summary-font-family: var(--font-{{ s.type_preset }}--family);
         --summary-font-style: var(--font-{{ s.type_preset }}--style);
@@ -19,12 +15,12 @@
         --summary-font-case: var(--font-{{ s.type_preset }}--case);
         {% render 'border-override', settings: s %}
         --accordion-divider-color: var(--color-border);
+        {% render 'spacing-style', settings: s %}
       "
     >
       {% for block in section.blocks %}
         {% render block %}
       {% endfor %}
-    </div>
   </div>
 </div>
 
@@ -199,7 +195,7 @@
           "label": "Full"
         }
       ],
-      "default": "page-width"
+      "default": "full-width"
     },
     {
       "type": "header",
@@ -213,7 +209,7 @@
       "max": 100,
       "step": 1,
       "unit": "px",
-      "default": 32
+      "default": 0
     },
     {
       "type": "range",
@@ -223,7 +219,7 @@
       "max": 100,
       "step": 1,
       "unit": "px",
-      "default": 32
+      "default": 0
     },
     {
       "type": "range",
@@ -233,7 +229,7 @@
       "max": 100,
       "step": 1,
       "unit": "px",
-      "default": 16
+      "default": 0
     },
     {
       "type": "range",
@@ -243,7 +239,7 @@
       "max": 100,
       "step": 1,
       "unit": "px",
-      "default": 16
+      "default": 0
     },
     {
       "type": "header",

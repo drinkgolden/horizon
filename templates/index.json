@@ -53,7 +53,7 @@
             "accordion_row_tC79jm": {
               "type": "_accordion-row",
               "settings": {
-                "heading": "Mānuka Honey Soda",
+                "heading": "M\u0101nuka Honey Soda",
                 "open_by_default": false,
                 "inherit_color_scheme": false,
                 "color_scheme": "",
@@ -275,7 +275,7 @@
               "type": "_accordion-row",
               "name": "t:names.accordion_row",
               "settings": {
-                "heading": "High Grade Mānuka in every can",
+                "heading": "High Grade M\u0101nuka in every can",
                 "open_by_default": false,
                 "inherit_color_scheme": true,
                 "color_scheme": "",
@@ -444,7 +444,7 @@
                 "accordion_row_FccpwP": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "Golden Bay Mānuka Honey",
+                    "heading": "Golden Bay M\u0101nuka Honey",
                     "open_by_default": false,
                     "inherit_color_scheme": true,
                     "color_scheme": "",
@@ -2637,7 +2637,7 @@
                 "text_EjNhNN": {
                   "type": "text",
                   "settings": {
-                    "text": "<h2>Sweetened with Premium Mānuka</h2>",
+                    "text": "<h2>Sweetened with Premium M\u0101nuka</h2>",
                     "width": "100%",
                     "max_width": "none",
                     "alignment": "center",
@@ -2753,11 +2753,11 @@
         "dividers": true,
         "type_preset": "h4",
         "color_scheme": "",
-        "section_width": "page-width",
-        "padding-block-start": 32,
-        "padding-block-end": 32,
-        "padding-inline-start": 16,
-        "padding-inline-end": 16,
+        "section_width": "full-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0,
         "border": "none",
         "border_width": 1,
         "border_opacity": 100,
