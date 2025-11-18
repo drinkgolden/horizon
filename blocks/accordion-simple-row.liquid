@@ -1,0 +1,213 @@
+{% assign block_settings = block.settings %}
+{% assign row_classes = 'accordion-row accordion-row--simple' %}
+{% if block_settings.inherit_color_scheme == false %}
+  {% assign row_classes = row_classes | append: ' color-' | append: block_settings.color_scheme %}
+{% endif %}
+
+<div class="{{ row_classes }}">
+  <accordion-custom
+    class="accordion-row__inner{% if block_settings.inherit_color_scheme == false %} accordion-row--custom-scheme{% endif %}"
+    {% if block_settings.open_by_default %}
+      open-by-default-on-desktop
+      open-by-default-on-mobile
+    {% endif %}
+  >
+    <details
+      class="details"
+      data-testid="accordion-details"
+      {{ block.shopify_attributes }}
+    >
+      <summary class="details__header">
+        {% render 'icon-or-image',
+          icon: block_settings.icon,
+          image_upload: block_settings.image_upload,
+          width: block_settings.width,
+          class_name: 'details__icon'
+        %}
+        {{ block_settings.heading }}
+        <span class="svg-wrapper icon-caret icon-animated">
+          {{- 'icon-caret.svg' | inline_asset_content -}}
+        </span>
+        <span class="svg-wrapper icon-plus">
+          {{- 'icon-plus.svg' | inline_asset_content -}}
+        </span>
+      </summary>
+
+      <div class="details-content">
+        {% content_for 'blocks' %}
+      </div>
+    </details>
+  </accordion-custom>
+</div>
+
+{% stylesheet %}
+  .accordion-row {
+    width: 100%;
+    position: relative;
+  }
+
+  .accordion-row::before {
+    content: '';
+    position: absolute;
+    top: calc(var(--padding-block-start, 0px) * -1);
+    bottom: calc(var(--padding-block-end, 0px) * -1);
+    left: calc(var(--padding-inline-start, 0px) * -1);
+    right: calc(var(--padding-inline-end, 0px) * -1);
+    background-color: var(--color-background);
+    z-index: -1;
+  }
+
+  .accordion-row__inner {
+    display: block;
+  }
+
+  .details__icon {
+    height: auto;
+    margin-inline-end: var(--margin-xs);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Accordion row",
+  "tag": null,
+  "blocks": [
+    {
+      "type": "@theme"
+    },
+    {
+      "type": "@app"
+    }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Accordion heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "open_by_default",
+      "label": "Open row by default",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "inherit_color_scheme",
+      "label": "Inherit color scheme",
+      "default": true
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1",
+      "visible_if": "{{ block.settings.inherit_color_scheme == false }}"
+    },
+    {
+      "type": "header",
+      "content": "Icon"
+    },
+    {
+      "type": "select",
+      "id": "icon",
+      "label": "Icon",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "apple",
+          "label": "Apple"
+        },
+        {
+          "value": "arrow",
+          "label": "Arrow"
+        },
+        {
+          "value": "banana",
+          "label": "Banana"
+        },
+        {
+          "value": "bottle",
+          "label": "Bottle"
+        },
+        {
+          "value": "box",
+          "label": "Box"
+        },
+        {
+          "value": "carrot",
+          "label": "Carrot"
+        },
+        {
+          "value": "chat_bubble",
+          "label": "Chat bubble"
+        },
+        {
+          "value": "check_box",
+          "label": "Check box"
+        },
+        {
+          "value": "clipboard",
+          "label": "Clipboard"
+        },
+        {
+          "value": "dairy",
+          "label": "Dairy"
+        },
+        {
+          "value": "dairy_free",
+          "label": "Dairy free"
+        },
+        {
+          "value": "dryer",
+          "label": "Dryer"
+        },
+        {
+          "value": "eye",
+          "label": "Eye"
+        },
+        {
+          "value": "fire",
+          "label": "Fire"
+        },
+        {
+          "value": "gluten_free",
+          "label": "Gluten free"
+        },
+        {
+          "value": "heart",
+          "label": "Heart"
+        },
+        {
+          "value": "leaf",
+          "label": "Leaf"
+        },
+        {
+          "value": "lightning_bolt",
+          "label": "Lightning bolt"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_upload",
+      "label": "Custom icon"
+    },
+    {
+      "type": "range",
+      "id": "width",
+      "label": "Custom icon width",
+      "min": 16,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "default": 24
+    }
+  ]
+}
+{% endschema %}

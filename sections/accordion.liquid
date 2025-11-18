@@ -1,22 +1,31 @@
-{% assign section_settings = section.settings %}
-<div
-  class="accordion accordion--section-{{ section.id }} accordion--{{ section_settings.icon }} border-style spacing-style force-full-width{% if section_settings.inherit_color_scheme == false %} color-{{ section_settings.color_scheme }}{% endif %}{% if section_settings.dividers %} accordion--dividers{% endif %}"
-  style="
-    --summary-font-family: var(--font-{{ section_settings.type_preset }}--family);
-    --summary-font-style: var(--font-{{ section_settings.type_preset }}--style);
-    --summary-font-weight: var(--font-{{ section_settings.type_preset }}--weight);
-    --summary-font-size: var(--font-{{ section_settings.type_preset }}--size);
-    --summary-font-line-height: var(--font-{{ section_settings.type_preset }}--line-height);
-    --summary-font-case: var(--font-{{ section_settings.type_preset }}--case);
-    {% render 'spacing-style', settings: section_settings %}
-    {% render 'border-override', settings: section_settings %}
-    --accordion-divider-color: var(--color-border);
-  "
-  data-section-id="{{ section.id }}"
->
-  {% for block in section.blocks %}
-    {% render block %}
-  {% endfor %}
+{% liquid
+  assign s = section.settings
+%}
+
+<div class="section-background color-{{ s.color_scheme }}"></div>
+<div class="section section--{{ s.section_width }} color-{{ s.color_scheme }}">
+  <div
+    class="accordion-container spacing-style"
+    style="{% render 'spacing-style', settings: s %}"
+  >
+    <div
+      class="accordion accordion--section-{{ section.id }} accordion--{{ s.icon }} border-style spacing-style{% if s.dividers %} accordion--dividers{% endif %}"
+      style="
+        --summary-font-family: var(--font-{{ s.type_preset }}--family);
+        --summary-font-style: var(--font-{{ s.type_preset }}--style);
+        --summary-font-weight: var(--font-{{ s.type_preset }}--weight);
+        --summary-font-size: var(--font-{{ s.type_preset }}--size);
+        --summary-font-line-height: var(--font-{{ s.type_preset }}--line-height);
+        --summary-font-case: var(--font-{{ s.type_preset }}--case);
+        {% render 'border-override', settings: s %}
+        --accordion-divider-color: var(--color-border);
+      "
+    >
+      {% for block in section.blocks %}
+        {% render block %}
+      {% endfor %}
+    </div>
+  </div>
 </div>
 
 {% stylesheet %}
@@ -94,10 +103,14 @@
 
 {% schema %}
 {
-  "name": "Dual reveal accordion",
+  "name": "Accordion",
   "tag": "section",
-  "class": "dual-reveal-accordion",
+  "class": "accordion-section",
   "blocks": [
+    {
+      "type": "accordion-simple-row",
+      "name": "Accordion row"
+    },
     {
       "type": "dual-accordion-row",
       "name": "Dual accordion row"
@@ -167,17 +180,70 @@
       "default": "h6"
     },
     {
-      "type": "checkbox",
-      "id": "inherit_color_scheme",
-      "label": "Inherit color scheme",
-      "default": true
-    },
-    {
       "type": "color_scheme",
       "id": "color_scheme",
       "label": "Color scheme",
-      "default": "scheme-1",
-      "visible_if": "{{ section.settings.inherit_color_scheme == false }}"
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "Page"
+        },
+        {
+          "value": "full-width",
+          "label": "Full"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "Left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "Right",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 16
     },
     {
       "type": "header",
@@ -234,8 +300,11 @@
   ],
   "presets": [
     {
-      "name": "Dual reveal accordion",
+      "name": "Accordion",
       "blocks": [
+        {
+          "type": "accordion-simple-row"
+        },
         {
           "type": "dual-accordion-row"
         }
