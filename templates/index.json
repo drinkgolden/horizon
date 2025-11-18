@@ -2731,6 +2731,71 @@
         "padding-block-start": 64,
         "padding-block-end": 64
       }
+    },
+    "accordion_section_home": {
+      "type": "accordion",
+      "blocks": {
+        "simple_accordion_section_home": {
+          "type": "accordion-simple-row",
+          "settings": {
+            "heading": "Accordion heading",
+            "open_by_default": false,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "icon": "none",
+            "image_upload": null,
+            "width": 32
+          },
+          "blocks": {}
+        },
+        "dual_accordion_section_home": {
+          "type": "dual-accordion-row",
+          "settings": {
+            "heading": "Left reveal",
+            "right_heading": "Right reveal",
+            "default_active_side": "left",
+            "content_height": "auto",
+            "enable_heading_underline": true,
+            "enable_bubble_divider": false,
+            "open_by_default": false,
+            "enable_hover_open": false,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "active_color_scheme": "scheme-2",
+            "left_image": null,
+            "left_caption": "",
+            "left_heading": "Left title",
+            "left_body": "Add supporting copy for the left reveal.",
+            "left_button_label": "Learn more",
+            "left_button_link": "#",
+            "right_image": null,
+            "right_caption": "",
+            "right_reveal_heading": "Right title",
+            "right_body": "Add supporting copy for the right reveal.",
+            "right_button_label": "Shop now",
+            "right_button_link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "simple_accordion_section_home",
+        "dual_accordion_section_home"
+      ],
+      "settings": {
+        "icon": "caret",
+        "dividers": true,
+        "type_preset": "h4",
+        "color_scheme": "",
+        "section_width": "page-width",
+        "padding-block-start": 32,
+        "padding-block-end": 32,
+        "padding-inline-start": 16,
+        "padding-inline-end": 16,
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0
+      }
     }
   },
   "order": [
@@ -2743,6 +2808,7 @@
     "slideshow_LNV4He",
     "section_km3qqt",
     "product_list_DK8mhr",
-    "section_GcL7hN"
+    "section_GcL7hN",
+    "accordion_section_home"
   ]
 }
