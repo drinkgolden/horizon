@@ -2736,11 +2736,11 @@
       "type": "accordion",
       "blocks": {
         "simple_accordion_section_home": {
-          "type": "accordion-simple-row",
+          "type": "_accordion-row",
           "settings": {}
         },
         "dual_accordion_section_home": {
-          "type": "dual-accordion-row",
+          "type": "_dual-accordion-row",
           "settings": {}
         }
       },
