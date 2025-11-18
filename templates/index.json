@@ -9,6 +9,25 @@
  */
 {
   "sections": {
+    "accordion_nVQwNK": {
+      "type": "accordion",
+      "name": "Accordion",
+      "settings": {
+        "icon": "caret",
+        "dividers": true,
+        "type_preset": "h6",
+        "color_scheme": "",
+        "section_width": "full-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0,
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0
+      }
+    },
     "section_wi6VEg": {
       "type": "section",
       "blocks": {
@@ -53,7 +72,7 @@
             "accordion_row_tC79jm": {
               "type": "_accordion-row",
               "settings": {
-                "heading": "M\u0101nuka Honey Soda",
+                "heading": "Mānuka Honey Soda",
                 "open_by_default": false,
                 "inherit_color_scheme": false,
                 "color_scheme": "",
@@ -275,7 +294,7 @@
               "type": "_accordion-row",
               "name": "t:names.accordion_row",
               "settings": {
-                "heading": "High Grade M\u0101nuka in every can",
+                "heading": "High Grade Mānuka in every can",
                 "open_by_default": false,
                 "inherit_color_scheme": true,
                 "color_scheme": "",
@@ -444,7 +463,7 @@
                 "accordion_row_FccpwP": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "Golden Bay M\u0101nuka Honey",
+                    "heading": "Golden Bay Mānuka Honey",
                     "open_by_default": false,
                     "inherit_color_scheme": true,
                     "color_scheme": "",
@@ -2637,7 +2656,7 @@
                 "text_EjNhNN": {
                   "type": "text",
                   "settings": {
-                    "text": "<h2>Sweetened with Premium M\u0101nuka</h2>",
+                    "text": "<h2>Sweetened with Premium Mānuka</h2>",
                     "width": "100%",
                     "max_width": "none",
                     "alignment": "center",
@@ -2736,11 +2755,11 @@
       "type": "accordion",
       "blocks": {
         "simple_accordion_section_home": {
-          "type": "_accordion-row",
+          "type": "accordion-simple-row",
           "settings": {}
         },
         "dual_accordion_section_home": {
-          "type": "_dual-accordion-row",
+          "type": "dual-accordion-row",
           "settings": {}
         }
       },
@@ -2766,6 +2785,7 @@
     }
   },
   "order": [
+    "accordion_nVQwNK",
     "section_wi6VEg",
     "section_KKkpbN",
     "section_TdbYrW",
