@@ -11,6 +11,15 @@
   "sections": {
     "accordion_nVQwNK": {
       "type": "accordion",
+      "blocks": {
+        "dual_accordion_row_VP4nhQ": {
+          "type": "dual-accordion-row",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "dual_accordion_row_VP4nhQ"
+      ],
       "name": "Accordion",
       "settings": {
         "icon": "caret",
@@ -1329,52 +1338,7 @@
                     "padding-inline-start": 24,
                     "padding-inline-end": 24
                   },
-                  "blocks": {
-                    "accordion_row_HinYiJ": {
-                      "type": "_accordion-row",
-                      "settings": {
-                        "heading": "Return policy",
-                        "open_by_default": false,
-                        "inherit_color_scheme": true,
-                        "color_scheme": "scheme-5",
-                        "icon": "none",
-                        "width": 20
-                      },
-                      "blocks": {
-                        "text_mGcTTE": {
-                          "type": "text",
-                          "settings": {
-                            "text": "<p>Our goal is for every customer to be totally satisfied with their purchase. If this isn't the case, let us know and we'll do our best to work with you to make it right.</p>",
-                            "width": "100%",
-                            "max_width": "normal",
-                            "alignment": "left",
-                            "type_preset": "rte",
-                            "font": "var(--font-body--family)",
-                            "font_size": "1rem",
-                            "line_height": "normal",
-                            "letter_spacing": "normal",
-                            "case": "none",
-                            "wrap": "pretty",
-                            "color": "var(--color-foreground)",
-                            "background": false,
-                            "background_color": "#00000026",
-                            "corner_radius": 0,
-                            "padding-block-start": 0,
-                            "padding-block-end": 12,
-                            "padding-inline-start": 0,
-                            "padding-inline-end": 0
-                          },
-                          "blocks": {}
-                        }
-                      },
-                      "block_order": [
-                        "text_mGcTTE"
-                      ]
-                    }
-                  },
-                  "block_order": [
-                    "accordion_row_HinYiJ"
-                  ]
+                  "blocks": {}
                 }
               },
               "block_order": [
