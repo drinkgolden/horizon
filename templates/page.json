@@ -373,11 +373,11 @@
       "type": "accordion",
       "blocks": {
         "simple_accordion_section_page": {
-          "type": "_accordion-row",
+          "type": "accordion-row",
           "settings": {}
         },
         "dual_accordion_section_page": {
-          "type": "_dual-accordion-row-v2",
+          "type": "dual-accordion-row",
           "settings": {}
         }
       },
@@ -405,7 +405,7 @@
       "type": "accordion-dual",
       "blocks": {
         "dual_dual_accordion_section_page": {
-          "type": "_dual-accordion-row-v2",
+          "type": "dual-accordion-row",
           "settings": {}
         }
       },

@@ -193,7 +193,7 @@
           },
           "blocks": {
             "accordion_row_WiwbxN": {
-              "type": "_accordion-row",
+              "type": "accordion-row",
               "settings": {
                 "heading": "What is the return policy?",
                 "open_by_default": false,
@@ -232,7 +232,7 @@
               ]
             },
             "accordion_row_VHaiJF": {
-              "type": "_accordion-row",
+              "type": "accordion-row",
               "settings": {
                 "heading": "Are any purchases final sale?",
                 "open_by_default": false,
@@ -271,7 +271,7 @@
               ]
             },
             "accordion_row_MeaN6F": {
-              "type": "_accordion-row",
+              "type": "accordion-row",
               "name": "t:names.accordion_dash_row",
               "settings": {
                 "heading": "When will I get my order?",
@@ -312,7 +312,7 @@
               ]
             },
             "accordion_row_xFhPrJ": {
-              "type": "_accordion-row",
+              "type": "accordion-row",
               "name": "t:names.accordion_dash_row",
               "settings": {
                 "heading": "Where are your products manufactured?",
@@ -353,7 +353,7 @@
               ]
             },
             "accordion_row_fQa47H": {
-              "type": "_accordion-row",
+              "type": "accordion-row",
               "name": "t:names.accordion_dash_row",
               "settings": {
                 "heading": "How much does shipping cost?",

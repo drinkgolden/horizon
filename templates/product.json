@@ -267,7 +267,7 @@
               },
               "blocks": {
                 "accordion_row_tGJFzd": {
-                  "type": "_accordion-row",
+                  "type": "accordion-row",
                   "settings": {
                     "heading": "Return policy",
                     "open_by_default": false,
@@ -308,7 +308,7 @@
                   ]
                 },
                 "accordion_row_UzUGxH": {
-                  "type": "_accordion-row",
+                  "type": "accordion-row",
                   "settings": {
                     "heading": "Shipping",
                     "open_by_default": false,
@@ -349,7 +349,7 @@
                   ]
                 },
                 "accordion_row_wAtz4b": {
-                  "type": "_accordion-row",
+                  "type": "accordion-row",
                   "settings": {
                     "heading": "Manufacturing",
                     "open_by_default": false,
