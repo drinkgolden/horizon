@@ -377,7 +377,7 @@
           "settings": {}
         },
         "dual_accordion_section_page": {
-          "type": "_dual-accordion-row",
+          "type": "_dual-accordion-row-v2",
           "settings": {}
         }
       },
