@@ -40,6 +40,11 @@
   data-active-color-class="{{ active_color_class }}"
   data-default-side="{{ default_side }}"
   data-bubble-divider="{{ s.enable_bubble_divider }}"
+  style="
+    {% if s.summary_font_size != blank %}--dual-summary-font-size: {{ s.summary_font_size }};{% endif %}
+    {% if s.reveal_heading_font_size != blank %}--dual-inner-heading-size: {{ s.reveal_heading_font_size }};{% endif %}
+    {% if s.reveal_body_font_size != blank %}--dual-body-font-size: {{ s.reveal_body_font_size }};{% endif %}
+  "
 >
   <accordion-custom
     class="dual-accordion-row__inner{% if s.inherit_color_scheme == false %} dual-accordion-row__inner--custom{% endif %}"
@@ -155,6 +160,15 @@
   .dual-accordion-row {
     position: relative;
     overflow: hidden;
+    width: 100%;
+  }
+
+  .dual-accordion-row accordion-custom,
+  .dual-accordion-row .details,
+  .dual-accordion-row .details__header,
+  .dual-row__panes,
+  .dual-row__pane {
+    width: 100%;
   }
 
   .dual-accordion-row .dual-accordion-summary {
@@ -178,6 +192,7 @@
     justify-content: space-between;
     gap: var(--margin-xxs);
     padding-block: var(--margin-xxs);
+    font-size: var(--dual-summary-font-size, inherit);
   }
 
   .dual-accordion-summary__heading--right {
@@ -256,6 +271,7 @@
     display: flex;
     flex-direction: column;
     gap: var(--gap-md);
+    font-size: var(--dual-body-font-size, inherit);
   }
 
   .dual-row__caption {
@@ -323,6 +339,30 @@
       "id": "right_heading",
       "label": "Right heading",
       "default": "Right reveal"
+    },
+    {
+      "type": "select",
+      "id": "summary_font_size",
+      "label": "Summary heading size",
+      "options": [
+        {
+          "value": "",
+          "label": "Theme default"
+        },
+        {
+          "value": "0.9rem",
+          "label": "Small"
+        },
+        {
+          "value": "1.1rem",
+          "label": "Medium"
+        },
+        {
+          "value": "1.4rem",
+          "label": "Large"
+        }
+      ],
+      "default": ""
     },
     {
       "type": "select",
@@ -414,6 +454,54 @@
     {
       "type": "header",
       "content": "Left reveal"
+    },
+    {
+      "type": "select",
+      "id": "reveal_heading_font_size",
+      "label": "Reveal heading size",
+      "options": [
+        {
+          "value": "",
+          "label": "Theme default"
+        },
+        {
+          "value": "1.125rem",
+          "label": "Small"
+        },
+        {
+          "value": "1.5rem",
+          "label": "Medium"
+        },
+        {
+          "value": "2rem",
+          "label": "Large"
+        }
+      ],
+      "default": ""
+    },
+    {
+      "type": "select",
+      "id": "reveal_body_font_size",
+      "label": "Reveal body size",
+      "options": [
+        {
+          "value": "",
+          "label": "Theme default"
+        },
+        {
+          "value": "0.95rem",
+          "label": "Small"
+        },
+        {
+          "value": "1.05rem",
+          "label": "Medium"
+        },
+        {
+          "value": "1.2rem",
+          "label": "Large"
+        }
+      ],
+      "default": ""
     },
     {
       "type": "image_picker",
