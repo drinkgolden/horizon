@@ -9,32 +9,25 @@
   {% assign show_right_heading = true %}
 {% endif %}
 
+{% assign rem_divisor = 16.0 %}
 {% assign has_custom_summary_padding = false %}
 {% assign has_custom_content_padding = false %}
 
-{% if block_settings.summary_padding_block_start != blank and block_settings.summary_padding_block_start != 0 %}
-  {% assign has_custom_summary_padding = true %}
-{% endif %}
-{% if block_settings.summary_padding_block_end != blank and block_settings.summary_padding_block_end != 0 %}
-  {% assign has_custom_summary_padding = true %}
-{% endif %}
-{% if block_settings.summary_padding_inline_start != blank and block_settings.summary_padding_inline_start != 0 %}
-  {% assign has_custom_summary_padding = true %}
-{% endif %}
-{% if block_settings.summary_padding_inline_end != blank and block_settings.summary_padding_inline_end != 0 %}
+{% assign summary_padding_block_start_value = block_settings.summary_padding_block_start | default: 0 | times: 1 %}
+{% assign summary_padding_block_end_value = block_settings.summary_padding_block_end | default: 0 | times: 1 %}
+{% assign summary_padding_inline_start_value = block_settings.summary_padding_inline_start | default: 0 | times: 1 %}
+{% assign summary_padding_inline_end_value = block_settings.summary_padding_inline_end | default: 0 | times: 1 %}
+
+{% if summary_padding_block_start_value != 0 or summary_padding_block_end_value != 0 or summary_padding_inline_start_value != 0 or summary_padding_inline_end_value != 0 %}
   {% assign has_custom_summary_padding = true %}
 {% endif %}
 
-{% if block_settings.content_padding_block_start != blank and block_settings.content_padding_block_start != 0 %}
-  {% assign has_custom_content_padding = true %}
-{% endif %}
-{% if block_settings.content_padding_block_end != blank and block_settings.content_padding_block_end != 0 %}
-  {% assign has_custom_content_padding = true %}
-{% endif %}
-{% if block_settings.content_padding_inline_start != blank and block_settings.content_padding_inline_start != 0 %}
-  {% assign has_custom_content_padding = true %}
-{% endif %}
-{% if block_settings.content_padding_inline_end != blank and block_settings.content_padding_inline_end != 0 %}
+{% assign content_padding_block_start_value = block_settings.content_padding_block_start | default: 0 | times: 1 %}
+{% assign content_padding_block_end_value = block_settings.content_padding_block_end | default: 0 | times: 1 %}
+{% assign content_padding_inline_start_value = block_settings.content_padding_inline_start | default: 0 | times: 1 %}
+{% assign content_padding_inline_end_value = block_settings.content_padding_inline_end | default: 0 | times: 1 %}
+
+{% if content_padding_block_start_value != 0 or content_padding_block_end_value != 0 or content_padding_inline_start_value != 0 or content_padding_inline_end_value != 0 %}
   {% assign has_custom_content_padding = true %}
 {% endif %}
 
@@ -44,14 +37,14 @@
 {% endif %}
 
 {% capture inline_styles %}
-  {% if block_settings.summary_padding_block_start != blank %}--accordion-header-padding-block-start: {{ block_settings.summary_padding_block_start }}px;{% endif %}
-  {% if block_settings.summary_padding_block_end != blank %}--accordion-header-padding-block-end: {{ block_settings.summary_padding_block_end }}px;{% endif %}
-  {% if block_settings.summary_padding_inline_start != blank %}--accordion-header-padding-inline-start: {{ block_settings.summary_padding_inline_start }}px;{% endif %}
-  {% if block_settings.summary_padding_inline_end != blank %}--accordion-header-padding-inline-end: {{ block_settings.summary_padding_inline_end }}px;{% endif %}
-  {% if block_settings.content_padding_block_start != blank %}--accordion-content-padding-block-start: {{ block_settings.content_padding_block_start }}px;{% endif %}
-  {% if block_settings.content_padding_block_end != blank %}--accordion-content-padding-block-end: {{ block_settings.content_padding_block_end }}px;{% endif %}
-  {% if block_settings.content_padding_inline_start != blank %}--accordion-content-padding-inline-start: {{ block_settings.content_padding_inline_start }}px;{% endif %}
-  {% if block_settings.content_padding_inline_end != blank %}--accordion-content-padding-inline-end: {{ block_settings.content_padding_inline_end }}px;{% endif %}
+  {% if summary_padding_block_start_value != 0 %}--accordion-header-padding-block-start: {{ summary_padding_block_start_value | divided_by: rem_divisor }}rem;{% endif %}
+  {% if summary_padding_block_end_value != 0 %}--accordion-header-padding-block-end: {{ summary_padding_block_end_value | divided_by: rem_divisor }}rem;{% endif %}
+  {% if summary_padding_inline_start_value != 0 %}--accordion-header-padding-inline-start: {{ summary_padding_inline_start_value | divided_by: rem_divisor }}rem;{% endif %}
+  {% if summary_padding_inline_end_value != 0 %}--accordion-header-padding-inline-end: {{ summary_padding_inline_end_value | divided_by: rem_divisor }}rem;{% endif %}
+  {% if content_padding_block_start_value != 0 %}--accordion-content-padding-block-start: {{ content_padding_block_start_value | divided_by: rem_divisor }}rem;{% endif %}
+  {% if content_padding_block_end_value != 0 %}--accordion-content-padding-block-end: {{ content_padding_block_end_value | divided_by: rem_divisor }}rem;{% endif %}
+  {% if content_padding_inline_start_value != 0 %}--accordion-content-padding-inline-start: {{ content_padding_inline_start_value | divided_by: rem_divisor }}rem;{% endif %}
+  {% if content_padding_inline_end_value != 0 %}--accordion-content-padding-inline-end: {{ content_padding_inline_end_value | divided_by: rem_divisor }}rem;{% endif %}
   {% if block_settings.heading_type_preset != blank %}
     --accordion-heading-font-family: var(--font-{{ block_settings.heading_type_preset }}--family);
     --accordion-heading-font-style: var(--font-{{ block_settings.heading_type_preset }}--style);
@@ -85,17 +78,17 @@
 {% endcapture %}
 
 {% capture header_styles %}
-  {% if block_settings.summary_padding_block_start != blank %}padding-block-start: {{ block_settings.summary_padding_block_start }}px;{% endif %}
-  {% if block_settings.summary_padding_block_end != blank %}padding-block-end: {{ block_settings.summary_padding_block_end }}px;{% endif %}
-  {% if block_settings.summary_padding_inline_start != blank %}padding-inline-start: {{ block_settings.summary_padding_inline_start }}px;{% endif %}
-  {% if block_settings.summary_padding_inline_end != blank %}padding-inline-end: {{ block_settings.summary_padding_inline_end }}px;{% endif %}
+  {% if summary_padding_block_start_value != 0 %}padding-block-start: {{ summary_padding_block_start_value | divided_by: rem_divisor }}rem;{% endif %}
+  {% if summary_padding_block_end_value != 0 %}padding-block-end: {{ summary_padding_block_end_value | divided_by: rem_divisor }}rem;{% endif %}
+  {% if summary_padding_inline_start_value != 0 %}padding-inline-start: {{ summary_padding_inline_start_value | divided_by: rem_divisor }}rem;{% endif %}
+  {% if summary_padding_inline_end_value != 0 %}padding-inline-end: {{ summary_padding_inline_end_value | divided_by: rem_divisor }}rem;{% endif %}
 {% endcapture %}
 
 {% capture content_styles %}
-  {% if block_settings.content_padding_block_start != blank %}padding-block-start: {{ block_settings.content_padding_block_start }}px;{% endif %}
-  {% if block_settings.content_padding_block_end != blank %}padding-block-end: {{ block_settings.content_padding_block_end }}px;{% endif %}
-  {% if block_settings.content_padding_inline_start != blank %}padding-inline-start: {{ block_settings.content_padding_inline_start }}px;{% endif %}
-  {% if block_settings.content_padding_inline_end != blank %}padding-inline-end: {{ block_settings.content_padding_inline_end }}px;{% endif %}
+  {% if content_padding_block_start_value != 0 %}padding-block-start: {{ content_padding_block_start_value | divided_by: rem_divisor }}rem;{% endif %}
+  {% if content_padding_block_end_value != 0 %}padding-block-end: {{ content_padding_block_end_value | divided_by: rem_divisor }}rem;{% endif %}
+  {% if content_padding_inline_start_value != 0 %}padding-inline-start: {{ content_padding_inline_start_value | divided_by: rem_divisor }}rem;{% endif %}
+  {% if content_padding_inline_end_value != 0 %}padding-inline-end: {{ content_padding_inline_end_value | divided_by: rem_divisor }}rem;{% endif %}
 {% endcapture %}
 
 <div class="{{ row_classes }}">
