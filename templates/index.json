@@ -570,8 +570,8 @@
               "type": "accordion_row",
               "name": "t:names.accordion_row",
               "settings": {
-                "heading": "Real Kola",
-                "right_heading": "All Natural",
+                "heading": "Low Cal",
+                "right_heading": "Mānuka",
                 "open_by_default": false,
                 "inherit_color_scheme": true,
                 "color_scheme": "scheme-3",
