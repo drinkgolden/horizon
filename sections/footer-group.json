@@ -62,8 +62,8 @@
             "placeholder": "",
             "padding-block-start": 12,
             "padding-block-end": 12,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
+            "padding-inline-start": 12,
+            "padding-inline-end": 12
           },
           "blocks": {
             "menu_9UyFKV": {
@@ -82,8 +82,8 @@
                 "link_preset": "paragraph",
                 "padding-block-start": 12,
                 "padding-block-end": 12,
-                "padding-inline-start": 24,
-                "padding-inline-end": 24
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
               },
               "blocks": {}
             },
@@ -103,8 +103,8 @@
                 "link_preset": "paragraph",
                 "padding-block-start": 12,
                 "padding-block-end": 12,
-                "padding-inline-start": 24,
-                "padding-inline-end": 24
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
               },
               "blocks": {}
             },
@@ -124,8 +124,8 @@
                 "link_preset": "paragraph",
                 "padding-block-start": 12,
                 "padding-block-end": 12,
-                "padding-inline-start": 24,
-                "padding-inline-end": 24
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
               },
               "blocks": {}
             },
@@ -145,8 +145,8 @@
                 "link_preset": "paragraph",
                 "padding-block-start": 12,
                 "padding-block-end": 12,
-                "padding-inline-start": 24,
-                "padding-inline-end": 24
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
               },
               "blocks": {}
             }
