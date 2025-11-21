@@ -58,6 +58,10 @@ body.has-side-columns #header-group::before {
   pointer-events: none;
 }
 
+body.has-side-columns #header-group .header-section .section-background {
+  z-index: var(--layer-base);
+}
+
 body.has-side-columns #MainContent,
 body.has-side-columns #footer-group {
   padding-left: var(--side-columns-inline-desktop);

@@ -37,9 +37,18 @@
     {{ content_for_header }}
 
     {{ 'font-override.css' | asset_url | stylesheet_tag }}
+    {% liquid
+      assign section_gridline_color = settings.section_gridline_color | default: '#e5e5e5'
+      assign section_gridline_color_dark = settings.section_gridline_color_dark | default: 'rgba(255,255,255,0.12)'
+      assign vertical_divider_color = settings.vertical_divider_color | default: section_gridline_color
+      assign vertical_divider_output = vertical_divider_color
+      unless settings.section_gridlines_enable and settings.section_gridlines_vertical
+        assign vertical_divider_output = 'transparent'
+      endunless
+    %}
     <style id="SplitShowcaseDividerColor">
       :root {
-        --vertical-divider-color: {{ section_gridline_color | default: '#e5e5e5' }};
+        --vertical-divider-color: {{ vertical_divider_output }};
       }
     </style>
   </head>
@@ -60,16 +69,36 @@
       if settings.section_gridlines_horizontal
         assign body_classes = body_classes | append: ' has-section-gridlines-horizontal'
       endif
+      if settings.section_gridlines_vertical
+        assign body_classes = body_classes | append: ' has-section-gridlines-vertical'
+      endif
     endif
-    assign section_gridline_color = settings.section_gridline_color | default: '#e5e5e5'
-    assign section_gridline_color_dark = settings.section_gridline_color_dark | default: 'rgba(255,255,255,0.12)'
+    assign side_columns_background = 'transparent'
+    if settings.side_columns_color_scheme == blank
+      assign side_columns_color_scheme_id = 'scheme-1'
+    else
+      assign side_columns_color_scheme_id = settings.side_columns_color_scheme
+    endif
+    assign side_columns_scheme_settings = blank
+    for scheme in settings.color_schemes
+      if scheme.id == side_columns_color_scheme_id
+        assign side_columns_scheme_settings = scheme
+      endif
+    endfor
+    if side_columns_scheme_settings and side_columns_scheme_settings.settings.background != blank
+      assign side_columns_background = 'rgb(' | append: side_columns_scheme_settings.settings.background.rgba | append: ')'
+    endif
   %}
   {% capture body_style %}
     {% if settings.side_columns_enable %}
-      --side-columns-width-desktop: {{ settings.side_columns_width_desktop | default: 2 | append: 'vw' }};
-      --side-columns-width-mobile: {{ settings.side_columns_width_mobile | default: 3.5 | append: 'vw' }};
-      --side-column-background-color: {{ settings.side_columns_background_color | default: 'transparent' }};
-      --side-column-border-color: {{ settings.side_columns_border_color | default: 'transparent' }};
+      --side-columns-width-desktop: {{ settings.side_columns_width_desktop | default: 1.5 | append: 'rem' }};
+      --side-columns-width-mobile: {{ settings.side_columns_width_mobile | default: 1 | append: 'rem' }};
+      --side-column-background-color: {{ side_columns_background }};
+      {% if settings.section_gridlines_enable and settings.section_gridlines_vertical %}
+        --side-column-border-color: {{ vertical_divider_color }};
+      {% else %}
+        --side-column-border-color: transparent;
+      {% endif %}
       --side-columns-overhang: 12px;
     {% endif %}
     {% if settings.enable_bottom_motif_button %}
