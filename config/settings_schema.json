@@ -1004,7 +1004,7 @@
         "label": "Desktop width",
         "min": 0,
         "max": 5,
-        "step": 0.05,
+        "step": 0.1,
         "unit": "rem",
         "default": 1.5,
         "visible_if": "{{ settings.side_columns_enable }}"
@@ -1015,7 +1015,7 @@
         "label": "Mobile width",
         "min": 0,
         "max": 5,
-        "step": 0.05,
+        "step": 0.1,
         "unit": "rem",
         "default": 1,
         "visible_if": "{{ settings.side_columns_enable }}"
