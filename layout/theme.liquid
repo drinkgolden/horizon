@@ -86,7 +86,7 @@
       endif
     endfor
     if side_columns_scheme_settings and side_columns_scheme_settings.settings.background != blank
-      assign side_columns_background = 'rgb(' | append: side_columns_scheme_settings.settings.background.rgba | append: ')'
+      assign side_columns_background = 'rgba(' | append: side_columns_scheme_settings.settings.background.rgba | append: ')'
     endif
   %}
   {% capture body_style %}
