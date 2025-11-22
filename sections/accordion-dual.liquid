@@ -63,18 +63,23 @@
     --show-fallback-borders: 1;
   }
 
-  .accordion--dividers .accordion-row + .accordion-row .details {
-    border-block-start: var(--style-border-width) solid var(--accordion-divider-color, var(--color-border));
+  body.has-section-gridlines-horizontal .accordion--dividers .accordion-row + .accordion-row .details {
+    border-block-start: var(--style-border-width) solid
+      var(--accordion-divider-color, var(--section-gridline-color, var(--color-border)));
   }
 
-  .accordion--dividers .accordion-row:first-child .details {
+  body:not(.has-section-gridlines-horizontal) .accordion--dividers .accordion-row + .accordion-row .details {
+    border-block-start: 0;
+  }
+
+  body.has-section-gridlines-horizontal .accordion--dividers .accordion-row:first-child .details {
     border-block-start: calc(var(--style-border-width) * var(--show-fallback-borders)) solid
-      var(--accordion-divider-color, var(--color-border));
+      var(--accordion-divider-color, var(--section-gridline-color, var(--color-border)));
   }
 
-  .accordion--dividers .accordion-row:last-child .details {
+  body.has-section-gridlines-horizontal .accordion--dividers .accordion-row:last-child .details {
     border-block-end: calc(var(--style-border-width) * var(--show-fallback-borders)) solid
-      var(--accordion-divider-color, var(--color-border));
+      var(--accordion-divider-color, var(--section-gridline-color, var(--color-border)));
   }
 
   .accordion--dividers .details-content {
