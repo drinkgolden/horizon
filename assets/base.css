@@ -93,8 +93,8 @@ body.has-side-columns #footer-group {
   }
 }
 
-body:has(> #header-group > .header-section) #MainContent {
-  padding-top: var(--header-group-height, 0px);
+body:has(> #header-group > .header-section) > main > .section-wrapper:first-child {
+  margin-top: var(--header-group-height, 0px);
 }
 
 .floating-motif-button {
