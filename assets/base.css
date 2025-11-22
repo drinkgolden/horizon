@@ -93,6 +93,10 @@ body.has-side-columns #footer-group {
   }
 }
 
+body:has(> #header-group > .header-section) #MainContent {
+  padding-top: var(--header-group-height, 0px);
+}
+
 .floating-motif-button {
   position: fixed;
   left: 50%;
