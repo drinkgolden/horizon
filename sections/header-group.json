@@ -19,11 +19,11 @@
           "settings": {
             "text": "Spend ≥ $50 & Ship Free",
             "link": "",
-            "font": "var(--font-body--family)",
-            "font_size": "0.75rem",
+            "font": "var(--font-heading--family)",
+            "font_size": "1rem",
             "weight": "",
             "letter_spacing": "tight",
-            "case": "none"
+            "case": "uppercase"
           },
           "blocks": {}
         }
