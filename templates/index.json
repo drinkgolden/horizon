@@ -26,7 +26,7 @@
             "gap": 0,
             "inherit_color_scheme": true,
             "color_scheme": "",
-            "toggle_overlay": false,
+            "toggle_overlay": true,
             "overlay_color": "#00000026",
             "overlay_style": "solid",
             "gradient_direction": "to top",
@@ -376,8 +376,8 @@
               "type": "accordion_row",
               "name": "t:names.accordion_row",
               "settings": {
-                "heading": "Low Cal",
-                "right_heading": "Mānuka",
+                "heading": "Lemon Honey Soda",
+                "right_heading": "",
                 "open_by_default": false,
                 "inherit_color_scheme": true,
                 "color_scheme": "scheme-3",
@@ -391,8 +391,8 @@
                 "content_padding_inline_end": 12,
                 "heading_type_preset": "h2",
                 "right_heading_type_preset": "",
-                "heading_min_size": 1.2,
-                "heading_max_size": 1.8,
+                "heading_min_size": 1,
+                "heading_max_size": 3,
                 "icon": "none",
                 "width": 20
               },
@@ -572,7 +572,207 @@
                 "group_CXDddP"
               ]
             },
-            "accordion_row_zGHMbx": {
+            "accordion_row_4P4Dck": {
+              "type": "accordion_row",
+              "name": "t:names.accordion_row",
+              "settings": {
+                "heading": "Product of New Zealand",
+                "right_heading": "",
+                "open_by_default": false,
+                "inherit_color_scheme": true,
+                "color_scheme": "scheme-3",
+                "summary_padding_block_start": 0,
+                "summary_padding_block_end": 0,
+                "summary_padding_inline_start": 24,
+                "summary_padding_inline_end": 24,
+                "content_padding_block_start": 12,
+                "content_padding_block_end": 24,
+                "content_padding_inline_start": 24,
+                "content_padding_inline_end": 12,
+                "heading_type_preset": "h2",
+                "right_heading_type_preset": "",
+                "heading_min_size": 1,
+                "heading_max_size": 3,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "group_W4T8EC": {
+                  "type": "group",
+                  "name": "Left",
+                  "settings": {
+                    "content_direction": "row",
+                    "vertical_on_mobile": true,
+                    "horizontal_alignment": "flex-start",
+                    "vertical_alignment": "center",
+                    "align_baseline": false,
+                    "horizontal_alignment_flex_direction_column": "flex-start",
+                    "vertical_alignment_flex_direction_column": "center",
+                    "gap": 12,
+                    "width": "fill",
+                    "custom_width": 100,
+                    "width_mobile": "fill",
+                    "custom_width_mobile": 100,
+                    "height": "fit",
+                    "custom_height": 100,
+                    "inherit_color_scheme": true,
+                    "color_scheme": "",
+                    "background_media": "none",
+                    "video_position": "cover",
+                    "background_image_position": "cover",
+                    "border": "none",
+                    "border_width": 1,
+                    "border_opacity": 100,
+                    "border_radius": 0,
+                    "toggle_overlay": false,
+                    "overlay_color": "#00000026",
+                    "overlay_style": "solid",
+                    "gradient_direction": "to top",
+                    "link": "",
+                    "open_in_new_tab": false,
+                    "placeholder": "",
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {
+                    "text_UJFJhL": {
+                      "type": "text",
+                      "name": "t:names.text",
+                      "settings": {
+                        "text": "<p>We make things that work better and last longer. Our products solve real problems with clean design and honest materials.</p>",
+                        "width": "fit-content",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    },
+                    "text_f4DbVw": {
+                      "type": "text",
+                      "name": "t:names.text",
+                      "settings": {
+                        "text": "<p>We make things that work better and last longer. Our products solve real problems with clean design and honest materials.</p>",
+                        "width": "fit-content",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_UJFJhL",
+                    "text_f4DbVw"
+                  ]
+                },
+                "group_EgAmHY": {
+                  "type": "group",
+                  "name": "Right",
+                  "settings": {
+                    "content_direction": "row",
+                    "vertical_on_mobile": true,
+                    "horizontal_alignment": "flex-end",
+                    "vertical_alignment": "center",
+                    "align_baseline": false,
+                    "horizontal_alignment_flex_direction_column": "flex-start",
+                    "vertical_alignment_flex_direction_column": "center",
+                    "gap": 12,
+                    "width": "fill",
+                    "custom_width": 100,
+                    "width_mobile": "fill",
+                    "custom_width_mobile": 100,
+                    "height": "fit",
+                    "custom_height": 100,
+                    "inherit_color_scheme": true,
+                    "color_scheme": "",
+                    "background_media": "none",
+                    "video_position": "cover",
+                    "background_image_position": "cover",
+                    "border": "none",
+                    "border_width": 1,
+                    "border_opacity": 100,
+                    "border_radius": 0,
+                    "toggle_overlay": false,
+                    "overlay_color": "#00000026",
+                    "overlay_style": "solid",
+                    "gradient_direction": "to top",
+                    "link": "",
+                    "open_in_new_tab": false,
+                    "placeholder": "",
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {
+                    "text_BJgUi3": {
+                      "type": "text",
+                      "name": "t:names.text",
+                      "settings": {
+                        "text": "<p>We make things that work better and last longer. Our products solve real problems with clean design and honest materials.</p>",
+                        "width": "fit-content",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_BJgUi3"
+                  ]
+                }
+              },
+              "block_order": [
+                "group_W4T8EC",
+                "group_EgAmHY"
+              ]
+            },
+            "accordion_row_N9TEDh": {
               "type": "accordion_row",
               "name": "t:names.accordion_row",
               "settings": {
@@ -597,7 +797,7 @@
                 "width": 20
               },
               "blocks": {
-                "group_mUDezc": {
+                "group_CxLzWe": {
                   "type": "group",
                   "name": "Left",
                   "settings": {
@@ -637,7 +837,7 @@
                     "padding-inline-end": 0
                   },
                   "blocks": {
-                    "text_UNbMnD": {
+                    "text_FUYJ4e": {
                       "type": "text",
                       "name": "t:names.text",
                       "settings": {
@@ -663,7 +863,7 @@
                       },
                       "blocks": {}
                     },
-                    "text_E66GeU": {
+                    "text_UCnPE4": {
                       "type": "text",
                       "name": "t:names.text",
                       "settings": {
@@ -691,11 +891,11 @@
                     }
                   },
                   "block_order": [
-                    "text_UNbMnD",
-                    "text_E66GeU"
+                    "text_FUYJ4e",
+                    "text_UCnPE4"
                   ]
                 },
-                "group_m3gkp8": {
+                "group_Mbrd6A": {
                   "type": "group",
                   "name": "Right",
                   "settings": {
@@ -735,7 +935,7 @@
                     "padding-inline-end": 0
                   },
                   "blocks": {
-                    "text_zBiTBB": {
+                    "text_DrRC7D": {
                       "type": "text",
                       "name": "t:names.text",
                       "settings": {
@@ -763,21 +963,21 @@
                     }
                   },
                   "block_order": [
-                    "text_zBiTBB"
+                    "text_DrRC7D"
                   ]
                 }
               },
               "block_order": [
-                "group_mUDezc",
-                "group_m3gkp8"
+                "group_CxLzWe",
+                "group_Mbrd6A"
               ]
             },
-            "accordion_row_kH6eHi": {
+            "accordion_row_R7BQfk": {
               "type": "accordion_row",
               "name": "t:names.accordion_row",
               "settings": {
-                "heading": "Low Cal",
-                "right_heading": "Mānuka",
+                "heading": "330 mL",
+                "right_heading": "Vitamin C",
                 "open_by_default": false,
                 "inherit_color_scheme": true,
                 "color_scheme": "scheme-3",
@@ -789,7 +989,7 @@
                 "content_padding_block_end": 24,
                 "content_padding_inline_start": 24,
                 "content_padding_inline_end": 12,
-                "heading_type_preset": "h3",
+                "heading_type_preset": "h2",
                 "right_heading_type_preset": "",
                 "heading_min_size": 1,
                 "heading_max_size": 3,
@@ -797,7 +997,7 @@
                 "width": 20
               },
               "blocks": {
-                "group_4DmAgD": {
+                "group_H4DPWe": {
                   "type": "group",
                   "name": "Left",
                   "settings": {
@@ -837,7 +1037,7 @@
                     "padding-inline-end": 0
                   },
                   "blocks": {
-                    "text_XRmzam": {
+                    "text_d7dznR": {
                       "type": "text",
                       "name": "t:names.text",
                       "settings": {
@@ -863,7 +1063,7 @@
                       },
                       "blocks": {}
                     },
-                    "text_9nmxYV": {
+                    "text_hCwFJe": {
                       "type": "text",
                       "name": "t:names.text",
                       "settings": {
@@ -891,11 +1091,11 @@
                     }
                   },
                   "block_order": [
-                    "text_XRmzam",
-                    "text_9nmxYV"
+                    "text_d7dznR",
+                    "text_hCwFJe"
                   ]
                 },
-                "group_DfCtcK": {
+                "group_mL4qpk": {
                   "type": "group",
                   "name": "Right",
                   "settings": {
@@ -935,7 +1135,7 @@
                     "padding-inline-end": 0
                   },
                   "blocks": {
-                    "text_BBHaUM": {
+                    "text_ABbcqT": {
                       "type": "text",
                       "name": "t:names.text",
                       "settings": {
@@ -963,20 +1163,21 @@
                     }
                   },
                   "block_order": [
-                    "text_BBHaUM"
+                    "text_ABbcqT"
                   ]
                 }
               },
               "block_order": [
-                "group_4DmAgD",
-                "group_DfCtcK"
+                "group_H4DPWe",
+                "group_mL4qpk"
               ]
             }
           },
           "block_order": [
             "accordion_row_eanBJb",
-            "accordion_row_zGHMbx",
-            "accordion_row_kH6eHi"
+            "accordion_row_4P4Dck",
+            "accordion_row_N9TEDh",
+            "accordion_row_R7BQfk"
           ]
         }
       },
