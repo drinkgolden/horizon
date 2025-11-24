@@ -69,6 +69,19 @@
       var(--accordion-divider-color, var(--section-gridline-color, var(--color-border)));
   }
 
+  body.has-section-gridlines-horizontal
+    .accordion--dividers
+    .accordion-row--notch
+    + .accordion-row
+    .details {
+    border-block-start: 0;
+  }
+
+  body.has-section-gridlines-horizontal .accordion--dividers .accordion-row + .accordion-row--notch .details {
+    border-block-start: var(--style-border-width) solid
+      var(--accordion-divider-color, var(--section-gridline-color, var(--color-border)));
+  }
+
   body:not(.has-section-gridlines-horizontal) .accordion--dividers .accordion-row + .accordion-row .details {
     border-block-start: 0;
   }
