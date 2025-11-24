@@ -407,6 +407,14 @@
     display: block;
   }
 
+  .accordion-row--kink:has(.details[open]) .accordion-row__kink-shape--top {
+    display: none;
+  }
+
+  .accordion-row--before-kink:has(+ .accordion-row--kink .details[open]) .accordion-row__kink-shape--bottom {
+    display: none;
+  }
+
   @media screen and (max-width: 749px) {
     .accordion-row__kink-shape {
       height: var(--accordion-kink-height-mobile, 27px);
