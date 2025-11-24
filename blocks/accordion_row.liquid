@@ -159,11 +159,11 @@
         {% content_for 'blocks' %}
       </div>
 
-      <div class="accordion-row__notch-shapes" aria-hidden="true">
-        <span class="accordion-row__notch-shape accordion-row__notch-shape--top"></span>
-        <span class="accordion-row__notch-shape accordion-row__notch-shape--bottom"></span>
-      </div>
     </details>
+    <div class="accordion-row__notch-shapes" aria-hidden="true">
+      <span class="accordion-row__notch-shape accordion-row__notch-shape--top"></span>
+      <span class="accordion-row__notch-shape accordion-row__notch-shape--bottom"></span>
+    </div>
   </accordion-custom>
 </div>
 
@@ -428,6 +428,8 @@
   .accordion-row--before-notch .details {
     border-top: 0;
     border-bottom: 0;
+    border-block-start: 0;
+    border-block-end: 0;
   }
 {% endstylesheet %}
 
