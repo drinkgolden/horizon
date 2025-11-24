@@ -411,6 +411,10 @@
     display: none;
   }
 
+  .accordion-row--before-kink:has(.details[open]) .accordion-row__kink-shape--bottom {
+    display: none;
+  }
+
   .accordion-row--before-kink:has(+ .accordion-row--kink .details[open]) .accordion-row__kink-shape--bottom {
     display: none;
   }
