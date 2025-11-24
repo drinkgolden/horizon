@@ -53,14 +53,14 @@ const getPreviousAccordionRow = (row) => {
   return null;
 };
 
-const syncKinkRows = () => {
+const syncNotchRows = () => {
   const rows = document.querySelectorAll('.accordion-row');
-  rows.forEach((row) => row.classList.remove('accordion-row--before-kink'));
+  rows.forEach((row) => row.classList.remove('accordion-row--before-notch'));
   rows.forEach((row) => {
-    if (!row.classList.contains('accordion-row--kink')) return;
+    if (!row.classList.contains('accordion-row--notch')) return;
     const previous = getPreviousAccordionRow(row);
     if (previous) {
-      previous.classList.add('accordion-row--before-kink');
+      previous.classList.add('accordion-row--before-notch');
     }
   });
 };
@@ -105,7 +105,7 @@ const initAccordionRow = (row) => {
 const initAccordionRows = (root = document) => {
   const rows = root.querySelectorAll('.accordion-row');
   rows.forEach(initAccordionRow);
-  syncKinkRows();
+  syncNotchRows();
 };
 
 if (document.readyState === 'complete' || document.readyState === 'interactive') {
