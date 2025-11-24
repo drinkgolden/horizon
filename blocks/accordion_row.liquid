@@ -160,31 +160,8 @@
       </div>
 
       <div class="accordion-row__kink-shapes" aria-hidden="true">
-        <span class="accordion-row__kink-shape accordion-row__kink-shape--top">
-          <span class="accordion-row__kink-line"></span>
-          <span class="accordion-row__kink-curve">
-            <svg class="accordion-row__kink-curve-desktop" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1415 34" fill="none">
-              <path d="M1410.66 25.4923H826.089C819.642 25.4923 813.915 21.6826 811.892 16.0183C808.565 6.71523 799.717 0.499973 789.84 0.499973H624.816C614.939 0.499965 606.092 6.74955 602.765 16.0183C600.742 21.6826 595.049 25.4923 588.567 25.4923H4" vector-effect="non-scaling-stroke"/>
-            </svg>
-            <svg class="accordion-row__kink-curve-mobile" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 866 27" fill="none">
-              <path d="M866 25.6968H542.433C535.986 25.6968 530.259 21.8871 528.235 16.2228C524.909 6.91974 516.061 0.704483 506.184 0.704482H341.16C331.283 0.704481 322.435 6.95406 319.109 16.2228C317.085 21.8871 311.393 25.6968 304.911 25.6968H0" vector-effect="non-scaling-stroke"/>
-            </svg>
-          </span>
-          <span class="accordion-row__kink-line"></span>
-        </span>
-
-        <span class="accordion-row__kink-shape accordion-row__kink-shape--bottom">
-          <span class="accordion-row__kink-line"></span>
-          <span class="accordion-row__kink-curve">
-            <svg class="accordion-row__kink-curve-desktop" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1415 34" fill="none">
-              <path d="M1410.66 25.4923H826.089C819.642 25.4923 813.915 21.6826 811.892 16.0183C808.565 6.71523 799.717 0.499973 789.84 0.499973H624.816C614.939 0.499965 606.092 6.74955 602.765 16.0183C600.742 21.6826 595.049 25.4923 588.567 25.4923H4" vector-effect="non-scaling-stroke"/>
-            </svg>
-            <svg class="accordion-row__kink-curve-mobile" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 866 27" fill="none">
-              <path d="M866 25.6968H542.433C535.986 25.6968 530.259 21.8871 528.235 16.2228C524.909 6.91974 516.061 0.704483 506.184 0.704482H341.16C331.283 0.704481 322.435 6.95406 319.109 16.2228C317.085 21.8871 311.393 25.6968 304.911 25.6968H0" vector-effect="non-scaling-stroke"/>
-            </svg>
-          </span>
-          <span class="accordion-row__kink-line"></span>
-        </span>
+        <span class="accordion-row__kink-shape accordion-row__kink-shape--top"></span>
+        <span class="accordion-row__kink-shape accordion-row__kink-shape--bottom"></span>
       </div>
     </details>
   </accordion-custom>
@@ -199,6 +176,11 @@
     --accordion-hover-background: rgb(var(--color-foreground-rgb, 255 255 255) / 0.08);
     --accordion-hover-color: var(--color-foreground);
     --accordion-hover-border: rgb(var(--color-border-rgb, var(--color-foreground-rgb, 0 0 0)) / 0.2);
+    --accordion-kink-fill-color: var(--color-background, rgb(var(--color-background-rgb, 255 255 255)));
+    --accordion-kink-mask-desktop: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201415%2034%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M1410.66%2025.4923L826.089%2025.4923C819.642%2025.4923%20813.915%2021.6826%20811.892%2016.0183C808.565%206.71523%20799.717%200.499973%20789.84%200.499973L624.816%200.499966C614.939%200.499965%20606.092%206.74955%20602.765%2016.0183C600.742%2021.6826%20595.049%2025.4923%20588.567%2025.4923L4.00012%2025.4923L4.00012%2034L1410.66%2034Z%22%20fill%3D%22white%22/%3E%3C/svg%3E");
+    --accordion-kink-mask-mobile: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20866%2027%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M866%2025.6968L542.433%2025.6968C535.986%2025.6968%20530.259%2021.8871%20528.235%2016.2228C524.909%206.91974%20516.061%200.704483%20506.184%200.704482L341.16%200.70448C331.283%200.70448%20322.435%206.95406%20319.109%2016.2228C317.085%2021.8871%20311.393%2025.6968%20304.911%2025.6968L0%2025.6968L0%2027L866%2027Z%22%20fill%3D%22white%22/%3E%3C/svg%3E");
+    --accordion-kink-stroke-desktop: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201415%2034%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M1410.66%2025.4923L826.089%2025.4923C819.642%2025.4923%20813.915%2021.6826%20811.892%2016.0183C808.565%206.71523%20799.717%200.499973%20789.84%200.499973L624.816%200.499966C614.939%200.499965%20606.092%206.74955%20602.765%2016.0183C600.742%2021.6826%20595.049%2025.4923%20588.567%2025.4923L4.00012%2025.4923%22%20stroke%3D%22white%22%20stroke-width%3D%221%22%20fill%3D%22none%22/%3E%3C/svg%3E");
+    --accordion-kink-stroke-mobile: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20866%2027%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M866%2025.6968L542.433%2025.6968C535.986%2025.6968%20530.259%2021.8871%20528.235%2016.2228C524.909%206.91974%20516.061%200.704483%20506.184%200.704482L341.16%200.70448C331.283%200.70448%20322.435%206.95406%20319.109%2016.2228C317.085%2021.8871%20311.393%2025.6968%20304.911%2025.6968L0%2025.6968%22%20stroke%3D%22white%22%20stroke-width%3D%221%22%20fill%3D%22none%22/%3E%3C/svg%3E");
   }
 
   .accordion-row--kink,
@@ -369,76 +351,76 @@
   }
 
   .accordion-row__kink-shape {
-    display: none;
     position: absolute;
-    left: 0;
-    right: 0;
+    left: 50%;
+    width: min(var(--accordion-kink-width-desktop, 1415px), 100%);
     height: var(--accordion-kink-height, 34px);
-    align-items: center;
-    gap: var(--accordion-kink-gap, 0px);
+    transform: translateX(-50%);
+    display: none;
+  }
+
+  .accordion-row__kink-shape::before,
+  .accordion-row__kink-shape::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    display: block;
     pointer-events: none;
+  }
+
+  .accordion-row__kink-shape::before {
+    background-color: var(--accordion-kink-fill-color);
+    -webkit-mask-image: var(--accordion-kink-mask-desktop);
+    mask-image: var(--accordion-kink-mask-desktop);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-position: center;
+    mask-position: center;
+  }
+
+  .accordion-row__kink-shape::after {
+    background-color: var(--accordion-divider-color, var(--section-gridline-color, var(--color-border)));
+    -webkit-mask-image: var(--accordion-kink-stroke-desktop);
+    mask-image: var(--accordion-kink-stroke-desktop);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-position: center;
+    mask-position: center;
   }
 
   .accordion-row__kink-shape--top {
     top: 0;
-    transform: translateY(-50%) scaleY(-1);
+    transform: translate(-50%, -50%) scaleY(-1);
   }
 
   .accordion-row__kink-shape--bottom {
     bottom: 0;
-    transform: translateY(50%);
+    transform: translate(-50%, 50%);
   }
 
   .accordion-row--kink .accordion-row__kink-shape--bottom,
   .accordion-row--before-kink .accordion-row__kink-shape--top {
-    display: flex;
-  }
-
-  .accordion-row__kink-line {
-    flex: 1;
-    height: 1px;
-    background-color: var(--accordion-divider-color, var(--section-gridline-color, var(--color-border)));
-  }
-
-  .accordion-row__kink-curve {
-    flex: 0 0 auto;
-    width: min(var(--accordion-kink-width-desktop, 1415px), 100%);
-    height: 100%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .accordion-row__kink-curve svg {
-    width: 100%;
-    height: 100%;
-    stroke: var(--accordion-divider-color, var(--section-gridline-color, var(--color-border)));
-    stroke-width: 1px;
-  }
-
-  .accordion-row__kink-curve-desktop {
     display: block;
-  }
-
-  .accordion-row__kink-curve-mobile {
-    display: none;
   }
 
   @media screen and (max-width: 749px) {
     .accordion-row__kink-shape {
       height: var(--accordion-kink-height-mobile, 27px);
-    }
-
-    .accordion-row__kink-curve {
       width: min(var(--accordion-kink-width-mobile, 866px), 100%);
     }
 
-    .accordion-row__kink-curve-desktop {
-      display: none;
+    .accordion-row__kink-shape::before {
+      -webkit-mask-image: var(--accordion-kink-mask-mobile);
+      mask-image: var(--accordion-kink-mask-mobile);
     }
 
-    .accordion-row__kink-curve-mobile {
-      display: block;
+    .accordion-row__kink-shape::after {
+      -webkit-mask-image: var(--accordion-kink-stroke-mobile);
+      mask-image: var(--accordion-kink-stroke-mobile);
     }
   }
 
