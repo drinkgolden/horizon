@@ -353,7 +353,7 @@
   .accordion-row__kink-shape {
     position: absolute;
     left: 50%;
-    width: min(var(--accordion-kink-width-desktop, 1415px), 100%);
+    width: 100%;
     height: var(--accordion-kink-height, 34px);
     transform: translateX(-50%);
     display: none;
@@ -374,8 +374,8 @@
     mask-image: var(--accordion-kink-mask-desktop);
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
-    -webkit-mask-size: contain;
-    mask-size: contain;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
     -webkit-mask-position: center;
     mask-position: center;
   }
@@ -386,20 +386,20 @@
     mask-image: var(--accordion-kink-stroke-desktop);
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
-    -webkit-mask-size: contain;
-    mask-size: contain;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
     -webkit-mask-position: center;
     mask-position: center;
   }
 
   .accordion-row__kink-shape--top {
     top: 0;
-    transform: translate(-50%, -50%) scaleY(-1);
+    transform: translate(-50%, -100%);
   }
 
   .accordion-row__kink-shape--bottom {
     bottom: 0;
-    transform: translate(-50%, 50%);
+    transform: translate(-50%, 100%) scaleY(-1);
   }
 
   .accordion-row--kink .accordion-row__kink-shape--top,
@@ -410,7 +410,7 @@
   @media screen and (max-width: 749px) {
     .accordion-row__kink-shape {
       height: var(--accordion-kink-height-mobile, 27px);
-      width: min(var(--accordion-kink-width-mobile, 866px), 100%);
+      width: 100%;
     }
 
     .accordion-row__kink-shape::before {
