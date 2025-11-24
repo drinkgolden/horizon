@@ -345,7 +345,10 @@
 
   .accordion-row__notch-shapes {
     position: absolute;
-    inset: 0;
+    top: 0;
+    bottom: 0;
+    left: calc(var(--padding-inline-start, 0px) * -1);
+    right: calc(var(--padding-inline-end, 0px) * -1);
     pointer-events: none;
     z-index: 1;
   }
@@ -393,13 +396,9 @@
   }
 
   .accordion-row__notch-shape--top {
-    top: 0;
-    transform: translate(-50%, -100%);
-  }
-
-  .accordion-row__notch-shape--bottom {
-    bottom: 0;
-    transform: translate(-50%, 100%) scaleY(-1);
+    --accordion-notch-line-offset: 25.5px;
+    top: calc(var(--accordion-notch-line-offset) * -1);
+    transform: translateX(-50%);
   }
 
   .accordion-row--notch .accordion-row__notch-shape--top {
@@ -410,6 +409,10 @@
     .accordion-row__notch-shape {
       height: var(--accordion-notch-height-mobile, 27px);
       width: 100%;
+    }
+
+    .accordion-row__notch-shape--top {
+      --accordion-notch-line-offset: 24px;
     }
 
     .accordion-row__notch-shape::before {
