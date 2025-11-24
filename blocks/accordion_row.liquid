@@ -3,6 +3,9 @@
 {% if block_settings.inherit_color_scheme == false %}
   {% assign row_classes = row_classes | append: ' color-' | append: block_settings.color_scheme %}
 {% endif %}
+{% if block_settings.kink_row %}
+  {% assign row_classes = row_classes | append: ' accordion-row--kink' %}
+{% endif %}
 
 {% assign show_right_heading = false %}
 {% if block_settings.right_heading != blank %}
@@ -94,6 +97,9 @@
 <div class="{{ row_classes }}">
   <accordion-custom
     class="accordion-row__inner{% if block_settings.inherit_color_scheme == false %} accordion-row--custom-scheme{% endif %}"
+    {% if block_settings.kink_row %}
+      data-kink="true"
+    {% endif %}
     {% if inline_styles != blank %}
       style="{{ inline_styles | strip }}"
     {% endif %}
@@ -152,6 +158,34 @@
       >
         {% content_for 'blocks' %}
       </div>
+
+      <div class="accordion-row__kink-shapes" aria-hidden="true">
+        <span class="accordion-row__kink-shape accordion-row__kink-shape--top">
+          <span class="accordion-row__kink-line"></span>
+          <span class="accordion-row__kink-curve">
+            <svg class="accordion-row__kink-curve-desktop" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1415 34" fill="none">
+              <path d="M1410.66 25.4923H826.089C819.642 25.4923 813.915 21.6826 811.892 16.0183C808.565 6.71523 799.717 0.499973 789.84 0.499973H624.816C614.939 0.499965 606.092 6.74955 602.765 16.0183C600.742 21.6826 595.049 25.4923 588.567 25.4923H4" vector-effect="non-scaling-stroke"/>
+            </svg>
+            <svg class="accordion-row__kink-curve-mobile" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 866 27" fill="none">
+              <path d="M866 25.6968H542.433C535.986 25.6968 530.259 21.8871 528.235 16.2228C524.909 6.91974 516.061 0.704483 506.184 0.704482H341.16C331.283 0.704481 322.435 6.95406 319.109 16.2228C317.085 21.8871 311.393 25.6968 304.911 25.6968H0" vector-effect="non-scaling-stroke"/>
+            </svg>
+          </span>
+          <span class="accordion-row__kink-line"></span>
+        </span>
+
+        <span class="accordion-row__kink-shape accordion-row__kink-shape--bottom">
+          <span class="accordion-row__kink-line"></span>
+          <span class="accordion-row__kink-curve">
+            <svg class="accordion-row__kink-curve-desktop" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1415 34" fill="none">
+              <path d="M1410.66 25.4923H826.089C819.642 25.4923 813.915 21.6826 811.892 16.0183C808.565 6.71523 799.717 0.499973 789.84 0.499973H624.816C614.939 0.499965 606.092 6.74955 602.765 16.0183C600.742 21.6826 595.049 25.4923 588.567 25.4923H4" vector-effect="non-scaling-stroke"/>
+            </svg>
+            <svg class="accordion-row__kink-curve-mobile" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 866 27" fill="none">
+              <path d="M866 25.6968H542.433C535.986 25.6968 530.259 21.8871 528.235 16.2228C524.909 6.91974 516.061 0.704483 506.184 0.704482H341.16C331.283 0.704481 322.435 6.95406 319.109 16.2228C317.085 21.8871 311.393 25.6968 304.911 25.6968H0" vector-effect="non-scaling-stroke"/>
+            </svg>
+          </span>
+          <span class="accordion-row__kink-line"></span>
+        </span>
+      </div>
     </details>
   </accordion-custom>
 </div>
@@ -180,6 +214,10 @@
 
   .accordion-row__inner {
     display: block;
+  }
+
+  .accordion-row .details {
+    position: relative;
   }
 
   .details__icon {
@@ -316,6 +354,97 @@
 
   .accordion-row__group-hidden {
     display: none !important;
+  }
+
+  .accordion-row__kink-shapes {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .accordion-row__kink-shape {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: var(--accordion-kink-height, 34px);
+    align-items: center;
+    gap: var(--accordion-kink-gap, 0px);
+    pointer-events: none;
+  }
+
+  .accordion-row__kink-shape--top {
+    top: 0;
+    transform: translateY(-50%) scaleY(-1);
+  }
+
+  .accordion-row__kink-shape--bottom {
+    bottom: 0;
+    transform: translateY(50%);
+  }
+
+  body:not(.has-section-gridlines-horizontal)
+    .accordion-row__kink-shape {
+    display: none !important;
+  }
+
+  .accordion-row--kink .accordion-row__kink-shape--bottom,
+  .accordion-row--before-kink .accordion-row__kink-shape--top {
+    display: flex;
+  }
+
+  .accordion-row__kink-line {
+    flex: 1;
+    height: 1px;
+    background-color: var(--accordion-divider-color, var(--section-gridline-color, var(--color-border)));
+  }
+
+  .accordion-row__kink-curve {
+    flex: 0 0 auto;
+    width: min(var(--accordion-kink-width-desktop, 1415px), 100%);
+    height: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .accordion-row__kink-curve svg {
+    width: 100%;
+    height: 100%;
+    stroke: var(--accordion-divider-color, var(--section-gridline-color, var(--color-border)));
+    stroke-width: 1px;
+  }
+
+  .accordion-row__kink-curve-desktop {
+    display: block;
+  }
+
+  .accordion-row__kink-curve-mobile {
+    display: none;
+  }
+
+  @media screen and (max-width: 749px) {
+    .accordion-row__kink-shape {
+      height: var(--accordion-kink-height-mobile, 27px);
+    }
+
+    .accordion-row__kink-curve {
+      width: min(var(--accordion-kink-width-mobile, 866px), 100%);
+    }
+
+    .accordion-row__kink-curve-desktop {
+      display: none;
+    }
+
+    .accordion-row__kink-curve-mobile {
+      display: block;
+    }
+  }
+
+  .accordion-row--kink .details,
+  .accordion-row--before-kink .details {
+    border-top: 0;
+    border-bottom: 0;
   }
 {% endstylesheet %}
 
@@ -502,6 +631,16 @@
       "step": 0.1,
       "unit": "rem",
       "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Kink"
+    },
+    {
+      "type": "checkbox",
+      "id": "kink_row",
+      "label": "Enable kink shape on this row",
+      "default": false
     },
     {
       "type": "header",

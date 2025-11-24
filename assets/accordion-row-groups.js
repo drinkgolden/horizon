@@ -41,6 +41,30 @@ const attachInteractionHandlers = (element, handler) => {
   });
 };
 
+const getPreviousAccordionRow = (row) => {
+  if (!row) return null;
+  let previous = row.previousElementSibling;
+  while (previous) {
+    if (previous.classList && previous.classList.contains('accordion-row')) {
+      return previous;
+    }
+    previous = previous.previousElementSibling;
+  }
+  return null;
+};
+
+const syncKinkRows = () => {
+  const rows = document.querySelectorAll('.accordion-row');
+  rows.forEach((row) => row.classList.remove('accordion-row--before-kink'));
+  rows.forEach((row) => {
+    if (!row.classList.contains('accordion-row--kink')) return;
+    const previous = getPreviousAccordionRow(row);
+    if (previous) {
+      previous.classList.add('accordion-row--before-kink');
+    }
+  });
+};
+
 const initAccordionRow = (row) => {
   if (row.dataset.groupsEnhanced === 'true') return;
 
@@ -81,6 +105,7 @@ const initAccordionRow = (row) => {
 const initAccordionRows = (root = document) => {
   const rows = root.querySelectorAll('.accordion-row');
   rows.forEach(initAccordionRow);
+  syncKinkRows();
 };
 
 if (document.readyState === 'complete' || document.readyState === 'interactive') {
