@@ -355,10 +355,11 @@
 
   .accordion-row__notch-shape {
     position: absolute;
-    left: 50%;
-    width: 100%;
+    left: 0;
+    right: 0;
+    width: auto;
     height: var(--accordion-notch-height, 34px);
-    transform: translateX(-50%);
+    transform: none;
     display: none;
   }
 
@@ -397,10 +398,8 @@
 
   .accordion-row__notch-shape--top {
     --accordion-notch-line-offset: 25.5px;
-    top: calc(var(--accordion-notch-line-offset) * -1);
-    left: 0;
-    width: 100%;
-    transform: none;
+    top: 0;
+    transform: translateY(calc(var(--accordion-notch-line-offset) * -1));
   }
 
   .accordion-row--notch .accordion-row__notch-shape--top {
@@ -410,7 +409,6 @@
   @media screen and (max-width: 749px) {
     .accordion-row__notch-shape {
       height: var(--accordion-notch-height-mobile, 27px);
-      width: 100%;
     }
 
     .accordion-row__notch-shape--top {
