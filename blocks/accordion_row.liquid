@@ -356,10 +356,8 @@
   .accordion-row__notch-shape {
     position: absolute;
     left: 0;
-    right: 0;
-    width: auto;
+    width: 100%;
     height: var(--accordion-notch-height, 34px);
-    transform: none;
     display: none;
   }
 
@@ -398,8 +396,7 @@
 
   .accordion-row__notch-shape--top {
     --accordion-notch-line-offset: 25.5px;
-    top: 0;
-    transform: translateY(calc(var(--accordion-notch-line-offset) * -1));
+    top: calc(var(--accordion-notch-line-offset) * -1);
   }
 
   .accordion-row--notch .accordion-row__notch-shape--top {
