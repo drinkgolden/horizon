@@ -347,8 +347,8 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    width: calc(100% + var(--padding-inline-start, 0px) + var(--padding-inline-end, 0px));
-    left: calc(var(--padding-inline-start, 0px) * -1);
+    left: calc((var(--padding-inline-start, 0px) + var(--style-border-width, 1px)) * -1);
+    right: calc((var(--padding-inline-end, 0px) + var(--style-border-width, 1px)) * -1);
     pointer-events: none;
     z-index: 1;
   }
