@@ -360,7 +360,7 @@
             "icon": "caret",
             "dividers": true,
             "type_preset": "h4",
-            "inherit_color_scheme": false,
+            "inherit_color_scheme": true,
             "color_scheme": "scheme-5",
             "border": "none",
             "border_width": 1,
@@ -393,6 +393,7 @@
                 "right_heading_type_preset": "",
                 "heading_min_size": 1,
                 "heading_max_size": 3,
+                "notch_row": false,
                 "icon": "none",
                 "width": 20
               },
@@ -593,6 +594,7 @@
                 "right_heading_type_preset": "",
                 "heading_min_size": 1,
                 "heading_max_size": 3,
+                "notch_row": false,
                 "icon": "none",
                 "width": 20
               },
@@ -793,6 +795,7 @@
                 "right_heading_type_preset": "",
                 "heading_min_size": 1,
                 "heading_max_size": 3,
+                "notch_row": false,
                 "icon": "none",
                 "width": 20
               },
@@ -993,6 +996,7 @@
                 "right_heading_type_preset": "",
                 "heading_min_size": 1,
                 "heading_max_size": 3,
+                "notch_row": false,
                 "icon": "none",
                 "width": 20
               },
@@ -1808,6 +1812,7 @@
                     "right_heading_type_preset": "",
                     "heading_min_size": 0.1,
                     "heading_max_size": 2,
+                    "notch_row": false,
                     "icon": "none",
                     "width": 20
                   },
@@ -1862,6 +1867,7 @@
                     "right_heading_type_preset": "",
                     "heading_min_size": 0.9,
                     "heading_max_size": 1.6,
+                    "notch_row": false,
                     "icon": "none",
                     "width": 20
                   },
@@ -1916,6 +1922,7 @@
                     "right_heading_type_preset": "",
                     "heading_min_size": 0.9,
                     "heading_max_size": 1.6,
+                    "notch_row": false,
                     "icon": "none",
                     "width": 20
                   },
@@ -2065,6 +2072,7 @@
                     "right_heading_type_preset": "",
                     "heading_min_size": 0.9,
                     "heading_max_size": 1.6,
+                    "notch_row": false,
                     "icon": "none",
                     "width": 20
                   },
@@ -2119,6 +2127,7 @@
                     "right_heading_type_preset": "",
                     "heading_min_size": 0.9,
                     "heading_max_size": 1.6,
+                    "notch_row": false,
                     "icon": "none",
                     "width": 20
                   },
@@ -2173,6 +2182,7 @@
                     "right_heading_type_preset": "",
                     "heading_min_size": 0.9,
                     "heading_max_size": 1.6,
+                    "notch_row": false,
                     "icon": "none",
                     "width": 20
                   },
