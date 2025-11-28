@@ -18,12 +18,12 @@
           "type": "group",
           "name": "t:names.group",
           "settings": {
-            "content_direction": "row",
+            "content_direction": "column",
             "vertical_on_mobile": true,
             "horizontal_alignment": "center",
             "vertical_alignment": "flex-end",
             "align_baseline": true,
-            "horizontal_alignment_flex_direction_column": "flex-start",
+            "horizontal_alignment_flex_direction_column": "center",
             "vertical_alignment_flex_direction_column": "center",
             "gap": 18,
             "width": "fill",
@@ -73,10 +73,38 @@
                 "padding-inline-end": 24
               },
               "blocks": {}
+            },
+            "accordion_row_h4khHf": {
+              "type": "accordion_row",
+              "name": "Accordion row",
+              "settings": {
+                "heading": "Accordion heading",
+                "right_heading": "",
+                "open_by_default": false,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "summary_padding_block_start": 0,
+                "summary_padding_block_end": 0,
+                "summary_padding_inline_start": 0,
+                "summary_padding_inline_end": 0,
+                "content_padding_block_start": 12,
+                "content_padding_block_end": 24,
+                "content_padding_inline_start": 24,
+                "content_padding_inline_end": 24,
+                "heading_type_preset": "",
+                "right_heading_type_preset": "match",
+                "heading_min_size": 0,
+                "heading_max_size": 0,
+                "notch_row": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {}
             }
           },
           "block_order": [
-            "logo_RVqgt3"
+            "logo_RVqgt3",
+            "accordion_row_h4khHf"
           ]
         }
       },
