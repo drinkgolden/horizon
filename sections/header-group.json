@@ -93,8 +93,9 @@
                 "content_padding_inline_end": 24,
                 "heading_type_preset": "h3",
                 "right_heading_type_preset": "match",
-                "heading_min_size": 1.5,
-                "heading_max_size": 0,
+                "heading_mobile_size": 1.1,
+                "heading_desktop_size": 2.1,
+                "heading_scale_between": true,
                 "notch_row": false,
                 "icon": "none",
                 "width": 20
