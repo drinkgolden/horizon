@@ -6,6 +6,13 @@
 {% if block_settings.notch_row %}
   {% assign row_classes = row_classes | append: ' accordion-row--notch' %}
 {% endif %}
+{% assign scale_between = block_settings.heading_scale_between %}
+{% if scale_between == nil %}
+  {% assign scale_between = true %}
+{% endif %}
+{% if scale_between == false %}
+  {% assign row_classes = row_classes | append: ' accordion-row--fixed-heading' %}
+{% endif %}
 
 {% assign show_right_heading = false %}
 {% if block_settings.right_heading != blank %}
@@ -64,10 +71,10 @@
     --accordion-right-heading-line-height: var(--font-{{ block_settings.right_heading_type_preset }}--line-height);
     --accordion-right-heading-base-size: var(--font-{{ block_settings.right_heading_type_preset }}--size);
   {% endif %}
-  {% assign heading_min_numeric = block_settings.heading_min_size | default: 0 | times: 1 %}
-  {% assign heading_max_numeric = block_settings.heading_max_size | default: 0 | times: 1 %}
-  {% if heading_min_numeric > 0 %}--accordion-heading-min-size: {{ heading_min_numeric }}rem;{% endif %}
-  {% if heading_max_numeric > 0 %}--accordion-heading-max-size: {{ heading_max_numeric }}rem;{% endif %}
+  {% assign heading_mobile_numeric = block_settings.heading_mobile_size | default: 0 | times: 1 %}
+  {% assign heading_desktop_numeric = block_settings.heading_desktop_size | default: 0 | times: 1 %}
+  {% if heading_mobile_numeric > 0 %}--accordion-heading-mobile-size: {{ heading_mobile_numeric }}rem;{% endif %}
+  {% if heading_desktop_numeric > 0 %}--accordion-heading-desktop-size: {{ heading_desktop_numeric }}rem;{% endif %}
   {% if has_row_custom_padding %}
     --padding-inline-start: 0px;
     --padding-inline-end: 0px;
@@ -176,6 +183,8 @@
     --accordion-hover-background: rgb(var(--color-foreground-rgb, 255 255 255) / 0.08);
     --accordion-hover-color: var(--color-foreground);
     --accordion-hover-border: rgb(var(--color-border-rgb, var(--color-foreground-rgb, 0 0 0)) / 0.2);
+    --accordion-heading-mobile-size: var(--accordion-heading-base-size, var(--summary-font-size));
+    --accordion-heading-desktop-size: var(--accordion-heading-base-size, var(--summary-font-size));
     --accordion-notch-fill-color: var(--color-background, rgb(var(--color-background-rgb, 255 255 255)));
     --accordion-notch-mask-desktop: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201415%2034%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M1410.66%2025.4923L826.089%2025.4923C819.642%2025.4923%20813.915%2021.6826%20811.892%2016.0183C808.565%206.71523%20799.717%200.499973%20789.84%200.499973L624.816%200.499966C614.939%200.499965%20606.092%206.74955%20602.765%2016.0183C600.742%2021.6826%20595.049%2025.4923%20588.567%2025.4923L4.00012%2025.4923L4.00012%2034L1410.66%2034Z%22%20fill%3D%22white%22/%3E%3C/svg%3E");
     --accordion-notch-mask-mobile: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20866%2027%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M866%2025.6968L542.433%2025.6968C535.986%2025.6968%20530.259%2021.8871%20528.235%2016.2228C524.909%206.91974%20516.061%200.704483%20506.184%200.704482L341.16%200.70448C331.283%200.70448%20322.435%206.95406%20319.109%2016.2228C317.085%2021.8871%20311.393%2025.6968%20304.911%2025.6968L0%2025.6968L0%2027L866%2027Z%22%20fill%3D%22white%22/%3E%3C/svg%3E");
