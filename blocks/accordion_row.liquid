@@ -259,8 +259,12 @@
       calc(
         var(--accordion-heading-mobile-size) +
           (var(--accordion-heading-desktop-size) - var(--accordion-heading-mobile-size)) *
-          ((100vw - var(--accordion-heading-scale-min-width)) /
-            max(1px, var(--accordion-heading-scale-max-width) - var(--accordion-heading-scale-min-width)))
+          clamp(
+            0,
+            (100vw - var(--accordion-heading-scale-min-width)) /
+              max(1px, var(--accordion-heading-scale-max-width) - var(--accordion-heading-scale-min-width)),
+            1
+          )
       ),
       var(--accordion-heading-desktop-size)
     );
@@ -283,8 +287,12 @@
       calc(
         var(--accordion-heading-mobile-size) +
           (var(--accordion-heading-desktop-size) - var(--accordion-heading-mobile-size)) *
-          ((100vw - var(--accordion-heading-scale-min-width)) /
-            max(1px, var(--accordion-heading-scale-max-width) - var(--accordion-heading-scale-min-width)))
+          clamp(
+            0,
+            (100vw - var(--accordion-heading-scale-min-width)) /
+              max(1px, var(--accordion-heading-scale-max-width) - var(--accordion-heading-scale-min-width)),
+            1
+          )
       ),
       var(--accordion-heading-desktop-size)
     );
