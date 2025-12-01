@@ -117,7 +117,12 @@
   {% if content_padding_inline_end_value != 0 %}padding-inline-end: {{ content_padding_inline_end_value | divided_by: rem_divisor }}rem;{% endif %}
 {% endcapture %}
 
-<div class="{{ row_classes }}">
+<div
+  class="{{ row_classes }}"
+  {% if block_settings.hover_color_scheme != blank %}
+    data-hover-scheme="{{ block_settings.hover_color_scheme }}"
+  {% endif %}
+>
   <accordion-custom
     class="accordion-row__inner{% if block_settings.color_scheme != blank %} accordion-row--custom-scheme{% endif %}"
     {% if block_settings.notch_row %}
@@ -364,6 +369,17 @@
   details[open] .details__caret .svg-wrapper {
     color: inherit;
   }
+
+  {% for scheme in settings.color_schemes %}
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover .details__header,
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover .details-content,
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"] details[open] .details__header,
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"] details[open] .details-content {
+      background-color: rgb({{ scheme.settings.background.rgba }});
+      color: rgb({{ scheme.settings.foreground_heading.rgba | default: scheme.settings.foreground.rgba }});
+      border-color: rgb({{ scheme.settings.border.rgba }});
+    }
+  {% endfor %}
 
   .details-content {
     padding-block-start: var(--accordion-content-padding-block-start, var(--padding-md));
