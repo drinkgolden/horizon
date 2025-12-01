@@ -6,6 +6,12 @@
 {% if block_settings.notch_row %}
   {% assign row_classes = row_classes | append: ' accordion-row--notch' %}
 {% endif %}
+{% assign nested_block_count = block.blocks | size %}
+{% assign has_reveal_content = false %}
+{% if nested_block_count > 0 %}
+  {% assign has_reveal_content = true %}
+  {% assign row_classes = row_classes | append: ' accordion-row--has-reveal' %}
+{% endif %}
 {% assign scale_between = block_settings.heading_scale_between %}
 {% if scale_between == nil %}
   {% assign scale_between = true %}
@@ -134,7 +140,7 @@
             class_name: 'details__icon'
           %}
           <span class="details__label">{{ block_settings.heading }}</span>
-          {% if block_settings.heading != blank %}
+          {% if block_settings.heading != blank and has_reveal_content %}
             <span class="details__caret details__caret--left">
               <span class="svg-wrapper icon-caret icon-animated">
                 {{- 'icon-caret.svg' | inline_asset_content -}}
@@ -144,17 +150,16 @@
         </span>
         {% if show_right_heading %}
           <span class="details__heading details__heading--right">
-            <span class="details__caret details__caret--right">
-              <span class="svg-wrapper icon-caret icon-animated">
-                {{- 'icon-caret.svg' | inline_asset_content -}}
+            {% if has_reveal_content %}
+              <span class="details__caret details__caret--right">
+                <span class="svg-wrapper icon-caret icon-animated">
+                  {{- 'icon-caret.svg' | inline_asset_content -}}
+                </span>
               </span>
-            </span>
+            {% endif %}
             <span class="details__label">{{ block_settings.right_heading }}</span>
           </span>
         {% endif %}
-        <span class="svg-wrapper icon-plus">
-          {{- 'icon-plus.svg' | inline_asset_content -}}
-        </span>
       </summary>
 
       <div
