@@ -1,10 +1,15 @@
 {% assign block_settings = block.settings %}
 {% assign row_classes = 'accordion-row' %}
-{% if block_settings.inherit_color_scheme == false %}
+{% if block_settings.color_scheme != blank %}
   {% assign row_classes = row_classes | append: ' color-' | append: block_settings.color_scheme %}
 {% endif %}
 {% if block_settings.notch_row %}
   {% assign row_classes = row_classes | append: ' accordion-row--notch' %}
+{% endif %}
+{% assign row_hover_scheme = block_settings.hover_color_scheme %}
+{% assign hover_scheme = nil %}
+{% if row_hover_scheme != blank %}
+  {% assign hover_scheme = settings.color_schemes | where: 'id', row_hover_scheme | first %}
 {% endif %}
 {% assign nested_block_count = block.blocks | size %}
 {% assign has_reveal_content = false %}
@@ -77,6 +82,11 @@
     --accordion-right-heading-line-height: var(--font-{{ block_settings.right_heading_type_preset }}--line-height);
     --accordion-right-heading-base-size: var(--font-{{ block_settings.right_heading_type_preset }}--size);
   {% endif %}
+  {% if hover_scheme %}
+    --accordion-hover-background: rgb({{ hover_scheme.settings.background.rgba }});
+    --accordion-hover-color: rgb({{ hover_scheme.settings.foreground_heading.rgba | default: hover_scheme.settings.foreground.rgba }});
+    --accordion-hover-border: rgb({{ hover_scheme.settings.border.rgba }});
+  {% endif %}
   {% assign heading_mobile_numeric = block_settings.heading_mobile_size | default: 0 | times: 1 %}
   {% assign heading_desktop_numeric = block_settings.heading_desktop_size | default: 0 | times: 1 %}
   {% if heading_mobile_numeric > 0 %}--accordion-heading-mobile-size: {{ heading_mobile_numeric }}rem;{% endif %}
@@ -109,7 +119,7 @@
 
 <div class="{{ row_classes }}">
   <accordion-custom
-    class="accordion-row__inner{% if block_settings.inherit_color_scheme == false %} accordion-row--custom-scheme{% endif %}"
+    class="accordion-row__inner{% if block_settings.color_scheme != blank %} accordion-row--custom-scheme{% endif %}"
     {% if block_settings.notch_row %}
       data-notch="true"
     {% endif %}
@@ -484,17 +494,14 @@
       "default": false
     },
     {
-      "type": "checkbox",
-      "id": "inherit_color_scheme",
-      "label": "Inherit color scheme",
-      "default": true
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Row color scheme"
     },
     {
       "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "Color scheme",
-      "default": "scheme-1",
-      "visible_if": "{{ block.settings.inherit_color_scheme == false }}"
+      "id": "hover_color_scheme",
+      "label": "Row hover color scheme"
     },
     {
       "type": "header",
