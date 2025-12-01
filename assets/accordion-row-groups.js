@@ -65,7 +65,23 @@ const syncNotchRows = () => {
   });
 };
 
+const bindRowOpenState = (row) => {
+  if (!row || row.dataset.openStateBound === 'true') return;
+  const detailsElement = row.querySelector('details');
+  if (!detailsElement) return;
+
+  const updateOpenState = () => {
+    row.classList.toggle('accordion-row--open', detailsElement.hasAttribute('open'));
+  };
+
+  detailsElement.addEventListener('toggle', updateOpenState);
+  updateOpenState();
+  row.dataset.openStateBound = 'true';
+};
+
 const initAccordionRow = (row) => {
+  bindRowOpenState(row);
+
   if (row.dataset.groupsEnhanced === 'true') return;
 
   const detailsContent = row.querySelector('.details-content');

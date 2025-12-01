@@ -6,11 +6,6 @@
 {% if block_settings.notch_row %}
   {% assign row_classes = row_classes | append: ' accordion-row--notch' %}
 {% endif %}
-{% assign row_hover_scheme = block_settings.hover_color_scheme %}
-{% assign hover_scheme = nil %}
-{% if row_hover_scheme != blank %}
-  {% assign hover_scheme = settings.color_schemes | where: 'id', row_hover_scheme | first %}
-{% endif %}
 {% assign nested_block_count = block.blocks | size %}
 {% assign has_reveal_content = false %}
 {% if nested_block_count > 0 %}
@@ -81,11 +76,6 @@
     --accordion-right-heading-text-case: var(--font-{{ block_settings.right_heading_type_preset }}--case);
     --accordion-right-heading-line-height: var(--font-{{ block_settings.right_heading_type_preset }}--line-height);
     --accordion-right-heading-base-size: var(--font-{{ block_settings.right_heading_type_preset }}--size);
-  {% endif %}
-  {% if hover_scheme %}
-    --accordion-hover-background: rgb({{ hover_scheme.settings.background.rgba }});
-    --accordion-hover-color: rgb({{ hover_scheme.settings.foreground_heading.rgba | default: hover_scheme.settings.foreground.rgba }});
-    --accordion-hover-border: rgb({{ hover_scheme.settings.border.rgba }});
   {% endif %}
   {% assign heading_mobile_numeric = block_settings.heading_mobile_size | default: 0 | times: 1 %}
   {% assign heading_desktop_numeric = block_settings.heading_desktop_size | default: 0 | times: 1 %}
@@ -259,6 +249,11 @@
     z-index: -1;
   }
 
+  .accordion-row:hover::before,
+  .accordion-row--open::before {
+    background-color: var(--accordion-hover-background);
+  }
+
   .accordion-row__inner {
     display: block;
   }
@@ -398,13 +393,10 @@
   }
 
   {% for scheme in settings.color_schemes %}
-    .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover .details__header,
-    .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover .details-content,
-    .accordion-row[data-hover-scheme="{{ scheme.id }}"] details[open] .details__header,
-    .accordion-row[data-hover-scheme="{{ scheme.id }}"] details[open] .details-content {
-      background-color: rgb({{ scheme.settings.background.rgba }});
-      color: rgb({{ scheme.settings.foreground_heading.rgba | default: scheme.settings.foreground.rgba }});
-      border-color: rgb({{ scheme.settings.border.rgba }});
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"] {
+      --accordion-hover-background: rgb({{ scheme.settings.background.rgba }});
+      --accordion-hover-color: rgb({{ scheme.settings.foreground_heading.rgba | default: scheme.settings.foreground.rgba }});
+      --accordion-hover-border: rgb({{ scheme.settings.border.rgba }});
     }
   {% endfor %}
 
@@ -457,6 +449,11 @@
     mask-size: 100% 100%;
     -webkit-mask-position: center;
     mask-position: center;
+  }
+
+  .accordion-row:hover .accordion-row__notch-shape::before,
+  .accordion-row--open .accordion-row__notch-shape::before {
+    background-color: var(--accordion-hover-background);
   }
 
   .accordion-row__notch-shape::after {
