@@ -74,62 +74,6 @@
               },
               "blocks": {}
             },
-            "spacer_ErxGwJ": {
-              "type": "spacer",
-              "name": "t:names.spacer",
-              "settings": {
-                "size": "percent",
-                "percent_size": 100,
-                "pixel_size": 120,
-                "custom_mobile_size": false,
-                "size_mobile": "percent",
-                "percent_size_mobile": 100,
-                "pixel_size_mobile": 120
-              },
-              "blocks": {}
-            },
-            "spacer_irEYFB": {
-              "type": "spacer",
-              "name": "t:names.spacer",
-              "settings": {
-                "size": "percent",
-                "percent_size": 100,
-                "pixel_size": 120,
-                "custom_mobile_size": false,
-                "size_mobile": "percent",
-                "percent_size_mobile": 100,
-                "pixel_size_mobile": 120
-              },
-              "blocks": {}
-            },
-            "spacer_DmXJxn": {
-              "type": "spacer",
-              "name": "t:names.spacer",
-              "settings": {
-                "size": "percent",
-                "percent_size": 100,
-                "pixel_size": 120,
-                "custom_mobile_size": false,
-                "size_mobile": "percent",
-                "percent_size_mobile": 100,
-                "pixel_size_mobile": 120
-              },
-              "blocks": {}
-            },
-            "spacer_jd4Dyx": {
-              "type": "spacer",
-              "name": "t:names.spacer",
-              "settings": {
-                "size": "percent",
-                "percent_size": 100,
-                "pixel_size": 120,
-                "custom_mobile_size": true,
-                "size_mobile": "percent",
-                "percent_size_mobile": 100,
-                "pixel_size_mobile": 120
-              },
-              "blocks": {}
-            },
             "accordion_row_h4khHf": {
               "type": "accordion_row",
               "name": "Accordion row",
@@ -138,7 +82,6 @@
                 "right_heading": "",
                 "open_by_default": false,
                 "color_scheme": "scheme-1",
-                "hover_color_scheme": "",
                 "summary_padding_block_start": 0,
                 "summary_padding_block_end": 0,
                 "summary_padding_inline_start": 24,
@@ -152,7 +95,7 @@
                 "heading_mobile_size": 1.1,
                 "heading_desktop_size": 2.1,
                 "heading_scale_between": true,
-                "notch_row": true,
+                "notch_row": false,
                 "icon": "none",
                 "width": 20
               },
@@ -161,10 +104,6 @@
           },
           "block_order": [
             "logo_RVqgt3",
-            "spacer_ErxGwJ",
-            "spacer_irEYFB",
-            "spacer_DmXJxn",
-            "spacer_jd4Dyx",
             "accordion_row_h4khHf"
           ]
         }
