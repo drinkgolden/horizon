@@ -114,4 +114,46 @@
     color: var(--color-foreground);
     background-color: var(--color-background);
   }
+
+  {% for scheme in settings.color_schemes %}
+    {% assign hover_background = scheme.settings.background %}
+    {% assign hover_foreground = scheme.settings.foreground_heading | default: scheme.settings.foreground %}
+    {% assign hover_border = scheme.settings.border %}
+
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover,
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"].accordion-row--open {
+      background-color: rgb({{ hover_background.rgba }});
+      color: rgb({{ hover_foreground.rgba }});
+    }
+
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover::before,
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"].accordion-row--open::before {
+      background-color: rgb({{ hover_background.rgba }});
+    }
+
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover .details,
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover .details__header,
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover .details-content,
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"].accordion-row--open .details,
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"].accordion-row--open .details__header,
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"].accordion-row--open .details-content {
+      background-color: rgb({{ hover_background.rgba }});
+      color: rgb({{ hover_foreground.rgba }});
+      border-color: rgb({{ hover_border.rgba }});
+    }
+
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover .details__heading,
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover .details__label,
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover .details__caret .svg-wrapper,
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"].accordion-row--open .details__heading,
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"].accordion-row--open .details__label,
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"].accordion-row--open .details__caret .svg-wrapper {
+      color: rgb({{ hover_foreground.rgba }});
+    }
+
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover .accordion-row__notch-shape::before,
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"].accordion-row--open .accordion-row__notch-shape::before {
+      background-color: rgb({{ hover_background.rgba }});
+    }
+  {% endfor %}
 {% endstyle %}
