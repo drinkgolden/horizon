@@ -177,7 +177,24 @@
     font-family: var(--menu-top-level-font-family);
     font-style: var(--menu-top-level-font-style);
     font-weight: var(--menu-top-level-font-weight);
-    font-size: var(--menu-top-level-font-size);
+    font-size: clamp(
+      var(--menu-top-level-font-size),
+      calc(
+        var(--menu-top-level-font-size) +
+          (var(--menu-top-level-font-size-desktop) - var(--menu-top-level-font-size)) *
+          clamp(
+            0,
+            (100vw - var(--menu-top-level-font-scale-min-width, 32rem)) /
+              max(
+                1rem,
+                var(--menu-top-level-font-scale-max-width, 75rem) -
+                  var(--menu-top-level-font-scale-min-width, 32rem)
+              ),
+            1
+          )
+      ),
+      var(--menu-top-level-font-size-desktop)
+    );
     line-height: var(--menu-top-level-font-line-height);
     text-transform: var(--menu-top-level-font-case);
     color: var(--menu-top-level-font-color);
@@ -192,9 +209,6 @@
       color: var(--menu-top-level-font-color);
     }
 
-    @media screen and (min-width: 750px) {
-      font-size: var(--menu-top-level-font-size-desktop);
-    }
   }
 
   /*
@@ -709,6 +723,28 @@
         }
       ],
       "default": "1rem"
+    },
+    {
+      "type": "range",
+      "id": "type_font_primary_size_mobile",
+      "label": "Top level mobile size (rem)",
+      "unit": "rem",
+      "min": 0,
+      "max": 3,
+      "step": 0.1,
+      "default": 0,
+      "info": "Set to 0 to inherit the default mobile size."
+    },
+    {
+      "type": "range",
+      "id": "type_font_primary_size_desktop",
+      "label": "Top level desktop size (rem)",
+      "unit": "rem",
+      "min": 0,
+      "max": 4,
+      "step": 0.1,
+      "default": 0,
+      "info": "Set to 0 to use the Top level size dropdown value."
     },
     {
       "type": "select",
