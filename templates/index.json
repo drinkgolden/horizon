@@ -2062,8 +2062,8 @@
                 "accordion_row_fnW7FW": {
                   "type": "accordion_row",
                   "settings": {
-                    "heading": "Return policy",
-                    "right_heading": "",
+                    "heading": "",
+                    "right_heading": "Return policy",
                     "open_by_default": false,
                     "color_scheme": "",
                     "hover_color_scheme": "",
