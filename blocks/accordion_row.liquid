@@ -407,9 +407,9 @@
 
   {% for scheme in settings.color_schemes %}
     .accordion-row[data-hover-scheme="{{ scheme.id }}"] {
-      --accordion-hover-background: rgb({{ scheme.settings.background.rgba }});
-      --accordion-hover-color: rgb({{ scheme.settings.foreground_heading.rgba | default: scheme.settings.foreground.rgba }});
-      --accordion-hover-border: rgb({{ scheme.settings.border.rgba }});
+      --accordion-hover-background: rgba({{ scheme.settings.background.rgba }});
+      --accordion-hover-color: rgba({{ scheme.settings.foreground_heading.rgba | default: scheme.settings.foreground.rgba }});
+      --accordion-hover-border: rgba({{ scheme.settings.border.rgba }});
     }
   {% endfor %}
 
