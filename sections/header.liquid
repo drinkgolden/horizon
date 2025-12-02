@@ -278,6 +278,7 @@
   body {
     --header-height: 0px;
     --header-group-height: var(--header-height);
+    --header-stack-offset: 0px;
     --transparent-header-offset-boolean: 0; /* stylelint-disable-line declaration-property-value-disallowed-list */
   }
 
@@ -384,7 +385,7 @@
 
   header-component[sticky] {
     position: sticky;
-    top: var(--sticky-header-offset, 0px);
+    top: calc(var(--sticky-header-offset, 0px) - var(--header-stack-offset, 0px));
     z-index: var(--layer-sticky);
   }
 
