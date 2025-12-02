@@ -95,9 +95,9 @@
     {% assign hover_bg = hover_scheme.settings.background %}
     {% assign hover_text = hover_scheme.settings.foreground_heading | default: hover_scheme.settings.foreground %}
     {% assign hover_border = hover_scheme.settings.border %}
-    --accordion-hover-background: rgb({{ hover_bg.rgba }});
-    --accordion-hover-color: rgb({{ hover_text.rgba }});
-    --accordion-hover-border: rgb({{ hover_border.rgba }});
+    --accordion-hover-background: {{ hover_bg }};
+    --accordion-hover-color: {{ hover_text }};
+    --accordion-hover-border: {{ hover_border }};
   {% endif %}
   {% assign heading_mobile_numeric = block_settings.heading_mobile_size | default: 0 | times: 1 %}
   {% assign heading_desktop_numeric = block_settings.heading_desktop_size | default: 0 | times: 1 %}
