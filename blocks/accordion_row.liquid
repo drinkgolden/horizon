@@ -230,9 +230,9 @@
     background-color: var(--color-background, transparent);
     transition: background-color 160ms var(--ease-out), color 160ms var(--ease-out);
     --accordion-caret-gap: 12px;
-    --accordion-hover-background: rgb(var(--color-foreground-rgb, 255 255 255) / 0.08);
-    --accordion-hover-color: var(--color-foreground);
-    --accordion-hover-border: rgb(var(--color-border-rgb, var(--color-foreground-rgb, 0 0 0)) / 0.2);
+    --accordion-hover-background: var(--color-background, transparent);
+    --accordion-hover-color: var(--color-foreground, currentColor);
+    --accordion-hover-border: var(--color-border, currentColor);
     --accordion-heading-mobile-size: var(--accordion-heading-base-size, var(--summary-font-size));
     --accordion-heading-desktop-size: var(--accordion-heading-base-size, var(--summary-font-size));
     --accordion-notch-fill-color: var(--color-background, rgb(var(--color-background-rgb, 255 255 255)));
