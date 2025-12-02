@@ -343,6 +343,15 @@
     justify-content: flex-end;
   }
 
+  .details__header:not(.details__header--has-right) {
+    justify-content: flex-start;
+  }
+
+  .details__header:not(.details__header--has-right) .details__heading--left {
+    flex: 0 1 auto;
+    width: 100%;
+  }
+
   .details__heading--right .details__label {
     font-family: var(--accordion-right-heading-font-family, var(--accordion-heading-font-family, var(--summary-font-family)));
     font-style: var(--accordion-right-heading-font-style, var(--accordion-heading-font-style, var(--summary-font-style)));
