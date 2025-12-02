@@ -91,14 +91,6 @@
     --accordion-right-heading-line-height: var(--font-{{ block_settings.right_heading_type_preset }}--line-height);
     --accordion-right-heading-base-size: var(--font-{{ block_settings.right_heading_type_preset }}--size);
   {% endif %}
-  {% if hover_scheme %}
-    {% assign hover_bg = hover_scheme.settings.background %}
-    {% assign hover_text = hover_scheme.settings.foreground_heading | default: hover_scheme.settings.foreground %}
-    {% assign hover_border = hover_scheme.settings.border %}
-    --accordion-hover-background: {{ hover_bg }};
-    --accordion-hover-color: {{ hover_text }};
-    --accordion-hover-border: {{ hover_border }};
-  {% endif %}
   {% assign heading_mobile_numeric = block_settings.heading_mobile_size | default: 0 | times: 1 %}
   {% assign heading_desktop_numeric = block_settings.heading_desktop_size | default: 0 | times: 1 %}
   {% if heading_mobile_numeric > 0 %}--accordion-heading-mobile-size: {{ heading_mobile_numeric }}rem;{% endif %}
@@ -131,6 +123,7 @@
 
 <div
   class="{{ row_classes }}"
+  {% if row_hover_scheme_id != blank %}data-hover-scheme="{{ row_hover_scheme_id }}"{% endif %}
   {% if inline_styles != blank %}
     style="{{ inline_styles | strip }}"
   {% endif %}
@@ -406,24 +399,6 @@
     margin-inline-start: 0;
   }
 
-  .accordion-row:hover .details__header,
-  .accordion-row:hover .details-content,
-  details[open] .details__header,
-  details[open] .details-content {
-    background-color: var(--accordion-hover-background);
-    color: var(--accordion-hover-color);
-    border-color: var(--accordion-hover-border);
-  }
-
-  .accordion-row:hover .details__heading,
-  .accordion-row:hover .details__label,
-  .accordion-row:hover .details__caret .svg-wrapper,
-  details[open] .details__heading,
-  details[open] .details__label,
-  details[open] .details__caret .svg-wrapper {
-    color: inherit;
-  }
-
   .details-content {
     padding-block-start: var(--accordion-content-padding-block-start, var(--padding-md));
     padding-block-end: var(--accordion-content-padding-block-end, var(--padding-md));
@@ -431,6 +406,48 @@
     padding-inline-end: var(--accordion-content-padding-inline-end, var(--padding-inline-end, 0px));
     color: inherit;
   }
+
+  {% for scheme in settings.color_schemes %}
+    {% assign hover_background = scheme.settings.background.rgba %}
+    {% assign hover_foreground = scheme.settings.foreground_heading.rgba | default: scheme.settings.foreground.rgba %}
+    {% assign hover_border = scheme.settings.border.rgba %}
+
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover,
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"].accordion-row--open {
+      background-color: rgb({{ hover_background }});
+      color: rgb({{ hover_foreground }});
+    }
+
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover::before,
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"].accordion-row--open::before {
+      background-color: rgb({{ hover_background }});
+    }
+
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover .details,
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover .details__header,
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover .details-content,
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"].accordion-row--open .details,
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"].accordion-row--open .details__header,
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"].accordion-row--open .details-content {
+      background-color: rgb({{ hover_background }});
+      color: rgb({{ hover_foreground }});
+      border-color: rgb({{ hover_border }});
+    }
+
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover .details__heading,
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover .details__label,
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover .details__caret .svg-wrapper,
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"].accordion-row--open .details__heading,
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"].accordion-row--open .details__label,
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"].accordion-row--open .details__caret .svg-wrapper {
+      color: rgb({{ hover_foreground }});
+    }
+
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover .accordion-row__notch-shape::before,
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"].accordion-row--open .accordion-row__notch-shape::before {
+      background-color: rgb({{ hover_background }});
+    }
+  {% endfor %}
 
   .accordion-row__group-hidden {
     display: none !important;
