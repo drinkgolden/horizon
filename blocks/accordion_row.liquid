@@ -6,10 +6,18 @@
 {% if block_settings.notch_row %}
   {% assign row_classes = row_classes | append: ' accordion-row--notch' %}
 {% endif %}
-{% assign row_hover_scheme = block.settings.hover_color_scheme %}
+
+{% assign row_hover_scheme_id = block_settings.hover_color_scheme %}
+{% if row_hover_scheme_id == blank %}
+  {% if block_settings.color_scheme != blank %}
+    {% assign row_hover_scheme_id = block_settings.color_scheme %}
+  {% elsif section.settings.color_scheme != blank %}
+    {% assign row_hover_scheme_id = section.settings.color_scheme %}
+  {% endif %}
+{% endif %}
 {% assign hover_scheme = nil %}
-{% if row_hover_scheme != blank %}
-  {% assign hover_scheme = settings.color_schemes | where: 'id', row_hover_scheme | first %}
+{% if row_hover_scheme_id != blank %}
+  {% assign hover_scheme = settings.color_schemes | where: 'id', row_hover_scheme_id | first %}
 {% endif %}
 
 {% assign nested_block_count = block.blocks | size %}
@@ -118,12 +126,7 @@
   {% if content_padding_inline_end_value != 0 %}padding-inline-end: {{ content_padding_inline_end_value | divided_by: rem_divisor }}rem;{% endif %}
 {% endcapture %}
 
-<div
-  class="{{ row_classes }}"
-  {% if block_settings.hover_color_scheme != blank %}
-    data-hover-scheme="{{ block_settings.hover_color_scheme }}"
-  {% endif %}
->
+<div class="{{ row_classes }}">
   <accordion-custom
     class="accordion-row__inner{% if block_settings.color_scheme != blank %} accordion-row--custom-scheme{% endif %}"
     {% if block_settings.notch_row %}
