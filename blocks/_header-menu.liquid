@@ -429,7 +429,24 @@
     font-family: var(--menu-child-font-family);
     font-style: var(--menu-child-font-style);
     font-weight: var(--menu-child-font-weight);
-    font-size: var(--menu-child-font-size);
+    font-size: clamp(
+      var(--menu-child-font-size),
+      calc(
+        var(--menu-child-font-size) +
+          (var(--menu-child-font-size-desktop) - var(--menu-child-font-size)) *
+          clamp(
+            0,
+            (100vw - var(--menu-child-font-scale-min-width, 32rem)) /
+              max(
+                1rem,
+                var(--menu-child-font-scale-max-width, 75rem) -
+                  var(--menu-child-font-scale-min-width, 32rem)
+              ),
+            1
+          )
+      ),
+      var(--menu-child-font-size-desktop)
+    );
     line-height: var(--menu-child-font-line-height);
     text-transform: var(--menu-child-font-case);
     color: var(--menu-child-font-color);
@@ -448,7 +465,24 @@
     font-family: var(--menu-parent-font-family);
     font-style: var(--menu-parent-font-style);
     font-weight: var(--menu-parent-font-weight);
-    font-size: var(--menu-parent-font-size);
+    font-size: clamp(
+      var(--menu-parent-font-size),
+      calc(
+        var(--menu-parent-font-size) +
+          (var(--menu-parent-font-size-desktop) - var(--menu-parent-font-size)) *
+          clamp(
+            0,
+            (100vw - var(--menu-parent-font-scale-min-width, 32rem)) /
+              max(
+                1rem,
+                var(--menu-parent-font-scale-max-width, 75rem) -
+                  var(--menu-parent-font-scale-min-width, 32rem)
+              ),
+            1
+          )
+      ),
+      var(--menu-parent-font-size-desktop)
+    );
     line-height: var(--menu-parent-font-line-height);
     text-transform: var(--menu-parent-font-case);
     color: var(--menu-parent-font-color);
@@ -765,6 +799,50 @@
         }
       ],
       "default": "inverse"
+    },
+    {
+      "type": "range",
+      "id": "submenu_parent_font_size_mobile",
+      "label": "Submenu parent mobile size (rem)",
+      "unit": "rem",
+      "min": 0,
+      "max": 3,
+      "step": 0.1,
+      "default": 0,
+      "info": "Set to 0 to use the preset for the selected submenu style."
+    },
+    {
+      "type": "range",
+      "id": "submenu_parent_font_size_desktop",
+      "label": "Submenu parent desktop size (rem)",
+      "unit": "rem",
+      "min": 0,
+      "max": 4,
+      "step": 0.1,
+      "default": 0,
+      "info": "Set to 0 to use the preset for the selected submenu style."
+    },
+    {
+      "type": "range",
+      "id": "submenu_child_font_size_mobile",
+      "label": "Submenu child mobile size (rem)",
+      "unit": "rem",
+      "min": 0,
+      "max": 3,
+      "step": 0.1,
+      "default": 0,
+      "info": "Set to 0 to use the preset for the selected submenu style."
+    },
+    {
+      "type": "range",
+      "id": "submenu_child_font_size_desktop",
+      "label": "Submenu child desktop size (rem)",
+      "unit": "rem",
+      "min": 0,
+      "max": 4,
+      "step": 0.1,
+      "default": 0,
+      "info": "Set to 0 to use the preset for the selected submenu style."
     },
     {
       "type": "select",
