@@ -82,6 +82,7 @@
                 "right_heading": "",
                 "open_by_default": false,
                 "color_scheme": "scheme-1",
+                "hover_color_scheme": "scheme-2",
                 "summary_padding_block_start": 0,
                 "summary_padding_block_end": 0,
                 "summary_padding_inline_start": 24,
