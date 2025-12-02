@@ -6,6 +6,12 @@
 {% if block_settings.notch_row %}
   {% assign row_classes = row_classes | append: ' accordion-row--notch' %}
 {% endif %}
+{% assign row_hover_scheme = block.settings.hover_color_scheme %}
+{% assign hover_scheme = nil %}
+{% if row_hover_scheme != blank %}
+  {% assign hover_scheme = settings.color_schemes | where: 'id', row_hover_scheme | first %}
+{% endif %}
+
 {% assign nested_block_count = block.blocks | size %}
 {% assign has_reveal_content = false %}
 {% if nested_block_count > 0 %}
@@ -76,6 +82,11 @@
     --accordion-right-heading-text-case: var(--font-{{ block_settings.right_heading_type_preset }}--case);
     --accordion-right-heading-line-height: var(--font-{{ block_settings.right_heading_type_preset }}--line-height);
     --accordion-right-heading-base-size: var(--font-{{ block_settings.right_heading_type_preset }}--size);
+  {% endif %}
+  {% if hover_scheme %}
+    --accordion-hover-background: {{ hover_scheme.settings.background }};
+    --accordion-hover-color: {{ hover_scheme.settings.foreground_heading | default: hover_scheme.settings.foreground }};
+    --accordion-hover-border: {{ hover_scheme.settings.border }};
   {% endif %}
   {% assign heading_mobile_numeric = block_settings.heading_mobile_size | default: 0 | times: 1 %}
   {% assign heading_desktop_numeric = block_settings.heading_desktop_size | default: 0 | times: 1 %}
@@ -404,14 +415,6 @@
   details[open] .details__caret .svg-wrapper {
     color: inherit;
   }
-
-  {% for scheme in settings.color_schemes %}
-    .accordion-row[data-hover-scheme="{{ scheme.id }}"] {
-      --accordion-hover-background: rgb({{ scheme.settings.background.rgba }});
-      --accordion-hover-color: rgb({{ scheme.settings.foreground_heading.rgba | default: scheme.settings.foreground.rgba }});
-      --accordion-hover-border: rgb({{ scheme.settings.border.rgba }});
-    }
-  {% endfor %}
 
   .details-content {
     padding-block-start: var(--accordion-content-padding-block-start, var(--padding-md));
