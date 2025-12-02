@@ -54,34 +54,6 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "spacer_tUkMT3": {
-              "type": "spacer",
-              "name": "t:names.spacer",
-              "settings": {
-                "size": "percent",
-                "percent_size": 100,
-                "pixel_size": 120,
-                "custom_mobile_size": false,
-                "size_mobile": "percent",
-                "percent_size_mobile": 100,
-                "pixel_size_mobile": 120
-              },
-              "blocks": {}
-            },
-            "spacer_CGfXw7": {
-              "type": "spacer",
-              "name": "t:names.spacer",
-              "settings": {
-                "size": "percent",
-                "percent_size": 100,
-                "pixel_size": 120,
-                "custom_mobile_size": false,
-                "size_mobile": "percent",
-                "percent_size_mobile": 100,
-                "pixel_size_mobile": 120
-              },
-              "blocks": {}
-            },
             "logo_RVqgt3": {
               "type": "logo",
               "name": "t:names.logo",
@@ -102,34 +74,6 @@
               },
               "blocks": {}
             },
-            "spacer_ErxGwJ": {
-              "type": "spacer",
-              "name": "t:names.spacer",
-              "settings": {
-                "size": "percent",
-                "percent_size": 100,
-                "pixel_size": 120,
-                "custom_mobile_size": false,
-                "size_mobile": "percent",
-                "percent_size_mobile": 100,
-                "pixel_size_mobile": 120
-              },
-              "blocks": {}
-            },
-            "spacer_irEYFB": {
-              "type": "spacer",
-              "name": "t:names.spacer",
-              "settings": {
-                "size": "percent",
-                "percent_size": 100,
-                "pixel_size": 120,
-                "custom_mobile_size": false,
-                "size_mobile": "percent",
-                "percent_size_mobile": 100,
-                "pixel_size_mobile": 120
-              },
-              "blocks": {}
-            },
             "accordion_row_h4khHf": {
               "type": "accordion_row",
               "name": "Accordion row",
@@ -138,13 +82,12 @@
                 "right_heading": "",
                 "open_by_default": false,
                 "color_scheme": "scheme-1",
-                "hover_color_scheme": "scheme-6",
                 "summary_padding_block_start": 0,
                 "summary_padding_block_end": 0,
                 "summary_padding_inline_start": 24,
                 "summary_padding_inline_end": 24,
-                "content_padding_block_start": 8,
-                "content_padding_block_end": 8,
+                "content_padding_block_start": 12,
+                "content_padding_block_end": 24,
                 "content_padding_inline_start": 24,
                 "content_padding_inline_end": 24,
                 "heading_type_preset": "h3",
@@ -152,7 +95,7 @@
                 "heading_mobile_size": 1.1,
                 "heading_desktop_size": 2.1,
                 "heading_scale_between": true,
-                "notch_row": true,
+                "notch_row": false,
                 "icon": "none",
                 "width": 20
               },
@@ -160,11 +103,7 @@
             }
           },
           "block_order": [
-            "spacer_tUkMT3",
-            "spacer_CGfXw7",
             "logo_RVqgt3",
-            "spacer_ErxGwJ",
-            "spacer_irEYFB",
             "accordion_row_h4khHf"
           ]
         }
@@ -227,8 +166,8 @@
         "section_width": "full-width",
         "color_scheme": "scheme-5",
         "divider_width": 0,
-        "padding-block-start": 18,
-        "padding-block-end": 18
+        "padding-block-start": 12,
+        "padding-block-end": 12
       }
     },
     "header_section": {
@@ -301,7 +240,7 @@
         "localization_position": "right",
         "localization_row": "bottom",
         "section_width": "full-width",
-        "section_height": "compact",
+        "section_height": "standard",
         "enable_sticky_header": "always",
         "divider_width": 1,
         "divider_size": "page-width",

@@ -260,6 +260,12 @@
 
   .accordion-row .details {
     position: relative;
+    transition: background-color 160ms var(--ease-out), color 160ms var(--ease-out);
+  }
+
+  .accordion-row:hover .details,
+  .accordion-row--open .details {
+    background-color: var(--accordion-hover-background);
   }
 
   .details__icon {
