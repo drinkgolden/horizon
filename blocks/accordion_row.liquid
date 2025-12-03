@@ -1,7 +1,21 @@
 {% assign block_settings = block.settings %}
 {% assign row_classes = 'accordion-row' %}
-{% if block_settings.inherit_color_scheme == false %}
-  {% assign row_classes = row_classes | append: ' color-' | append: block_settings.color_scheme %}
+{% assign row_color_scheme_id = block_settings.color_scheme %}
+{% if row_color_scheme_id == blank and section.settings.color_scheme != blank %}
+  {% assign row_color_scheme_id = section.settings.color_scheme %}
+{% endif %}
+{% if row_color_scheme_id != blank %}
+  {% assign row_classes = row_classes | append: ' color-' | append: row_color_scheme_id %}
+{% endif %}
+
+{% assign row_hover_scheme_id = block_settings.hover_color_scheme %}
+{% if row_hover_scheme_id == blank %}
+  {% assign row_hover_scheme_id = row_color_scheme_id %}
+{% endif %}
+
+{% assign row_has_custom_scheme = false %}
+{% if block_settings.color_scheme != blank %}
+  {% assign row_has_custom_scheme = true %}
 {% endif %}
 
 {% assign show_right_heading = false %}
@@ -91,9 +105,9 @@
   {% if content_padding_inline_end_value != 0 %}padding-inline-end: {{ content_padding_inline_end_value | divided_by: rem_divisor }}rem;{% endif %}
 {% endcapture %}
 
-<div class="{{ row_classes }}">
+<div class="{{ row_classes }}"{% if row_hover_scheme_id != blank %} data-hover-scheme="{{ row_hover_scheme_id }}"{% endif %}>
   <accordion-custom
-    class="accordion-row__inner{% if block_settings.inherit_color_scheme == false %} accordion-row--custom-scheme{% endif %}"
+    class="accordion-row__inner{% if row_has_custom_scheme %} accordion-row--custom-scheme{% endif %}"
     {% if inline_styles != blank %}
       style="{{ inline_styles | strip }}"
     {% endif %}
@@ -347,17 +361,14 @@
       "default": false
     },
     {
-      "type": "checkbox",
-      "id": "inherit_color_scheme",
-      "label": "Inherit color scheme",
-      "default": true
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Row color scheme"
     },
     {
       "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "Color scheme",
-      "default": "scheme-1",
-      "visible_if": "{{ block.settings.inherit_color_scheme == false }}"
+      "id": "hover_color_scheme",
+      "label": "Row hover color scheme"
     },
     {
       "type": "header",
