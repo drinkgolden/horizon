@@ -284,6 +284,7 @@
     --accordion-hover-border: rgb(var(--color-border-rgb, var(--color-foreground-rgb, 0 0 0)) / 0.2);
     --accordion-notch-height: 18px;
     --accordion-notch-fill-color: var(--color-background);
+    --accordion-divider-thickness: var(--style-border-width, 1px);
   }
 
   .accordion-row::before {
@@ -450,7 +451,7 @@
     left: calc(var(--padding-inline-start, 0px) * -1);
     width: calc(100% + var(--padding-inline-start, 0px) + var(--padding-inline-end, 0px));
     height: var(--accordion-notch-height);
-    top: calc(var(--accordion-notch-height) * -1 + 1px);
+    top: calc(var(--accordion-notch-height) * -1 + (var(--accordion-divider-thickness, 1px) * 0.5));
     display: none;
     align-items: flex-end;
     gap: 0;
@@ -468,6 +469,14 @@
     height: 1px;
     background-color: currentColor;
     min-width: 0;
+  }
+
+  .accordion-row__notch-line--left {
+    margin-inline-end: -0.5px;
+  }
+
+  .accordion-row__notch-line--right {
+    margin-inline-start: -0.5px;
   }
 
   .accordion-row__notch-curve {
