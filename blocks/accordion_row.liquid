@@ -253,11 +253,18 @@
           <svg
             class="accordion-row__notch-svg"
             viewBox="0 0 157 18"
-            preserveAspectRatio="xMidYMid meet"
+            preserveAspectRatio="none"
             role="presentation"
             focusable="false"
           >
-            <path d="M0 16.97C3.65 16.97 7.14 14.85 8.38 11.41C10.66 5.05 16.74 0.5 23.88 0.5H132.6C139.74 0.5 145.82 5.05 148.1 11.41C149.33 14.85 152.82 16.96 156.47 16.97" />
+            <path
+              class="accordion-row__notch-fill-path"
+              d="M0 18 L0 16.97 C3.65 16.97 7.14 14.85 8.38 11.41 C10.66 5.05 16.74 0.5 23.88 0.5 H132.6 C139.74 0.5 145.82 5.05 148.1 11.41 C149.33 14.85 152.82 16.96 156.47 16.97 L156.47 18 Z"
+            ></path>
+            <path
+              class="accordion-row__notch-stroke"
+              d="M0 16.97 C3.65 16.97 7.14 14.85 8.38 11.41 C10.66 5.05 16.74 0.5 23.88 0.5 H132.6 C139.74 0.5 145.82 5.05 148.1 11.41 C149.33 14.85 152.82 16.96 156.47 16.97"
+            ></path>
           </svg>
         </span>
         <span class="accordion-row__notch-line accordion-row__notch-line--right"></span>
@@ -276,6 +283,7 @@
     --accordion-hover-color: var(--color-foreground);
     --accordion-hover-border: rgb(var(--color-border-rgb, var(--color-foreground-rgb, 0 0 0)) / 0.2);
     --accordion-notch-height: 18px;
+    --accordion-notch-fill-color: var(--color-background);
   }
 
   .accordion-row::before {
@@ -467,7 +475,6 @@
     justify-content: center;
     align-items: flex-end;
     width: var(--accordion-notch-curve-width, clamp(140px, 25vw, 220px));
-    padding-inline: var(--margin-xs);
   }
 
   .accordion-row__notch-svg {
@@ -476,7 +483,12 @@
     display: block;
   }
 
-  .accordion-row__notch-svg path {
+  .accordion-row__notch-fill-path {
+    fill: var(--accordion-notch-fill-color, var(--color-background));
+    stroke: none;
+  }
+
+  .accordion-row__notch-stroke {
     stroke: currentColor;
     stroke-width: 1px;
     stroke-linecap: round;
@@ -501,6 +513,11 @@
   details[open] .details__label,
   details[open] .details__caret .svg-wrapper {
     color: inherit;
+  }
+
+  .accordion-row:hover,
+  .accordion-row--open {
+    --accordion-notch-fill-color: var(--accordion-hover-background);
   }
 
   .accordion-row:hover .accordion-row__notch,
