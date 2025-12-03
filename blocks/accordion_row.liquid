@@ -239,7 +239,25 @@
       </div>
     {% endif %}
     <div class="accordion-row__notch-shapes" aria-hidden="true">
-      <span class="accordion-row__notch-shape accordion-row__notch-shape--top"></span>
+      <span class="accordion-row__notch-shape accordion-row__notch-shape--top">
+        <span class="accordion-row__notch-line accordion-row__notch-line--left"></span>
+        <span class="accordion-row__notch-curve">
+          <svg
+            class="accordion-row__notch-svg"
+            viewBox="0 0 1415 34"
+            preserveAspectRatio="none"
+            role="presentation"
+            focusable="false"
+          >
+            <path
+              d="M1410.66 25.4923L826.089 25.4923C819.642 25.4923 813.915 21.6826 811.892 16.0183C808.565 6.71523 799.717 0.499973 789.84 0.499973L624.816 0.499966C614.939 0.499965 606.092 6.74955 602.765 16.0183C600.742 21.6826 595.049 25.4923 588.567 25.4923L4.00012 25.4923"
+              vector-effect="non-scaling-stroke"
+              fill="none"
+            />
+          </svg>
+        </span>
+        <span class="accordion-row__notch-line accordion-row__notch-line--right"></span>
+      </span>
       <span class="accordion-row__notch-shape accordion-row__notch-shape--bottom"></span>
     </div>
   </accordion-custom>
@@ -263,10 +281,9 @@
     --accordion-heading-desktop-size: var(--accordion-heading-base-size, var(--summary-font-size));
     --accordion-heading-scale-min-width: 20rem;
     --accordion-heading-scale-max-width: 75rem;
-    --accordion-notch-mask-desktop: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201415%2034%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M1410.66%2025.4923L826.089%2025.4923C819.642%2025.4923%20813.915%2021.6826%20811.892%2016.0183C808.565%206.71523%20799.717%200.499973%20789.84%200.499973L624.816%200.499966C614.939%200.499965%20606.092%206.74955%20602.765%2016.0183C600.742%2021.6826%20595.049%2025.4923%20588.567%2025.4923L4.00012%2025.4923L4.00012%2034L1410.66%2034Z%22%20fill%3D%22white%22/%3E%3C/svg%3E");
-    --accordion-notch-mask-mobile: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20866%2027%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M866%2025.6968L542.433%2025.6968C535.986%2025.6968%20530.259%2021.8871%20528.235%2016.2228C524.909%206.91974%20516.061%200.704483%20506.184%200.704482L341.16%200.70448C331.283%200.70448%20322.435%206.95406%20319.109%2016.2228C317.085%2021.8871%20311.393%2025.6968%20304.911%2025.6968L0%2025.6968L0%2027L866%2027Z%22%20fill%3D%22white%22/%3E%3C/svg%3E");
-    --accordion-notch-stroke-desktop: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201415%2034%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M1410.66%2025.4923L826.089%2025.4923C819.642%2025.4923%20813.915%2021.6826%20811.892%2016.0183C808.565%206.71523%20799.717%200.499973%20789.84%200.499973L624.816%200.499966C614.939%200.499965%20606.092%206.74955%20602.765%2016.0183C600.742%2021.6826%20595.049%2025.4923%20588.567%2025.4923L4.00012%2025.4923%22%20stroke%3D%22white%22%20stroke-width%3D%221%22%20fill%3D%22none%22/%3E%3C/svg%3E");
-    --accordion-notch-stroke-mobile: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20866%2027%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M866%2025.6968L542.433%2025.6968C535.986%2025.6968%20530.259%2021.8871%20528.235%2016.2228C524.909%206.91974%20516.061%200.704483%20506.184%200.704482L341.16%200.70448C331.283%200.70448%20322.435%206.95406%20319.109%2016.2228C317.085%2021.8871%20311.393%2025.6968%20304.911%2025.6968L0%2025.6968%22%20stroke%3D%22white%22%20stroke-width%3D%221%22%20fill%3D%22none%22/%3E%3C/svg%3E");
+    --accordion-notch-curve-height: 34px;
+    --accordion-notch-curve-width: clamp(180px, 42vw, 420px);
+    --accordion-notch-line-thickness: 1px;
   }
 
   .accordion-row:hover,
@@ -498,9 +515,14 @@
       color: rgb({{ hover_foreground }});
     }
 
-    .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover .accordion-row__notch-shape::before,
-    .accordion-row[data-hover-scheme="{{ scheme.id }}"].accordion-row--open .accordion-row__notch-shape::before {
-      background-color: rgb({{ hover_background }});
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover .accordion-row__notch-line,
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"].accordion-row--open .accordion-row__notch-line {
+      background-color: rgb({{ hover_border }});
+    }
+
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover .accordion-row__notch-curve,
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"].accordion-row--open .accordion-row__notch-curve {
+      color: rgb({{ hover_border }});
     }
   {% endfor %}
 
@@ -512,84 +534,80 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    width: calc(100% + var(--padding-inline-start, 0px) + var(--padding-inline-end, 0px));
-    left: calc(var(--padding-inline-start, 0px) * -1);
+    width: calc(100% + var(--padding-inline-start, 0px) + var(--padding-inline-end, 0px) + 2px);
+    left: calc(var(--padding-inline-start, 0px) * -1 - 1px);
     pointer-events: none;
     z-index: 0;
   }
 
   .accordion-row__notch-shape {
     position: absolute;
-    left: 0;
-    width: 100%;
-    height: var(--accordion-notch-height, 34px);
-    display: none;
-  }
-
-  .accordion-row__notch-shape::before,
-  .accordion-row__notch-shape::after {
-    content: '';
-    position: absolute;
     inset: 0;
-    display: block;
-    pointer-events: none;
-  }
-
-  .accordion-row__notch-shape::before {
-    background-color: var(--accordion-notch-fill-color);
-    -webkit-mask-image: var(--accordion-notch-mask-desktop);
-    mask-image: var(--accordion-notch-mask-desktop);
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    -webkit-mask-size: 100% 100%;
-    mask-size: 100% 100%;
-    -webkit-mask-position: center;
-    mask-position: center;
-  }
-
-  .accordion-row:hover .accordion-row__notch-shape::before,
-  .accordion-row--open .accordion-row__notch-shape::before {
-    background-color: var(--accordion-hover-background);
-  }
-
-  .accordion-row__notch-shape::after {
-    background-color: var(--accordion-divider-color, var(--section-gridline-color, var(--color-border)));
-    -webkit-mask-image: var(--accordion-notch-stroke-desktop);
-    mask-image: var(--accordion-notch-stroke-desktop);
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    -webkit-mask-size: 100% 100%;
-    mask-size: 100% 100%;
-    -webkit-mask-position: center;
-    mask-position: center;
+    display: none;
+    align-items: flex-start;
+    gap: 0.25rem;
   }
 
   .accordion-row__notch-shape--top {
-    --accordion-notch-line-offset: 25.5px;
+    --accordion-notch-svg-width: var(--accordion-notch-curve-width);
+    --accordion-notch-svg-height: var(--accordion-notch-curve-height);
+    --accordion-notch-line-offset: calc(var(--accordion-notch-svg-height) * 0.75);
     top: calc(var(--accordion-notch-line-offset) * -1);
+    display: none;
+    padding-inline: 1px;
+  }
+
+  .accordion-row__notch-shape--bottom {
+    display: none !important;
   }
 
   .accordion-row--notch .accordion-row__notch-shape--top {
+    display: flex;
+  }
+
+  .accordion-row__notch-line {
+    flex: 1 1 0;
+    height: var(--accordion-notch-line-thickness);
+    background-color: var(--accordion-divider-color, var(--section-gridline-color, var(--color-border)));
+    margin-top: var(--accordion-notch-line-offset);
+  }
+
+  .accordion-row__notch-curve {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    color: var(--accordion-divider-color, var(--section-gridline-color, var(--color-border)));
+  }
+
+  .accordion-row__notch-svg {
+    width: var(--accordion-notch-svg-width);
+    max-width: 100%;
+    height: var(--accordion-notch-svg-height);
     display: block;
   }
 
+  .accordion-row__notch-svg path {
+    stroke: currentColor;
+    stroke-width: 1px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .accordion-row:hover .accordion-row__notch-line,
+  .accordion-row--open .accordion-row__notch-line {
+    background-color: var(--accordion-hover-border, var(--accordion-hover-color));
+  }
+
+  .accordion-row:hover .accordion-row__notch-curve,
+  .accordion-row--open .accordion-row__notch-curve {
+    color: var(--accordion-hover-border, var(--accordion-hover-color));
+  }
+
   @media screen and (max-width: 749px) {
-    .accordion-row__notch-shape {
-      height: var(--accordion-notch-height-mobile, 27px);
-    }
-
     .accordion-row__notch-shape--top {
-      --accordion-notch-line-offset: 24px;
-    }
-
-    .accordion-row__notch-shape::before {
-      -webkit-mask-image: var(--accordion-notch-mask-mobile);
-      mask-image: var(--accordion-notch-mask-mobile);
-    }
-
-    .accordion-row__notch-shape::after {
-      -webkit-mask-image: var(--accordion-notch-stroke-mobile);
-      mask-image: var(--accordion-notch-stroke-mobile);
+      --accordion-notch-svg-width: clamp(140px, 60vw, 320px);
+      --accordion-notch-svg-height: clamp(22px, 6vw, 34px);
+      --accordion-notch-line-offset: calc(var(--accordion-notch-svg-height) * 0.9);
     }
   }
 
