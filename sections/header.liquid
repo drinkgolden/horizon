@@ -385,7 +385,7 @@
 
   header-component[sticky] {
     position: sticky;
-    top: calc(var(--sticky-header-offset, 0px) - var(--header-stack-offset, 0px));
+    top: max(0px, calc(var(--sticky-header-offset, 0px) - var(--header-stack-offset, 0px)));
     z-index: var(--layer-sticky);
   }
 
