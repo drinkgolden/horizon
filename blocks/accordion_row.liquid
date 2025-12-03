@@ -18,6 +18,13 @@
   {% assign row_has_custom_scheme = true %}
 {% endif %}
 
+{% assign nested_block_count = block.blocks | size %}
+{% assign has_reveal_content = false %}
+{% if nested_block_count > 0 %}
+  {% assign has_reveal_content = true %}
+  {% assign row_classes = row_classes | append: ' accordion-row--has-reveal' %}
+{% endif %}
+
 {% assign show_right_heading = false %}
 {% if block_settings.right_heading != blank %}
   {% assign show_right_heading = true %}
@@ -138,54 +145,86 @@
       open-by-default-on-mobile
     {% endif %}
   >
-    <details
-      class="details"
-      data-testid="accordion-details"
-      {{ block.shopify_attributes }}
-    >
-      <summary
-        class="{{ header_classes }}"
-        {% if header_styles != blank %}
-          style="{{ header_styles | strip }}"
-        {% endif %}
+    {% if has_reveal_content %}
+      <details
+        class="details"
+        data-testid="accordion-details"
+        {{ block.shopify_attributes }}
       >
-        <span class="details__heading details__heading--left"{% unless show_left_heading %} aria-hidden="true"{% endunless %}>
-          {% render 'icon-or-image',
-            icon: block_settings.icon,
-            image_upload: block_settings.image_upload,
-            width: block_settings.width,
-            class_name: 'details__icon'
-          %}
-          <span class="details__label">{{ block_settings.heading }}</span>
-          {% if block_settings.heading != blank %}
-            <span class="details__caret details__caret--left">
-              <span class="svg-wrapper icon-caret icon-animated">
-                {{- 'icon-caret.svg' | inline_asset_content -}}
+        <summary
+          class="{{ header_classes }}"
+          {% if header_styles != blank %}
+            style="{{ header_styles | strip }}"
+          {% endif %}
+        >
+          <span class="details__heading details__heading--left"{% unless show_left_heading %} aria-hidden="true"{% endunless %}>
+            {% render 'icon-or-image',
+              icon: block_settings.icon,
+              image_upload: block_settings.image_upload,
+              width: block_settings.width,
+              class_name: 'details__icon'
+            %}
+            <span class="details__label">{{ block_settings.heading }}</span>
+            {% if block_settings.heading != blank and has_reveal_content %}
+              <span class="details__caret details__caret--left">
+                <span class="svg-wrapper icon-caret icon-animated">
+                  {{- 'icon-caret.svg' | inline_asset_content -}}
+                </span>
               </span>
+            {% endif %}
+          </span>
+          {% if show_right_heading %}
+            <span class="details__heading details__heading--right">
+              {% if has_reveal_content %}
+                <span class="details__caret details__caret--right">
+                  <span class="svg-wrapper icon-caret icon-animated">
+                    {{- 'icon-caret.svg' | inline_asset_content -}}
+                  </span>
+                </span>
+              {% endif %}
+              <span class="details__label">{{ block_settings.right_heading }}</span>
             </span>
           {% endif %}
-        </span>
-        {% if show_right_heading %}
-          <span class="details__heading details__heading--right">
-            <span class="details__caret details__caret--right">
-              <span class="svg-wrapper icon-caret icon-animated">
-                {{- 'icon-caret.svg' | inline_asset_content -}}
-              </span>
-            </span>
-            <span class="details__label">{{ block_settings.right_heading }}</span>
-          </span>
-        {% endif %}
-      </summary>
+        </summary>
 
+        <div
+          class="details-content"
+          {% if content_styles != blank %}
+            style="{{ content_styles | strip }}"
+          {% endif %}
+        >
+          {% content_for 'blocks' %}
+        </div>
+      </details>
+    {% else %}
       <div
-        class="details-content"
-        {% if content_styles != blank %}
-          style="{{ content_styles | strip }}"
-        {% endif %}
+        class="details details--static"
+        data-testid="accordion-details"
+        {{ block.shopify_attributes }}
       >
-        {% content_for 'blocks' %}
+        <div
+          class="{{ header_classes }}"
+          {% if header_styles != blank %}
+            style="{{ header_styles | strip }}"
+          {% endif %}
+        >
+          <span class="details__heading details__heading--left"{% unless show_left_heading %} aria-hidden="true"{% endunless %}>
+            {% render 'icon-or-image',
+              icon: block_settings.icon,
+              image_upload: block_settings.image_upload,
+              width: block_settings.width,
+              class_name: 'details__icon'
+            %}
+            <span class="details__label">{{ block_settings.heading }}</span>
+          </span>
+          {% if show_right_heading %}
+            <span class="details__heading details__heading--right">
+              <span class="details__label">{{ block_settings.right_heading }}</span>
+            </span>
+          {% endif %}
+        </div>
       </div>
-    </details>
+    {% endif %}
   </accordion-custom>
 </div>
 
