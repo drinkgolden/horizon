@@ -7,6 +7,9 @@
 {% if row_color_scheme_id != blank %}
   {% assign row_classes = row_classes | append: ' color-' | append: row_color_scheme_id %}
 {% endif %}
+{% if block_settings.notch_row %}
+  {% assign row_classes = row_classes | append: ' accordion-row--notch' %}
+{% endif %}
 
 {% assign row_hover_scheme_id = block_settings.hover_color_scheme %}
 {% if row_hover_scheme_id == blank %}
@@ -225,6 +228,25 @@
         </div>
       </div>
     {% endif %}
+    {% if block_settings.notch_row %}
+      <div class="accordion-row__notch" aria-hidden="true">
+        <span class="accordion-row__notch-line accordion-row__notch-line--left"></span>
+        <span class="accordion-row__notch-curve">
+          <svg
+            class="accordion-row__notch-svg"
+            viewBox="0 0 1415 34"
+            preserveAspectRatio="xMidYMid meet"
+            role="presentation"
+            focusable="false"
+          >
+            <path
+              d="M0 25.5H588.567C595.049 25.5 600.742 21.6903 602.765 16.026C606.092 6.75726 614.939 0.507673 624.816 0.507674L789.84 0.507681C799.717 0.507682 808.565 6.72293 811.892 16.026C813.915 21.6903 819.642 25.5 826.089 25.5H1415"
+            />
+          </svg>
+        </span>
+        <span class="accordion-row__notch-line accordion-row__notch-line--right"></span>
+      </div>
+    {% endif %}
   </accordion-custom>
 </div>
 
@@ -393,6 +415,58 @@
     margin-inline-start: 0;
   }
 
+  .accordion-row--notch,
+  .accordion-row--before-notch {
+    overflow: visible;
+  }
+
+  .accordion-row__notch {
+    position: absolute;
+    left: calc(var(--padding-inline-start, 0px) * -1 - 1px);
+    width: calc(100% + var(--padding-inline-start, 0px) + var(--padding-inline-end, 0px) + 2px);
+    top: calc(var(--padding-block-start, 0px) * -1 - 1px);
+    display: none;
+    align-items: flex-start;
+    gap: var(--margin-sm);
+    pointer-events: none;
+    color: var(--accordion-divider-color, var(--section-gridline-color, var(--color-border)));
+    z-index: 0;
+  }
+
+  .accordion-row--notch .accordion-row__notch {
+    display: flex;
+  }
+
+  .accordion-row__notch-line {
+    flex: 1 1 0;
+    height: 1px;
+    background-color: currentColor;
+    margin-top: var(--accordion-notch-line-offset, 24px);
+  }
+
+  .accordion-row__notch-curve {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: var(--accordion-notch-curve-width, clamp(200px, 35vw, 420px));
+    margin-top: calc(var(--accordion-notch-line-offset, 24px) - var(--accordion-notch-curve-height, 34px) * 0.5);
+  }
+
+  .accordion-row__notch-svg {
+    width: 100%;
+    height: var(--accordion-notch-curve-height, 34px);
+    display: block;
+  }
+
+  .accordion-row__notch-svg path {
+    stroke: currentColor;
+    stroke-width: 1px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+    vector-effect: non-scaling-stroke;
+  }
+
   .accordion-row:hover .details__header,
   .accordion-row:hover .details-content,
   details[open] .details__header,
@@ -409,6 +483,11 @@
   details[open] .details__label,
   details[open] .details__caret .svg-wrapper {
     color: inherit;
+  }
+
+  .accordion-row:hover .accordion-row__notch,
+  .accordion-row--open .accordion-row__notch {
+    color: var(--accordion-hover-border, var(--accordion-hover-color));
   }
 
   .details-content {
@@ -449,6 +528,12 @@
       "type": "checkbox",
       "id": "open_by_default",
       "label": "Open row by default",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "notch_row",
+      "label": "Show notch divider",
       "default": false
     },
     {

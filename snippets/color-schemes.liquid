@@ -151,9 +151,9 @@
       color: rgb({{ hover_foreground.rgba }});
     }
 
-    .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover .accordion-row__notch-shape::before,
-    .accordion-row[data-hover-scheme="{{ scheme.id }}"].accordion-row--open .accordion-row__notch-shape::before {
-      background-color: rgb({{ hover_background.rgba }});
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover .accordion-row__notch,
+    .accordion-row[data-hover-scheme="{{ scheme.id }}"].accordion-row--open .accordion-row__notch {
+      color: rgb({{ hover_border.rgba }});
     }
   {% endfor %}
 {% endstyle %}
