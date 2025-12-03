@@ -23,6 +23,28 @@
   {% assign show_right_heading = true %}
 {% endif %}
 
+{% assign show_left_heading = false %}
+{% if block_settings.heading != blank %}
+  {% assign show_left_heading = true %}
+{% elsif block_settings.icon != blank and block_settings.icon != 'none' %}
+  {% assign show_left_heading = true %}
+{% elsif block_settings.image_upload != blank %}
+  {% assign show_left_heading = true %}
+{% endif %}
+
+{% assign header_classes = 'details__header' %}
+{% if show_left_heading %}
+  {% assign header_classes = header_classes | append: ' details__header--has-left' %}
+{% else %}
+  {% assign header_classes = header_classes | append: ' details__header--no-left' %}
+{% endif %}
+{% if show_right_heading %}
+  {% assign header_classes = header_classes | append: ' details__header--has-right' %}
+{% endif %}
+{% if show_right_heading and show_left_heading == false %}
+  {% assign header_classes = header_classes | append: ' details__header--right-only' %}
+{% endif %}
+
 {% assign rem_divisor = 16.0 %}
 {% assign has_custom_summary_padding = false %}
 {% assign has_custom_content_padding = false %}
@@ -122,12 +144,12 @@
       {{ block.shopify_attributes }}
     >
       <summary
-        class="details__header{% if show_right_heading %} details__header--has-right{% endif %}"
+        class="{{ header_classes }}"
         {% if header_styles != blank %}
           style="{{ header_styles | strip }}"
         {% endif %}
       >
-        <span class="details__heading details__heading--left">
+        <span class="details__heading details__heading--left"{% unless show_left_heading %} aria-hidden="true"{% endunless %}>
           {% render 'icon-or-image',
             icon: block_settings.icon,
             image_upload: block_settings.image_upload,
@@ -244,6 +266,39 @@
     margin-inline-start: auto;
     text-align: right;
     justify-content: flex-end;
+  }
+
+  .details__header:not(.details__header--has-right) {
+    justify-content: flex-start;
+  }
+
+  .details__header:not(.details__header--has-right) .details__heading--left {
+    flex: 1 1 100%;
+    width: auto;
+    max-width: none;
+  }
+
+  .details__header:not(.details__header--has-right) .details__heading--left .details__label {
+    width: 100%;
+  }
+
+  .details__header--right-only {
+    justify-content: flex-end;
+  }
+
+  .details__header--right-only .details__heading--left {
+    display: none;
+  }
+
+  .details__header--right-only .details__heading--right {
+    flex: 1 1 100%;
+    width: auto;
+    max-width: none;
+    margin-inline-start: 0;
+  }
+
+  .details__header--right-only .details__heading--right .details__label {
+    width: 100%;
   }
 
   .details__heading--right .details__label {
