@@ -1,64 +1,12 @@
 {% assign block_settings = block.settings %}
 {% assign row_classes = 'accordion-row' %}
-{% if block_settings.color_scheme != blank %}
+{% if block_settings.inherit_color_scheme == false %}
   {% assign row_classes = row_classes | append: ' color-' | append: block_settings.color_scheme %}
-{% endif %}
-{% if block_settings.notch_row %}
-  {% assign row_classes = row_classes | append: ' accordion-row--notch' %}
-{% endif %}
-
-{% assign row_hover_scheme_id = block_settings.hover_color_scheme %}
-{% if row_hover_scheme_id == blank %}
-  {% if block_settings.color_scheme != blank %}
-    {% assign row_hover_scheme_id = block_settings.color_scheme %}
-  {% elsif section.settings.color_scheme != blank %}
-    {% assign row_hover_scheme_id = section.settings.color_scheme %}
-  {% endif %}
-{% endif %}
-{% assign hover_scheme = nil %}
-{% if row_hover_scheme_id != blank %}
-  {% assign hover_scheme = settings.color_schemes | where: 'id', row_hover_scheme_id | first %}
-{% endif %}
-
-{% assign nested_block_count = block.blocks | size %}
-{% assign has_reveal_content = false %}
-{% if nested_block_count > 0 %}
-  {% assign has_reveal_content = true %}
-  {% assign row_classes = row_classes | append: ' accordion-row--has-reveal' %}
-{% endif %}
-{% assign scale_between = block_settings.heading_scale_between %}
-{% if scale_between == nil %}
-  {% assign scale_between = true %}
-{% endif %}
-{% if scale_between == false %}
-  {% assign row_classes = row_classes | append: ' accordion-row--fixed-heading' %}
 {% endif %}
 
 {% assign show_right_heading = false %}
 {% if block_settings.right_heading != blank %}
   {% assign show_right_heading = true %}
-{% endif %}
-
-{% assign show_left_heading = false %}
-{% if block_settings.heading != blank %}
-  {% assign show_left_heading = true %}
-{% elsif block_settings.icon != blank and block_settings.icon != 'none' %}
-  {% assign show_left_heading = true %}
-{% elsif block_settings.image_upload != blank %}
-  {% assign show_left_heading = true %}
-{% endif %}
-
-{% assign header_classes = 'details__header' %}
-{% if show_left_heading %}
-  {% assign header_classes = header_classes | append: ' details__header--has-left' %}
-{% else %}
-  {% assign header_classes = header_classes | append: ' details__header--no-left' %}
-{% endif %}
-{% if show_right_heading %}
-  {% assign header_classes = header_classes | append: ' details__header--has-right' %}
-{% endif %}
-{% if show_right_heading and show_left_heading == false %}
-  {% assign header_classes = header_classes | append: ' details__header--right-only' %}
 {% endif %}
 
 {% assign rem_divisor = 16.0 %}
@@ -113,10 +61,10 @@
     --accordion-right-heading-line-height: var(--font-{{ block_settings.right_heading_type_preset }}--line-height);
     --accordion-right-heading-base-size: var(--font-{{ block_settings.right_heading_type_preset }}--size);
   {% endif %}
-  {% assign heading_mobile_numeric = block_settings.heading_mobile_size | default: 0 | times: 1 %}
-  {% assign heading_desktop_numeric = block_settings.heading_desktop_size | default: 0 | times: 1 %}
-  {% if heading_mobile_numeric > 0 %}--accordion-heading-mobile-size: {{ heading_mobile_numeric }}rem;{% endif %}
-  {% if heading_desktop_numeric > 0 %}--accordion-heading-desktop-size: {{ heading_desktop_numeric }}rem;{% endif %}
+  {% assign heading_min_numeric = block_settings.heading_min_size | default: 0 | times: 1 %}
+  {% assign heading_max_numeric = block_settings.heading_max_size | default: 0 | times: 1 %}
+  {% if heading_min_numeric > 0 %}--accordion-heading-min-size: {{ heading_min_numeric }}rem;{% endif %}
+  {% if heading_max_numeric > 0 %}--accordion-heading-max-size: {{ heading_max_numeric }}rem;{% endif %}
   {% if has_row_custom_padding %}
     --padding-inline-start: 0px;
     --padding-inline-end: 0px;
@@ -143,123 +91,68 @@
   {% if content_padding_inline_end_value != 0 %}padding-inline-end: {{ content_padding_inline_end_value | divided_by: rem_divisor }}rem;{% endif %}
 {% endcapture %}
 
-<div
-  class="{{ row_classes }}"
-  {% if row_hover_scheme_id != blank %}data-hover-scheme="{{ row_hover_scheme_id }}"{% endif %}
-  {% if inline_styles != blank %}
-    style="{{ inline_styles | strip }}"
-  {% endif %}
->
+<div class="{{ row_classes }}">
   <accordion-custom
-    class="accordion-row__inner{% if block_settings.color_scheme != blank %} accordion-row--custom-scheme{% endif %}"
-    {% if block_settings.notch_row %}
-      data-notch="true"
+    class="accordion-row__inner{% if block_settings.inherit_color_scheme == false %} accordion-row--custom-scheme{% endif %}"
+    {% if inline_styles != blank %}
+      style="{{ inline_styles | strip }}"
     {% endif %}
     {% if block_settings.open_by_default %}
       open-by-default-on-desktop
       open-by-default-on-mobile
     {% endif %}
   >
-    {% if has_reveal_content %}
-      <details
-        class="details"
-        data-testid="accordion-details"
-        {{ block.shopify_attributes }}
+    <details
+      class="details"
+      data-testid="accordion-details"
+      {{ block.shopify_attributes }}
+    >
+      <summary
+        class="details__header{% if show_right_heading %} details__header--has-right{% endif %}"
+        {% if header_styles != blank %}
+          style="{{ header_styles | strip }}"
+        {% endif %}
       >
-        <summary
-          class="{{ header_classes }}"
-          {% if header_styles != blank %}
-            style="{{ header_styles | strip }}"
-          {% endif %}
-        >
-          <span class="details__heading details__heading--left"{% unless show_left_heading %} aria-hidden="true"{% endunless %}>
-            {% render 'icon-or-image',
-              icon: block_settings.icon,
-              image_upload: block_settings.image_upload,
-              width: block_settings.width,
-              class_name: 'details__icon'
-            %}
-            <span class="details__label">{{ block_settings.heading }}</span>
-            {% if block_settings.heading != blank %}
-              <span class="details__caret details__caret--left">
-                <span class="svg-wrapper icon-caret icon-animated">
-                  {{- 'icon-caret.svg' | inline_asset_content -}}
-                </span>
+        <span class="details__heading details__heading--left">
+          {% render 'icon-or-image',
+            icon: block_settings.icon,
+            image_upload: block_settings.image_upload,
+            width: block_settings.width,
+            class_name: 'details__icon'
+          %}
+          <span class="details__label">{{ block_settings.heading }}</span>
+          {% if block_settings.heading != blank %}
+            <span class="details__caret details__caret--left">
+              <span class="svg-wrapper icon-caret icon-animated">
+                {{- 'icon-caret.svg' | inline_asset_content -}}
               </span>
-            {% endif %}
-          </span>
-          {% if show_right_heading %}
-            <span class="details__heading details__heading--right">
-              <span class="details__caret details__caret--right">
-                <span class="svg-wrapper icon-caret icon-animated">
-                  {{- 'icon-caret.svg' | inline_asset_content -}}
-                </span>
-              </span>
-              <span class="details__label">{{ block_settings.right_heading }}</span>
             </span>
           {% endif %}
-        </summary>
-
-        <div
-          class="details-content"
-          {% if content_styles != blank %}
-            style="{{ content_styles | strip }}"
-          {% endif %}
-        >
-          {% content_for 'blocks' %}
-        </div>
-      </details>
-    {% else %}
-      <div
-        class="details details--static"
-        data-testid="accordion-details"
-        {{ block.shopify_attributes }}
-      >
-        <div
-          class="{{ header_classes }}"
-          {% if header_styles != blank %}
-            style="{{ header_styles | strip }}"
-          {% endif %}
-        >
-          <span class="details__heading details__heading--left"{% unless show_left_heading %} aria-hidden="true"{% endunless %}>
-            {% render 'icon-or-image',
-              icon: block_settings.icon,
-              image_upload: block_settings.image_upload,
-              width: block_settings.width,
-              class_name: 'details__icon'
-            %}
-            <span class="details__label">{{ block_settings.heading }}</span>
-          </span>
-          {% if show_right_heading %}
-            <span class="details__heading details__heading--right">
-              <span class="details__label">{{ block_settings.right_heading }}</span>
-            </span>
-          {% endif %}
-        </div>
-      </div>
-    {% endif %}
-    <div class="accordion-row__notch-shapes" aria-hidden="true">
-      <span class="accordion-row__notch-shape accordion-row__notch-shape--top">
-        <span class="accordion-row__notch-line accordion-row__notch-line--left"></span>
-        <span class="accordion-row__notch-curve">
-          <svg
-            class="accordion-row__notch-svg"
-            viewBox="0 0 1415 34"
-            preserveAspectRatio="none"
-            role="presentation"
-            focusable="false"
-          >
-            <path
-              d="M1410.66 25.4923L826.089 25.4923C819.642 25.4923 813.915 21.6826 811.892 16.0183C808.565 6.71523 799.717 0.499973 789.84 0.499973L624.816 0.499966C614.939 0.499965 606.092 6.74955 602.765 16.0183C600.742 21.6826 595.049 25.4923 588.567 25.4923L4.00012 25.4923"
-              vector-effect="non-scaling-stroke"
-              fill="none"
-            />
-          </svg>
         </span>
-        <span class="accordion-row__notch-line accordion-row__notch-line--right"></span>
-      </span>
-      <span class="accordion-row__notch-shape accordion-row__notch-shape--bottom"></span>
-    </div>
+        {% if show_right_heading %}
+          <span class="details__heading details__heading--right">
+            <span class="details__caret details__caret--right">
+              <span class="svg-wrapper icon-caret icon-animated">
+                {{- 'icon-caret.svg' | inline_asset_content -}}
+              </span>
+            </span>
+            <span class="details__label">{{ block_settings.right_heading }}</span>
+          </span>
+        {% endif %}
+        <span class="svg-wrapper icon-plus">
+          {{- 'icon-plus.svg' | inline_asset_content -}}
+        </span>
+      </summary>
+
+      <div
+        class="details-content"
+        {% if content_styles != blank %}
+          style="{{ content_styles | strip }}"
+        {% endif %}
+      >
+        {% content_for 'blocks' %}
+      </div>
+    </details>
   </accordion-custom>
 </div>
 
@@ -268,32 +161,10 @@
     width: 100%;
     position: relative;
     overflow: hidden;
-    background-color: var(--color-background, transparent);
-    transition: background-color 160ms var(--ease-out), color 160ms var(--ease-out);
     --accordion-caret-gap: 12px;
-    --accordion-hover-background: var(--color-background, transparent);
-    --accordion-hover-color: var(--color-foreground, currentColor);
-    --accordion-hover-border: var(--color-border, currentColor);
-    --accordion-heading-mobile-size: var(--accordion-heading-base-size, var(--summary-font-size));
-    --accordion-heading-desktop-size: var(--accordion-heading-base-size, var(--summary-font-size));
-    --accordion-notch-fill-color: var(--color-background, rgb(var(--color-background-rgb, 255 255 255)));
-    --accordion-heading-mobile-size: var(--accordion-heading-base-size, var(--summary-font-size));
-    --accordion-heading-desktop-size: var(--accordion-heading-base-size, var(--summary-font-size));
-    --accordion-heading-scale-min-width: 20rem;
-    --accordion-heading-scale-max-width: 75rem;
-    --accordion-notch-curve-height: 34px;
-    --accordion-notch-curve-width: clamp(180px, 42vw, 420px);
-    --accordion-notch-line-thickness: 1px;
-  }
-
-  .accordion-row:hover,
-  .accordion-row--open {
-    background-color: var(--accordion-hover-background);
-  }
-
-  .accordion-row--notch,
-  .accordion-row--before-notch {
-    overflow: visible;
+    --accordion-hover-background: rgb(var(--color-foreground-rgb, 255 255 255) / 0.08);
+    --accordion-hover-color: var(--color-foreground);
+    --accordion-hover-border: rgb(var(--color-border-rgb, var(--color-foreground-rgb, 0 0 0)) / 0.2);
   }
 
   .accordion-row::before {
@@ -307,23 +178,8 @@
     z-index: -1;
   }
 
-  .accordion-row:hover::before,
-  .accordion-row--open::before {
-    background-color: var(--accordion-hover-background);
-  }
-
   .accordion-row__inner {
     display: block;
-  }
-
-  .accordion-row .details {
-    position: relative;
-    transition: background-color 160ms var(--ease-out), color 160ms var(--ease-out);
-  }
-
-  .accordion-row:hover .details,
-  .accordion-row--open .details {
-    background-color: var(--accordion-hover-background);
   }
 
   .details__icon {
@@ -361,18 +217,15 @@
     line-height: var(--accordion-heading-line-height, var(--summary-font-line-height));
     text-transform: var(--accordion-heading-text-case, var(--summary-font-case));
     font-size: clamp(
-      var(--accordion-heading-mobile-size),
-      calc(
-        var(--accordion-heading-mobile-size) +
-          (var(--accordion-heading-desktop-size) - var(--accordion-heading-mobile-size)) *
-          clamp(
-            0,
-            (100vw - var(--accordion-heading-scale-min-width)) /
-              max(1px, var(--accordion-heading-scale-max-width) - var(--accordion-heading-scale-min-width)),
-            1
-          )
+      var(
+        --accordion-heading-min-size,
+        var(--accordion-heading-base-size, var(--summary-font-size))
       ),
-      var(--accordion-heading-desktop-size)
+      calc((var(--accordion-heading-base-size, var(--summary-font-size)) * 0.5) + 2vw),
+      var(
+        --accordion-heading-max-size,
+        calc(var(--accordion-heading-base-size, var(--summary-font-size)) * 1.2)
+      )
     );
   }
 
@@ -382,39 +235,6 @@
     justify-content: flex-end;
   }
 
-  .details__header:not(.details__header--has-right) {
-    justify-content: flex-start;
-  }
-
-  .details__header:not(.details__header--has-right) .details__heading--left {
-    flex: 1 1 100%;
-    width: auto;
-    max-width: none;
-  }
-
-  .details__header:not(.details__header--has-right) .details__heading--left .details__label {
-    width: 100%;
-  }
-
-  .details__header--right-only {
-    justify-content: flex-end;
-  }
-
-  .details__header--right-only .details__heading--left {
-    display: none;
-  }
-
-  .details__header--right-only .details__heading--right {
-    flex: 1 1 100%;
-    width: auto;
-    max-width: none;
-    margin-inline-start: 0;
-  }
-
-  .details__header--right-only .details__heading--right .details__label {
-    width: 100%;
-  }
-
   .details__heading--right .details__label {
     font-family: var(--accordion-right-heading-font-family, var(--accordion-heading-font-family, var(--summary-font-family)));
     font-style: var(--accordion-right-heading-font-style, var(--accordion-heading-font-style, var(--summary-font-style)));
@@ -422,18 +242,15 @@
     line-height: var(--accordion-right-heading-line-height, var(--accordion-heading-line-height, var(--summary-font-line-height)));
     text-transform: var(--accordion-right-heading-text-case, var(--accordion-heading-text-case, var(--summary-font-case)));
     font-size: clamp(
-      var(--accordion-heading-mobile-size),
-      calc(
-        var(--accordion-heading-mobile-size) +
-          (var(--accordion-heading-desktop-size) - var(--accordion-heading-mobile-size)) *
-          clamp(
-            0,
-            (100vw - var(--accordion-heading-scale-min-width)) /
-              max(1px, var(--accordion-heading-scale-max-width) - var(--accordion-heading-scale-min-width)),
-            1
-          )
+      var(
+        --accordion-heading-min-size,
+        var(--accordion-right-heading-base-size, var(--accordion-heading-base-size, var(--summary-font-size)))
       ),
-      var(--accordion-heading-desktop-size)
+      calc((var(--accordion-right-heading-base-size, var(--accordion-heading-base-size, var(--summary-font-size))) * 0.5) + 2vw),
+      var(
+        --accordion-heading-max-size,
+        calc(var(--accordion-right-heading-base-size, var(--accordion-heading-base-size, var(--summary-font-size))) * 1.2)
+      )
     );
   }
 
@@ -471,6 +288,24 @@
     margin-inline-start: 0;
   }
 
+  .accordion-row:hover .details__header,
+  .accordion-row:hover .details-content,
+  details[open] .details__header,
+  details[open] .details-content {
+    background-color: var(--accordion-hover-background);
+    color: var(--accordion-hover-color);
+    border-color: var(--accordion-hover-border);
+  }
+
+  .accordion-row:hover .details__heading,
+  .accordion-row:hover .details__label,
+  .accordion-row:hover .details__caret .svg-wrapper,
+  details[open] .details__heading,
+  details[open] .details__label,
+  details[open] .details__caret .svg-wrapper {
+    color: inherit;
+  }
+
   .details-content {
     padding-block-start: var(--accordion-content-padding-block-start, var(--padding-md));
     padding-block-end: var(--accordion-content-padding-block-end, var(--padding-md));
@@ -479,144 +314,8 @@
     color: inherit;
   }
 
-  {% for scheme in settings.color_schemes %}
-    {% assign hover_background = scheme.settings.background.rgba %}
-    {% assign hover_foreground = scheme.settings.foreground_heading.rgba | default: scheme.settings.foreground.rgba %}
-    {% assign hover_border = scheme.settings.border.rgba %}
-
-    .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover,
-    .accordion-row[data-hover-scheme="{{ scheme.id }}"].accordion-row--open {
-      background-color: rgb({{ hover_background }});
-      color: rgb({{ hover_foreground }});
-    }
-
-    .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover::before,
-    .accordion-row[data-hover-scheme="{{ scheme.id }}"].accordion-row--open::before {
-      background-color: rgb({{ hover_background }});
-    }
-
-    .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover .details,
-    .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover .details__header,
-    .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover .details-content,
-    .accordion-row[data-hover-scheme="{{ scheme.id }}"].accordion-row--open .details,
-    .accordion-row[data-hover-scheme="{{ scheme.id }}"].accordion-row--open .details__header,
-    .accordion-row[data-hover-scheme="{{ scheme.id }}"].accordion-row--open .details-content {
-      background-color: rgb({{ hover_background }});
-      color: rgb({{ hover_foreground }});
-      border-color: rgb({{ hover_border }});
-    }
-
-    .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover .details__heading,
-    .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover .details__label,
-    .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover .details__caret .svg-wrapper,
-    .accordion-row[data-hover-scheme="{{ scheme.id }}"].accordion-row--open .details__heading,
-    .accordion-row[data-hover-scheme="{{ scheme.id }}"].accordion-row--open .details__label,
-    .accordion-row[data-hover-scheme="{{ scheme.id }}"].accordion-row--open .details__caret .svg-wrapper {
-      color: rgb({{ hover_foreground }});
-    }
-
-    .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover .accordion-row__notch-line,
-    .accordion-row[data-hover-scheme="{{ scheme.id }}"].accordion-row--open .accordion-row__notch-line {
-      background-color: rgb({{ hover_border }});
-    }
-
-    .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover .accordion-row__notch-curve,
-    .accordion-row[data-hover-scheme="{{ scheme.id }}"].accordion-row--open .accordion-row__notch-curve {
-      color: rgb({{ hover_border }});
-    }
-  {% endfor %}
-
   .accordion-row__group-hidden {
     display: none !important;
-  }
-
-  .accordion-row__notch-shapes {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: calc(100% + var(--padding-inline-start, 0px) + var(--padding-inline-end, 0px) + 2px);
-    left: calc(var(--padding-inline-start, 0px) * -1 - 1px);
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  .accordion-row__notch-shape {
-    position: absolute;
-    inset: 0;
-    display: none;
-    align-items: flex-start;
-    gap: 0.25rem;
-  }
-
-  .accordion-row__notch-shape--top {
-    --accordion-notch-svg-width: var(--accordion-notch-curve-width);
-    --accordion-notch-svg-height: var(--accordion-notch-curve-height);
-    --accordion-notch-line-offset: calc(var(--accordion-notch-svg-height) * 0.75);
-    top: calc(var(--accordion-notch-line-offset) * -1);
-    display: none;
-    padding-inline: 1px;
-  }
-
-  .accordion-row__notch-shape--bottom {
-    display: none !important;
-  }
-
-  .accordion-row--notch .accordion-row__notch-shape--top {
-    display: flex;
-  }
-
-  .accordion-row__notch-line {
-    flex: 1 1 0;
-    height: var(--accordion-notch-line-thickness);
-    background-color: var(--accordion-divider-color, var(--section-gridline-color, var(--color-border)));
-    margin-top: var(--accordion-notch-line-offset);
-  }
-
-  .accordion-row__notch-curve {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    color: var(--accordion-divider-color, var(--section-gridline-color, var(--color-border)));
-  }
-
-  .accordion-row__notch-svg {
-    width: var(--accordion-notch-svg-width);
-    max-width: 100%;
-    height: var(--accordion-notch-svg-height);
-    display: block;
-  }
-
-  .accordion-row__notch-svg path {
-    stroke: currentColor;
-    stroke-width: 1px;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-
-  .accordion-row:hover .accordion-row__notch-line,
-  .accordion-row--open .accordion-row__notch-line {
-    background-color: var(--accordion-hover-border, var(--accordion-hover-color));
-  }
-
-  .accordion-row:hover .accordion-row__notch-curve,
-  .accordion-row--open .accordion-row__notch-curve {
-    color: var(--accordion-hover-border, var(--accordion-hover-color));
-  }
-
-  @media screen and (max-width: 749px) {
-    .accordion-row__notch-shape--top {
-      --accordion-notch-svg-width: clamp(140px, 60vw, 320px);
-      --accordion-notch-svg-height: clamp(22px, 6vw, 34px);
-      --accordion-notch-line-offset: calc(var(--accordion-notch-svg-height) * 0.9);
-    }
-  }
-
-  .accordion-row--notch .details,
-  .accordion-row--before-notch .details {
-    border-top: 0;
-    border-bottom: 0;
-    border-block-start: 0;
-    border-block-end: 0;
   }
 {% endstylesheet %}
 
@@ -648,14 +347,17 @@
       "default": false
     },
     {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "Row color scheme"
+      "type": "checkbox",
+      "id": "inherit_color_scheme",
+      "label": "Inherit color scheme",
+      "default": true
     },
     {
       "type": "color_scheme",
-      "id": "hover_color_scheme",
-      "label": "Row hover color scheme"
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1",
+      "visible_if": "{{ block.settings.inherit_color_scheme == false }}"
     },
     {
       "type": "header",
@@ -783,39 +485,23 @@
     },
     {
       "type": "range",
-      "id": "heading_mobile_size",
-      "label": "Mobile font size",
+      "id": "heading_min_size",
+      "label": "Minimum font size",
       "min": 0,
-      "max": 3,
+      "max": 2.5,
       "step": 0.1,
       "unit": "rem",
       "default": 0
     },
     {
       "type": "range",
-      "id": "heading_desktop_size",
-      "label": "Desktop font size",
+      "id": "heading_max_size",
+      "label": "Maximum font size",
       "min": 0,
-      "max": 4,
+      "max": 3.5,
       "step": 0.1,
       "unit": "rem",
       "default": 0
-    },
-    {
-      "type": "checkbox",
-      "id": "heading_scale_between",
-      "label": "Scale between mobile and desktop sizes",
-      "default": true
-    },
-    {
-      "type": "header",
-      "content": "Kink"
-    },
-    {
-      "type": "checkbox",
-      "id": "notch_row",
-      "label": "Enable notch on this row",
-      "default": false
     },
     {
       "type": "header",
