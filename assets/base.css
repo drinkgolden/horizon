@@ -94,7 +94,7 @@ body.has-side-columns #footer-group {
 }
 
 body:has(> #header-group > .header-section) > main > .section-wrapper:first-child {
-  margin-top: calc((var(--header-group-height, 0px) - var(--header-height, 0px)) * -1);
+  margin-top: 0;
 }
 
 .floating-motif-button {
