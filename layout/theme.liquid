@@ -120,6 +120,10 @@
       style="{{ body_style | strip }}"
     {% endif %}
   >
+    {% if settings.side_columns_enable %}
+      <div class="side-column-border side-column-border--left" aria-hidden="true"></div>
+      <div class="side-column-border side-column-border--right" aria-hidden="true"></div>
+    {% endif %}
     {% render 'skip-to-content-link', href: '#MainContent', text: 'accessibility.skip_to_text' %}
     <div id="header-group">
       {% sections 'header-group' %}

@@ -15,6 +15,7 @@ body {
 body.has-side-columns {
   --side-columns-inline-desktop: var(--side-columns-width-desktop, 2vw);
   --side-columns-inline-mobile: var(--side-columns-width-mobile, var(--side-columns-inline-desktop));
+  position: relative;
 }
 
 body.has-side-columns #header-group {
@@ -62,15 +63,37 @@ body.has-side-columns #MainContent::after {
 
 body.has-side-columns #MainContent::before {
   left: calc(var(--side-columns-width-desktop, 2vw) * -1);
-  border-right: 1px solid var(--side-column-border-color, transparent);
 }
 
 body.has-side-columns #MainContent::after {
   right: calc(var(--side-columns-width-desktop, 2vw) * -1);
-  border-left: 1px solid var(--side-column-border-color, transparent);
+}
+
+body.has-side-columns .side-column-border {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  pointer-events: none;
+  z-index: var(--layer-overlay);
+  background: var(--side-column-border-color, transparent);
+}
+
+body.has-side-columns .side-column-border--left {
+  left: var(--side-columns-inline-desktop);
+  transform: translateX(-0.5px);
+}
+
+body.has-side-columns .side-column-border--right {
+  right: var(--side-columns-inline-desktop);
+  transform: translateX(0.5px);
 }
 
 @media screen and (max-width: 749px) {
+  body.has-side-columns:not(.has-side-columns--mobile) .side-column-border {
+    display: none;
+  }
+
   body.has-side-columns.has-side-columns--mobile::before,
   body.has-side-columns.has-side-columns--mobile::after {
     width: var(--side-columns-width-mobile, var(--side-columns-width-desktop, 2vw));
@@ -91,6 +114,14 @@ body.has-side-columns #MainContent::after {
   body.has-side-columns:not(.has-side-columns--mobile) #footer-group {
     padding-left: 0;
     padding-right: 0;
+  }
+
+  body.has-side-columns.has-side-columns--mobile .side-column-border--left {
+    left: var(--side-columns-inline-mobile);
+  }
+
+  body.has-side-columns.has-side-columns--mobile .side-column-border--right {
+    right: var(--side-columns-inline-mobile);
   }
 }
 
