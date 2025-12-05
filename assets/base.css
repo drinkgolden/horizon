@@ -71,12 +71,13 @@ body.has-side-columns #MainContent::after {
 
 body.has-side-columns .side-column-border {
   position: absolute;
-  top: 0;
+  top: var(--header-group-height, var(--header-height, 0px));
   bottom: 0;
   width: 1px;
   pointer-events: none;
   z-index: var(--layer-overlay);
   background: var(--side-column-border-color, transparent);
+  display: none;
 }
 
 body.has-side-columns .side-column-border--left {
@@ -87,6 +88,10 @@ body.has-side-columns .side-column-border--left {
 body.has-side-columns .side-column-border--right {
   right: var(--side-columns-inline-desktop);
   transform: translateX(0.5px);
+}
+
+body.has-side-columns.has-section-gridlines-vertical .side-column-border {
+  display: block;
 }
 
 @media screen and (max-width: 749px) {
