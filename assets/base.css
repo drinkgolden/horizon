@@ -16,7 +16,7 @@ body.has-side-columns::before,
 body.has-side-columns::after {
   content: '';
   position: fixed;
-  top: calc(var(--header-height, 0px) + var(--header-stack-offset, 0px));
+  top: var(--header-stack-offset, 0px);
   bottom: 0;
   width: var(--side-columns-width-desktop, 2vw);
   pointer-events: none;
