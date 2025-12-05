@@ -26,6 +26,11 @@ body.has-side-columns::after {
   box-sizing: border-box;
 }
 
+body.has-side-columns:has(#header-group #header-component[data-sticky-state='active'])::before,
+body.has-side-columns:has(#header-group #header-component[data-sticky-state='active'])::after {
+  top: var(--header-height, 0px);
+}
+
 body.has-side-columns::before {
   left: 0;
   border-right: 1px solid var(--side-column-border-color, transparent);
