@@ -12,35 +12,6 @@ body {
   font-variation-settings: 'slnt' 0;
 }
 
-body.has-side-columns::before,
-body.has-side-columns::after {
-  content: '';
-  position: fixed;
-  top: calc(var(--header-stack-offset, 0px) + var(--header-height, 0px));
-  bottom: 0;
-  width: var(--side-columns-width-desktop, 2vw);
-  pointer-events: none;
-  z-index: var(--layer-lowest);
-  background: var(--side-column-background-color, transparent);
-  backdrop-filter: none;
-  box-sizing: border-box;
-}
-
-body.has-side-columns:has(#header-group #header-component[data-sticky-state='active'])::before,
-body.has-side-columns:has(#header-group #header-component[data-sticky-state='active'])::after {
-  top: var(--header-height, 0px);
-}
-
-body.has-side-columns::before {
-  left: 0;
-  border-right: 1px solid var(--side-column-border-color, transparent);
-}
-
-body.has-side-columns::after {
-  right: 0;
-  border-left: 1px solid var(--side-column-border-color, transparent);
-}
-
 body.has-side-columns {
   --side-columns-inline-desktop: var(--side-columns-width-desktop, 2vw);
   --side-columns-inline-mobile: var(--side-columns-width-mobile, var(--side-columns-inline-desktop));
@@ -72,6 +43,31 @@ body.has-side-columns #footer-group {
   padding-left: var(--side-columns-inline-desktop);
   padding-right: var(--side-columns-inline-desktop);
   box-sizing: border-box;
+  position: relative;
+}
+
+body.has-side-columns #MainContent::before,
+body.has-side-columns #MainContent::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: var(--side-columns-width-desktop, 2vw);
+  pointer-events: none;
+  z-index: var(--layer-lowest);
+  background: var(--side-column-background-color, transparent);
+  backdrop-filter: none;
+  box-sizing: border-box;
+}
+
+body.has-side-columns #MainContent::before {
+  left: calc(var(--side-columns-width-desktop, 2vw) * -1);
+  border-right: 1px solid var(--side-column-border-color, transparent);
+}
+
+body.has-side-columns #MainContent::after {
+  right: calc(var(--side-columns-width-desktop, 2vw) * -1);
+  border-left: 1px solid var(--side-column-border-color, transparent);
 }
 
 @media screen and (max-width: 749px) {
