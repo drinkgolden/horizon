@@ -2,14 +2,10 @@
   assign block_settings = block.settings
   assign menu_content_type = block_settings.menu_style | default: 'text'
   assign image_border_radius = block_settings.image_border_radius
-  assign color_scheme_classes = ''
+  assign color_scheme_classes = ' color-' | append: current_color_scheme
   assign color_scheme_setting_id = 'color_scheme_' | append: section.settings.menu_row
   assign current_color_scheme = block_settings.color_scheme
   assign parent_color_scheme = section.settings[color_scheme_setting_id]
-
-  if parent_color_scheme.id != current_color_scheme.id
-    assign color_scheme_classes = ' color-' | append: current_color_scheme
-  endif
 
   # Check if header and menu colors match. This is used to apply different padding styles in css
   if parent_color_scheme.settings.background.rgb == current_color_scheme.settings.background.rgb
