@@ -16,11 +16,11 @@
           "type": "text",
           "name": "Title",
           "settings": {
-            "text": "<h1>Golden Honey Soda</h1>",
+            "text": "<h3>Golden Honey Soda</h3>",
             "width": "100%",
-            "max_width": "normal",
+            "max_width": "none",
             "alignment": "left",
-            "type_preset": "h3",
+            "type_preset": "h4",
             "font": "var(--font-primary--family)",
             "font_size": "",
             "line_height": "normal",
@@ -33,8 +33,8 @@
             "corner_radius": 0,
             "padding-block-start": 0,
             "padding-block-end": 0,
-            "padding-inline-start": 24,
-            "padding-inline-end": 24
+            "padding-inline-start": 12,
+            "padding-inline-end": 12
           },
           "blocks": {}
         },
@@ -228,7 +228,7 @@
         }
       },
       "settings": {
-        "layout_type": "grid",
+        "layout_type": "organic",
         "product_card_size": "medium",
         "mobile_product_card_size": "large",
         "enable_infinite_scroll": true,
