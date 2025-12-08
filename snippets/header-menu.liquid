@@ -4,24 +4,12 @@
   assign image_border_radius = block_settings.image_border_radius
   assign color_scheme_setting_id = 'color_scheme_' | append: section.settings.menu_row
   assign parent_color_scheme = section.settings[color_scheme_setting_id]
-
-  assign current_color_scheme = block_settings.color_scheme
-  assign current_color_scheme_id = current_color_scheme.id | default: current_color_scheme
   assign parent_color_scheme_id = parent_color_scheme.id | default: parent_color_scheme
 
+  assign current_color_scheme_id = block_settings.color_scheme | default: parent_color_scheme_id
   assign color_scheme_classes = ' color-' | append: current_color_scheme_id
 
-  assign color_schemes_match = false
   if parent_color_scheme_id == current_color_scheme_id
-    assign color_schemes_match = true
-  elsif parent_color_scheme.settings and current_color_scheme.settings
-    if parent_color_scheme.settings.background.rgb == current_color_scheme.settings.background.rgb
-      assign color_schemes_match = true
-    endif
-  endif
-
-  # Check if header and menu colors match. This is used to apply different padding styles in css
-  if color_schemes_match
     assign color_scheme_classes = color_scheme_classes | append: ' color-scheme-matches-parent'
   endif
 
