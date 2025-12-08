@@ -160,7 +160,7 @@
         "horizontal_alignment_flex_direction_column": "flex-start",
         "vertical_alignment_flex_direction_column": "center",
         "gap": 24,
-        "section_width": "page-width",
+        "section_width": "full-width",
         "section_height": "",
         "section_height_custom": 50,
         "color_scheme": "",
@@ -176,8 +176,8 @@
         "overlay_color": "#00000026",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 40,
-        "padding-block-end": 40
+        "padding-block-start": 0,
+        "padding-block-end": 0
       }
     },
     "section_wi6VEg": {
@@ -243,8 +243,8 @@
                 "content_padding_inline_end": 12,
                 "heading_type_preset": "h2",
                 "right_heading_type_preset": "",
-                "heading_min_size": 0,
-                "heading_max_size": 0,
+                "heading_min_size": 1.2,
+                "heading_max_size": 3.4,
                 "icon": "none",
                 "width": 20
               },
@@ -444,8 +444,8 @@
                 "content_padding_inline_end": 12,
                 "heading_type_preset": "h2",
                 "right_heading_type_preset": "",
-                "heading_min_size": 0,
-                "heading_max_size": 0,
+                "heading_min_size": 1.2,
+                "heading_max_size": 3.4,
                 "icon": "none",
                 "width": 20
               },
@@ -645,8 +645,8 @@
                 "content_padding_inline_end": 12,
                 "heading_type_preset": "h2",
                 "right_heading_type_preset": "",
-                "heading_min_size": 0,
-                "heading_max_size": 0,
+                "heading_min_size": 1.2,
+                "heading_max_size": 3.4,
                 "icon": "none",
                 "width": 20
               },
@@ -846,8 +846,8 @@
                 "content_padding_inline_end": 12,
                 "heading_type_preset": "h2",
                 "right_heading_type_preset": "",
-                "heading_min_size": 0,
-                "heading_max_size": 0,
+                "heading_min_size": 1.2,
+                "heading_max_size": 3.4,
                 "icon": "none",
                 "width": 20
               },
@@ -1529,6 +1529,7 @@
         "group_m8Nc8C",
         "group_pCg6Bz"
       ],
+      "disabled": true,
       "name": "t:names.icons_with_text",
       "settings": {
         "content_direction": "row",
