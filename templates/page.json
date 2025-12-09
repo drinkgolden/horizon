@@ -395,7 +395,8 @@
         "border_opacity": 100,
         "border_radius": 0
       }
-    },
+    }
+  },
   "order": [
     "main",
     "hero_awffPH",
