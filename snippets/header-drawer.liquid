@@ -774,7 +774,7 @@
     left: 0;
     top: 0;
     padding: 0;
-    background-color: var(--color-background);
+    background-color: var(--color-background-solid, var(--color-background));
     overflow: auto;
     display: flex;
     border-right: var(--style-border-drawer);
@@ -1331,7 +1331,7 @@
       width: 100%;
       padding: 0;
       border-top: 0;
-      background-color: var(--color-background);
+      background-color: var(--color-background-solid, var(--color-background));
     }
 
     .header__drawer--mobile .menu-drawer__submenu .menu-drawer__menu {
@@ -1439,7 +1439,7 @@
     top: 0;
     height: 100dvh;
     left: 0;
-    background-color: var(--color-background);
+    background-color: var(--color-background-solid, var(--color-background));
     z-index: var(--layer-flat);
     transform: translateX(-5%);
     visibility: hidden;

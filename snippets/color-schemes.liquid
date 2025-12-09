@@ -1,4 +1,9 @@
 {% style %}
+  :root {
+    --color-background-solid: var(--color-background);
+    --color-background-solid-rgb: var(--color-background-rgb);
+  }
+
   {% for scheme in settings.color_schemes -%}
     {% assign scheme_classes = scheme_classes | append: ', .color-' | append: scheme.id %}
     {% if forloop.index == 1 %}
