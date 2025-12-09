@@ -251,7 +251,7 @@
     left: 0;
     width: 100%;
     height: var(--submenu-height);
-    background-color: var(--color-background, rgb(var(--color-background-rgb, 255 255 255)));
+    background-color: var(--color-background-solid, var(--color-background, rgb(var(--color-background-rgb, 255 255 255))));
     box-shadow: var(--shadow-popover);
     clip-path: inset(0.5px 0 -100px 0); /* stylelint-disable-line */
     opacity: var(--submenu-opacity, 1);
@@ -266,7 +266,7 @@
     --submenu-padding-block-start: var(--padding-3xl);
     --submenu-padding-block-end: var(--padding-3xl);
 
-    background-color: var(--color-background, rgb(var(--color-background-rgb, 255 255 255)));
+    background-color: var(--color-background-solid, var(--color-background, rgb(var(--color-background-rgb, 255 255 255))));
   }
 
   .header__row[style*='--border-bottom-width: 0px'] {
@@ -284,7 +284,7 @@
 
     box-shadow: var(--shadow-drawer);
     visibility: hidden;
-    background-color: var(--color-background, rgb(var(--color-background-rgb, 255 255 255)));
+    background-color: var(--color-background-solid, var(--color-background, rgb(var(--color-background-rgb, 255 255 255))));
     position: absolute;
     width: 100%;
     left: 0;

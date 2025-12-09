@@ -20,8 +20,10 @@
     {% endif %}
     .color-{{ scheme.id }} {
         --color-background: rgb({{ scheme.settings.background.rgba }});
+        --color-background-solid: rgb({{ scheme.settings.background.rgba }});
         /* RGB values only to apply different opacities - Relative color values are not supported in iOS < 16.4 */
         --color-background-rgb: {{ scheme.settings.background.rgb }};
+        --color-background-solid-rgb: {{ scheme.settings.background.rgb }};
         --opacity-5-15: {{ opacity_5_15 }};
         --opacity-10-25: {{ opacity_10_25 }};
         --opacity-35-55: {{ opacity_35_55 }};
