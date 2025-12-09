@@ -14,7 +14,10 @@
         --summary-font-line-height: var(--font-{{ s.type_preset }}--line-height);
         --summary-font-case: var(--font-{{ s.type_preset }}--case);
         {% render 'border-override', settings: s, allow_overflow: true %}
-        --accordion-divider-color: var(--golden-gridline-color, var(--color-border));
+        --accordion-divider-color: var(
+          --section-gridline-color,
+          var(--golden-gridline-color, var(--color-border))
+        );
         {% render 'spacing-style', settings: s %}
       "
     >
