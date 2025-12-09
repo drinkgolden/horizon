@@ -674,6 +674,12 @@ body.has-section-gridlines-horizontal
     bottom: 0;
   }
 
+  body.has-section-gridlines-horizontal
+    #MainContent
+    .shopify-section:has(> .section.section--hide-bottom-gridline)::after {
+    content: none;
+  }
+
   body.has-section-gridlines-horizontal #MainContent .shopify-section:first-child::before {
     content: none;
   }

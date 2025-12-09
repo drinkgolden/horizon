@@ -1,9 +1,13 @@
 {% liquid
   assign s = section.settings
+  assign section_classes = 'section section--' | append: s.section_width | append: ' color-' | append: s.color_scheme
+  if s.hide_section_gridline
+    assign section_classes = section_classes | append: ' section--hide-bottom-gridline'
+  endif
 %}
 
 <div class="section-background color-{{ s.color_scheme }}"></div>
-<div class="section section--{{ s.section_width }} color-{{ s.color_scheme }}">
+<div class="{{ section_classes }}">
   <div
     class="accordion accordion--section-{{ section.id }} accordion--{{ s.icon }} border-style spacing-style force-full-width{% if s.dividers %} accordion--dividers{% endif %}"
       style="
@@ -116,10 +120,6 @@
       "type": "accordion_row",
       "name": "Accordion row"
     },
-    {
-      "type": "dual_accordion_row",
-      "name": "Dual accordion row"
-    }
   ],
   "settings": [
     {
@@ -183,6 +183,13 @@
         }
       ],
       "default": "h6"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_section_gridline",
+      "label": "Hide bottom gridline",
+      "default": false,
+      "info": "Use when the section already has its own divider."
     },
     {
       "type": "color_scheme",
@@ -309,9 +316,6 @@
       "blocks": [
         {
           "type": "accordion_row"
-        },
-        {
-          "type": "dual_accordion_row"
         }
       ]
     }

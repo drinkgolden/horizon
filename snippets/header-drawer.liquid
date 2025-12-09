@@ -1175,7 +1175,10 @@
       margin: 0;
       border-right: none;
       box-shadow: none;
-      --menu-drawer-line-color: rgb(var(--color-foreground-rgb, 17 17 17) / 0.35);
+      --menu-drawer-line-color: var(
+        --section-gridline-color,
+        var(--golden-gridline-color, rgb(var(--color-foreground-rgb, 17 17 17) / 0.35))
+      );
       --drawer-mobile-horizontal-pad: clamp(var(--padding-md), 4vw, var(--padding-2xl));
     }
 
@@ -1274,7 +1277,7 @@
     }
 
     .header__drawer--mobile .menu-drawer__navigation .menu-drawer__list-item:first-child {
-      border-top: 1px solid var(--menu-drawer-line-color);
+      border-top: 0;
     }
 
     .header__drawer--mobile .menu-drawer__navigation .menu-drawer__menu-container,

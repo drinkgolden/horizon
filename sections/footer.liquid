@@ -36,6 +36,7 @@
     class="
       footer-content
       spacing-style
+      footer-content--mobile-columns
       {% if has_isolated_grid_item_desktop %}footer-content--isolated-grid-item-desktop{% endif %}
       {% if has_isolated_grid_item_tablet %}footer-content--isolated-grid-item-tablet{% endif %}
     "
@@ -83,6 +84,11 @@
       grid-column: 1 / -1;
     }
   }
+  /* Two-column layout on mobile for footer menus */
+  .footer-content.footer-content--mobile-columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
 {% endstylesheet %}
 
 {% schema %}

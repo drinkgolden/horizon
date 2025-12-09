@@ -375,15 +375,10 @@
         "simple_accordion_section_page": {
           "type": "accordion_row",
           "settings": {}
-        },
-        "dual_accordion_section_page": {
-          "type": "dual_accordion_row",
-          "settings": {}
         }
       },
       "block_order": [
-        "simple_accordion_section_page",
-        "dual_accordion_section_page"
+        "simple_accordion_section_page"
       ],
       "settings": {
         "icon": "caret",
@@ -401,39 +396,10 @@
         "border_radius": 0
       }
     },
-    "dual_accordion_section_page": {
-      "type": "accordion-dual",
-      "blocks": {
-        "dual_dual_accordion_section_page": {
-          "type": "dual_accordion_row",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "dual_dual_accordion_section_page"
-      ],
-      "settings": {
-        "icon": "caret",
-        "dividers": true,
-        "type_preset": "h4",
-        "color_scheme": "",
-        "section_width": "full-width",
-        "padding-block-start": 0,
-        "padding-block-end": 0,
-        "padding-inline-start": 0,
-        "padding-inline-end": 0,
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_radius": 0
-      }
-    }
-  },
   "order": [
     "main",
     "hero_awffPH",
     "section_jq6wGK",
-    "accordion_section_page",
-    "dual_accordion_section_page"
+    "accordion_section_page"
   ]
 }
