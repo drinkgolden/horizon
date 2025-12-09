@@ -654,6 +654,25 @@
       margin-top: calc(var(--header-height) * var(--transparent-header-offset-boolean) * -1);
     }
   }
+
+  /* Force dropdown panels and drawers to keep solid backgrounds even when inheriting header colors */
+  header-menu .menu-list__submenu,
+  header-menu .overflow-menu::part(overflow),
+  header-menu .overflow-menu::after {
+    background-color: var(
+      --color-background-solid,
+      var(--color-background, rgb(var(--color-background-rgb, 255 255 255)))
+    );
+  }
+
+  header-drawer .menu-drawer,
+  header-drawer .menu-drawer__submenu {
+    background-color: var(
+      --color-background-solid,
+      var(--color-background, rgb(var(--color-background-rgb, 255 255 255)))
+    );
+  }
+
 {% endstylesheet %}
 
 {% unless request.design_mode %}
