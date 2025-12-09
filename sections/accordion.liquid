@@ -14,7 +14,7 @@
         --summary-font-line-height: var(--font-{{ s.type_preset }}--line-height);
         --summary-font-case: var(--font-{{ s.type_preset }}--case);
         {% render 'border-override', settings: s, allow_overflow: true %}
-        --accordion-divider-color: var(--color-border);
+        --accordion-divider-color: var(--golden-gridline-color, var(--color-border));
         {% render 'spacing-style', settings: s %}
       "
     >
@@ -55,7 +55,7 @@
   }
 
   .accordion--dividers {
-    --accordion-divider-color: var(--section-gridline-color, var(--color-border));
+    --accordion-divider-color: var(--golden-gridline-color, var(--section-gridline-color, var(--color-border)));
     --show-fallback-borders: 0;
   }
 
@@ -66,19 +66,7 @@
 
   body.has-section-gridlines-horizontal .accordion--dividers .accordion-row + .accordion-row .details {
     border-block-start: var(--style-border-width) solid
-      var(--accordion-divider-color, var(--section-gridline-color, var(--color-border)));
-  }
-
-  body.has-section-gridlines-horizontal
-    .accordion--dividers
-    .accordion-row--notch
-    + .accordion-row
-    .details {
-    border-block-start: 0;
-  }
-
-  body.has-section-gridlines-horizontal .accordion--dividers .accordion-row + .accordion-row--notch .details {
-    border-block-start: 0;
+      var(--accordion-divider-color, var(--golden-gridline-color, var(--section-gridline-color, var(--color-border))));
   }
 
   body:not(.has-section-gridlines-horizontal) .accordion--dividers .accordion-row + .accordion-row .details {
@@ -87,12 +75,12 @@
 
   body.has-section-gridlines-horizontal .accordion--dividers .accordion-row:first-child .details {
     border-block-start: calc(var(--style-border-width) * var(--show-fallback-borders)) solid
-      var(--accordion-divider-color, var(--section-gridline-color, var(--color-border)));
+      var(--accordion-divider-color, var(--golden-gridline-color, var(--section-gridline-color, var(--color-border))));
   }
 
   body.has-section-gridlines-horizontal .accordion--dividers .accordion-row:last-child .details {
     border-block-end: calc(var(--style-border-width) * var(--show-fallback-borders)) solid
-      var(--accordion-divider-color, var(--section-gridline-color, var(--color-border)));
+      var(--accordion-divider-color, var(--golden-gridline-color, var(--section-gridline-color, var(--color-border))));
   }
 
   .accordion--dividers .details-content {

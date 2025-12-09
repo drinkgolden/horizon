@@ -983,8 +983,12 @@
     ]
   },
   {
-    "name": "Borders",
+    "name": "Golden Grid",
     "settings": [
+      {
+        "type": "header",
+        "content": "Borders"
+      },
       {
         "type": "checkbox",
         "id": "side_columns_enable",
@@ -1026,12 +1030,63 @@
         "label": "Color scheme",
         "default": "scheme-1",
         "visible_if": "{{ settings.side_columns_enable }}"
-      }
-    ]
-  },
-  {
-    "name": "Floating button",
-    "settings": [
+      },
+      {
+        "type": "header",
+        "content": "Grid"
+      },
+      {
+        "type": "checkbox",
+        "id": "section_gridlines_enable",
+        "label": "Enable grid",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "section_gridlines_vertical",
+        "label": "Show vertical gridlines",
+        "default": true,
+        "visible_if": "{{ settings.section_gridlines_enable }}"
+      },
+      {
+        "type": "checkbox",
+        "id": "section_gridlines_horizontal",
+        "label": "Show horizontal gridlines",
+        "default": true,
+        "visible_if": "{{ settings.section_gridlines_enable }}"
+      },
+      {
+        "type": "paragraph",
+        "content": "Adds fine 1px dividers above and below each content section, and optional vertical rails inside the global borders.",
+        "visible_if": "{{ settings.section_gridlines_enable }}"
+      },
+      {
+        "type": "color",
+        "id": "section_gridline_color",
+        "label": "Gridline color",
+        "default": "#e5e5e5",
+        "alpha": true,
+        "visible_if": "{{ settings.section_gridlines_enable }}"
+      },
+      {
+        "type": "color",
+        "id": "section_gridline_color_dark",
+        "label": "Gridline color on dark backgrounds",
+        "default": "rgba(255,255,255,0.12)",
+        "alpha": true,
+        "visible_if": "{{ settings.section_gridlines_enable }}"
+      },
+      {
+        "type": "color",
+        "id": "vertical_divider_color",
+        "label": "Vertical gridline color",
+        "default": "#d9d9d9",
+        "visible_if": "{{ settings.section_gridlines_enable }}"
+      },
+      {
+        "type": "header",
+        "content": "Floating button"
+      },
       {
         "type": "checkbox",
         "id": "enable_bottom_motif_button",
@@ -1105,59 +1160,6 @@
         "unit": "px",
         "default": 16,
         "visible_if": "{{ settings.enable_bottom_motif_button }}"
-      }
-    ]
-  },
-  {
-    "name": "Grid",
-    "settings": [
-      {
-        "type": "checkbox",
-        "id": "section_gridlines_enable",
-        "label": "Enable grid",
-        "default": true
-      },
-      {
-        "type": "checkbox",
-        "id": "section_gridlines_vertical",
-        "label": "Show vertical gridlines",
-        "default": true,
-        "visible_if": "{{ settings.section_gridlines_enable }}"
-      },
-      {
-        "type": "checkbox",
-        "id": "section_gridlines_horizontal",
-        "label": "Show horizontal gridlines",
-        "default": true,
-        "visible_if": "{{ settings.section_gridlines_enable }}"
-      },
-      {
-        "type": "paragraph",
-        "content": "Adds fine 1px dividers above and below each content section, and optional vertical rails inside the global borders.",
-        "visible_if": "{{ settings.section_gridlines_enable }}"
-      },
-      {
-        "type": "color",
-        "id": "section_gridline_color",
-        "label": "Gridline color",
-        "default": "#e5e5e5",
-        "alpha": true,
-        "visible_if": "{{ settings.section_gridlines_enable }}"
-      },
-      {
-        "type": "color",
-        "id": "section_gridline_color_dark",
-        "label": "Gridline color on dark backgrounds",
-        "default": "rgba(255,255,255,0.12)",
-        "alpha": true,
-        "visible_if": "{{ settings.section_gridlines_enable }}"
-      },
-      {
-        "type": "color",
-        "id": "vertical_divider_color",
-        "label": "Vertical gridline color",
-        "default": "#d9d9d9",
-        "visible_if": "{{ settings.section_gridlines_enable }}"
       }
     ]
   },

@@ -71,10 +71,11 @@
         --color-selected-variant-hover-border: rgb({{ scheme.settings.selected_variant_hover_border_color.rgba }});
 
         {% if background_brightness < 64 %}
-          --section-gridline-color: var(--section-gridline-color-dark);
+          --golden-gridline-color: var(--golden-gridline-horizontal-color-dark, var(--golden-gridline-horizontal-color-default));
         {% else %}
-          --section-gridline-color: var(--section-gridline-color-default);
+          --golden-gridline-color: var(--golden-gridline-horizontal-color-default);
         {% endif %}
+        --section-gridline-color: var(--golden-gridline-color);
 
         --input-disabled-background-color: rgb(var(--color-foreground-rgb) / var(--opacity-10));
         --input-disabled-border-color: rgb(var(--color-foreground-rgb) / var(--opacity-5-15));
@@ -102,10 +103,11 @@
         #MainContent
         .shopify-section:has(> .color-{{ scheme.id }}) {
         {% if background_brightness < 64 %}
-          --section-gridline-color: var(--section-gridline-color-dark);
+          --golden-gridline-color: var(--golden-gridline-horizontal-color-dark, var(--golden-gridline-horizontal-color-default));
         {% else %}
-          --section-gridline-color: var(--section-gridline-color-default);
+          --golden-gridline-color: var(--golden-gridline-horizontal-color-default);
         {% endif %}
+        --section-gridline-color: var(--golden-gridline-color);
       }
     {% endif %}
   {% endfor %}
@@ -151,9 +153,5 @@
       color: rgb({{ hover_foreground.rgba }});
     }
 
-    .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover .accordion-row__notch,
-    .accordion-row[data-hover-scheme="{{ scheme.id }}"].accordion-row--open .accordion-row__notch {
-      color: rgb({{ hover_border.rgba }});
-    }
   {% endfor %}
 {% endstyle %}

@@ -61,8 +61,8 @@
           "static": true,
           "settings": {
             "menu": "header-menu",
-            "color_scheme": "scheme-2",
-            "drawer_color_scheme": "scheme-2",
+            "color_scheme": "scheme-1",
+            "drawer_color_scheme": "scheme-3",
             "drawer_brand_text": "",
             "drawer_brand_column_width": 9,
             "drawer_brand_column_padding": 16,
@@ -95,7 +95,7 @@
             "color_scheme_navigation_bar": "scheme-1",
             "drawer_accordion": true,
             "drawer_accordion_expand_first": false,
-            "drawer_dividers": false
+            "drawer_dividers": true
           },
           "blocks": {}
         }

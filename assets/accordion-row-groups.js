@@ -41,30 +41,9 @@ const attachInteractionHandlers = (element, handler) => {
   });
 };
 
-const getPreviousAccordionRow = (row) => {
-  if (!row) return null;
-  let previous = row.previousElementSibling;
-  while (previous) {
-    if (previous.classList && previous.classList.contains('accordion-row')) {
-      return previous;
-    }
-    previous = previous.previousElementSibling;
-  }
-  return null;
-};
-
-const syncNotchRows = () => {
-  const rows = document.querySelectorAll('.accordion-row');
-  rows.forEach((row) => row.classList.remove('accordion-row--before-notch'));
-  rows.forEach((row) => {
-    if (!row.classList.contains('accordion-row--notch')) return;
-    const previous = getPreviousAccordionRow(row);
-    if (previous) {
-      previous.classList.add('accordion-row--before-notch');
-    }
-  });
-};
-
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
 const bindRowOpenState = (row) => {
   if (!row || row.dataset.openStateBound === 'true') return;
   const detailsElement = row.querySelector('details');
@@ -121,7 +100,6 @@ const initAccordionRow = (row) => {
 const initAccordionRows = (root = document) => {
   const rows = root.querySelectorAll('.accordion-row');
   rows.forEach(initAccordionRow);
-  syncNotchRows();
 };
 
 if (document.readyState === 'complete' || document.readyState === 'interactive') {
