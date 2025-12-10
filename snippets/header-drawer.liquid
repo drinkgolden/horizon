@@ -32,6 +32,11 @@
   endif
   assign brand_column_style = '--drawer-brand-column-width: ' | append: drawer_brand_column_width_value | append: 'vw;' | append: ' --drawer-brand-column-padding: ' | append: drawer_brand_column_padding_value | append: 'px;'
 
+  assign drawer_menu_horizontal_padding_value = block_settings.drawer_menu_horizontal_padding
+  if drawer_menu_horizontal_padding_value == blank
+    assign drawer_menu_horizontal_padding_value = 0
+  endif
+
   if block_settings.menu_style == 'featured_collections'
     assign ratio = block_settings.featured_collections_aspect_ratio
   elsif block_settings.menu_style == 'featured_products'
@@ -90,6 +95,7 @@
         motion-reduce
         color-{{ drawer_color_scheme }}
       "
+      style="--drawer-mobile-horizontal-pad: {{ drawer_menu_horizontal_padding_value }}px;"
     >
       <div
         class="menu-drawer__layout"
@@ -1250,8 +1256,8 @@
     }
 
     .header__drawer--mobile .menu-drawer__brand-logo-image {
-      width: auto;
-      max-width: clamp(96px, 70%, 150px);
+      width: min(100%, clamp(96px, 70%, 150px));
+      max-width: 100%;
       height: auto;
       max-height: clamp(72px, 18vh, 160px);
       object-fit: contain;
