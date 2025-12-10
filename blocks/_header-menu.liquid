@@ -290,28 +290,9 @@
     left: 0;
     top: calc(100% - 1px + var(--border-bottom-width));
     z-index: calc(var(--layer-header-menu) + 1);
-    padding-inline: var(--padding-inline);
+    padding-inline: 0;
     clip-path: rect(0 100% var(--submenu-height) 0); /* stylelint-disable-line */
     transition: clip-path var(--submenu-animation-speed) var(--ease-out-cubic);
-  }
-
-  body.has-side-columns header-menu
-    .menu-list__list-item:where(:not([slot='overflow'])) > .menu-list__submenu,
-  body.has-side-columns header-menu .overflow-menu::part(overflow),
-  body.has-side-columns header-menu .overflow-menu::after {
-    left: var(--side-columns-inline-desktop);
-    right: var(--side-columns-inline-desktop);
-    width: auto;
-  }
-
-  @media screen and (max-width: 749px) {
-    body.has-side-columns header-menu
-      .menu-list__list-item:where(:not([slot='overflow'])) > .menu-list__submenu,
-    body.has-side-columns header-menu .overflow-menu::part(overflow),
-    body.has-side-columns header-menu .overflow-menu::after {
-      left: var(--side-columns-inline-mobile);
-      right: var(--side-columns-inline-mobile);
-    }
   }
 
   .menu-list__list-item:where(:not([slot='overflow'])) > .menu-list__submenu::before,
