@@ -1176,14 +1176,24 @@
 
     .header__drawer--mobile .menu-drawer__brand-column {
       grid-column: 2;
+      position: relative;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      border-left: 1px solid var(--menu-drawer-line-color);
       padding: max(var(--drawer-brand-column-padding, var(--padding-lg)), 2.5rem)
         var(--drawer-brand-column-padding, var(--padding-lg));
       gap: var(--drawer-brand-column-padding, var(--padding-lg));
+      height: 100%;
+    }
+
+    .header__drawer--mobile .menu-drawer__brand-column::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      border-left: 1px solid var(--menu-drawer-line-color);
     }
 
     .header__drawer--mobile .menu-drawer__brand-slot {
@@ -1224,7 +1234,7 @@
 
     .header__drawer--mobile .menu-drawer__body {
       grid-column: 1;
-      padding-inline: var(--drawer-mobile-horizontal-pad);
+      padding-inline: var(--drawer-mobile-horizontal-pad) 0;
       padding-block: var(--padding-lg) var(--padding-2xl);
       min-height: 100vh;
       min-height: 100dvh;
