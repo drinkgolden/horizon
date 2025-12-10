@@ -409,6 +409,10 @@
     opacity: 0;
   }
 
+  body:has(.menu-drawer-container[open]) .header__row {
+    border-bottom-width: 0 !important;
+  }
+
 
   .header[data-sticky-state] {
     transition: opacity var(--animation-speed) var(--animation-easing);
