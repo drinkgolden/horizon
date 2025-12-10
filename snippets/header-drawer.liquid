@@ -796,6 +796,8 @@
     min-height: 100%;
     width: 100%;
     align-items: stretch;
+    column-gap: 0;
+    row-gap: 0;
   }
 
   .menu-drawer__brand-column {
@@ -1254,7 +1256,7 @@
     .header__drawer--mobile .menu-drawer__body {
       grid-column: 1;
       grid-row: 1 / -1;
-      padding-inline: 0 var(--drawer-mobile-horizontal-pad);
+      padding-inline: 0;
       padding-block: 0 var(--padding-2xl);
       min-height: 100vh;
       min-height: 100dvh;
@@ -1265,7 +1267,8 @@
 
     .header__drawer--mobile .menu-drawer__top-bar {
       border-bottom: 1px solid var(--menu-drawer-line-color);
-      padding: var(--padding-sm) var(--drawer-mobile-horizontal-pad);
+      padding-block: var(--padding-sm);
+      padding-inline: var(--padding-lg);
       justify-content: flex-start;
       margin-block-end: 0;
     }
