@@ -11,27 +11,6 @@
   "type": "header",
   "name": "Header",
   "sections": {
-    "logo_VYCtBA": {
-      "type": "logo",
-      "disabled": true,
-      "name": "t:names.logo",
-      "settings": {
-        "inverse": true,
-        "font": "heading",
-        "unit": "percent",
-        "pixel_height": 320,
-        "percent_width": 100,
-        "custom_mobile_size": true,
-        "unit_mobile": "percent",
-        "percent_width_mobile": 100,
-        "pixel_height_mobile": 120,
-        "section_width": "page-width",
-        "alignment_horizontal": "center",
-        "color_scheme": "scheme-2",
-        "padding-block-start": 32,
-        "padding-block-end": 32
-      }
-    },
     "header_announcements_9jGBFp": {
       "type": "header-announcements",
       "blocks": {
@@ -40,11 +19,11 @@
           "settings": {
             "text": "Spend ≥ $50 & Ship Free",
             "link": "",
-            "font": "var(--font-body--family)",
-            "font_size": "0.75rem",
+            "font": "var(--font-heading--family)",
+            "font_size": "1rem",
             "weight": "",
             "letter_spacing": "tight",
-            "case": "none"
+            "case": "uppercase"
           },
           "blocks": {}
         }
@@ -58,8 +37,8 @@
         "section_width": "full-width",
         "color_scheme": "scheme-5",
         "divider_width": 0,
-        "padding-block-start": 12,
-        "padding-block-end": 12
+        "padding-block-start": 20,
+        "padding-block-end": 20
       }
     },
     "header_section": {
@@ -83,14 +62,20 @@
           "settings": {
             "menu": "header-menu",
             "color_scheme": "scheme-1",
-            "drawer_color_scheme": "scheme-2",
+            "drawer_color_scheme": "scheme-3",
             "drawer_brand_text": "",
-            "drawer_brand_column_width": 15,
+            "drawer_brand_column_width": 9,
             "drawer_brand_column_padding": 16,
             "drawer_logo_image": "shopify://shop_images/Wordmark_Vertical.svg",
             "drawer_logo_alt": "Golden",
             "type_font_primary_size": "1rem",
+            "type_font_primary_size_mobile": 0,
+            "type_font_primary_size_desktop": 0,
             "menu_font_style": "inverse",
+            "submenu_parent_font_size_mobile": 0,
+            "submenu_parent_font_size_desktop": 0,
+            "submenu_child_font_size_mobile": 0,
+            "submenu_child_font_size_desktop": 0,
             "type_font_primary_link": "body",
             "type_case_primary_link": "none",
             "menu_style": "featured_products",
@@ -99,7 +84,7 @@
             "image_border_radius": 0,
             "drawer_brand_logo_image": "shopify://shop_images/Wordmark_Vertical.svg",
             "drawer_logo_alt_text": "",
-            "drawer_logo_size": 200,
+            "drawer_logo_size": 40,
             "drawer_logo_padding_block_start": 0,
             "drawer_logo_padding_block_end": 24,
             "drawer_logo_padding_inline_start": 0,
@@ -107,9 +92,9 @@
             "drawer_logo_column_width": 64,
             "drawer_logo_gap": 0,
             "navigation_bar": false,
-            "color_scheme_navigation_bar": "scheme-5",
+            "color_scheme_navigation_bar": "scheme-1",
             "drawer_accordion": true,
-            "drawer_accordion_expand_first": true,
+            "drawer_accordion_expand_first": false,
             "drawer_dividers": true
           },
           "blocks": {}
@@ -131,17 +116,16 @@
         "localization_font_size": "1rem",
         "localization_position": "right",
         "localization_row": "bottom",
-        "section_width": "page-width",
+        "section_width": "full-width",
         "section_height": "standard",
-        "enable_sticky_header": "always",
-        "divider_width": 0,
+        "divider_width": 1,
         "divider_size": "page-width",
         "border_width": 1,
         "color_scheme_top": "scheme-1",
         "color_scheme_bottom": "",
         "color_scheme_transparent": "scheme-2",
         "enable_transparent_header_home": false,
-        "home_color_scheme": "inverse",
+        "home_color_scheme": "default",
         "enable_transparent_header_product": false,
         "product_color_scheme": "default",
         "enable_transparent_header_collection": false,
@@ -150,7 +134,6 @@
     }
   },
   "order": [
-    "logo_VYCtBA",
     "header_announcements_9jGBFp",
     "header_section"
   ]

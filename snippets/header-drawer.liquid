@@ -774,7 +774,7 @@
     left: 0;
     top: 0;
     padding: 0;
-    background-color: var(--color-background);
+    background-color: var(--color-background-solid, var(--color-background));
     overflow: auto;
     display: flex;
     border-right: var(--style-border-drawer);
@@ -852,22 +852,7 @@
   }
 
   .menu-drawer__body::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    height: 1px;
-    background-color: #e5e5e5;
-    transform: scaleX(var(--drawer-border-scale));
-    transform-origin: center;
-    transition: transform var(--drawer-animation-speed, var(--animation-speed)) ease;
-    pointer-events: none;
-    z-index: 1;
-  }
-
-  .menu-drawer-container[open] .menu-drawer__body {
-    --drawer-border-scale: 1;
+    content: none;
   }
 
   .menu-drawer__top-bar {
@@ -973,7 +958,7 @@
   }
 
   .menu-drawer__list-item--divider {
-    border-block-end: 1px solid var(--color-border);
+    border-block-end: 1px solid var(--menu-drawer-line-color);
   }
 
   .menu-drawer__list-item--deep:not(.menu-drawer__list-item--divider) .menu-drawer__menu {
@@ -985,7 +970,7 @@
   }
 
   .menu-drawer__menu-container--divider {
-    border-block-end: 1px solid var(--color-border);
+    border-block-end: 1px solid var(--menu-drawer-line-color);
   }
 
   .menu-drawer__menu > .menu-drawer__list-item {
@@ -1066,7 +1051,24 @@
     font-family: var(--menu-parent-font-family);
     font-style: var(--menu-parent-font-style);
     font-weight: var(--menu-parent-font-weight);
-    font-size: var(--menu-parent-font-size);
+    font-size: clamp(
+      var(--menu-parent-font-size),
+      calc(
+        var(--menu-parent-font-size) +
+          (var(--menu-parent-font-size-desktop) - var(--menu-parent-font-size)) *
+          clamp(
+            0,
+            (100vw - var(--menu-parent-font-scale-min-width, 32rem)) /
+              max(
+                1rem,
+                var(--menu-parent-font-scale-max-width, 75rem) -
+                  var(--menu-parent-font-scale-min-width, 32rem)
+              ),
+            1
+          )
+      ),
+      var(--menu-parent-font-size-desktop)
+    );
     line-height: var(--menu-parent-font-line-height);
     text-transform: var(--menu-parent-font-case);
     color: var(--menu-parent-font-color);
@@ -1080,7 +1082,24 @@
     font-family: var(--menu-child-font-family);
     font-style: var(--menu-child-font-style);
     font-weight: var(--menu-child-font-weight);
-    font-size: var(--menu-child-font-size);
+    font-size: clamp(
+      var(--menu-child-font-size),
+      calc(
+        var(--menu-child-font-size) +
+          (var(--menu-child-font-size-desktop) - var(--menu-child-font-size)) *
+          clamp(
+            0,
+            (100vw - var(--menu-child-font-scale-min-width, 32rem)) /
+              max(
+                1rem,
+                var(--menu-child-font-scale-max-width, 75rem) -
+                  var(--menu-child-font-scale-min-width, 32rem)
+              ),
+            1
+          )
+      ),
+      var(--menu-child-font-size-desktop)
+    );
     line-height: var(--menu-child-font-line-height);
     text-transform: var(--menu-child-font-case);
     color: var(--menu-child-font-color);
@@ -1141,25 +1160,40 @@
       margin: 0;
       border-right: none;
       box-shadow: none;
-      --menu-drawer-line-color: rgb(var(--color-foreground-rgb, 17 17 17) / 0.35);
+      --menu-drawer-line-color: var(
+        --section-gridline-color,
+        var(--golden-gridline-color, rgb(var(--color-foreground-rgb, 17 17 17) / 0.35))
+      );
       --drawer-mobile-horizontal-pad: clamp(var(--padding-md), 4vw, var(--padding-2xl));
     }
 
     .header__drawer--mobile .menu-drawer__layout {
       display: grid;
-      grid-template-columns: minmax(52px, var(--drawer-brand-column-width, 18vw)) 1fr;
+      grid-template-columns: 1fr minmax(52px, var(--drawer-brand-column-width, 18vw));
       min-height: 100vh;
       min-height: 100dvh;
     }
 
     .header__drawer--mobile .menu-drawer__brand-column {
+      grid-column: 2;
+      position: relative;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
-      border-right: 1px solid var(--menu-drawer-line-color);
-      padding: var(--drawer-brand-column-padding, var(--padding-lg));
+      padding: max(var(--drawer-brand-column-padding, var(--padding-lg)), 2.5rem)
+        var(--drawer-brand-column-padding, var(--padding-lg));
       gap: var(--drawer-brand-column-padding, var(--padding-lg));
+      height: 100%;
+    }
+
+    .header__drawer--mobile .menu-drawer__brand-column::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      border-left: 1px solid var(--menu-drawer-line-color);
     }
 
     .header__drawer--mobile .menu-drawer__brand-slot {
@@ -1170,14 +1204,10 @@
       align-items: center;
     }
 
-    .header__drawer--mobile .menu-drawer__brand-slot--top {
-      justify-content: center;
-      align-items: flex-start;
-    }
-
+    .header__drawer--mobile .menu-drawer__brand-slot--top,
     .header__drawer--mobile .menu-drawer__brand-slot--bottom {
       justify-content: center;
-      align-items: flex-end;
+      align-items: center;
     }
 
     .header__drawer--mobile .menu-drawer__brand-link {
@@ -1203,15 +1233,18 @@
     }
 
     .header__drawer--mobile .menu-drawer__body {
-      padding-inline: 0;
-      padding-block: 0;
+      grid-column: 1;
+      padding-inline: var(--drawer-mobile-horizontal-pad) 0;
+      padding-block: var(--padding-lg) var(--padding-2xl);
       min-height: 100vh;
       min-height: 100dvh;
+      gap: var(--gap-xl);
     }
 
     .header__drawer--mobile .menu-drawer__top-bar {
-      border-bottom: 1px solid var(--menu-drawer-line-color);
+      border-bottom: 0;
       padding: var(--padding-md) var(--drawer-mobile-horizontal-pad);
+      justify-content: flex-start;
     }
 
     .header__drawer--mobile .menu-drawer__close-button {
@@ -1240,7 +1273,7 @@
     }
 
     .header__drawer--mobile .menu-drawer__navigation .menu-drawer__list-item:first-child {
-      border-top: 1px solid var(--menu-drawer-line-color);
+      border-top: 0;
     }
 
     .header__drawer--mobile .menu-drawer__navigation .menu-drawer__menu-container,
@@ -1297,7 +1330,7 @@
       width: 100%;
       padding: 0;
       border-top: 0;
-      background-color: var(--color-background);
+      background-color: var(--color-background-solid, var(--color-background));
     }
 
     .header__drawer--mobile .menu-drawer__submenu .menu-drawer__menu {
@@ -1405,7 +1438,7 @@
     top: 0;
     height: 100dvh;
     left: 0;
-    background-color: var(--color-background);
+    background-color: var(--color-background-solid, var(--color-background));
     z-index: var(--layer-flat);
     transform: translateX(-5%);
     visibility: hidden;

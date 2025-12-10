@@ -7,7 +7,7 @@
 >
   <div
     class="utilities spacing-style"
-    style="{% render 'spacing-style', settings: section.settings %} --border-width: {{ section.settings.divider_thickness }}px; --gap: {{ section.settings.gap }}px;"
+    style="{% render 'spacing-style', settings: section.settings %} --border-width: {{ section.settings.divider_thickness }}px; --gap: {% render 'css-rem-value', value: section.settings.gap %};"
     data-testid="footer-utilities"
   >
     {% content_for 'blocks' %}
