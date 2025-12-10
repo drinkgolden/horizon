@@ -22,11 +22,7 @@
     assign transparent_color_scheme = section.settings.collection_color_scheme
   endif
 
-  if section.settings.enable_sticky_header == 'always'
-    assign sticky = 'always'
-  elsif section.settings.enable_sticky_header == 'scroll-up'
-    assign sticky = 'scroll-up'
-  endif
+  assign sticky = 'always'
 
   if transparent and sticky
     assign transparent = 'not-sticky'
@@ -194,9 +190,7 @@
   {% if transparent %}
     transparent="{{ transparent }}"
   {% endif %}
-  {% if sticky %}
-    sticky="{{ sticky }}"
-  {% endif %}
+  sticky="always"
   data-skip-node-update
   data-scroll-direction="none"
 >
@@ -975,26 +969,6 @@
         }
       ],
       "default": "standard"
-    },
-    {
-      "type": "select",
-      "id": "enable_sticky_header",
-      "label": "t:settings.sticky_header",
-      "options": [
-        {
-          "value": "always",
-          "label": "t:options.always"
-        },
-        {
-          "value": "scroll-up",
-          "label": "t:options.on_scroll_up"
-        },
-        {
-          "value": "never",
-          "label": "t:options.never"
-        }
-      ],
-      "default": "always"
     },
     {
       "type": "range",
