@@ -11,8 +11,11 @@
      --summary-font-line-height: var(--font-{{ block_settings.type_preset }}--line-height);
      --summary-font-case: var(--font-{{ block_settings.type_preset }}--case);
     {% render 'spacing-style', settings: block_settings %}
-    {% render 'border-override', settings: block_settings %}
-    --accordion-divider-color: var(--color-border);
+    {% render 'border-override', settings: block_settings, allow_overflow: true %}
+    --accordion-divider-color: var(
+      --section-gridline-color,
+      var(--golden-gridline-color, var(--color-border))
+    );
   "
   {{ block.shopify_attributes }}
 >
@@ -102,7 +105,7 @@
   "class": "accordion",
   "blocks": [
     {
-      "type": "_accordion-row"
+      "type": "accordion_row"
     }
   ],
   "settings": [
@@ -284,7 +287,7 @@
       "category": "t:categories.layout",
       "blocks": {
         "row-1": {
-          "type": "_accordion-row",
+          "type": "accordion_row",
           "settings": {
             "open_by_default": true,
             "heading": "t:text_defaults.return_policy"
@@ -301,7 +304,7 @@
           "block_order": ["text-1"]
         },
         "row-2": {
-          "type": "_accordion-row",
+          "type": "accordion_row",
           "settings": {
             "heading": "t:text_defaults.shipping"
           },
@@ -317,7 +320,7 @@
           "block_order": ["text-1"]
         },
         "row-3": {
-          "type": "_accordion-row",
+          "type": "accordion_row",
           "settings": {
             "heading": "t:text_defaults.manufacturing"
           },
