@@ -271,7 +271,6 @@
                   "settings": {
                     "heading": "Return policy",
                     "open_by_default": false,
-                    "inherit_color_scheme": true,
                     "color_scheme": "",
                     "icon": "none",
                     "width": 24
@@ -312,7 +311,6 @@
                   "settings": {
                     "heading": "Shipping",
                     "open_by_default": false,
-                    "inherit_color_scheme": true,
                     "color_scheme": "",
                     "icon": "none",
                     "width": 24
@@ -353,7 +351,6 @@
                   "settings": {
                     "heading": "Manufacturing",
                     "open_by_default": false,
-                    "inherit_color_scheme": true,
                     "color_scheme": "",
                     "icon": "none",
                     "width": 24

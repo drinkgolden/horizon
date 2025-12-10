@@ -70,6 +70,7 @@ class HeaderDrawer extends Component {
 
     if (!summary) return;
 
+    this.#closeSiblingDetails(details);
     summary.setAttribute('aria-expanded', 'true');
 
     this.preventInitialAccordionAnimations(details);
@@ -78,6 +79,24 @@ class HeaderDrawer extends Component {
       setTimeout(() => {
         trapFocus(details);
       }, 0);
+    });
+  }
+
+  /**
+   * Ensure only one accordion at a given level is open.
+   * @param {HTMLDetailsElement} details
+   */
+  #closeSiblingDetails(details) {
+    if (!details.classList.contains('menu-drawer__menu-container')) return;
+
+    const parent = details.parentElement;
+    if (!parent) return;
+
+    const openSiblings = parent.querySelectorAll(':scope > .menu-drawer__menu-container[open]');
+    openSiblings.forEach((sibling) => {
+      if (sibling !== details) {
+        this.#close(sibling);
+      }
     });
   }
 
