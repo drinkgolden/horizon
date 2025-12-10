@@ -793,7 +793,9 @@
   .menu-drawer__layout {
     display: flex;
     height: 100%;
+    min-height: 100%;
     width: 100%;
+    align-items: stretch;
   }
 
   .menu-drawer__brand-column {
@@ -1169,9 +1171,11 @@
 
     .header__drawer--mobile .menu-drawer__layout {
       display: grid;
-      grid-template-columns: 1fr minmax(52px, var(--drawer-brand-column-width, 18vw));
+      grid-template-columns: minmax(0, 1fr) minmax(52px, var(--drawer-brand-column-width, 18vw));
+      grid-template-rows: minmax(0, 1fr);
       min-height: 100vh;
       min-height: 100dvh;
+      align-items: stretch;
     }
 
     .header__drawer--mobile .menu-drawer__brand-column {
@@ -1185,6 +1189,8 @@
         var(--drawer-brand-column-padding, var(--padding-lg));
       gap: var(--drawer-brand-column-padding, var(--padding-lg));
       height: 100%;
+      min-height: 100%;
+      align-self: stretch;
     }
 
     .header__drawer--mobile .menu-drawer__brand-column::before {
@@ -1239,12 +1245,16 @@
       min-height: 100vh;
       min-height: 100dvh;
       gap: var(--gap-xl);
+      align-self: stretch;
+      height: 100%;
     }
 
     .header__drawer--mobile .menu-drawer__top-bar {
       border-bottom: 0;
-      padding: var(--padding-md) var(--drawer-mobile-horizontal-pad);
+      padding: 0;
+      margin-block-end: var(--padding-md);
       justify-content: flex-start;
+      width: 100%;
     }
 
     .header__drawer--mobile .menu-drawer__close-button {
