@@ -1178,10 +1178,11 @@
       grid-column: 2;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       border-left: 1px solid var(--menu-drawer-line-color);
-      padding: var(--drawer-brand-column-padding, var(--padding-lg));
+      padding: max(var(--drawer-brand-column-padding, var(--padding-lg)), 2.5rem)
+        var(--drawer-brand-column-padding, var(--padding-lg));
       gap: var(--drawer-brand-column-padding, var(--padding-lg));
     }
 
@@ -1228,9 +1229,10 @@
     .header__drawer--mobile .menu-drawer__body {
       grid-column: 1;
       padding-inline: var(--drawer-mobile-horizontal-pad);
-      padding-block: 0;
+      padding-block: var(--padding-lg) var(--padding-2xl);
       min-height: 100vh;
       min-height: 100dvh;
+      gap: var(--gap-xl);
     }
 
     .header__drawer--mobile .menu-drawer__top-bar {
