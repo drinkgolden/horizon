@@ -48,7 +48,7 @@
           "type": "_header-logo",
           "static": true,
           "settings": {
-            "hide_logo_on_home_page": true,
+            "hide_logo_on_home_page": false,
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
@@ -66,6 +66,7 @@
             "drawer_brand_text": "",
             "drawer_brand_column_width": 9,
             "drawer_brand_column_padding": 16,
+            "drawer_menu_horizontal_padding": 0,
             "drawer_logo_image": "shopify://shop_images/Wordmark_Vertical.svg",
             "drawer_logo_alt": "Golden",
             "type_font_primary_size": "1rem",
