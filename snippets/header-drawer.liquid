@@ -30,13 +30,13 @@
   if drawer_brand_column_padding_value == blank
     assign drawer_brand_column_padding_value = 16
   endif
-  assign brand_column_style = '--drawer-brand-column-width: ' | append: drawer_brand_column_width_value | append: 'vw;' | append: ' --drawer-brand-column-padding: ' | append: drawer_brand_column_padding_value | append: 'px;'
-  assign brand_column_style = brand_column_style | append: ' --drawer-menu-row-padding: ' | append: drawer_menu_row_padding_value | append: 'px;'
-
   assign drawer_menu_row_padding_value = block_settings.drawer_menu_row_padding
   if drawer_menu_row_padding_value == blank
     assign drawer_menu_row_padding_value = 0
   endif
+
+  assign brand_column_style = '--drawer-brand-column-width: ' | append: drawer_brand_column_width_value | append: 'vw;' | append: ' --drawer-brand-column-padding: ' | append: drawer_brand_column_padding_value | append: 'px;'
+  assign brand_column_style = brand_column_style | append: ' --drawer-menu-row-padding: ' | append: drawer_menu_row_padding_value | append: 'px;'
 
   if block_settings.menu_style == 'featured_collections'
     assign ratio = block_settings.featured_collections_aspect_ratio
