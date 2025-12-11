@@ -48,9 +48,18 @@
 </script>
 
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
+{% capture section_inline_styles %}
+  {% render 'spacing-style', settings: section.settings %}
+  --gap: {{ product_gap_rem }};
+  {% if section.settings.equal_columns %}
+    --full-page-grid-margin: 0;
+  {% endif %}
+{% endcapture %}
+{% assign section_inline_styles = section_inline_styles | strip %}
+
 <div
   class="product-information section section--{{ content_width }} spacing-style color-{{ section.settings.color_scheme }} relative"
-  style="{% render 'spacing-style', settings: section.settings %} --gap: {{ product_gap_rem }};"
+  style="{{ section_inline_styles }}"
 >
   {% if section.settings.desktop_media_position == 'left' and product_has_media %}
     {% assign product_href = '#ProductInformation-' | append: section.id %}
