@@ -106,7 +106,7 @@
     "variant_swatch_radius": 0,
     "variant_button_border_width": 1,
     "variant_button_radius": 0,
-    "variant_button_width": "default-width-buttons",
+    "variant_button_width": "equal-width-buttons",
     "side_columns_background_color": "#fcfcfb",
     "side_columns_border_color": "#e5e5e5",
     "enable_guided_scroll": false,
