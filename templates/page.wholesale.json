@@ -16,7 +16,7 @@
           "type": "text",
           "name": "t:names.title",
           "settings": {
-            "text": "<h2>Wholesale Enquiry</h2>",
+            "text": "<h2>Wholesale</h2>",
             "width": "100%",
             "max_width": "narrow",
             "alignment": "center",
@@ -125,7 +125,7 @@
         "horizontal_alignment_flex_direction_column": "center",
         "vertical_alignment_flex_direction_column": "center",
         "gap": 32,
-        "section_width": "page-width",
+        "section_width": "full-width",
         "section_height": "",
         "section_height_custom": 50,
         "color_scheme": "scheme-1",
