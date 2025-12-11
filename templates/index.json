@@ -240,10 +240,10 @@
                 "content_padding_block_end": 12,
                 "content_padding_inline_start": 12,
                 "content_padding_inline_end": 12,
-                "heading_type_preset": "h2",
+                "heading_type_preset": "h3",
                 "right_heading_type_preset": "",
-                "heading_min_size": 1.2,
-                "heading_max_size": 3.4,
+                "heading_min_size": 1.4,
+                "heading_max_size": 3.2,
                 "icon": "none",
                 "width": 20
               },
@@ -443,7 +443,7 @@
                 "heading_type_preset": "h2",
                 "right_heading_type_preset": "",
                 "heading_min_size": 1.4,
-                "heading_max_size": 3.4,
+                "heading_max_size": 3.2,
                 "icon": "none",
                 "width": 20
               },
@@ -643,7 +643,7 @@
                 "heading_type_preset": "h2",
                 "right_heading_type_preset": "",
                 "heading_min_size": 1.4,
-                "heading_max_size": 3.4,
+                "heading_max_size": 3.2,
                 "icon": "none",
                 "width": 20
               },
