@@ -262,8 +262,8 @@
                 "border_radius": 0,
                 "padding-block-start": 12,
                 "padding-block-end": 0,
-                "padding-inline-start": 12,
-                "padding-inline-end": 12
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
               },
               "blocks": {
                 "accordion_row_tGJFzd": {
@@ -276,8 +276,8 @@
                     "hover_color_scheme": "",
                     "summary_padding_block_start": 0,
                     "summary_padding_block_end": 0,
-                    "summary_padding_inline_start": 0,
-                    "summary_padding_inline_end": 0,
+                    "summary_padding_inline_start": 12,
+                    "summary_padding_inline_end": 12,
                     "content_padding_block_start": 12,
                     "content_padding_block_end": 12,
                     "content_padding_inline_start": 24,
@@ -330,8 +330,8 @@
                     "hover_color_scheme": "",
                     "summary_padding_block_start": 0,
                     "summary_padding_block_end": 0,
-                    "summary_padding_inline_start": 0,
-                    "summary_padding_inline_end": 0,
+                    "summary_padding_inline_start": 12,
+                    "summary_padding_inline_end": 12,
                     "content_padding_block_start": 12,
                     "content_padding_block_end": 12,
                     "content_padding_inline_start": 24,
@@ -384,8 +384,8 @@
                     "hover_color_scheme": "",
                     "summary_padding_block_start": 0,
                     "summary_padding_block_end": 0,
-                    "summary_padding_inline_start": 0,
-                    "summary_padding_inline_end": 0,
+                    "summary_padding_inline_start": 12,
+                    "summary_padding_inline_end": 12,
                     "content_padding_block_start": 12,
                     "content_padding_block_end": 12,
                     "content_padding_inline_start": 24,
