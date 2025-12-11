@@ -16,6 +16,10 @@
   assign max_featured_items = 4
   assign image_border_radius = block_settings.image_border_radius
   assign drawer_color_scheme = block_settings.drawer_color_scheme | default: block_settings.color_scheme
+  assign drawer_brand_column_color_scheme = drawer_color_scheme
+  if block_settings.drawer_brand_column_custom_color and block_settings.drawer_brand_column_color_scheme != blank
+    assign drawer_brand_column_color_scheme = block_settings.drawer_brand_column_color_scheme
+  endif
   assign drawer_brand_text = block_settings.drawer_brand_text | default: shop.name
   assign drawer_brand_logo_image = block_settings.drawer_brand_logo_image | default: section.settings.drawer_brand_logo_image
   assign drawer_logo_image = block_settings.drawer_logo_image | default: section.settings.drawer_logo_image | default: drawer_brand_logo_image
@@ -101,7 +105,7 @@
         class="menu-drawer__layout"
         style="{{ brand_column_style }}"
       >
-        <div class="menu-drawer__brand-column">
+        <div class="menu-drawer__brand-column color-{{ drawer_brand_column_color_scheme }}">
           {% assign brand_slots = 'top,bottom' | split: ',' %}
           {% for slot in brand_slots %}
             {% liquid

@@ -707,6 +707,19 @@
       "default": "primary"
     },
     {
+      "type": "checkbox",
+      "id": "drawer_brand_column_custom_color",
+      "label": "Use different brand column color",
+      "default": false
+    },
+    {
+      "type": "color_scheme",
+      "id": "drawer_brand_column_color_scheme",
+      "label": "Brand column color scheme",
+      "default": "primary",
+      "visible_if": "{{ block.settings.drawer_brand_column_custom_color }}"
+    },
+    {
       "type": "text",
       "id": "drawer_brand_text",
       "label": "Mobile drawer brand text",
