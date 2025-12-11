@@ -236,6 +236,9 @@
     --accordion-hover-background: rgb(var(--color-foreground-rgb, 255 255 255) / 0.08);
     --accordion-hover-color: var(--color-foreground);
     --accordion-hover-border: rgb(var(--color-border-rgb, var(--color-foreground-rgb, 0 0 0)) / 0.2);
+    --accordion-open-background: var(--color-background);
+    --accordion-open-color: inherit;
+    --accordion-open-border: rgb(var(--color-border-rgb, var(--color-foreground-rgb, 0 0 0)) / 0.2);
     --accordion-divider-thickness: var(--golden-gridline-thickness, var(--style-border-width, 1px));
   }
 
@@ -420,12 +423,17 @@
   }
 
   .accordion-row:hover .details__header,
-  .accordion-row:hover .details-content,
-  details[open] .details__header,
-  details[open] .details-content {
+  .accordion-row:hover .details-content {
     background-color: var(--accordion-hover-background);
     color: var(--accordion-hover-color);
     border-color: var(--accordion-hover-border);
+  }
+
+  details[open] .details__header,
+  details[open] .details-content {
+    background-color: var(--accordion-open-background);
+    color: var(--accordion-open-color);
+    border-color: var(--accordion-open-border);
   }
 
   .accordion-row:hover .details__heading,
