@@ -349,12 +349,16 @@
     font-size: clamp(
       var(
         --accordion-heading-min-size,
-        var(--accordion-right-heading-base-size, var(--accordion-heading-base-size, var(--summary-font-size)))
+        calc(
+          var(--accordion-right-heading-base-size, var(--accordion-heading-base-size, var(--summary-font-size))) * 0.85
+        )
       ),
-      calc((var(--accordion-right-heading-base-size, var(--accordion-heading-base-size, var(--summary-font-size))) * 0.5) + 2vw),
+      calc(var(--accordion-right-heading-base-size, var(--accordion-heading-base-size, var(--summary-font-size))) + 0.5vw),
       var(
         --accordion-heading-max-size,
-        calc(var(--accordion-right-heading-base-size, var(--accordion-heading-base-size, var(--summary-font-size))) * 1.2)
+        calc(
+          var(--accordion-right-heading-base-size, var(--accordion-heading-base-size, var(--summary-font-size))) * 1.05
+        )
       )
     );
   }
