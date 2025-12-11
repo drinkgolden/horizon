@@ -51,6 +51,9 @@
 {% capture section_inline_styles %}
   {% render 'spacing-style', settings: section.settings %}
   --gap: {{ product_gap_rem }};
+  {% if content_width == 'full-width' %}
+    --page-margin: 0px;
+  {% endif %}
   {% if section.settings.equal_columns %}
     --full-page-grid-margin: 0;
   {% endif %}
