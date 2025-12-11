@@ -203,12 +203,33 @@
     display: flex;
     min-height: var(--minimum-touch-target);
     align-items: center;
+    position: relative;
+    overflow: visible;
+    padding-bottom: var(--header-link-underline-offset, 0.24em);
 
     &:hover,
     &:focus {
       color: var(--menu-top-level-font-color);
     }
 
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: var(--header-link-underline-thickness, 0.08em);
+      background-color: currentcolor;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--animation-speed) var(--animation-easing);
+    }
+
+  }
+  .menu-list__link:where(:hover, :focus-visible)::after,
+  .menu-list__link--active::after,
+  .menu-list__link[aria-expanded='true']::after {
+    transform: scaleX(1);
   }
 
   /*
