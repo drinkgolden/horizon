@@ -293,7 +293,35 @@
         --accordion-heading-min-size,
         calc(var(--accordion-heading-base-size, var(--summary-font-size)) * 0.85)
       ),
-      calc(var(--accordion-heading-base-size, var(--summary-font-size)) + 0.5vw),
+      calc(
+        var(
+            --accordion-heading-min-size,
+            calc(var(--accordion-heading-base-size, var(--summary-font-size)) * 0.85)
+          ) +
+          (
+            var(
+              --accordion-heading-max-size,
+              calc(var(--accordion-heading-base-size, var(--summary-font-size)) * 1.05)
+            ) -
+            var(
+              --accordion-heading-min-size,
+              calc(var(--accordion-heading-base-size, var(--summary-font-size)) * 0.85)
+            )
+          ) *
+          clamp(
+            0,
+            (
+              100vw -
+              var(--accordion-heading-min-breakpoint, 20rem)
+            ) /
+              max(
+                0.001rem,
+                var(--accordion-heading-max-breakpoint, 48rem) -
+                  var(--accordion-heading-min-breakpoint, 20rem)
+              ),
+            1
+          )
+      ),
       var(
         --accordion-heading-max-size,
         calc(var(--accordion-heading-base-size, var(--summary-font-size)) * 1.05)
@@ -353,7 +381,41 @@
           var(--accordion-right-heading-base-size, var(--accordion-heading-base-size, var(--summary-font-size))) * 0.85
         )
       ),
-      calc(var(--accordion-right-heading-base-size, var(--accordion-heading-base-size, var(--summary-font-size))) + 0.5vw),
+      calc(
+        var(
+            --accordion-heading-min-size,
+            calc(
+              var(--accordion-right-heading-base-size, var(--accordion-heading-base-size, var(--summary-font-size))) * 0.85
+            )
+          ) +
+          (
+            var(
+              --accordion-heading-max-size,
+              calc(
+                var(--accordion-right-heading-base-size, var(--accordion-heading-base-size, var(--summary-font-size))) * 1.05
+              )
+            ) -
+            var(
+              --accordion-heading-min-size,
+              calc(
+                var(--accordion-right-heading-base-size, var(--accordion-heading-base-size, var(--summary-font-size))) * 0.85
+              )
+            )
+          ) *
+          clamp(
+            0,
+            (
+              100vw -
+              var(--accordion-heading-min-breakpoint, 20rem)
+            ) /
+              max(
+                0.001rem,
+                var(--accordion-heading-max-breakpoint, 48rem) -
+                  var(--accordion-heading-min-breakpoint, 20rem)
+              ),
+            1
+          )
+      ),
       var(
         --accordion-heading-max-size,
         calc(
