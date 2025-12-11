@@ -19,10 +19,11 @@
 </div>
 
 {% stylesheet %}
-  @media screen and (min-width: 750px) {
-    .accordion-stack-section .accordion {
-      grid-template-columns: var(--full-page-grid-with-margins);
-    }
+  .accordion-stack-section .accordion accordion-custom .details {
+    box-sizing: border-box;
+    width: calc(100% + var(--padding-inline-start, 0px) + var(--padding-inline-end, 0px));
+    margin-inline-start: calc(var(--padding-inline-start, 0px) * -1);
+    margin-inline-end: calc(var(--padding-inline-end, 0px) * -1);
   }
 {% endstylesheet %}
 
