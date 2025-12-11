@@ -1,0 +1,67 @@
+{% liquid
+  assign s = section.settings
+  assign section_classes = 'section section--' | append: s.section_width | append: ' color-' | append: s.color_scheme
+  if s.hide_section_gridline
+    assign section_classes = section_classes | append: ' section--hide-bottom-gridline'
+  endif
+%}
+
+<div class="section-background color-{{ s.color_scheme }}"></div>
+<div class="{{ section_classes }}">
+  <div
+    class="accordion accordion--section-{{ section.id }} accordion--{{ s.icon }} border-style spacing-style force-full-width{% if s.dividers %} accordion--dividers{% endif %}"
+    style="{% render 'border-override', settings: s, allow_overflow: true %}{% render 'spacing-style', settings: s %}"
+  >
+    {% for block in section.blocks %}
+      {%- content_for 'block', type: 'accordion_row', id: block.id, settings: block.settings -%}
+    {% endfor %}
+  </div>
+</div>
+
+{% stylesheet %}
+  @media screen and (min-width: 750px) {
+    .accordion-stack-section .accordion {
+      grid-template-columns: var(--full-page-grid-with-margins);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Accordion stack",
+  "tag": "section",
+  "class": "accordion-stack-section",
+  "blocks": [
+    {
+      "type": "accordion_row",
+      "name": "Accordion row"
+    }
+  ],
+  "settings": [
+    { "type": "select", "id": "icon", "label": "Icon style", "options": [{"value": "caret", "label": "Caret"}, {"value": "plus", "label": "Plus"}], "default": "caret" },
+    { "type": "checkbox", "id": "dividers", "label": "Show dividers", "default": true },
+    { "type": "select", "id": "type_preset", "label": "Heading preset", "options": [{"value": "", "label": "Default"}, {"value": "paragraph", "label": "Paragraph"}, {"value": "h1", "label": "H1"}, {"value": "h2", "label": "H2"}, {"value": "h3", "label": "H3"}, {"value": "h4", "label": "H4"}, {"value": "h5", "label": "H5"}, {"value": "h6", "label": "H6"}], "default": "h6" },
+    { "type": "checkbox", "id": "hide_section_gridline", "label": "Hide bottom gridline", "default": false },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "select", "id": "section_width", "label": "Width", "options": [{"value": "page-width", "label": "Page"}, {"value": "full-width", "label": "Full"}], "default": "full-width" },
+    { "type": "header", "content": "Padding" },
+    { "type": "range", "id": "padding-block-start", "label": "Top", "min": 0, "max": 100, "step": 1, "unit": "px", "default": 0 },
+    { "type": "range", "id": "padding-block-end", "label": "Bottom", "min": 0, "max": 100, "step": 1, "unit": "px", "default": 0 },
+    { "type": "range", "id": "padding-inline-start", "label": "Left", "min": 0, "max": 100, "step": 1, "unit": "px", "default": 0 },
+    { "type": "range", "id": "padding-inline-end", "label": "Right", "min": 0, "max": 100, "step": 1, "unit": "px", "default": 0 },
+    { "type": "header", "content": "Borders" },
+    { "type": "select", "id": "border", "label": "Style", "options": [{"value": "none", "label": "None"}, {"value": "solid", "label": "Solid"}], "default": "none" },
+    { "type": "range", "id": "border_width", "min": 0, "max": 10, "step": 0.5, "unit": "px", "label": "Border width", "default": 1, "visible_if": "{{ section.settings.border != 'none' }}" },
+    { "type": "range", "id": "border_opacity", "min": 0, "max": 100, "step": 1, "unit": "%", "label": "Border opacity", "default": 100, "visible_if": "{{ section.settings.border != 'none' }}" },
+    { "type": "range", "id": "border_radius", "label": "Border radius", "min": 0, "max": 100, "step": 1, "unit": "px", "default": 0 }
+  ],
+  "presets": [
+    {
+      "name": "Accordion stack",
+      "blocks": [
+        { "type": "accordion_row" }
+      ]
+    }
+  ]
+}
+{% endschema %}
