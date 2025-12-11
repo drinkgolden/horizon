@@ -136,7 +136,7 @@
     }
 
     .product-details {
-      grid-column: 2 / 3;
+      grid-column: 1 / -1;
     }
   }
 
@@ -270,6 +270,28 @@
           }
         }
       }
+    }
+  }
+
+  @media screen and (min-width: 750px) {
+    .product-information__grid--half {
+      position: relative;
+    }
+
+    .product-information__grid--half::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: var(--golden-gridline-thickness, var(--section-gridline-width, 1px));
+      background-color: var(
+        --section-gridline-color,
+        var(--golden-gridline-color, rgba(0, 0, 0, 0.12))
+      );
+      pointer-events: none;
+      z-index: 0;
     }
   }
 
