@@ -16,6 +16,10 @@
   assign max_featured_items = 4
   assign image_border_radius = block_settings.image_border_radius
   assign drawer_color_scheme = block_settings.drawer_color_scheme | default: block_settings.color_scheme
+  assign drawer_brand_column_color_scheme = drawer_color_scheme
+  if block_settings.drawer_brand_column_custom_color and block_settings.drawer_brand_column_color_scheme != blank
+    assign drawer_brand_column_color_scheme = block_settings.drawer_brand_column_color_scheme
+  endif
   assign drawer_brand_text = block_settings.drawer_brand_text | default: shop.name
   assign drawer_brand_logo_image = block_settings.drawer_brand_logo_image | default: section.settings.drawer_brand_logo_image
   assign drawer_logo_image = block_settings.drawer_logo_image | default: section.settings.drawer_logo_image | default: drawer_brand_logo_image
@@ -30,7 +34,13 @@
   if drawer_brand_column_padding_value == blank
     assign drawer_brand_column_padding_value = 16
   endif
+  assign drawer_menu_row_padding_value = block_settings.drawer_menu_row_padding
+  if drawer_menu_row_padding_value == blank
+    assign drawer_menu_row_padding_value = 0
+  endif
+
   assign brand_column_style = '--drawer-brand-column-width: ' | append: drawer_brand_column_width_value | append: 'vw;' | append: ' --drawer-brand-column-padding: ' | append: drawer_brand_column_padding_value | append: 'px;'
+  assign brand_column_style = brand_column_style | append: ' --drawer-menu-row-padding: ' | append: drawer_menu_row_padding_value | append: 'px;'
 
   if block_settings.menu_style == 'featured_collections'
     assign ratio = block_settings.featured_collections_aspect_ratio
@@ -95,7 +105,7 @@
         class="menu-drawer__layout"
         style="{{ brand_column_style }}"
       >
-        <div class="menu-drawer__brand-column">
+        <div class="menu-drawer__brand-column color-{{ drawer_brand_column_color_scheme }}">
           {% assign brand_slots = 'top,bottom' | split: ',' %}
           {% for slot in brand_slots %}
             {% liquid
@@ -793,7 +803,11 @@
   .menu-drawer__layout {
     display: flex;
     height: 100%;
+    min-height: 100%;
     width: 100%;
+    align-items: stretch;
+    column-gap: 0;
+    row-gap: 0;
   }
 
   .menu-drawer__brand-column {
@@ -859,6 +873,7 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    width: 100%;
   }
 
   .menu-drawer:has(details[open]) {
@@ -957,8 +972,10 @@
     }
   }
 
-  .menu-drawer__list-item--divider {
-    border-block-end: 1px solid var(--menu-drawer-line-color);
+  @media screen and (min-width: 750px) {
+    .menu-drawer__list-item--divider {
+      border-block-end: 1px solid var(--menu-drawer-line-color);
+    }
   }
 
   .menu-drawer__list-item--deep:not(.menu-drawer__list-item--divider) .menu-drawer__menu {
@@ -1169,22 +1186,27 @@
 
     .header__drawer--mobile .menu-drawer__layout {
       display: grid;
-      grid-template-columns: 1fr minmax(52px, var(--drawer-brand-column-width, 18vw));
+      grid-template-columns: minmax(0, 1fr) minmax(52px, var(--drawer-brand-column-width, 18vw));
+      grid-template-rows: minmax(0, 1fr);
       min-height: 100vh;
       min-height: 100dvh;
+      align-items: stretch;
     }
 
     .header__drawer--mobile .menu-drawer__brand-column {
       grid-column: 2;
+      grid-row: 1 / -1;
       position: relative;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      justify-content: space-between;
+      align-items: stretch;
       padding: max(var(--drawer-brand-column-padding, var(--padding-lg)), 2.5rem)
         var(--drawer-brand-column-padding, var(--padding-lg));
       gap: var(--drawer-brand-column-padding, var(--padding-lg));
       height: 100%;
+      min-height: 100%;
+      align-self: stretch;
     }
 
     .header__drawer--mobile .menu-drawer__brand-column::before {
@@ -1202,12 +1224,21 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      padding-block: clamp(var(--padding-sm), 2vh, var(--padding-lg));
     }
 
     .header__drawer--mobile .menu-drawer__brand-slot--top,
     .header__drawer--mobile .menu-drawer__brand-slot--bottom {
       justify-content: center;
       align-items: center;
+    }
+
+    .header__drawer--mobile .menu-drawer__brand-slot--top {
+      margin-bottom: auto;
+    }
+
+    .header__drawer--mobile .menu-drawer__brand-slot--bottom {
+      margin-top: auto;
     }
 
     .header__drawer--mobile .menu-drawer__brand-link {
@@ -1228,27 +1259,40 @@
     }
 
     .header__drawer--mobile .menu-drawer__brand-logo-image {
-      width: min(100%, 28vh);
+      width: min(100%, clamp(96px, 70%, 150px));
+      max-width: 100%;
       height: auto;
+      max-height: clamp(72px, 18vh, 160px);
     }
 
     .header__drawer--mobile .menu-drawer__body {
       grid-column: 1;
-      padding-inline: var(--drawer-mobile-horizontal-pad) 0;
-      padding-block: var(--padding-lg) var(--padding-2xl);
+      grid-row: 1 / -1;
+      padding-inline: 0;
+      padding-block: 0 var(--padding-2xl);
       min-height: 100vh;
       min-height: 100dvh;
-      gap: var(--gap-xl);
+      gap: 0;
+      align-self: stretch;
+      height: 100%;
     }
 
     .header__drawer--mobile .menu-drawer__top-bar {
-      border-bottom: 0;
-      padding: var(--padding-md) var(--drawer-mobile-horizontal-pad);
+      border-bottom: 1px solid var(--menu-drawer-line-color);
+      padding-block: var(--padding-sm);
+      padding-inline: var(--padding-lg);
       justify-content: flex-start;
+      margin-block-end: 0;
     }
 
     .header__drawer--mobile .menu-drawer__close-button {
       padding: 0;
+      margin: 0;
+      width: var(--minimum-touch-target);
+      height: var(--minimum-touch-target);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .header__drawer--mobile .menu-drawer__navigation {
@@ -1265,11 +1309,19 @@
       width: 100%;
     }
 
+    .header__drawer--mobile .menu-drawer__menu-container--divider {
+      border-bottom: 0;
+    }
+
     .header__drawer--mobile .menu-drawer__navigation .menu-drawer__list-item {
       border-bottom: 1px solid var(--menu-drawer-line-color);
       margin: 0;
       padding: 0;
       width: 100%;
+    }
+
+    .header__drawer--mobile .menu-drawer__navigation .menu-drawer__list-item.menu-drawer__list-item--open {
+      border-bottom: 0;
     }
 
     .header__drawer--mobile .menu-drawer__navigation .menu-drawer__list-item:first-child {
@@ -1285,7 +1337,7 @@
     .header__drawer--mobile .menu-drawer__menu summary.menu-drawer__menu-item {
       width: 100%;
       padding-block: var(--padding-md);
-      padding-inline: var(--drawer-mobile-horizontal-pad);
+      padding-inline: var(--drawer-menu-row-padding, 0) var(--drawer-menu-row-padding, 0);
     }
 
     .header__drawer--mobile .menu-drawer__menu-item > .svg-wrapper {
@@ -1304,17 +1356,18 @@
     .header__drawer--mobile .menu-drawer__utility-links,
     .header__drawer--mobile .menu-drawer__featured-content {
       padding-inline: var(--drawer-mobile-horizontal-pad);
-      border-top: 0;
     }
 
     .header__drawer--mobile .menu-drawer__utility-links {
       margin: 0;
       border-bottom: 0;
+      border-top: 0;
       padding-block: var(--padding-lg);
       background: transparent;
     }
 
     .header__drawer--mobile .menu-drawer__featured-content {
+      border-top: 1px solid var(--menu-drawer-line-color);
       padding-block: var(--padding-lg);
     }
 

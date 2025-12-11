@@ -211,6 +211,31 @@
 
   }
 
+  .menu-list__link-title {
+    position: relative;
+    display: inline-block;
+    padding-bottom: var(--header-link-underline-offset, 0.24em);
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: var(--header-link-underline-thickness, 0.08em);
+      background-color: currentcolor;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--animation-speed) var(--animation-easing);
+    }
+  }
+
+  .menu-list__link:where(:hover, :focus-visible) .menu-list__link-title::after,
+  .menu-list__link--active .menu-list__link-title::after,
+  .menu-list__link[aria-expanded='true'] .menu-list__link-title::after {
+    transform: scaleX(1);
+  }
+
   /*
       High specificity selectors to subdue non-hovered links without javascript.
       If the need for js-generated `hovered` and `focused` classes arises for another reason we can simplify these.
@@ -290,28 +315,9 @@
     left: 0;
     top: calc(100% - 1px + var(--border-bottom-width));
     z-index: calc(var(--layer-header-menu) + 1);
-    padding-inline: var(--padding-inline);
+    padding-inline: 0;
     clip-path: rect(0 100% var(--submenu-height) 0); /* stylelint-disable-line */
     transition: clip-path var(--submenu-animation-speed) var(--ease-out-cubic);
-  }
-
-  body.has-side-columns header-menu
-    .menu-list__list-item:where(:not([slot='overflow'])) > .menu-list__submenu,
-  body.has-side-columns header-menu .overflow-menu::part(overflow),
-  body.has-side-columns header-menu .overflow-menu::after {
-    left: var(--side-columns-inline-desktop);
-    right: var(--side-columns-inline-desktop);
-    width: auto;
-  }
-
-  @media screen and (max-width: 749px) {
-    body.has-side-columns header-menu
-      .menu-list__list-item:where(:not([slot='overflow'])) > .menu-list__submenu,
-    body.has-side-columns header-menu .overflow-menu::part(overflow),
-    body.has-side-columns header-menu .overflow-menu::after {
-      left: var(--side-columns-inline-mobile);
-      right: var(--side-columns-inline-mobile);
-    }
   }
 
   .menu-list__list-item:where(:not([slot='overflow'])) > .menu-list__submenu::before,
@@ -320,9 +326,9 @@
     position: absolute;
     left: 0;
     right: 0;
-    top: 0;
+    bottom: 0;
     height: 1px;
-    background-color: #e5e5e5;
+    background-color: var(--color-border, #e5e5e5);
     transform: scaleX(var(--submenu-border-scale));
     transform-origin: center;
     transition: transform var(--submenu-animation-speed) var(--ease-out-cubic);
@@ -701,6 +707,19 @@
       "default": "primary"
     },
     {
+      "type": "checkbox",
+      "id": "drawer_brand_column_custom_color",
+      "label": "Use different brand column color",
+      "default": false
+    },
+    {
+      "type": "color_scheme",
+      "id": "drawer_brand_column_color_scheme",
+      "label": "Brand column color scheme",
+      "default": "primary",
+      "visible_if": "{{ block.settings.drawer_brand_column_custom_color }}"
+    },
+    {
       "type": "text",
       "id": "drawer_brand_text",
       "label": "Mobile drawer brand text",
@@ -724,6 +743,15 @@
       "max": 80,
       "step": 4,
       "default": 16
+    },
+    {
+      "type": "range",
+      "id": "drawer_menu_row_padding",
+      "label": "Mobile drawer menu padding (px)",
+      "min": 0,
+      "max": 48,
+      "step": 2,
+      "default": 0
     },
     {
       "type": "image_picker",

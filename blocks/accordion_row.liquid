@@ -289,15 +289,28 @@
     line-height: var(--accordion-heading-line-height, var(--summary-font-line-height));
     text-transform: var(--accordion-heading-text-case, var(--summary-font-case));
     font-size: clamp(
-      var(
-        --accordion-heading-min-size,
-        var(--accordion-heading-base-size, var(--summary-font-size))
+      var(--accordion-heading-min-size, 1rem),
+      calc(
+        var(--accordion-heading-min-size, 1rem) +
+          (
+            var(--accordion-heading-max-size, 3.4rem) -
+            var(--accordion-heading-min-size, 1rem)
+          ) *
+          clamp(
+            0,
+            (
+              100vw -
+              var(--accordion-heading-min-breakpoint, 20rem)
+            ) /
+              max(
+                0.001rem,
+                var(--accordion-heading-max-breakpoint, 48rem) -
+                  var(--accordion-heading-min-breakpoint, 20rem)
+              ),
+            1
+          )
       ),
-      calc((var(--accordion-heading-base-size, var(--summary-font-size)) * 0.5) + 2vw),
-      var(
-        --accordion-heading-max-size,
-        calc(var(--accordion-heading-base-size, var(--summary-font-size)) * 1.2)
-      )
+      var(--accordion-heading-max-size, 3.4rem)
     );
   }
 
@@ -347,15 +360,28 @@
     line-height: var(--accordion-right-heading-line-height, var(--accordion-heading-line-height, var(--summary-font-line-height)));
     text-transform: var(--accordion-right-heading-text-case, var(--accordion-heading-text-case, var(--summary-font-case)));
     font-size: clamp(
-      var(
-        --accordion-heading-min-size,
-        var(--accordion-right-heading-base-size, var(--accordion-heading-base-size, var(--summary-font-size)))
+      var(--accordion-heading-min-size, 1rem),
+      calc(
+        var(--accordion-heading-min-size, 1rem) +
+          (
+            var(--accordion-heading-max-size, 3.4rem) -
+            var(--accordion-heading-min-size, 1rem)
+          ) *
+          clamp(
+            0,
+            (
+              100vw -
+              var(--accordion-heading-min-breakpoint, 20rem)
+            ) /
+              max(
+                0.001rem,
+                var(--accordion-heading-max-breakpoint, 48rem) -
+                  var(--accordion-heading-min-breakpoint, 20rem)
+              ),
+            1
+          )
       ),
-      calc((var(--accordion-right-heading-base-size, var(--accordion-heading-base-size, var(--summary-font-size))) * 0.5) + 2vw),
-      var(
-        --accordion-heading-max-size,
-        calc(var(--accordion-right-heading-base-size, var(--accordion-heading-base-size, var(--summary-font-size))) * 1.2)
-      )
+      var(--accordion-heading-max-size, 3.4rem)
     );
   }
 
