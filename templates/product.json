@@ -22,6 +22,8 @@
             "large_first_image": false,
             "icons_style": "chevron",
             "slideshow_controls_style": "dots",
+            "icons_style": "arrow",
+            "slideshow_controls_style": "counter",
             "slideshow_mobile_controls_style": "dots",
             "thumbnail_position": "bottom",
             "thumbnail_width": 72,
