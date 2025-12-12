@@ -370,7 +370,7 @@
       }
     },
     "accordion_section_page": {
-      "type": "accordion",
+      "type": "accordion-stack",
       "blocks": {
         "simple_accordion_section_page": {
           "type": "accordion_row",
