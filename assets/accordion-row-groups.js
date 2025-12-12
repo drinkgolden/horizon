@@ -27,6 +27,9 @@ const determineSlot = (element) => {
   return '';
 };
 
+const SLOT_CLASS_LEFT = 'accordion-row__group--left';
+const SLOT_CLASS_RIGHT = 'accordion-row__group--right';
+
 const showGroup = (groups, target) => {
   if (!target) return;
   groups.forEach((group) => {
@@ -41,9 +44,6 @@ const attachInteractionHandlers = (element, handler) => {
   });
 };
 
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
 const bindRowOpenState = (row) => {
   if (!row || row.dataset.openStateBound === 'true') return;
   const detailsElement = row.querySelector('details');
@@ -88,6 +88,40 @@ const initAccordionRow = (row) => {
   const rightGroup = groupedBySlot.right || groups.find((group) => group !== leftGroup);
 
   if (!leftGroup || !rightGroup) return;
+
+  const markSlot = (group, slot) => {
+    if (!group) return;
+    group.classList.remove(SLOT_CLASS_LEFT, SLOT_CLASS_RIGHT);
+    if (slot === 'left') {
+      group.classList.add(SLOT_CLASS_LEFT);
+    } else if (slot === 'right') {
+      group.classList.add(SLOT_CLASS_RIGHT);
+    }
+
+    const content = group.querySelector('.group-block-content');
+    if (content) {
+      const alignment = slot === 'right' ? 'flex-end' : 'flex-start';
+      content.style.setProperty('--horizontal-alignment', alignment);
+      content.style.setProperty('--horizontal-alignment-mobile', alignment);
+    }
+
+    group.style.setProperty('margin-inline-start', slot === 'right' ? 'auto' : '0');
+    group.style.setProperty('margin-inline-end', slot === 'right' ? '0' : 'auto');
+  };
+
+  groups.forEach((group) => {
+    group.classList.remove(SLOT_CLASS_LEFT, SLOT_CLASS_RIGHT);
+    group.style.removeProperty('margin-inline-start');
+    group.style.removeProperty('margin-inline-end');
+    const content = group.querySelector('.group-block-content');
+    if (content) {
+      content.style.removeProperty('--horizontal-alignment');
+      content.style.removeProperty('--horizontal-alignment-mobile');
+    }
+  });
+
+  markSlot(leftGroup, 'left');
+  markSlot(rightGroup, 'right');
 
   showGroup(groups, leftGroup);
 

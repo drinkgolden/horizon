@@ -9,6 +9,35 @@
  */
 {
   "sections": {
+    "accordion_E6Vrmm": {
+      "type": "accordion-stack",
+      "blocks": {
+        "accordion_row_69meB9": {
+          "type": "accordion_stack_row",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "accordion_row_69meB9"
+      ],
+      "name": "Accordion",
+      "settings": {
+        "icon": "caret",
+        "dividers": true,
+        "type_preset": "h6",
+        "hide_section_gridline": false,
+        "color_scheme": "",
+        "section_width": "full-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0,
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0
+      }
+    },
     "section_wi6VEg": {
       "type": "section",
       "blocks": {
@@ -79,7 +108,7 @@
               "type": "accordion_row",
               "name": "t:names.accordion_row",
               "settings": {
-                "heading": "Lemon Honey Soda",
+                "heading": "M\u0101nuka Honey Soda",
                 "right_heading": "",
                 "open_by_default": false,
                 "color_scheme": "scheme-1",
@@ -480,7 +509,7 @@
               "name": "t:names.accordion_row",
               "settings": {
                 "heading": "Low Cal",
-                "right_heading": "Mānuka",
+                "right_heading": "MGO +83",
                 "open_by_default": false,
                 "color_scheme": "scheme-1",
                 "hover_color_scheme": "",
@@ -1135,7 +1164,7 @@
             "icon_GrktW3": {
               "type": "icon",
               "settings": {
-                "icon": "eye",
+                "icon": "star",
                 "width": 32,
                 "link": "",
                 "open_in_new_tab": false
@@ -1285,7 +1314,7 @@
             "icon_GQa9E4": {
               "type": "icon",
               "settings": {
-                "icon": "heart",
+                "icon": "plant",
                 "width": 32,
                 "link": "",
                 "open_in_new_tab": false
@@ -1435,7 +1464,7 @@
             "icon_VfNKCG": {
               "type": "icon",
               "settings": {
-                "icon": "silhouette",
+                "icon": "fire",
                 "width": 32,
                 "link": "",
                 "open_in_new_tab": false
@@ -1484,7 +1513,7 @@
                 "text_EjNhNN": {
                   "type": "text",
                   "settings": {
-                    "text": "<h2>Mānuka Honey</h2>",
+                    "text": "<h2>M\u0101nuka Honey</h2>",
                     "width": "100%",
                     "max_width": "none",
                     "alignment": "center",
@@ -1667,7 +1696,7 @@
                 "accordion_row_FccpwP": {
                   "type": "accordion_row",
                   "settings": {
-                    "heading": "Golden Bay Mānuka Honey",
+                    "heading": "Golden Bay M\u0101nuka Honey",
                     "right_heading": "",
                     "open_by_default": false,
                     "color_scheme": "",
@@ -1721,7 +1750,7 @@
                 "accordion_row_GDgpLh": {
                   "type": "accordion_row",
                   "settings": {
-                    "heading": "Golden Bay Mānuka Honey",
+                    "heading": "Golden Bay M\u0101nuka Honey",
                     "right_heading": "",
                     "open_by_default": false,
                     "color_scheme": "",
@@ -1775,7 +1804,7 @@
                 "accordion_row_f7kbTN": {
                   "type": "accordion_row",
                   "settings": {
-                    "heading": "Golden Bay Mānuka Honey",
+                    "heading": "Golden Bay M\u0101nuka Honey",
                     "right_heading": "",
                     "open_by_default": false,
                     "color_scheme": "",
@@ -2119,9 +2148,9 @@
         "video_position": "cover",
         "background_image": "shopify://shop_images/R0003355.jpg",
         "background_image_position": "cover",
-        "border": "none",
+        "border": "solid",
         "border_width": 1,
-        "border_opacity": 100,
+        "border_opacity": 0,
         "split_divider_color": "#e5e5e5",
         "border_radius": 0,
         "toggle_overlay": false,
@@ -2130,47 +2159,6 @@
         "gradient_direction": "to top",
         "padding-block-start": 42,
         "padding-block-end": 42
-      }
-    },
-    "marquee_qq9cG8": {
-      "type": "marquee",
-      "blocks": {
-        "text_ddgJPp": {
-          "type": "text",
-          "settings": {
-            "text": "<h4>DAILY BREAD PEACHES BOWLER BEAU DELI </h4>",
-            "width": "100%",
-            "max_width": "none",
-            "alignment": "left",
-            "type_preset": "custom",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "tight",
-            "letter_spacing": "tight",
-            "case": "none",
-            "wrap": "nowrap",
-            "color": "var(--color-foreground)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "text_ddgJPp"
-      ],
-      "name": "t:names.marquee_section",
-      "settings": {
-        "movement_direction": "normal",
-        "color_scheme": "scheme-8",
-        "padding-block-start": 24,
-        "padding-block-end": 24,
-        "gap_between_elements": 24
       }
     },
     "hero_kCVtyD": {
@@ -2260,7 +2248,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<h1>Mānuka Honey From Golden Bay</h1>",
+                    "text": "<h1>M\u0101nuka Honey From Golden Bay</h1>",
                     "width": "100%",
                     "max_width": "narrow",
                     "alignment": "left",
@@ -2607,11 +2595,11 @@
     }
   },
   "order": [
+    "accordion_E6Vrmm",
     "section_wi6VEg",
     "section_eTdFVE",
     "section_GcL7hN",
     "section_KKkpbN",
-    "marquee_qq9cG8",
     "hero_kCVtyD",
     "featured_blog_posts_EgLy9B"
   ]
