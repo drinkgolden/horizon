@@ -10,10 +10,10 @@
 {
   "sections": {
     "accordion_E6Vrmm": {
-      "type": "accordion",
+      "type": "accordion-stack",
       "blocks": {
         "accordion_row_69meB9": {
-          "type": "accordion_row",
+          "type": "accordion_stack_row",
           "settings": {}
         }
       },
@@ -108,7 +108,7 @@
               "type": "accordion_row",
               "name": "t:names.accordion_row",
               "settings": {
-                "heading": "Mānuka Honey Soda",
+                "heading": "M\u0101nuka Honey Soda",
                 "right_heading": "",
                 "open_by_default": false,
                 "color_scheme": "scheme-1",
@@ -1513,7 +1513,7 @@
                 "text_EjNhNN": {
                   "type": "text",
                   "settings": {
-                    "text": "<h2>Mānuka Honey</h2>",
+                    "text": "<h2>M\u0101nuka Honey</h2>",
                     "width": "100%",
                     "max_width": "none",
                     "alignment": "center",
@@ -1696,7 +1696,7 @@
                 "accordion_row_FccpwP": {
                   "type": "accordion_row",
                   "settings": {
-                    "heading": "Golden Bay Mānuka Honey",
+                    "heading": "Golden Bay M\u0101nuka Honey",
                     "right_heading": "",
                     "open_by_default": false,
                     "color_scheme": "",
@@ -1750,7 +1750,7 @@
                 "accordion_row_GDgpLh": {
                   "type": "accordion_row",
                   "settings": {
-                    "heading": "Golden Bay Mānuka Honey",
+                    "heading": "Golden Bay M\u0101nuka Honey",
                     "right_heading": "",
                     "open_by_default": false,
                     "color_scheme": "",
@@ -1804,7 +1804,7 @@
                 "accordion_row_f7kbTN": {
                   "type": "accordion_row",
                   "settings": {
-                    "heading": "Golden Bay Mānuka Honey",
+                    "heading": "Golden Bay M\u0101nuka Honey",
                     "right_heading": "",
                     "open_by_default": false,
                     "color_scheme": "",
@@ -2248,7 +2248,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<h1>Mānuka Honey From Golden Bay</h1>",
+                    "text": "<h1>M\u0101nuka Honey From Golden Bay</h1>",
                     "width": "100%",
                     "max_width": "narrow",
                     "alignment": "left",
