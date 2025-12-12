@@ -108,7 +108,7 @@
               "type": "accordion_row",
               "name": "t:names.accordion_row",
               "settings": {
-                "heading": "Lemon Honey Soda",
+                "heading": "Mānuka Honey Soda",
                 "right_heading": "",
                 "open_by_default": false,
                 "color_scheme": "scheme-1",
@@ -509,7 +509,7 @@
               "name": "t:names.accordion_row",
               "settings": {
                 "heading": "Low Cal",
-                "right_heading": "Mānuka",
+                "right_heading": "MGO +83",
                 "open_by_default": false,
                 "color_scheme": "scheme-1",
                 "hover_color_scheme": "",
@@ -1164,7 +1164,7 @@
             "icon_GrktW3": {
               "type": "icon",
               "settings": {
-                "icon": "eye",
+                "icon": "star",
                 "width": 32,
                 "link": "",
                 "open_in_new_tab": false
@@ -1314,7 +1314,7 @@
             "icon_GQa9E4": {
               "type": "icon",
               "settings": {
-                "icon": "heart",
+                "icon": "plant",
                 "width": 32,
                 "link": "",
                 "open_in_new_tab": false
@@ -1464,7 +1464,7 @@
             "icon_VfNKCG": {
               "type": "icon",
               "settings": {
-                "icon": "silhouette",
+                "icon": "fire",
                 "width": 32,
                 "link": "",
                 "open_in_new_tab": false
