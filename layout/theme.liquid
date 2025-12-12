@@ -131,11 +131,8 @@
     {% endif %}
 
     {% if settings.enable_bottom_motif_button %}
-      --motif-button-max-width-desktop: {{ settings.bottom_motif_button_max_width_desktop | default: 360 }}px;
-      --motif-button-max-width-mobile: {{ settings.bottom_motif_button_max_width_mobile | default: 220 }}px;
-      --motif-button-vertical-offset: {{ settings.bottom_motif_button_vertical_offset | default: 16 }}px;
-      --motif-button-background: {{ settings.bottom_motif_button_background | default: 'transparent' }};
-      --motif-button-text-color: {{ settings.bottom_motif_button_text_color | default: '#ffffff' }};
+      --motif-button-background: {{ settings.bottom_motif_button_background | default: '#F1D35E' }};
+      --motif-button-text-color: {{ settings.bottom_motif_button_text_color | default: '#111111' }};
     {% endif %}
   {% endcapture %}
   <body
@@ -182,31 +179,62 @@
     {% endif %}
 
     {% if settings.enable_bottom_motif_button %}
-      <div class="floating-motif-button" data-floating-motif-button>
-        {% if settings.bottom_motif_button_link != blank %}
-          <a class="floating-motif-button__link" href="{{ settings.bottom_motif_button_link }}" aria-label="{{ settings.bottom_motif_button_label | escape }}">
-        {% else %}
-          <div class="floating-motif-button__link" role="presentation">
-        {% endif %}
-            <span class="floating-motif-button__surface">
-              {% if settings.bottom_motif_button_svg != blank %}
-                {{
-                  settings.bottom_motif_button_svg
-                  | image_url: width: 800
-                  | image_tag:
-                    loading: 'lazy',
-                    class: 'floating-motif-button__motif',
-                    alt: '',
-                    role: 'presentation'
-                }}
-              {% endif %}
-              <span class="floating-motif-button__label">{{ settings.bottom_motif_button_label }}</span>
-            </span>
-        {% if settings.bottom_motif_button_link != blank %}
-          </a>
-        {% else %}
+      {% liquid
+        assign has_primary_action = false
+        assign has_secondary_action = false
+        if settings.bottom_motif_button_label != blank and settings.bottom_motif_button_link != blank
+          assign has_primary_action = true
+        endif
+        if settings.bottom_motif_secondary_button_label != blank and settings.bottom_motif_secondary_button_link != blank
+          assign has_secondary_action = true
+        endif
+      %}
+      <div class="floating-motif-button" data-floating-motif-button aria-hidden="true">
+        <div class="floating-motif-button__surface">
+          {%- render 'floating-motif-shapes' -%}
+          <div class="floating-motif-button__body">
+            {% if settings.bottom_motif_button_heading != blank or settings.bottom_motif_button_copy != blank %}
+              <div class="floating-motif-button__text-group">
+                {% if settings.bottom_motif_button_heading != blank %}
+                  <p class="floating-motif-button__heading">{{ settings.bottom_motif_button_heading }}</p>
+                {% endif %}
+                {% if settings.bottom_motif_button_copy != blank %}
+                  <div class="floating-motif-button__copy rte">{{ settings.bottom_motif_button_copy }}</div>
+                {% endif %}
+              </div>
+            {% endif %}
+            {% if has_primary_action or has_secondary_action %}
+              <div class="floating-motif-button__actions">
+                {% if has_primary_action %}
+                  <a
+                    class="floating-motif-button__action floating-motif-button__action--primary button button--primary"
+                    href="{{ settings.bottom_motif_button_link }}"
+                  >
+                    {{ settings.bottom_motif_button_label }}
+                  </a>
+                {% endif %}
+                {% if has_secondary_action %}
+                  <a
+                    class="floating-motif-button__action floating-motif-button__action--secondary button button--tertiary"
+                    href="{{ settings.bottom_motif_secondary_button_link }}"
+                  >
+                    {{ settings.bottom_motif_secondary_button_label }}
+                  </a>
+                {% endif %}
+              </div>
+            {% endif %}
           </div>
-        {% endif %}
+          <button
+            class="button button-unstyled close-button floating-motif-button__close"
+            type="button"
+            aria-label="{{ 'actions.close' | t }}"
+            data-floating-motif-close
+          >
+            <span class="svg-wrapper header-drawer-icon header-drawer-icon--close">
+              {{- 'icon-close.svg' | inline_asset_content -}}
+            </span>
+          </button>
+        </div>
       </div>
     {% endif %}
   </body>
