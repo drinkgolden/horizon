@@ -9,35 +9,6 @@
  */
 {
   "sections": {
-    "accordion_E6Vrmm": {
-      "type": "accordion-stack",
-      "blocks": {
-        "accordion_row_69meB9": {
-          "type": "accordion_stack_row",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "accordion_row_69meB9"
-      ],
-      "name": "Accordion",
-      "settings": {
-        "icon": "caret",
-        "dividers": true,
-        "type_preset": "h6",
-        "hide_section_gridline": false,
-        "color_scheme": "",
-        "section_width": "full-width",
-        "padding-block-start": 0,
-        "padding-block-end": 0,
-        "padding-inline-start": 0,
-        "padding-inline-end": 0,
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_radius": 0
-      }
-    },
     "section_wi6VEg": {
       "type": "section",
       "blocks": {
@@ -108,7 +79,7 @@
               "type": "accordion_row",
               "name": "t:names.accordion_row",
               "settings": {
-                "heading": "M\u0101nuka Honey Soda",
+                "heading": "Mānuka Honey Soda",
                 "right_heading": "",
                 "open_by_default": false,
                 "color_scheme": "scheme-1",
@@ -903,13 +874,202 @@
                 "group_H4DPWe",
                 "group_mL4qpk"
               ]
+            },
+            "accordion_row_prMdgD": {
+              "type": "accordion_row",
+              "name": "Accordion row",
+              "settings": {
+                "heading": "Mānuka Lemon Soda",
+                "right_heading": "",
+                "open_by_default": true,
+                "color_scheme": "",
+                "hover_color_scheme": "",
+                "summary_padding_block_start": 0,
+                "summary_padding_block_end": 0,
+                "summary_padding_inline_start": 12,
+                "summary_padding_inline_end": 12,
+                "content_padding_block_start": 12,
+                "content_padding_block_end": 24,
+                "content_padding_inline_start": 24,
+                "content_padding_inline_end": 24,
+                "heading_type_preset": "",
+                "right_heading_type_preset": "match",
+                "heading_min_size": 0,
+                "heading_max_size": 0,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "group_HHpWNR": {
+                  "type": "group",
+                  "name": "Left",
+                  "settings": {
+                    "content_direction": "row",
+                    "vertical_on_mobile": false,
+                    "horizontal_alignment": "flex-start",
+                    "vertical_alignment": "center",
+                    "align_baseline": false,
+                    "horizontal_alignment_flex_direction_column": "flex-start",
+                    "vertical_alignment_flex_direction_column": "center",
+                    "gap": 12,
+                    "width": "fill",
+                    "custom_width": 100,
+                    "width_mobile": "fill",
+                    "custom_width_mobile": 100,
+                    "height": "fit",
+                    "custom_height": 100,
+                    "inherit_color_scheme": true,
+                    "color_scheme": "",
+                    "background_media": "none",
+                    "video_position": "cover",
+                    "background_image_position": "cover",
+                    "border": "none",
+                    "border_width": 1,
+                    "border_opacity": 100,
+                    "border_radius": 0,
+                    "toggle_overlay": false,
+                    "overlay_color": "#00000026",
+                    "overlay_style": "solid",
+                    "gradient_direction": "to top",
+                    "link": "",
+                    "open_in_new_tab": false,
+                    "placeholder": "",
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {
+                    "image_9iRBbB": {
+                      "type": "image",
+                      "name": "t:names.image",
+                      "settings": {
+                        "image": "shopify://shop_images/DSCN9605_797712ad-fb85-4ab5-a9e4-dcde6c666295.jpg",
+                        "link": "",
+                        "image_ratio": "adapt",
+                        "width": "fill",
+                        "custom_width": 100,
+                        "width_mobile": "fill",
+                        "custom_width_mobile": 100,
+                        "height": "fit",
+                        "border": "none",
+                        "border_width": 1,
+                        "border_opacity": 100,
+                        "border_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    },
+                    "product_card_rXmgHt": {
+                      "type": "product-card",
+                      "name": "t:names.product_card",
+                      "settings": {
+                        "product": "golden-lemon-manuka",
+                        "product_card_gap": 4,
+                        "inherit_color_scheme": true,
+                        "color_scheme": "",
+                        "border": "none",
+                        "border_width": 1,
+                        "border_opacity": 100,
+                        "border_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {
+                        "product_card_gallery_PMByby": {
+                          "type": "_product-card-gallery",
+                          "settings": {
+                            "image_ratio": "portrait",
+                            "border": "none",
+                            "border_width": 1,
+                            "border_opacity": 100,
+                            "border_radius": 0,
+                            "padding-block-start": 24,
+                            "padding-block-end": 24,
+                            "padding-inline-start": 24,
+                            "padding-inline-end": 24
+                          },
+                          "blocks": {}
+                        },
+                        "product_title_aMLify": {
+                          "type": "product-title",
+                          "name": "t:names.product_title",
+                          "settings": {
+                            "width": "100%",
+                            "max_width": "normal",
+                            "alignment": "left",
+                            "type_preset": "h6",
+                            "font": "var(--font-body--family)",
+                            "font_size": "1rem",
+                            "line_height": "normal",
+                            "letter_spacing": "normal",
+                            "case": "none",
+                            "wrap": "pretty",
+                            "color": "var(--color-foreground)",
+                            "background": false,
+                            "background_color": "#00000026",
+                            "corner_radius": 0,
+                            "padding-block-start": 4,
+                            "padding-block-end": 0,
+                            "padding-inline-start": 0,
+                            "padding-inline-end": 0
+                          },
+                          "blocks": {}
+                        },
+                        "price_PQ7edK": {
+                          "type": "price",
+                          "name": "t:names.product_price",
+                          "disabled": true,
+                          "settings": {
+                            "show_sale_price_first": true,
+                            "show_installments": false,
+                            "show_tax_info": false,
+                            "type_preset": "h6",
+                            "width": "100%",
+                            "alignment": "left",
+                            "font": "var(--font-body--family)",
+                            "font_size": "1rem",
+                            "line_height": "normal",
+                            "letter_spacing": "normal",
+                            "case": "none",
+                            "color": "var(--color-foreground)",
+                            "padding-block-start": 0,
+                            "padding-block-end": 0,
+                            "padding-inline-start": 0,
+                            "padding-inline-end": 0
+                          },
+                          "blocks": {}
+                        }
+                      },
+                      "block_order": [
+                        "product_card_gallery_PMByby",
+                        "product_title_aMLify",
+                        "price_PQ7edK"
+                      ]
+                    }
+                  },
+                  "block_order": [
+                    "image_9iRBbB",
+                    "product_card_rXmgHt"
+                  ]
+                }
+              },
+              "block_order": [
+                "group_HHpWNR"
+              ]
             }
           },
           "block_order": [
             "accordion_row_eanBJb",
             "accordion_row_4P4Dck",
             "accordion_row_N9TEDh",
-            "accordion_row_R7BQfk"
+            "accordion_row_R7BQfk",
+            "accordion_row_prMdgD"
           ]
         }
       },
@@ -1513,7 +1673,7 @@
                 "text_EjNhNN": {
                   "type": "text",
                   "settings": {
-                    "text": "<h2>M\u0101nuka Honey</h2>",
+                    "text": "<h2>Mānuka Honey</h2>",
                     "width": "100%",
                     "max_width": "none",
                     "alignment": "center",
@@ -1608,559 +1768,6 @@
         "padding-block-end": 64
       }
     },
-    "section_KKkpbN": {
-      "type": "section",
-      "blocks": {
-        "group_688Yx9": {
-          "type": "group",
-          "name": "t:names.group",
-          "settings": {
-            "content_direction": "column",
-            "vertical_on_mobile": true,
-            "horizontal_alignment": "flex-start",
-            "vertical_alignment": "center",
-            "align_baseline": false,
-            "horizontal_alignment_flex_direction_column": "center",
-            "vertical_alignment_flex_direction_column": "flex-start",
-            "gap": 12,
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fill",
-            "custom_height": 100,
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "background_media": "none",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "toggle_overlay": false,
-            "overlay_color": "#00000026",
-            "overlay_style": "solid",
-            "gradient_direction": "to top",
-            "link": "",
-            "open_in_new_tab": false,
-            "placeholder": "",
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "image_JaKJVk": {
-              "type": "image",
-              "name": "t:names.image",
-              "settings": {
-                "image": "shopify://shop_images/BLACKCURRANTHONEYSODASVG.webp",
-                "link": "",
-                "image_ratio": "landscape",
-                "width": "fill",
-                "custom_width": 100,
-                "width_mobile": "fill",
-                "custom_width_mobile": 100,
-                "height": "fit",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "accordion_HwUnGy": {
-              "type": "accordion",
-              "name": "t:names.accordion",
-              "settings": {
-                "icon": "caret",
-                "dividers": true,
-                "type_preset": "h4",
-                "inherit_color_scheme": true,
-                "color_scheme": "",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {
-                "accordion_row_FccpwP": {
-                  "type": "accordion_row",
-                  "settings": {
-                    "heading": "Golden Bay M\u0101nuka Honey",
-                    "right_heading": "",
-                    "open_by_default": false,
-                    "color_scheme": "",
-                    "hover_color_scheme": "",
-                    "summary_padding_block_start": 0,
-                    "summary_padding_block_end": 0,
-                    "summary_padding_inline_start": 24,
-                    "summary_padding_inline_end": 24,
-                    "content_padding_block_start": 12,
-                    "content_padding_block_end": 12,
-                    "content_padding_inline_start": 24,
-                    "content_padding_inline_end": 24,
-                    "heading_type_preset": "",
-                    "right_heading_type_preset": "",
-                    "heading_min_size": 1.4,
-                    "heading_max_size": 3.4,
-                    "icon": "none",
-                    "width": 20
-                  },
-                  "blocks": {
-                    "text_TpcBnK": {
-                      "type": "text",
-                      "settings": {
-                        "text": "<p>Our goal is for every customer to be totally satisfied with their purchase. If this isn't the case, let us know and we'll do our best to work with you to make it right.</p>",
-                        "width": "100%",
-                        "max_width": "none",
-                        "alignment": "left",
-                        "type_preset": "rte",
-                        "font": "var(--font-body--family)",
-                        "font_size": "1rem",
-                        "line_height": "normal",
-                        "letter_spacing": "normal",
-                        "case": "none",
-                        "wrap": "pretty",
-                        "color": "var(--color-foreground)",
-                        "background": false,
-                        "background_color": "#00000026",
-                        "corner_radius": 0,
-                        "padding-block-start": 0,
-                        "padding-block-end": 12,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "text_TpcBnK"
-                  ]
-                },
-                "accordion_row_GDgpLh": {
-                  "type": "accordion_row",
-                  "settings": {
-                    "heading": "Golden Bay M\u0101nuka Honey",
-                    "right_heading": "",
-                    "open_by_default": false,
-                    "color_scheme": "",
-                    "hover_color_scheme": "",
-                    "summary_padding_block_start": 0,
-                    "summary_padding_block_end": 0,
-                    "summary_padding_inline_start": 24,
-                    "summary_padding_inline_end": 24,
-                    "content_padding_block_start": 12,
-                    "content_padding_block_end": 12,
-                    "content_padding_inline_start": 24,
-                    "content_padding_inline_end": 24,
-                    "heading_type_preset": "",
-                    "right_heading_type_preset": "",
-                    "heading_min_size": 1.4,
-                    "heading_max_size": 3.4,
-                    "icon": "none",
-                    "width": 20
-                  },
-                  "blocks": {
-                    "text_EWeMYL": {
-                      "type": "text",
-                      "settings": {
-                        "text": "<p>Our goal is for every customer to be totally satisfied with their purchase. If this isn't the case, let us know and we'll do our best to work with you to make it right.</p>",
-                        "width": "100%",
-                        "max_width": "none",
-                        "alignment": "left",
-                        "type_preset": "rte",
-                        "font": "var(--font-body--family)",
-                        "font_size": "1rem",
-                        "line_height": "normal",
-                        "letter_spacing": "normal",
-                        "case": "none",
-                        "wrap": "pretty",
-                        "color": "var(--color-foreground)",
-                        "background": false,
-                        "background_color": "#00000026",
-                        "corner_radius": 0,
-                        "padding-block-start": 0,
-                        "padding-block-end": 12,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "text_EWeMYL"
-                  ]
-                },
-                "accordion_row_f7kbTN": {
-                  "type": "accordion_row",
-                  "settings": {
-                    "heading": "Golden Bay M\u0101nuka Honey",
-                    "right_heading": "",
-                    "open_by_default": false,
-                    "color_scheme": "",
-                    "hover_color_scheme": "",
-                    "summary_padding_block_start": 0,
-                    "summary_padding_block_end": 0,
-                    "summary_padding_inline_start": 24,
-                    "summary_padding_inline_end": 24,
-                    "content_padding_block_start": 12,
-                    "content_padding_block_end": 12,
-                    "content_padding_inline_start": 24,
-                    "content_padding_inline_end": 24,
-                    "heading_type_preset": "",
-                    "right_heading_type_preset": "",
-                    "heading_min_size": 1.4,
-                    "heading_max_size": 3.4,
-                    "icon": "none",
-                    "width": 20
-                  },
-                  "blocks": {
-                    "text_iwanPJ": {
-                      "type": "text",
-                      "settings": {
-                        "text": "<p>Our goal is for every customer to be totally satisfied with their purchase. If this isn't the case, let us know and we'll do our best to work with you to make it right.</p>",
-                        "width": "100%",
-                        "max_width": "none",
-                        "alignment": "left",
-                        "type_preset": "rte",
-                        "font": "var(--font-body--family)",
-                        "font_size": "1rem",
-                        "line_height": "normal",
-                        "letter_spacing": "normal",
-                        "case": "none",
-                        "wrap": "pretty",
-                        "color": "var(--color-foreground)",
-                        "background": false,
-                        "background_color": "#00000026",
-                        "corner_radius": 0,
-                        "padding-block-start": 0,
-                        "padding-block-end": 12,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "text_iwanPJ"
-                  ]
-                }
-              },
-              "block_order": [
-                "accordion_row_FccpwP",
-                "accordion_row_GDgpLh",
-                "accordion_row_f7kbTN"
-              ]
-            }
-          },
-          "block_order": [
-            "image_JaKJVk",
-            "accordion_HwUnGy"
-          ]
-        },
-        "group_af6hfW": {
-          "type": "group",
-          "name": "t:names.group",
-          "settings": {
-            "content_direction": "column",
-            "vertical_on_mobile": true,
-            "horizontal_alignment": "flex-start",
-            "vertical_alignment": "center",
-            "align_baseline": false,
-            "horizontal_alignment_flex_direction_column": "center",
-            "vertical_alignment_flex_direction_column": "space-between",
-            "gap": 12,
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fill",
-            "custom_height": 100,
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "background_media": "none",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "toggle_overlay": false,
-            "overlay_color": "#00000026",
-            "overlay_style": "solid",
-            "gradient_direction": "to top",
-            "link": "",
-            "open_in_new_tab": false,
-            "placeholder": "",
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "image_4FN3CU": {
-              "type": "image",
-              "name": "t:names.image",
-              "settings": {
-                "image": "shopify://shop_images/LEMONHONEYSODAFRONTSVG.webp",
-                "link": "",
-                "image_ratio": "landscape",
-                "width": "fill",
-                "custom_width": 100,
-                "width_mobile": "fill",
-                "custom_width_mobile": 100,
-                "height": "fit",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "accordion_zEnQry": {
-              "type": "accordion",
-              "name": "t:names.accordion",
-              "settings": {
-                "icon": "caret",
-                "dividers": true,
-                "type_preset": "h4",
-                "inherit_color_scheme": true,
-                "color_scheme": "",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {
-                "accordion_row_fnW7FW": {
-                  "type": "accordion_row",
-                  "settings": {
-                    "heading": "",
-                    "right_heading": "Return policy",
-                    "open_by_default": false,
-                    "color_scheme": "",
-                    "hover_color_scheme": "",
-                    "summary_padding_block_start": 0,
-                    "summary_padding_block_end": 0,
-                    "summary_padding_inline_start": 24,
-                    "summary_padding_inline_end": 24,
-                    "content_padding_block_start": 12,
-                    "content_padding_block_end": 12,
-                    "content_padding_inline_start": 24,
-                    "content_padding_inline_end": 24,
-                    "heading_type_preset": "",
-                    "right_heading_type_preset": "",
-                    "heading_min_size": 1.4,
-                    "heading_max_size": 3.4,
-                    "icon": "none",
-                    "width": 20
-                  },
-                  "blocks": {
-                    "text_r4taQ8": {
-                      "type": "text",
-                      "settings": {
-                        "text": "<p>Our goal is for every customer to be totally satisfied with their purchase. If this isn't the case, let us know and we'll do our best to work with you to make it right.</p>",
-                        "width": "100%",
-                        "max_width": "none",
-                        "alignment": "left",
-                        "type_preset": "rte",
-                        "font": "var(--font-body--family)",
-                        "font_size": "1rem",
-                        "line_height": "normal",
-                        "letter_spacing": "normal",
-                        "case": "none",
-                        "wrap": "pretty",
-                        "color": "var(--color-foreground)",
-                        "background": false,
-                        "background_color": "#00000026",
-                        "corner_radius": 0,
-                        "padding-block-start": 0,
-                        "padding-block-end": 12,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "text_r4taQ8"
-                  ]
-                },
-                "accordion_row_QqJmUR": {
-                  "type": "accordion_row",
-                  "settings": {
-                    "heading": "Return policy",
-                    "right_heading": "",
-                    "open_by_default": false,
-                    "color_scheme": "",
-                    "hover_color_scheme": "",
-                    "summary_padding_block_start": 0,
-                    "summary_padding_block_end": 0,
-                    "summary_padding_inline_start": 24,
-                    "summary_padding_inline_end": 24,
-                    "content_padding_block_start": 12,
-                    "content_padding_block_end": 12,
-                    "content_padding_inline_start": 24,
-                    "content_padding_inline_end": 24,
-                    "heading_type_preset": "",
-                    "right_heading_type_preset": "",
-                    "heading_min_size": 1.4,
-                    "heading_max_size": 3.4,
-                    "icon": "none",
-                    "width": 20
-                  },
-                  "blocks": {
-                    "text_iqFhGP": {
-                      "type": "text",
-                      "settings": {
-                        "text": "<p>Our goal is for every customer to be totally satisfied with their purchase. If this isn't the case, let us know and we'll do our best to work with you to make it right.</p>",
-                        "width": "100%",
-                        "max_width": "none",
-                        "alignment": "left",
-                        "type_preset": "rte",
-                        "font": "var(--font-body--family)",
-                        "font_size": "1rem",
-                        "line_height": "normal",
-                        "letter_spacing": "normal",
-                        "case": "none",
-                        "wrap": "pretty",
-                        "color": "var(--color-foreground)",
-                        "background": false,
-                        "background_color": "#00000026",
-                        "corner_radius": 0,
-                        "padding-block-start": 0,
-                        "padding-block-end": 12,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "text_iqFhGP"
-                  ]
-                },
-                "accordion_row_fVVUar": {
-                  "type": "accordion_row",
-                  "settings": {
-                    "heading": "Return policy",
-                    "right_heading": "",
-                    "open_by_default": false,
-                    "color_scheme": "",
-                    "hover_color_scheme": "",
-                    "summary_padding_block_start": 0,
-                    "summary_padding_block_end": 0,
-                    "summary_padding_inline_start": 24,
-                    "summary_padding_inline_end": 24,
-                    "content_padding_block_start": 12,
-                    "content_padding_block_end": 12,
-                    "content_padding_inline_start": 24,
-                    "content_padding_inline_end": 24,
-                    "heading_type_preset": "",
-                    "right_heading_type_preset": "",
-                    "heading_min_size": 1.4,
-                    "heading_max_size": 3.4,
-                    "icon": "none",
-                    "width": 20
-                  },
-                  "blocks": {
-                    "text_jC3kbQ": {
-                      "type": "text",
-                      "settings": {
-                        "text": "<p>Our goal is for every customer to be totally satisfied with their purchase. If this isn't the case, let us know and we'll do our best to work with you to make it right.</p>",
-                        "width": "100%",
-                        "max_width": "none",
-                        "alignment": "left",
-                        "type_preset": "rte",
-                        "font": "var(--font-body--family)",
-                        "font_size": "1rem",
-                        "line_height": "normal",
-                        "letter_spacing": "normal",
-                        "case": "none",
-                        "wrap": "pretty",
-                        "color": "var(--color-foreground)",
-                        "background": false,
-                        "background_color": "#00000026",
-                        "corner_radius": 0,
-                        "padding-block-start": 0,
-                        "padding-block-end": 12,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "text_jC3kbQ"
-                  ]
-                }
-              },
-              "block_order": [
-                "accordion_row_fnW7FW",
-                "accordion_row_QqJmUR",
-                "accordion_row_fVVUar"
-              ]
-            }
-          },
-          "block_order": [
-            "image_4FN3CU",
-            "accordion_zEnQry"
-          ]
-        }
-      },
-      "block_order": [
-        "group_688Yx9",
-        "group_af6hfW"
-      ],
-      "name": "t:names.split_showcase",
-      "settings": {
-        "content_direction": "row",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "space-between",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "flex-start",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 0,
-        "section_width": "full-width",
-        "section_height": "",
-        "section_height_custom": 100,
-        "color_scheme": "",
-        "background_media": "none",
-        "video_position": "cover",
-        "background_image": "shopify://shop_images/R0003355.jpg",
-        "background_image_position": "cover",
-        "border": "solid",
-        "border_width": 1,
-        "border_opacity": 0,
-        "split_divider_color": "#e5e5e5",
-        "border_radius": 0,
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "padding-block-start": 42,
-        "padding-block-end": 42
-      }
-    },
     "hero_kCVtyD": {
       "type": "hero",
       "blocks": {
@@ -2248,7 +1855,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<h1>M\u0101nuka Honey From Golden Bay</h1>",
+                    "text": "<h1>Mānuka Honey From Golden Bay</h1>",
                     "width": "100%",
                     "max_width": "narrow",
                     "alignment": "left",
@@ -2595,11 +2202,9 @@
     }
   },
   "order": [
-    "accordion_E6Vrmm",
     "section_wi6VEg",
     "section_eTdFVE",
     "section_GcL7hN",
-    "section_KKkpbN",
     "hero_kCVtyD",
     "featured_blog_posts_EgLy9B"
   ]
