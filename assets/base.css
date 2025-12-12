@@ -174,7 +174,7 @@ html.no-js .floating-motif-button {
   position: relative;
   width: 100%;
   color: var(--motif-button-background, #f1d35e);
-  background-color: var(--motif-button-background, #f1d35e);
+  background-color: transparent;
   padding-bottom: calc(env(safe-area-inset-bottom, 0) + 4px);
   pointer-events: auto;
   filter: drop-shadow(0 -8px 32px rgb(0 0 0 / 0.16));
