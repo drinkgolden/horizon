@@ -136,7 +136,7 @@
                     "heading_type_preset": "",
                     "right_heading_type_preset": "match",
                     "heading_min_size": 1.8,
-                    "heading_max_size": 3.4,
+                    "heading_max_size": 3,
                     "icon": "none",
                     "width": 20
                   },
@@ -190,7 +190,7 @@
                     "heading_type_preset": "",
                     "right_heading_type_preset": "match",
                     "heading_min_size": 1.8,
-                    "heading_max_size": 3.4,
+                    "heading_max_size": 3,
                     "icon": "none",
                     "width": 20
                   },
@@ -244,7 +244,7 @@
                     "heading_type_preset": "",
                     "right_heading_type_preset": "match",
                     "heading_min_size": 1.8,
-                    "heading_max_size": 3.4,
+                    "heading_max_size": 3,
                     "icon": "none",
                     "width": 20
                   },
