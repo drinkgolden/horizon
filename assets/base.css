@@ -147,6 +147,7 @@ body:has(> #header-group > .header-section) > main > .section-wrapper:first-chil
   transform: translateY(100%);
   opacity: 0;
   visibility: hidden;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
   transition:
     transform var(--duration-lg, 600ms) var(--ease-out-quad),
     opacity var(--duration-sm, 200ms) var(--ease-out-quad);
@@ -175,25 +176,28 @@ html.no-js .floating-motif-button {
   width: 100%;
   color: var(--motif-button-background, #f1d35e);
   background-color: transparent;
-  padding-bottom: calc(env(safe-area-inset-bottom, 0) + 4px);
   pointer-events: auto;
   filter: drop-shadow(0 -8px 32px rgb(0 0 0 / 0.16));
   isolation: isolate;
   overflow: hidden;
+  aspect-ratio: 375 / 55;
 }
 
 .floating-motif-button__body {
-  position: absolute;
-  inset: clamp(8px, 4vw, 28px) clamp(16px, 6vw, 96px);
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
-  gap: clamp(0.35rem, 2vw, 1.5rem);
-  text-align: center;
-  color: var(--motif-button-text-color, #111111);
   justify-content: center;
   align-items: center;
+  gap: clamp(0.35rem, 2vw, 1.5rem);
+  height: 100%;
+  width: 100%;
+  padding-block: clamp(8px, 4vw, 28px);
+  padding-inline: clamp(16px, 6vw, 96px);
+  color: var(--motif-button-text-color, #111111);
+  text-align: center;
   pointer-events: auto;
-  z-index: 1;
 }
 
 .floating-motif-button__text-group {
@@ -243,9 +247,12 @@ html.no-js .floating-motif-button {
 }
 
 .floating-motif-button__shape {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
   display: none;
+  pointer-events: none;
 }
 
 .floating-motif-button__shape--mobile {
@@ -273,6 +280,10 @@ html.no-js .floating-motif-button {
 }
 
 @media screen and (min-width: 750px) {
+  .floating-motif-button__surface {
+    aspect-ratio: 1024 / 74;
+  }
+
   .floating-motif-button__shape--mobile {
     display: none;
   }
@@ -315,6 +326,10 @@ html.no-js .floating-motif-button {
 }
 
 @media screen and (min-width: 1200px) {
+  .floating-motif-button__surface {
+    aspect-ratio: 1280 / 84;
+  }
+
   .floating-motif-button__shape--tablet {
     display: none;
   }
