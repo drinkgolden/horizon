@@ -152,17 +152,6 @@ body:has(> #header-group > .header-section) > main > .section-wrapper:first-chil
     opacity var(--duration-sm, 200ms) var(--ease-out-quad);
 }
 
-.floating-motif-button::before {
-  content: '';
-  position: absolute;
-  bottom: 100%;
-  left: 0;
-  right: 0;
-  height: var(--floating-motif-divider-thickness, var(--golden-gridline-thickness, var(--section-gridline-width, 1px)));
-  background-color: var(--floating-motif-divider-color, var(--golden-gridline-color, var(--section-gridline-color, var(--section-gridline-color-default, rgba(0, 0, 0, 0.08)))));
-  pointer-events: none;
-}
-
 .floating-motif-button.is-visible {
   transform: translateY(0);
   opacity: 1;
@@ -269,6 +258,15 @@ html.no-js .floating-motif-button {
 
 .floating-motif-button__shape--mobile {
   display: block;
+}
+
+.floating-motif-button__stroke {
+  fill: none;
+  stroke: var(--floating-motif-divider-color, var(--golden-gridline-color, var(--section-gridline-color, var(--section-gridline-color-default, rgba(0, 0, 0, 0.08)))));
+  stroke-width: var(--floating-motif-divider-thickness, var(--golden-gridline-thickness, var(--section-gridline-width, 1px)));
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .floating-motif-button__close {
