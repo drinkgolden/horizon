@@ -147,10 +147,20 @@ body:has(> #header-group > .header-section) > main > .section-wrapper:first-chil
   transform: translateY(100%);
   opacity: 0;
   visibility: hidden;
-  padding-bottom: env(safe-area-inset-bottom, 0px);
   transition:
     transform var(--duration-lg, 600ms) var(--ease-out-quad),
     opacity var(--duration-sm, 200ms) var(--ease-out-quad);
+}
+
+.floating-motif-button::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  height: var(--floating-motif-divider-thickness, var(--golden-gridline-thickness, var(--section-gridline-width, 1px)));
+  background-color: var(--floating-motif-divider-color, var(--golden-gridline-color, var(--section-gridline-color, var(--section-gridline-color-default, rgba(0, 0, 0, 0.08)))));
+  pointer-events: none;
 }
 
 .floating-motif-button.is-visible {
@@ -174,6 +184,8 @@ html.no-js .floating-motif-button {
 .floating-motif-button__surface {
   position: relative;
   width: 100%;
+  max-width: 100%;
+  margin-inline: auto;
   color: var(--motif-button-background, #f1d35e);
   background-color: transparent;
   pointer-events: auto;
@@ -4873,5 +4885,14 @@ text-component {
   .h6.h6 textarea,
   .h6.h6 select {
     font-size: max(1rem, 100%);
+  }
+}
+body.has-side-columns .floating-motif-button__surface {
+  max-width: calc(100% - (var(--side-columns-inline-mobile, 0px) * 2));
+}
+
+@media screen and (min-width: 990px) {
+  body.has-side-columns:not(.has-side-columns--mobile) .floating-motif-button__surface {
+    max-width: calc(100% - (var(--side-columns-inline-desktop, 0px) * 2));
   }
 }
