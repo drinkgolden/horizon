@@ -289,6 +289,10 @@ html.no-js .floating-motif-button {
   height: 16px;
 }
 
+.floating-motif-button__body:empty + .floating-motif-button__close {
+  display: none;
+}
+
 @media screen and (min-width: 750px) {
   .floating-motif-button__surface {
     aspect-ratio: 1024 / 74;
