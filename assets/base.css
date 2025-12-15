@@ -72,7 +72,7 @@ body.has-side-columns #MainContent::after {
 body.has-side-columns .side-column-border {
   position: absolute;
   top: var(--header-group-height, var(--header-height, 0px));
-  bottom: 0;
+  bottom: var(--floating-motif-border-offset, 0px);
   width: 0;
   pointer-events: none;
   z-index: var(--layer-heightened);
@@ -140,7 +140,7 @@ body:has(> #header-group > .header-section) > main > .section-wrapper:first-chil
   position: fixed;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: -1px;
   width: 100%;
   z-index: var(--layer-raised);
   pointer-events: none;
