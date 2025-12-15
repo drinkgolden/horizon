@@ -185,7 +185,7 @@ html.no-js .floating-motif-button {
 .floating-motif-button__surface {
   position: relative;
   width: 100%;
-  max-width: 100%;
+  max-width: calc(var(--page-content-width, 100%) + (var(--page-margin, 0px) * 2));
   margin-inline: auto;
   color: var(--motif-button-background, #f1d35e);
   background-color: transparent;
