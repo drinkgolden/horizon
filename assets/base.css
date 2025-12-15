@@ -151,7 +151,7 @@ body:has(> #header-group > .header-section) > main > .section-wrapper:first-chil
   position: fixed;
   left: 0;
   right: 0;
-  bottom: -1px;
+  bottom: 0;
   width: 100%;
   z-index: var(--layer-raised);
   pointer-events: none;
@@ -161,18 +161,6 @@ body:has(> #header-group > .header-section) > main > .section-wrapper:first-chil
   transition:
     transform var(--duration-lg, 600ms) var(--ease-out-quad),
     opacity var(--duration-sm, 200ms) var(--ease-out-quad);
-}
-
-.floating-motif-button::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -1px;
-  height: 1px;
-  background: var(--motif-button-background, currentColor);
-  pointer-events: none;
-  z-index: -1;
 }
 
 .floating-motif-button.is-visible {
@@ -199,9 +187,8 @@ html.no-js .floating-motif-button {
   max-width: calc(var(--page-content-width, 100%) + (var(--page-margin, 0px) * 2));
   margin-inline: auto;
   color: var(--motif-button-background, #f1d35e);
-  background-color: transparent;
+  background-color: var(--motif-button-background, #f1d35e);
   pointer-events: auto;
-  filter: drop-shadow(0 -8px 32px rgb(0 0 0 / 0.16));
   isolation: isolate;
   overflow: hidden;
   aspect-ratio: 375 / 55;
