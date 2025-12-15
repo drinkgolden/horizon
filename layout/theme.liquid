@@ -138,8 +138,8 @@
           {% assign motif_scheme_settings = scheme %}
         {% endif %}
       {% endfor %}
-      {% assign motif_background = settings.bottom_motif_button_background | default: '#F1D35E' %}
-      {% assign motif_text = settings.bottom_motif_button_text_color | default: '#111111' %}
+      {% assign motif_background = '#F1D35E' %}
+      {% assign motif_text = '#111111' %}
       {% if motif_scheme_settings %}
         {% if motif_scheme_settings.settings.background != blank %}
           {% assign motif_background = 'rgba(' | append: motif_scheme_settings.settings.background.rgba | append: ')' %}
