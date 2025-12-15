@@ -15,6 +15,7 @@ body {
 body.has-side-columns {
   --side-columns-inline-desktop: var(--side-columns-width-desktop, 2vw);
   --side-columns-inline-mobile: var(--side-columns-width-mobile, var(--side-columns-inline-desktop));
+  --floating-motif-side-offset: var(--side-columns-inline-mobile, var(--side-columns-inline-desktop, 0px));
   position: relative;
 }
 
@@ -95,6 +96,10 @@ body.has-side-columns.has-section-gridlines-vertical .side-column-border {
 }
 
 @media screen and (max-width: 749px) {
+  body.has-side-columns:not(.has-side-columns--mobile) {
+    --floating-motif-side-offset: var(--side-columns-inline-desktop, 0px);
+  }
+
   body.has-side-columns:not(.has-side-columns--mobile) .side-column-border {
     display: none;
   }
@@ -129,6 +134,12 @@ body.has-side-columns.has-section-gridlines-vertical .side-column-border {
   body.has-side-columns.has-side-columns--mobile .side-column-border--right {
     right: var(--side-columns-inline-mobile);
     border-right-color: var(--side-column-border-color, transparent);
+  }
+}
+
+@media screen and (min-width: 990px) {
+  body.has-side-columns:not(.has-side-columns--mobile) {
+    --floating-motif-side-offset: var(--side-columns-inline-desktop, 0px);
   }
 }
 
@@ -194,6 +205,10 @@ html.no-js .floating-motif-button {
   isolation: isolate;
   overflow: hidden;
   aspect-ratio: 375 / 55;
+}
+
+body.has-side-columns .floating-motif-button__surface {
+  max-width: calc(100% - (var(--floating-motif-side-offset, 0px) * 2));
 }
 
 .floating-motif-button__body {
