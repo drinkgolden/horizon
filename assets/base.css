@@ -829,7 +829,7 @@ body.has-section-gridlines-horizontal
         var(--section-gridline-color-default, rgba(0, 0, 0, 0.08))
       )
     );
-    z-index: var(--layer-heightened);
+    z-index: var(--layer-flat);
     pointer-events: none;
   }
 
