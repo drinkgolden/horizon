@@ -132,8 +132,8 @@
 
     {% if settings.enable_bottom_motif_button and template == 'index' %}
       {% assign motif_background = settings.bottom_motif_button_background | default: '#F1D35E' %}
-      {% if side_columns_scheme_settings and side_columns_scheme_settings.settings.background != blank %}
-        {% assign motif_background = 'rgba(' | append: side_columns_scheme_settings.settings.background.rgba | append: ')' %}
+      {% if side_columns_background != 'transparent' %}
+        {% assign motif_background = side_columns_background %}
       {% endif %}
       --motif-button-background: {{ motif_background }};
       --motif-button-text-color: {{ settings.bottom_motif_button_text_color | default: '#111111' }};
