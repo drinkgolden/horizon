@@ -1094,6 +1094,31 @@
         "default": false
       },
       {
+        "type": "select",
+        "id": "bottom_motif_button_color_scheme",
+        "label": "Color scheme",
+        "options": [
+          {
+            "value": "scheme-1",
+            "label": "Scheme 1"
+          },
+          {
+            "value": "scheme-2",
+            "label": "Scheme 2"
+          },
+          {
+            "value": "scheme-3",
+            "label": "Scheme 3"
+          },
+          {
+            "value": "scheme-4",
+            "label": "Scheme 4"
+          }
+        ],
+        "default": "scheme-1",
+        "visible_if": "{{ settings.enable_bottom_motif_button }}"
+      },
+      {
         "type": "text",
         "id": "bottom_motif_button_heading",
         "label": "Heading",
