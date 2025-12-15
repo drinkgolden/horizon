@@ -254,6 +254,7 @@ html.no-js .floating-motif-button {
   height: 100%;
   display: none;
   pointer-events: none;
+  overflow: visible;
 }
 
 .floating-motif-button__shape--mobile {
