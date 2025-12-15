@@ -150,6 +150,7 @@
       {% endif %}
       --motif-button-background: {{ motif_background }};
       --motif-button-text-color: {{ motif_text }};
+      --floating-motif-peek-height: {{ settings.bottom_motif_button_peek_height | default: 32 }}px;
     {% endif %}
   {% endcapture %}
   <body
@@ -209,7 +210,38 @@
       <div class="floating-motif-button" data-floating-motif-button aria-hidden="true">
         <div class="floating-motif-button__surface">
           {%- render 'floating-motif-shapes' -%}
-          <div class="floating-motif-button__body"></div>
+          <div class="floating-motif-button__body">
+            {% if settings.bottom_motif_button_heading != blank or settings.bottom_motif_button_copy != blank %}
+              <div class="floating-motif-button__text-group">
+                {% if settings.bottom_motif_button_heading != blank %}
+                  <p class="floating-motif-button__heading">{{ settings.bottom_motif_button_heading }}</p>
+                {% endif %}
+                {% if settings.bottom_motif_button_copy != blank %}
+                  <div class="floating-motif-button__copy rte">{{ settings.bottom_motif_button_copy }}</div>
+                {% endif %}
+              </div>
+            {% endif %}
+            {% if has_primary_action or has_secondary_action %}
+              <div class="floating-motif-button__actions">
+                {% if has_primary_action %}
+                  <a
+                    class="floating-motif-button__action floating-motif-button__action--primary button button--primary"
+                    href="{{ settings.bottom_motif_button_link }}"
+                  >
+                    {{ settings.bottom_motif_button_label }}
+                  </a>
+                {% endif %}
+                {% if has_secondary_action %}
+                  <a
+                    class="floating-motif-button__action floating-motif-button__action--secondary button button--tertiary"
+                    href="{{ settings.bottom_motif_secondary_button_link }}"
+                  >
+                    {{ settings.bottom_motif_secondary_button_label }}
+                  </a>
+                {% endif %}
+              </div>
+            {% endif %}
+          </div>
           <button
             class="button button-unstyled close-button floating-motif-button__close"
             type="button"
