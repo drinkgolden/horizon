@@ -152,6 +152,18 @@ body:has(> #header-group > .header-section) > main > .section-wrapper:first-chil
     opacity var(--duration-sm, 200ms) var(--ease-out-quad);
 }
 
+.floating-motif-button::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: var(--motif-button-background, currentColor);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .floating-motif-button.is-visible {
   transform: translateY(0);
   opacity: 1;
@@ -4888,14 +4900,5 @@ text-component {
   .h6.h6 textarea,
   .h6.h6 select {
     font-size: max(1rem, 100%);
-  }
-}
-body.has-side-columns .floating-motif-button__surface {
-  max-width: calc(100% - (var(--side-columns-inline-mobile, 0px) * 2));
-}
-
-@media screen and (min-width: 990px) {
-  body.has-side-columns:not(.has-side-columns--mobile) .floating-motif-button__surface {
-    max-width: calc(100% - (var(--side-columns-inline-desktop, 0px) * 2));
   }
 }
