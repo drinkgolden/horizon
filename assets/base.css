@@ -142,6 +142,8 @@ body:has(> #header-group > .header-section) > main > .section-wrapper:first-chil
   right: 0;
   bottom: 0;
   width: 100%;
+  box-sizing: border-box;
+  padding-inline: var(--floating-motif-padding-inline, var(--page-margin, 16px));
   z-index: var(--layer-heightened);
   pointer-events: none;
   transform: translateY(100%);
@@ -170,10 +172,20 @@ html.no-js .floating-motif-button {
   visibility: visible;
 }
 
+body.has-side-columns .floating-motif-button {
+  --floating-motif-padding-inline: var(--side-columns-inline-mobile, var(--page-margin, 16px));
+}
+
+@media screen and (min-width: 990px) {
+  body.has-side-columns:not(.has-side-columns--mobile) .floating-motif-button {
+    --floating-motif-padding-inline: var(--side-columns-inline-desktop, var(--page-margin, 16px));
+  }
+}
+
 .floating-motif-button__surface {
   position: relative;
   width: 100%;
-  max-width: 100%;
+  max-width: var(--page-width, 100%);
   margin-inline: auto;
   color: var(--motif-button-background, #f1d35e);
   background-color: transparent;
