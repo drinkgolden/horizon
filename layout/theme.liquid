@@ -130,7 +130,7 @@
       --side-columns-overhang: 12px;
     {% endif %}
 
-    {% if settings.enable_bottom_motif_button %}
+    {% if settings.enable_bottom_motif_button and template == 'index' %}
       --motif-button-background: {{ settings.bottom_motif_button_background | default: '#F1D35E' }};
       --motif-button-text-color: {{ settings.bottom_motif_button_text_color | default: '#111111' }};
     {% endif %}
