@@ -19,7 +19,7 @@
             "text": "<h1>FAQs</h1>",
             "width": "100%",
             "max_width": "normal",
-            "alignment": "left",
+            "alignment": "center",
             "type_preset": "h2",
             "font": "var(--font-primary--family)",
             "font_size": "",
@@ -50,10 +50,10 @@
       ],
       "settings": {
         "content_direction": "column",
-        "gap": 24,
+        "gap": 16,
         "color_scheme": "",
-        "padding-block-start": 24,
-        "padding-block-end": 24
+        "padding-block-start": 16,
+        "padding-block-end": 16
       }
     },
     "section_jKDfRf": {
