@@ -187,7 +187,8 @@
                         "product_card_gallery_inaCmM": {
                           "type": "_product-card-gallery",
                           "settings": {
-                            "image_ratio": "adapt",
+                            "image_ratio": "square",
+                            "enable_rotate_toggle": true,
                             "border": "none",
                             "border_width": 1,
                             "border_opacity": 100,
@@ -251,7 +252,8 @@
                         "product_card_gallery_9yBDW8": {
                           "type": "_product-card-gallery",
                           "settings": {
-                            "image_ratio": "adapt",
+                            "image_ratio": "square",
+                            "enable_rotate_toggle": true,
                             "border": "none",
                             "border_width": 1,
                             "border_opacity": 100,
