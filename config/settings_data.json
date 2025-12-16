@@ -65,7 +65,7 @@
     "bottom_motif_secondary_button_label": "Learn more",
     "bottom_motif_secondary_button_link": "/pages/about",
     "bottom_motif_button_background": "#fbfbfa",
-    "bottom_motif_button_text_color": "#111111",
+    "bottom_motif_button_text_color": "#25282a",
     "page_transition_enabled": true,
     "transition_to_main_product": true,
     "card_hover_effect": "none",

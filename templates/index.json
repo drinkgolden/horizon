@@ -110,8 +110,8 @@
                 "open_by_default": true,
                 "color_scheme": "scheme-1",
                 "hover_color_scheme": "",
-                "summary_padding_block_start": 0,
-                "summary_padding_block_end": 0,
+                "summary_padding_block_start": 12,
+                "summary_padding_block_end": 12,
                 "summary_padding_inline_start": 12,
                 "summary_padding_inline_end": 12,
                 "content_padding_block_start": 12,
@@ -217,8 +217,8 @@
                             "background": false,
                             "background_color": "#00000026",
                             "corner_radius": 0,
-                            "padding-block-start": 4,
-                            "padding-block-end": 0,
+                            "padding-block-start": 12,
+                            "padding-block-end": 12,
                             "padding-inline-start": 0,
                             "padding-inline-end": 0
                           },
@@ -1004,40 +1004,6 @@
         "padding-block-end": 0
       }
     },
-    "accordion_stack_NWnBgE": {
-      "type": "accordion-stack",
-      "blocks": {
-        "accordion_stack_row_pTwYH8": {
-          "type": "accordion_stack_row",
-          "settings": {}
-        },
-        "accordion_stack_row_XXeU9A": {
-          "type": "accordion_stack_row",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "accordion_stack_row_pTwYH8",
-        "accordion_stack_row_XXeU9A"
-      ],
-      "name": "Accordion stack",
-      "settings": {
-        "icon": "caret",
-        "dividers": true,
-        "type_preset": "h6",
-        "hide_section_gridline": false,
-        "color_scheme": "",
-        "section_width": "full-width",
-        "padding-block-start": 0,
-        "padding-block-end": 0,
-        "padding-inline-start": 0,
-        "padding-inline-end": 0,
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_radius": 0
-      }
-    },
     "featured_blog_posts_EgLy9B": {
       "type": "featured-blog-posts",
       "blocks": {
@@ -1183,7 +1149,6 @@
   },
   "order": [
     "section_wi6VEg",
-    "accordion_stack_NWnBgE",
     "featured_blog_posts_EgLy9B"
   ]
 }
