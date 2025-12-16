@@ -97,7 +97,7 @@ body.has-side-columns.has-section-gridlines-vertical .side-column-border {
 
 @media screen and (max-width: 749px) {
   body.has-side-columns:not(.has-side-columns--mobile) {
-    --floating-motif-side-offset: var(--side-columns-inline-desktop, 0px);
+    --floating-motif-side-offset: 0px;
   }
 
   body.has-side-columns:not(.has-side-columns--mobile) .side-column-border {
