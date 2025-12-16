@@ -78,7 +78,7 @@
         assign body_classes = body_classes | append: ' has-side-columns--mobile'
       endif
     endif
-    if settings.enable_bottom_motif_button
+    if settings.enable_bottom_motif_button and template == 'index'
       assign body_classes = body_classes | append: ' has-floating-motif-button'
     endif
     if settings.section_gridlines_enable
@@ -130,12 +130,27 @@
       --side-columns-overhang: 12px;
     {% endif %}
 
-    {% if settings.enable_bottom_motif_button %}
-      --motif-button-max-width-desktop: {{ settings.bottom_motif_button_max_width_desktop | default: 360 }}px;
-      --motif-button-max-width-mobile: {{ settings.bottom_motif_button_max_width_mobile | default: 220 }}px;
-      --motif-button-vertical-offset: {{ settings.bottom_motif_button_vertical_offset | default: 16 }}px;
-      --motif-button-background: {{ settings.bottom_motif_button_background | default: 'transparent' }};
-      --motif-button-text-color: {{ settings.bottom_motif_button_text_color | default: '#ffffff' }};
+    {% if settings.enable_bottom_motif_button and template == 'index' %}
+      {% assign motif_scheme_id = settings.bottom_motif_button_color_scheme | default: 'scheme-1' %}
+      {% assign motif_scheme_settings = blank %}
+      {% for scheme in settings.color_schemes %}
+        {% if scheme.id == motif_scheme_id %}
+          {% assign motif_scheme_settings = scheme %}
+        {% endif %}
+      {% endfor %}
+      {% assign motif_background = '#F1D35E' %}
+      {% assign motif_text = '#111111' %}
+      {% if motif_scheme_settings %}
+        {% if motif_scheme_settings.settings.background != blank %}
+          {% assign motif_background = 'rgba(' | append: motif_scheme_settings.settings.background.rgba | append: ')' %}
+        {% endif %}
+        {% if motif_scheme_settings.settings.foreground != blank %}
+          {% assign motif_text = 'rgba(' | append: motif_scheme_settings.settings.foreground.rgba | append: ')' %}
+        {% endif %}
+      {% endif %}
+      --motif-button-background: {{ motif_background }};
+      --motif-button-text-color: {{ motif_text }};
+      --floating-motif-peek-height: {{ settings.bottom_motif_button_peek_height | default: 32 }}px;
     {% endif %}
   {% endcapture %}
   <body
@@ -181,32 +196,53 @@
       {% render 'quick-add-modal' %}
     {% endif %}
 
-    {% if settings.enable_bottom_motif_button %}
-      <div class="floating-motif-button" data-floating-motif-button>
-        {% if settings.bottom_motif_button_link != blank %}
-          <a class="floating-motif-button__link" href="{{ settings.bottom_motif_button_link }}" aria-label="{{ settings.bottom_motif_button_label | escape }}">
-        {% else %}
-          <div class="floating-motif-button__link" role="presentation">
-        {% endif %}
-            <span class="floating-motif-button__surface">
-              {% if settings.bottom_motif_button_svg != blank %}
-                {{
-                  settings.bottom_motif_button_svg
-                  | image_url: width: 800
-                  | image_tag:
-                    loading: 'lazy',
-                    class: 'floating-motif-button__motif',
-                    alt: '',
-                    role: 'presentation'
-                }}
-              {% endif %}
-              <span class="floating-motif-button__label">{{ settings.bottom_motif_button_label }}</span>
-            </span>
-        {% if settings.bottom_motif_button_link != blank %}
-          </a>
-        {% else %}
+    {% if settings.enable_bottom_motif_button and template == 'index' %}
+      {% liquid
+        assign has_primary_action = false
+        assign has_secondary_action = false
+        if settings.bottom_motif_button_label != blank and settings.bottom_motif_button_link != blank
+          assign has_primary_action = true
+        endif
+        if settings.bottom_motif_secondary_button_label != blank and settings.bottom_motif_secondary_button_link != blank
+          assign has_secondary_action = true
+        endif
+      %}
+      <div class="floating-motif-button" data-floating-motif-button aria-hidden="true">
+        <div class="floating-motif-button__surface">
+          {%- render 'floating-motif-shapes' -%}
+          <div class="floating-motif-button__body">
+            {% if settings.bottom_motif_button_heading != blank or settings.bottom_motif_button_copy != blank %}
+              <div class="floating-motif-button__text-group">
+                {% if settings.bottom_motif_button_heading != blank %}
+                  <p class="floating-motif-button__heading">{{ settings.bottom_motif_button_heading }}</p>
+                {% endif %}
+                {% if settings.bottom_motif_button_copy != blank %}
+                  <div class="floating-motif-button__copy rte">{{ settings.bottom_motif_button_copy }}</div>
+                {% endif %}
+              </div>
+            {% endif %}
+            {% if has_primary_action or has_secondary_action %}
+              <div class="floating-motif-button__actions">
+                {% if has_primary_action %}
+                  <a
+                    class="floating-motif-button__action floating-motif-button__action--primary button button--primary"
+                    href="{{ settings.bottom_motif_button_link }}"
+                  >
+                    {{ settings.bottom_motif_button_label }}
+                  </a>
+                {% endif %}
+                {% if has_secondary_action %}
+                  <a
+                    class="floating-motif-button__action floating-motif-button__action--secondary button button--tertiary"
+                    href="{{ settings.bottom_motif_secondary_button_link }}"
+                  >
+                    {{ settings.bottom_motif_secondary_button_label }}
+                  </a>
+                {% endif %}
+              </div>
+            {% endif %}
           </div>
-        {% endif %}
+        </div>
       </div>
     {% endif %}
   </body>

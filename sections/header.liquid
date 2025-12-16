@@ -22,7 +22,10 @@
     assign transparent_color_scheme = section.settings.collection_color_scheme
   endif
 
-  assign sticky = 'always'
+  assign sticky = section.settings.sticky_behavior | default: 'always'
+  if sticky == 'none'
+    assign sticky = blank
+  endif
 
   if transparent and sticky
     assign transparent = 'not-sticky'
@@ -190,7 +193,9 @@
   {% if transparent %}
     transparent="{{ transparent }}"
   {% endif %}
-  sticky="always"
+  {% if sticky %}
+    sticky="{{ sticky }}"
+  {% endif %}
   data-skip-node-update
   data-scroll-direction="none"
 >
@@ -396,6 +401,10 @@
   }
 
   #header-group:has(#header-component[sticky]) {
+    display: contents;
+  }
+
+  .header-section:has(#header-component[sticky]) {
     display: contents;
   }
 
@@ -969,6 +978,26 @@
         }
       ],
       "default": "standard"
+    },
+    {
+      "type": "select",
+      "id": "sticky_behavior",
+      "label": "Sticky behavior",
+      "options": [
+        {
+          "value": "always",
+          "label": "Always"
+        },
+        {
+          "value": "scroll-up",
+          "label": "Scroll up"
+        },
+        {
+          "value": "none",
+          "label": "Disabled"
+        }
+      ],
+      "default": "always"
     },
     {
       "type": "range",

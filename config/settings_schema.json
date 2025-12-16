@@ -1094,29 +1094,75 @@
         "default": false
       },
       {
+        "type": "select",
+        "id": "bottom_motif_button_color_scheme",
+        "label": "Color scheme",
+        "options": [
+          {
+            "value": "scheme-1",
+            "label": "Scheme 1"
+          },
+          {
+            "value": "scheme-2",
+            "label": "Scheme 2"
+          },
+          {
+            "value": "scheme-3",
+            "label": "Scheme 3"
+          },
+          {
+            "value": "scheme-4",
+            "label": "Scheme 4"
+          }
+        ],
+        "default": "scheme-1",
+        "visible_if": "{{ settings.enable_bottom_motif_button }}"
+      },
+      {
+        "type": "text",
+        "id": "bottom_motif_button_heading",
+        "label": "Heading",
+        "default": "Explore the collection",
+        "visible_if": "{{ settings.enable_bottom_motif_button }}"
+      },
+      {
+        "type": "richtext",
+        "id": "bottom_motif_button_copy",
+        "label": "Supporting text",
+        "default": "<p>Add a short supporting line here.</p>",
+        "visible_if": "{{ settings.enable_bottom_motif_button }}"
+      },
+      {
         "type": "text",
         "id": "bottom_motif_button_label",
-        "label": "Button label",
+        "label": "Primary button label",
         "default": "Explore",
         "visible_if": "{{ settings.enable_bottom_motif_button }}"
       },
       {
         "type": "url",
         "id": "bottom_motif_button_link",
-        "label": "Button link",
+        "label": "Primary button link",
         "visible_if": "{{ settings.enable_bottom_motif_button }}"
       },
       {
-        "type": "image_picker",
-        "id": "bottom_motif_button_svg",
-        "label": "Button motif image",
+        "type": "text",
+        "id": "bottom_motif_secondary_button_label",
+        "label": "Secondary button label",
+        "default": "Learn more",
+        "visible_if": "{{ settings.enable_bottom_motif_button }}"
+      },
+      {
+        "type": "url",
+        "id": "bottom_motif_secondary_button_link",
+        "label": "Secondary button link",
         "visible_if": "{{ settings.enable_bottom_motif_button }}"
       },
       {
         "type": "color",
         "id": "bottom_motif_button_background",
-        "label": "Fallback background colour",
-        "default": "#000000",
+        "label": "Shape colour",
+        "default": "#F1D35E",
         "alpha": true,
         "visible_if": "{{ settings.enable_bottom_motif_button }}"
       },
@@ -1126,39 +1172,6 @@
         "label": "Text colour",
         "default": "#FFFFFF",
         "alpha": true,
-        "visible_if": "{{ settings.enable_bottom_motif_button }}"
-      },
-      {
-        "type": "range",
-        "id": "bottom_motif_button_max_width_desktop",
-        "label": "Max width on desktop",
-        "min": 160,
-        "max": 640,
-        "step": 10,
-        "unit": "px",
-        "default": 360,
-        "visible_if": "{{ settings.enable_bottom_motif_button }}"
-      },
-      {
-        "type": "range",
-        "id": "bottom_motif_button_max_width_mobile",
-        "label": "Max width on mobile",
-        "min": 140,
-        "max": 360,
-        "step": 10,
-        "unit": "px",
-        "default": 220,
-        "visible_if": "{{ settings.enable_bottom_motif_button }}"
-      },
-      {
-        "type": "range",
-        "id": "bottom_motif_button_vertical_offset",
-        "label": "Vertical offset from bottom",
-        "min": 0,
-        "max": 120,
-        "step": 2,
-        "unit": "px",
-        "default": 16,
         "visible_if": "{{ settings.enable_bottom_motif_button }}"
       }
     ]
