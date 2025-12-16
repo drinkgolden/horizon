@@ -79,6 +79,10 @@ export class ProductCard extends Component {
     mediaQueryLarge.addEventListener('change', this.#handleQuickAdd);
 
     this.addEventListener('click', this.navigateToProduct);
+    this.rotateToggle = this.querySelector('[data-rotate-toggle]');
+    if (this.rotateToggle) {
+      this.rotateToggle.addEventListener('click', this.#handleRotateToggle);
+    }
 
     // Preload the next image on the slideshow to avoid white flashes on previewImage
     setTimeout(() => {
@@ -91,6 +95,7 @@ export class ProductCard extends Component {
   disconnectedCallback() {
     super.disconnectedCallback();
     this.removeEventListener('click', this.navigateToProduct);
+    this.rotateToggle?.removeEventListener('click', this.#handleRotateToggle);
   }
 
   #preloadNextPreviewImage() {
@@ -527,6 +532,17 @@ class SwatchesVariantPickerComponent extends VariantPicker {
       overflowList.showAll();
     }
   }
+
+  #handleRotateToggle = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (!this.rotateToggle) return;
+
+    const nextState = this.rotateToggle.getAttribute('aria-pressed') !== 'true';
+    this.rotateToggle.setAttribute('aria-pressed', String(nextState));
+    this.refs.cardGallery?.classList.toggle('card-gallery--rotated', nextState);
+  };
 }
 
 if (!customElements.get('swatches-variant-picker-component')) {

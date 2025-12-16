@@ -240,14 +240,41 @@
       render 'slideshow', ref: 'slideshow', slides: placeholder_slide, slide_count: 1, attributes: 'disabled="true"'
     %}
   {%- endif -%}
+  {% if product != blank and block_settings.enable_rotate_toggle %}
+    <button
+      type="button"
+      class="card-gallery__rotate-toggle"
+      aria-pressed="false"
+      ref="rotateToggle"
+      data-rotate-toggle
+    >
+      <span class="visually-hidden">Rotate product image</span>
+      <span
+        class="svg-wrapper card-gallery__rotate-icon"
+        aria-hidden="true"
+      >
+        {{- 'icon-arrow.svg' | inline_asset_content -}}
+      </span>
+    </button>
+  {% endif %}
   {{ children }}
 </div>
 
 {% stylesheet %}
   .card-gallery {
     overflow: hidden;
+    position: relative;
     container-type: inline-size; /* Make card-gallery a container */
     container-name: card-gallery-container; /* Optional: name the container */
+  }
+
+  .card-gallery .product-media-container {
+    transition: transform 240ms var(--animation-easing, ease);
+    transform-origin: center;
+  }
+
+  .card-gallery--rotated .product-media-container {
+    transform: rotate(90deg);
   }
 
   .card-gallery__placeholder svg {
@@ -401,5 +428,59 @@
     /* stylelint-disable-next-line declaration-no-important */
     padding: var(--padding-xs) !important;
     font-size: var(--font-size--xs);
+  }
+
+  .card-gallery__rotate-toggle {
+    position: absolute;
+    left: clamp(0.5rem, 2vw, 1rem);
+    bottom: clamp(0.5rem, 2vw, 1rem);
+    width: 44px;
+    height: 44px;
+    border-radius: 100px;
+    border: 0;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    box-shadow: var(--shadow-popover);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(4px) scale(0.9);
+    transition:
+      opacity 160ms var(--animation-easing, ease),
+      transform 160ms var(--animation-easing, ease),
+      background-color 160ms var(--animation-easing, ease),
+      color 160ms var(--animation-easing, ease);
+  }
+
+  product-card:focus-within .card-gallery__rotate-toggle,
+  .card-gallery:hover .card-gallery__rotate-toggle,
+  .card-gallery__rotate-toggle:focus-visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+  }
+
+  @container (max-width: 70px) {
+    .card-gallery:hover .card-gallery__rotate-toggle {
+      display: none;
+    }
+  }
+
+  .card-gallery__rotate-toggle[aria-pressed='true'] {
+    background-color: rgb(var(--color-foreground-rgb, 0 0 0) / 0.9);
+    color: rgb(var(--color-background-rgb, 255 255 255));
+  }
+
+  .card-gallery__rotate-icon {
+    width: 18px;
+    height: 18px;
+    transition: transform 220ms var(--animation-easing, ease);
+  }
+
+  .card-gallery__rotate-toggle[aria-pressed='true'] .card-gallery__rotate-icon {
+    transform: rotate(90deg);
   }
 {% endstylesheet %}
