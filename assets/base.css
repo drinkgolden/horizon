@@ -2657,13 +2657,13 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   container-name: card-gallery-container;
 }
 
-.card-gallery .product-media {
+.card-gallery .product-media__image {
   transition: transform 240ms var(--animation-easing, ease);
   transform-origin: center;
   transform: rotate(0deg);
 }
 
-.card-gallery--rotated .product-media {
+.card-gallery--rotated .product-media__image {
   transform: rotate(90deg);
 }
 
