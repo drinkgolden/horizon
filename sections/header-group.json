@@ -23,7 +23,7 @@
             "font_size": "1rem",
             "weight": "",
             "letter_spacing": "tight",
-            "case": "uppercase"
+            "case": "none"
           },
           "blocks": {}
         }
