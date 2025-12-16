@@ -151,7 +151,7 @@ body:has(> #header-group > .header-section) > main > .section-wrapper:first-chil
   position: fixed;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: -1px;
   width: 100%;
   z-index: var(--layer-raised);
   pointer-events: none;
@@ -190,7 +190,7 @@ html.no-js .floating-motif-button {
 .floating-motif-button__surface {
   position: relative;
   width: 100%;
-  max-width: calc(var(--page-content-width, 100%) + (var(--page-margin, 0px) * 2));
+  max-width: 100%;
   margin-inline: auto;
   color: var(--motif-button-background, #f1d35e);
   background-color: transparent;

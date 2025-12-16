@@ -78,7 +78,7 @@
         assign body_classes = body_classes | append: ' has-side-columns--mobile'
       endif
     endif
-    if settings.enable_bottom_motif_button
+    if settings.enable_bottom_motif_button and template == 'index'
       assign body_classes = body_classes | append: ' has-floating-motif-button'
     endif
     if settings.section_gridlines_enable
@@ -196,7 +196,7 @@
       {% render 'quick-add-modal' %}
     {% endif %}
 
-    {% if settings.enable_bottom_motif_button %}
+    {% if settings.enable_bottom_motif_button and template == 'index' %}
       {% liquid
         assign has_primary_action = false
         assign has_secondary_action = false
