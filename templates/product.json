@@ -583,7 +583,7 @@
       ],
       "name": "t:names.product_recommendations",
       "settings": {
-        "product": "golden-lemon-manuka",
+        "product": "{{ product }}",
         "recommendation_type": "related",
         "layout_type": "grid",
         "carousel_on_mobile": false,
