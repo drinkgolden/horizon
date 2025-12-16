@@ -541,7 +541,8 @@ class SwatchesVariantPickerComponent extends VariantPicker {
 
     const nextState = this.rotateToggle.getAttribute('aria-pressed') !== 'true';
     this.rotateToggle.setAttribute('aria-pressed', String(nextState));
-    this.refs.cardGallery?.classList.toggle('card-gallery--rotated', nextState);
+    const gallery = this.refs.cardGallery || this.querySelector('.card-gallery');
+    gallery?.classList.toggle('card-gallery--rotated', nextState);
   };
 }
 

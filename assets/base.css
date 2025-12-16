@@ -2822,11 +2822,11 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   position: absolute;
   left: clamp(0.5rem, 2vw, 1rem);
   bottom: clamp(0.5rem, 2vw, 1rem);
-  width: calc(var(--icon-size-sm) + var(--padding-xs) * 2);
-  height: calc(var(--icon-size-sm) + var(--padding-xs) * 2);
+  width: calc(var(--icon-size-xs) + var(--padding-2xs) * 2);
+  height: calc(var(--icon-size-xs) + var(--padding-2xs) * 2);
   border-radius: 100px;
   border: 0;
-  padding: var(--padding-xs);
+  padding: var(--padding-2xs);
   background-color: var(--color-background);
   color: var(--color-foreground);
   box-shadow: var(--shadow-popover);
@@ -2864,8 +2864,8 @@ product-card:focus-within .card-gallery__rotate-toggle,
 }
 
 .card-gallery__rotate-icon {
-  width: var(--icon-size-sm);
-  height: var(--icon-size-sm);
+  width: var(--icon-size-xs);
+  height: var(--icon-size-xs);
   display: inline-flex;
 }
 
