@@ -249,12 +249,7 @@
       data-rotate-toggle
     >
       <span class="visually-hidden">Rotate product image</span>
-      <span
-        class="svg-wrapper card-gallery__rotate-icon"
-        aria-hidden="true"
-      >
-        {{- 'icon-arrow.svg' | inline_asset_content -}}
-      </span>
+      <span class="card-gallery__rotate-label" aria-hidden="true">90°</span>
     </button>
   {% endif %}
   {{ children }}
@@ -474,13 +469,8 @@
     color: rgb(var(--color-background-rgb, 255 255 255));
   }
 
-  .card-gallery__rotate-icon {
-    width: 18px;
-    height: 18px;
-    transition: transform 220ms var(--animation-easing, ease);
-  }
-
-  .card-gallery__rotate-toggle[aria-pressed='true'] .card-gallery__rotate-icon {
-    transform: rotate(90deg);
+  .card-gallery__rotate-label {
+    font-size: 0.85rem;
+    font-weight: 600;
   }
 {% endstylesheet %}
