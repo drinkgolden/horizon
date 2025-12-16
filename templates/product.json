@@ -583,8 +583,8 @@
       ],
       "name": "t:names.product_recommendations",
       "settings": {
-        "product": "blackcurrant-manuka-soda",
-        "recommendation_type": "complementary",
+        "product": "golden-lemon-manuka",
+        "recommendation_type": "related",
         "layout_type": "grid",
         "carousel_on_mobile": false,
         "max_products": 3,
