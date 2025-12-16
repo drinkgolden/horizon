@@ -1,0 +1,250 @@
+{% assign block_settings = block.settings %}
+{% assign ratio_value = '' %}
+
+{% case block_settings.image_ratio %}
+  {% when 'portrait' %}
+    {% assign ratio_value = '4 / 5' %}
+  {% when 'square' %}
+    {% assign ratio_value = '1 / 1' %}
+  {% when 'landscape' %}
+    {% assign ratio_value = '16 / 9' %}
+{% endcase %}
+
+{% capture wrapper_style %}
+  {% render 'spacing-style', settings: block_settings %}
+  --accordion-image-alignment: {{ block_settings.alignment }};
+  --accordion-image-text-align: {{ block_settings.text_alignment }};
+  {% if block_settings.max_width != 0 %}
+    max-width: {{ block_settings.max_width }}px;
+  {% endif %}
+{% endcapture %}
+
+{% assign media_class = 'accordion-image__media border-style' %}
+{% if ratio_value != blank %}
+  {% assign media_class = media_class | append: ' accordion-image__media--has-ratio' %}
+{% endif %}
+
+{% capture media_style %}
+  --accordion-image-fit: {{ block_settings.image_fit }};
+  --accordion-image-radius: {{ block_settings.border_radius }}px;
+  {% if ratio_value != blank %}
+    --accordion-image-ratio: {{ ratio_value }};
+  {% endif %}
+{% endcapture %}
+
+{% capture image_markup %}
+  {% if block_settings.image != blank %}
+    {{
+      block_settings.image
+      | image_url: width: 2048
+      | image_tag:
+        loading: 'lazy',
+        sizes: '(min-width: 990px) 50vw, 100vw',
+        widths: '352, 600, 832, 1200, 1600, 2048',
+        class: 'accordion-image__img'
+    }}
+  {% else %}
+    <div class="accordion-image__placeholder">
+      {{ 'hero-apparel-2' | placeholder_svg_tag: 'accordion-image__placeholder-svg' }}
+    </div>
+  {% endif %}
+{% endcapture %}
+
+<div class="accordion-image spacing-style" style="{{ wrapper_style | strip }}" {{ block.shopify_attributes }}>
+  {% if block_settings.link != blank %}
+    <a href="{{ block_settings.link }}" class="{{ media_class }}" style="{{ media_style | strip }}">
+      {{ image_markup }}
+    </a>
+  {% else %}
+    <div class="{{ media_class }}" style="{{ media_style | strip }}">
+      {{ image_markup }}
+    </div>
+  {% endif %}
+
+  {% if block_settings.caption != blank %}
+    <div class="accordion-image__caption rte">
+      {{ block_settings.caption }}
+    </div>
+  {% endif %}
+</div>
+
+{% stylesheet %}
+  .accordion-image {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--margin-xs);
+    align-items: var(--accordion-image-alignment, stretch);
+  }
+
+  .accordion-image__media {
+    width: 100%;
+    border-radius: var(--accordion-image-radius, 0px);
+    overflow: hidden;
+    display: block;
+  }
+
+  .accordion-image__media--has-ratio {
+    aspect-ratio: var(--accordion-image-ratio);
+  }
+
+  .accordion-image__img {
+    width: 100%;
+    height: 100%;
+    object-fit: var(--accordion-image-fit, cover);
+    display: block;
+  }
+
+  .accordion-image__placeholder {
+    width: 100%;
+    aspect-ratio: var(--accordion-image-ratio, 16 / 9);
+    background: rgb(var(--color-foreground-rgb, 0 0 0) / 0.08);
+  }
+
+  .accordion-image__placeholder-svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .accordion-image__caption {
+    width: 100%;
+    text-align: var(--accordion-image-text-align, left);
+  }
+
+  .accordion-image__caption :is(p, ul, ol) {
+    margin: 0;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Accordion image",
+  "tag": null,
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link"
+    },
+    {
+      "type": "richtext",
+      "id": "caption",
+      "label": "Caption"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Image ratio",
+      "options": [
+        { "value": "adapt", "label": "Adapt to image" },
+        { "value": "landscape", "label": "Landscape" },
+        { "value": "portrait", "label": "Portrait" },
+        { "value": "square", "label": "Square" }
+      ],
+      "default": "adapt"
+    },
+    {
+      "type": "select",
+      "id": "image_fit",
+      "label": "Image fit",
+      "options": [
+        { "value": "cover", "label": "Cover" },
+        { "value": "contain", "label": "Contain" }
+      ],
+      "default": "cover"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Max width",
+      "min": 0,
+      "max": 1000,
+      "step": 10,
+      "unit": "px",
+      "default": 0,
+      "info": "Set to 0 to span the available width."
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Alignment",
+      "options": [
+        { "value": "flex-start", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "flex-end", "label": "Right" }
+      ],
+      "default": "flex-start"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Caption alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "Left",
+      "min": 0,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "Right",
+      "min": 0,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ]
+}
+{% endschema %}
