@@ -527,6 +527,7 @@ class SwatchesVariantPickerComponent extends VariantPicker {
       overflowList.showAll();
     }
   }
+
 }
 
 if (!customElements.get('swatches-variant-picker-component')) {
