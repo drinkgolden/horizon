@@ -9,6 +9,7 @@
   @param {string} [image_aspect_ratio] - The aspect ratio to display the image. Defaults to image's natural ratio
   @param {boolean} [image_hover] - Whether to show a secondary image on hover and focus
   @param {string} [image_sizes] - The sizes attribute for responsive images. Defaults to 'auto'
+  @param {boolean} [show_price] - Whether to show the product price. Defaults to true
 {%- enddoc -%}
 
 {% liquid
@@ -23,6 +24,11 @@
   assign single_thumbnail_collection = false
   if resource_type == 'collection' and collection_thumbnails != 'multiple'
     assign single_thumbnail_collection = true
+  endif
+
+  assign show_price = show_price
+  if show_price != true and show_price != false
+    assign show_price = true
   endif
 
   if resource_type == 'product' and settings.transition_to_main_product
@@ -131,7 +137,9 @@
     </p>
 
     {% if resource_type == 'product' %}
-      {% render 'price', product_resource: resource, show_unit_price: true %}
+      {% if show_price %}
+        {% render 'price', product_resource: resource, show_unit_price: true %}
+      {% endif %}
     {% elsif resource_type == 'collection' and single_thumbnail_collection == false %}
       <p class="resource-card__subtext paragraph">
         {{- 'content.search_results_resource_products_count' | t: count: resource.all_products_count -}}

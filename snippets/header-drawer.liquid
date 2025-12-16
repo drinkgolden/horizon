@@ -585,12 +585,13 @@
                                 {% paginate featured_products_collection.products by max_featured_items %}
                                   {%- for product in featured_products_collection.products limit: max_featured_items -%}
                                     <li class="menu-drawer__featured-content-list-item menu-drawer__featured-content-list-item--product">
-                                      {% render 'resource-card',
-                                        resource: product,
-                                        resource_type: 'product',
-                                        image_aspect_ratio: ratio,
-                                        image_sizes: 'auto, 400px'
-                                      %}
+                                    {% render 'resource-card',
+                                      resource: product,
+                                      resource_type: 'product',
+                                      image_aspect_ratio: ratio,
+                                      image_sizes: 'auto, 400px',
+                                      show_price: false
+                                    %}
                                     </li>
                                   {%- endfor -%}
                                 {% endpaginate %}
@@ -689,7 +690,8 @@
                           resource: product,
                           resource_type: 'product',
                           image_aspect_ratio: ratio,
-                          image_sizes: 'auto, 400px'
+                          image_sizes: 'auto, 400px',
+                          show_price: false
                         %}
                       </li>
                     {%- endfor -%}
