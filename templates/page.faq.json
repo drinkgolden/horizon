@@ -135,8 +135,8 @@
                     "content_padding_inline_end": 24,
                     "heading_type_preset": "",
                     "right_heading_type_preset": "match",
-                    "heading_min_size": 1.8,
-                    "heading_max_size": 3,
+                    "heading_min_size": 1.4,
+                    "heading_max_size": 2.4,
                     "icon": "none",
                     "width": 20
                   },
@@ -253,7 +253,7 @@
                       "type": "text",
                       "settings": {
                         "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.</p>",
-                        "width": "100%",
+                        "width": "fit-content",
                         "max_width": "normal",
                         "alignment": "left",
                         "type_preset": "rte",
