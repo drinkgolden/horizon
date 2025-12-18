@@ -29,9 +29,9 @@
             "border_opacity": 100,
             "border_radius": 0,
             "padding-block-start": 72,
-            "padding-block-end": 44,
-            "padding-inline-start": 24,
-            "padding-inline-end": 24
+            "padding-block-end": 24,
+            "padding-inline-start": 16,
+            "padding-inline-end": 16
           },
           "blocks": {}
         },
@@ -40,10 +40,10 @@
           "name": "t:names.text",
           "settings": {
             "text": "<p>Stay golden with low-calorie sodas, sweetened with premium mānuka and kānuka honey, flavoured with real New Zealand fruits.</p>",
-            "width": "100%",
-            "max_width": "normal",
+            "width": "fit-content",
+            "max_width": "narrow",
             "alignment": "left",
-            "type_preset": "h6",
+            "type_preset": "h5",
             "font": "var(--font-body--family)",
             "font_size": "1rem",
             "line_height": "normal",
@@ -54,10 +54,10 @@
             "background": false,
             "background_color": "#00000026",
             "corner_radius": 0,
-            "padding-block-start": 12,
-            "padding-block-end": 12,
-            "padding-inline-start": 24,
-            "padding-inline-end": 24
+            "padding-block-start": 16,
+            "padding-block-end": 16,
+            "padding-inline-start": 16,
+            "padding-inline-end": 16
           },
           "blocks": {}
         },
@@ -120,188 +120,12 @@
                 "content_padding_inline_end": 16,
                 "heading_type_preset": "h2",
                 "right_heading_type_preset": "h2",
-                "heading_min_size": 1.2,
-                "heading_max_size": 2.4,
+                "heading_min_size": 1.4,
+                "heading_max_size": 2.2,
                 "icon": "none",
                 "width": 20
               },
               "blocks": {
-                "group_wWtadz": {
-                  "type": "group",
-                  "name": "t:names.group",
-                  "settings": {
-                    "content_direction": "row",
-                    "vertical_on_mobile": true,
-                    "horizontal_alignment": "flex-start",
-                    "vertical_alignment": "center",
-                    "align_baseline": false,
-                    "horizontal_alignment_flex_direction_column": "flex-start",
-                    "vertical_alignment_flex_direction_column": "center",
-                    "gap": 12,
-                    "width": "fill",
-                    "custom_width": 100,
-                    "width_mobile": "fill",
-                    "custom_width_mobile": 100,
-                    "height": "fit",
-                    "custom_height": 100,
-                    "inherit_color_scheme": true,
-                    "color_scheme": "",
-                    "background_media": "none",
-                    "video_position": "cover",
-                    "background_image_position": "cover",
-                    "border": "none",
-                    "border_width": 1,
-                    "border_opacity": 100,
-                    "border_radius": 0,
-                    "toggle_overlay": false,
-                    "overlay_color": "#00000026",
-                    "overlay_style": "solid",
-                    "gradient_direction": "to top",
-                    "link": "",
-                    "open_in_new_tab": false,
-                    "placeholder": "",
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {
-                    "product_card_797xAf": {
-                      "type": "product-card",
-                      "name": "t:names.product_card",
-                      "settings": {
-                        "product": "golden-lemon-manuka",
-                        "product_card_gap": 16,
-                        "inherit_color_scheme": false,
-                        "color_scheme": "scheme-1",
-                        "border": "none",
-                        "border_width": 1,
-                        "border_opacity": 100,
-                        "border_radius": 0,
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
-                      },
-                      "blocks": {
-                        "product_card_gallery_inaCmM": {
-                          "type": "_product-card-gallery",
-                          "settings": {
-                            "image_ratio": "square",
-                            "enable_rotate_toggle": true,
-                            "border": "none",
-                            "border_width": 1,
-                            "border_opacity": 100,
-                            "border_radius": 0,
-                            "padding-block-start": 0,
-                            "padding-block-end": 0,
-                            "padding-inline-start": 0,
-                            "padding-inline-end": 0
-                          },
-                          "blocks": {}
-                        },
-                        "product_title_q98UGD": {
-                          "type": "product-title",
-                          "name": "t:names.product_title",
-                          "settings": {
-                            "width": "100%",
-                            "max_width": "normal",
-                            "alignment": "center",
-                            "type_preset": "h6",
-                            "font": "var(--font-body--family)",
-                            "font_size": "1rem",
-                            "line_height": "normal",
-                            "letter_spacing": "normal",
-                            "case": "none",
-                            "wrap": "pretty",
-                            "color": "var(--color-primary)",
-                            "background": false,
-                            "background_color": "#00000026",
-                            "corner_radius": 0,
-                            "padding-block-start": 12,
-                            "padding-block-end": 12,
-                            "padding-inline-start": 12,
-                            "padding-inline-end": 12
-                          },
-                          "blocks": {}
-                        }
-                      },
-                      "block_order": [
-                        "product_card_gallery_inaCmM",
-                        "product_title_q98UGD"
-                      ]
-                    },
-                    "product_card_wRhDHm": {
-                      "type": "product-card",
-                      "name": "t:names.product_card",
-                      "settings": {
-                        "product": "blackcurrant-manuka-soda",
-                        "product_card_gap": 16,
-                        "inherit_color_scheme": false,
-                        "color_scheme": "scheme-1",
-                        "border": "none",
-                        "border_width": 1,
-                        "border_opacity": 100,
-                        "border_radius": 0,
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
-                      },
-                      "blocks": {
-                        "product_card_gallery_9yBDW8": {
-                          "type": "_product-card-gallery",
-                          "settings": {
-                            "image_ratio": "square",
-                            "enable_rotate_toggle": true,
-                            "border": "none",
-                            "border_width": 1,
-                            "border_opacity": 100,
-                            "border_radius": 0,
-                            "padding-block-start": 0,
-                            "padding-block-end": 0,
-                            "padding-inline-start": 0,
-                            "padding-inline-end": 0
-                          },
-                          "blocks": {}
-                        },
-                        "product_title_iGBHJB": {
-                          "type": "product-title",
-                          "name": "t:names.product_title",
-                          "settings": {
-                            "width": "100%",
-                            "max_width": "normal",
-                            "alignment": "center",
-                            "type_preset": "h6",
-                            "font": "var(--font-body--family)",
-                            "font_size": "1rem",
-                            "line_height": "normal",
-                            "letter_spacing": "normal",
-                            "case": "none",
-                            "wrap": "pretty",
-                            "color": "var(--color-primary)",
-                            "background": false,
-                            "background_color": "#00000026",
-                            "corner_radius": 0,
-                            "padding-block-start": 12,
-                            "padding-block-end": 12,
-                            "padding-inline-start": 12,
-                            "padding-inline-end": 12
-                          },
-                          "blocks": {}
-                        }
-                      },
-                      "block_order": [
-                        "product_card_gallery_9yBDW8",
-                        "product_title_iGBHJB"
-                      ]
-                    }
-                  },
-                  "block_order": [
-                    "product_card_797xAf",
-                    "product_card_wRhDHm"
-                  ]
-                },
                 "group_DWiWLB": {
                   "type": "group",
                   "name": "t:names.group",
@@ -363,7 +187,7 @@
                         "product_card_gallery_aWTNqn": {
                           "type": "_product-card-gallery",
                           "settings": {
-                            "image_ratio": "square",
+                            "image_ratio": "adapt",
                             "enable_rotate_toggle": true,
                             "border": "none",
                             "border_width": 1,
@@ -543,8 +367,38 @@
                     "product_card_JcHiV7",
                     "product_card_tCFeAT"
                   ]
-                },
-                "group_9KazCd": {
+                }
+              },
+              "block_order": [
+                "group_DWiWLB"
+              ]
+            },
+            "accordion_row_N9TEDh": {
+              "type": "accordion_row",
+              "name": "t:names.accordion_row",
+              "settings": {
+                "heading": "Low Cal",
+                "right_heading": "MGO +83",
+                "open_by_default": false,
+                "color_scheme": "scheme-1",
+                "hover_color_scheme": "",
+                "summary_padding_block_start": 16,
+                "summary_padding_block_end": 16,
+                "summary_padding_inline_start": 16,
+                "summary_padding_inline_end": 16,
+                "content_padding_block_start": 16,
+                "content_padding_block_end": 44,
+                "content_padding_inline_start": 16,
+                "content_padding_inline_end": 16,
+                "heading_type_preset": "h2",
+                "right_heading_type_preset": "",
+                "heading_min_size": 1.4,
+                "heading_max_size": 2.2,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "group_VWRwET": {
                   "type": "group",
                   "name": "Left",
                   "settings": {
@@ -585,13 +439,13 @@
                   },
                   "blocks": {}
                 },
-                "group_CXDddP": {
+                "group_bkTPYq": {
                   "type": "group",
                   "name": "Right",
                   "settings": {
-                    "content_direction": "row",
+                    "content_direction": "column",
                     "vertical_on_mobile": true,
-                    "horizontal_alignment": "flex-end",
+                    "horizontal_alignment": "flex-start",
                     "vertical_alignment": "center",
                     "align_baseline": false,
                     "horizontal_alignment_flex_direction_column": "flex-start",
@@ -628,11 +482,35 @@
                 }
               },
               "block_order": [
-                "group_wWtadz",
-                "group_DWiWLB",
-                "group_9KazCd",
-                "group_CXDddP"
+                "group_VWRwET",
+                "group_bkTPYq"
               ]
+            },
+            "accordion_row_R7BQfk": {
+              "type": "accordion_row",
+              "name": "t:names.accordion_row",
+              "settings": {
+                "heading": "All Natural",
+                "right_heading": "Vitamin C",
+                "open_by_default": false,
+                "color_scheme": "scheme-1",
+                "hover_color_scheme": "",
+                "summary_padding_block_start": 16,
+                "summary_padding_block_end": 16,
+                "summary_padding_inline_start": 16,
+                "summary_padding_inline_end": 16,
+                "content_padding_block_start": 16,
+                "content_padding_block_end": 44,
+                "content_padding_inline_start": 16,
+                "content_padding_inline_end": 16,
+                "heading_type_preset": "h2",
+                "right_heading_type_preset": "",
+                "heading_min_size": 1.4,
+                "heading_max_size": 2.2,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {}
             },
             "accordion_row_4P4Dck": {
               "type": "accordion_row",
@@ -654,11 +532,55 @@
                 "heading_type_preset": "h2",
                 "right_heading_type_preset": "",
                 "heading_min_size": 1.4,
-                "heading_max_size": 2.4,
+                "heading_max_size": 2.2,
                 "icon": "none",
                 "width": 20
               },
               "blocks": {
+                "accordion_slideshow_9pCp8J": {
+                  "type": "accordion_slideshow",
+                  "name": "Accordion slideshow",
+                  "disabled": true,
+                  "settings": {
+                    "heading": "",
+                    "subheading": "",
+                    "layout": "stacked",
+                    "image_ratio": "landscape",
+                    "show_arrows": true,
+                    "controls_style": "dots",
+                    "pagination_position": "center",
+                    "icons_style": "chevron",
+                    "autoplay": false,
+                    "autoplay_speed": 4,
+                    "slide_height": "auto",
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0,
+                    "slide_one_image": "shopify://shop_images/iStock-641225382.jpg",
+                    "slide_one_heading": "Test Test",
+                    "slide_one_text": "",
+                    "slide_one_button_label": "",
+                    "slide_one_button_link": "",
+                    "slide_two_heading": "",
+                    "slide_two_text": "",
+                    "slide_two_button_label": "",
+                    "slide_two_button_link": "",
+                    "slide_three_heading": "",
+                    "slide_three_text": "",
+                    "slide_three_button_label": "",
+                    "slide_three_button_link": "",
+                    "slide_four_heading": "",
+                    "slide_four_text": "",
+                    "slide_four_button_label": "",
+                    "slide_four_button_link": "",
+                    "slide_five_heading": "",
+                    "slide_five_text": "",
+                    "slide_five_button_label": "",
+                    "slide_five_button_link": ""
+                  },
+                  "blocks": {}
+                },
                 "image_8kcHdR": {
                   "type": "image",
                   "name": "t:names.image",
@@ -796,69 +718,18 @@
                 }
               },
               "block_order": [
+                "accordion_slideshow_9pCp8J",
                 "image_8kcHdR",
                 "group_W4T8EC",
                 "group_EgAmHY"
               ]
-            },
-            "accordion_row_N9TEDh": {
-              "type": "accordion_row",
-              "name": "t:names.accordion_row",
-              "settings": {
-                "heading": "Low Cal",
-                "right_heading": "MGO +83",
-                "open_by_default": false,
-                "color_scheme": "scheme-1",
-                "hover_color_scheme": "",
-                "summary_padding_block_start": 16,
-                "summary_padding_block_end": 16,
-                "summary_padding_inline_start": 16,
-                "summary_padding_inline_end": 16,
-                "content_padding_block_start": 16,
-                "content_padding_block_end": 44,
-                "content_padding_inline_start": 16,
-                "content_padding_inline_end": 16,
-                "heading_type_preset": "h2",
-                "right_heading_type_preset": "",
-                "heading_min_size": 1.4,
-                "heading_max_size": 2.4,
-                "icon": "none",
-                "width": 20
-              },
-              "blocks": {}
-            },
-            "accordion_row_R7BQfk": {
-              "type": "accordion_row",
-              "name": "t:names.accordion_row",
-              "settings": {
-                "heading": "330 mL",
-                "right_heading": "Vitamin C",
-                "open_by_default": false,
-                "color_scheme": "scheme-1",
-                "hover_color_scheme": "",
-                "summary_padding_block_start": 16,
-                "summary_padding_block_end": 16,
-                "summary_padding_inline_start": 16,
-                "summary_padding_inline_end": 16,
-                "content_padding_block_start": 16,
-                "content_padding_block_end": 44,
-                "content_padding_inline_start": 16,
-                "content_padding_inline_end": 16,
-                "heading_type_preset": "h2",
-                "right_heading_type_preset": "",
-                "heading_min_size": 1.4,
-                "heading_max_size": 2.4,
-                "icon": "none",
-                "width": 20
-              },
-              "blocks": {}
             }
           },
           "block_order": [
             "accordion_row_eanBJb",
-            "accordion_row_4P4Dck",
             "accordion_row_N9TEDh",
-            "accordion_row_R7BQfk"
+            "accordion_row_R7BQfk",
+            "accordion_row_4P4Dck"
           ]
         }
       },
