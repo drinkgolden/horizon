@@ -129,17 +129,27 @@
     {% assign hover_foreground = scheme.settings.foreground_heading | default: scheme.settings.foreground %}
     {% assign hover_border = scheme.settings.border %}
 
+    .accordion-row[data-active-hover-scheme="{{ scheme.id }}"],
+    .accordion-row[data-active-hover-scheme="{{ scheme.id }}"].accordion-row--open,
     .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover,
     .accordion-row[data-hover-scheme="{{ scheme.id }}"].accordion-row--open {
       background-color: rgb({{ hover_background.rgba }});
       color: rgb({{ hover_foreground.rgba }});
     }
 
+    .accordion-row[data-active-hover-scheme="{{ scheme.id }}"]::before,
+    .accordion-row[data-active-hover-scheme="{{ scheme.id }}"].accordion-row--open::before,
     .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover::before,
     .accordion-row[data-hover-scheme="{{ scheme.id }}"].accordion-row--open::before {
       background-color: rgb({{ hover_background.rgba }});
     }
 
+    .accordion-row[data-active-hover-scheme="{{ scheme.id }}"] .details,
+    .accordion-row[data-active-hover-scheme="{{ scheme.id }}"] .details__header,
+    .accordion-row[data-active-hover-scheme="{{ scheme.id }}"] .details-content,
+    .accordion-row[data-active-hover-scheme="{{ scheme.id }}"].accordion-row--open .details,
+    .accordion-row[data-active-hover-scheme="{{ scheme.id }}"].accordion-row--open .details__header,
+    .accordion-row[data-active-hover-scheme="{{ scheme.id }}"].accordion-row--open .details-content,
     .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover .details,
     .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover .details__header,
     .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover .details-content,
@@ -151,6 +161,12 @@
       border-color: rgb({{ hover_border.rgba }});
     }
 
+    .accordion-row[data-active-hover-scheme="{{ scheme.id }}"] .details__heading,
+    .accordion-row[data-active-hover-scheme="{{ scheme.id }}"] .details__label,
+    .accordion-row[data-active-hover-scheme="{{ scheme.id }}"] .details__caret .svg-wrapper,
+    .accordion-row[data-active-hover-scheme="{{ scheme.id }}"].accordion-row--open .details__heading,
+    .accordion-row[data-active-hover-scheme="{{ scheme.id }}"].accordion-row--open .details__label,
+    .accordion-row[data-active-hover-scheme="{{ scheme.id }}"].accordion-row--open .details__caret .svg-wrapper,
     .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover .details__heading,
     .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover .details__label,
     .accordion-row[data-hover-scheme="{{ scheme.id }}"]:hover .details__caret .svg-wrapper,
