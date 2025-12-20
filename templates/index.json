@@ -34,34 +34,153 @@
             "padding-inline-end": 16
           },
           "blocks": {}
-        },
-        "text_jP9NEh": {
-          "type": "text",
-          "name": "t:names.text",
+        }
+      },
+      "block_order": [
+        "image_9fknhp"
+      ],
+      "name": "t:names.large_logo",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "space-between",
+        "gap": 12,
+        "section_width": "full-width",
+        "section_height": "",
+        "section_height_custom": 40,
+        "color_scheme": "scheme-1",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 0,
+        "border_opacity": 100,
+        "split_divider_color": "#d9d9d9",
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "section_RD3phc": {
+      "type": "section",
+      "blocks": {
+        "group_fKYbnh": {
+          "type": "group",
+          "name": "Column",
           "settings": {
-            "text": "<p>Low-cal Sparkling drinks From Aotearoa.</p><p>Sweetened with New Zealand mānuka and Kānuka honey and flavoured with real, locally grown fruits.</p>",
-            "width": "fit-content",
-            "max_width": "narrow",
-            "alignment": "left",
-            "type_preset": "h5",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground-heading)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 16,
-            "padding-block-end": 16,
-            "padding-inline-start": 16,
-            "padding-inline-end": 16
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "flex-start",
+            "gap": 8,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 10,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
           },
-          "blocks": {}
-        },
-        "logo_UnhaeH": {
+          "blocks": {
+            "text_3xd3GA": {
+              "type": "text",
+              "name": "Description",
+              "settings": {
+                "text": "<p>Sweetened with New Zealand mānuka and Kānuka honey and flavoured with real, locally grown fruits.</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h5",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 16,
+                "padding-block-end": 16,
+                "padding-inline-start": 16,
+                "padding-inline-end": 16
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_3xd3GA"
+          ]
+        }
+      },
+      "block_order": [
+        "group_fKYbnh"
+      ],
+      "name": "t:names.multicolumn",
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "flex-start",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 16,
+        "section_width": "full-width",
+        "section_height": "",
+        "section_height_custom": 10,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "split_divider_color": "#d9d9d9",
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 24,
+        "padding-block-end": 24
+      }
+    },
+    "section_TTRARa": {
+      "type": "section",
+      "blocks": {
+        "logo_e3fa6D": {
           "type": "logo",
           "name": "t:names.logo",
           "disabled": true,
@@ -82,7 +201,7 @@
           },
           "blocks": {}
         },
-        "accordion_YkG8mU": {
+        "accordion_iAgAPB": {
           "type": "accordion",
           "name": "t:names.accordion",
           "settings": {
@@ -101,7 +220,7 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "accordion_row_eanBJb": {
+            "accordion_row_VXFwUN": {
               "type": "accordion_row",
               "name": "t:names.accordion_row",
               "settings": {
@@ -126,7 +245,7 @@
                 "width": 20
               },
               "blocks": {
-                "group_DWiWLB": {
+                "group_pzRHb6": {
                   "type": "group",
                   "name": "t:names.group",
                   "settings": {
@@ -166,7 +285,7 @@
                     "padding-inline-end": 0
                   },
                   "blocks": {
-                    "product_card_Ya8ddJ": {
+                    "product_card_X4xJbc": {
                       "type": "product-card",
                       "name": "t:names.product_card",
                       "settings": {
@@ -184,7 +303,7 @@
                         "padding-inline-end": 0
                       },
                       "blocks": {
-                        "product_card_gallery_aWTNqn": {
+                        "product_card_gallery_e9bC3k": {
                           "type": "_product-card-gallery",
                           "settings": {
                             "image_ratio": "adapt",
@@ -200,7 +319,7 @@
                           },
                           "blocks": {}
                         },
-                        "product_title_h8Vtx3": {
+                        "product_title_YLPDJL": {
                           "type": "product-title",
                           "name": "t:names.product_title",
                           "settings": {
@@ -227,11 +346,11 @@
                         }
                       },
                       "block_order": [
-                        "product_card_gallery_aWTNqn",
-                        "product_title_h8Vtx3"
+                        "product_card_gallery_e9bC3k",
+                        "product_title_YLPDJL"
                       ]
                     },
-                    "product_card_JcHiV7": {
+                    "product_card_8UqxLN": {
                       "type": "product-card",
                       "name": "t:names.product_card",
                       "settings": {
@@ -249,10 +368,10 @@
                         "padding-inline-end": 0
                       },
                       "blocks": {
-                        "product_card_gallery_cgcTfg": {
+                        "product_card_gallery_gTxQBR": {
                           "type": "_product-card-gallery",
                           "settings": {
-                            "image_ratio": "square",
+                            "image_ratio": "adapt",
                             "enable_rotate_toggle": true,
                             "border": "none",
                             "border_width": 1,
@@ -265,7 +384,7 @@
                           },
                           "blocks": {}
                         },
-                        "product_title_RXzJAJ": {
+                        "product_title_mXxQej": {
                           "type": "product-title",
                           "name": "t:names.product_title",
                           "settings": {
@@ -292,22 +411,22 @@
                         }
                       },
                       "block_order": [
-                        "product_card_gallery_cgcTfg",
-                        "product_title_RXzJAJ"
+                        "product_card_gallery_gTxQBR",
+                        "product_title_mXxQej"
                       ]
                     }
                   },
                   "block_order": [
-                    "product_card_Ya8ddJ",
-                    "product_card_JcHiV7"
+                    "product_card_X4xJbc",
+                    "product_card_8UqxLN"
                   ]
                 }
               },
               "block_order": [
-                "group_DWiWLB"
+                "group_pzRHb6"
               ]
             },
-            "accordion_row_N9TEDh": {
+            "accordion_row_Q9VzCU": {
               "type": "accordion_row",
               "name": "t:names.accordion_row",
               "settings": {
@@ -332,7 +451,7 @@
                 "width": 20
               },
               "blocks": {
-                "group_VWRwET": {
+                "group_HdYCtg": {
                   "type": "group",
                   "name": "Left",
                   "settings": {
@@ -372,7 +491,7 @@
                     "padding-inline-end": 0
                   },
                   "blocks": {
-                    "group_b99Tzz": {
+                    "group_MbJwhG": {
                       "type": "group",
                       "name": "t:names.group",
                       "settings": {
@@ -412,7 +531,7 @@
                         "padding-inline-end": 0
                       },
                       "blocks": {
-                        "image_CUaqjw": {
+                        "image_P9wXUc": {
                           "type": "image",
                           "name": "t:names.image",
                           "settings": {
@@ -436,10 +555,10 @@
                         }
                       },
                       "block_order": [
-                        "image_CUaqjw"
+                        "image_P9wXUc"
                       ]
                     },
-                    "group_bcW6hH": {
+                    "group_dTTjFC": {
                       "type": "group",
                       "name": "t:names.group",
                       "settings": {
@@ -482,11 +601,11 @@
                     }
                   },
                   "block_order": [
-                    "group_b99Tzz",
-                    "group_bcW6hH"
+                    "group_MbJwhG",
+                    "group_dTTjFC"
                   ]
                 },
-                "group_bkTPYq": {
+                "group_rWtahp": {
                   "type": "group",
                   "name": "Right",
                   "settings": {
@@ -529,11 +648,11 @@
                 }
               },
               "block_order": [
-                "group_VWRwET",
-                "group_bkTPYq"
+                "group_HdYCtg",
+                "group_rWtahp"
               ]
             },
-            "accordion_row_R7BQfk": {
+            "accordion_row_6GXUWf": {
               "type": "accordion_row",
               "name": "t:names.accordion_row",
               "settings": {
@@ -559,7 +678,7 @@
               },
               "blocks": {}
             },
-            "accordion_row_4P4Dck": {
+            "accordion_row_mrmmNj": {
               "type": "accordion_row",
               "name": "t:names.accordion_row",
               "settings": {
@@ -584,7 +703,7 @@
                 "width": 20
               },
               "blocks": {
-                "accordion_slideshow_9pCp8J": {
+                "accordion_slideshow_gmMUhC": {
                   "type": "accordion_slideshow",
                   "name": "Accordion slideshow",
                   "disabled": true,
@@ -628,7 +747,7 @@
                   },
                   "blocks": {}
                 },
-                "image_8kcHdR": {
+                "image_Te3Kgx": {
                   "type": "image",
                   "name": "t:names.image",
                   "settings": {
@@ -651,7 +770,7 @@
                   },
                   "blocks": {}
                 },
-                "group_W4T8EC": {
+                "group_PGerCJ": {
                   "type": "group",
                   "name": "Left",
                   "settings": {
@@ -691,7 +810,7 @@
                     "padding-inline-end": 0
                   },
                   "blocks": {
-                    "text_UJFJhL": {
+                    "text_3QTkXm": {
                       "type": "text",
                       "name": "t:names.text",
                       "settings": {
@@ -719,10 +838,10 @@
                     }
                   },
                   "block_order": [
-                    "text_UJFJhL"
+                    "text_3QTkXm"
                   ]
                 },
-                "group_EgAmHY": {
+                "group_wCWc8w": {
                   "type": "group",
                   "name": "Right",
                   "settings": {
@@ -765,26 +884,24 @@
                 }
               },
               "block_order": [
-                "accordion_slideshow_9pCp8J",
-                "image_8kcHdR",
-                "group_W4T8EC",
-                "group_EgAmHY"
+                "accordion_slideshow_gmMUhC",
+                "image_Te3Kgx",
+                "group_PGerCJ",
+                "group_wCWc8w"
               ]
             }
           },
           "block_order": [
-            "accordion_row_eanBJb",
-            "accordion_row_N9TEDh",
-            "accordion_row_R7BQfk",
-            "accordion_row_4P4Dck"
+            "accordion_row_VXFwUN",
+            "accordion_row_Q9VzCU",
+            "accordion_row_6GXUWf",
+            "accordion_row_mrmmNj"
           ]
         }
       },
       "block_order": [
-        "image_9fknhp",
-        "text_jP9NEh",
-        "logo_UnhaeH",
-        "accordion_YkG8mU"
+        "logo_e3fa6D",
+        "accordion_iAgAPB"
       ],
       "name": "t:names.large_logo",
       "settings": {
@@ -961,6 +1078,8 @@
   },
   "order": [
     "section_wi6VEg",
+    "section_RD3phc",
+    "section_TTRARa",
     "featured_blog_posts_EgLy9B"
   ]
 }
