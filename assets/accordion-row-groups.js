@@ -44,6 +44,108 @@ const attachInteractionHandlers = (element, handler) => {
   });
 };
 
+const COLOR_CLASS_PREFIX = 'color-';
+
+const ensureBaseColorClass = (row) => {
+  if (!row) return;
+  if (!row.dataset.baseColorClass) {
+    const baseClass = Array.from(row.classList).find((className) => className.startsWith(COLOR_CLASS_PREFIX)) || '';
+    row.dataset.baseColorClass = baseClass;
+    row.dataset.currentColorClass = baseClass;
+  } else if (!row.dataset.currentColorClass) {
+    row.dataset.currentColorClass = row.dataset.baseColorClass;
+  }
+};
+
+const applyColorClass = (row, className) => {
+  if (!row) return;
+  const current = row.dataset.currentColorClass;
+  if (current && current !== className) {
+    row.classList.remove(current);
+  }
+  if (className && current !== className) {
+    row.classList.add(className);
+  }
+  row.dataset.currentColorClass = className || '';
+};
+
+const setActiveHoverScheme = (row, schemeId) => {
+  if (!row) return;
+  ensureBaseColorClass(row);
+  const normalized = schemeId || '';
+  row.dataset.activeHoverScheme = normalized;
+  const baseClass = row.dataset.baseColorClass || '';
+  const targetClass = normalized ? `${COLOR_CLASS_PREFIX}${normalized}` : baseClass;
+  applyColorClass(row, targetClass);
+};
+
+const getSchemeForSide = (row, side) => {
+  if (!row) return '';
+  const prioritizedSchemes =
+    side === 'right'
+      ? [row.dataset.rightHoverScheme, row.dataset.leftHoverScheme]
+      : [row.dataset.leftHoverScheme, row.dataset.rightHoverScheme];
+
+  const fallback =
+    prioritizedSchemes.find((value) => value && value.length) ||
+    row.dataset.hoverScheme ||
+    row.dataset.baseColorScheme ||
+    '';
+
+  return fallback;
+};
+
+const bindHoverSchemes = (row) => {
+  if (!row || row.dataset.hoverSplit !== 'true' || row.dataset.hoverSchemesBound === 'true') return;
+
+  const leftHeading = row.querySelector('.details__heading--left');
+  const rightHeading = row.querySelector('.details__heading--right');
+  if (!leftHeading && !rightHeading) return;
+
+  const detailsElement = row.querySelector('details');
+  const applySide = (side) => {
+    const scheme = getSchemeForSide(row, side);
+    row.dataset.lastActivatedSide = side;
+    setActiveHoverScheme(row, scheme);
+  };
+
+  if (leftHeading) {
+    attachInteractionHandlers(leftHeading, () => applySide('left'));
+  }
+
+  if (rightHeading) {
+    attachInteractionHandlers(rightHeading, () => applySide('right'));
+  }
+
+  row.addEventListener('mouseleave', () => {
+    if (row.classList.contains('accordion-row--open')) return;
+    setActiveHoverScheme(row, '');
+  });
+
+  const getDefaultSide = () => {
+    if (row.dataset.lastActivatedSide) return row.dataset.lastActivatedSide;
+    if (row.dataset.leftHoverScheme && leftHeading) return 'left';
+    if (row.dataset.rightHoverScheme && rightHeading) return 'right';
+    return leftHeading ? 'left' : 'right';
+  };
+
+  if (detailsElement) {
+    detailsElement.addEventListener('toggle', () => {
+      if (!detailsElement.hasAttribute('open')) {
+        setActiveHoverScheme(row, '');
+      } else if (!row.dataset.activeHoverScheme) {
+        applySide(getDefaultSide());
+      }
+    });
+  }
+
+  if (row.classList.contains('accordion-row--open')) {
+    applySide(getDefaultSide());
+  }
+
+  row.dataset.hoverSchemesBound = 'true';
+};
+
 const bindRowOpenState = (row) => {
   if (!row || row.dataset.openStateBound === 'true') return;
   const detailsElement = row.querySelector('details');
@@ -60,6 +162,7 @@ const bindRowOpenState = (row) => {
 
 const initAccordionRow = (row) => {
   bindRowOpenState(row);
+  bindHoverSchemes(row);
 
   if (row.dataset.groupsEnhanced === 'true') return;
 

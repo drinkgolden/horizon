@@ -12,6 +12,15 @@
   {% assign row_hover_scheme_id = row_color_scheme_id %}
 {% endif %}
 
+{% assign left_hover_override = block_settings.left_hover_color_scheme %}
+{% assign right_hover_override = block_settings.right_hover_color_scheme %}
+{% assign left_hover_scheme_id = left_hover_override | default: row_hover_scheme_id %}
+{% assign right_hover_scheme_id = right_hover_override | default: row_hover_scheme_id %}
+{% assign has_split_hover_scheme = false %}
+{% if left_hover_override != blank or right_hover_override != blank %}
+  {% assign has_split_hover_scheme = true %}
+{% endif %}
+
 {% assign row_has_custom_scheme = false %}
 {% if block_settings.color_scheme != blank %}
   {% assign row_has_custom_scheme = true %}
@@ -133,7 +142,24 @@
   {% if content_padding_inline_end_value != 0 %}padding-inline-end: {{ content_padding_inline_end_value | divided_by: rem_divisor }}rem;{% endif %}
 {% endcapture %}
 
-<div class="{{ row_classes }}"{% if row_hover_scheme_id != blank %} data-hover-scheme="{{ row_hover_scheme_id }}"{% endif %}>
+<div
+  class="{{ row_classes }}"
+  {% if row_color_scheme_id != blank %}
+    data-base-color-scheme="{{ row_color_scheme_id }}"
+  {% endif %}
+  {% if row_hover_scheme_id != blank %}
+    data-hover-scheme="{{ row_hover_scheme_id }}"
+  {% endif %}
+  {% if left_hover_scheme_id != blank %}
+    data-left-hover-scheme="{{ left_hover_scheme_id }}"
+  {% endif %}
+  {% if right_hover_scheme_id != blank %}
+    data-right-hover-scheme="{{ right_hover_scheme_id }}"
+  {% endif %}
+  {% if has_split_hover_scheme %}
+    data-hover-split="true"
+  {% endif %}
+>
   <accordion-custom
     class="accordion-row__inner{% if row_has_custom_scheme %} accordion-row--custom-scheme{% endif %}"
     {% if inline_styles != blank %}
@@ -504,6 +530,18 @@
       "type": "color_scheme",
       "id": "hover_color_scheme",
       "label": "Row hover color scheme"
+    },
+    {
+      "type": "color_scheme",
+      "id": "left_hover_color_scheme",
+      "label": "Left hover color scheme",
+      "info": "Applies when the left heading is hovered or selected."
+    },
+    {
+      "type": "color_scheme",
+      "id": "right_hover_color_scheme",
+      "label": "Right hover color scheme",
+      "info": "Applies when the right heading is hovered or selected."
     },
     {
       "type": "header",
