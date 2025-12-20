@@ -132,7 +132,7 @@
                 "background_color": "#00000026",
                 "corner_radius": 0,
                 "padding-block-start": 16,
-                "padding-block-end": 16,
+                "padding-block-end": 0,
                 "padding-inline-start": 16,
                 "padding-inline-end": 16
               },
@@ -178,7 +178,7 @@
             "open_in_new_tab": false,
             "placeholder": "",
             "padding-block-start": 16,
-            "padding-block-end": 16,
+            "padding-block-end": 0,
             "padding-inline-start": 16,
             "padding-inline-end": 16
           },
