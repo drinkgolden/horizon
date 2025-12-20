@@ -39,7 +39,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<p>Low-calorie sodas, sweetened with premium mānuka and kānuka honey, flavoured with real New Zealand fruits.</p>",
+            "text": "<p>Low-cal Sparkling drinks From Aotearoa.</p><p>Sweetened with New Zealand mānuka and Kānuka honey and flavoured with real, locally grown fruits.</p>",
             "width": "fit-content",
             "max_width": "narrow",
             "alignment": "left",
