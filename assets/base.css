@@ -1894,6 +1894,46 @@ button.shopify-payment-button__button--unbranded:hover:not([disabled]) {
   --button-border-color: var(--color-primary-button-hover-border);
 }
 
+.button--link {
+  --button-color: var(--color, var(--color-primary));
+  --button-background-color: transparent;
+  --button-border-color: transparent;
+  --button-border-width: 0px;
+  --text-align: left;
+
+  display: inline-flex;
+  align-items: center;
+  padding: 0;
+  background-color: transparent;
+  box-shadow: none;
+  width: fit-content;
+  text-transform: none;
+  letter-spacing: normal;
+  position: relative;
+  padding-bottom: var(--link-button-underline-offset, 0.24em);
+}
+
+.button--link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: var(--link-button-underline-thickness, 0.08em);
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--animation-speed) var(--animation-easing);
+}
+
+.button--link:where(:hover, :focus-visible) {
+  --button-color: var(--color, var(--color-primary-hover));
+}
+
+.button--link:where(:hover, :focus-visible)::after {
+  transform: scaleX(1);
+}
+
 .button-secondary {
   --button-color: var(--color-secondary-button-text);
   --button-background-color: var(--color-secondary-button-background);
