@@ -212,6 +212,7 @@
         "image_qnd6wt",
         "group_eNtEBf"
       ],
+      "disabled": true,
       "name": "Hero splash (above header)",
       "settings": {
         "render_above_header": true,
