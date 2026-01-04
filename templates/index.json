@@ -613,7 +613,7 @@
               "type": "accordion_row",
               "name": "Accordion row",
               "settings": {
-                "heading": " Hawke's Bay Lemons",
+                "heading": "Hawke's Bay Lemons",
                 "right_heading": "Canterbury Blackcurrants",
                 "open_by_default": false,
                 "color_scheme": "",
