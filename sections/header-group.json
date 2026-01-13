@@ -353,6 +353,7 @@
         "localization_row": "bottom",
         "section_width": "full-width",
         "section_height": "standard",
+        "sticky_behavior": "always",
         "divider_width": 1,
         "divider_size": "full-width",
         "border_width": 1,
