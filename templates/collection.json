@@ -16,7 +16,7 @@
           "type": "text",
           "name": "Title",
           "settings": {
-            "text": "<h1>Shop Golden</h1>",
+            "text": "<h1>Our Flavours</h1>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
