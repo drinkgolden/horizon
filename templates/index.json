@@ -203,7 +203,7 @@
                 "padding-inline-start": 0,
                 "padding-inline-end": 0,
                 "slide_one_image": "shopify://shop_images/DSCN9605_797712ad-fb85-4ab5-a9e4-dcde6c666295.jpg",
-                "slide_one_heading": "Golden Summer",
+                "slide_one_heading": "",
                 "slide_one_text": "",
                 "slide_one_button_label": "Button",
                 "slide_one_button_link": "",
@@ -1883,7 +1883,7 @@
           "name": "t:names.title",
           "static": true,
           "settings": {
-            "text": "<h3>Golden Hour Journal</h3>",
+            "text": "<h3>Golden Hour</h3>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
