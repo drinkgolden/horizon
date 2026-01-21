@@ -83,7 +83,7 @@
     "type_font_button_secondary": "body",
     "pills_border_radius": 40,
     "cart_type": "drawer",
-    "product_title_case": "uppercase",
+    "product_title_case": "default",
     "cart_price_font": "subheading",
     "auto_open_cart_drawer": true,
     "show_cart_note": false,
