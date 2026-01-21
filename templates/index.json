@@ -116,7 +116,7 @@
               "type": "text",
               "name": "Description",
               "settings": {
-                "text": "<p>Low-cal sparkling drinks from Aotearoa, sweetened with Golden Bay mānuka & kānuka honey and flavoured with real, locally grown fruits.<br/></p><p></p>",
+                "text": "<p>Low-cal sparkling drinks from Aotearoa, sweetened with Golden Bay mānuka honey and flavoured with locally grown fruits.<br/></p><p></p>",
                 "width": "100%",
                 "max_width": "narrow",
                 "alignment": "left",
@@ -614,7 +614,7 @@
               "name": "t:names.accordion_row",
               "settings": {
                 "heading": "Low Calorie",
-                "right_heading": "Mānuka Honey",
+                "right_heading": "Mānuka honey",
                 "open_by_default": false,
                 "color_scheme": "scheme-1",
                 "hover_color_scheme": "scheme-1",
@@ -630,7 +630,7 @@
                 "content_padding_inline_end": 16,
                 "heading_type_preset": "h2",
                 "right_heading_type_preset": "",
-                "heading_min_size": 1.2,
+                "heading_min_size": 1.1,
                 "heading_max_size": 2,
                 "icon": "none",
                 "width": 20
@@ -858,7 +858,7 @@
                 "content_padding_inline_end": 16,
                 "heading_type_preset": "h2",
                 "right_heading_type_preset": "",
-                "heading_min_size": 1.2,
+                "heading_min_size": 1.1,
                 "heading_max_size": 2,
                 "icon": "none",
                 "width": 20
@@ -886,7 +886,7 @@
                 "content_padding_inline_end": 16,
                 "heading_type_preset": "h2",
                 "right_heading_type_preset": "",
-                "heading_min_size": 1.2,
+                "heading_min_size": 1.1,
                 "heading_max_size": 2,
                 "icon": "none",
                 "width": 20
@@ -1100,7 +1100,7 @@
                 "content_padding_inline_end": 16,
                 "heading_type_preset": "h2",
                 "right_heading_type_preset": "match",
-                "heading_min_size": 1.2,
+                "heading_min_size": 1.1,
                 "heading_max_size": 2,
                 "icon": "none",
                 "width": 20
@@ -1270,7 +1270,7 @@
                 "content_padding_inline_end": 16,
                 "heading_type_preset": "h2",
                 "right_heading_type_preset": "match",
-                "heading_min_size": 1.2,
+                "heading_min_size": 1.1,
                 "heading_max_size": 2,
                 "icon": "none",
                 "width": 20
