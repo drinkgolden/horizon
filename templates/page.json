@@ -139,37 +139,7 @@
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
               },
-              "blocks": {
-                "text_TV9hBj": {
-                  "type": "text",
-                  "name": "t:names.heading",
-                  "settings": {
-                    "text": "<h1>Our Story</h1>",
-                    "width": "100%",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "h5",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "color": "var(--color-foreground)",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 16,
-                    "padding-inline-end": 16
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": [
-                "text_TV9hBj"
-              ]
+              "blocks": {}
             },
             "text_dNBLYt": {
               "type": "text",
@@ -245,8 +215,8 @@
           "settings": {
             "text": "<h2>Starting Golden</h2>",
             "width": "100%",
-            "max_width": "none",
-            "alignment": "left",
+            "max_width": "normal",
+            "alignment": "center",
             "type_preset": "h4",
             "font": "var(--font-body--family)",
             "font_size": "1rem",
