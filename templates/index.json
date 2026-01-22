@@ -189,7 +189,7 @@
               "settings": {
                 "heading": "",
                 "subheading": "",
-                "layout": "stacked",
+                "layout": "split",
                 "image_ratio": "square",
                 "show_arrows": true,
                 "controls_style": "none",
