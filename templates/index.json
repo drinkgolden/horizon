@@ -332,7 +332,7 @@
                 "content_padding_inline_end": 16,
                 "heading_type_preset": "h2",
                 "right_heading_type_preset": "h2",
-                "heading_min_size": 1.2,
+                "heading_min_size": 1.1,
                 "heading_max_size": 2,
                 "icon": "none",
                 "width": 20
