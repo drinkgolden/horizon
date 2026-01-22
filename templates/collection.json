@@ -146,7 +146,7 @@
               "type": "_product-card-gallery",
               "settings": {
                 "image_ratio": "adapt",
-                "enable_rotate_toggle": false,
+                "enable_rotate_toggle": true,
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
