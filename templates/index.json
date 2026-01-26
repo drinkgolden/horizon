@@ -137,10 +137,37 @@
                 "padding-inline-end": 16
               },
               "blocks": {}
+            },
+            "text_9zTnYE": {
+              "type": "text",
+              "name": "Description",
+              "settings": {
+                "text": "<h5><a href=\"/collections/all\" target=\"_blank\" title=\"All products\">Shop Golden</a></h5>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h6",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-primary)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 16,
+                "padding-block-end": 16,
+                "padding-inline-start": 16,
+                "padding-inline-end": 16
+              },
+              "blocks": {}
             }
           },
           "block_order": [
-            "text_3xd3GA"
+            "text_3xd3GA",
+            "text_9zTnYE"
           ]
         },
         "group_GHhF4P": {
