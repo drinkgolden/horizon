@@ -138,36 +138,25 @@
               },
               "blocks": {}
             },
-            "text_9zTnYE": {
-              "type": "text",
-              "name": "Description",
+            "button_dY4YiV": {
+              "type": "button",
+              "name": "t:names.button",
               "settings": {
-                "text": "<h5><a href=\"/collections/all\" target=\"_blank\" title=\"All products\">Shop Golden</a></h5>",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "h6",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-primary)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 16,
-                "padding-block-end": 16,
-                "padding-inline-start": 16,
-                "padding-inline-end": 16
+                "label": "Shop Golden",
+                "link": "shopify://collections/all",
+                "open_in_new_tab": false,
+                "style_class": "link",
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100
               },
               "blocks": {}
             }
           },
           "block_order": [
             "text_3xd3GA",
-            "text_9zTnYE"
+            "button_dY4YiV"
           ]
         },
         "group_GHhF4P": {
@@ -1112,7 +1101,7 @@
               "settings": {
                 "heading": "Hawke's Bay Lemons",
                 "right_heading": "",
-                "open_by_default": true,
+                "open_by_default": false,
                 "color_scheme": "",
                 "hover_color_scheme": "scheme-1",
                 "left_hover_color_scheme": "scheme-5",
@@ -1341,7 +1330,7 @@
               "settings": {
                 "heading": "Canterbury Blackcurrants",
                 "right_heading": "",
-                "open_by_default": true,
+                "open_by_default": false,
                 "color_scheme": "",
                 "hover_color_scheme": "scheme-1",
                 "left_hover_color_scheme": "scheme-2",
