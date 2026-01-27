@@ -20,12 +20,12 @@
             "media_columns": "one",
             "image_gap": 24,
             "large_first_image": false,
-            "icons_style": "chevron_large",
+            "icons_style": "chevron",
             "slideshow_controls_style": "dots",
             "slideshow_mobile_controls_style": "dots",
             "thumbnail_position": "bottom",
             "thumbnail_width": 72,
-            "aspect_ratio": "1/1.25",
+            "aspect_ratio": "adapt",
             "constrain_to_viewport": false,
             "media_fit": "contain",
             "media_radius": 0,
@@ -166,7 +166,7 @@
               "name": "Product description",
               "settings": {
                 "text": "{{ closest.product.description }}",
-                "width": "fit-content",
+                "width": "100%",
                 "max_width": "none",
                 "alignment": "left",
                 "type_preset": "paragraph",
@@ -184,18 +184,6 @@
                 "padding-block-end": 12,
                 "padding-inline-start": 12,
                 "padding-inline-end": 12
-              },
-              "blocks": {}
-            },
-            "divider_VJhene": {
-              "type": "_divider",
-              "name": "t:names.divider",
-              "settings": {
-                "thickness": 1,
-                "corner_radius": "square",
-                "width_percent": 100,
-                "padding-block-start": 0,
-                "padding-block-end": 0
               },
               "blocks": {}
             },
@@ -275,6 +263,8 @@
                     "open_by_default": false,
                     "color_scheme": "",
                     "hover_color_scheme": "",
+                    "left_hover_color_scheme": "",
+                    "right_hover_color_scheme": "",
                     "summary_padding_block_start": 0,
                     "summary_padding_block_end": 0,
                     "summary_padding_inline_start": 12,
@@ -329,6 +319,8 @@
                     "open_by_default": false,
                     "color_scheme": "",
                     "hover_color_scheme": "",
+                    "left_hover_color_scheme": "",
+                    "right_hover_color_scheme": "",
                     "summary_padding_block_start": 0,
                     "summary_padding_block_end": 0,
                     "summary_padding_inline_start": 12,
@@ -383,6 +375,8 @@
                     "open_by_default": false,
                     "color_scheme": "",
                     "hover_color_scheme": "",
+                    "left_hover_color_scheme": "",
+                    "right_hover_color_scheme": "",
                     "summary_padding_block_start": 0,
                     "summary_padding_block_end": 0,
                     "summary_padding_inline_start": 12,
@@ -440,7 +434,6 @@
           "block_order": [
             "group_icgrde",
             "text_aEtTtq",
-            "divider_VJhene",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
             "accordion_Yyf6z8"
