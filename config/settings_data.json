@@ -47,7 +47,7 @@
     "type_size_h6": "1.25",
     "type_line_height_h6": "display-normal",
     "type_letter_spacing_h6": "heading-tight",
-    "page_width": "narrow",
+    "page_width": "normal",
     "side_columns_enable": true,
     "side_columns_enable_mobile": true,
     "side_columns_width_desktop": 1,
