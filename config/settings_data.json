@@ -9,10 +9,10 @@
  */
 {
   "current": {
-    "logo": "shopify://shop_images/tbti1atiamr11_png.webp",
+    "logo": "shopify://shop_images/GOLDENBLACK.svg",
     "logo_inverse": "shopify://shop_images/GOLDEN_WHITE_OVERLAY_LOGO.svg",
-    "logo_height": 36,
-    "logo_height_mobile": 28,
+    "logo_height": 32,
+    "logo_height_mobile": 24,
     "favicon": "shopify://shop_images/tbti1atiamr11_png.webp",
     "type_body_font": "inter_n4",
     "type_subheading_font": "inter_n5",
@@ -47,7 +47,7 @@
     "type_size_h6": "1.25",
     "type_line_height_h6": "display-normal",
     "type_letter_spacing_h6": "heading-tight",
-    "page_width": "normal",
+    "page_width": "narrow",
     "side_columns_enable": true,
     "side_columns_enable_mobile": false,
     "side_columns_width_desktop": 1,
@@ -83,7 +83,7 @@
     "type_font_button_secondary": "body",
     "pills_border_radius": 40,
     "cart_type": "drawer",
-    "product_title_case": "uppercase",
+    "product_title_case": "default",
     "cart_price_font": "subheading",
     "auto_open_cart_drawer": true,
     "show_cart_note": false,

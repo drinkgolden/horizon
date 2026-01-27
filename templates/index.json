@@ -30,8 +30,8 @@
             "border_radius": 0,
             "padding-block-start": 72,
             "padding-block-end": 24,
-            "padding-inline-start": 16,
-            "padding-inline-end": 16
+            "padding-inline-start": 24,
+            "padding-inline-end": 24
           },
           "blocks": {}
         }
@@ -116,7 +116,7 @@
               "type": "text",
               "name": "Description",
               "settings": {
-                "text": "<p>Low-cal sparkling drinks from Aotearoa, sweetened with Golden Bay mānuka & kānuka honey and flavoured with real, locally grown fruits.<br/></p><p></p>",
+                "text": "<p>Low-cal sparkling drinks from Aotearoa, sweetened with Golden Bay mānuka honey and flavoured with locally grown fruits.<br/></p><p></p>",
                 "width": "100%",
                 "max_width": "narrow",
                 "alignment": "left",
@@ -137,10 +137,26 @@
                 "padding-inline-end": 16
               },
               "blocks": {}
+            },
+            "button_dY4YiV": {
+              "type": "button",
+              "name": "t:names.button",
+              "settings": {
+                "label": "Shop Golden",
+                "link": "shopify://collections/all",
+                "open_in_new_tab": false,
+                "style_class": "link",
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100
+              },
+              "blocks": {}
             }
           },
           "block_order": [
-            "text_3xd3GA"
+            "text_3xd3GA",
+            "button_dY4YiV"
           ]
         },
         "group_GHhF4P": {
@@ -189,7 +205,7 @@
               "settings": {
                 "heading": "",
                 "subheading": "",
-                "layout": "stacked",
+                "layout": "split",
                 "image_ratio": "square",
                 "show_arrows": true,
                 "controls_style": "none",
@@ -197,13 +213,13 @@
                 "icons_style": "chevron",
                 "autoplay": false,
                 "autoplay_speed": 5,
-                "slide_height": "medium",
+                "slide_height": "auto",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0,
                 "slide_one_image": "shopify://shop_images/DSCN9605_797712ad-fb85-4ab5-a9e4-dcde6c666295.jpg",
-                "slide_one_heading": "Golden Summer",
+                "slide_one_heading": "",
                 "slide_one_text": "",
                 "slide_one_button_label": "Button",
                 "slide_one_button_link": "",
@@ -315,7 +331,7 @@
               "type": "accordion_row",
               "name": "t:names.accordion_row",
               "settings": {
-                "heading": "Best Sellers",
+                "heading": "Low Cal Mānuka Soda",
                 "right_heading": "",
                 "open_by_default": true,
                 "color_scheme": "scheme-1",
@@ -332,7 +348,7 @@
                 "content_padding_inline_end": 16,
                 "heading_type_preset": "h2",
                 "right_heading_type_preset": "h2",
-                "heading_min_size": 1.2,
+                "heading_min_size": 1.1,
                 "heading_max_size": 2,
                 "icon": "none",
                 "width": 20
@@ -614,7 +630,7 @@
               "name": "t:names.accordion_row",
               "settings": {
                 "heading": "Low Calorie",
-                "right_heading": "Mānuka Honey",
+                "right_heading": "Mānuka honey",
                 "open_by_default": false,
                 "color_scheme": "scheme-1",
                 "hover_color_scheme": "scheme-1",
@@ -630,7 +646,7 @@
                 "content_padding_inline_end": 16,
                 "heading_type_preset": "h2",
                 "right_heading_type_preset": "",
-                "heading_min_size": 1.2,
+                "heading_min_size": 1.1,
                 "heading_max_size": 2,
                 "icon": "none",
                 "width": 20
@@ -858,7 +874,7 @@
                 "content_padding_inline_end": 16,
                 "heading_type_preset": "h2",
                 "right_heading_type_preset": "",
-                "heading_min_size": 1.2,
+                "heading_min_size": 1.1,
                 "heading_max_size": 2,
                 "icon": "none",
                 "width": 20
@@ -886,7 +902,7 @@
                 "content_padding_inline_end": 16,
                 "heading_type_preset": "h2",
                 "right_heading_type_preset": "",
-                "heading_min_size": 1.2,
+                "heading_min_size": 1.1,
                 "heading_max_size": 2,
                 "icon": "none",
                 "width": 20
@@ -1085,10 +1101,10 @@
               "settings": {
                 "heading": "Hawke's Bay Lemons",
                 "right_heading": "",
-                "open_by_default": true,
-                "color_scheme": "",
-                "hover_color_scheme": "scheme-1",
-                "left_hover_color_scheme": "scheme-5",
+                "open_by_default": false,
+                "color_scheme": "scheme-5",
+                "hover_color_scheme": "scheme-5",
+                "left_hover_color_scheme": "scheme-1",
                 "right_hover_color_scheme": "scheme-2",
                 "summary_padding_block_start": 16,
                 "summary_padding_block_end": 16,
@@ -1100,7 +1116,7 @@
                 "content_padding_inline_end": 16,
                 "heading_type_preset": "h2",
                 "right_heading_type_preset": "match",
-                "heading_min_size": 1.2,
+                "heading_min_size": 1.1,
                 "heading_max_size": 2,
                 "icon": "none",
                 "width": 20
@@ -1146,49 +1162,108 @@
                     "padding-inline-end": 0
                   },
                   "blocks": {
-                    "image_V9igUW": {
-                      "type": "image",
-                      "name": "t:names.image",
+                    "group_TYJWDa": {
+                      "type": "group",
+                      "name": "t:names.group",
                       "settings": {
-                        "link": "",
-                        "image_ratio": "adapt",
+                        "content_direction": "row",
+                        "vertical_on_mobile": true,
+                        "horizontal_alignment": "flex-start",
+                        "vertical_alignment": "center",
+                        "align_baseline": false,
+                        "horizontal_alignment_flex_direction_column": "flex-start",
+                        "vertical_alignment_flex_direction_column": "center",
+                        "gap": 12,
                         "width": "fill",
                         "custom_width": 100,
                         "width_mobile": "fill",
                         "custom_width_mobile": 100,
                         "height": "fit",
+                        "custom_height": 100,
+                        "inherit_color_scheme": true,
+                        "color_scheme": "",
+                        "background_media": "none",
+                        "video_position": "cover",
+                        "background_image_position": "cover",
                         "border": "none",
                         "border_width": 1,
                         "border_opacity": 100,
                         "border_radius": 0,
+                        "toggle_overlay": false,
+                        "overlay_color": "#00000026",
+                        "overlay_style": "solid",
+                        "gradient_direction": "to top",
+                        "link": "",
+                        "open_in_new_tab": false,
+                        "placeholder": "",
                         "padding-block-start": 0,
                         "padding-block-end": 0,
                         "padding-inline-start": 0,
                         "padding-inline-end": 0
                       },
-                      "blocks": {}
+                      "blocks": {
+                        "image_9FL3db": {
+                          "type": "image",
+                          "name": "t:names.image",
+                          "settings": {
+                            "image": "shopify://shop_images/lemon_white_background.png",
+                            "link": "",
+                            "image_ratio": "adapt",
+                            "width": "fill",
+                            "custom_width": 100,
+                            "width_mobile": "fill",
+                            "custom_width_mobile": 100,
+                            "height": "fit",
+                            "border": "none",
+                            "border_width": 1,
+                            "border_opacity": 100,
+                            "border_radius": 0,
+                            "padding-block-start": 0,
+                            "padding-block-end": 0,
+                            "padding-inline-start": 0,
+                            "padding-inline-end": 0
+                          },
+                          "blocks": {}
+                        }
+                      },
+                      "block_order": [
+                        "image_9FL3db"
+                      ]
                     },
-                    "vertical_text_HeTV7t": {
-                      "type": "vertical-text",
-                      "name": "t:names.vertical_text",
+                    "group_7MVqdW": {
+                      "type": "group",
+                      "name": "t:names.group",
                       "settings": {
-                        "display_vertically": true,
-                        "horizontal_on_mobile": true,
-                        "text": "<p>We make things that work better and last longer. Our products solve real problems with clean design and honest materials.</p>",
-                        "width": "fit-content",
-                        "max_width": "normal",
-                        "alignment": "left",
-                        "type_preset": "rte",
-                        "font": "var(--font-body--family)",
-                        "font_size": "1rem",
-                        "line_height": "normal",
-                        "letter_spacing": "normal",
-                        "case": "none",
-                        "wrap": "pretty",
-                        "color": "var(--color-foreground)",
-                        "background": false,
-                        "background_color": "#00000026",
-                        "corner_radius": 0,
+                        "content_direction": "column",
+                        "vertical_on_mobile": true,
+                        "horizontal_alignment": "flex-start",
+                        "vertical_alignment": "center",
+                        "align_baseline": false,
+                        "horizontal_alignment_flex_direction_column": "flex-start",
+                        "vertical_alignment_flex_direction_column": "center",
+                        "gap": 12,
+                        "width": "fill",
+                        "custom_width": 100,
+                        "width_mobile": "fill",
+                        "custom_width_mobile": 100,
+                        "height": "fit",
+                        "custom_height": 100,
+                        "inherit_color_scheme": true,
+                        "color_scheme": "",
+                        "background_media": "none",
+                        "video_position": "cover",
+                        "background_image_position": "cover",
+                        "border": "none",
+                        "border_width": 1,
+                        "border_opacity": 100,
+                        "border_radius": 0,
+                        "toggle_overlay": false,
+                        "overlay_color": "#00000026",
+                        "overlay_style": "solid",
+                        "gradient_direction": "to top",
+                        "link": "",
+                        "open_in_new_tab": false,
+                        "placeholder": "",
                         "padding-block-start": 0,
                         "padding-block-end": 0,
                         "padding-inline-start": 0,
@@ -1198,8 +1273,8 @@
                     }
                   },
                   "block_order": [
-                    "image_V9igUW",
-                    "vertical_text_HeTV7t"
+                    "group_TYJWDa",
+                    "group_7MVqdW"
                   ]
                 },
                 "group_nD4aTV": {
@@ -1255,10 +1330,10 @@
               "settings": {
                 "heading": "Canterbury Blackcurrants",
                 "right_heading": "",
-                "open_by_default": true,
-                "color_scheme": "",
+                "open_by_default": false,
+                "color_scheme": "scheme-2",
                 "hover_color_scheme": "scheme-1",
-                "left_hover_color_scheme": "scheme-2",
+                "left_hover_color_scheme": "scheme-1",
                 "right_hover_color_scheme": "scheme-1",
                 "summary_padding_block_start": 16,
                 "summary_padding_block_end": 16,
@@ -1270,7 +1345,7 @@
                 "content_padding_inline_end": 16,
                 "heading_type_preset": "h2",
                 "right_heading_type_preset": "match",
-                "heading_min_size": 1.2,
+                "heading_min_size": 1.1,
                 "heading_max_size": 2,
                 "icon": "none",
                 "width": 20
@@ -1883,7 +1958,7 @@
           "name": "t:names.title",
           "static": true,
           "settings": {
-            "text": "<h3>Golden Hour Journal</h3>",
+            "text": "<h3>Golden Hour</h3>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
