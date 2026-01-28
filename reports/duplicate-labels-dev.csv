@@ -471,17 +471,13 @@ block,blocks/_featured-blog-posts-card.liquid,Blog card,alignment,select,Alignme
 block,blocks/_featured-blog-posts-title.liquid,Title,alignment,text_alignment,Alignment,left,,13,blocks/_blog-post-card.liquid;blocks/_blog-post-info-text.liquid;blocks/_cart-title.liquid;blocks/_featured-blog-posts-card.liquid;blocks/accordion_image.liquid;blocks/price.liquid;blocks/review.liquid;sections/collection-links.liquid;sections/search-header.liquid;snippets/divider.liquid;snippets/jumbo-text.liquid;snippets/text.liquid;snippets/variant-main-picker.liquid,Low,High,Needs work,rename
 block,blocks/_heading.liquid,Heading,alignment,text_alignment,Alignment,left,,13,blocks/_blog-post-card.liquid;blocks/_blog-post-info-text.liquid;blocks/_cart-title.liquid;blocks/_featured-blog-posts-card.liquid;blocks/accordion_image.liquid;blocks/price.liquid;blocks/review.liquid;sections/collection-links.liquid;sections/search-header.liquid;snippets/divider.liquid;snippets/jumbo-text.liquid;snippets/text.liquid;snippets/variant-main-picker.liquid,Low,High,Needs work,rename
 block,blocks/_product-card-group.liquid,Group,horizontal_alignment,select,Alignment,flex-start,,4,blocks/payment-icons.liquid;sections/product-list.liquid;snippets/collection-card.liquid;snippets/layout-panel-style.liquid,Low,Low,Needs work,rename
-block,blocks/_product-card-group.liquid,Group,horizontal_alignment_flex_direction_column,select,Alignment,flex-start,,1,snippets/layout-panel-style.liquid,Low,Low,Needs work,rename
 block,blocks/_product-list-content.liquid,Header,horizontal_alignment,select,Alignment,flex-start,,4,blocks/payment-icons.liquid;sections/product-list.liquid;snippets/collection-card.liquid;snippets/layout-panel-style.liquid,Low,Low,Needs work,rename
-block,blocks/_product-list-content.liquid,Header,horizontal_alignment_flex_direction_column,select,Alignment,flex-start,,1,snippets/layout-panel-style.liquid,Low,Low,Needs work,rename
 block,blocks/_product-list-text.liquid,Collection title,alignment,text_alignment,Alignment,left,,13,blocks/_blog-post-card.liquid;blocks/_blog-post-info-text.liquid;blocks/_cart-title.liquid;blocks/_featured-blog-posts-card.liquid;blocks/accordion_image.liquid;blocks/price.liquid;blocks/review.liquid;sections/collection-links.liquid;sections/search-header.liquid;snippets/divider.liquid;snippets/jumbo-text.liquid;snippets/text.liquid;snippets/variant-main-picker.liquid,Low,High,Needs work,rename
 block,blocks/_slide.liquid,Slide,horizontal_alignment,select,Alignment,flex-start,,4,blocks/payment-icons.liquid;sections/product-list.liquid;snippets/collection-card.liquid;snippets/layout-panel-style.liquid,Low,Low,Needs work,rename
-block,blocks/_slide.liquid,Slide,horizontal_alignment_flex_direction_column,select,Alignment,flex-start,,1,snippets/layout-panel-style.liquid,Low,Low,Needs work,rename
 block,blocks/accordion_image.liquid,Accordion image,alignment,select,Alignment,flex-start,,13,blocks/_blog-post-card.liquid;blocks/_blog-post-info-text.liquid;blocks/_cart-title.liquid;blocks/_featured-blog-posts-card.liquid;blocks/accordion_image.liquid;blocks/price.liquid;blocks/review.liquid;sections/collection-links.liquid;sections/search-header.liquid;snippets/divider.liquid;snippets/jumbo-text.liquid;snippets/text.liquid;snippets/variant-main-picker.liquid,Medium,Low,Needs work,rename
 block,blocks/collection-card.liquid,Collection card,horizontal_alignment,select,Alignment,flex-start,,4,blocks/payment-icons.liquid;sections/product-list.liquid;snippets/collection-card.liquid;snippets/layout-panel-style.liquid,Low,Low,Needs work,rename
 block,blocks/collection-title.liquid,Collection title,alignment,text_alignment,Alignment,left,,13,blocks/_blog-post-card.liquid;blocks/_blog-post-info-text.liquid;blocks/_cart-title.liquid;blocks/_featured-blog-posts-card.liquid;blocks/accordion_image.liquid;blocks/price.liquid;blocks/review.liquid;sections/collection-links.liquid;sections/search-header.liquid;snippets/divider.liquid;snippets/jumbo-text.liquid;snippets/text.liquid;snippets/variant-main-picker.liquid,Low,High,Needs work,rename
 block,blocks/group.liquid,Group,horizontal_alignment,select,Alignment,flex-start,,4,blocks/payment-icons.liquid;sections/product-list.liquid;snippets/collection-card.liquid;snippets/layout-panel-style.liquid,Low,Low,Needs work,rename
-block,blocks/group.liquid,Group,horizontal_alignment_flex_direction_column,select,Alignment,flex-start,,1,snippets/layout-panel-style.liquid,Low,Low,Needs work,rename
 block,blocks/jumbo-text.liquid,Jumbo text,alignment,text_alignment,Alignment,left,,13,blocks/_blog-post-card.liquid;blocks/_blog-post-info-text.liquid;blocks/_cart-title.liquid;blocks/_featured-blog-posts-card.liquid;blocks/accordion_image.liquid;blocks/price.liquid;blocks/review.liquid;sections/collection-links.liquid;sections/search-header.liquid;snippets/divider.liquid;snippets/jumbo-text.liquid;snippets/text.liquid;snippets/variant-main-picker.liquid,Low,Medium,Needs work,rename
 block,blocks/payment-icons.liquid,Payment icons,horizontal_alignment,select,Alignment,flex-start,,4,blocks/payment-icons.liquid;sections/product-list.liquid;snippets/collection-card.liquid;snippets/layout-panel-style.liquid,Medium,Low,Needs work,rename
 block,blocks/price.liquid,Price,alignment,text_alignment,Alignment,left,,13,blocks/_blog-post-card.liquid;blocks/_blog-post-info-text.liquid;blocks/_cart-title.liquid;blocks/_featured-blog-posts-card.liquid;blocks/accordion_image.liquid;blocks/price.liquid;blocks/review.liquid;sections/collection-links.liquid;sections/search-header.liquid;snippets/divider.liquid;snippets/jumbo-text.liquid;snippets/text.liquid;snippets/variant-main-picker.liquid,Low,Low,Needs work,rename
@@ -509,16 +505,12 @@ block,blocks/_collection-card.liquid,Collection card,vertical_alignment,select,P
 block,blocks/_content-without-appearance.liquid,Content,vertical_alignment_flex_direction_column,select,Position,center,,1,snippets/layout-panel-style.liquid,Low,Medium,Needs work,rename
 block,blocks/_content.liquid,Content,vertical_alignment_flex_direction_column,select,Position,center,,1,snippets/layout-panel-style.liquid,Low,Medium,Needs work,rename
 block,blocks/_product-card-group.liquid,Group,vertical_alignment,select,Position,center,,2,snippets/collection-card.liquid;snippets/layout-panel-style.liquid,Low,Low,Needs work,rename
-block,blocks/_product-card-group.liquid,Group,vertical_alignment_flex_direction_column,select,Position,center,,1,snippets/layout-panel-style.liquid,Low,Low,Needs work,rename
 block,blocks/_product-details.liquid,Details,details_position,select,Position,flex-start,,1,blocks/_product-details.liquid,Low,Low,Needs work,rename
 block,blocks/_product-list-content.liquid,Header,vertical_alignment,select,Position,center,,2,snippets/collection-card.liquid;snippets/layout-panel-style.liquid,Low,Low,Needs work,rename
-block,blocks/_product-list-content.liquid,Header,vertical_alignment_flex_direction_column,select,Position,center,,1,snippets/layout-panel-style.liquid,Low,Low,Needs work,rename
 block,blocks/_product-media-gallery.liquid,Product media,thumbnail_position,select,Position,bottom,,1,blocks/_product-media-gallery.liquid,Medium,Low,Needs work,rename
 block,blocks/_slide.liquid,Slide,vertical_alignment,select,Position,center,,2,snippets/collection-card.liquid;snippets/layout-panel-style.liquid,Low,Low,Needs work,rename
-block,blocks/_slide.liquid,Slide,vertical_alignment_flex_direction_column,select,Position,center,,1,snippets/layout-panel-style.liquid,Low,Low,Needs work,rename
 block,blocks/collection-card.liquid,Collection card,vertical_alignment,select,Position,center,,2,snippets/collection-card.liquid;snippets/layout-panel-style.liquid,Low,Low,Needs work,rename
 block,blocks/group.liquid,Group,vertical_alignment,select,Position,center,,2,snippets/collection-card.liquid;snippets/layout-panel-style.liquid,Low,Low,Needs work,rename
-block,blocks/group.liquid,Group,vertical_alignment_flex_direction_column,select,Position,center,,1,snippets/layout-panel-style.liquid,Low,Low,Needs work,rename
 section,sections/_blocks.liquid,Section,align_baseline,checkbox,Align text baseline,False,,1,snippets/layout-panel-style.liquid,Low,Medium,Clear,keep
 section,sections/hero-splash.liquid,Hero splash,align_baseline,checkbox,Align text baseline,False,,1,snippets/layout-panel-style.liquid,Low,Medium,Clear,keep
 section,sections/hero.liquid,Hero,align_baseline,checkbox,Align text baseline,False,,1,snippets/layout-panel-style.liquid,Low,Medium,Clear,keep
@@ -681,60 +673,38 @@ section,sections/search-header.liquid,Search,padding-block-start,range,Top,0,,2,
 section,sections/section.liquid,Section,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
 section,sections/slideshow.liquid,Slideshow,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,High,Low,Clear,keep
 block,blocks/_blog-post-description.liquid,Description,padding-block-start,range,Top,16,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,High,Clear,keep
-block,blocks/_blog-post-featured-image.liquid,Featured image,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Medium,Low,Clear,keep
 block,blocks/_blog-post-info-text.liquid,Details,padding-block-start,range,Top,24,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
 block,blocks/_cart-products.liquid,Cart products,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
 block,blocks/_cart-title.liquid,Title,padding-block-start,range,Top,16,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,High,Clear,keep
-block,blocks/_collection-image.liquid,Collection image,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Medium,Low,Clear,keep
-block,blocks/_collection-info.liquid,Collection info,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
 block,blocks/_content.liquid,Content,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Medium,Clear,keep
-block,blocks/_divider.liquid,Divider,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
 block,blocks/_featured-blog-posts-card.liquid,Blog card,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
 block,blocks/_featured-blog-posts-title.liquid,Title,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,High,Clear,keep
-block,blocks/_header-logo.liquid,Logo,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
 block,blocks/_heading.liquid,Heading,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,High,Clear,keep
 block,blocks/_marquee.liquid,Marquee,padding-block-start,range,Top,24,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
-block,blocks/_media.liquid,Media,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Medium,Low,Clear,keep
 block,blocks/_product-card-gallery.liquid,Product image,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Medium,Low,Clear,keep
 block,blocks/_product-card-group.liquid,Group,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
 block,blocks/_product-card.liquid,Product card,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
 block,blocks/_product-details.liquid,Details,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
 block,blocks/_product-list-content.liquid,Header,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
-block,blocks/_product-list-text.liquid,Collection title,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,High,Clear,keep
 block,blocks/_product-media-gallery.liquid,Product media,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Medium,Low,Clear,keep
 block,blocks/_slide.liquid,Slide,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
 block,blocks/accordion.liquid,Accordion,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
-block,blocks/accordion_image.liquid,Accordion image,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Medium,Low,Clear,keep
 block,blocks/accordion_row.liquid,Accordion row,summary_padding_block_start,range,Top,0,,2,blocks/accordion_row.liquid;blocks/accordion_stack_row.liquid,Low,Low,Clear,keep
 block,blocks/accordion_row.liquid,Accordion row,content_padding_block_start,range,Top,12,,2,blocks/accordion_row.liquid;blocks/accordion_stack_row.liquid,Low,Medium,Clear,keep
-block,blocks/accordion_slideshow.liquid,Accordion slideshow,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,High,Low,Clear,keep
 block,blocks/accordion_stack_row.liquid,Accordion stack row,summary_padding_block_start,range,Top,0,,2,blocks/accordion_row.liquid;blocks/accordion_stack_row.liquid,Low,Low,Clear,keep
 block,blocks/accordion_stack_row.liquid,Accordion stack row,content_padding_block_start,range,Top,12,,2,blocks/accordion_row.liquid;blocks/accordion_stack_row.liquid,Low,Medium,Clear,keep
 block,blocks/buy-buttons.liquid,Buy buttons,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
-block,blocks/collection-title.liquid,Collection title,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,High,Clear,keep
-block,blocks/contact-form.liquid,Contact form,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
 block,blocks/email-signup.liquid,Email signup,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
 block,blocks/filters.liquid,Filtering and sorting,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
-block,blocks/follow-on-shop.liquid,Follow on Shop,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
 block,blocks/group.liquid,Group,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
 block,blocks/image.liquid,Image,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Medium,Low,Clear,keep
 block,blocks/logo.liquid,Logo,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
 block,blocks/menu.liquid,Menu,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
-block,blocks/page.liquid,Page,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
-block,blocks/payment-icons.liquid,Payment icons,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Medium,Low,Clear,keep
-block,blocks/popup-link.liquid,Popup link,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Medium,Clear,keep
 block,blocks/price.liquid,Price,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
-block,blocks/product-card.liquid,Product card,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
-block,blocks/product-custom-property.liquid,Special instructions,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
-block,blocks/product-description.liquid,Text,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Medium,Clear,keep
-block,blocks/product-inventory.liquid,Product inventory,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
-block,blocks/product-recommendations.liquid,Recommended products,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
 block,blocks/product-title.liquid,Product title,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,High,Clear,keep
 block,blocks/swatches.liquid,Swatches,product_swatches_padding_top,range,Top,4,,1,blocks/swatches.liquid,Low,Low,Clear,keep
 block,blocks/text.liquid,Text,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Medium,Clear,keep
 block,blocks/variant-picker.liquid,Variant picker,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
-block,blocks/vertical-text.liquid,Vertical text,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Medium,Clear,keep
-block,blocks/video.liquid,Video,padding-block-start,range,Top,0,,2,blocks/filters.liquid;snippets/product-card.liquid,High,Low,Clear,keep
 section,sections/_blocks.liquid,Section,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
 section,sections/accordion-stack.liquid,Accordion stack,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
 section,sections/accordion.liquid,Accordion,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
@@ -766,61 +736,39 @@ section,sections/search-header.liquid,Search,padding-block-end,range,Bottom,0,,2
 section,sections/section.liquid,Section,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
 section,sections/slideshow.liquid,Slideshow,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,High,Low,Clear,keep
 block,blocks/_blog-post-description.liquid,Description,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,High,Clear,keep
-block,blocks/_blog-post-featured-image.liquid,Featured image,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Medium,Low,Clear,keep
 block,blocks/_blog-post-info-text.liquid,Details,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
 block,blocks/_cart-products.liquid,Cart products,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
 block,blocks/_cart-title.liquid,Title,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,High,Clear,keep
-block,blocks/_collection-image.liquid,Collection image,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Medium,Low,Clear,keep
-block,blocks/_collection-info.liquid,Collection info,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
 block,blocks/_content.liquid,Content,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Medium,Clear,keep
-block,blocks/_divider.liquid,Divider,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
 block,blocks/_featured-blog-posts-card.liquid,Blog card,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
 block,blocks/_featured-blog-posts-title.liquid,Title,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,High,Clear,keep
-block,blocks/_header-logo.liquid,Logo,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
 block,blocks/_heading.liquid,Heading,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,High,Clear,keep
 block,blocks/_marquee.liquid,Marquee,padding-block-end,range,Bottom,24,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
-block,blocks/_media.liquid,Media,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Medium,Low,Clear,keep
 block,blocks/_product-card-gallery.liquid,Product image,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Medium,Low,Clear,keep
 block,blocks/_product-card-group.liquid,Group,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
 block,blocks/_product-card.liquid,Product card,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
 block,blocks/_product-details.liquid,Details,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
 block,blocks/_product-list-content.liquid,Header,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
-block,blocks/_product-list-text.liquid,Collection title,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,High,Clear,keep
 block,blocks/_product-media-gallery.liquid,Product media,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Medium,Low,Clear,keep
 block,blocks/_slide.liquid,Slide,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
 block,blocks/accordion.liquid,Accordion,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
-block,blocks/accordion_image.liquid,Accordion image,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Medium,Low,Clear,keep
 block,blocks/accordion_row.liquid,Accordion row,summary_padding_block_end,range,Bottom,0,,2,blocks/accordion_row.liquid;blocks/accordion_stack_row.liquid,Low,Low,Clear,keep
 block,blocks/accordion_row.liquid,Accordion row,content_padding_block_end,range,Bottom,24,,2,blocks/accordion_row.liquid;blocks/accordion_stack_row.liquid,Low,Medium,Clear,keep
-block,blocks/accordion_slideshow.liquid,Accordion slideshow,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,High,Low,Clear,keep
 block,blocks/accordion_stack_row.liquid,Accordion stack row,summary_padding_block_end,range,Bottom,0,,2,blocks/accordion_row.liquid;blocks/accordion_stack_row.liquid,Low,Low,Clear,keep
 block,blocks/accordion_stack_row.liquid,Accordion stack row,content_padding_block_end,range,Bottom,24,,2,blocks/accordion_row.liquid;blocks/accordion_stack_row.liquid,Low,Medium,Clear,keep
 block,blocks/buy-buttons.liquid,Buy buttons,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
-block,blocks/collection-title.liquid,Collection title,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,High,Clear,keep
-block,blocks/contact-form.liquid,Contact form,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
 block,blocks/email-signup.liquid,Email signup,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
 block,blocks/filters.liquid,Filtering and sorting,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
 block,blocks/filters.liquid,Filtering and sorting,facets_margin_bottom,range,Bottom,8,,1,blocks/filters.liquid,Low,Low,Clear,keep
-block,blocks/follow-on-shop.liquid,Follow on Shop,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
 block,blocks/group.liquid,Group,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
 block,blocks/image.liquid,Image,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Medium,Low,Clear,keep
 block,blocks/logo.liquid,Logo,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
 block,blocks/menu.liquid,Menu,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
-block,blocks/page.liquid,Page,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
-block,blocks/payment-icons.liquid,Payment icons,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Medium,Low,Clear,keep
-block,blocks/popup-link.liquid,Popup link,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Medium,Clear,keep
 block,blocks/price.liquid,Price,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
-block,blocks/product-card.liquid,Product card,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
-block,blocks/product-custom-property.liquid,Special instructions,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
-block,blocks/product-description.liquid,Text,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Medium,Clear,keep
-block,blocks/product-inventory.liquid,Product inventory,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
-block,blocks/product-recommendations.liquid,Recommended products,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
 block,blocks/product-title.liquid,Product title,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,High,Clear,keep
 block,blocks/swatches.liquid,Swatches,product_swatches_padding_bottom,range,Bottom,0,,1,blocks/swatches.liquid,Low,Low,Clear,keep
 block,blocks/text.liquid,Text,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Medium,Clear,keep
 block,blocks/variant-picker.liquid,Variant picker,padding-block-end,range,Bottom,8,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Low,Clear,keep
-block,blocks/vertical-text.liquid,Vertical text,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,Low,Medium,Clear,keep
-block,blocks/video.liquid,Video,padding-block-end,range,Bottom,0,,2,blocks/filters.liquid;snippets/product-card.liquid,High,Low,Clear,keep
 section,sections/accordion-stack.liquid,Accordion stack,icon,select,Icon style,caret,,12,blocks/_collection-info.liquid;blocks/_product-media-gallery.liquid;blocks/accordion.liquid;blocks/accordion_row.liquid;blocks/accordion_slideshow.liquid;blocks/accordion_stack_row.liquid;blocks/icon.liquid;sections/slideshow.liquid;snippets/icon-or-image.liquid;snippets/resource-list-carousel.liquid;snippets/special-accordion-preset-icons-with-text.liquid;snippets/theme-styles-variables.liquid,Medium,Low,Clear,keep
 section,sections/accordion.liquid,Accordion,icon,select,Icon style,caret,,12,blocks/_collection-info.liquid;blocks/_product-media-gallery.liquid;blocks/accordion.liquid;blocks/accordion_row.liquid;blocks/accordion_slideshow.liquid;blocks/accordion_stack_row.liquid;blocks/icon.liquid;sections/slideshow.liquid;snippets/icon-or-image.liquid;snippets/resource-list-carousel.liquid;snippets/special-accordion-preset-icons-with-text.liquid;snippets/theme-styles-variables.liquid,Medium,Low,Clear,keep
 block,blocks/accordion_slideshow.liquid,Accordion slideshow,icons_style,select,Icon style,chevron,,5,blocks/_collection-info.liquid;blocks/_product-media-gallery.liquid;blocks/accordion_slideshow.liquid;sections/slideshow.liquid;snippets/resource-list-carousel.liquid,High,Low,Clear,keep
@@ -836,109 +784,69 @@ section,sections/accordion-stack.liquid,Accordion stack,hide_section_gridline,ch
 section,sections/accordion.liquid,Accordion,hide_section_gridline,checkbox,Hide bottom gridline,False,Use when the section already has its own divider.,0,,Low,Low,Clear,deprecate
 section,sections/accordion-stack.liquid,Accordion stack,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
 section,sections/accordion.liquid,Accordion,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
-block,blocks/_blog-post-featured-image.liquid,Featured image,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Medium,Low,Clear,keep
 block,blocks/_cart-products.liquid,Cart products,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
 block,blocks/_cart-title.liquid,Title,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,High,Clear,keep
-block,blocks/_collection-image.liquid,Collection image,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Medium,Low,Clear,keep
-block,blocks/_collection-info.liquid,Collection info,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
 block,blocks/_content.liquid,Content,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Medium,Clear,keep
 block,blocks/_featured-blog-posts-card.liquid,Blog card,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
 block,blocks/_featured-blog-posts-title.liquid,Title,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,High,Clear,keep
-block,blocks/_header-logo.liquid,Logo,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
 block,blocks/_heading.liquid,Heading,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,High,Clear,keep
-block,blocks/_media.liquid,Media,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Medium,Low,Clear,keep
 block,blocks/_product-card-gallery.liquid,Product image,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Medium,Low,Clear,keep
 block,blocks/_product-card-group.liquid,Group,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
 block,blocks/_product-card.liquid,Product card,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
 block,blocks/_product-details.liquid,Details,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
 block,blocks/_product-list-content.liquid,Header,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
-block,blocks/_product-list-text.liquid,Collection title,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,High,Clear,keep
 block,blocks/_product-media-gallery.liquid,Product media,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Medium,Low,Clear,keep
 block,blocks/_slide.liquid,Slide,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
 block,blocks/accordion.liquid,Accordion,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
-block,blocks/accordion_image.liquid,Accordion image,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Medium,Low,Clear,keep
 block,blocks/accordion_row.liquid,Accordion row,summary_padding_inline_start,range,Left,0,,2,blocks/accordion_row.liquid;blocks/accordion_stack_row.liquid,Low,Low,Clear,keep
 block,blocks/accordion_row.liquid,Accordion row,content_padding_inline_start,range,Left,24,,2,blocks/accordion_row.liquid;blocks/accordion_stack_row.liquid,Low,Medium,Clear,keep
-block,blocks/accordion_slideshow.liquid,Accordion slideshow,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,High,Low,Clear,keep
 block,blocks/accordion_stack_row.liquid,Accordion stack row,summary_padding_inline_start,range,Left,0,,2,blocks/accordion_row.liquid;blocks/accordion_stack_row.liquid,Low,Low,Clear,keep
 block,blocks/accordion_stack_row.liquid,Accordion stack row,content_padding_inline_start,range,Left,24,,2,blocks/accordion_row.liquid;blocks/accordion_stack_row.liquid,Low,Medium,Clear,keep
 block,blocks/buy-buttons.liquid,Buy buttons,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
-block,blocks/collection-title.liquid,Collection title,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,High,Clear,keep
-block,blocks/contact-form.liquid,Contact form,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
 block,blocks/email-signup.liquid,Email signup,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
 block,blocks/filters.liquid,Filtering and sorting,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
-block,blocks/follow-on-shop.liquid,Follow on Shop,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
 block,blocks/group.liquid,Group,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
 block,blocks/image.liquid,Image,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Medium,Low,Clear,keep
 block,blocks/logo.liquid,Logo,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
 block,blocks/menu.liquid,Menu,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
-block,blocks/page.liquid,Page,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
-block,blocks/payment-icons.liquid,Payment icons,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Medium,Low,Clear,keep
-block,blocks/popup-link.liquid,Popup link,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Medium,Clear,keep
 block,blocks/price.liquid,Price,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
-block,blocks/product-card.liquid,Product card,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
-block,blocks/product-custom-property.liquid,Special instructions,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
-block,blocks/product-description.liquid,Text,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Medium,Clear,keep
-block,blocks/product-inventory.liquid,Product inventory,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
 block,blocks/product-title.liquid,Product title,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,High,Clear,keep
 block,blocks/swatches.liquid,Swatches,product_swatches_padding_left,range,Left,0,,1,blocks/swatches.liquid,Low,Low,Clear,keep
 block,blocks/text.liquid,Text,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Medium,Clear,keep
 block,blocks/variant-picker.liquid,Variant picker,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
-block,blocks/vertical-text.liquid,Vertical text,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Medium,Clear,keep
-block,blocks/video.liquid,Video,padding-inline-start,range,Left,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,High,Low,Clear,keep
 section,sections/accordion-stack.liquid,Accordion stack,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
 section,sections/accordion.liquid,Accordion,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
-block,blocks/_blog-post-featured-image.liquid,Featured image,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Medium,Low,Clear,keep
 block,blocks/_cart-products.liquid,Cart products,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
 block,blocks/_cart-title.liquid,Title,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,High,Clear,keep
-block,blocks/_collection-image.liquid,Collection image,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Medium,Low,Clear,keep
-block,blocks/_collection-info.liquid,Collection info,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
 block,blocks/_content.liquid,Content,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Medium,Clear,keep
 block,blocks/_featured-blog-posts-card.liquid,Blog card,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
 block,blocks/_featured-blog-posts-title.liquid,Title,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,High,Clear,keep
-block,blocks/_header-logo.liquid,Logo,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
 block,blocks/_heading.liquid,Heading,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,High,Clear,keep
-block,blocks/_media.liquid,Media,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Medium,Low,Clear,keep
 block,blocks/_product-card-gallery.liquid,Product image,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Medium,Low,Clear,keep
 block,blocks/_product-card-group.liquid,Group,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
 block,blocks/_product-card.liquid,Product card,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
 block,blocks/_product-details.liquid,Details,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
 block,blocks/_product-list-content.liquid,Header,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
-block,blocks/_product-list-text.liquid,Collection title,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,High,Clear,keep
 block,blocks/_product-media-gallery.liquid,Product media,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Medium,Low,Clear,keep
 block,blocks/_slide.liquid,Slide,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
 block,blocks/accordion.liquid,Accordion,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
-block,blocks/accordion_image.liquid,Accordion image,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Medium,Low,Clear,keep
 block,blocks/accordion_row.liquid,Accordion row,summary_padding_inline_end,range,Right,0,,2,blocks/accordion_row.liquid;blocks/accordion_stack_row.liquid,Low,Low,Clear,keep
 block,blocks/accordion_row.liquid,Accordion row,content_padding_inline_end,range,Right,24,,2,blocks/accordion_row.liquid;blocks/accordion_stack_row.liquid,Low,Medium,Clear,keep
-block,blocks/accordion_slideshow.liquid,Accordion slideshow,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,High,Low,Clear,keep
 block,blocks/accordion_stack_row.liquid,Accordion stack row,summary_padding_inline_end,range,Right,0,,2,blocks/accordion_row.liquid;blocks/accordion_stack_row.liquid,Low,Low,Clear,keep
 block,blocks/accordion_stack_row.liquid,Accordion stack row,content_padding_inline_end,range,Right,24,,2,blocks/accordion_row.liquid;blocks/accordion_stack_row.liquid,Low,Medium,Clear,keep
 block,blocks/buy-buttons.liquid,Buy buttons,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
-block,blocks/collection-title.liquid,Collection title,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,High,Clear,keep
-block,blocks/contact-form.liquid,Contact form,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
 block,blocks/email-signup.liquid,Email signup,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
 block,blocks/filters.liquid,Filtering and sorting,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
 block,blocks/filters.liquid,Filtering and sorting,facets_margin_right,range,Right,20,,1,blocks/filters.liquid,Low,Low,Clear,keep
-block,blocks/follow-on-shop.liquid,Follow on Shop,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
 block,blocks/group.liquid,Group,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
 block,blocks/image.liquid,Image,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Medium,Low,Clear,keep
 block,blocks/logo.liquid,Logo,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
 block,blocks/menu.liquid,Menu,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
-block,blocks/page.liquid,Page,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
-block,blocks/payment-icons.liquid,Payment icons,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Medium,Low,Clear,keep
-block,blocks/popup-link.liquid,Popup link,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Medium,Clear,keep
 block,blocks/price.liquid,Price,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
-block,blocks/product-card.liquid,Product card,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
-block,blocks/product-custom-property.liquid,Special instructions,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
-block,blocks/product-description.liquid,Text,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Medium,Clear,keep
-block,blocks/product-inventory.liquid,Product inventory,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
 block,blocks/product-title.liquid,Product title,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,High,Clear,keep
 block,blocks/swatches.liquid,Swatches,product_swatches_padding_right,range,Right,0,,1,blocks/swatches.liquid,Low,Low,Clear,keep
 block,blocks/text.liquid,Text,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Medium,Clear,keep
 block,blocks/variant-picker.liquid,Variant picker,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Low,Clear,keep
-block,blocks/vertical-text.liquid,Vertical text,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,Low,Medium,Clear,keep
-block,blocks/video.liquid,Video,padding-inline-end,range,Right,0,,2,snippets/product-card.liquid;snippets/product-grid.liquid,High,Low,Clear,keep
 section,sections/accordion-stack.liquid,Accordion stack,border_width,range,Border width,1,,4,blocks/email-signup.liquid;sections/hero-splash.liquid;sections/hero.liquid;snippets/border-override.liquid,Low,Low,Clear,keep
 section,sections/accordion.liquid,Accordion,border_width,range,Border width,1,,4,blocks/email-signup.liquid;sections/hero-splash.liquid;sections/hero.liquid;snippets/border-override.liquid,Low,Low,Clear,keep
 section,sections/accordion-stack.liquid,Accordion stack,border_radius,range,Border radius,0,,6,blocks/_cart-summary.liquid;blocks/_image.liquid;blocks/accordion_image.liquid;blocks/email-signup.liquid;snippets/border-override.liquid;snippets/overlay.liquid,Low,Low,Clear,keep
@@ -1273,8 +1181,8 @@ block,blocks/_featured-product-gallery.liquid,Product media,constrain_to_viewpor
 block,blocks/_product-media-gallery.liquid,Product media,constrain_to_viewport,checkbox,Constrain to screen height,False,,2,blocks/_product-media-gallery.liquid;snippets/card-gallery.liquid,Medium,Low,Clear,keep
 block,blocks/_featured-product-price.liquid,Price,show_sale_price_first,checkbox,Show sale price first,True,,2,blocks/_featured-product-price.liquid;blocks/price.liquid,Low,Low,Clear,keep
 block,blocks/price.liquid,Price,show_sale_price_first,checkbox,Show sale price first,True,,2,blocks/_featured-product-price.liquid;blocks/price.liquid,Low,Low,Clear,keep
-block,blocks/_header-menu.liquid,Menu,menu,link_list,Menu,main-menu,,6,blocks/_header-menu.liquid;blocks/menu.liquid;sections/header.liquid;snippets/header-drawer.liquid;snippets/header-menu.liquid;snippets/submenu-font-styles.liquid,Low,Low,Clear,keep
-block,blocks/menu.liquid,Menu,menu,link_list,Menu,main-menu,,6,blocks/_header-menu.liquid;blocks/menu.liquid;sections/header.liquid;snippets/header-drawer.liquid;snippets/header-menu.liquid;snippets/submenu-font-styles.liquid,Low,Low,Clear,keep
+block,blocks/_header-menu.liquid,Menu,menu,link_list,Menu,main-menu,,7,blocks/_header-menu.liquid;blocks/menu.liquid;blocks/social-links.liquid;sections/header.liquid;snippets/header-drawer.liquid;snippets/header-menu.liquid;snippets/submenu-font-styles.liquid,Low,Low,Clear,keep
+block,blocks/menu.liquid,Menu,menu,link_list,Menu,main-menu,,7,blocks/_header-menu.liquid;blocks/menu.liquid;blocks/social-links.liquid;sections/header.liquid;snippets/header-drawer.liquid;snippets/header-menu.liquid;snippets/submenu-font-styles.liquid,Low,Low,Clear,keep
 block,blocks/_header-menu.liquid,Menu,featured_products_aspect_ratio,select,Image ratio,4 / 5,,2,snippets/header-drawer.liquid;snippets/header-menu.liquid,Medium,Low,Clear,keep
 block,blocks/_header-menu.liquid,Menu,featured_collections_aspect_ratio,select,Image ratio,16 / 9,,2,snippets/header-drawer.liquid;snippets/header-menu.liquid,Medium,Low,Clear,keep
 block,blocks/accordion_image.liquid,Accordion image,image_ratio,select,Image ratio,adapt,,8,blocks/_blog-post-featured-image.liquid;blocks/_collection-image.liquid;blocks/accordion_image.liquid;blocks/accordion_slideshow.liquid;blocks/image.liquid;snippets/card-gallery.liquid;snippets/cart-products.liquid;snippets/resource-image.liquid,Medium,Low,Clear,keep

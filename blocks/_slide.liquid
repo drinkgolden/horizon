@@ -250,61 +250,11 @@
           "label": "t:options.space_between"
         }
       ],
-      "default": "flex-start",
-      "visible_if": "{{ block.settings.content_direction == 'row' }}"
+      "default": "flex-start"
     },
     {
       "type": "select",
       "id": "vertical_alignment",
-      "label": "t:settings.position",
-      "options": [
-        {
-          "value": "flex-start",
-          "label": "t:options.top"
-        },
-        {
-          "value": "center",
-          "label": "t:options.center"
-        },
-        {
-          "value": "flex-end",
-          "label": "t:options.bottom"
-        }
-      ],
-      "default": "center",
-      "visible_if": "{{ block.settings.content_direction == 'row' }}"
-    },
-    {
-      "type": "checkbox",
-      "id": "align_baseline",
-      "label": "t:settings.align_baseline",
-      "default": false,
-      "visible_if": "{{ block.settings.vertical_alignment == 'flex-end' }}"
-    },
-    {
-      "type": "select",
-      "id": "horizontal_alignment_flex_direction_column",
-      "label": "t:settings.alignment",
-      "options": [
-        {
-          "value": "flex-start",
-          "label": "t:options.left"
-        },
-        {
-          "value": "center",
-          "label": "t:options.center"
-        },
-        {
-          "value": "flex-end",
-          "label": "t:options.right"
-        }
-      ],
-      "default": "flex-start",
-      "visible_if": "{{ block.settings.content_direction != 'row' }}"
-    },
-    {
-      "type": "select",
-      "id": "vertical_alignment_flex_direction_column",
       "label": "t:settings.position",
       "options": [
         {
@@ -324,8 +274,14 @@
           "label": "t:options.space_between"
         }
       ],
-      "default": "center",
-      "visible_if": "{{ block.settings.content_direction == 'column' }}"
+      "default": "center"
+    },
+    {
+      "type": "checkbox",
+      "id": "align_baseline",
+      "label": "t:settings.align_baseline",
+      "default": false,
+      "visible_if": "{{ block.settings.content_direction == 'row' and block.settings.vertical_alignment == 'flex-end' }}"
     },
     {
       "type": "range",

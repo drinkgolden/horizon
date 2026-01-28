@@ -1,10 +1,10 @@
 {
-  "total_settings": 1516,
-  "unused_settings": 76,
+  "total_settings": 1412,
+  "unused_settings": 63,
   "unused_by_scope": {
     "theme": 32,
     "section": 2,
-    "block": 42
+    "block": 29
   },
   "duplicate_labels_groups": 128,
   "settings_data_keys_not_in_schema": []

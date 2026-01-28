@@ -61,17 +61,4 @@ block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_five_heading,t
 block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_five_text,richtext,Slide 5 text,,,0,,High,Medium,Clear,deprecate
 block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_five_button_label,text,Slide 5 button label,,,0,,High,Medium,Clear,deprecate
 block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_five_button_link,url,Slide 5 button link,,,0,,High,Medium,Clear,deprecate
-block,blocks/social-links.liquid,Social media links,facebook_url,url,Facebook,,,0,,Medium,Medium,Clear,deprecate
-block,blocks/social-links.liquid,Social media links,instagram_url,url,Instagram,,,0,,Medium,Medium,Clear,deprecate
-block,blocks/social-links.liquid,Social media links,youtube_url,url,YouTube,,,0,,Medium,Medium,Clear,deprecate
-block,blocks/social-links.liquid,Social media links,tiktok_url,url,TikTok,,,0,,Medium,Medium,Clear,deprecate
-block,blocks/social-links.liquid,Social media links,twitter_url,url,X (Twitter),,,0,,Medium,Medium,Clear,deprecate
-block,blocks/social-links.liquid,Social media links,threads_url,url,Threads,,,0,,Medium,Medium,Clear,deprecate
-block,blocks/social-links.liquid,Social media links,linkedin_url,url,LinkedIn,,,0,,Medium,Medium,Clear,deprecate
-block,blocks/social-links.liquid,Social media links,bluesky_url,url,Bluesky,,,0,,Medium,Medium,Clear,deprecate
-block,blocks/social-links.liquid,Social media links,snapchat_url,url,Snapchat,,,0,,Medium,Medium,Clear,deprecate
-block,blocks/social-links.liquid,Social media links,pinterest_url,url,Pinterest,,,0,,Medium,Medium,Clear,deprecate
-block,blocks/social-links.liquid,Social media links,tumblr_url,url,Tumblr,,,0,,Medium,Medium,Clear,deprecate
-block,blocks/social-links.liquid,Social media links,vimeo_url,url,Vimeo,,,0,,Medium,Medium,Clear,deprecate
-block,blocks/social-links.liquid,Social media links,custom_url,url,Custom link,,,0,,Medium,Medium,Clear,deprecate
 block,blocks/swatches.liquid,Swatches,hide_padding,checkbox,Hide padding,False,,0,,Low,Low,Clear,deprecate
