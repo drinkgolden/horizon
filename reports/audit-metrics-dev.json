@@ -1,17 +1,11 @@
 {
-  "total_settings": 1528,
-  "unused_settings": 153,
+  "total_settings": 1516,
+  "unused_settings": 76,
   "unused_by_scope": {
-    "theme": 34,
-    "section": 4,
-    "section-block": 0,
-    "block": 115
+    "theme": 32,
+    "section": 2,
+    "block": 42
   },
-  "duplicate_labels_groups": 224,
-  "settings_data_keys_not_in_schema": [
-    "bottom_motif_button_svg",
-    "side_columns_background_color",
-    "side_columns_border_color",
-    "enable_guided_scroll"
-  ]
+  "duplicate_labels_groups": 128,
+  "settings_data_keys_not_in_schema": []
 }
