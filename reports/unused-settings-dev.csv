@@ -1,0 +1,154 @@
+scope,file,owner,setting_id,type,label,default,info,usage_count,usage_paths,performance_impact,seo_impact,ux_clarity,auto_recommendation
+theme,config/settings_schema.json,Typography,type_size_paragraph,text,Size,0.875,Enter rem values such as 1.25. Legacy px values still work.,0,,Low,Low,Needs work,deprecate
+theme,config/settings_schema.json,Typography,type_line_height_paragraph,select,Line height,body-normal,,0,,Low,Low,Clear,deprecate
+theme,config/settings_schema.json,Typography,type_font_h1,select,Font,heading,,0,,Medium,High,Clear,deprecate
+theme,config/settings_schema.json,Typography,type_size_h1,text,Size,4.5,Enter rem values such as 3.5. Legacy px values still work.,0,,Low,High,Needs work,deprecate
+theme,config/settings_schema.json,Typography,type_line_height_h1,select,Line height,display-normal,,0,,Low,High,Clear,deprecate
+theme,config/settings_schema.json,Typography,type_letter_spacing_h1,select,Letter spacing,heading-normal,,0,,Low,High,Clear,deprecate
+theme,config/settings_schema.json,Typography,type_case_h1,select,Case,none,,0,,Low,High,Clear,deprecate
+theme,config/settings_schema.json,Typography,type_font_h2,select,Font,heading,,0,,Medium,High,Clear,deprecate
+theme,config/settings_schema.json,Typography,type_size_h2,text,Size,3,Enter rem values such as 3.5. Legacy px values still work.,0,,Low,High,Needs work,deprecate
+theme,config/settings_schema.json,Typography,type_line_height_h2,select,Line height,display-normal,,0,,Low,High,Clear,deprecate
+theme,config/settings_schema.json,Typography,type_letter_spacing_h2,select,Letter spacing,heading-normal,,0,,Low,High,Clear,deprecate
+theme,config/settings_schema.json,Typography,type_case_h2,select,Case,none,,0,,Low,High,Clear,deprecate
+theme,config/settings_schema.json,Typography,type_font_h3,select,Font,heading,,0,,Medium,Low,Clear,deprecate
+theme,config/settings_schema.json,Typography,type_size_h3,text,Size,2,Enter rem values such as 2.5. Legacy px values still work.,0,,Low,Low,Needs work,deprecate
+theme,config/settings_schema.json,Typography,type_line_height_h3,select,Line height,display-normal,,0,,Low,Low,Clear,deprecate
+theme,config/settings_schema.json,Typography,type_letter_spacing_h3,select,Letter spacing,heading-normal,,0,,Low,Low,Clear,deprecate
+theme,config/settings_schema.json,Typography,type_case_h3,select,Case,none,,0,,Low,Low,Clear,deprecate
+theme,config/settings_schema.json,Typography,type_font_h4,select,Font,subheading,,0,,Medium,Low,Clear,deprecate
+theme,config/settings_schema.json,Typography,type_size_h4,text,Size,1.5,Enter rem values such as 1.75. Legacy px values still work.,0,,Low,Low,Needs work,deprecate
+theme,config/settings_schema.json,Typography,type_line_height_h4,select,Line height,display-normal,,0,,Low,Low,Clear,deprecate
+theme,config/settings_schema.json,Typography,type_letter_spacing_h4,select,Letter spacing,heading-normal,,0,,Low,Low,Clear,deprecate
+theme,config/settings_schema.json,Typography,type_case_h4,select,Case,none,,0,,Low,Low,Clear,deprecate
+theme,config/settings_schema.json,Typography,type_font_h5,select,Font,subheading,,0,,Medium,Low,Clear,deprecate
+theme,config/settings_schema.json,Typography,type_size_h5,text,Size,1.125,Enter rem values such as 1.25. Legacy px values still work.,0,,Low,Low,Needs work,deprecate
+theme,config/settings_schema.json,Typography,type_line_height_h5,select,Line height,display-normal,,0,,Low,Low,Clear,deprecate
+theme,config/settings_schema.json,Typography,type_letter_spacing_h5,select,Letter spacing,heading-normal,,0,,Low,Low,Clear,deprecate
+theme,config/settings_schema.json,Typography,type_case_h5,select,Case,none,,0,,Low,Low,Clear,deprecate
+theme,config/settings_schema.json,Typography,type_font_h6,select,Font,subheading,,0,,Medium,Low,Clear,deprecate
+theme,config/settings_schema.json,Typography,type_size_h6,text,Size,1,Enter rem values such as 1.1. Legacy px values still work.,0,,Low,Low,Needs work,deprecate
+theme,config/settings_schema.json,Typography,type_line_height_h6,select,Line height,display-normal,,0,,Low,Low,Clear,deprecate
+theme,config/settings_schema.json,Typography,type_letter_spacing_h6,select,Letter spacing,heading-normal,,0,,Low,Low,Clear,deprecate
+theme,config/settings_schema.json,Typography,type_case_h6,select,Case,none,,0,,Low,Low,Clear,deprecate
+theme,config/settings_schema.json,Golden Grid,bottom_motif_button_background,color,Shape colour,#F1D35E,,0,,Low,Low,Clear,deprecate
+theme,config/settings_schema.json,Golden Grid,bottom_motif_button_text_color,color,Text colour,#FFFFFF,,0,,Low,Medium,Clear,deprecate
+section,sections/header.liquid,Header,logo_position,select,Position,center,,0,,Low,Low,Needs work,deprecate
+section,sections/header.liquid,Header,menu_position,select,Position,left,,0,,Low,Low,Needs work,deprecate
+section,sections/accordion.liquid,Accordion,hide_section_gridline,checkbox,Hide bottom gridline,False,Use when the section already has its own divider.,0,,Low,Low,Clear,deprecate
+section,sections/accordion-stack.liquid,Accordion stack,hide_section_gridline,checkbox,Hide bottom gridline,False,Use when the section already has its own divider.,0,,Low,Low,Clear,deprecate
+block,blocks/_blog-post-image.liquid,Image,border_opacity,range,Border opacity,100,,0,,Low,Low,Clear,deprecate
+block,blocks/_cart-summary.liquid,Summary,border_opacity,range,Opacity,100,,0,,Low,Low,Clear,deprecate
+block,blocks/_product-card-gallery.liquid,Product image,border_opacity,range,Opacity,100,,0,,Low,Low,Clear,deprecate
+block,blocks/_featured-blog-posts-title.liquid,Title,wrap,select,Wrap,,,0,,Low,Low,Clear,deprecate
+block,blocks/_divider.liquid,Divider,width_percent,range,Length,100,,0,,Low,Low,Clear,deprecate
+block,blocks/_collection-card.liquid,Collection card,border_opacity,range,Border opacity,100,,0,,Low,Low,Clear,deprecate
+block,blocks/collection-card.liquid,Collection card,border_opacity,range,Border opacity,100,,0,,Low,Low,Clear,deprecate
+block,blocks/video.liquid,Video,border_opacity,range,Opacity,100,,0,,Low,Low,Clear,deprecate
+block,blocks/product-description.liquid,Text,wrap,select,Wrap,,,0,,Low,Low,Clear,deprecate
+block,blocks/_featured-blog-posts-image.liquid,Image,border_opacity,range,Opacity,100,,0,,Low,Low,Clear,deprecate
+block,blocks/_product-details.liquid,Details,background_image,image_picker,Image,,,0,,Medium,Low,Clear,deprecate
+block,blocks/_product-details.liquid,Details,background_image_position,select,Image position,cover,,0,,Medium,Low,Clear,deprecate
+block,blocks/_product-details.liquid,Details,border_opacity,range,Border opacity,100,,0,,Low,Low,Clear,deprecate
+block,blocks/social-links.liquid,Social media links,facebook_url,url,Facebook,,,0,,Low,Medium,Clear,deprecate
+block,blocks/social-links.liquid,Social media links,instagram_url,url,Instagram,,,0,,Low,Medium,Clear,deprecate
+block,blocks/social-links.liquid,Social media links,youtube_url,url,YouTube,,,0,,Low,Medium,Clear,deprecate
+block,blocks/social-links.liquid,Social media links,tiktok_url,url,TikTok,,,0,,Low,Medium,Clear,deprecate
+block,blocks/social-links.liquid,Social media links,twitter_url,url,X (Twitter),,,0,,Low,Medium,Clear,deprecate
+block,blocks/social-links.liquid,Social media links,threads_url,url,Threads,,,0,,Low,Medium,Clear,deprecate
+block,blocks/social-links.liquid,Social media links,linkedin_url,url,LinkedIn,,,0,,Low,Medium,Clear,deprecate
+block,blocks/social-links.liquid,Social media links,bluesky_url,url,Bluesky,,,0,,Low,Medium,Clear,deprecate
+block,blocks/social-links.liquid,Social media links,snapchat_url,url,Snapchat,,,0,,Low,Medium,Clear,deprecate
+block,blocks/social-links.liquid,Social media links,pinterest_url,url,Pinterest,,,0,,Low,Medium,Clear,deprecate
+block,blocks/social-links.liquid,Social media links,tumblr_url,url,Tumblr,,,0,,Low,Medium,Clear,deprecate
+block,blocks/social-links.liquid,Social media links,vimeo_url,url,Vimeo,,,0,,Low,Medium,Clear,deprecate
+block,blocks/social-links.liquid,Social media links,custom_url,url,Custom link,,,0,,Low,Medium,Clear,deprecate
+block,blocks/_product-list-text.liquid,Collection title,wrap,select,Wrap,,,0,,Low,Low,Clear,deprecate
+block,blocks/_heading.liquid,Heading,wrap,select,Wrap,,,0,,Low,Low,Clear,deprecate
+block,blocks/_content.liquid,Content,horizontal_alignment_flex_direction_column,select,Alignment,center,,0,,Low,Low,Needs work,deprecate
+block,blocks/_content.liquid,Content,vertical_alignment_flex_direction_column,select,Position,center,,0,,Low,Low,Needs work,deprecate
+block,blocks/_product-list-content.liquid,Header,align_baseline,checkbox,Align text baseline,False,,0,,Low,Medium,Clear,deprecate
+block,blocks/_product-list-content.liquid,Header,horizontal_alignment_flex_direction_column,select,Alignment,flex-start,,0,,Low,Low,Needs work,deprecate
+block,blocks/_product-list-content.liquid,Header,vertical_alignment_flex_direction_column,select,Position,center,,0,,Low,Low,Needs work,deprecate
+block,blocks/_product-list-content.liquid,Header,custom_height,range,Custom height,100,,0,,Low,Low,Clear,deprecate
+block,blocks/_product-list-content.liquid,Header,background_image,image_picker,Image,,,0,,Medium,Low,Clear,deprecate
+block,blocks/_product-list-content.liquid,Header,background_image_position,select,Image position,cover,,0,,Medium,Low,Clear,deprecate
+block,blocks/_product-list-content.liquid,Header,border_opacity,range,Border opacity,100,,0,,Low,Low,Clear,deprecate
+block,blocks/_product-card-group.liquid,Group,align_baseline,checkbox,Align text baseline,False,,0,,Low,Medium,Clear,deprecate
+block,blocks/_product-card-group.liquid,Group,horizontal_alignment_flex_direction_column,select,Alignment,flex-start,,0,,Low,Low,Needs work,deprecate
+block,blocks/_product-card-group.liquid,Group,vertical_alignment_flex_direction_column,select,Position,center,,0,,Low,Low,Needs work,deprecate
+block,blocks/_product-card-group.liquid,Group,custom_height,range,Custom height,100,,0,,Low,Low,Clear,deprecate
+block,blocks/_product-card-group.liquid,Group,background_image,image_picker,Image,,,0,,Medium,Low,Clear,deprecate
+block,blocks/_product-card-group.liquid,Group,background_image_position,select,Image position,cover,,0,,Medium,Low,Clear,deprecate
+block,blocks/_product-card-group.liquid,Group,border_opacity,range,Border opacity,100,,0,,Low,Low,Clear,deprecate
+block,blocks/_product-card-group.liquid,Group,gradient_direction,select,Gradient direction,to top,,0,,Low,Low,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_one_image,image_picker,Slide 1 image,,,0,,Medium,Low,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_one_heading,text,Slide 1 heading,,,0,,Low,High,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_one_text,richtext,Slide 1 text,,,0,,Low,Medium,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_one_button_label,text,Slide 1 button label,,,0,,Low,Low,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_one_button_link,url,Slide 1 button link,,,0,,Low,Medium,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_two_image,image_picker,Slide 2 image,,,0,,Medium,Low,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_two_heading,text,Slide 2 heading,,,0,,Low,High,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_two_text,richtext,Slide 2 text,,,0,,Low,Medium,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_two_button_label,text,Slide 2 button label,,,0,,Low,Low,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_two_button_link,url,Slide 2 button link,,,0,,Low,Medium,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_three_image,image_picker,Slide 3 image,,,0,,Medium,Low,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_three_heading,text,Slide 3 heading,,,0,,Low,High,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_three_text,richtext,Slide 3 text,,,0,,Low,Medium,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_three_button_label,text,Slide 3 button label,,,0,,Low,Low,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_three_button_link,url,Slide 3 button link,,,0,,Low,Medium,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_four_image,image_picker,Slide 4 image,,,0,,Medium,Low,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_four_heading,text,Slide 4 heading,,,0,,Low,High,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_four_text,richtext,Slide 4 text,,,0,,Low,Medium,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_four_button_label,text,Slide 4 button label,,,0,,Low,Low,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_four_button_link,url,Slide 4 button link,,,0,,Low,Medium,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_five_image,image_picker,Slide 5 image,,,0,,Medium,Low,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_five_heading,text,Slide 5 heading,,,0,,Low,High,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_five_text,richtext,Slide 5 text,,,0,,Low,Medium,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_five_button_label,text,Slide 5 button label,,,0,,Low,Low,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_five_button_link,url,Slide 5 button link,,,0,,Low,Medium,Clear,deprecate
+block,blocks/accordion.liquid,Accordion,border_opacity,range,Opacity,100,,0,,Low,Low,Clear,deprecate
+block,blocks/vertical-text.liquid,Vertical text,wrap,select,Wrap,,,0,,Low,Low,Clear,deprecate
+block,blocks/_content-without-appearance.liquid,Content,horizontal_alignment_flex_direction_column,select,Alignment,center,,0,,Low,Low,Needs work,deprecate
+block,blocks/_content-without-appearance.liquid,Content,vertical_alignment_flex_direction_column,select,Position,center,,0,,Low,Low,Needs work,deprecate
+block,blocks/group.liquid,Group,align_baseline,checkbox,Align text baseline,False,,0,,Low,Medium,Clear,deprecate
+block,blocks/group.liquid,Group,horizontal_alignment_flex_direction_column,select,Alignment,flex-start,,0,,Low,Low,Needs work,deprecate
+block,blocks/group.liquid,Group,vertical_alignment_flex_direction_column,select,Position,center,,0,,Low,Low,Needs work,deprecate
+block,blocks/group.liquid,Group,custom_height,range,Custom height,100,,0,,Low,Low,Clear,deprecate
+block,blocks/group.liquid,Group,background_image,image_picker,Image,,,0,,Medium,Low,Clear,deprecate
+block,blocks/group.liquid,Group,background_image_position,select,Image position,cover,,0,,Medium,Low,Clear,deprecate
+block,blocks/group.liquid,Group,border_opacity,range,Border opacity,100,,0,,Low,Low,Clear,deprecate
+block,blocks/group.liquid,Group,gradient_direction,select,Gradient direction,to top,,0,,Low,Low,Clear,deprecate
+block,blocks/_featured-blog-posts-card.liquid,Blog card,border_opacity,range,Opacity,100,,0,,Low,Low,Clear,deprecate
+block,blocks/_blog-post-description.liquid,Description,wrap,select,Wrap,,,0,,Low,Low,Clear,deprecate
+block,blocks/text.liquid,Text,wrap,select,Wrap,,,0,,Low,Low,Clear,deprecate
+block,blocks/_slide.liquid,Slide,align_baseline,checkbox,Align text baseline,False,,0,,Low,Medium,Clear,deprecate
+block,blocks/_slide.liquid,Slide,horizontal_alignment_flex_direction_column,select,Alignment,flex-start,,0,,Low,Low,Needs work,deprecate
+block,blocks/_slide.liquid,Slide,vertical_alignment_flex_direction_column,select,Position,center,,0,,Low,Low,Needs work,deprecate
+block,blocks/_slide.liquid,Slide,gradient_direction,select,Gradient direction,to top,,0,,Low,Low,Clear,deprecate
+block,blocks/_product-card.liquid,Product card,border_opacity,range,Opacity,100,,0,,Low,Low,Clear,deprecate
+block,blocks/image.liquid,Image,border_opacity,range,Opacity,100,,0,,Low,Low,Clear,deprecate
+block,blocks/collection-title.liquid,Collection title,wrap,select,Wrap,,,0,,Low,Low,Clear,deprecate
+block,blocks/_collection-card-image.liquid,Image,gradient_direction,select,Gradient direction,to top,,0,,Low,Low,Clear,deprecate
+block,blocks/_collection-card-image.liquid,Image,border_opacity,range,Opacity,100,,0,,Low,Low,Clear,deprecate
+block,blocks/_header-menu.liquid,Menu,type_font_primary_size,select,Top level size,1rem,,0,,Medium,Low,Clear,deprecate
+block,blocks/_header-menu.liquid,Menu,type_font_primary_size_mobile,range,Top level mobile size (rem),0,Set to 0 to inherit the default mobile size.,0,,Medium,Low,Clear,deprecate
+block,blocks/_header-menu.liquid,Menu,type_font_primary_size_desktop,range,Top level desktop size (rem),0,Set to 0 to use the Top level size dropdown value.,0,,Medium,Low,Clear,deprecate
+block,blocks/_header-menu.liquid,Menu,menu_font_style,select,Submenu text style,inverse,,0,,Medium,Medium,Clear,deprecate
+block,blocks/_header-menu.liquid,Menu,submenu_parent_font_size_mobile,range,Submenu parent mobile size (rem),0,Set to 0 to use the preset for the selected submenu style.,0,,Medium,Low,Clear,deprecate
+block,blocks/_header-menu.liquid,Menu,submenu_parent_font_size_desktop,range,Submenu parent desktop size (rem),0,Set to 0 to use the preset for the selected submenu style.,0,,Medium,Low,Clear,deprecate
+block,blocks/_header-menu.liquid,Menu,submenu_child_font_size_mobile,range,Submenu child mobile size (rem),0,Set to 0 to use the preset for the selected submenu style.,0,,Medium,Low,Clear,deprecate
+block,blocks/_header-menu.liquid,Menu,submenu_child_font_size_desktop,range,Submenu child desktop size (rem),0,Set to 0 to use the preset for the selected submenu style.,0,,Medium,Low,Clear,deprecate
+block,blocks/_header-menu.liquid,Menu,type_font_primary_link,select,Font,heading,,0,,Medium,Medium,Clear,deprecate
+block,blocks/_header-menu.liquid,Menu,type_case_primary_link,select,Case,none,,0,,Low,Medium,Clear,deprecate
+block,blocks/_header-menu.liquid,Menu,drawer_logo_size,range,Logo height,80,,0,,Low,Low,Clear,deprecate
+block,blocks/_header-menu.liquid,Menu,drawer_logo_padding_block_start,range,Top padding,48,,0,,Low,Low,Clear,deprecate
+block,blocks/_header-menu.liquid,Menu,drawer_logo_padding_block_end,range,Bottom padding,48,,0,,Low,Low,Clear,deprecate
+block,blocks/_header-menu.liquid,Menu,drawer_logo_padding_inline_start,range,Left padding,24,,0,,Low,Low,Clear,deprecate
+block,blocks/_header-menu.liquid,Menu,drawer_logo_padding_inline_end,range,Right padding,24,,0,,Low,Low,Clear,deprecate
+block,blocks/_header-menu.liquid,Menu,drawer_logo_column_width,range,Logo column width,96,,0,,Low,Low,Clear,deprecate
+block,blocks/_header-menu.liquid,Menu,drawer_logo_gap,range,Logo column gap,16,,0,,Low,Low,Clear,deprecate
+block,blocks/product-title.liquid,Product title,wrap,select,Wrap,,,0,,Low,Low,Clear,deprecate
+block,blocks/product-card.liquid,Product card,border_opacity,range,Opacity,100,,0,,Low,Low,Clear,deprecate
+block,blocks/product-recommendations.liquid,Recommended products,icons_shape,select,Icon background,none,,0,,Low,Low,Clear,deprecate
+block,blocks/_blog-post-featured-image.liquid,Featured image,border_opacity,range,Opacity,100,,0,,Low,Low,Clear,deprecate

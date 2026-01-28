@@ -1157,22 +1157,6 @@
         "id": "bottom_motif_secondary_button_link",
         "label": "Secondary button link",
         "visible_if": "{{ settings.enable_bottom_motif_button }}"
-      },
-      {
-        "type": "color",
-        "id": "bottom_motif_button_background",
-        "label": "Shape colour",
-        "default": "#F1D35E",
-        "alpha": true,
-        "visible_if": "{{ settings.enable_bottom_motif_button }}"
-      },
-      {
-        "type": "color",
-        "id": "bottom_motif_button_text_color",
-        "label": "Text colour",
-        "default": "#FFFFFF",
-        "alpha": true,
-        "visible_if": "{{ settings.enable_bottom_motif_button }}"
       }
     ]
   },
