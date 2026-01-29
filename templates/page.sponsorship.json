@@ -116,7 +116,7 @@
             "padding-block-end": 40,
             "padding-inline-start": 40,
             "padding-inline-end": 40,
-            "horizontal_alignment_flex_direction_column": "center",
+            "horizontal_alignment_flex_direction_column": "flex-start",
             "vertical_alignment_flex_direction_column": "flex-start"
           },
           "blocks": {
@@ -159,37 +159,44 @@
               },
               "blocks": {}
             },
-            "text_k3NagW": {
-              "type": "text",
-              "name": "t:names.text",
+            "contact_form_UeLbGi": {
+              "type": "contact-form",
+              "name": "t:names.contact_form",
               "settings": {
-                "text": "<p>We make things that work better and last longer. Our products solve real problems with clean design and honest materials.</p>",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "paragraph",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
+                "width": "custom",
+                "custom_width": 100,
+                "width_mobile": "custom",
+                "custom_width_mobile": 100,
+                "form_variant": "sponsorship",
+                "inherit_color_scheme": true,
+                "color_scheme": "",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
               },
-              "blocks": {}
+              "blocks": {
+                "submit-button": {
+                  "type": "contact-form-submit-button",
+                  "static": true,
+                  "settings": {
+                    "label": "Submit",
+                    "style_class": "button",
+                    "width": "custom",
+                    "custom_width": 100,
+                    "width_mobile": "custom",
+                    "custom_width_mobile": 100
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": []
             }
           },
           "block_order": [
             "text_JM974c",
             "spacer_6UMWXU",
-            "text_k3NagW"
+            "contact_form_UeLbGi"
           ]
         },
         "group_h3aXqg": {
@@ -227,59 +234,66 @@
             "padding-block-end": 40,
             "padding-inline-start": 40,
             "padding-inline-end": 40,
-            "horizontal_alignment_flex_direction_column": "center",
-            "vertical_alignment_flex_direction_column": "space-between"
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "flex-start"
           },
           "blocks": {
-            "contact_form_UeLbGi": {
-              "type": "contact-form",
-              "name": "t:names.contact_form",
+            "text_sponsorship_info": {
+              "type": "text",
+              "name": "t:names.text",
               "settings": {
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100,
-                "inherit_color_scheme": true,
-                "color_scheme": "",
+                "text": "<p>Thanks for thinking of Golden for your event. We receive a lot of sponsorship requests and work to a careful promotional budget, so we prioritise well-matched partnerships. Please complete the form attached and if it looks like a good fit, we will be in touch.</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "paragraph",
+                "font": "var(--font-body--family)",
+                "font_size": "",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
               },
-              "blocks": {
-                "submit-button": {
-                  "type": "contact-form-submit-button",
-                  "static": true,
-                  "settings": {
-                    "label": "Submit",
-                    "style_class": "button",
-                    "width": "fit-content",
-                    "custom_width": 100,
-                    "width_mobile": "fit-content",
-                    "custom_width_mobile": 100
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": []
+              "blocks": {}
             },
-            "spacer_wkqcGB": {
-              "type": "spacer",
+            "text_sponsorship_contact": {
+              "type": "text",
+              "name": "t:names.text",
               "settings": {
-                "size": "pixel",
-                "percent_size": 100,
-                "pixel_size": 16,
-                "custom_mobile_size": false,
-                "size_mobile": "percent",
-                "percent_size_mobile": 100,
-                "pixel_size_mobile": 120
+                "text": "<p>Email<br/>sponsorship@staygolden.co.nz</p><p>Hours<br/>Monday-Friday: 9am-5pm<br/>Saturday-Sunday: Closed</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "paragraph",
+                "font": "var(--font-body--family)",
+                "font_size": "",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
               },
               "blocks": {}
             }
           },
           "block_order": [
-            "contact_form_UeLbGi",
-            "spacer_wkqcGB"
+            "text_sponsorship_info",
+            "text_sponsorship_contact"
           ]
         }
       },

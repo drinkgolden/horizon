@@ -349,31 +349,395 @@
     "settings": [
       {
         "type": "header",
-        "content": "t:content.fonts"
+        "content": "Fonts"
       },
       {
-        "type": "font_picker",
-        "id": "type_body_font",
-        "default": "work_sans_n4",
-        "label": "t:options.body"
+        "type": "paragraph",
+        "content": "Font is locked to Gangster Grotesk Regular across the theme."
       },
       {
-        "type": "font_picker",
-        "id": "type_subheading_font",
-        "default": "work_sans_n5",
-        "label": "t:options.subheading"
+        "type": "header",
+        "content": "Type sizes"
       },
       {
-        "type": "font_picker",
-        "id": "type_heading_font",
-        "default": "anonymous_pro_n4",
-        "label": "t:options.heading"
+        "type": "range",
+        "id": "type_size_paragraph",
+        "label": "Paragraph size",
+        "min": 0.6,
+        "max": 3,
+        "step": 0.1,
+        "unit": "rem",
+        "default": 1
       },
       {
-        "type": "font_picker",
-        "id": "type_accent_font",
-        "default": "anonymous_pro_n4",
-        "label": "t:options.accent"
+        "type": "range",
+        "id": "type_size_h1",
+        "label": "H1 size",
+        "min": 1.5,
+        "max": 10,
+        "step": 0.1,
+        "unit": "rem",
+        "default": 5.6
+      },
+      {
+        "type": "range",
+        "id": "type_size_h2",
+        "label": "H2 size",
+        "min": 1.2,
+        "max": 8,
+        "step": 0.1,
+        "unit": "rem",
+        "default": 3.5
+      },
+      {
+        "type": "range",
+        "id": "type_size_h3",
+        "label": "H3 size",
+        "min": 1,
+        "max": 6,
+        "step": 0.1,
+        "unit": "rem",
+        "default": 2.7
+      },
+      {
+        "type": "range",
+        "id": "type_size_h4",
+        "label": "H4 size",
+        "min": 0.9,
+        "max": 5,
+        "step": 0.1,
+        "unit": "rem",
+        "default": 2.1
+      },
+      {
+        "type": "range",
+        "id": "type_size_h5",
+        "label": "H5 size",
+        "min": 0.8,
+        "max": 4,
+        "step": 0.1,
+        "unit": "rem",
+        "default": 1.6
+      },
+      {
+        "type": "range",
+        "id": "type_size_h6",
+        "label": "H6 size",
+        "min": 0.7,
+        "max": 3,
+        "step": 0.1,
+        "unit": "rem",
+        "default": 1.25
+      },
+      {
+        "type": "header",
+        "content": "Line height"
+      },
+      {
+        "type": "select",
+        "id": "type_line_height_paragraph",
+        "label": "Paragraph line height",
+        "options": [
+          { "value": "body-tight", "label": "Tight" },
+          { "value": "body-normal", "label": "Normal" },
+          { "value": "body-loose", "label": "Loose" }
+        ],
+        "default": "body-normal"
+      },
+      {
+        "type": "select",
+        "id": "type_line_height_h1",
+        "label": "H1 line height",
+        "options": [
+          { "value": "display-tight", "label": "Display tight" },
+          { "value": "display-normal", "label": "Display normal" },
+          { "value": "display-loose", "label": "Display loose" },
+          { "value": "heading-tight", "label": "Heading tight" },
+          { "value": "heading-normal", "label": "Heading normal" },
+          { "value": "heading-loose", "label": "Heading loose" }
+        ],
+        "default": "display-normal"
+      },
+      {
+        "type": "select",
+        "id": "type_line_height_h2",
+        "label": "H2 line height",
+        "options": [
+          { "value": "display-tight", "label": "Display tight" },
+          { "value": "display-normal", "label": "Display normal" },
+          { "value": "display-loose", "label": "Display loose" },
+          { "value": "heading-tight", "label": "Heading tight" },
+          { "value": "heading-normal", "label": "Heading normal" },
+          { "value": "heading-loose", "label": "Heading loose" }
+        ],
+        "default": "display-normal"
+      },
+      {
+        "type": "select",
+        "id": "type_line_height_h3",
+        "label": "H3 line height",
+        "options": [
+          { "value": "display-tight", "label": "Display tight" },
+          { "value": "display-normal", "label": "Display normal" },
+          { "value": "display-loose", "label": "Display loose" },
+          { "value": "heading-tight", "label": "Heading tight" },
+          { "value": "heading-normal", "label": "Heading normal" },
+          { "value": "heading-loose", "label": "Heading loose" }
+        ],
+        "default": "display-normal"
+      },
+      {
+        "type": "select",
+        "id": "type_line_height_h4",
+        "label": "H4 line height",
+        "options": [
+          { "value": "display-tight", "label": "Display tight" },
+          { "value": "display-normal", "label": "Display normal" },
+          { "value": "display-loose", "label": "Display loose" },
+          { "value": "heading-tight", "label": "Heading tight" },
+          { "value": "heading-normal", "label": "Heading normal" },
+          { "value": "heading-loose", "label": "Heading loose" }
+        ],
+        "default": "display-normal"
+      },
+      {
+        "type": "select",
+        "id": "type_line_height_h5",
+        "label": "H5 line height",
+        "options": [
+          { "value": "display-tight", "label": "Display tight" },
+          { "value": "display-normal", "label": "Display normal" },
+          { "value": "display-loose", "label": "Display loose" },
+          { "value": "heading-tight", "label": "Heading tight" },
+          { "value": "heading-normal", "label": "Heading normal" },
+          { "value": "heading-loose", "label": "Heading loose" }
+        ],
+        "default": "display-normal"
+      },
+      {
+        "type": "select",
+        "id": "type_line_height_h6",
+        "label": "H6 line height",
+        "options": [
+          { "value": "display-tight", "label": "Display tight" },
+          { "value": "display-normal", "label": "Display normal" },
+          { "value": "display-loose", "label": "Display loose" },
+          { "value": "heading-tight", "label": "Heading tight" },
+          { "value": "heading-normal", "label": "Heading normal" },
+          { "value": "heading-loose", "label": "Heading loose" }
+        ],
+        "default": "display-normal"
+      },
+      {
+        "type": "header",
+        "content": "Letter spacing"
+      },
+      {
+        "type": "select",
+        "id": "type_letter_spacing_paragraph",
+        "label": "Paragraph letter spacing",
+        "options": [
+          { "value": "body-tight", "label": "Body tight" },
+          { "value": "body-normal", "label": "Body normal" },
+          { "value": "body-loose", "label": "Body loose" },
+          { "value": "heading-tight", "label": "Heading tight" },
+          { "value": "heading-normal", "label": "Heading normal" },
+          { "value": "heading-loose", "label": "Heading loose" },
+          { "value": "display-tight", "label": "Display tight" },
+          { "value": "display-normal", "label": "Display normal" },
+          { "value": "display-loose", "label": "Display loose" }
+        ],
+        "default": "body-tight"
+      },
+      {
+        "type": "select",
+        "id": "type_letter_spacing_h1",
+        "label": "H1 letter spacing",
+        "options": [
+          { "value": "display-tight", "label": "Display tight" },
+          { "value": "display-normal", "label": "Display normal" },
+          { "value": "display-loose", "label": "Display loose" },
+          { "value": "heading-tight", "label": "Heading tight" },
+          { "value": "heading-normal", "label": "Heading normal" },
+          { "value": "heading-loose", "label": "Heading loose" },
+          { "value": "body-tight", "label": "Body tight" },
+          { "value": "body-normal", "label": "Body normal" },
+          { "value": "body-loose", "label": "Body loose" }
+        ],
+        "default": "heading-tight"
+      },
+      {
+        "type": "select",
+        "id": "type_letter_spacing_h2",
+        "label": "H2 letter spacing",
+        "options": [
+          { "value": "display-tight", "label": "Display tight" },
+          { "value": "display-normal", "label": "Display normal" },
+          { "value": "display-loose", "label": "Display loose" },
+          { "value": "heading-tight", "label": "Heading tight" },
+          { "value": "heading-normal", "label": "Heading normal" },
+          { "value": "heading-loose", "label": "Heading loose" },
+          { "value": "body-tight", "label": "Body tight" },
+          { "value": "body-normal", "label": "Body normal" },
+          { "value": "body-loose", "label": "Body loose" }
+        ],
+        "default": "heading-tight"
+      },
+      {
+        "type": "select",
+        "id": "type_letter_spacing_h3",
+        "label": "H3 letter spacing",
+        "options": [
+          { "value": "display-tight", "label": "Display tight" },
+          { "value": "display-normal", "label": "Display normal" },
+          { "value": "display-loose", "label": "Display loose" },
+          { "value": "heading-tight", "label": "Heading tight" },
+          { "value": "heading-normal", "label": "Heading normal" },
+          { "value": "heading-loose", "label": "Heading loose" },
+          { "value": "body-tight", "label": "Body tight" },
+          { "value": "body-normal", "label": "Body normal" },
+          { "value": "body-loose", "label": "Body loose" }
+        ],
+        "default": "heading-tight"
+      },
+      {
+        "type": "select",
+        "id": "type_letter_spacing_h4",
+        "label": "H4 letter spacing",
+        "options": [
+          { "value": "display-tight", "label": "Display tight" },
+          { "value": "display-normal", "label": "Display normal" },
+          { "value": "display-loose", "label": "Display loose" },
+          { "value": "heading-tight", "label": "Heading tight" },
+          { "value": "heading-normal", "label": "Heading normal" },
+          { "value": "heading-loose", "label": "Heading loose" },
+          { "value": "body-tight", "label": "Body tight" },
+          { "value": "body-normal", "label": "Body normal" },
+          { "value": "body-loose", "label": "Body loose" }
+        ],
+        "default": "heading-tight"
+      },
+      {
+        "type": "select",
+        "id": "type_letter_spacing_h5",
+        "label": "H5 letter spacing",
+        "options": [
+          { "value": "display-tight", "label": "Display tight" },
+          { "value": "display-normal", "label": "Display normal" },
+          { "value": "display-loose", "label": "Display loose" },
+          { "value": "heading-tight", "label": "Heading tight" },
+          { "value": "heading-normal", "label": "Heading normal" },
+          { "value": "heading-loose", "label": "Heading loose" },
+          { "value": "body-tight", "label": "Body tight" },
+          { "value": "body-normal", "label": "Body normal" },
+          { "value": "body-loose", "label": "Body loose" }
+        ],
+        "default": "heading-tight"
+      },
+      {
+        "type": "select",
+        "id": "type_letter_spacing_h6",
+        "label": "H6 letter spacing",
+        "options": [
+          { "value": "display-tight", "label": "Display tight" },
+          { "value": "display-normal", "label": "Display normal" },
+          { "value": "display-loose", "label": "Display loose" },
+          { "value": "heading-tight", "label": "Heading tight" },
+          { "value": "heading-normal", "label": "Heading normal" },
+          { "value": "heading-loose", "label": "Heading loose" },
+          { "value": "body-tight", "label": "Body tight" },
+          { "value": "body-normal", "label": "Body normal" },
+          { "value": "body-loose", "label": "Body loose" }
+        ],
+        "default": "heading-tight"
+      },
+      {
+        "type": "header",
+        "content": "Capitalisation"
+      },
+      {
+        "type": "select",
+        "id": "type_case_paragraph",
+        "label": "Paragraph case",
+        "options": [
+          { "value": "none", "label": "None" },
+          { "value": "uppercase", "label": "Uppercase" },
+          { "value": "lowercase", "label": "Lowercase" },
+          { "value": "capitalize", "label": "Capitalise" }
+        ],
+        "default": "none"
+      },
+      {
+        "type": "select",
+        "id": "type_case_h1",
+        "label": "H1 case",
+        "options": [
+          { "value": "none", "label": "None" },
+          { "value": "uppercase", "label": "Uppercase" },
+          { "value": "lowercase", "label": "Lowercase" },
+          { "value": "capitalize", "label": "Capitalise" }
+        ],
+        "default": "none"
+      },
+      {
+        "type": "select",
+        "id": "type_case_h2",
+        "label": "H2 case",
+        "options": [
+          { "value": "none", "label": "None" },
+          { "value": "uppercase", "label": "Uppercase" },
+          { "value": "lowercase", "label": "Lowercase" },
+          { "value": "capitalize", "label": "Capitalise" }
+        ],
+        "default": "none"
+      },
+      {
+        "type": "select",
+        "id": "type_case_h3",
+        "label": "H3 case",
+        "options": [
+          { "value": "none", "label": "None" },
+          { "value": "uppercase", "label": "Uppercase" },
+          { "value": "lowercase", "label": "Lowercase" },
+          { "value": "capitalize", "label": "Capitalise" }
+        ],
+        "default": "none"
+      },
+      {
+        "type": "select",
+        "id": "type_case_h4",
+        "label": "H4 case",
+        "options": [
+          { "value": "none", "label": "None" },
+          { "value": "uppercase", "label": "Uppercase" },
+          { "value": "lowercase", "label": "Lowercase" },
+          { "value": "capitalize", "label": "Capitalise" }
+        ],
+        "default": "none"
+      },
+      {
+        "type": "select",
+        "id": "type_case_h5",
+        "label": "H5 case",
+        "options": [
+          { "value": "none", "label": "None" },
+          { "value": "uppercase", "label": "Uppercase" },
+          { "value": "lowercase", "label": "Lowercase" },
+          { "value": "capitalize", "label": "Capitalise" }
+        ],
+        "default": "none"
+      },
+      {
+        "type": "select",
+        "id": "type_case_h6",
+        "label": "H6 case",
+        "options": [
+          { "value": "none", "label": "None" },
+          { "value": "uppercase", "label": "Uppercase" },
+          { "value": "lowercase", "label": "Lowercase" },
+          { "value": "capitalize", "label": "Capitalise" }
+        ],
+        "default": "none"
       }
     ]
   },

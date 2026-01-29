@@ -14,10 +14,10 @@
       "disabled": true,
       "settings": {
         "content_direction": "column",
-        "gap": 16,
+        "gap": 32,
         "color_scheme": "",
-        "padding-block-start": 44,
-        "padding-block-end": 44
+        "padding-block-start": 40,
+        "padding-block-end": 40
       }
     },
     "section_6Ke77e": {
@@ -31,8 +31,6 @@
             "horizontal_alignment": "flex-start",
             "vertical_alignment": "center",
             "align_baseline": false,
-            "horizontal_alignment_flex_direction_column": "center",
-            "vertical_alignment_flex_direction_column": "flex-start",
             "gap": 32,
             "width": "fill",
             "custom_width": 100,
@@ -59,7 +57,9 @@
             "padding-block-start": 40,
             "padding-block-end": 40,
             "padding-inline-start": 40,
-            "padding-inline-end": 40
+            "padding-inline-end": 40,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "flex-start"
           },
           "blocks": {
             "text_Y7ADCd": {
@@ -100,37 +100,44 @@
               },
               "blocks": {}
             },
-            "text_tf8eXe": {
-              "type": "text",
-              "name": "t:names.text",
+            "contact_form_dYBJUe": {
+              "type": "contact-form",
+              "name": "t:names.contact_form",
               "settings": {
-                "text": "<p>We make things that work better and last longer. Our products solve real problems with clean design and honest materials.</p>",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
+                "width": "custom",
+                "custom_width": 100,
+                "width_mobile": "custom",
+                "custom_width_mobile": 100,
+                "form_variant": "wholesale",
+                "inherit_color_scheme": true,
+                "color_scheme": "",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
               },
-              "blocks": {}
+              "blocks": {
+                "submit-button": {
+                  "type": "contact-form-submit-button",
+                  "static": true,
+                  "settings": {
+                    "label": "Submit",
+                    "style_class": "button",
+                    "width": "custom",
+                    "custom_width": 100,
+                    "width_mobile": "custom",
+                    "custom_width_mobile": 100
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": []
             }
           },
           "block_order": [
             "text_Y7ADCd",
             "spacer_VrBciU",
-            "text_tf8eXe"
+            "contact_form_dYBJUe"
           ]
         },
         "group_XgjPE6": {
@@ -141,8 +148,6 @@
             "horizontal_alignment": "flex-start",
             "vertical_alignment": "center",
             "align_baseline": false,
-            "horizontal_alignment_flex_direction_column": "center",
-            "vertical_alignment_flex_direction_column": "space-between",
             "gap": 32,
             "width": "fill",
             "custom_width": 100,
@@ -169,58 +174,67 @@
             "padding-block-start": 40,
             "padding-block-end": 40,
             "padding-inline-start": 40,
-            "padding-inline-end": 40
+            "padding-inline-end": 40,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "flex-start"
           },
           "blocks": {
-            "contact_form_dYBJUe": {
-              "type": "contact-form",
-              "name": "t:names.contact_form",
+            "text_wholesale_info": {
+              "type": "text",
+              "name": "t:names.text",
               "settings": {
-                "width": "custom",
-                "custom_width": 100,
-                "width_mobile": "custom",
-                "custom_width_mobile": 100,
-                "inherit_color_scheme": true,
-                "color_scheme": "",
+                "text": "<p>For wholesale enquiries in New Zealand, contact us via this stockist form, or email us at wholesale@staygolden.co.nz.</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "paragraph",
+                "font": "var(--font-body--family)",
+                "font_size": "",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
               },
-              "blocks": {
-                "submit-button": {
-                  "type": "contact-form-submit-button",
-                  "static": true,
-                  "settings": {
-                    "label": "Submit",
-                    "style_class": "button",
-                    "width": "fit-content",
-                    "custom_width": 100,
-                    "width_mobile": "fit-content",
-                    "custom_width_mobile": 100
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": []
+              "blocks": {}
             },
-            "spacer_DBbGMF": {
-              "type": "spacer",
+            "text_wholesale_note": {
+              "type": "text",
+              "name": "t:names.text",
               "settings": {
-                "size": "pixel",
-                "percent_size": 100,
-                "pixel_size": 16,
-                "custom_mobile_size": false,
-                "size_mobile": "percent",
-                "percent_size_mobile": 100,
-                "pixel_size_mobile": 120
+                "text": "<p>We primarily use Upstock for wholesale ordering here.</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "paragraph",
+                "font": "var(--font-body--family)",
+                "font_size": "",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
               },
               "blocks": {}
             }
           },
           "block_order": [
-            "contact_form_dYBJUe",
-            "spacer_DBbGMF"
+            "text_wholesale_info",
+            "text_wholesale_note"
           ]
         }
       },

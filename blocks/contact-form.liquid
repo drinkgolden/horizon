@@ -66,6 +66,26 @@
       "visible_if": "{{ block.settings.width_mobile == 'custom' }}"
     },
     {
+      "type": "select",
+      "id": "form_variant",
+      "label": "Form type",
+      "options": [
+        {
+          "value": "default",
+          "label": "Default"
+        },
+        {
+          "value": "wholesale",
+          "label": "Wholesale"
+        },
+        {
+          "value": "sponsorship",
+          "label": "Sponsorship"
+        }
+      ],
+      "default": "default"
+    },
+    {
       "type": "checkbox",
       "id": "inherit_color_scheme",
       "label": "Inherit colour scheme",
