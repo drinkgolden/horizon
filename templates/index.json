@@ -81,6 +81,8 @@
             "horizontal_alignment": "flex-start",
             "vertical_alignment": "center",
             "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "flex-start",
             "gap": 0,
             "width": "fill",
             "custom_width": 100,
@@ -107,16 +109,14 @@
             "padding-block-start": 10,
             "padding-block-end": 0,
             "padding-inline-start": 16,
-            "padding-inline-end": 16,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "flex-start"
+            "padding-inline-end": 16
           },
           "blocks": {
             "text_3xd3GA": {
               "type": "text",
               "name": "Description",
               "settings": {
-                "text": "<p>Low-cal sparkling drinks from Aotearoa, sweetened with Golden Bay m\u0101nuka honey and flavoured with locally grown fruits.<br/></p><p></p>",
+                "text": "<p>Low-cal sparkling drinks from Aotearoa, sweetened with Golden Bay mānuka honey and flavoured with locally grown fruits.<br/></p><p></p>",
                 "width": "100%",
                 "max_width": "narrow",
                 "alignment": "left",
@@ -168,6 +168,8 @@
             "horizontal_alignment": "flex-start",
             "vertical_alignment": "center",
             "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-end",
+            "vertical_alignment_flex_direction_column": "flex-end",
             "gap": 8,
             "width": "fill",
             "custom_width": 100,
@@ -194,9 +196,7 @@
             "padding-block-start": 16,
             "padding-block-end": 16,
             "padding-inline-start": 16,
-            "padding-inline-end": 16,
-            "horizontal_alignment_flex_direction_column": "flex-end",
-            "vertical_alignment_flex_direction_column": "flex-end"
+            "padding-inline-end": 16
           },
           "blocks": {
             "accordion_slideshow_wWYLCr": {
@@ -214,6 +214,10 @@
                 "autoplay": false,
                 "autoplay_speed": 5,
                 "slide_height": "auto",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
                 "slide_one_image": "shopify://shop_images/DSCN9605_797712ad-fb85-4ab5-a9e4-dcde6c666295.jpg",
                 "slide_one_heading": "",
                 "slide_one_text": "",
@@ -236,11 +240,7 @@
                 "slide_five_heading": "",
                 "slide_five_text": "",
                 "slide_five_button_label": "",
-                "slide_five_button_link": "",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "slide_five_button_link": ""
               },
               "blocks": {}
             }
@@ -331,7 +331,7 @@
               "type": "accordion_row",
               "name": "t:names.accordion_row",
               "settings": {
-                "heading": "Low Cal M\u0101nuka Soda",
+                "heading": "Low Cal Honey Soda",
                 "right_heading": "",
                 "open_by_default": true,
                 "color_scheme": "scheme-1",
@@ -363,6 +363,8 @@
                     "horizontal_alignment": "flex-start",
                     "vertical_alignment": "center",
                     "align_baseline": false,
+                    "horizontal_alignment_flex_direction_column": "flex-start",
+                    "vertical_alignment_flex_direction_column": "center",
                     "gap": 12,
                     "width": "fill",
                     "custom_width": 100,
@@ -389,9 +391,7 @@
                     "padding-block-start": 0,
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
-                    "padding-inline-end": 0,
-                    "horizontal_alignment_flex_direction_column": "flex-start",
-                    "vertical_alignment_flex_direction_column": "center"
+                    "padding-inline-end": 0
                   },
                   "blocks": {
                     "product_card_X4xJbc": {
@@ -437,6 +437,8 @@
                             "horizontal_alignment": "flex-start",
                             "vertical_alignment": "center",
                             "align_baseline": false,
+                            "horizontal_alignment_flex_direction_column": "flex-start",
+                            "vertical_alignment_flex_direction_column": "center",
                             "gap": 12,
                             "width": "fill",
                             "custom_width": 100,
@@ -462,9 +464,7 @@
                             "padding-block-start": 0,
                             "padding-block-end": 0,
                             "padding-inline-start": 0,
-                            "padding-inline-end": 0,
-                            "horizontal_alignment_flex_direction_column": "flex-start",
-                            "vertical_alignment_flex_direction_column": "center"
+                            "padding-inline-end": 0
                           },
                           "blocks": {
                             "text_X9bEHP": {
@@ -547,6 +547,8 @@
                             "horizontal_alignment": "flex-start",
                             "vertical_alignment": "center",
                             "align_baseline": false,
+                            "horizontal_alignment_flex_direction_column": "flex-start",
+                            "vertical_alignment_flex_direction_column": "center",
                             "gap": 12,
                             "width": "fill",
                             "custom_width": 100,
@@ -572,9 +574,7 @@
                             "padding-block-start": 0,
                             "padding-block-end": 0,
                             "padding-inline-start": 0,
-                            "padding-inline-end": 0,
-                            "horizontal_alignment_flex_direction_column": "flex-start",
-                            "vertical_alignment_flex_direction_column": "center"
+                            "padding-inline-end": 0
                           },
                           "blocks": {
                             "text_t6mkxm": {
@@ -630,7 +630,7 @@
               "name": "t:names.accordion_row",
               "settings": {
                 "heading": "Low Calorie",
-                "right_heading": "M\u0101nuka honey",
+                "right_heading": "Mānuka honey",
                 "open_by_default": false,
                 "color_scheme": "scheme-1",
                 "hover_color_scheme": "scheme-1",
@@ -661,6 +661,8 @@
                     "horizontal_alignment": "flex-start",
                     "vertical_alignment": "flex-start",
                     "align_baseline": false,
+                    "horizontal_alignment_flex_direction_column": "flex-start",
+                    "vertical_alignment_flex_direction_column": "center",
                     "gap": 0,
                     "width": "fill",
                     "custom_width": 100,
@@ -687,9 +689,7 @@
                     "padding-block-start": 0,
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
-                    "padding-inline-end": 0,
-                    "horizontal_alignment_flex_direction_column": "flex-start",
-                    "vertical_alignment_flex_direction_column": "center"
+                    "padding-inline-end": 0
                   },
                   "blocks": {
                     "group_MbJwhG": {
@@ -701,6 +701,8 @@
                         "horizontal_alignment": "flex-start",
                         "vertical_alignment": "center",
                         "align_baseline": false,
+                        "horizontal_alignment_flex_direction_column": "flex-start",
+                        "vertical_alignment_flex_direction_column": "center",
                         "gap": 12,
                         "width": "fill",
                         "custom_width": 100,
@@ -727,9 +729,7 @@
                         "padding-block-start": 0,
                         "padding-block-end": 0,
                         "padding-inline-start": 0,
-                        "padding-inline-end": 0,
-                        "horizontal_alignment_flex_direction_column": "flex-start",
-                        "vertical_alignment_flex_direction_column": "center"
+                        "padding-inline-end": 0
                       },
                       "blocks": {
                         "image_P9wXUc": {
@@ -768,6 +768,8 @@
                         "horizontal_alignment": "flex-start",
                         "vertical_alignment": "center",
                         "align_baseline": false,
+                        "horizontal_alignment_flex_direction_column": "flex-start",
+                        "vertical_alignment_flex_direction_column": "center",
                         "gap": 12,
                         "width": "fill",
                         "custom_width": 100,
@@ -794,9 +796,7 @@
                         "padding-block-start": 0,
                         "padding-block-end": 0,
                         "padding-inline-start": 0,
-                        "padding-inline-end": 0,
-                        "horizontal_alignment_flex_direction_column": "flex-start",
-                        "vertical_alignment_flex_direction_column": "center"
+                        "padding-inline-end": 0
                       },
                       "blocks": {}
                     }
@@ -815,6 +815,8 @@
                     "horizontal_alignment": "flex-start",
                     "vertical_alignment": "center",
                     "align_baseline": false,
+                    "horizontal_alignment_flex_direction_column": "flex-start",
+                    "vertical_alignment_flex_direction_column": "center",
                     "gap": 12,
                     "width": "fill",
                     "custom_width": 100,
@@ -841,9 +843,7 @@
                     "padding-block-start": 0,
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
-                    "padding-inline-end": 0,
-                    "horizontal_alignment_flex_direction_column": "flex-start",
-                    "vertical_alignment_flex_direction_column": "center"
+                    "padding-inline-end": 0
                   },
                   "blocks": {}
                 }
@@ -924,6 +924,10 @@
                     "autoplay": false,
                     "autoplay_speed": 4,
                     "slide_height": "auto",
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0,
                     "slide_one_image": "shopify://shop_images/iStock-641225382.jpg",
                     "slide_one_heading": "Test Test",
                     "slide_one_text": "",
@@ -944,11 +948,7 @@
                     "slide_five_heading": "",
                     "slide_five_text": "",
                     "slide_five_button_label": "",
-                    "slide_five_button_link": "",
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
+                    "slide_five_button_link": ""
                   },
                   "blocks": {}
                 },
@@ -984,6 +984,8 @@
                     "horizontal_alignment": "flex-start",
                     "vertical_alignment": "center",
                     "align_baseline": false,
+                    "horizontal_alignment_flex_direction_column": "flex-start",
+                    "vertical_alignment_flex_direction_column": "center",
                     "gap": 12,
                     "width": "fill",
                     "custom_width": 100,
@@ -1010,16 +1012,14 @@
                     "padding-block-start": 0,
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
-                    "padding-inline-end": 0,
-                    "horizontal_alignment_flex_direction_column": "flex-start",
-                    "vertical_alignment_flex_direction_column": "center"
+                    "padding-inline-end": 0
                   },
                   "blocks": {
                     "text_3QTkXm": {
                       "type": "text",
                       "name": "t:names.text",
                       "settings": {
-                        "text": "<p>Wairoa grown citrus and Canterbury plains blackcurrants paired with premium m\u0101nuka honey from Golden Bay. </p>",
+                        "text": "<p>Wairoa grown citrus and Canterbury plains blackcurrants paired with premium mānuka honey from Golden Bay. </p>",
                         "width": "fit-content",
                         "max_width": "normal",
                         "alignment": "left",
@@ -1055,6 +1055,8 @@
                     "horizontal_alignment": "flex-end",
                     "vertical_alignment": "center",
                     "align_baseline": false,
+                    "horizontal_alignment_flex_direction_column": "flex-start",
+                    "vertical_alignment_flex_direction_column": "center",
                     "gap": 12,
                     "width": "fill",
                     "custom_width": 100,
@@ -1081,9 +1083,7 @@
                     "padding-block-start": 0,
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
-                    "padding-inline-end": 0,
-                    "horizontal_alignment_flex_direction_column": "flex-start",
-                    "vertical_alignment_flex_direction_column": "center"
+                    "padding-inline-end": 0
                   },
                   "blocks": {}
                 }
@@ -1131,6 +1131,8 @@
                     "horizontal_alignment": "flex-start",
                     "vertical_alignment": "center",
                     "align_baseline": false,
+                    "horizontal_alignment_flex_direction_column": "flex-start",
+                    "vertical_alignment_flex_direction_column": "center",
                     "gap": 12,
                     "width": "fill",
                     "custom_width": 100,
@@ -1157,9 +1159,7 @@
                     "padding-block-start": 0,
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
-                    "padding-inline-end": 0,
-                    "horizontal_alignment_flex_direction_column": "flex-start",
-                    "vertical_alignment_flex_direction_column": "center"
+                    "padding-inline-end": 0
                   },
                   "blocks": {
                     "group_TYJWDa": {
@@ -1171,6 +1171,8 @@
                         "horizontal_alignment": "flex-start",
                         "vertical_alignment": "center",
                         "align_baseline": false,
+                        "horizontal_alignment_flex_direction_column": "flex-start",
+                        "vertical_alignment_flex_direction_column": "center",
                         "gap": 12,
                         "width": "fill",
                         "custom_width": 100,
@@ -1197,9 +1199,7 @@
                         "padding-block-start": 0,
                         "padding-block-end": 0,
                         "padding-inline-start": 0,
-                        "padding-inline-end": 0,
-                        "horizontal_alignment_flex_direction_column": "flex-start",
-                        "vertical_alignment_flex_direction_column": "center"
+                        "padding-inline-end": 0
                       },
                       "blocks": {
                         "image_9FL3db": {
@@ -1239,6 +1239,8 @@
                         "horizontal_alignment": "flex-start",
                         "vertical_alignment": "center",
                         "align_baseline": false,
+                        "horizontal_alignment_flex_direction_column": "flex-start",
+                        "vertical_alignment_flex_direction_column": "center",
                         "gap": 12,
                         "width": "fill",
                         "custom_width": 100,
@@ -1265,9 +1267,7 @@
                         "padding-block-start": 0,
                         "padding-block-end": 0,
                         "padding-inline-start": 0,
-                        "padding-inline-end": 0,
-                        "horizontal_alignment_flex_direction_column": "flex-start",
-                        "vertical_alignment_flex_direction_column": "center"
+                        "padding-inline-end": 0
                       },
                       "blocks": {}
                     }
@@ -1286,6 +1286,8 @@
                     "horizontal_alignment": "flex-start",
                     "vertical_alignment": "center",
                     "align_baseline": false,
+                    "horizontal_alignment_flex_direction_column": "flex-start",
+                    "vertical_alignment_flex_direction_column": "center",
                     "gap": 12,
                     "width": "fill",
                     "custom_width": 100,
@@ -1312,9 +1314,7 @@
                     "padding-block-start": 0,
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
-                    "padding-inline-end": 0,
-                    "horizontal_alignment_flex_direction_column": "flex-start",
-                    "vertical_alignment_flex_direction_column": "center"
+                    "padding-inline-end": 0
                   },
                   "blocks": {}
                 }
@@ -1360,6 +1360,8 @@
                     "horizontal_alignment": "flex-start",
                     "vertical_alignment": "center",
                     "align_baseline": false,
+                    "horizontal_alignment_flex_direction_column": "flex-start",
+                    "vertical_alignment_flex_direction_column": "center",
                     "gap": 12,
                     "width": "fill",
                     "custom_width": 100,
@@ -1386,9 +1388,7 @@
                     "padding-block-start": 0,
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
-                    "padding-inline-end": 0,
-                    "horizontal_alignment_flex_direction_column": "flex-start",
-                    "vertical_alignment_flex_direction_column": "center"
+                    "padding-inline-end": 0
                   },
                   "blocks": {
                     "image_EDeJpJ": {
@@ -1456,6 +1456,8 @@
                     "horizontal_alignment": "flex-start",
                     "vertical_alignment": "center",
                     "align_baseline": false,
+                    "horizontal_alignment_flex_direction_column": "flex-start",
+                    "vertical_alignment_flex_direction_column": "center",
                     "gap": 12,
                     "width": "fill",
                     "custom_width": 100,
@@ -1482,9 +1484,7 @@
                     "padding-block-start": 0,
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
-                    "padding-inline-end": 0,
-                    "horizontal_alignment_flex_direction_column": "flex-start",
-                    "vertical_alignment_flex_direction_column": "center"
+                    "padding-inline-end": 0
                   },
                   "blocks": {}
                 }
@@ -1550,6 +1550,8 @@
             "horizontal_alignment": "flex-start",
             "vertical_alignment": "center",
             "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "center",
             "gap": 16,
             "width": "fill",
             "custom_width": 100,
@@ -1576,9 +1578,7 @@
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
-            "padding-inline-end": 0,
-            "horizontal_alignment_flex_direction_column": "center",
-            "vertical_alignment_flex_direction_column": "center"
+            "padding-inline-end": 0
           },
           "blocks": {
             "icon_CMbwYr": {
@@ -1599,6 +1599,8 @@
                 "horizontal_alignment": "flex-start",
                 "vertical_alignment": "center",
                 "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
                 "gap": 4,
                 "width": "fill",
                 "custom_width": 100,
@@ -1625,9 +1627,7 @@
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
-                "padding-inline-end": 0,
-                "horizontal_alignment_flex_direction_column": "flex-start",
-                "vertical_alignment_flex_direction_column": "center"
+                "padding-inline-end": 0
               },
               "blocks": {
                 "text_my9Cbb": {
@@ -1674,6 +1674,8 @@
             "horizontal_alignment": "flex-start",
             "vertical_alignment": "center",
             "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "center",
             "gap": 16,
             "width": "fill",
             "custom_width": 100,
@@ -1700,9 +1702,7 @@
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
-            "padding-inline-end": 0,
-            "horizontal_alignment_flex_direction_column": "center",
-            "vertical_alignment_flex_direction_column": "center"
+            "padding-inline-end": 0
           },
           "blocks": {
             "icon_rbUdf3": {
@@ -1723,6 +1723,8 @@
                 "horizontal_alignment": "flex-start",
                 "vertical_alignment": "center",
                 "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
                 "gap": 4,
                 "width": "fill",
                 "custom_width": 100,
@@ -1749,15 +1751,13 @@
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
-                "padding-inline-end": 0,
-                "horizontal_alignment_flex_direction_column": "flex-start",
-                "vertical_alignment_flex_direction_column": "center"
+                "padding-inline-end": 0
               },
               "blocks": {
                 "text_TtQ8WD": {
                   "type": "text",
                   "settings": {
-                    "text": "<h2>Sweetened with M\u0101nuka Honey</h2>",
+                    "text": "<h2>Sweetened with Mānuka Honey</h2>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "center",
@@ -1798,6 +1798,8 @@
             "horizontal_alignment": "flex-start",
             "vertical_alignment": "center",
             "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "center",
             "gap": 16,
             "width": "fill",
             "custom_width": 100,
@@ -1824,9 +1826,7 @@
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
-            "padding-inline-end": 0,
-            "horizontal_alignment_flex_direction_column": "center",
-            "vertical_alignment_flex_direction_column": "center"
+            "padding-inline-end": 0
           },
           "blocks": {
             "icon_rfrE68": {
@@ -1847,6 +1847,8 @@
                 "horizontal_alignment": "flex-start",
                 "vertical_alignment": "center",
                 "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
                 "gap": 4,
                 "width": "fill",
                 "custom_width": 100,
@@ -1873,9 +1875,7 @@
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
-                "padding-inline-end": 0,
-                "horizontal_alignment_flex_direction_column": "flex-start",
-                "vertical_alignment_flex_direction_column": "center"
+                "padding-inline-end": 0
               },
               "blocks": {
                 "text_FjYhjj": {
