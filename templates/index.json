@@ -114,7 +114,7 @@
               "type": "text",
               "name": "Description",
               "settings": {
-                "text": "<p>Low-cal sparkling drinks from Aotearoa, sweetened with Golden Bay m\u0101nuka honey and flavoured with locally grown fruits.<br/></p><p></p>",
+                "text": "<p>Low-cal sparkling drinks from Aotearoa, sweetened with Golden Bay mānuka honey and flavoured with locally grown fruits.<br/></p><p></p>",
                 "width": "100%",
                 "max_width": "narrow",
                 "alignment": "left",
@@ -210,10 +210,6 @@
                 "autoplay": false,
                 "autoplay_speed": 5,
                 "slide_height": "auto",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0,
                 "slide_one_image": "shopify://shop_images/DSCN9605_797712ad-fb85-4ab5-a9e4-dcde6c666295.jpg",
                 "slide_one_heading": "",
                 "slide_one_text": "",
@@ -327,7 +323,7 @@
               "type": "accordion_row",
               "name": "t:names.accordion_row",
               "settings": {
-                "heading": "Low Cal M\u0101nuka Soda",
+                "heading": "Low Cal Mānuka Soda",
                 "right_heading": "",
                 "open_by_default": true,
                 "color_scheme": "scheme-1",
@@ -399,11 +395,7 @@
                         "border": "none",
                         "border_width": 1,
                         "border_opacity": 100,
-                        "border_radius": 0,
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
+                        "border_radius": 0
                       },
                       "blocks": {
                         "product_card_gallery_e9bC3k": {
@@ -507,11 +499,7 @@
                         "border": "none",
                         "border_width": 1,
                         "border_opacity": 100,
-                        "border_radius": 0,
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
+                        "border_radius": 0
                       },
                       "blocks": {
                         "product_card_gallery_gTxQBR": {
@@ -620,12 +608,12 @@
               "name": "t:names.accordion_row",
               "settings": {
                 "heading": "Low Calorie",
-                "right_heading": "M\u0101nuka honey",
+                "right_heading": "Mānuka honey",
                 "open_by_default": false,
                 "color_scheme": "scheme-1",
                 "hover_color_scheme": "scheme-1",
                 "left_hover_color_scheme": "scheme-1",
-                "right_hover_color_scheme": "scheme-4",
+                "right_hover_color_scheme": "scheme-1",
                 "summary_padding_block_start": 16,
                 "summary_padding_block_end": 16,
                 "summary_padding_inline_start": 16,
@@ -870,9 +858,9 @@
                 "heading": "Product of New Zealand",
                 "right_heading": "",
                 "open_by_default": true,
-                "color_scheme": "scheme-1",
-                "hover_color_scheme": "",
-                "left_hover_color_scheme": "",
+                "color_scheme": "scheme-6",
+                "hover_color_scheme": "scheme-6",
+                "left_hover_color_scheme": "scheme-6",
                 "right_hover_color_scheme": "",
                 "summary_padding_block_start": 16,
                 "summary_padding_block_end": 16,
@@ -906,10 +894,6 @@
                     "autoplay": false,
                     "autoplay_speed": 4,
                     "slide_height": "auto",
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0,
                     "slide_one_image": "shopify://shop_images/iStock-641225382.jpg",
                     "slide_one_heading": "Test Test",
                     "slide_one_text": "",
@@ -999,7 +983,7 @@
                       "type": "text",
                       "name": "t:names.text",
                       "settings": {
-                        "text": "<p>Wairoa grown citrus and Canterbury plains blackcurrants paired with premium m\u0101nuka honey from Golden Bay. </p>",
+                        "text": "<p>Wairoa grown citrus and Canterbury plains blackcurrants paired with premium mānuka honey from Golden Bay. </p>",
                         "width": "fit-content",
                         "max_width": "normal",
                         "alignment": "left",
@@ -1401,11 +1385,7 @@
                         "color": "var(--color-foreground)",
                         "background": false,
                         "background_color": "#00000026",
-                        "corner_radius": 0,
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
+                        "corner_radius": 0
                       },
                       "blocks": {}
                     }
@@ -1715,7 +1695,7 @@
                 "text_TtQ8WD": {
                   "type": "text",
                   "settings": {
-                    "text": "<h2>Sweetened with M\u0101nuka Honey</h2>",
+                    "text": "<h2>Sweetened with Mānuka Honey</h2>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "center",
