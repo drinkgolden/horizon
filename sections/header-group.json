@@ -135,7 +135,8 @@
         "logo_position": "left",
         "menu_position": "center",
         "drawer_logo_top_image": "shopify://shop_images/Wordmark_Vertical.svg",
-        "drawer_logo_bottom_image": "shopify://shop_images/tbti1atiamr11_png.webp"
+        "drawer_logo_bottom_image": "shopify://shop_images/tbti1atiamr11_png.webp",
+        "enable_sticky_header": "always"
       }
     }
   },
