@@ -55,7 +55,7 @@
     {
       "type": "collection",
       "id": "collection",
-      "label": "t:settings.collection"
+      "label": "Collection"
     },
     {
       "type": "header",
@@ -64,7 +64,7 @@
     {
       "type": "select",
       "id": "placement",
-      "label": "t:settings.placement",
+      "label": "Text placement",
       "options": [
         {
           "value": "on_image",
@@ -79,7 +79,7 @@
     {
       "type": "select",
       "id": "horizontal_alignment",
-      "label": "t:settings.alignment",
+      "label": "Horizontal alignment",
       "options": [
         {
           "value": "flex-start",
@@ -99,7 +99,7 @@
     {
       "type": "select",
       "id": "vertical_alignment",
-      "label": "t:settings.position",
+      "label": "Vertical alignment",
       "options": [
         {
           "value": "flex-start",
@@ -120,7 +120,7 @@
     {
       "type": "range",
       "id": "collection_card_gap",
-      "label": "t:settings.vertical_gap",
+      "label": "Content gap",
       "min": 0,
       "max": 50,
       "step": 1,
@@ -134,20 +134,20 @@
     {
       "type": "checkbox",
       "id": "inherit_color_scheme",
-      "label": "t:settings.inherit_color_scheme",
+      "label": "Inherit colour scheme",
       "default": true
     },
     {
       "type": "color_scheme",
       "id": "color_scheme",
-      "label": "t:settings.color_scheme",
+      "label": "Colour scheme",
       "default": "scheme-1",
       "visible_if": "{{ block.settings.inherit_color_scheme == false }}"
     },
     {
       "type": "select",
       "id": "border",
-      "label": "t:settings.borders",
+      "label": "Border style",
       "options": [
         {
           "value": "none",
@@ -167,7 +167,7 @@
       "max": 10,
       "step": 0.5,
       "unit": "px",
-      "label": "t:settings.border_width",
+      "label": "Border width",
       "default": 1,
       "visible_if": "{{ block.settings.border != 'none' }}"
     },
@@ -178,14 +178,14 @@
       "max": 100,
       "step": 1,
       "unit": "%",
-      "label": "t:settings.border_opacity",
+      "label": "Border opacity",
       "default": 100,
       "visible_if": "{{ block.settings.border != 'none' }}"
     },
     {
       "type": "range",
       "id": "border_radius",
-      "label": "t:settings.border_radius",
+      "label": "Border radius",
       "min": 0,
       "max": 100,
       "step": 1,

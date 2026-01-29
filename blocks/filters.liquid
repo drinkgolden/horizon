@@ -1071,14 +1071,14 @@
     {
       "type": "checkbox",
       "id": "enable_filtering",
-      "label": "t:settings.enable_filtering",
+      "label": "Enable filtering",
       "info": "t:info.enable_filtering_info",
       "default": false
     },
     {
       "type": "select",
       "id": "filter_style",
-      "label": "t:settings.direction",
+      "label": "Filter layout",
       "options": [
         {
           "value": "horizontal",
@@ -1095,7 +1095,7 @@
     {
       "type": "select",
       "id": "filter_width",
-      "label": "t:settings.width",
+      "label": "Filter width",
       "options": [
         {
           "value": "centered",
@@ -1112,7 +1112,7 @@
     {
       "type": "select",
       "id": "text_label_case",
-      "label": "t:settings.text_label_case",
+      "label": "Filter label case",
       "options": [
         {
           "value": "default",
@@ -1129,39 +1129,39 @@
     {
       "type": "checkbox",
       "id": "show_swatch_label",
-      "label": "t:settings.show_swatch_label",
+      "label": "Show swatch labels",
       "default": false,
       "visible_if": "{{ block.settings.enable_filtering == true }}"
     },
     {
       "type": "checkbox",
       "id": "show_filter_label",
-      "label": "t:settings.show_filter_label",
+      "label": "Show filter labels",
       "default": false,
       "visible_if": "{{ block.settings.enable_filtering == true }}"
     },
     {
       "type": "checkbox",
       "id": "enable_sorting",
-      "label": "t:settings.enable_sorting",
+      "label": "Enable sorting",
       "default": true
     },
     {
       "type": "checkbox",
       "id": "enable_grid_density",
-      "label": "t:settings.enable_grid_density",
+      "label": "Enable grid density",
       "default": true
     },
     {
       "type": "checkbox",
       "id": "inherit_color_scheme",
-      "label": "t:settings.inherit_color_scheme",
+      "label": "Inherit colour scheme",
       "default": true
     },
     {
       "type": "color_scheme",
       "id": "color_scheme",
-      "label": "t:settings.color_scheme",
+      "label": "Colour scheme",
       "default": "scheme-1",
       "visible_if": "{{ block.settings.inherit_color_scheme == false }}"
     },
@@ -1172,7 +1172,7 @@
     {
       "type": "range",
       "id": "padding-block-start",
-      "label": "t:settings.top",
+      "label": "Top padding",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -1182,7 +1182,7 @@
     {
       "type": "range",
       "id": "padding-block-end",
-      "label": "t:settings.bottom",
+      "label": "Bottom padding",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -1192,7 +1192,7 @@
     {
       "type": "range",
       "id": "padding-inline-start",
-      "label": "t:settings.left",
+      "label": "Left padding",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -1202,7 +1202,7 @@
     {
       "type": "range",
       "id": "padding-inline-end",
-      "label": "t:settings.right",
+      "label": "Right padding",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -1216,7 +1216,7 @@
     {
       "type": "range",
       "id": "facets_margin_bottom",
-      "label": "t:settings.bottom",
+      "label": "Bottom margin",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -1227,7 +1227,7 @@
     {
       "type": "range",
       "id": "facets_margin_right",
-      "label": "t:settings.right",
+      "label": "Right margin",
       "min": 0,
       "max": 100,
       "step": 1,

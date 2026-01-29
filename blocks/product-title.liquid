@@ -31,7 +31,7 @@
     {
       "type": "select",
       "id": "width",
-      "label": "t:settings.width",
+      "label": "Width",
       "options": [
         {
           "value": "fit-content",
@@ -47,7 +47,7 @@
     {
       "type": "select",
       "id": "max_width",
-      "label": "t:settings.max_width",
+      "label": "Max width",
       "options": [
         {
           "value": "narrow",
@@ -67,7 +67,7 @@
     {
       "type": "text_alignment",
       "id": "alignment",
-      "label": "t:settings.alignment",
+      "label": "Text alignment",
       "default": "left",
       "visible_if": "{{ block.settings.width == '100%' }}"
     },
@@ -78,7 +78,7 @@
     {
       "type": "select",
       "id": "type_preset",
-      "label": "t:settings.preset",
+      "label": "Text style",
       "options": [
         {
           "value": "rte",
@@ -123,7 +123,7 @@
     {
       "type": "select",
       "id": "font",
-      "label": "t:settings.font",
+      "label": "Font family",
       "options": [
         {
           "value": "var(--font-body--family)",
@@ -148,7 +148,7 @@
     {
       "type": "select",
       "id": "font_size",
-      "label": "t:settings.size",
+      "label": "Text size",
       "options": [
         {
           "value": "",
@@ -225,7 +225,7 @@
     {
       "type": "select",
       "id": "line_height",
-      "label": "t:settings.line_height",
+      "label": "Line height",
       "options": [
         {
           "value": "tight",
@@ -246,7 +246,7 @@
     {
       "type": "select",
       "id": "letter_spacing",
-      "label": "t:settings.letter_spacing",
+      "label": "Letter spacing",
       "options": [
         {
           "value": "tight",
@@ -267,7 +267,7 @@
     {
       "type": "select",
       "id": "case",
-      "label": "t:settings.case",
+      "label": "Text case",
       "options": [
         {
           "value": "none",
@@ -284,7 +284,7 @@
     {
       "type": "select",
       "id": "wrap",
-      "label": "t:settings.wrap",
+      "label": "Text wrap",
       "options": [
         {
           "value": "pretty",
@@ -304,7 +304,7 @@
     {
       "type": "select",
       "id": "color",
-      "label": "t:settings.color",
+      "label": "Text colour",
       "options": [
         {
           "value": "var(--color-foreground)",
@@ -329,13 +329,13 @@
     {
       "type": "checkbox",
       "id": "background",
-      "label": "t:settings.background",
+      "label": "Background",
       "default": false
     },
     {
       "type": "color",
       "id": "background_color",
-      "label": "t:settings.background_color",
+      "label": "Background colour",
       "alpha": true,
       "default": "#00000026",
       "visible_if": "{{ block.settings.background }}"
@@ -343,7 +343,7 @@
     {
       "type": "range",
       "id": "corner_radius",
-      "label": "t:settings.corner_radius",
+      "label": "Corner radius",
       "default": 0,
       "min": 0,
       "max": 50,
@@ -357,7 +357,7 @@
     {
       "type": "range",
       "id": "padding-block-start",
-      "label": "t:settings.top",
+      "label": "Top padding",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -367,7 +367,7 @@
     {
       "type": "range",
       "id": "padding-block-end",
-      "label": "t:settings.bottom",
+      "label": "Bottom padding",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -377,7 +377,7 @@
     {
       "type": "range",
       "id": "padding-inline-start",
-      "label": "t:settings.left",
+      "label": "Left padding",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -387,7 +387,7 @@
     {
       "type": "range",
       "id": "padding-inline-end",
-      "label": "t:settings.right",
+      "label": "Right padding",
       "min": 0,
       "max": 100,
       "step": 1,

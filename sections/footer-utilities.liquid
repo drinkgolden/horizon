@@ -7,7 +7,7 @@
 >
   <div
     class="utilities spacing-style"
-    style="{% render 'spacing-style', settings: section.settings %} --border-width: {{ section.settings.divider_thickness }}px; --gap: {% render 'css-rem-value', value: section.settings.gap %};"
+    style="{% render 'spacing-style', settings: section.settings %} --border-width: {{ section.settings.divider_thickness }}px; --gap: {{ section.settings.gap }}px;"
     data-testid="footer-utilities"
   >
     {% content_for 'blocks' %}
@@ -178,7 +178,7 @@
     {
       "type": "select",
       "id": "section_width",
-      "label": "t:settings.width",
+      "label": "Section width",
       "options": [
         {
           "value": "page-width",
@@ -194,7 +194,7 @@
     {
       "type": "range",
       "id": "gap",
-      "label": "t:settings.gap",
+      "label": "Item gap",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -204,7 +204,7 @@
     {
       "type": "range",
       "id": "divider_thickness",
-      "label": "t:settings.divider_thickness",
+      "label": "Divider thickness",
       "min": 0,
       "max": 5,
       "step": 0.5,
@@ -214,7 +214,7 @@
     {
       "type": "color_scheme",
       "id": "color_scheme",
-      "label": "t:settings.color_scheme",
+      "label": "Colour scheme",
       "default": "scheme-1"
     },
     {
@@ -224,7 +224,7 @@
     {
       "type": "range",
       "id": "padding-block-start",
-      "label": "t:settings.top",
+      "label": "Top padding",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -234,7 +234,7 @@
     {
       "type": "range",
       "id": "padding-block-end",
-      "label": "t:settings.bottom",
+      "label": "Bottom padding",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -244,7 +244,7 @@
     {
       "type": "range",
       "id": "padding-inline-start",
-      "label": "t:settings.left_padding",
+      "label": "Left padding",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -254,7 +254,7 @@
     {
       "type": "range",
       "id": "padding-inline-end",
-      "label": "t:settings.right_padding",
+      "label": "Right padding",
       "min": 0,
       "max": 100,
       "step": 1,

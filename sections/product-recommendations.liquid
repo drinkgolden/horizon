@@ -13,20 +13,10 @@
       assign classes = 'resource-list__carousel'
   endcase
 
-  capture columns_gap_rem
-    render 'css-rem-value', value: section.settings.columns_gap
-  endcapture
-  assign columns_gap_rem = columns_gap_rem | strip
-
-  capture rows_gap_rem
-    render 'css-rem-value', value: section.settings.rows_gap
-  endcapture
-  assign rows_gap_rem = rows_gap_rem | strip
-
   capture styles
     echo '--column-count-mobile: ' | append: section.settings.mobile_columns | append: ';'
-    echo '--resource-list-column-gap-desktop: ' | append: columns_gap_rem | append: ';'
-    echo '--resource-list-row-gap-desktop: ' | append: rows_gap_rem | append: ';'
+    echo '--resource-list-column-gap-desktop: ' | append: section.settings.columns_gap | append: 'px;'
+    echo '--resource-list-row-gap-desktop: ' | append: section.settings.rows_gap | append: 'px;'
     echo '--resource-list-columns: repeat(' | append: section.settings.columns | append: ', 1fr);'
     echo '--resource-list-columns-mobile: repeat(' | append: section.settings.mobile_columns | append: ', 1fr);'
     echo '--column-count: ' | append: section.settings.columns | append: ';'
@@ -235,12 +225,12 @@
     {
       "type": "product",
       "id": "product",
-      "label": "t:settings.product"
+      "label": "Product for recommendations"
     },
     {
       "type": "select",
       "id": "recommendation_type",
-      "label": "t:settings.type",
+      "label": "Recommendation type",
       "options": [
         {
           "value": "related",
@@ -264,7 +254,7 @@
     {
       "type": "select",
       "id": "layout_type",
-      "label": "t:settings.layout_style",
+      "label": "Layout",
       "options": [
         {
           "value": "grid",
@@ -280,14 +270,14 @@
     {
       "type": "checkbox",
       "id": "carousel_on_mobile",
-      "label": "t:settings.carousel_on_mobile",
+      "label": "Carousel on mobile",
       "default": false,
       "visible_if": "{{ section.settings.layout_type == 'grid' }}"
     },
     {
       "type": "range",
       "id": "max_products",
-      "label": "t:settings.product_count",
+      "label": "Product count",
       "min": 3,
       "max": 10,
       "step": 1,
@@ -296,7 +286,7 @@
     {
       "type": "range",
       "id": "columns",
-      "label": "t:settings.columns",
+      "label": "Columns (desktop)",
       "min": 1,
       "max": 8,
       "step": 1,
@@ -305,7 +295,7 @@
     {
       "type": "select",
       "id": "mobile_columns",
-      "label": "t:settings.mobile_columns",
+      "label": "Columns (mobile)",
       "options": [
         {
           "value": "1",
@@ -322,7 +312,7 @@
     {
       "type": "range",
       "id": "columns_gap",
-      "label": "t:settings.horizontal_gap",
+      "label": "Column gap",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -333,7 +323,7 @@
     {
       "type": "range",
       "id": "rows_gap",
-      "label": "t:settings.vertical_gap",
+      "label": "Row gap",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -349,7 +339,7 @@
     {
       "type": "select",
       "id": "icons_style",
-      "label": "t:settings.icon",
+      "label": "Arrow style",
       "options": [
         {
           "value": "arrow",
@@ -378,7 +368,7 @@
     {
       "type": "select",
       "id": "icons_shape",
-      "label": "t:settings.icon_background",
+      "label": "Arrow shape",
       "options": [
         {
           "value": "none",
@@ -403,7 +393,7 @@
     {
       "type": "select",
       "id": "section_width",
-      "label": "t:settings.width",
+      "label": "Section width",
       "options": [
         {
           "value": "page-width",
@@ -419,7 +409,7 @@
     {
       "type": "range",
       "id": "gap",
-      "label": "t:settings.gap",
+      "label": "Block gap",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -429,7 +419,7 @@
     {
       "type": "color_scheme",
       "id": "color_scheme",
-      "label": "t:settings.color_scheme",
+      "label": "Colour scheme",
       "default": "scheme-1"
     },
     {
@@ -439,7 +429,7 @@
     {
       "type": "range",
       "id": "padding-block-start",
-      "label": "t:settings.top",
+      "label": "Top padding",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -449,7 +439,7 @@
     {
       "type": "range",
       "id": "padding-block-end",
-      "label": "t:settings.bottom",
+      "label": "Bottom padding",
       "min": 0,
       "max": 100,
       "step": 1,

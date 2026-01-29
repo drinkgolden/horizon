@@ -176,7 +176,7 @@
     {
       "type": "select",
       "id": "media_type_1",
-      "label": "t:settings.type",
+      "label": "Media type",
       "options": [
         {
           "value": "image",
@@ -192,13 +192,13 @@
     {
       "type": "image_picker",
       "id": "image_1",
-      "label": "t:settings.image",
+      "label": "Image",
       "visible_if": "{{ block.settings.media_type_1 == 'image' }}"
     },
     {
       "type": "video",
       "id": "video_1",
-      "label": "t:settings.video",
+      "label": "Video",
       "visible_if": "{{ block.settings.media_type_1 == 'video' }}"
     },
     {
@@ -208,7 +208,7 @@
     {
       "type": "select",
       "id": "content_direction",
-      "label": "t:settings.direction",
+      "label": "Content direction",
       "options": [
         {
           "value": "column",
@@ -224,14 +224,14 @@
     {
       "type": "checkbox",
       "id": "vertical_on_mobile",
-      "label": "t:settings.vertical_on_mobile",
+      "label": "Stack on mobile",
       "default": true,
       "visible_if": "{{ block.settings.content_direction == 'row' }}"
     },
     {
       "type": "select",
       "id": "horizontal_alignment",
-      "label": "t:settings.alignment",
+      "label": "Horizontal alignment",
       "options": [
         {
           "value": "flex-start",
@@ -255,7 +255,7 @@
     {
       "type": "select",
       "id": "vertical_alignment",
-      "label": "t:settings.position",
+      "label": "Vertical alignment",
       "options": [
         {
           "value": "flex-start",
@@ -279,14 +279,14 @@
     {
       "type": "checkbox",
       "id": "align_baseline",
-      "label": "t:settings.align_baseline",
+      "label": "Align to baseline",
       "default": false,
       "visible_if": "{{ block.settings.content_direction == 'row' and block.settings.vertical_alignment == 'flex-end' }}"
     },
     {
       "type": "range",
       "id": "gap",
-      "label": "t:settings.gap",
+      "label": "Content gap",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -300,25 +300,25 @@
     {
       "type": "checkbox",
       "id": "inherit_color_scheme",
-      "label": "t:settings.inherit_color_scheme",
+      "label": "Inherit colour scheme",
       "default": true
     },
     {
       "type": "color_scheme",
       "id": "color_scheme",
-      "label": "t:settings.color_scheme",
+      "label": "Colour scheme",
       "default": "scheme-1",
       "visible_if": "{{ block.settings.inherit_color_scheme == false }}"
     },
     {
       "type": "checkbox",
       "id": "toggle_overlay",
-      "label": "t:settings.media_overlay"
+      "label": "Media overlay"
     },
     {
       "type": "color",
       "id": "overlay_color",
-      "label": "t:settings.overlay_color",
+      "label": "Overlay colour",
       "alpha": true,
       "default": "#00000026",
       "visible_if": "{{ block.settings.toggle_overlay }}"
@@ -326,7 +326,7 @@
     {
       "type": "select",
       "id": "overlay_style",
-      "label": "t:settings.overlay_style",
+      "label": "Overlay style",
       "options": [
         {
           "value": "solid",
@@ -343,7 +343,7 @@
     {
       "type": "select",
       "id": "gradient_direction",
-      "label": "t:settings.gradient_direction",
+      "label": "Gradient direction",
       "options": [
         {
           "value": "to top",
@@ -364,7 +364,7 @@
     {
       "type": "range",
       "id": "padding-block-start",
-      "label": "t:settings.top",
+      "label": "Top padding",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -374,7 +374,7 @@
     {
       "type": "range",
       "id": "padding-block-end",
-      "label": "t:settings.bottom",
+      "label": "Bottom padding",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -384,7 +384,7 @@
     {
       "type": "range",
       "id": "padding-inline-start",
-      "label": "t:settings.left",
+      "label": "Left padding",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -394,7 +394,7 @@
     {
       "type": "range",
       "id": "padding-inline-end",
-      "label": "t:settings.right",
+      "label": "Right padding",
       "min": 0,
       "max": 100,
       "step": 1,

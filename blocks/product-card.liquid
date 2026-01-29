@@ -50,12 +50,12 @@
     {
       "type": "product",
       "id": "product",
-      "label": "t:settings.product"
+      "label": "Product"
     },
     {
       "type": "range",
       "id": "product_card_gap",
-      "label": "t:settings.vertical_gap",
+      "label": "Card gap",
       "min": 0,
       "max": 50,
       "step": 1,
@@ -65,13 +65,13 @@
     {
       "type": "checkbox",
       "id": "inherit_color_scheme",
-      "label": "t:settings.inherit_color_scheme",
+      "label": "Inherit colour scheme",
       "default": true
     },
     {
       "type": "color_scheme",
       "id": "color_scheme",
-      "label": "t:settings.color_scheme",
+      "label": "Colour scheme",
       "default": "scheme-1",
       "visible_if": "{{ block.settings.inherit_color_scheme == false }}"
     },
@@ -82,7 +82,7 @@
     {
       "type": "select",
       "id": "border",
-      "label": "t:settings.style",
+      "label": "Border style",
       "options": [
         {
           "value": "none",
@@ -102,7 +102,7 @@
       "max": 100,
       "step": 1,
       "unit": "px",
-      "label": "t:settings.thickness",
+      "label": "Border thickness",
       "default": 1,
       "visible_if": "{{ block.settings.border != 'none' }}"
     },
@@ -113,14 +113,14 @@
       "max": 100,
       "step": 1,
       "unit": "%",
-      "label": "t:settings.opacity",
+      "label": "Border opacity",
       "default": 100,
       "visible_if": "{{ block.settings.border != 'none' }}"
     },
     {
       "type": "range",
       "id": "border_radius",
-      "label": "t:settings.border_radius",
+      "label": "Corner radius",
       "min": 0,
       "max": 32,
       "step": 1,

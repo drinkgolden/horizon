@@ -116,12 +116,12 @@
         }
       ],
       "default": "adapt",
-      "label": "t:settings.aspect_ratio"
+      "label": "Image ratio"
     },
     {
       "type": "select",
       "id": "width",
-      "label": "t:settings.width_desktop",
+      "label": "Width (desktop)",
       "options": [
         {
           "value": "fit-content",
@@ -141,7 +141,7 @@
     {
       "type": "range",
       "id": "custom_width",
-      "label": "t:settings.custom_width",
+      "label": "Custom width",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -152,7 +152,7 @@
     {
       "type": "select",
       "id": "width_mobile",
-      "label": "t:settings.width_mobile",
+      "label": "Width (mobile)",
       "options": [
         {
           "value": "fit-content",
@@ -172,7 +172,7 @@
     {
       "type": "range",
       "id": "custom_width_mobile",
-      "label": "t:settings.custom_width",
+      "label": "Custom width (mobile)",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -183,7 +183,7 @@
     {
       "type": "select",
       "id": "height",
-      "label": "t:settings.height",
+      "label": "Image height",
       "options": [
         {
           "value": "fit",
@@ -204,7 +204,7 @@
     {
       "type": "select",
       "id": "border",
-      "label": "t:settings.style",
+      "label": "Border style",
       "options": [
         {
           "value": "none",
@@ -224,7 +224,7 @@
       "max": 100,
       "step": 1,
       "unit": "px",
-      "label": "t:settings.thickness",
+      "label": "Border width",
       "default": 1,
       "visible_if": "{{ block.settings.border != 'none' }}"
     },
@@ -235,14 +235,14 @@
       "max": 100,
       "step": 1,
       "unit": "%",
-      "label": "t:settings.opacity",
+      "label": "Border opacity",
       "default": 100,
       "visible_if": "{{ block.settings.border != 'none' }}"
     },
     {
       "type": "range",
       "id": "border_radius",
-      "label": "t:settings.border_radius",
+      "label": "Border radius",
       "min": 0,
       "max": 100,
       "step": 1,

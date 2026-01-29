@@ -33,7 +33,7 @@
     {
       "type": "select",
       "id": "image_ratio",
-      "label": "t:settings.aspect_ratio",
+      "label": "Image ratio",
       "info": "t:info.aspect_ratio_adjusted",
       "options": [
         {
@@ -58,12 +58,12 @@
     {
       "type": "checkbox",
       "id": "toggle_overlay",
-      "label": "t:settings.media_overlay"
+      "label": "Media overlay"
     },
     {
       "type": "color",
       "id": "overlay_color",
-      "label": "t:settings.overlay_color",
+      "label": "Overlay colour",
       "alpha": true,
       "default": "#00000026",
       "visible_if": "{{ block.settings.toggle_overlay }}"
@@ -71,7 +71,7 @@
     {
       "type": "select",
       "id": "overlay_style",
-      "label": "t:settings.overlay_style",
+      "label": "Overlay style",
       "options": [
         {
           "value": "solid",
@@ -88,7 +88,7 @@
     {
       "type": "select",
       "id": "gradient_direction",
-      "label": "t:settings.gradient_direction",
+      "label": "Gradient direction",
       "options": [
         {
           "value": "to top",
@@ -109,7 +109,7 @@
     {
       "type": "select",
       "id": "border",
-      "label": "t:settings.style",
+      "label": "Border style",
       "options": [
         {
           "value": "none",
@@ -129,7 +129,7 @@
       "max": 100,
       "step": 1,
       "unit": "px",
-      "label": "t:settings.thickness",
+      "label": "Border width",
       "default": 1,
       "visible_if": "{{ block.settings.border != 'none' }}"
     },
@@ -140,14 +140,14 @@
       "max": 100,
       "step": 1,
       "unit": "%",
-      "label": "t:settings.opacity",
+      "label": "Border opacity",
       "default": 100,
       "visible_if": "{{ block.settings.border != 'none' }}"
     },
     {
       "type": "range",
       "id": "border_radius",
-      "label": "t:settings.border_radius",
+      "label": "Border radius",
       "min": 0,
       "max": 100,
       "step": 1,

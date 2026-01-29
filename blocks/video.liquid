@@ -47,7 +47,7 @@
     {
       "type": "select",
       "id": "source",
-      "label": "t:settings.video_source",
+      "label": "Video source",
       "options": [
         {
           "value": "uploaded",
@@ -63,13 +63,13 @@
     {
       "type": "video",
       "id": "video",
-      "label": "t:settings.video",
+      "label": "Uploaded video",
       "visible_if": "{{ block.settings.source == 'uploaded' }}"
     },
     {
       "type": "video_url",
       "id": "video_url",
-      "label": "t:settings.video_external_url",
+      "label": "Video URL",
       "info": "t:info.video_external",
       "accept": [
         "youtube",
@@ -80,26 +80,26 @@
     {
       "type": "checkbox",
       "id": "video_autoplay",
-      "label": "t:settings.video_autoplay",
+      "label": "Autoplay",
       "info": "t:info.video_autoplay",
       "default": false
     },
     {
       "type": "checkbox",
       "id": "video_loop",
-      "label": "t:settings.video_loop",
+      "label": "Loop video",
       "default": true
     },
     {
       "type": "image_picker",
       "id": "cover_image",
-      "label": "t:settings.cover_image",
+      "label": "Cover image",
       "visible_if": "{{ block.settings.source == 'url' and block.settings.video_autoplay == false }}"
     },
     {
       "type": "text",
       "id": "alt",
-      "label": "t:settings.video_alt_text",
+      "label": "Video alt text",
       "info": "t:info.video_alt_text",
       "visible_if": "{{ block.settings.source == 'url' }}"
     },
@@ -110,7 +110,7 @@
     {
       "type": "range",
       "id": "custom_width",
-      "label": "t:settings.width",
+      "label": "Width",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -120,7 +120,7 @@
     {
       "type": "range",
       "id": "custom_width_mobile",
-      "label": "t:settings.width_mobile",
+      "label": "Width (mobile)",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -130,7 +130,7 @@
     {
       "type": "select",
       "id": "aspect_ratio",
-      "label": "t:settings.aspect_ratio",
+      "label": "Video ratio",
       "visible_if": "{{ block.settings.source == 'url' and block.settings.cover_image == blank }}",
       "options": [
         {
@@ -159,7 +159,7 @@
     {
       "type": "select",
       "id": "border",
-      "label": "t:settings.style",
+      "label": "Border style",
       "options": [
         {
           "value": "none",
@@ -179,7 +179,7 @@
       "max": 100,
       "step": 1,
       "unit": "px",
-      "label": "t:settings.thickness",
+      "label": "Border width",
       "default": 1,
       "visible_if": "{{ block.settings.border != 'none' }}"
     },
@@ -190,14 +190,14 @@
       "max": 100,
       "step": 1,
       "unit": "%",
-      "label": "t:settings.opacity",
+      "label": "Border opacity",
       "default": 100,
       "visible_if": "{{ block.settings.border != 'none' }}"
     },
     {
       "type": "range",
       "id": "border_radius",
-      "label": "t:settings.border_radius",
+      "label": "Border radius",
       "min": 0,
       "max": 100,
       "step": 1,

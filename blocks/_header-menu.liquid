@@ -695,91 +695,185 @@
     {
       "type": "link_list",
       "id": "menu",
-      "label": "t:settings.menu",
+      "label": "Menu",
       "default": "main-menu"
+    },
+    {
+      "type": "header",
+      "content": "Menu colours"
     },
     {
       "type": "color_scheme",
       "id": "color_scheme",
-      "label": "t:settings.color_scheme",
+      "label": "Menu colour scheme",
       "default": "primary"
-    },
-    {
-      "type": "color_scheme",
-      "id": "drawer_color_scheme",
-      "label": "Mobile drawer color scheme",
-      "default": "primary"
-    },
-    {
-      "type": "checkbox",
-      "id": "drawer_brand_column_custom_color",
-      "label": "Use different brand column color",
-      "default": false
-    },
-    {
-      "type": "color_scheme",
-      "id": "drawer_brand_column_color_scheme",
-      "label": "Brand column color scheme",
-      "default": "primary",
-      "visible_if": "{{ block.settings.drawer_brand_column_custom_color }}"
-    },
-    {
-      "type": "text",
-      "id": "drawer_brand_text",
-      "label": "Mobile drawer brand text",
-      "info": "Used when no mobile drawer logo is provided. Defaults to your store name."
-    },
-    {
-      "type": "range",
-      "id": "drawer_brand_column_width",
-      "label": "Mobile drawer logo column width",
-      "min": 5,
-      "max": 35,
-      "step": 1,
-      "default": 15,
-      "unit": "%"
-    },
-    {
-      "type": "range",
-      "id": "drawer_brand_column_padding",
-      "label": "Mobile drawer logo column padding (px)",
-      "min": 0,
-      "max": 80,
-      "step": 4,
-      "default": 16
-    },
-    {
-      "type": "range",
-      "id": "drawer_menu_row_padding",
-      "label": "Mobile drawer menu padding (px)",
-      "min": 0,
-      "max": 48,
-      "step": 2,
-      "default": 0
-    },
-    {
-      "type": "image_picker",
-      "id": "drawer_logo_image",
-      "label": "Mobile drawer logo"
-    },
-    {
-      "type": "image_picker",
-      "id": "drawer_logo_top_image",
-      "label": "Mobile drawer top logo"
-    },
-    {
-      "type": "image_picker",
-      "id": "drawer_logo_bottom_image",
-      "label": "Mobile drawer bottom logo"
     },
     {
       "type": "header",
-      "content": "t:content.typography"
+      "content": "Navigation bar"
+    },
+    {
+      "type": "checkbox",
+      "id": "navigation_bar",
+      "label": "Show navigation bar"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme_navigation_bar",
+      "label": "Navigation bar colour scheme",
+      "default": "primary",
+      "visible_if": "{{ block.settings.navigation_bar }}"
+    },
+    {
+      "type": "header",
+      "content": "Mega menu content"
+    },
+    {
+      "type": "select",
+      "id": "menu_style",
+      "label": "Mega menu content",
+      "info": "t:info.media_type_info",
+      "options": [
+        {
+          "value": "text",
+          "label": "t:options.none"
+        },
+        {
+          "value": "collection_images",
+          "label": "t:options.collection_images"
+        },
+        {
+          "value": "featured_products",
+          "label": "t:options.featured_products"
+        },
+        {
+          "value": "featured_collections",
+          "label": "t:options.featured_collections"
+        }
+      ],
+      "default": "collection_images"
+    },
+    {
+      "type": "select",
+      "id": "featured_products_aspect_ratio",
+      "label": "Product image ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:options.auto"
+        },
+        {
+          "value": "4 / 5",
+          "label": "t:options.portrait"
+        },
+        {
+          "value": "1 / 1",
+          "label": "t:options.square"
+        }
+      ],
+      "default": "4 / 5",
+      "visible_if": "{{ block.settings.menu_style == 'featured_products' }}"
+    },
+    {
+      "type": "select",
+      "id": "featured_collections_aspect_ratio",
+      "label": "Collection image ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:options.auto"
+        },
+        {
+          "value": "16 / 9",
+          "label": "t:options.landscape"
+        },
+        {
+          "value": "1 / 1",
+          "label": "t:options.square"
+        }
+      ],
+      "default": "16 / 9",
+      "visible_if": "{{ block.settings.menu_style == 'featured_collections' }}"
+    },
+    {
+      "type": "range",
+      "id": "image_border_radius",
+      "label": "Image border radius",
+      "min": 0,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 0,
+      "visible_if": "{{ block.settings.menu_style != 'text' }}"
+    },
+    {
+      "type": "header",
+      "content": "Menu text"
+    },
+    {
+      "type": "select",
+      "id": "menu_font_style",
+      "label": "Menu text style",
+      "options": [
+        {
+          "value": "regular",
+          "label": "t:options.small"
+        },
+        {
+          "value": "inverse",
+          "label": "t:options.medium"
+        },
+        {
+          "value": "inverse_large",
+          "label": "t:options.large"
+        }
+      ],
+      "default": "inverse"
+    },
+    {
+      "type": "select",
+      "id": "type_font_primary_link",
+      "label": "Font family",
+      "options": [
+        {
+          "value": "body",
+          "label": "t:options.body"
+        },
+        {
+          "value": "subheading",
+          "label": "t:options.subheading"
+        },
+        {
+          "value": "heading",
+          "label": "t:options.heading"
+        },
+        {
+          "value": "accent",
+          "label": "t:options.accent"
+        }
+      ],
+      "default": "heading"
+    },
+    {
+      "type": "select",
+      "id": "type_case_primary_link",
+      "label": "Text case",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:options.default"
+        },
+        {
+          "value": "uppercase",
+          "label": "t:options.uppercase"
+        }
+      ],
+      "default": "none"
     },
     {
       "type": "select",
       "id": "type_font_primary_size",
-      "label": "t:settings.top_level_size",
+      "label": "Top level size",
       "options": [
         {
           "value": "0.625rem",
@@ -805,9 +899,13 @@
       "default": "1rem"
     },
     {
+      "type": "header",
+      "content": "Advanced sizes (optional)"
+    },
+    {
       "type": "range",
       "id": "type_font_primary_size_mobile",
-      "label": "Top level mobile size (rem)",
+      "label": "Top level size (mobile, rem)",
       "unit": "rem",
       "min": 0,
       "max": 3,
@@ -818,7 +916,7 @@
     {
       "type": "range",
       "id": "type_font_primary_size_desktop",
-      "label": "Top level desktop size (rem)",
+      "label": "Top level size (desktop, rem)",
       "unit": "rem",
       "min": 0,
       "max": 4,
@@ -827,190 +925,49 @@
       "info": "Set to 0 to use the Top level size dropdown value."
     },
     {
-      "type": "select",
-      "id": "menu_font_style",
-      "label": "t:settings.submenu_text_style",
-      "options": [
-        {
-          "value": "regular",
-          "label": "t:options.small"
-        },
-        {
-          "value": "inverse",
-          "label": "t:options.medium"
-        },
-        {
-          "value": "inverse_large",
-          "label": "t:options.large"
-        }
-      ],
-      "default": "inverse"
-    },
-    {
       "type": "range",
       "id": "submenu_parent_font_size_mobile",
-      "label": "Submenu parent mobile size (rem)",
+      "label": "Submenu parent size (mobile, rem)",
       "unit": "rem",
       "min": 0,
       "max": 3,
       "step": 0.1,
       "default": 0,
-      "info": "Set to 0 to use the preset for the selected submenu style."
-    },
-    {
-      "type": "range",
-      "id": "submenu_parent_font_size_desktop",
-      "label": "Submenu parent desktop size (rem)",
-      "unit": "rem",
-      "min": 0,
-      "max": 4,
-      "step": 0.1,
-      "default": 0,
-      "info": "Set to 0 to use the preset for the selected submenu style."
+      "info": "Set to 0 to use the preset for the selected menu text style."
     },
     {
       "type": "range",
       "id": "submenu_child_font_size_mobile",
-      "label": "Submenu child mobile size (rem)",
+      "label": "Submenu child size (mobile, rem)",
       "unit": "rem",
       "min": 0,
       "max": 3,
       "step": 0.1,
       "default": 0,
-      "info": "Set to 0 to use the preset for the selected submenu style."
-    },
-    {
-      "type": "range",
-      "id": "submenu_child_font_size_desktop",
-      "label": "Submenu child desktop size (rem)",
-      "unit": "rem",
-      "min": 0,
-      "max": 4,
-      "step": 0.1,
-      "default": 0,
-      "info": "Set to 0 to use the preset for the selected submenu style."
-    },
-    {
-      "type": "select",
-      "id": "type_font_primary_link",
-      "label": "t:settings.font",
-      "options": [
-        {
-          "value": "body",
-          "label": "t:options.body"
-        },
-        {
-          "value": "subheading",
-          "label": "t:options.subheading"
-        },
-        {
-          "value": "heading",
-          "label": "t:options.heading"
-        },
-        {
-          "value": "accent",
-          "label": "t:options.accent"
-        }
-      ],
-      "default": "heading"
-    },
-    {
-      "type": "select",
-      "id": "type_case_primary_link",
-      "label": "t:settings.text_case",
-      "options": [
-        {
-          "value": "none",
-          "label": "t:options.default"
-        },
-        {
-          "value": "uppercase",
-          "label": "t:options.uppercase"
-        }
-      ],
-      "default": "none"
+      "info": "Set to 0 to use the preset for the selected menu text style."
     },
     {
       "type": "header",
-      "content": "t:content.submenu_feature"
+      "content": "Drawer colours"
     },
     {
-      "type": "select",
-      "id": "menu_style",
-      "label": "t:settings.media_type",
-      "info": "t:info.media_type_info",
-      "options": [
-        {
-          "value": "text",
-          "label": "t:options.none"
-        },
-        {
-          "value": "collection_images",
-          "label": "t:options.collection_images"
-        },
-        {
-          "value": "featured_products",
-          "label": "t:options.featured_products"
-        },
-        {
-          "value": "featured_collections",
-          "label": "t:options.featured_collections"
-        }
-      ],
-      "default": "collection_images"
+      "type": "color_scheme",
+      "id": "drawer_color_scheme",
+      "label": "Drawer colour scheme",
+      "default": "primary"
     },
     {
-      "type": "select",
-      "id": "featured_products_aspect_ratio",
-      "label": "t:settings.image_ratio",
-      "options": [
-        {
-          "value": "adapt",
-          "label": "t:options.auto"
-        },
-        {
-          "value": "4 / 5",
-          "label": "t:options.portrait"
-        },
-        {
-          "value": "1 / 1",
-          "label": "t:options.square"
-        }
-      ],
-      "default": "4 / 5",
-      "visible_if": "{{ block.settings.menu_style == 'featured_products' }}"
+      "type": "checkbox",
+      "id": "drawer_brand_column_custom_color",
+      "label": "Use a different brand column colour",
+      "default": false
     },
     {
-      "type": "select",
-      "id": "featured_collections_aspect_ratio",
-      "label": "t:settings.image_ratio",
-      "options": [
-        {
-          "value": "adapt",
-          "label": "t:options.auto"
-        },
-        {
-          "value": "16 / 9",
-          "label": "t:options.landscape"
-        },
-        {
-          "value": "1 / 1",
-          "label": "t:options.square"
-        }
-      ],
-      "default": "16 / 9",
-      "visible_if": "{{ block.settings.menu_style == 'featured_collections' }}"
-    },
-    {
-      "type": "range",
-      "id": "image_border_radius",
-      "label": "t:settings.image_border_radius",
-      "min": 0,
-      "max": 32,
-      "step": 1,
-      "unit": "px",
-      "default": 0,
-      "visible_if": "{{ block.settings.menu_style != 'text' }}"
+      "type": "color_scheme",
+      "id": "drawer_brand_column_color_scheme",
+      "label": "Brand column colour scheme",
+      "default": "primary",
+      "visible_if": "{{ block.settings.drawer_brand_column_custom_color }}"
     },
     {
       "type": "header",
@@ -1019,47 +976,88 @@
     {
       "type": "image_picker",
       "id": "drawer_brand_logo_image",
-      "label": "Drawer branding logo"
+      "label": "Drawer brand logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "drawer_logo_image",
+      "label": "Drawer logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "drawer_logo_top_image",
+      "label": "Drawer top logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "drawer_logo_bottom_image",
+      "label": "Drawer bottom logo"
     },
     {
       "type": "text",
       "id": "drawer_logo_alt_text",
-      "label": "Mobile drawer logo alt text",
+      "label": "Drawer logo alt text",
       "info": "Overrides the image alt text announced to screen readers."
     },
     {
+      "type": "text",
+      "id": "drawer_brand_text",
+      "label": "Drawer brand text",
+      "info": "Used when no drawer logo is provided. Defaults to your store name."
+    },
+    {
       "type": "header",
-      "content": "t:content.mobile_layout"
+      "content": "Drawer layout"
     },
     {
-      "type": "checkbox",
-      "id": "navigation_bar",
-      "label": "t:settings.navigation_bar"
+      "type": "range",
+      "id": "drawer_brand_column_width",
+      "label": "Brand column width (%)",
+      "min": 5,
+      "max": 35,
+      "step": 1,
+      "default": 15,
+      "unit": "%"
     },
     {
-      "type": "color_scheme",
-      "id": "color_scheme_navigation_bar",
-      "label": "t:settings.navigation_bar_color_scheme",
-      "default": "primary",
-      "visible_if": "{{ block.settings.navigation_bar }}"
+      "type": "range",
+      "id": "drawer_brand_column_padding",
+      "label": "Brand column padding (px)",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "drawer_menu_row_padding",
+      "label": "Menu padding (px)",
+      "min": 0,
+      "max": 48,
+      "step": 2,
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Drawer behaviour"
     },
     {
       "type": "checkbox",
       "id": "drawer_accordion",
-      "label": "t:settings.accordion",
+      "label": "Accordion menu",
       "default": false
     },
     {
       "type": "checkbox",
       "id": "drawer_accordion_expand_first",
-      "label": "t:settings.expand_first_group",
+      "label": "Expand first group",
       "default": false,
       "visible_if": "{{ block.settings.drawer_accordion == true }}"
     },
     {
       "type": "checkbox",
       "id": "drawer_dividers",
-      "label": "t:settings.dividers",
+      "label": "Show dividers",
       "default": false
     }
   ]

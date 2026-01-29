@@ -208,7 +208,7 @@
     {
       "type": "select",
       "id": "width",
-      "label": "t:settings.width",
+      "label": "Width",
       "options": [
         {
           "value": "fill",
@@ -224,7 +224,7 @@
     {
       "type": "range",
       "id": "custom_width",
-      "label": "t:settings.custom_width",
+      "label": "Custom width",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -235,13 +235,13 @@
     {
       "type": "checkbox",
       "id": "inherit_color_scheme",
-      "label": "t:settings.inherit_color_scheme",
+      "label": "Inherit colour scheme",
       "default": true
     },
     {
       "type": "color_scheme",
       "id": "color_scheme",
-      "label": "t:settings.color_scheme",
+      "label": "Colour scheme",
       "default": "scheme-1",
       "visible_if": "{{ block.settings.inherit_color_scheme == false }}"
     }

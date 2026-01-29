@@ -210,7 +210,7 @@
     {
       "type": "select",
       "id": "recommendation_type",
-      "label": "t:settings.type",
+      "label": "Recommendation type",
       "options": [
         {
           "value": "related",
@@ -234,7 +234,7 @@
     {
       "type": "select",
       "id": "layout_type",
-      "label": "t:settings.layout_style",
+      "label": "Layout",
       "options": [
         {
           "value": "grid",
@@ -250,14 +250,14 @@
     {
       "type": "checkbox",
       "id": "carousel_on_mobile",
-      "label": "t:settings.carousel_on_mobile",
+      "label": "Carousel on mobile",
       "default": true,
       "visible_if": "{{ block.settings.layout_type == 'grid' }}"
     },
     {
       "type": "range",
       "id": "max_products",
-      "label": "t:settings.product_count",
+      "label": "Product count",
       "min": 2,
       "max": 10,
       "step": 1,
@@ -266,7 +266,7 @@
     {
       "type": "range",
       "id": "columns_gap",
-      "label": "t:settings.horizontal_gap",
+      "label": "Column gap",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -277,7 +277,7 @@
     {
       "type": "range",
       "id": "rows_gap",
-      "label": "t:settings.vertical_gap",
+      "label": "Row gap",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -293,7 +293,7 @@
     {
       "type": "select",
       "id": "icons_style",
-      "label": "t:settings.icon",
+      "label": "Arrow style",
       "options": [
         {
           "value": "arrow",
@@ -322,7 +322,7 @@
     {
       "type": "select",
       "id": "icons_shape",
-      "label": "t:settings.icon_background",
+      "label": "Arrow shape",
       "options": [
         {
           "value": "none",
@@ -347,7 +347,7 @@
     {
       "type": "range",
       "id": "gap",
-      "label": "t:settings.gap",
+      "label": "Block gap",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -357,7 +357,7 @@
     {
       "type": "color_scheme",
       "id": "color_scheme",
-      "label": "t:settings.color_scheme",
+      "label": "Colour scheme",
       "default": "scheme-1"
     }
   ],

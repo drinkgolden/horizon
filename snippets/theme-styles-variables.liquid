@@ -4,8 +4,6 @@
     assign primary_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
     assign primary_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
     assign primary_font_bold_italic = primary_font_bold | font_modify: 'style', 'italic'
-    assign root_font_size = settings.type_root_font_size | default: 16
-    assign root_font_size = root_font_size | times: 1
     assign px_scale = 16.0
   %}
 
@@ -54,7 +52,6 @@
   {% endif %}
 
   :root {
-    --root-font-size: {{ root_font_size }}px;
     /* Page Layout */
     --sidebar-width: 25rem;
     --narrow-content-width: 36rem;
@@ -371,7 +368,7 @@
     --margin-5xl: 3rem;
     --margin-6xl: 5rem;
 
-    --scroll-margin: 3.125rem;
+    --scroll-margin: 50px;
 
     --padding-3xs: 0.125rem;
     --padding-2xs: 0.25rem;
@@ -401,7 +398,7 @@
     --spacing-scale-default: 1.0;
 
     /* Checkout buttons gap */
-    --checkout-button-gap: 0.625rem;
+    --checkout-button-gap: 10px;
 
     /* Borders */
     --style-border-width: 1px;

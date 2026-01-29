@@ -68,7 +68,7 @@
         }
       ],
       "default": "portrait",
-      "label": "t:settings.aspect_ratio",
+      "label": "Image ratio",
       "info": "t:info.aspect_ratio_adjusted"
     },
     {
@@ -84,7 +84,7 @@
     {
       "type": "select",
       "id": "border",
-      "label": "t:settings.style",
+      "label": "Border style",
       "options": [
         {
           "value": "none",
@@ -104,7 +104,7 @@
       "max": 100,
       "step": 1,
       "unit": "px",
-      "label": "t:settings.thickness",
+      "label": "Border width",
       "default": 1,
       "visible_if": "{{ block.settings.border != 'none' }}"
     },
@@ -115,14 +115,14 @@
       "max": 100,
       "step": 1,
       "unit": "%",
-      "label": "t:settings.opacity",
+      "label": "Border opacity",
       "default": 100,
       "visible_if": "{{ block.settings.border != 'none' }}"
     },
     {
       "type": "range",
       "id": "border_radius",
-      "label": "t:settings.border_radius",
+      "label": "Border radius",
       "min": 0,
       "max": 32,
       "step": 1,
@@ -136,7 +136,7 @@
     {
       "type": "range",
       "id": "padding-block-start",
-      "label": "t:settings.top",
+      "label": "Top padding",
       "min": 0,
       "max": 50,
       "step": 1,
@@ -146,7 +146,7 @@
     {
       "type": "range",
       "id": "padding-block-end",
-      "label": "t:settings.bottom",
+      "label": "Bottom padding",
       "min": 0,
       "max": 50,
       "step": 1,
@@ -156,7 +156,7 @@
     {
       "type": "range",
       "id": "padding-inline-start",
-      "label": "t:settings.left",
+      "label": "Left padding",
       "min": 0,
       "max": 50,
       "step": 1,
@@ -166,7 +166,7 @@
     {
       "type": "range",
       "id": "padding-inline-end",
-      "label": "t:settings.right",
+      "label": "Right padding",
       "min": 0,
       "max": 50,
       "step": 1,

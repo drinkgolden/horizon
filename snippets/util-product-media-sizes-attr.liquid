@@ -19,22 +19,13 @@
 {%- liquid
   assign block_settings = block.settings
   # Constants
-  assign page_margin = '2.5rem'
+  assign page_margin = '40px'
   # Section gap divided by 2 (used for single column layouts)
-  capture gap_half
-    render 'css-rem-value', value: section.settings.gap | divided_by: 2.0
-  endcapture
-  assign gap_half = gap_half | strip
+  assign gap_half = section.settings.gap | divided_by: 2 | append: 'px'
   # Section gap divided by 4 (used for two column layouts where each column gets half of the half gap)
-  capture gap_quarter
-    render 'css-rem-value', value: section.settings.gap | divided_by: 4.0
-  endcapture
-  assign gap_quarter = gap_quarter | strip
+  assign gap_quarter = section.settings.gap | divided_by: 4 | append: 'px'
   # Image gap divided by 2 (space between images in grid)
-  capture image_gap_half
-    render 'css-rem-value', value: block_settings.image_gap | divided_by: 2.0
-  endcapture
-  assign image_gap_half = image_gap_half | strip
+  assign image_gap_half = block_settings.image_gap | divided_by: 2 | append: 'px'
 
   assign is_single_column = is_single_column | default: false
   assign needs_both_sizes = needs_both_sizes | default: false
