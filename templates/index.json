@@ -207,7 +207,7 @@
                 "subheading": "",
                 "layout": "split",
                 "image_ratio": "square",
-                "show_arrows": true,
+                "show_arrows": false,
                 "controls_style": "none",
                 "pagination_position": "center",
                 "icons_style": "chevron",

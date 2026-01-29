@@ -145,7 +145,7 @@
               "type": "text",
               "name": "t:names.text",
               "settings": {
-                "text": "<p><em>Founder (Morg) on the left; my mate James in green.</em></p>",
+                "text": "<p><em>Beehives on the way to Wharariki Beach (near Golden Bay).</em></p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "right",
@@ -180,7 +180,7 @@
       "name": "t:names.hero_bottom_aligned",
       "settings": {
         "media_type_1": "image",
-        "image_1": "shopify://shop_images/DSCN0444.jpg",
+        "image_1": "shopify://shop_images/shutterstock_1715090482.webp",
         "media_type_2": "image",
         "link": "",
         "open_in_new_tab": false,
