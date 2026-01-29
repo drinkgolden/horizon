@@ -622,7 +622,13 @@
           "selected_variant_hover_border_color": "#333333"
         }
       }
-    }
+    },
+    "bottom_motif_button_background": "#fbfbfa",
+    "bottom_motif_button_text_color": "#25282a",
+    "bottom_motif_button_svg": "shopify://shop_images/tbti1atiamr11_png.webp",
+    "side_columns_background_color": "#fcfcfb",
+    "side_columns_border_color": "#e5e5e5",
+    "enable_guided_scroll": false
   },
   "presets": {
     "Horizon": {

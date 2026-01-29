@@ -17,7 +17,7 @@
         "announcement_BxgCk9": {
           "type": "_announcement",
           "settings": {
-            "text": "Spend ≥ $50 & Ship Free",
+            "text": "Spend \u2265 $50 & Ship Free",
             "link": "",
             "font": "var(--font-heading--family)",
             "font_size": "1rem",
@@ -90,7 +90,17 @@
             "color_scheme_navigation_bar": "scheme-1",
             "drawer_accordion": true,
             "drawer_accordion_expand_first": true,
-            "drawer_dividers": false
+            "drawer_dividers": false,
+            "drawer_logo_alt": "Golden",
+            "submenu_parent_font_size_desktop": 1,
+            "submenu_child_font_size_desktop": 1,
+            "drawer_logo_size": 40,
+            "drawer_logo_padding_block_start": 0,
+            "drawer_logo_padding_block_end": 0,
+            "drawer_logo_padding_inline_start": 0,
+            "drawer_logo_padding_inline_end": 0,
+            "drawer_logo_column_width": 184,
+            "drawer_logo_gap": 0
           },
           "blocks": {}
         }
@@ -121,7 +131,11 @@
         "enable_transparent_header_product": false,
         "product_color_scheme": "default",
         "enable_transparent_header_collection": false,
-        "collection_color_scheme": "default"
+        "collection_color_scheme": "default",
+        "logo_position": "left",
+        "menu_position": "center",
+        "drawer_logo_top_image": "shopify://shop_images/Wordmark_Vertical.svg",
+        "drawer_logo_bottom_image": "shopify://shop_images/tbti1atiamr11_png.webp"
       }
     }
   },
