@@ -24,7 +24,7 @@
           assign url_host = link_url | split: '//' | last | split: '/' | first | downcase
           assign url_host = url_host | remove: 'www.'
 
-          case
+          case url_host
             when url_host contains 'facebook' or url_host == 'fb.com'
               assign platform = 'facebook'
             when url_host contains 'instagram'
