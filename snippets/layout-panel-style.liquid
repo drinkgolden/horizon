@@ -6,22 +6,17 @@
       settings: {block.settings || section.settings}
   endcomment
 
-  assign is_row_layout = settings.content_direction == 'row'
-  assign horizontal_alignment = settings.horizontal_alignment | default: settings.horizontal_alignment_flex_direction_column | default: 'flex-start'
-  assign vertical_alignment = settings.vertical_alignment | default: settings.vertical_alignment_flex_direction_column | default: 'center'
+  assign horizontal_alignment = settings.horizontal_alignment
 
-  if is_row_layout
-    if settings.align_baseline and vertical_alignment == 'flex-end'
-      assign vertical_alignment = 'last baseline'
-    endif
-    if vertical_alignment == 'space-between'
-      assign vertical_alignment = 'flex-start'
-    endif
-  else
-    if horizontal_alignment == 'space-between'
-      assign horizontal_alignment = 'flex-start'
-    endif
+  assign vertical_alignment = settings.vertical_alignment
+  if settings.align_baseline and vertical_alignment == 'flex-end'
+    assign vertical_alignment = 'last baseline'
   endif
+
+  unless settings.content_direction == 'row'
+    assign horizontal_alignment = settings.horizontal_alignment_flex_direction_column
+    assign vertical_alignment = settings.vertical_alignment_flex_direction_column
+  endunless
 
   assign vertical_alignment_mobile = vertical_alignment
 
