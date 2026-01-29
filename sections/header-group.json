@@ -17,7 +17,7 @@
         "announcement_BxgCk9": {
           "type": "_announcement",
           "settings": {
-            "text": "Spend \u2265 $50 & Ship Free",
+            "text": "Spend ≥ $50 & Ship Free",
             "link": "",
             "font": "var(--font-heading--family)",
             "font_size": "1rem",
@@ -70,6 +70,7 @@
             "drawer_brand_column_padding": 8,
             "drawer_menu_row_padding": 12,
             "drawer_logo_image": "shopify://shop_images/Wordmark_Vertical.svg",
+            "drawer_logo_alt": "Golden",
             "drawer_logo_top_image": "shopify://shop_images/Wordmark_Vertical.svg",
             "drawer_logo_bottom_image": "shopify://shop_images/tbti1atiamr11_png.webp",
             "type_font_primary_size": "1rem",
@@ -77,7 +78,9 @@
             "type_font_primary_size_desktop": 0,
             "menu_font_style": "inverse",
             "submenu_parent_font_size_mobile": 0,
+            "submenu_parent_font_size_desktop": 1,
             "submenu_child_font_size_mobile": 0,
+            "submenu_child_font_size_desktop": 1,
             "type_font_primary_link": "body",
             "type_case_primary_link": "none",
             "menu_style": "featured_products",
@@ -86,27 +89,28 @@
             "image_border_radius": 0,
             "drawer_brand_logo_image": "shopify://shop_images/Wordmark_Vertical.svg",
             "drawer_logo_alt_text": "Golden wordmark in white written from bottom to top with a transparent background",
-            "navigation_bar": true,
-            "color_scheme_navigation_bar": "scheme-1",
-            "drawer_accordion": true,
-            "drawer_accordion_expand_first": true,
-            "drawer_dividers": false,
-            "drawer_logo_alt": "Golden",
-            "submenu_parent_font_size_desktop": 1,
-            "submenu_child_font_size_desktop": 1,
             "drawer_logo_size": 40,
             "drawer_logo_padding_block_start": 0,
             "drawer_logo_padding_block_end": 0,
             "drawer_logo_padding_inline_start": 0,
             "drawer_logo_padding_inline_end": 0,
             "drawer_logo_column_width": 184,
-            "drawer_logo_gap": 0
+            "drawer_logo_gap": 0,
+            "navigation_bar": true,
+            "color_scheme_navigation_bar": "scheme-1",
+            "drawer_accordion": true,
+            "drawer_accordion_expand_first": true,
+            "drawer_dividers": false
           },
           "blocks": {}
         }
       },
       "settings": {
+        "logo_position": "left",
+        "menu_position": "center",
         "menu_row": "top",
+        "drawer_logo_top_image": "shopify://shop_images/Wordmark_Vertical.svg",
+        "drawer_logo_bottom_image": "shopify://shop_images/tbti1atiamr11_png.webp",
         "show_search": true,
         "search_position": "right",
         "search_row": "top",
@@ -131,12 +135,7 @@
         "enable_transparent_header_product": false,
         "product_color_scheme": "default",
         "enable_transparent_header_collection": false,
-        "collection_color_scheme": "default",
-        "logo_position": "left",
-        "menu_position": "center",
-        "drawer_logo_top_image": "shopify://shop_images/Wordmark_Vertical.svg",
-        "drawer_logo_bottom_image": "shopify://shop_images/tbti1atiamr11_png.webp",
-        "enable_sticky_header": "always"
+        "collection_color_scheme": "default"
       }
     }
   },
