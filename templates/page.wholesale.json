@@ -117,7 +117,7 @@
               "type": "text",
               "name": "t:names.text",
               "settings": {
-                "text": "<p>We primarily use Upstock for wholesale ordering here.</p>",
+                "text": "<p>We primarily use Upstock for wholesale ordering <a href=\"https://www.upstock.app/wholesalers/golden\" target=\"_blank\" title=\"Golden on Upstock\">here</a>.</p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",

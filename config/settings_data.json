@@ -20,7 +20,7 @@
     "type_accent_font": "inter_n7",
     "page_width": "narrow",
     "side_columns_enable": true,
-    "side_columns_enable_mobile": true,
+    "side_columns_enable_mobile": false,
     "side_columns_width_desktop": 2,
     "side_columns_width_mobile": 1,
     "side_columns_color_scheme": "scheme-1",
