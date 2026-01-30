@@ -2116,8 +2116,8 @@
             "border_radius": 0,
             "padding-block-start": 0,
             "padding-block-end": 0,
-            "padding-inline-start": 16,
-            "padding-inline-end": 16
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
           },
           "blocks": {
             "accordion_row_social_J3z8ak": {
@@ -2133,7 +2133,7 @@
                 "max_items": 12,
                 "show_captions": false,
                 "open_new_tab": true,
-                "image_ratio": "square",
+                "image_ratio": "portrait",
                 "columns": 4,
                 "columns_gap": 12,
                 "mobile_card_size": "60cqw",
@@ -2146,16 +2146,16 @@
                 "right_hover_color_scheme": "",
                 "summary_padding_block_start": 0,
                 "summary_padding_block_end": 0,
-                "summary_padding_inline_start": 0,
-                "summary_padding_inline_end": 0,
+                "summary_padding_inline_start": 16,
+                "summary_padding_inline_end": 16,
                 "content_padding_block_start": 12,
                 "content_padding_block_end": 24,
-                "content_padding_inline_start": 0,
-                "content_padding_inline_end": 0,
+                "content_padding_inline_start": 16,
+                "content_padding_inline_end": 16,
                 "heading_type_preset": "",
                 "right_heading_type_preset": "match",
-                "heading_min_size": 1,
-                "heading_max_size": 1.4,
+                "heading_min_size": 1.1,
+                "heading_max_size": 2,
                 "icon": "none",
                 "width": 20
               },
