@@ -123,6 +123,10 @@
   {% assign heading_max_numeric = block_settings.heading_max_size | default: 0 | times: 1 %}
   {% if heading_min_numeric > 0 %}--accordion-heading-min-size: {{ heading_min_numeric }}rem;{% endif %}
   {% if heading_max_numeric > 0 %}--accordion-heading-max-size: {{ heading_max_numeric }}rem;{% endif %}
+  {% if heading_min_numeric == 0 and heading_max_numeric == 0 %}
+    --accordion-heading-size: var(--accordion-heading-base-size, var(--summary-font-size));
+    --accordion-right-heading-size: var(--accordion-right-heading-base-size, var(--accordion-heading-base-size, var(--summary-font-size)));
+  {% endif %}
   {% if has_row_custom_padding %}
     --padding-inline-start: 0px;
     --padding-inline-end: 0px;
@@ -346,29 +350,32 @@
     font-weight: var(--accordion-heading-font-weight, var(--summary-font-weight));
     line-height: var(--accordion-heading-line-height, var(--summary-font-line-height));
     text-transform: var(--accordion-heading-text-case, var(--summary-font-case));
-    font-size: clamp(
-      var(--accordion-heading-min-size, 1rem),
-      calc(
-        var(--accordion-heading-min-size, 1rem) +
-          (
-            var(--accordion-heading-max-size, 3.4rem) -
-            var(--accordion-heading-min-size, 1rem)
-          ) *
-          clamp(
-            0,
+    font-size: var(
+      --accordion-heading-size,
+      clamp(
+        var(--accordion-heading-min-size, 1rem),
+        calc(
+          var(--accordion-heading-min-size, 1rem) +
             (
-              100vw -
-              var(--accordion-heading-min-breakpoint, 20rem)
-            ) /
-              max(
-                0.001rem,
-                var(--accordion-heading-max-breakpoint, 48rem) -
-                  var(--accordion-heading-min-breakpoint, 20rem)
-              ),
-            1
-          )
-      ),
-      var(--accordion-heading-max-size, 3.4rem)
+              var(--accordion-heading-max-size, 3.4rem) -
+              var(--accordion-heading-min-size, 1rem)
+            ) *
+            clamp(
+              0,
+              (
+                100vw -
+                var(--accordion-heading-min-breakpoint, 20rem)
+              ) /
+                max(
+                  0.001rem,
+                  var(--accordion-heading-max-breakpoint, 48rem) -
+                    var(--accordion-heading-min-breakpoint, 20rem)
+                ),
+              1
+            )
+        ),
+        var(--accordion-heading-max-size, 3.4rem)
+      )
     );
   }
 
@@ -417,29 +424,35 @@
     font-weight: var(--accordion-right-heading-font-weight, var(--accordion-heading-font-weight, var(--summary-font-weight)));
     line-height: var(--accordion-right-heading-line-height, var(--accordion-heading-line-height, var(--summary-font-line-height)));
     text-transform: var(--accordion-right-heading-text-case, var(--accordion-heading-text-case, var(--summary-font-case)));
-    font-size: clamp(
-      var(--accordion-heading-min-size, 1rem),
-      calc(
-        var(--accordion-heading-min-size, 1rem) +
-          (
-            var(--accordion-heading-max-size, 3.4rem) -
-            var(--accordion-heading-min-size, 1rem)
-          ) *
-          clamp(
-            0,
-            (
-              100vw -
-              var(--accordion-heading-min-breakpoint, 20rem)
-            ) /
-              max(
-                0.001rem,
-                var(--accordion-heading-max-breakpoint, 48rem) -
+    font-size: var(
+      --accordion-right-heading-size,
+      var(
+        --accordion-heading-size,
+        clamp(
+          var(--accordion-heading-min-size, 1rem),
+          calc(
+            var(--accordion-heading-min-size, 1rem) +
+              (
+                var(--accordion-heading-max-size, 3.4rem) -
+                var(--accordion-heading-min-size, 1rem)
+              ) *
+              clamp(
+                0,
+                (
+                  100vw -
                   var(--accordion-heading-min-breakpoint, 20rem)
-              ),
-            1
-          )
-      ),
-      var(--accordion-heading-max-size, 3.4rem)
+                ) /
+                  max(
+                    0.001rem,
+                    var(--accordion-heading-max-breakpoint, 48rem) -
+                      var(--accordion-heading-min-breakpoint, 20rem)
+                  ),
+                1
+              )
+          ),
+          var(--accordion-heading-max-size, 3.4rem)
+        )
+      )
     );
   }
 
