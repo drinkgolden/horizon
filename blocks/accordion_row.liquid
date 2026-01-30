@@ -149,6 +149,10 @@
   {% if content_padding_inline_end_value != 0 %}padding-inline-end: {{ content_padding_inline_end_value }}px;{% endif %}
 {% endcapture %}
 
+{% capture nested_blocks %}
+  {% content_for 'blocks' %}
+{% endcapture %}
+
 <div
   class="{{ row_classes }}"
   {% if row_color_scheme_id != blank %}
@@ -225,7 +229,7 @@
             style="{{ content_styles | strip }}"
           {% endif %}
         >
-          {% content_for 'blocks' %}
+          {{ nested_blocks }}
         </div>
       </details>
     {% else %}
@@ -262,7 +266,7 @@
               style="{{ content_styles | strip }}"
             {% endif %}
           >
-            {% content_for 'blocks' %}
+            {{ nested_blocks }}
           </div>
         {% endif %}
       </div>
