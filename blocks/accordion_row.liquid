@@ -30,6 +30,14 @@
 {% assign has_reveal_content = false %}
 {% if nested_block_count > 0 %}
   {% assign has_reveal_content = true %}
+{% endif %}
+
+{% assign is_collapsible = false %}
+{% if has_reveal_content and block_settings.collapsible %}
+  {% assign is_collapsible = true %}
+{% endif %}
+
+{% if has_reveal_content %}
   {% assign row_classes = row_classes | append: ' accordion-row--has-reveal' %}
 {% endif %}
 
@@ -164,12 +172,12 @@
     {% if inline_styles != blank %}
       style="{{ inline_styles | strip }}"
     {% endif %}
-    {% if block_settings.open_by_default %}
+    {% if is_collapsible and block_settings.open_by_default %}
       open-by-default-on-desktop
       open-by-default-on-mobile
     {% endif %}
   >
-    {% if has_reveal_content %}
+    {% if is_collapsible %}
       <details
         class="details"
         data-testid="accordion-details"
@@ -189,7 +197,7 @@
               class_name: 'details__icon'
             %}
             <span class="details__label">{{ block_settings.heading }}</span>
-            {% if block_settings.heading != blank and has_reveal_content %}
+            {% if block_settings.heading != blank and is_collapsible %}
               <span class="details__caret details__caret--left">
                 <span class="svg-wrapper icon-caret icon-animated">
                   {{- 'icon-caret.svg' | inline_asset_content -}}
@@ -199,7 +207,7 @@
           </span>
           {% if show_right_heading %}
             <span class="details__heading details__heading--right">
-              {% if has_reveal_content %}
+              {% if is_collapsible %}
                 <span class="details__caret details__caret--right">
                   <span class="svg-wrapper icon-caret icon-animated">
                     {{- 'icon-caret.svg' | inline_asset_content -}}
@@ -247,6 +255,16 @@
             </span>
           {% endif %}
         </div>
+        {% if has_reveal_content %}
+          <div
+            class="details-content"
+            {% if content_styles != blank %}
+              style="{{ content_styles | strip }}"
+            {% endif %}
+          >
+            {% content_for 'blocks' %}
+          </div>
+        {% endif %}
       </div>
     {% endif %}
   </accordion-custom>
@@ -517,9 +535,16 @@
     },
     {
       "type": "checkbox",
+      "id": "collapsible",
+      "label": "Collapsible",
+      "default": true
+    },
+    {
+      "type": "checkbox",
       "id": "open_by_default",
       "label": "Open row by default",
-      "default": false
+      "default": false,
+      "visible_if": "{{ block.settings.collapsible == true }}"
     },
     {
       "type": "color_scheme",
