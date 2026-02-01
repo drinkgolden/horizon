@@ -2,6 +2,8 @@ class SocialFeed {
   constructor(root) {
     this.root = root;
     this.items = Array.from(root.querySelectorAll('[data-social-feed-item]'));
+    this.emptyState = root.querySelector('[data-social-feed-empty]');
+    this.carousel = root.querySelector('[data-social-feed-carousel]');
     this.provider = root.dataset.provider || 'instagram';
     this.feedUrl = root.dataset.feedUrl || '';
     this.limit = parseInt(root.dataset.limit || this.items.length, 10);
@@ -12,7 +14,10 @@ class SocialFeed {
   async init() {
     if (!this.items.length) return;
     const endpoint = this.resolveEndpoint();
-    if (!endpoint) return;
+    if (!endpoint) {
+      this.setEmptyState(true);
+      return;
+    }
 
     try {
       const url = new URL(endpoint, window.location.origin);
@@ -26,15 +31,35 @@ class SocialFeed {
       const payload = await response.json();
       const items = Array.isArray(payload.items) ? payload.items : [];
       this.render(items);
+      this.setEmptyState(items.length === 0);
     } catch (error) {
       this.root.classList.add('social-feed--error');
+      this.setEmptyState(true);
       console.error('[social-feed] failed to load', error);
     }
   }
 
   resolveEndpoint() {
     if (this.feedUrl && this.feedUrl.trim().length > 0) return this.feedUrl.trim();
-    return `/apps/golden-feed/app_proxy/${this.provider}`;
+    return `https://social-feed.staygolden.co.nz/app_proxy/${this.provider}`;
+  }
+
+  setEmptyState(isEmpty) {
+    if (this.emptyState) {
+      if (isEmpty) {
+        this.emptyState.removeAttribute('hidden');
+      } else {
+        this.emptyState.setAttribute('hidden', '');
+      }
+    }
+
+    if (this.carousel) {
+      if (isEmpty) {
+        this.carousel.setAttribute('hidden', '');
+      } else {
+        this.carousel.removeAttribute('hidden');
+      }
+    }
   }
 
   render(items) {

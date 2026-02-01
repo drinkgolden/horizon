@@ -279,8 +279,12 @@
             data-open-new-tab="{{ block_settings.open_new_tab }}"
             data-image-ratio="{{ block_settings.image_ratio }}"
           >
+            <p class="social-feed__empty" data-social-feed-empty hidden>
+              "Anyone who thinks they're too small to make a difference has never met the honey bee."
+            </p>
             <div
               class="resource-list resource-list__carousel force-full-width"
+              data-social-feed-carousel
               style="
                 --resource-list-column-gap-desktop: {{ block_settings.columns_gap }}px;
                 --column-count: {{ block_settings.columns }};
@@ -348,8 +352,12 @@
               data-open-new-tab="{{ block_settings.open_new_tab }}"
               data-image-ratio="{{ block_settings.image_ratio }}"
             >
+              <p class="social-feed__empty" data-social-feed-empty hidden>
+                "Anyone who thinks they're too small to make a difference has never met the honey bee."
+              </p>
               <div
                 class="resource-list resource-list__carousel force-full-width"
+                data-social-feed-carousel
                 style="
                   --resource-list-column-gap-desktop: {{ block_settings.columns_gap }}px;
                   --column-count: {{ block_settings.columns }};
@@ -629,6 +637,15 @@
     --social-feed-aspect-ratio: 1 / 1;
   }
 
+  .social-feed__empty {
+    margin: 0;
+    padding: var(--padding-lg);
+    text-align: center;
+    font-size: var(--font-body--size);
+    line-height: var(--font-body--line-height);
+    color: inherit;
+  }
+
   .accordion-social-feed[data-image-ratio='portrait'] {
     --social-feed-aspect-ratio: 4 / 5;
   }
@@ -739,7 +756,7 @@
       "type": "text",
       "id": "feed_url",
       "label": "Feed URL",
-      "info": "Leave blank to use /apps/golden-feed/app_proxy/{provider}."
+      "info": "Leave blank to use https://social-feed.staygolden.co.nz/app_proxy/{provider}."
     },
     {
       "type": "range",
