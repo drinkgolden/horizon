@@ -26,6 +26,9 @@
   --ratio: {{ ratio }};
   {% render 'size-style', settings: block_settings %}
   {% render 'spacing-style', settings: block_settings %}
+  {% if block_settings.placeholder_color != blank %}
+    --image-placeholder-color: {{ block_settings.placeholder_color }};
+  {% endif %}
 {% endcapture %}
 
 {% capture image_border_style %}
@@ -282,6 +285,13 @@
       "step": 1,
       "unit": "px",
       "default": 0
+    },
+    {
+      "type": "color",
+      "id": "placeholder_color",
+      "label": "Placeholder colour",
+      "info": "Optional: overrides the loading background for this image block.",
+      "alpha": true
     },
     {
       "type": "header",

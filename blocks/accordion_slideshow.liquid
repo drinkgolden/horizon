@@ -115,9 +115,16 @@
   {% endif %}
 {% endcapture %}
 
+{% capture wrapper_style %}
+  {% render 'spacing-style', settings: block_settings %}
+  {% if block_settings.placeholder_color != blank %}
+    --image-placeholder-color: {{ block_settings.placeholder_color }};
+  {% endif %}
+{% endcapture %}
+
 <div
   class="{{ wrapper_classes }}"
-  style="{% render 'spacing-style', settings: block_settings %}"
+  style="{{ wrapper_style | strip }}"
   {{ block.shopify_attributes }}
 >
   {% if block_settings.heading != blank or block_settings.subheading != blank %}
@@ -293,6 +300,13 @@
         }
       ],
       "default": "adapt"
+    },
+    {
+      "type": "color",
+      "id": "placeholder_color",
+      "label": "Placeholder colour",
+      "info": "Optional: overrides the loading background for this slideshow.",
+      "alpha": true
     },
     {
       "type": "checkbox",

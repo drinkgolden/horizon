@@ -23,7 +23,7 @@
   <image-block
     ratio="{{ block_settings.ratio }}"
     height="{{ block_settings.height }}"
-    style="--border-radius: {{ block_settings.border_radius }}px;"
+    style="--border-radius: {{ block_settings.border_radius }}px;{% if block_settings.placeholder_color != blank %}--image-placeholder-color: {{ block_settings.placeholder_color }};{% endif %}"
     {{ block.shopify_attributes }}
   >
     {{
@@ -36,7 +36,7 @@
   <image-block
     ratio="{{ block_settings.ratio }}"
     height="{{ block_settings.height }}"
-    style="--border-radius: {{ block_settings.border_radius }}px;"
+    style="--border-radius: {{ block_settings.border_radius }}px;{% if block_settings.placeholder_color != blank %}--image-placeholder-color: {{ block_settings.placeholder_color }};{% endif %}"
     {{ block.shopify_attributes }}
   >
     {{ placeholder | default: 'hero-apparel-2' | placeholder_svg_tag: 'hero__image' }}
@@ -165,6 +165,13 @@
       "step": 1,
       "unit": "px",
       "default": 0
+    },
+    {
+      "type": "color",
+      "id": "placeholder_color",
+      "label": "Placeholder colour",
+      "info": "Optional: overrides the loading background for this image block.",
+      "alpha": true
     }
   ]
 }

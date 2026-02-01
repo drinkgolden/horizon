@@ -14,6 +14,9 @@
   {% render 'spacing-style', settings: block_settings %}
   --accordion-image-alignment: {{ block_settings.alignment }};
   --accordion-image-text-align: {{ block_settings.text_alignment }};
+  {% if block_settings.placeholder_color != blank %}
+    --image-placeholder-color: {{ block_settings.placeholder_color }};
+  {% endif %}
   {% if block_settings.max_width != 0 %}
     max-width: {{ block_settings.max_width }}px;
   {% endif %}
@@ -185,6 +188,13 @@
       "step": 1,
       "unit": "px",
       "default": 0
+    },
+    {
+      "type": "color",
+      "id": "placeholder_color",
+      "label": "Placeholder colour",
+      "info": "Optional: overrides the loading background for this image block.",
+      "alpha": true
     },
     {
       "type": "range",
