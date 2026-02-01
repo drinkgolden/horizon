@@ -572,7 +572,7 @@
                                 "letter_spacing": "normal",
                                 "case": "none",
                                 "wrap": "pretty",
-                                "color": "var(--color-foreground)",
+                                "color": "var(--color-primary)",
                                 "background": false,
                                 "background_color": "#00000026",
                                 "corner_radius": 0,
@@ -614,7 +614,7 @@
                 "collapsible": true,
                 "open_by_default": false,
                 "color_scheme": "scheme-1",
-                "hover_color_scheme": "scheme-1",
+                "hover_color_scheme": "scheme-4",
                 "left_hover_color_scheme": "scheme-1",
                 "right_hover_color_scheme": "scheme-1",
                 "summary_padding_block_start": 16,
@@ -867,8 +867,8 @@
               "type": "accordion_row",
               "name": "t:names.accordion_row",
               "settings": {
-                "heading": "Product of New Zealand",
-                "right_heading": "",
+                "heading": "Product of",
+                "right_heading": "New Zealand",
                 "collapsible": true,
                 "open_by_default": true,
                 "color_scheme": "scheme-6",
@@ -894,12 +894,11 @@
                 "accordion_slideshow_gmMUhC": {
                   "type": "accordion_slideshow",
                   "name": "Accordion slideshow",
-                  "disabled": true,
                   "settings": {
                     "heading": "",
                     "subheading": "",
                     "layout": "stacked",
-                    "image_ratio": "landscape",
+                    "image_ratio": "adapt",
                     "show_arrows": true,
                     "controls_style": "dots",
                     "pagination_position": "center",
@@ -932,29 +931,6 @@
                     "slide_five_text": "",
                     "slide_five_button_label": "",
                     "slide_five_button_link": ""
-                  },
-                  "blocks": {}
-                },
-                "image_Te3Kgx": {
-                  "type": "image",
-                  "name": "t:names.image",
-                  "settings": {
-                    "image": "shopify://shop_images/iStock-641225382.jpg",
-                    "link": "",
-                    "image_ratio": "adapt",
-                    "width": "fill",
-                    "custom_width": 100,
-                    "width_mobile": "fill",
-                    "custom_width_mobile": 100,
-                    "height": "fill",
-                    "border": "none",
-                    "border_width": 1,
-                    "border_opacity": 100,
-                    "border_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
                   },
                   "blocks": {}
                 },
@@ -1073,7 +1049,6 @@
               },
               "block_order": [
                 "accordion_slideshow_gmMUhC",
-                "image_Te3Kgx",
                 "group_PGerCJ",
                 "group_wCWc8w"
               ]
@@ -1082,14 +1057,14 @@
               "type": "accordion_row",
               "name": "Accordion row",
               "settings": {
-                "heading": "Hawke's Bay Lemons",
-                "right_heading": "",
+                "heading": "Hawke's Bay",
+                "right_heading": "Lemons",
                 "collapsible": true,
                 "open_by_default": false,
                 "color_scheme": "scheme-5",
                 "hover_color_scheme": "scheme-5",
                 "left_hover_color_scheme": "scheme-1",
-                "right_hover_color_scheme": "scheme-2",
+                "right_hover_color_scheme": "scheme-5",
                 "summary_padding_block_start": 16,
                 "summary_padding_block_end": 16,
                 "summary_padding_inline_start": 16,
@@ -1312,8 +1287,8 @@
               "type": "accordion_row",
               "name": "Accordion row",
               "settings": {
-                "heading": "Otago Blackcurrants",
-                "right_heading": "",
+                "heading": "Otago",
+                "right_heading": "Blackcurrants",
                 "collapsible": true,
                 "open_by_default": false,
                 "color_scheme": "scheme-2",
@@ -1942,7 +1917,7 @@
           "name": "t:names.title",
           "static": true,
           "settings": {
-            "text": "<h3>Golden Hour</h3>",
+            "text": "<h3>Golden Hour Blog</h3>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
