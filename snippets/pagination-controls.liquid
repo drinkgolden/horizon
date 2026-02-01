@@ -12,14 +12,14 @@
           <a
             href="{{ paginate.previous.url }}"
             aria-label="{{ 'content.pagination.previous' | t }}"
-            class="pagination__link pagination__link--arrow"
+            class="pagination__link pagination__link--arrow pagination__link--prev"
           >
             {{ 'icon-chevron-left.svg' | inline_asset_content }}
           </a>
         {%- else -%}
           <span
             aria-label="{{ 'content.pagination.previous' | t }}"
-            class="pagination__link pagination__link--arrow pagination__link--disabled"
+            class="pagination__link pagination__link--arrow pagination__link--prev pagination__link--disabled"
             aria-disabled="true"
           >
             {{ 'icon-chevron-left.svg' | inline_asset_content }}
@@ -109,14 +109,14 @@
           <a
             href="{{ paginate.next.url }}"
             aria-label="{{ 'content.pagination.next' | t }}"
-            class="pagination__link pagination__link--arrow"
+            class="pagination__link pagination__link--arrow pagination__link--next"
           >
             {{ 'icon-chevron-right.svg' | inline_asset_content }}
           </a>
         {%- else -%}
           <span
             aria-label="{{ 'content.pagination.next' | t }}"
-            class="pagination__link pagination__link--arrow pagination__link--disabled"
+            class="pagination__link pagination__link--arrow pagination__link--next pagination__link--disabled"
             aria-disabled="true"
           >
             {{ 'icon-chevron-right.svg' | inline_asset_content }}
@@ -194,6 +194,24 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .pagination__link--arrow svg {
+    display: none;
+  }
+
+  .pagination__link--arrow::before {
+    content: '\2192';
+    display: inline-block;
+    font-family: var(--font-body-family);
+    font-weight: var(--font-weight-normal);
+    font-size: 1em;
+    line-height: 1;
+    transform-origin: 50% 50%;
+  }
+
+  .pagination__link--prev::before {
+    transform: rotate(180deg);
   }
 
   .pagination__link--disabled {

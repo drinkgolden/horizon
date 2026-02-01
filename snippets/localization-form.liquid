@@ -364,6 +364,7 @@
   .dropdown-localization__button .icon-caret {
     height: var(--icon-size-xs);
     width: var(--icon-size-xs);
+    --icon-glyph-size: var(--icon-size-xs);
     right: var(--margin-xs);
     top: calc(50% - var(--padding-2xs));
     flex-shrink: 0;
@@ -389,7 +390,7 @@
     border-radius: 50%;
   }
 
-  .dropdown-localization__button[aria-expanded='true'] .icon-caret svg {
+  .dropdown-localization__button[aria-expanded='true'] .icon-caret::before {
     transform: rotate(180deg);
   }
 
@@ -811,9 +812,10 @@
 
   .drawer-localization .language-selector .svg-wrapper.icon-caret {
     transform: translateY(-50%) rotate(0deg);
+    --icon-glyph-size: var(--icon-size-xs);
   }
 
-  .drawer-localization .language-selector .svg-wrapper.icon-caret svg {
+  .drawer-localization .language-selector .svg-wrapper.icon-caret::before {
     transform: none;
   }
 {% endstylesheet %}

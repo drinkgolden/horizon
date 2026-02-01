@@ -1184,21 +1184,49 @@ body.has-section-gridlines-horizontal
   width: var(--icon-size-sm);
   height: var(--icon-size-sm);
   pointer-events: none;
+  --icon-glyph-size: var(--icon-size-sm);
 }
 
 .svg-wrapper--smaller {
   width: var(--icon-size-2xs);
   height: var(--icon-size-2xs);
+  --icon-glyph-size: var(--icon-size-2xs);
 }
 
 .svg-wrapper--small {
   width: var(--icon-size-xs);
   height: var(--icon-size-xs);
+  --icon-glyph-size: var(--icon-size-xs);
 }
 
 .svg-wrapper > svg {
   width: var(--icon-size-sm);
   height: var(--icon-size-sm);
+}
+
+.svg-wrapper.icon-caret,
+.svg-wrapper.icon-arrow {
+  font-family: var(--font-body-family);
+  font-weight: var(--font-weight-normal);
+  font-size: var(--icon-glyph-size);
+  line-height: 1;
+}
+
+.svg-wrapper.icon-caret::before {
+  content: '\2193';
+  display: inline-block;
+  transform-origin: 50% 50%;
+}
+
+.svg-wrapper.icon-arrow::before {
+  content: '\2192';
+  display: inline-block;
+  transform-origin: 50% 50%;
+}
+
+.svg-wrapper.icon-caret svg,
+.svg-wrapper.icon-arrow svg {
+  display: none;
 }
 
 .relative {
@@ -1503,7 +1531,7 @@ details:not([open]) .summary-open {
   display: none;
 }
 
-details[open] > summary .icon-animated > svg {
+details[open] > summary .icon-animated::before {
   transform: rotate(180deg);
 }
 
@@ -2069,15 +2097,15 @@ shopify-accelerated-checkout-cart {
 
 /* Collapsible row */
 
-.icon-caret svg {
+.icon-caret::before {
   transition: transform var(--animation-speed) var(--animation-easing);
 }
 
-.icon-caret--forward svg {
+.icon-caret--forward::before {
   transform: rotate(-90deg);
 }
 
-.icon-caret--backward svg {
+.icon-caret--backward::before {
   transform: rotate(90deg);
 }
 
@@ -2097,6 +2125,7 @@ summary .svg-wrapper {
   margin-inline-start: auto;
   height: var(--icon-size-xs);
   width: var(--icon-size-xs);
+  --icon-glyph-size: var(--icon-size-xs);
   transition: transform var(--animation-speed) var(--animation-easing);
 }
 
@@ -4550,6 +4579,10 @@ slideshow-component[autoplay] slideshow-controls {
   svg {
     width: var(--slideshow-controls-icon);
     height: var(--slideshow-controls-icon);
+  }
+
+  .svg-wrapper {
+    --icon-glyph-size: var(--slideshow-controls-icon);
   }
 }
 
