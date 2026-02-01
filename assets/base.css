@@ -28,10 +28,11 @@ body {
   }
 }
 
-img {
+img:not([data-image-loaded]) {
   background-color: var(--image-placeholder-color);
 }
 
+img[data-image-loaded],
 img.header-logo__image {
   background-color: transparent;
 }
