@@ -11,6 +11,7 @@
   "current": {
     "logo": "shopify://shop_images/GOLDENBLACK.svg",
     "logo_inverse": "shopify://shop_images/GOLDEN_WHITE_OVERLAY_LOGO.svg",
+    "logo_home": "shopify://shop_images/tbti1atiamr11_png.webp",
     "logo_height": 32,
     "logo_height_mobile": 24,
     "favicon": "shopify://shop_images/tbti1atiamr11_png.webp",
@@ -37,7 +38,7 @@
     "type_case_h1": "none",
     "type_case_h2": "none",
     "type_case_h3": "none",
-    "page_width": "narrow",
+    "page_width": "normal",
     "side_columns_enable": true,
     "side_columns_enable_mobile": false,
     "side_columns_width_desktop": 2,
