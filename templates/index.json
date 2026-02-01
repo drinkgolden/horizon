@@ -612,7 +612,7 @@
                 "heading": "Low Calorie",
                 "right_heading": "Mānuka honey",
                 "collapsible": true,
-                "open_by_default": false,
+                "open_by_default": true,
                 "color_scheme": "scheme-1",
                 "hover_color_scheme": "scheme-4",
                 "left_hover_color_scheme": "scheme-1",
@@ -1879,6 +1879,7 @@
         "group_dCTtg4",
         "group_EjXULC"
       ],
+      "disabled": true,
       "name": "t:names.icons_with_text",
       "settings": {
         "content_direction": "row",
@@ -1890,7 +1891,7 @@
         "vertical_alignment_flex_direction_column": "center",
         "gap": 16,
         "section_width": "full-width",
-        "section_height": "custom",
+        "section_height": "",
         "section_height_custom": 44,
         "color_scheme": "",
         "background_media": "none",
@@ -1905,8 +1906,8 @@
         "overlay_color": "#00000026",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 48,
-        "padding-block-end": 48
+        "padding-block-start": 44,
+        "padding-block-end": 44
       }
     },
     "featured_blog_posts_EgLy9B": {

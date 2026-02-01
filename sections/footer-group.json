@@ -25,7 +25,7 @@
             "align_baseline": true,
             "horizontal_alignment_flex_direction_column": "flex-start",
             "vertical_alignment_flex_direction_column": "center",
-            "gap": 32,
+            "gap": 44,
             "width": "fill",
             "custom_width": 100,
             "width_mobile": "fill",
@@ -48,8 +48,8 @@
             "link": "",
             "open_in_new_tab": false,
             "placeholder": "",
-            "padding-block-start": 24,
-            "padding-block-end": 24,
+            "padding-block-start": 44,
+            "padding-block-end": 44,
             "padding-inline-start": 0,
             "padding-inline-end": 0
           },
@@ -218,10 +218,10 @@
             "link": "",
             "open_in_new_tab": false,
             "placeholder": "",
-            "padding-block-start": 12,
-            "padding-block-end": 12,
-            "padding-inline-start": 12,
-            "padding-inline-end": 12
+            "padding-block-start": 44,
+            "padding-block-end": 44,
+            "padding-inline-start": 16,
+            "padding-inline-end": 16
           },
           "blocks": {
             "menu_9UyFKV": {
@@ -347,7 +347,7 @@
         "overlay_color": "#00000026",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 0,
+        "padding-block-start": 44,
         "padding-block-end": 44
       }
     },
