@@ -188,6 +188,9 @@
 {% if arrow_style == 'caret' %}
   {% assign arrow_style = 'chevron' %}
 {% endif %}
+{% if arrow_style == 'arrow' %}
+  {% assign arrow_style = 'chevron' %}
+{% endif %}
 
 {% if arrow_style != 'none' %}
   {% capture slideshow_arrows %}
@@ -647,10 +650,11 @@
     mix-blend-mode: difference;
   }
 
-  .accordion-social-feed .slideshow-control--shape-circle,
-  .accordion-social-feed .slideshow-control--shape-square {
+  .accordion-social-feed .button-unstyled.slideshow-control.slideshow-control--shape-circle,
+  .accordion-social-feed .button-unstyled.slideshow-control.slideshow-control--shape-square {
     background-color: transparent;
     color: currentColor;
+    box-shadow: none;
   }
 
   .social-feed__empty {
