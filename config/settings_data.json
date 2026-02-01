@@ -44,6 +44,7 @@
     "side_columns_width_mobile": 1,
     "side_columns_color_scheme": "scheme-1",
     "section_gridlines_enable": true,
+    "section_gridlines_horizontal": true,
     "section_gridline_color": "#d9d9d9",
     "section_gridline_color_dark": "#fcfcfb",
     "vertical_divider_color": "#d9d9d9",
