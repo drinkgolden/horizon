@@ -207,7 +207,12 @@
           assign has_secondary_action = true
         endif
       %}
-      <div class="floating-motif-button" data-floating-motif-button aria-hidden="true">
+      <div
+        class="floating-motif-button"
+        data-floating-motif-button
+        data-scroll-reveal-percent="{{ settings.bottom_motif_button_scroll_percent | default: 0 }}"
+        aria-hidden="true"
+      >
         <div class="floating-motif-button__surface">
           {%- render 'floating-motif-shapes' -%}
           <div class="floating-motif-button__body">

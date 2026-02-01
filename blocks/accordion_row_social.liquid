@@ -650,6 +650,14 @@
     mix-blend-mode: difference;
   }
 
+  .accordion-social-feed slideshow-arrows {
+    padding-inline: 0;
+  }
+
+  .accordion-social-feed slideshow-arrows .slideshow-control {
+    padding-inline: 0;
+  }
+
   .accordion-social-feed .button-unstyled.slideshow-control.slideshow-control--shape-circle,
   .accordion-social-feed .button-unstyled.slideshow-control.slideshow-control--shape-square {
     background-color: transparent;
@@ -695,7 +703,7 @@
     width: 100%;
     overflow: hidden;
     aspect-ratio: var(--social-feed-aspect-ratio);
-    background: rgb(var(--color-foreground-rgb, 0 0 0) / 0.04);
+    background: var(--image-placeholder-color);
   }
 
   .social-feed-card__image,

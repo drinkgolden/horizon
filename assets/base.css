@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+:root {
+  --image-placeholder-color: #d9d9d9;
+}
+
 body {
   color: var(--color-foreground);
   background: var(--color-background);
@@ -10,6 +14,26 @@ body {
   margin: 0;
   min-height: 100svh;
   font-variation-settings: 'slnt' 0;
+}
+
+html,
+body {
+  overflow-x: clip;
+}
+
+@supports not (overflow: clip) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+}
+
+img {
+  background-color: var(--image-placeholder-color);
+}
+
+img.header-logo__image {
+  background-color: transparent;
 }
 
 body.has-side-columns {
@@ -161,6 +185,12 @@ body:has(> #header-group > .header-section) > main > .section-wrapper:first-chil
   transition:
     transform var(--duration-lg, 600ms) var(--ease-out-quad),
     opacity var(--duration-sm, 200ms) var(--ease-out-quad);
+}
+
+body.has-side-columns .floating-motif-button {
+  left: var(--floating-motif-side-offset, 0px);
+  right: var(--floating-motif-side-offset, 0px);
+  width: auto;
 }
 
 .floating-motif-button.is-visible {
@@ -1194,10 +1224,15 @@ placeholder-image {
   display: block;
   height: 100%;
   aspect-ratio: var(--ratio);
+  background-color: var(--image-placeholder-color);
+}
+
+.placeholder-image {
+  background-color: var(--image-placeholder-color);
 }
 
 placeholder-image[data-type='product'] {
-  background-color: rgb(var(--color-foreground-rgb) / var(--opacity-15));
+  background-color: var(--image-placeholder-color);
   width: 100%;
 }
 
@@ -1910,7 +1945,7 @@ button.shopify-payment-button__button--unbranded:hover:not([disabled]) {
   text-transform: none;
   letter-spacing: normal;
   position: relative;
-  padding-bottom: var(--link-button-underline-offset, 0.24em);
+  padding-bottom: var(--link-button-underline-offset, var(--header-link-underline-offset, 0.24em));
 }
 
 .button--link::after {
@@ -1919,7 +1954,10 @@ button.shopify-payment-button__button--unbranded:hover:not([disabled]) {
   left: 0;
   bottom: 0;
   width: 100%;
-  height: var(--link-button-underline-thickness, 0.08em);
+  height: var(
+    --link-button-underline-thickness,
+    var(--header-link-underline-thickness, 0.08em)
+  );
   background-color: currentColor;
   transform: scaleX(0);
   transform-origin: left;

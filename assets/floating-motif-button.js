@@ -5,6 +5,7 @@ class FloatingMotifButton {
     this.element = element;
     this.closeButton = element.querySelector('[data-floating-motif-close]');
     this.visibilityThreshold = 0;
+    this.scrollRevealPercent = this.readScrollRevealPercent();
     this.dismissed = this.readDismissState();
 
     this.handleScroll = this.handleScroll.bind(this);
@@ -34,7 +35,19 @@ class FloatingMotifButton {
   }
 
   updateThreshold() {
-    this.visibilityThreshold = window.innerHeight || document.documentElement.clientHeight || 0;
+    const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
+
+    if (this.scrollRevealPercent > 0) {
+      const scrollHeight = Math.max(
+        document.documentElement.scrollHeight || 0,
+        document.body?.scrollHeight || 0
+      );
+      const maxScroll = Math.max(scrollHeight - viewportHeight, 0);
+      this.visibilityThreshold = (maxScroll * this.scrollRevealPercent) / 100;
+      return;
+    }
+
+    this.visibilityThreshold = viewportHeight;
   }
 
   handleScroll() {
@@ -94,6 +107,20 @@ class FloatingMotifButton {
     } catch (error) {
       return false;
     }
+  }
+
+  readScrollRevealPercent() {
+    const rawValue = this.element?.dataset?.scrollRevealPercent;
+    if (rawValue === undefined || rawValue === null || rawValue === '') {
+      return 0;
+    }
+
+    const parsed = Number.parseFloat(rawValue);
+    if (Number.isNaN(parsed) || !Number.isFinite(parsed)) {
+      return 0;
+    }
+
+    return Math.min(Math.max(parsed, 0), 100);
   }
 }
 

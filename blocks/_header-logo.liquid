@@ -1,6 +1,20 @@
 {% liquid
   assign block_settings = block.settings
   assign use_inverse_logo = false
+  assign base_logo = settings.logo
+  assign base_logo_inverse = settings.logo_inverse
+
+  if template.name == 'index' and settings.logo_home != blank
+    assign base_logo = settings.logo_home
+
+    if settings.logo_home_inverse != blank
+      assign base_logo_inverse = settings.logo_home_inverse
+    endif
+  endif
+
+  if base_logo_inverse == blank
+    assign base_logo_inverse = base_logo
+  endif
 
   if section.settings.enable_transparent_header_home and template.name == 'index' and section.settings.home_color_scheme == 'inverse'
     assign use_inverse_logo = true
@@ -11,11 +25,7 @@
   endif
 
   if use_inverse_logo
-    if settings.logo_inverse != blank
-      assign inverse_logo = settings.logo_inverse
-    else
-      assign inverse_logo = settings.logo
-    endif
+    assign inverse_logo = base_logo_inverse
   endif
 %}
 
@@ -39,8 +49,8 @@
   {{ block.shopify_attributes }}
 >
   {% liquid
-    assign logo_width = settings.logo_height | times: settings.logo.aspect_ratio | ceil
-    assign logo_width_mobile = settings.logo_height_mobile | times: settings.logo.aspect_ratio | ceil
+    assign logo_width = settings.logo_height | times: base_logo.aspect_ratio | ceil
+    assign logo_width_mobile = settings.logo_height_mobile | times: base_logo.aspect_ratio | ceil
     assign inverse_logo_width = settings.logo_height | times: inverse_logo.aspect_ratio | ceil
     assign inverse_logo_width_mobile = settings.logo_height_mobile | times: inverse_logo.aspect_ratio | ceil
     assign logo_style = '--header-logo-image-width: ' | append: logo_width | append: 'px;' | append: '--header-logo-image-width-mobile: ' | append: logo_width_mobile | append: 'px; --header-logo-image-height: ' | append: settings.logo_height | append: 'px; --header-logo-image-height-mobile: ' | append: settings.logo_height_mobile | append: 'px;'
@@ -52,7 +62,7 @@
     data-testid="header-logo"
   >
     {% render 'image',
-      image: settings.logo,
+      image: base_logo,
       class: 'header-logo__image',
       height: settings.logo_height,
       text_fallback: shop.name,

@@ -95,13 +95,18 @@
   {% endcapture %}
 {% endif %}
 
+{% assign show_arrows = false %}
+{% if block_settings.show_arrows and slide_count > 1 %}
+  {% assign show_arrows = true %}
+{% endif %}
+
 {% capture controls %}
-  {% if slide_count > 1 and block_settings.controls_style != 'none' %}
+  {% if slide_count > 1 and (block_settings.controls_style != 'none' or show_arrows) %}
     {%- render 'slideshow-controls',
       style: block_settings.controls_style,
       autoplay: block_settings.autoplay,
       item_count: slide_count,
-      show_arrows: false,
+      show_arrows: show_arrows,
       arrows_on_media: false,
       controls_on_media: false,
       pagination_position: block_settings.pagination_position,
@@ -109,11 +114,6 @@
     -%}
   {% endif %}
 {% endcapture %}
-
-{% assign show_arrows = false %}
-{% if block_settings.show_arrows and slide_count > 1 %}
-  {% assign show_arrows = true %}
-{% endif %}
 
 <div
   class="{{ wrapper_classes }}"
@@ -135,7 +135,7 @@
     class: 'accordion-slideshow__component',
     slides: slides_markup,
     controls: controls,
-    show_arrows: show_arrows,
+    show_arrows: false,
     icon_style: block_settings.icons_style,
     autoplay: block_settings.autoplay,
     autoplay_speed: block_settings.autoplay_speed,
@@ -164,6 +164,23 @@
 
   .accordion-slideshow__component {
     width: 100%;
+  }
+
+  .accordion-slideshow slideshow-controls {
+    justify-content: flex-end;
+    gap: var(--gap-xs);
+  }
+
+  .accordion-slideshow .slideshow-controls__arrows {
+    margin-inline-start: auto;
+    justify-content: flex-end;
+    gap: var(--gap-xs);
+    height: auto;
+    padding: 0;
+  }
+
+  .accordion-slideshow .slideshow-controls__arrows .slideshow-control {
+    padding: 0;
   }
 
   slideshow-slide.accordion-slideshow__slide {
@@ -213,7 +230,7 @@
 
   .accordion-slideshow__placeholder {
     aspect-ratio: 16 / 9;
-    background: rgb(var(--color-foreground-rgb, 0 0 0) / 0.08);
+    background: var(--image-placeholder-color);
     border-radius: var(--border-radius-sm, 0);
   }
 {% endstylesheet %}

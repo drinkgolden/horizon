@@ -171,11 +171,13 @@
       endcomment
       for font_size in font_sizes
         assign size_setting = 'type_size_[font_size]' | replace: '[font_size]', font_size
+        assign min_setting = 'type_size_min_[font_size]' | replace: '[font_size]', font_size
         assign size_setting_value_raw = settings[size_setting]
         if size_setting_value_raw == blank
           assign size_setting_value_raw = 16
         endif
         assign font_size_setting_value = size_setting_value_raw | times: 1
+        assign min_setting_value_raw = settings[min_setting]
 
         if font_size_setting_value >= 10
           assign font_size_value_px = font_size_setting_value
@@ -185,37 +187,52 @@
         assign font_size_string = font_size_value_px | times: 1000 | round: 0 | append: ''
         assign index = font_size_values | find_index: font_size_string
 
-        if font_size_value_px >= fluid_size_cutoff
-
-          comment
-            Calculate the minimum size for each font size
-          endcomment
-          assign fluid_font_size_min = font_size_value_px
-
-          if index == 0
-            assign fluid_font_size_min = absolute_font_size_min
+        comment
+          Determine the minimum size. If a min setting exists, use it.
+          Otherwise, fall back to the original auto-min logic.
+        endcomment
+        assign font_size_min_px = font_size_value_px
+        if min_setting_value_raw != blank
+          assign min_setting_value_number = min_setting_value_raw | times: 1
+          if min_setting_value_number >= 10
+            assign font_size_min_px = min_setting_value_number
           else
-            assign next_font_size_index = index | minus: 1
-            assign next_font_size_value = font_size_values[next_font_size_index]
-            assign next_font_size_value_number = next_font_size_value | times: 0.001
-
-            comment
-              If the next bigger font size under the fluid cutoff, we keep a 4px buffer
-            endcomment
-            if next_font_size_value_number < fluid_size_cutoff
-              assign fluid_font_size_min = next_font_size_value_number | plus: 4
-              if font_size_value_px < fluid_font_size_min
-                assign fluid_font_size_min = font_size_value_px
-              endif
-            else
-              assign fluid_font_size_min = next_font_size_value_number
-            endif
+            assign font_size_min_px = min_setting_value_number | times: px_scale
           endif
+        else
+          if font_size_value_px >= fluid_size_cutoff
+            assign fluid_font_size_min = font_size_value_px
 
-          comment
-            Calculate the fluid and maximum size for each font size
-          endcomment
-          assign fluid_size_min_rem = fluid_font_size_min | divided_by: px_scale
+            if index == 0
+              assign fluid_font_size_min = absolute_font_size_min
+            else
+              assign next_font_size_index = index | minus: 1
+              assign next_font_size_value = font_size_values[next_font_size_index]
+              assign next_font_size_value_number = next_font_size_value | times: 0.001
+
+              comment
+                If the next bigger font size under the fluid cutoff, we keep a 4px buffer
+              endcomment
+              if next_font_size_value_number < fluid_size_cutoff
+                assign fluid_font_size_min = next_font_size_value_number | plus: 4
+                if font_size_value_px < fluid_font_size_min
+                  assign fluid_font_size_min = font_size_value_px
+                endif
+              else
+                assign fluid_font_size_min = next_font_size_value_number
+              endif
+            endif
+
+            assign font_size_min_px = fluid_font_size_min
+          endif
+        endif
+
+        if font_size_min_px > font_size_value_px
+          assign font_size_min_px = font_size_value_px
+        endif
+
+        if font_size_value_px >= fluid_size_cutoff or font_size_min_px != font_size_value_px
+          assign fluid_size_min_rem = font_size_min_px | divided_by: px_scale
           assign fluid_size = font_size_value_px | times: 0.1
           assign fluid_size_max_rem = font_size_value_px | divided_by: px_scale
 

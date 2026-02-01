@@ -149,6 +149,27 @@
       "visible_if": "{{ block.settings.content_direction == 'column' }}"
     },
     {
+      "type": "header",
+      "content": "Sticky"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sticky",
+      "label": "Pin group on scroll",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "sticky_offset",
+      "label": "Sticky offset",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 0,
+      "visible_if": "{{ block.settings.enable_sticky }}"
+    },
+    {
       "type": "range",
       "id": "gap",
       "label": "Block gap",
