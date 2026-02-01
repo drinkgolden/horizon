@@ -184,10 +184,15 @@
   {% endfor %}
 {% endcapture %}
 
-{% if block_settings.icons_style != 'none' %}
+{% assign arrow_style = block_settings.icons_style %}
+{% if arrow_style == 'caret' %}
+  {% assign arrow_style = 'chevron' %}
+{% endif %}
+
+{% if arrow_style != 'none' %}
   {% capture slideshow_arrows %}
     {% render 'slideshow-arrows',
-      icon_style: block_settings.icons_style,
+      icon_style: arrow_style,
       icon_shape: block_settings.icons_shape
     %}
   {% endcapture %}
@@ -637,6 +642,17 @@
     --social-feed-aspect-ratio: 1 / 1;
   }
 
+  .accordion-social-feed slideshow-controls,
+  .accordion-social-feed .slideshow-controls__arrows {
+    mix-blend-mode: difference;
+  }
+
+  .accordion-social-feed .slideshow-control--shape-circle,
+  .accordion-social-feed .slideshow-control--shape-square {
+    background-color: transparent;
+    color: currentColor;
+  }
+
   .social-feed__empty {
     margin: 0;
     padding: var(--padding-lg);
@@ -840,10 +856,10 @@
       "label": "Arrow style",
       "options": [
         { "value": "arrow", "label": "Arrow" },
-        { "value": "caret", "label": "Caret" },
+        { "value": "chevron", "label": "Chevron" },
         { "value": "none", "label": "None" }
       ],
-      "default": "arrow"
+      "default": "chevron"
     },
     {
       "type": "select",
@@ -854,7 +870,7 @@
         { "value": "square", "label": "Square" },
         { "value": "none", "label": "None" }
       ],
-      "default": "circle"
+      "default": "none"
     },
     {
       "type": "color_scheme",
