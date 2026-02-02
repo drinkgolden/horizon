@@ -52,8 +52,8 @@
             "placeholder": "",
             "padding-block-start": 44,
             "padding-block-end": 44,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
+            "padding-inline-start": 16,
+            "padding-inline-end": 16
           },
           "blocks": {
             "group_4aCyy7": {
@@ -226,8 +226,8 @@
             "placeholder": "",
             "padding-block-start": 44,
             "padding-block-end": 44,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
+            "padding-inline-start": 16,
+            "padding-inline-end": 16
           },
           "blocks": {
             "menu_9UyFKV": {
@@ -242,7 +242,7 @@
                 "accordion_dividers": false,
                 "inherit_color_scheme": true,
                 "color_scheme": "",
-                "heading_preset": "h6",
+                "heading_preset": "h4",
                 "link_preset": "paragraph",
                 "padding-block-start": 12,
                 "padding-block-end": 12,
@@ -263,8 +263,8 @@
                 "accordion_dividers": false,
                 "inherit_color_scheme": true,
                 "color_scheme": "",
-                "heading_preset": "h5",
-                "link_preset": "h6",
+                "heading_preset": "h4",
+                "link_preset": "paragraph",
                 "padding-block-start": 12,
                 "padding-block-end": 12,
                 "padding-inline-start": 0,
@@ -284,7 +284,7 @@
                 "accordion_dividers": false,
                 "inherit_color_scheme": true,
                 "color_scheme": "",
-                "heading_preset": "h6",
+                "heading_preset": "h4",
                 "link_preset": "paragraph",
                 "padding-block-start": 12,
                 "padding-block-end": 12,
@@ -305,7 +305,7 @@
                 "accordion_dividers": false,
                 "inherit_color_scheme": true,
                 "color_scheme": "",
-                "heading_preset": "h6",
+                "heading_preset": "h4",
                 "link_preset": "paragraph",
                 "padding-block-start": 12,
                 "padding-block-end": 12,
@@ -337,7 +337,7 @@
         "horizontal_alignment_flex_direction_column": "flex-start",
         "vertical_alignment_flex_direction_column": "center",
         "gap": 16,
-        "section_width": "page-width",
+        "section_width": "full-width",
         "section_height": "medium",
         "section_height_custom": 50,
         "color_scheme": "scheme-3",

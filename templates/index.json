@@ -2146,7 +2146,7 @@
                 "show_captions": false,
                 "open_new_tab": true,
                 "image_ratio": "portrait",
-                "columns": 5,
+                "columns": 4,
                 "columns_gap": 12,
                 "mobile_card_size": "75cqw",
                 "slide_width_max": 520,
