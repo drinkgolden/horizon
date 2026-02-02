@@ -19,7 +19,14 @@
 {% if block_settings.image_ratio == 'adapt' %}
   {% assign wrapper_classes = wrapper_classes | append: ' accordion-slideshow--adapt' %}
 {% endif %}
-{% if block_settings.arrows_under_media %}
+{% assign arrows_under_media_setting = block_settings.arrows_under_media %}
+{% if arrows_under_media_setting == blank %}
+  {% assign arrows_under_media_setting = false %}
+  {% if block_settings.controls_style == 'none' %}
+    {% assign arrows_under_media_setting = true %}
+  {% endif %}
+{% endif %}
+{% if arrows_under_media_setting %}
   {% assign wrapper_classes = wrapper_classes | append: ' accordion-slideshow--arrows-under-media' %}
 {% endif %}
 
@@ -117,13 +124,13 @@
         style: block_settings.controls_style,
         autoplay: block_settings.autoplay,
         item_count: slide_count,
-        show_arrows: show_arrows and block_settings.arrows_under_media != true,
+        show_arrows: show_arrows and arrows_under_media_setting != true,
         arrows_on_media: false,
         controls_on_media: false,
         pagination_position: block_settings.pagination_position,
         icon_style: block_settings.icons_style
       -%}
-      {% if show_arrows and block_settings.arrows_under_media %}
+      {% if show_arrows and arrows_under_media_setting %}
         <div class="accordion-slideshow__arrows-under-media">
           {%- render 'slideshow-arrow', action: 'previous', icon_style: block_settings.icons_style, target: slideshow_target -%}
           {%- render 'slideshow-arrow', action: 'next', icon_style: block_settings.icons_style, target: slideshow_target -%}
@@ -419,7 +426,7 @@
       "type": "checkbox",
       "id": "arrows_under_media",
       "label": "Arrows under media",
-      "default": false
+      "default": true
     },
     {
       "type": "select",

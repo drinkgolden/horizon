@@ -18,7 +18,7 @@
   assign target_selector = target | default: ''
 
   if icon_style contains 'chevron'
-    assign icon_name = 'caret'
+    assign icon_name = 'chevron'
   endif
 
   if icon_style contains 'large'
@@ -41,8 +41,12 @@
   ref="{{ action }}"
 >
   <span class="svg-wrapper icon-{{ icon_name }}">
-    {%- if icon_name == 'caret' -%}
-      {{- 'icon-caret.svg' | inline_asset_content -}}
+    {%- if icon_name == 'chevron' -%}
+      {%- if action == 'previous' -%}
+        {{- 'icon-chevron-left.svg' | inline_asset_content -}}
+      {%- else -%}
+        {{- 'icon-chevron-right.svg' | inline_asset_content -}}
+      {%- endif -%}
     {%- else -%}
       {%- if action == 'previous' -%}
         {{- 'icon-arrow-left.svg' | inline_asset_content -}}
