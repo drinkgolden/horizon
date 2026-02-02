@@ -16,6 +16,9 @@
 {% if block_settings.layout == 'split' %}
   {% assign wrapper_classes = wrapper_classes | append: ' accordion-slideshow--split' %}
 {% endif %}
+{% if block_settings.image_ratio == 'adapt' %}
+  {% assign wrapper_classes = wrapper_classes | append: ' accordion-slideshow--adapt' %}
+{% endif %}
 
 {% assign slide_keys = 'one,two,three,four,five' | split: ',' %}
 {% assign slide_count = 0 %}
@@ -218,6 +221,31 @@
     height: 100%;
     object-fit: cover;
     display: block;
+  }
+
+  .accordion-slideshow--adapt {
+    height: 100%;
+  }
+
+  .accordion-slideshow--adapt .accordion-slideshow__component,
+  .accordion-slideshow--adapt .accordion-slideshow__component slideshow-component,
+  .accordion-slideshow--adapt .accordion-slideshow__component slideshow-container,
+  .accordion-slideshow--adapt .accordion-slideshow__component slideshow-slides,
+  .accordion-slideshow--adapt slideshow-slide.accordion-slideshow__slide {
+    height: 100%;
+  }
+
+  .accordion-slideshow--adapt .accordion-slideshow__component slideshow-slides[size] {
+    min-height: 100%;
+  }
+
+  .accordion-slideshow--adapt .accordion-slideshow__media {
+    height: 100%;
+  }
+
+  .accordion-slideshow--adapt .accordion-slideshow__placeholder {
+    height: 100%;
+    aspect-ratio: auto;
   }
 
   .accordion-slideshow__slide-content {
