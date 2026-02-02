@@ -23,6 +23,10 @@
   {% assign wrapper_classes = wrapper_classes | append: ' accordion-slideshow--arrows-under-media' %}
 {% endif %}
 
+{% assign slideshow_id = 'accordion-slideshow-' | append: block.id %}
+{% assign slideshow_target = '#' | append: slideshow_id %}
+{% assign slideshow_attributes = 'id="' | append: slideshow_id | append: '"' %}
+
 {% assign slide_keys = 'one,two,three,four,five' | split: ',' %}
 {% assign slide_count = 0 %}
 {% capture slides_markup %}
@@ -121,8 +125,8 @@
       -%}
       {% if show_arrows and block_settings.arrows_under_media %}
         <div class="accordion-slideshow__arrows-under-media">
-          {%- render 'slideshow-arrow', action: 'previous', icon_style: block_settings.icons_style -%}
-          {%- render 'slideshow-arrow', action: 'next', icon_style: block_settings.icons_style -%}
+          {%- render 'slideshow-arrow', action: 'previous', icon_style: block_settings.icons_style, target: slideshow_target -%}
+          {%- render 'slideshow-arrow', action: 'next', icon_style: block_settings.icons_style, target: slideshow_target -%}
         </div>
       {% endif %}
     </div>
@@ -161,7 +165,8 @@
     autoplay: block_settings.autoplay,
     autoplay_speed: block_settings.autoplay_speed,
     slide_count: slide_count,
-    slide_size: block_settings.slide_height
+    slide_size: block_settings.slide_height,
+    attributes: slideshow_attributes
   %}
 </div>
 
@@ -247,7 +252,7 @@
   }
 
   .accordion-slideshow--adapt .accordion-slideshow__component slideshow-slides[size] {
-    min-height: 100%;
+    min-height: 0;
   }
 
   .accordion-slideshow--adapt .accordion-slideshow__media {
@@ -292,21 +297,39 @@
     gap: 16px;
     margin-block-start: var(--margin-xs);
     width: 100%;
+    color: currentColor;
   }
 
   .accordion-slideshow__arrows-under-media .slideshow-control {
     padding: 0;
   }
 
+  .accordion-slideshow__arrows-under-media .slideshow-control--shape-square,
+  .accordion-slideshow__arrows-under-media .slideshow-control--shape-circle {
+    background-color: transparent;
+    color: currentColor;
+    box-shadow: none;
+  }
+
   .accordion-slideshow--arrows-under-media .accordion-slideshow__component {
     display: grid;
     grid-template-rows: minmax(0, 1fr) auto;
     height: 100%;
+    min-height: 0;
   }
 
   .accordion-slideshow--arrows-under-media .accordion-slideshow__component > slideshow-container {
     grid-row: 1;
     height: 100%;
+    min-height: 0;
+  }
+
+  .accordion-slideshow--arrows-under-media slideshow-arrows {
+    display: none;
+  }
+
+  .accordion-slideshow--arrows-under-media .accordion-slideshow__component > slideshow-container > slideshow-slides[size] {
+    min-height: 0;
   }
 
   .accordion-slideshow--arrows-under-media .accordion-slideshow__controls {

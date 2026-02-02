@@ -5,6 +5,7 @@
   @param {string} [icon_style] - { 'arrow' | 'chevron' } The style of the icon, defaults to 'arrow'.
   @param {string} [icon_shape] - { 'none' | 'circle' | 'square' } The shape of the icon background, defaults to 'none'.
   @param {string} [icon_size] - { 'small' | 'medium' | 'large' } The size of the icon, defaults to 'medium'.
+  @param {string} [target] - Optional selector for the slideshow component to control.
 
   @example
   {%- render 'slideshow-arrow', action: 'previous' -%}
@@ -14,6 +15,7 @@
   assign icon_name = 'arrow'
   assign style = icon_style | default: 'arrow'
   assign shape = icon_shape | default: 'none'
+  assign target_selector = target | default: ''
 
   if icon_style contains 'chevron'
     assign icon_name = 'caret'
@@ -35,7 +37,7 @@
   {% # theme-check-disable %}
   aria-label="{{ 'accessibility.slideshow_' | append: action | t }}"
   {% # theme-check-enable %}
-  on:click="/{{ action }}"
+  on:click="{% if target_selector != blank %}{{ target_selector }}/{% endif %}{{ action }}"
   ref="{{ action }}"
 >
   <span class="svg-wrapper icon-{{ icon_name }}">
