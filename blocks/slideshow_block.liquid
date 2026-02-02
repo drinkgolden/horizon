@@ -38,6 +38,11 @@
     assign slideshow_class = ''
   endif
 
+  assign slide_size = block_settings.slide_height
+  if slide_size == blank or slide_size == 'auto'
+    assign slide_size = 'medium'
+  endif
+
   assign show_arrows = true
   if block_settings.icons_style == 'none' or slide_count <= 1
     assign show_arrows = false
@@ -58,7 +63,7 @@
     autoplay_speed: block_settings.autoplay_speed,
     slides: slides,
     slide_count: slide_count,
-    slide_size: block_settings.slide_height
+    slide_size: slide_size
   %}
 </div>
 
