@@ -31,7 +31,6 @@
     {% if shape != 'none' %} slideshow-control--shape-{{ shape }}{% endif %}
     slideshow-control--style-{{ style }}
     button button-unstyled button-unstyled--transparent
-    {% if action == 'previous' %} flip-x{% endif %}
   "
   {% # theme-check-disable %}
   aria-label="{{ 'accessibility.slideshow_' | append: action | t }}"
@@ -43,7 +42,11 @@
     {%- if icon_name == 'caret' -%}
       {{- 'icon-caret.svg' | inline_asset_content -}}
     {%- else -%}
-      {{- 'icon-arrow.svg' | inline_asset_content -}}
+      {%- if action == 'previous' -%}
+        {{- 'icon-arrow-left.svg' | inline_asset_content -}}
+      {%- else -%}
+        {{- 'icon-arrow.svg' | inline_asset_content -}}
+      {%- endif -%}
     {%- endif -%}
   </span>
 </button>
