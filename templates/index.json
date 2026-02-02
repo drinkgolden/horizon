@@ -510,7 +510,7 @@
                               "settings": {
                                 "text": "<h2>Shop Lemon</h2>",
                                 "width": "100%",
-                                "max_width": "normal",
+                                "max_width": "narrow",
                                 "alignment": "center",
                                 "type_preset": "h5",
                                 "font": "var(--font-body--family)",
@@ -620,7 +620,7 @@
                               "settings": {
                                 "text": "<h2>Shop Blackcurrant</h2>",
                                 "width": "100%",
-                                "max_width": "normal",
+                                "max_width": "narrow",
                                 "alignment": "center",
                                 "type_preset": "h5",
                                 "font": "var(--font-body--family)",
