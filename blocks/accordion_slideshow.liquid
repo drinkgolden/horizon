@@ -108,22 +108,24 @@
 
 {% capture controls %}
   {% if slide_count > 1 and (block_settings.controls_style != 'none' or show_arrows) %}
-    {%- render 'slideshow-controls',
-      style: block_settings.controls_style,
-      autoplay: block_settings.autoplay,
-      item_count: slide_count,
-      show_arrows: show_arrows and block_settings.arrows_under_media != true,
-      arrows_on_media: false,
-      controls_on_media: false,
-      pagination_position: block_settings.pagination_position,
-      icon_style: block_settings.icons_style
-    -%}
-    {% if show_arrows and block_settings.arrows_under_media %}
-      <div class="accordion-slideshow__arrows-under-media">
-        {%- render 'slideshow-arrow', action: 'previous', icon_style: block_settings.icons_style -%}
-        {%- render 'slideshow-arrow', action: 'next', icon_style: block_settings.icons_style -%}
-      </div>
-    {% endif %}
+    <div class="accordion-slideshow__controls">
+      {%- render 'slideshow-controls',
+        style: block_settings.controls_style,
+        autoplay: block_settings.autoplay,
+        item_count: slide_count,
+        show_arrows: show_arrows and block_settings.arrows_under_media != true,
+        arrows_on_media: false,
+        controls_on_media: false,
+        pagination_position: block_settings.pagination_position,
+        icon_style: block_settings.icons_style
+      -%}
+      {% if show_arrows and block_settings.arrows_under_media %}
+        <div class="accordion-slideshow__arrows-under-media">
+          {%- render 'slideshow-arrow', action: 'previous', icon_style: block_settings.icons_style -%}
+          {%- render 'slideshow-arrow', action: 'next', icon_style: block_settings.icons_style -%}
+        </div>
+      {% endif %}
+    </div>
   {% endif %}
 {% endcapture %}
 
@@ -278,6 +280,12 @@
     border-radius: var(--border-radius-sm, 0);
   }
 
+  .accordion-slideshow__controls {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-xs);
+  }
+
   .accordion-slideshow__arrows-under-media {
     display: flex;
     justify-content: flex-end;
@@ -288,6 +296,21 @@
 
   .accordion-slideshow__arrows-under-media .slideshow-control {
     padding: 0;
+  }
+
+  .accordion-slideshow--arrows-under-media .accordion-slideshow__component {
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto;
+    height: 100%;
+  }
+
+  .accordion-slideshow--arrows-under-media .accordion-slideshow__component > slideshow-container {
+    grid-row: 1;
+    height: 100%;
+  }
+
+  .accordion-slideshow--arrows-under-media .accordion-slideshow__controls {
+    grid-row: 2;
   }
 
   @media (min-width: 900px) {
