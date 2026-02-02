@@ -19,6 +19,9 @@
 {% if block_settings.image_ratio == 'adapt' %}
   {% assign wrapper_classes = wrapper_classes | append: ' accordion-slideshow--adapt' %}
 {% endif %}
+{% if block_settings.arrows_under_media %}
+  {% assign wrapper_classes = wrapper_classes | append: ' accordion-slideshow--arrows-under-media' %}
+{% endif %}
 
 {% assign slide_keys = 'one,two,three,four,five' | split: ',' %}
 {% assign slide_count = 0 %}
@@ -109,12 +112,18 @@
       style: block_settings.controls_style,
       autoplay: block_settings.autoplay,
       item_count: slide_count,
-      show_arrows: show_arrows,
+      show_arrows: show_arrows and block_settings.arrows_under_media != true,
       arrows_on_media: false,
       controls_on_media: false,
       pagination_position: block_settings.pagination_position,
       icon_style: block_settings.icons_style
     -%}
+    {% if show_arrows and block_settings.arrows_under_media %}
+      <div class="accordion-slideshow__arrows-under-media">
+        {%- render 'slideshow-arrow', action: 'previous', icon_style: block_settings.icons_style -%}
+        {%- render 'slideshow-arrow', action: 'next', icon_style: block_settings.icons_style -%}
+      </div>
+    {% endif %}
   {% endif %}
 {% endcapture %}
 
@@ -268,6 +277,24 @@
     background: var(--image-placeholder-color);
     border-radius: var(--border-radius-sm, 0);
   }
+
+  .accordion-slideshow__arrows-under-media {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    margin-block-start: var(--margin-xs);
+    width: 100%;
+  }
+
+  .accordion-slideshow__arrows-under-media .slideshow-control {
+    padding: 0;
+  }
+
+  @media (min-width: 900px) {
+    .accordion-slideshow--split .accordion-slideshow__arrows-under-media {
+      width: 50%;
+    }
+  }
 {% endstylesheet %}
 
 {% schema %}
@@ -341,6 +368,12 @@
       "id": "show_arrows",
       "label": "Show arrows",
       "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "arrows_under_media",
+      "label": "Arrows under media",
+      "default": false
     },
     {
       "type": "select",
