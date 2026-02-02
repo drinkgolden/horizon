@@ -118,7 +118,13 @@
 {% endif %}
 
 {% capture controls %}
-  {% if slide_count > 1 and (block_settings.controls_style != 'none' or show_arrows) %}
+  {% assign has_controls = false %}
+  {% if slide_count > 1 %}
+    {% if block_settings.controls_style != 'none' or show_arrows %}
+      {% assign has_controls = true %}
+    {% endif %}
+  {% endif %}
+  {% if has_controls %}
     <div class="accordion-slideshow__controls">
       {%- render 'slideshow-controls',
         style: block_settings.controls_style,
