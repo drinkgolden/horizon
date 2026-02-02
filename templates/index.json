@@ -793,53 +793,68 @@
           },
           "blocks": {
             "accordion_slideshow_wWYLCr": {
-              "type": "accordion_slideshow",
-              "name": "Accordion slideshow",
+              "type": "slideshow_block",
+              "name": "Slideshow",
               "settings": {
-                "heading": "",
-                "subheading": "",
-                "layout": "stacked",
-                "image_ratio": "adapt",
-                "placeholder_color": "#395382",
-                "show_arrows": true,
-                "arrows_under_media": true,
-                "controls_style": "none",
-                "pagination_position": "right",
                 "icons_style": "chevron",
+                "slideshow_controls_style": "none",
                 "autoplay": false,
                 "autoplay_speed": 5,
                 "slide_height": "auto",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
-                "padding-inline-end": 0,
-                "slide_one_image": "shopify://shop_images/DSCN9605_797712ad-fb85-4ab5-a9e4-dcde6c666295.jpg",
-                "slide_one_heading": "",
-                "slide_one_text": "",
-                "slide_one_button_label": "Button",
-                "slide_one_button_link": "",
-                "slide_two_image": "shopify://shop_images/R0003273_1.jpg",
-                "slide_two_heading": "",
-                "slide_two_text": "",
-                "slide_two_button_label": "",
-                "slide_two_button_link": "",
-                "slide_three_image": "shopify://shop_images/Kola_Stack.jpg",
-                "slide_three_heading": "",
-                "slide_three_text": "",
-                "slide_three_button_label": "",
-                "slide_three_button_link": "",
-                "slide_four_image": "shopify://shop_images/Facebook_cover_-_12.jpg",
-                "slide_four_heading": "",
-                "slide_four_text": "",
-                "slide_four_button_label": "",
-                "slide_four_button_link": "",
-                "slide_five_image": "shopify://shop_images/GRM3276.jpg",
-                "slide_five_heading": "",
-                "slide_five_text": "",
-                "slide_five_button_label": "",
-                "slide_five_button_link": ""
+                "padding-inline-end": 0
               },
-              "blocks": {}
+              "blocks": {
+                "slide_1": {
+                  "type": "_slide",
+                  "settings": {
+                    "media_type_1": "image",
+                    "image_1": "shopify://shop_images/DSCN9605_797712ad-fb85-4ab5-a9e4-dcde6c666295.jpg"
+                  },
+                  "blocks": {}
+                },
+                "slide_2": {
+                  "type": "_slide",
+                  "settings": {
+                    "media_type_1": "image",
+                    "image_1": "shopify://shop_images/R0003273_1.jpg"
+                  },
+                  "blocks": {}
+                },
+                "slide_3": {
+                  "type": "_slide",
+                  "settings": {
+                    "media_type_1": "image",
+                    "image_1": "shopify://shop_images/Kola_Stack.jpg"
+                  },
+                  "blocks": {}
+                },
+                "slide_4": {
+                  "type": "_slide",
+                  "settings": {
+                    "media_type_1": "image",
+                    "image_1": "shopify://shop_images/Facebook_cover_-_12.jpg"
+                  },
+                  "blocks": {}
+                },
+                "slide_5": {
+                  "type": "_slide",
+                  "settings": {
+                    "media_type_1": "image",
+                    "image_1": "shopify://shop_images/GRM3276.jpg"
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "slide_1",
+                "slide_2",
+                "slide_3",
+                "slide_4",
+                "slide_5"
+              ]
             }
           },
           "block_order": [
@@ -1504,49 +1519,32 @@
               },
               "blocks": {
                 "accordion_slideshow_gmMUhC": {
-                  "type": "accordion_slideshow",
-                  "name": "Accordion slideshow",
+                  "type": "slideshow_block",
+                  "name": "Slideshow",
                   "settings": {
-                    "heading": "",
-                    "subheading": "",
-                    "layout": "stacked",
-                    "image_ratio": "adapt",
-                    "placeholder_color": "#f8b5c4",
-                    "show_arrows": true,
-                    "arrows_under_media": true,
-                    "controls_style": "dots",
-                    "pagination_position": "center",
                     "icons_style": "chevron",
+                    "slideshow_controls_style": "dots",
                     "autoplay": false,
                     "autoplay_speed": 4,
                     "slide_height": "medium",
                     "padding-block-start": 0,
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
-                    "padding-inline-end": 0,
-                    "slide_one_image": "shopify://shop_images/iStock-641225382.jpg",
-                    "slide_one_heading": "Test Test",
-                    "slide_one_text": "",
-                    "slide_one_button_label": "",
-                    "slide_one_button_link": "",
-                    "slide_two_heading": "",
-                    "slide_two_text": "",
-                    "slide_two_button_label": "",
-                    "slide_two_button_link": "",
-                    "slide_three_heading": "",
-                    "slide_three_text": "",
-                    "slide_three_button_label": "",
-                    "slide_three_button_link": "",
-                    "slide_four_heading": "",
-                    "slide_four_text": "",
-                    "slide_four_button_label": "",
-                    "slide_four_button_link": "",
-                    "slide_five_heading": "",
-                    "slide_five_text": "",
-                    "slide_five_button_label": "",
-                    "slide_five_button_link": ""
+                    "padding-inline-end": 0
                   },
-                  "blocks": {}
+                  "blocks": {
+                    "slide_1": {
+                      "type": "_slide",
+                      "settings": {
+                        "media_type_1": "image",
+                        "image_1": "shopify://shop_images/iStock-641225382.jpg"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "slide_1"
+                  ]
                 },
                 "group_PGerCJ": {
                   "type": "group",
