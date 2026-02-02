@@ -3308,6 +3308,26 @@ slideshow-component[data-split-showcase-carousel] slideshow-slide.split-showcase
   }
 }
 
+.field__input:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: none;
+  outline-offset: 0;
+  border-color: var(--color-input-text);
+}
+
+@supports not selector(:focus-visible) {
+  .field__input:focus,
+  input:focus,
+  textarea:focus,
+  select:focus {
+    outline: none;
+    outline-offset: 0;
+    border-color: var(--color-input-text);
+  }
+}
+
 .field__input:is(:focus, :hover) {
   box-shadow: var(--input-box-shadow-focus);
   background-color: var(--color-input-hover-background);
