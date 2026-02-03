@@ -145,7 +145,7 @@
                 "label": "Shop Golden",
                 "link": "shopify://collections/all",
                 "open_in_new_tab": false,
-                "style_class": "button-secondary",
+                "style_class": "link",
                 "width": "fit-content",
                 "custom_width": 100,
                 "width_mobile": "fit-content",
