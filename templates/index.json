@@ -311,41 +311,7 @@
                             "padding-inline-start": 0,
                             "padding-inline-end": 0
                           },
-                          "blocks": {
-                            "accordion_row_AGg37b": {
-                              "type": "accordion_row",
-                              "name": "Accordion row",
-                              "settings": {
-                                "heading": "",
-                                "right_heading": "Right",
-                                "collapsible": true,
-                                "open_by_default": false,
-                                "group_mode": "split",
-                                "color_scheme": "",
-                                "hover_color_scheme": "",
-                                "left_hover_color_scheme": "",
-                                "right_hover_color_scheme": "",
-                                "summary_padding_block_start": 0,
-                                "summary_padding_block_end": 0,
-                                "summary_padding_inline_start": 0,
-                                "summary_padding_inline_end": 0,
-                                "content_padding_block_start": 12,
-                                "content_padding_block_end": 24,
-                                "content_padding_inline_start": 24,
-                                "content_padding_inline_end": 24,
-                                "heading_type_preset": "",
-                                "right_heading_type_preset": "match",
-                                "heading_min_size": 0,
-                                "heading_max_size": 0,
-                                "icon": "none",
-                                "width": 20
-                              },
-                              "blocks": {}
-                            }
-                          },
-                          "block_order": [
-                            "accordion_row_AGg37b"
-                          ]
+                          "blocks": {}
                         }
                       },
                       "block_order": [
@@ -1092,10 +1058,37 @@
                         "padding-inline-end": 0
                       },
                       "blocks": {}
+                    },
+                    "slide_KYWN84": {
+                      "type": "_slide",
+                      "settings": {
+                        "media_type_1": "image",
+                        "image_1": "shopify://shop_images/shutterstock_1715090482.webp",
+                        "content_direction": "column",
+                        "vertical_on_mobile": true,
+                        "horizontal_alignment": "flex-start",
+                        "vertical_alignment": "center",
+                        "align_baseline": false,
+                        "horizontal_alignment_flex_direction_column": "flex-end",
+                        "vertical_alignment_flex_direction_column": "flex-end",
+                        "gap": 12,
+                        "inherit_color_scheme": true,
+                        "color_scheme": "",
+                        "toggle_overlay": false,
+                        "overlay_color": "#00000026",
+                        "overlay_style": "solid",
+                        "gradient_direction": "to top",
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
                     }
                   },
                   "block_order": [
-                    "slide_1"
+                    "slide_1",
+                    "slide_KYWN84"
                   ]
                 },
                 "group_PGerCJ": {
@@ -1594,47 +1587,6 @@
               "block_order": [
                 "group_7mFNTK"
               ]
-            },
-            "accordion_row_6Np8iP": {
-              "type": "accordion_row",
-              "name": "Accordion row",
-              "settings": {
-                "heading": "Golden Hour",
-                "right_heading": "Blog",
-                "collapsible": false,
-                "open_by_default": false,
-                "group_mode": "split",
-                "color_scheme": "scheme-1",
-                "hover_color_scheme": "scheme-1",
-                "left_hover_color_scheme": "scheme-1",
-                "right_hover_color_scheme": "scheme-1",
-                "summary_padding_block_start": 16,
-                "summary_padding_block_end": 16,
-                "summary_padding_inline_start": 16,
-                "summary_padding_inline_end": 16,
-                "content_padding_block_start": 16,
-                "content_padding_block_end": 16,
-                "content_padding_inline_start": 16,
-                "content_padding_inline_end": 16,
-                "heading_type_preset": "h2",
-                "right_heading_type_preset": "match",
-                "heading_min_size": 1.1,
-                "heading_max_size": 1.6,
-                "icon": "none",
-                "width": 20
-              },
-              "blocks": {
-                "ai_gen_block_7d0cb62_L3AdXT": {
-                  "type": "blog-summary-carousel",
-                  "settings": {
-                    "blog": "golden-hour"
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": [
-                "ai_gen_block_7d0cb62_L3AdXT"
-              ]
             }
           },
           "block_order": [
@@ -1643,8 +1595,7 @@
             "accordion_row_6GXUWf",
             "accordion_row_mrmmNj",
             "accordion_row_3KkWB7",
-            "accordion_row_cwYKwF",
-            "accordion_row_6Np8iP"
+            "accordion_row_cwYKwF"
           ]
         }
       },
@@ -2113,11 +2064,21 @@
           "name": "t:names.title",
           "static": true,
           "settings": {
-            "text": "<h3>Golden Hour</h3>",
+            "text": "",
+            "padding_block_start": 16,
+            "padding_block_end": 16,
+            "padding_inline_start": 16,
+            "padding_inline_end": 16,
+            "left_heading": "Golden Hour",
+            "right_heading": "Blog",
+            "heading_type_preset": "",
+            "right_heading_type_preset": "match",
+            "heading_min_size": 1,
+            "heading_max_size": 1.8,
             "width": "100%",
-            "max_width": "none",
+            "max_width": "normal",
             "alignment": "left",
-            "type_preset": "h3",
+            "type_preset": "h2",
             "font": "var(--font-body--family)",
             "font_size": "1rem",
             "line_height": "tight",
@@ -2244,7 +2205,7 @@
         "section_width": "full-width",
         "gap": 0,
         "color_scheme": "scheme-1",
-        "padding-block-start": 16,
+        "padding-block-start": 0,
         "padding-block-end": 16
       }
     },
