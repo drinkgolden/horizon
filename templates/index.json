@@ -652,7 +652,7 @@
                 "heading": "Low Calorie",
                 "right_heading": "Mānuka honey",
                 "collapsible": true,
-                "open_by_default": true,
+                "open_by_default": false,
                 "group_mode": "split",
                 "color_scheme": "scheme-1",
                 "hover_color_scheme": "scheme-4",
