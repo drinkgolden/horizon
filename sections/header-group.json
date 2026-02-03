@@ -74,7 +74,7 @@
             "drawer_logo_top_image": "shopify://shop_images/GOLDEN_SVG_VERTICAL_BLACK.svg",
             "type_font_primary_size": "1rem",
             "type_font_primary_size_mobile": 1,
-            "type_font_primary_size_desktop": 1,
+            "type_font_primary_size_desktop": 1.1,
             "menu_font_style": "inverse",
             "submenu_parent_font_size_mobile": 1.2,
             "submenu_parent_font_size_desktop": 1.2,
