@@ -1485,6 +1485,140 @@
               "block_order": [
                 "group_7mFNTK"
               ]
+            },
+            "accordion_row_6Np8iP": {
+              "type": "accordion_row",
+              "name": "Accordion row",
+              "settings": {
+                "heading": "Otago",
+                "right_heading": "Blackcurrants",
+                "collapsible": true,
+                "open_by_default": false,
+                "group_mode": "split",
+                "color_scheme": "scheme-2",
+                "hover_color_scheme": "scheme-1",
+                "left_hover_color_scheme": "scheme-1",
+                "right_hover_color_scheme": "scheme-1",
+                "summary_padding_block_start": 16,
+                "summary_padding_block_end": 16,
+                "summary_padding_inline_start": 16,
+                "summary_padding_inline_end": 16,
+                "content_padding_block_start": 16,
+                "content_padding_block_end": 16,
+                "content_padding_inline_start": 16,
+                "content_padding_inline_end": 16,
+                "heading_type_preset": "h2",
+                "right_heading_type_preset": "match",
+                "heading_min_size": 1.1,
+                "heading_max_size": 1.6,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "group_Ed3Bfz": {
+                  "type": "group",
+                  "name": "Blackcurrants",
+                  "settings": {
+                    "content_direction": "row",
+                    "vertical_on_mobile": true,
+                    "horizontal_alignment": "flex-start",
+                    "vertical_alignment": "center",
+                    "align_baseline": false,
+                    "horizontal_alignment_flex_direction_column": "flex-start",
+                    "vertical_alignment_flex_direction_column": "center",
+                    "enable_sticky": false,
+                    "sticky_offset": 0,
+                    "gap": 12,
+                    "width": "fill",
+                    "custom_width": 100,
+                    "width_mobile": "fill",
+                    "custom_width_mobile": 100,
+                    "height": "fit",
+                    "custom_height": 100,
+                    "inherit_color_scheme": true,
+                    "color_scheme": "",
+                    "background_media": "none",
+                    "video_position": "cover",
+                    "background_image_position": "cover",
+                    "border": "none",
+                    "border_width": 1,
+                    "border_opacity": 100,
+                    "border_radius": 0,
+                    "toggle_overlay": false,
+                    "overlay_color": "#00000026",
+                    "overlay_style": "solid",
+                    "gradient_direction": "to top",
+                    "link": "",
+                    "open_in_new_tab": false,
+                    "placeholder": "",
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {
+                    "image_iMTfFD": {
+                      "type": "image",
+                      "name": "t:names.image",
+                      "settings": {
+                        "image": "shopify://shop_images/blackcurrant_white_background.png",
+                        "link": "",
+                        "image_ratio": "adapt",
+                        "width": "fill",
+                        "custom_width": 100,
+                        "width_mobile": "fill",
+                        "custom_width_mobile": 100,
+                        "height": "fit",
+                        "border": "none",
+                        "border_width": 1,
+                        "border_opacity": 100,
+                        "border_radius": 0,
+                        "placeholder_color": "",
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    },
+                    "vertical_text_w8KDWe": {
+                      "type": "vertical-text",
+                      "name": "t:names.vertical_text",
+                      "settings": {
+                        "display_vertically": true,
+                        "horizontal_on_mobile": true,
+                        "text": "<p>We make things that work better and last longer. Our products solve real problems with clean design and honest materials.</p>",
+                        "width": "fit-content",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "image_iMTfFD",
+                    "vertical_text_w8KDWe"
+                  ]
+                }
+              },
+              "block_order": [
+                "group_Ed3Bfz"
+              ]
             }
           },
           "block_order": [
@@ -1493,7 +1627,8 @@
             "accordion_row_6GXUWf",
             "accordion_row_mrmmNj",
             "accordion_row_3KkWB7",
-            "accordion_row_cwYKwF"
+            "accordion_row_cwYKwF",
+            "accordion_row_6Np8iP"
           ]
         }
       },
@@ -1989,6 +2124,7 @@
           "name": "t:names.blog_card",
           "static": true,
           "settings": {
+            "article": "",
             "alignment": "left",
             "gap": 12,
             "inherit_color_scheme": true,
