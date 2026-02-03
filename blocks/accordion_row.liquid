@@ -37,6 +37,10 @@
   {% assign is_collapsible = true %}
 {% endif %}
 
+{% if has_reveal_content and block_settings.open_by_default %}
+  {% assign row_classes = row_classes | append: ' accordion-row--open' %}
+{% endif %}
+
 {% if has_reveal_content %}
   {% assign row_classes = row_classes | append: ' accordion-row--has-reveal' %}
 {% endif %}
@@ -561,7 +565,7 @@
       "id": "open_by_default",
       "label": "Open row by default",
       "default": false,
-      "visible_if": "{{ block.settings.collapsible == true }}"
+      "info": "When collapsible is off, this keeps the row in its open styling."
     },
     {
       "type": "select",
