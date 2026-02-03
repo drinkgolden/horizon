@@ -151,6 +151,7 @@
 
 {% assign slide_count = block_settings.max_items | default: 12 | times: 1 %}
 {% assign slideshow_ref = 'socialFeed' | append: block.id %}
+{% assign slideshow_id = 'social-feed-' | append: block.id %}
 {% assign section_width_setting = section.settings.section_width | default: 'full-width' %}
 {% assign slideshow_gutters = nil %}
 {% if section_width_setting == 'page-width' %}
@@ -194,10 +195,7 @@
 
 {% if arrow_style != 'none' %}
   {% capture slideshow_arrows %}
-    {% render 'slideshow-arrows',
-      icon_style: arrow_style,
-      icon_shape: block_settings.icons_shape
-    %}
+    {% render 'slideshow-arrows', icon_style: arrow_style, icon_shape: block_settings.icons_shape %}
   {% endcapture %}
 {% endif %}
 
@@ -310,7 +308,8 @@
                 infinite: false,
                 initial_slide: 0,
                 slide_count: slide_count,
-                slideshow_gutters: slideshow_gutters
+                slideshow_gutters: slideshow_gutters,
+                attributes: 'id="' | append: slideshow_id | append: '"'
               %}
             </div>
           </div>
@@ -383,7 +382,8 @@
                   infinite: false,
                   initial_slide: 0,
                   slide_count: slide_count,
-                  slideshow_gutters: slideshow_gutters
+                  slideshow_gutters: slideshow_gutters,
+                  attributes: 'id="' | append: slideshow_id | append: '"'
                 %}
               </div>
             </div>

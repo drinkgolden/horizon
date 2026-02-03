@@ -1,6 +1,6 @@
 
-
 {% assign block_settings = block.settings %}
+{% assign article = block_settings.article | default: article %}
 
 {% liquid
   assign onboarding = false
@@ -184,6 +184,11 @@
 {
   "name": "t:names.blog_card",
   "settings": [
+    {
+      "type": "article",
+      "id": "article",
+      "label": "Article"
+    },
     {
       "type": "header",
       "content": "t:content.text"
