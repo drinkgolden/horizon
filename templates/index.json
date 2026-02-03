@@ -145,7 +145,7 @@
                 "label": "Shop Golden",
                 "link": "shopify://collections/all",
                 "open_in_new_tab": false,
-                "style_class": "link",
+                "style_class": "button-secondary",
                 "width": "fit-content",
                 "custom_width": 100,
                 "width_mobile": "fit-content",
@@ -1485,6 +1485,112 @@
               "block_order": [
                 "group_7mFNTK"
               ]
+            },
+            "accordion_row_JPBx4H": {
+              "type": "accordion_row",
+              "name": "Accordion row",
+              "settings": {
+                "heading": "Stockists",
+                "right_heading": "",
+                "collapsible": true,
+                "open_by_default": true,
+                "group_mode": "shared",
+                "color_scheme": "scheme-1",
+                "hover_color_scheme": "scheme-1",
+                "left_hover_color_scheme": "scheme-1",
+                "right_hover_color_scheme": "scheme-1",
+                "summary_padding_block_start": 16,
+                "summary_padding_block_end": 16,
+                "summary_padding_inline_start": 16,
+                "summary_padding_inline_end": 16,
+                "content_padding_block_start": 16,
+                "content_padding_block_end": 16,
+                "content_padding_inline_start": 16,
+                "content_padding_inline_end": 16,
+                "heading_type_preset": "h2",
+                "right_heading_type_preset": "match",
+                "heading_min_size": 1.1,
+                "heading_max_size": 1.6,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "vertical_text_fb7qcr": {
+                  "type": "vertical-text",
+                  "name": "t:names.vertical_text",
+                  "settings": {
+                    "display_vertically": true,
+                    "horizontal_on_mobile": false,
+                    "text": "<p>lake Hawe Station</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": true,
+                    "background_color": "#395382",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "group_7LKTTj": {
+                  "type": "group",
+                  "name": "Blackcurrants",
+                  "settings": {
+                    "content_direction": "row",
+                    "vertical_on_mobile": true,
+                    "horizontal_alignment": "flex-start",
+                    "vertical_alignment": "center",
+                    "align_baseline": false,
+                    "horizontal_alignment_flex_direction_column": "flex-start",
+                    "vertical_alignment_flex_direction_column": "center",
+                    "enable_sticky": false,
+                    "sticky_offset": 0,
+                    "gap": 12,
+                    "width": "fill",
+                    "custom_width": 100,
+                    "width_mobile": "fill",
+                    "custom_width_mobile": 100,
+                    "height": "fit",
+                    "custom_height": 100,
+                    "inherit_color_scheme": true,
+                    "color_scheme": "",
+                    "background_media": "none",
+                    "video_position": "cover",
+                    "background_image_position": "cover",
+                    "border": "none",
+                    "border_width": 1,
+                    "border_opacity": 100,
+                    "border_radius": 0,
+                    "toggle_overlay": false,
+                    "overlay_color": "#00000026",
+                    "overlay_style": "solid",
+                    "gradient_direction": "to top",
+                    "link": "",
+                    "open_in_new_tab": false,
+                    "placeholder": "",
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "vertical_text_fb7qcr",
+                "group_7LKTTj"
+              ]
             }
           },
           "block_order": [
@@ -1493,7 +1599,8 @@
             "accordion_row_6GXUWf",
             "accordion_row_mrmmNj",
             "accordion_row_3KkWB7",
-            "accordion_row_cwYKwF"
+            "accordion_row_cwYKwF",
+            "accordion_row_JPBx4H"
           ]
         }
       },
@@ -2096,6 +2203,63 @@
         "padding-block-end": 16
       }
     },
+    "section_REkpVR": {
+      "type": "section",
+      "blocks": {
+        "accordion_9fg6j9": {
+          "type": "accordion",
+          "name": "t:names.accordion",
+          "settings": {
+            "icon": "caret",
+            "dividers": true,
+            "type_preset": "h6",
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "accordion_9fg6j9"
+      ],
+      "name": "Accordion / Accordian",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 32,
+        "section_width": "full-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "split_divider_color": "#d9d9d9",
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
     "section_3hPHCr": {
       "type": "section",
       "blocks": {
@@ -2205,6 +2369,7 @@
     "section_TTRARa",
     "section_z7Mh7j",
     "featured_blog_posts_EgLy9B",
+    "section_REkpVR",
     "section_3hPHCr"
   ]
 }
