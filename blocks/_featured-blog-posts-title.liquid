@@ -60,6 +60,18 @@
   endif
 
   capture heading_styles
+    if block_settings.padding_block_start != blank
+      echo 'padding-block-start: ' | append: block_settings.padding_block_start | append: 'px;'
+    endif
+    if block_settings.padding_block_end != blank
+      echo 'padding-block-end: ' | append: block_settings.padding_block_end | append: 'px;'
+    endif
+    if block_settings.padding_inline_start != blank
+      echo 'padding-inline-start: ' | append: block_settings.padding_inline_start | append: 'px;'
+    endif
+    if block_settings.padding_inline_end != blank
+      echo 'padding-inline-end: ' | append: block_settings.padding_inline_end | append: 'px;'
+    endif
     if block_settings.heading_type_preset != blank
       echo '--accordion-heading-font-family: var(--font-' | append: block_settings.heading_type_preset | append: '--family);'
       echo '--accordion-heading-font-style: var(--font-' | append: block_settings.heading_type_preset | append: '--style);'
@@ -108,7 +120,14 @@
     <h3>{{ blog_title }}</h3>
   {% endcapture %}
 
-  {% render 'text', fallback_text: blog_title_text, block: block %}
+  {% render 'text',
+    fallback_text: blog_title_text,
+    block: block,
+    padding-block-start: block_settings.padding_block_start,
+    padding-block-end: block_settings.padding_block_end,
+    padding-inline-start: block_settings.padding_inline_start,
+    padding-inline-end: block_settings.padding_inline_end
+  %}
 {% endif %}
 
 {% schema %}
@@ -123,6 +142,50 @@
     {
       "type": "header",
       "content": "Split heading"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_block_start",
+      "label": "Top padding",
+      "min": 0,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_block_end",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_inline_start",
+      "label": "Left padding",
+      "min": 0,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_inline_end",
+      "label": "Right padding",
+      "min": 0,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "default": 0
     },
     {
       "type": "text",
