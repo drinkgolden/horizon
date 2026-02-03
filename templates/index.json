@@ -1250,7 +1250,7 @@
               "settings": {
                 "heading": "Hawke's Bay",
                 "right_heading": "Lemons",
-                "collapsible": false,
+                "collapsible": true,
                 "open_by_default": false,
                 "group_mode": "shared",
                 "color_scheme": "scheme-1",
@@ -1490,7 +1490,7 @@
               "settings": {
                 "heading": "Otago",
                 "right_heading": "Blackcurrants",
-                "collapsible": false,
+                "collapsible": true,
                 "open_by_default": false,
                 "group_mode": "shared",
                 "color_scheme": "scheme-1",
