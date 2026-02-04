@@ -45,7 +45,7 @@
     "type_case_h1": "none",
     "type_case_h2": "none",
     "type_case_h3": "none",
-    "page_width": "wide",
+    "page_width": "normal",
     "side_columns_enable": true,
     "side_columns_enable_mobile": false,
     "side_columns_width_desktop": 2,
