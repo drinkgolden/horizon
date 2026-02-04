@@ -13,10 +13,10 @@
       "type": "main-page",
       "settings": {
         "content_direction": "column",
-        "gap": 32,
+        "gap": 44,
         "color_scheme": "",
-        "padding-block-start": 40,
-        "padding-block-end": 40
+        "padding-block-start": 44,
+        "padding-block-end": 44
       }
     },
     "section_6Ke77e": {
@@ -160,7 +160,7 @@
             "vertical_alignment_flex_direction_column": "flex-start",
             "enable_sticky": false,
             "sticky_offset": 0,
-            "gap": 32,
+            "gap": 16,
             "width": "fill",
             "custom_width": 100,
             "width_mobile": "fill",
@@ -183,10 +183,10 @@
             "link": "",
             "open_in_new_tab": false,
             "placeholder": "hero-apparel-2",
-            "padding-block-start": 40,
-            "padding-block-end": 40,
-            "padding-inline-start": 40,
-            "padding-inline-end": 40
+            "padding-block-start": 44,
+            "padding-block-end": 44,
+            "padding-inline-start": 16,
+            "padding-inline-end": 16
           },
           "blocks": {
             "contact_form_dYBJUe": {
@@ -211,7 +211,7 @@
                   "static": true,
                   "settings": {
                     "label": "Submit",
-                    "style_class": "button-secondary",
+                    "style_class": "button",
                     "width": "custom",
                     "custom_width": 100,
                     "width_mobile": "custom",
@@ -273,7 +273,9 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 0,
-        "padding-block-end": 0
+        "padding-block-end": 0,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0
       }
     }
   },
