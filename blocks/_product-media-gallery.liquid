@@ -700,7 +700,7 @@
     {
       "type": "select",
       "id": "media_presentation",
-      "label": "t:settings.type",
+      "label": "Layout",
       "options": [
         {
           "value": "grid",
@@ -722,7 +722,7 @@
     {
       "type": "select",
       "id": "media_columns",
-      "label": "t:settings.columns",
+      "label": "Columns",
       "options": [
         {
           "value": "one",
@@ -739,7 +739,7 @@
     {
       "type": "range",
       "id": "image_gap",
-      "label": "t:settings.gap",
+      "label": "Image gap",
       "min": 0,
       "max": 100,
       "unit": "px",
@@ -750,7 +750,7 @@
     {
       "type": "checkbox",
       "id": "large_first_image",
-      "label": "t:settings.full_width_first_image",
+      "label": "Large first image",
       "default": false,
       "visible_if": "{{ block.settings.media_presentation == 'grid' and block.settings.media_columns == 'two' }}"
     },
@@ -761,7 +761,7 @@
     {
       "type": "select",
       "id": "icons_style",
-      "label": "t:settings.icons",
+      "label": "Arrow style",
       "options": [
         {
           "value": "arrow",
@@ -786,7 +786,7 @@
     {
       "type": "select",
       "id": "slideshow_controls_style",
-      "label": "t:settings.pagination",
+      "label": "Pagination",
       "options": [
         {
           "value": "dots",
@@ -806,7 +806,7 @@
     {
       "type": "select",
       "id": "slideshow_mobile_controls_style",
-      "label": "t:settings.mobile_pagination",
+      "label": "Mobile pagination",
       "options": [
         {
           "value": "dots",
@@ -830,7 +830,7 @@
     {
       "type": "select",
       "id": "thumbnail_position",
-      "label": "t:settings.position",
+      "label": "Thumbnail position",
       "options": [
         {
           "value": "left",
@@ -851,7 +851,7 @@
     {
       "type": "range",
       "id": "thumbnail_width",
-      "label": "t:settings.width",
+      "label": "Thumbnail size",
       "min": 44,
       "max": 72,
       "step": 1,
@@ -866,7 +866,7 @@
     {
       "type": "select",
       "id": "aspect_ratio",
-      "label": "t:settings.aspect_ratio",
+      "label": "Image ratio",
       "options": [
         {
           "value": "adapt",
@@ -890,13 +890,13 @@
     {
       "type": "checkbox",
       "id": "constrain_to_viewport",
-      "label": "t:settings.limit_media_to_screen_height",
+      "label": "Limit media height",
       "default": false
     },
     {
       "type": "select",
       "id": "media_fit",
-      "label": "t:settings.media_fit",
+      "label": "Media fit",
       "options": [
         {
           "value": "cover",
@@ -913,7 +913,7 @@
     {
       "type": "range",
       "id": "media_radius",
-      "label": "t:settings.border_radius",
+      "label": "Corner radius",
       "min": 0,
       "max": 32,
       "step": 1,
@@ -923,27 +923,27 @@
     {
       "type": "checkbox",
       "id": "extend_media",
-      "label": "t:settings.extend_media_to_screen_edge",
+      "label": "Extend media to screen edge",
       "default": true,
       "visible_if": "{{ section.settings.content_width == 'content-center-aligned' }}"
     },
     {
       "type": "checkbox",
       "id": "zoom",
-      "label": "t:settings.enable_zoom",
+      "label": "Enable zoom",
       "default": true
     },
     {
       "type": "checkbox",
       "id": "video_loop",
-      "label": "t:settings.enable_video_looping",
+      "label": "Loop video",
       "default": false
     },
     {
       "type": "checkbox",
       "id": "hide_variants",
       "default": false,
-      "label": "t:settings.hide_unselected_variant_media"
+      "label": "Hide unselected variant media"
     },
     {
       "type": "header",
@@ -952,7 +952,7 @@
     {
       "type": "range",
       "id": "padding-block-start",
-      "label": "t:settings.top",
+      "label": "Top padding",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -962,7 +962,7 @@
     {
       "type": "range",
       "id": "padding-block-end",
-      "label": "t:settings.bottom",
+      "label": "Bottom padding",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -972,7 +972,7 @@
     {
       "type": "range",
       "id": "padding-inline-start",
-      "label": "t:settings.left",
+      "label": "Left padding",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -982,7 +982,7 @@
     {
       "type": "range",
       "id": "padding-inline-end",
-      "label": "t:settings.right",
+      "label": "Right padding",
       "min": 0,
       "max": 100,
       "step": 1,

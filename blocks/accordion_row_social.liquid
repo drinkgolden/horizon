@@ -26,10 +26,14 @@
   {% assign row_has_custom_scheme = true %}
 {% endif %}
 
-{% assign nested_block_count = block.blocks | size %}
-{% assign has_reveal_content = false %}
-{% if nested_block_count > 0 %}
-  {% assign has_reveal_content = true %}
+{% assign has_reveal_content = true %}
+
+{% assign is_collapsible = false %}
+{% if has_reveal_content and block_settings.collapsible %}
+  {% assign is_collapsible = true %}
+{% endif %}
+
+{% if has_reveal_content %}
   {% assign row_classes = row_classes | append: ' accordion-row--has-reveal' %}
 {% endif %}
 
@@ -37,6 +41,13 @@
 {% if block_settings.right_heading != blank %}
   {% assign show_right_heading = true %}
 {% endif %}
+
+{% assign header_links_enabled = false %}
+{% if block_settings.heading_links_enabled %}
+  {% assign header_links_enabled = true %}
+{% endif %}
+{% assign left_heading_link = block_settings.heading_link %}
+{% assign right_heading_link = block_settings.right_heading_link %}
 
 {% assign show_left_heading = false %}
 {% if block_settings.heading != blank %}
@@ -60,7 +71,6 @@
   {% assign header_classes = header_classes | append: ' details__header--right-only' %}
 {% endif %}
 
-{% assign rem_divisor = 16.0 %}
 {% assign has_custom_summary_padding = false %}
 {% assign has_custom_content_padding = false %}
 
@@ -88,14 +98,14 @@
 {% endif %}
 
 {% capture inline_styles %}
-  {% if summary_padding_block_start_value != 0 %}--accordion-header-padding-block-start: {{ summary_padding_block_start_value | divided_by: rem_divisor }}rem;{% endif %}
-  {% if summary_padding_block_end_value != 0 %}--accordion-header-padding-block-end: {{ summary_padding_block_end_value | divided_by: rem_divisor }}rem;{% endif %}
-  {% if summary_padding_inline_start_value != 0 %}--accordion-header-padding-inline-start: {{ summary_padding_inline_start_value | divided_by: rem_divisor }}rem;{% endif %}
-  {% if summary_padding_inline_end_value != 0 %}--accordion-header-padding-inline-end: {{ summary_padding_inline_end_value | divided_by: rem_divisor }}rem;{% endif %}
-  {% if content_padding_block_start_value != 0 %}--accordion-content-padding-block-start: {{ content_padding_block_start_value | divided_by: rem_divisor }}rem;{% endif %}
-  {% if content_padding_block_end_value != 0 %}--accordion-content-padding-block-end: {{ content_padding_block_end_value | divided_by: rem_divisor }}rem;{% endif %}
-  {% if content_padding_inline_start_value != 0 %}--accordion-content-padding-inline-start: {{ content_padding_inline_start_value | divided_by: rem_divisor }}rem;{% endif %}
-  {% if content_padding_inline_end_value != 0 %}--accordion-content-padding-inline-end: {{ content_padding_inline_end_value | divided_by: rem_divisor }}rem;{% endif %}
+  {% if summary_padding_block_start_value != 0 %}--accordion-header-padding-block-start: {{ summary_padding_block_start_value }}px;{% endif %}
+  {% if summary_padding_block_end_value != 0 %}--accordion-header-padding-block-end: {{ summary_padding_block_end_value }}px;{% endif %}
+  {% if summary_padding_inline_start_value != 0 %}--accordion-header-padding-inline-start: {{ summary_padding_inline_start_value }}px;{% endif %}
+  {% if summary_padding_inline_end_value != 0 %}--accordion-header-padding-inline-end: {{ summary_padding_inline_end_value }}px;{% endif %}
+  {% if content_padding_block_start_value != 0 %}--accordion-content-padding-block-start: {{ content_padding_block_start_value }}px;{% endif %}
+  {% if content_padding_block_end_value != 0 %}--accordion-content-padding-block-end: {{ content_padding_block_end_value }}px;{% endif %}
+  {% if content_padding_inline_start_value != 0 %}--accordion-content-padding-inline-start: {{ content_padding_inline_start_value }}px;{% endif %}
+  {% if content_padding_inline_end_value != 0 %}--accordion-content-padding-inline-end: {{ content_padding_inline_end_value }}px;{% endif %}
   {% if block_settings.heading_type_preset != blank %}
     --accordion-heading-font-family: var(--font-{{ block_settings.heading_type_preset }}--family);
     --accordion-heading-font-style: var(--font-{{ block_settings.heading_type_preset }}--style);
@@ -116,6 +126,10 @@
   {% assign heading_max_numeric = block_settings.heading_max_size | default: 0 | times: 1 %}
   {% if heading_min_numeric > 0 %}--accordion-heading-min-size: {{ heading_min_numeric }}rem;{% endif %}
   {% if heading_max_numeric > 0 %}--accordion-heading-max-size: {{ heading_max_numeric }}rem;{% endif %}
+  {% if heading_min_numeric == 0 and heading_max_numeric == 0 %}
+    --accordion-heading-size: var(--accordion-heading-base-size, var(--summary-font-size));
+    --accordion-right-heading-size: var(--accordion-right-heading-base-size, var(--accordion-heading-base-size, var(--summary-font-size)));
+  {% endif %}
   {% if has_row_custom_padding %}
     --padding-inline-start: 0px;
     --padding-inline-end: 0px;
@@ -129,18 +143,68 @@
 {% endcapture %}
 
 {% capture header_styles %}
-  {% if summary_padding_block_start_value != 0 %}padding-block-start: {{ summary_padding_block_start_value | divided_by: rem_divisor }}rem;{% endif %}
-  {% if summary_padding_block_end_value != 0 %}padding-block-end: {{ summary_padding_block_end_value | divided_by: rem_divisor }}rem;{% endif %}
-  {% if summary_padding_inline_start_value != 0 %}padding-inline-start: {{ summary_padding_inline_start_value | divided_by: rem_divisor }}rem;{% endif %}
-  {% if summary_padding_inline_end_value != 0 %}padding-inline-end: {{ summary_padding_inline_end_value | divided_by: rem_divisor }}rem;{% endif %}
+  {% if summary_padding_block_start_value != 0 %}padding-block-start: {{ summary_padding_block_start_value }}px;{% endif %}
+  {% if summary_padding_block_end_value != 0 %}padding-block-end: {{ summary_padding_block_end_value }}px;{% endif %}
+  {% if summary_padding_inline_start_value != 0 %}padding-inline-start: {{ summary_padding_inline_start_value }}px;{% endif %}
+  {% if summary_padding_inline_end_value != 0 %}padding-inline-end: {{ summary_padding_inline_end_value }}px;{% endif %}
 {% endcapture %}
 
 {% capture content_styles %}
-  {% if content_padding_block_start_value != 0 %}padding-block-start: {{ content_padding_block_start_value | divided_by: rem_divisor }}rem;{% endif %}
-  {% if content_padding_block_end_value != 0 %}padding-block-end: {{ content_padding_block_end_value | divided_by: rem_divisor }}rem;{% endif %}
-  {% if content_padding_inline_start_value != 0 %}padding-inline-start: {{ content_padding_inline_start_value | divided_by: rem_divisor }}rem;{% endif %}
-  {% if content_padding_inline_end_value != 0 %}padding-inline-end: {{ content_padding_inline_end_value | divided_by: rem_divisor }}rem;{% endif %}
+  {% if content_padding_block_start_value != 0 %}padding-block-start: {{ content_padding_block_start_value }}px;{% endif %}
+  {% if content_padding_block_end_value != 0 %}padding-block-end: {{ content_padding_block_end_value }}px;{% endif %}
+  {% if content_padding_inline_start_value != 0 %}padding-inline-start: {{ content_padding_inline_start_value }}px;{% endif %}
+  {% if content_padding_inline_end_value != 0 %}padding-inline-end: {{ content_padding_inline_end_value }}px;{% endif %}
 {% endcapture %}
+
+{% assign slide_count = block_settings.max_items | default: 12 | times: 1 %}
+{% assign slideshow_ref = 'socialFeed' | append: block.id %}
+{% assign slideshow_id = 'social-feed-' | append: block.id %}
+{% assign section_width_setting = section.settings.section_width | default: 'full-width' %}
+{% assign slideshow_gutters = nil %}
+{% if section_width_setting == 'page-width' %}
+  {% assign slideshow_gutters = 'start end' %}
+{% endif %}
+
+{% capture social_slides %}
+  {% for i in (1..slide_count) %}
+    {% capture slide_markup %}
+      <div class="resource-list__item social-feed__item" data-social-feed-item data-index="{{ forloop.index0 }}">
+        <a class="social-feed-card" data-social-feed-link href="#" aria-label="Social post">
+          <div class="social-feed-card__media border-style">
+            <div class="social-feed-card__placeholder" aria-hidden="true"></div>
+            <img
+              class="social-feed-card__image"
+              data-social-feed-image
+              loading="lazy"
+              decoding="async"
+              alt="Social post"
+            >
+          </div>
+          <div class="social-feed-card__caption" data-social-feed-caption></div>
+        </a>
+      </div>
+    {% endcapture %}
+    {% render 'slideshow-slide',
+      index: forloop.index0,
+      children: slide_markup,
+      class: 'resource-list__slide'
+    %}
+  {% endfor %}
+{% endcapture %}
+
+{% assign arrow_style = block_settings.icons_style %}
+{% if arrow_style == 'caret' %}
+  {% assign arrow_style = 'chevron' %}
+{% endif %}
+{% if arrow_style == 'arrow' %}
+  {% assign arrow_style = 'chevron' %}
+{% endif %}
+
+{% if arrow_style != 'none' %}
+  {% capture slideshow_arrows %}
+    {% render 'slideshow-arrows', icon_style: arrow_style, icon_shape: block_settings.icons_shape %}
+  {% endcapture %}
+{% endif %}
 
 <div
   class="{{ row_classes }}"
@@ -165,12 +229,12 @@
     {% if inline_styles != blank %}
       style="{{ inline_styles | strip }}"
     {% endif %}
-    {% if block_settings.open_by_default %}
+    {% if is_collapsible and block_settings.open_by_default %}
       open-by-default-on-desktop
       open-by-default-on-mobile
     {% endif %}
   >
-    {% if has_reveal_content %}
+    {% if is_collapsible %}
       <details
         class="details"
         data-testid="accordion-details"
@@ -189,8 +253,14 @@
               width: block_settings.width,
               class_name: 'details__icon'
             %}
-            <span class="details__label">{{ block_settings.heading }}</span>
-            {% if block_settings.heading != blank and has_reveal_content %}
+            {% if header_links_enabled and left_heading_link != blank and block_settings.heading != blank %}
+              <a class="details__label accordion-row__link button button--link" href="{{ left_heading_link }}">
+                {{ block_settings.heading }}
+              </a>
+            {% else %}
+              <span class="details__label">{{ block_settings.heading }}</span>
+            {% endif %}
+            {% if block_settings.heading != blank and is_collapsible %}
               <span class="details__caret details__caret--left">
                 <span class="svg-wrapper icon-caret icon-animated">
                   {{- 'icon-caret.svg' | inline_asset_content -}}
@@ -200,14 +270,20 @@
           </span>
           {% if show_right_heading %}
             <span class="details__heading details__heading--right">
-              {% if has_reveal_content %}
+              {% if is_collapsible %}
                 <span class="details__caret details__caret--right">
                   <span class="svg-wrapper icon-caret icon-animated">
                     {{- 'icon-caret.svg' | inline_asset_content -}}
                   </span>
                 </span>
               {% endif %}
-              <span class="details__label">{{ block_settings.right_heading }}</span>
+              {% if header_links_enabled and right_heading_link != blank %}
+                <a class="details__label accordion-row__link button button--link" href="{{ right_heading_link }}">
+                  {{ block_settings.right_heading }}
+                </a>
+              {% else %}
+                <span class="details__label">{{ block_settings.right_heading }}</span>
+              {% endif %}
             </span>
           {% endif %}
         </summary>
@@ -218,7 +294,44 @@
             style="{{ content_styles | strip }}"
           {% endif %}
         >
-          {% content_for 'blocks' %}
+          <div
+            class="accordion-social-feed"
+            data-social-feed
+            data-provider="{{ block_settings.provider }}"
+            data-feed-url="{{ block_settings.feed_url | escape }}"
+            data-limit="{{ slide_count }}"
+            data-show-captions="{{ block_settings.show_captions }}"
+            data-open-new-tab="{{ block_settings.open_new_tab }}"
+            data-image-ratio="{{ block_settings.image_ratio }}"
+          >
+            <p class="social-feed__empty" data-social-feed-empty hidden>
+              "Anyone who thinks they're too small to make a difference has never met the honey bee."
+            </p>
+            <div
+              class="resource-list resource-list__carousel force-full-width"
+              data-social-feed-carousel
+              style="
+                --resource-list-column-gap-desktop: {{ block_settings.columns_gap }}px;
+                --column-count: {{ block_settings.columns }};
+                --column-count-mobile: 1;
+                --mobile-card-size: {{ block_settings.mobile_card_size }};
+                --slide-width-max: {{ block_settings.slide_width_max }}px;
+              "
+            >
+              {% render 'slideshow',
+                ref: slideshow_ref,
+                class: 'resource-list__carousel',
+                slides: social_slides,
+                slideshow_arrows: slideshow_arrows,
+                auto_hide_controls: false,
+                infinite: false,
+                initial_slide: 0,
+                slide_count: slide_count,
+                slideshow_gutters: slideshow_gutters,
+                attributes: 'id="' | append: slideshow_id | append: '"'
+              %}
+            </div>
+          </div>
         </div>
       </details>
     {% else %}
@@ -240,14 +353,73 @@
               width: block_settings.width,
               class_name: 'details__icon'
             %}
-            <span class="details__label">{{ block_settings.heading }}</span>
+            {% if header_links_enabled and left_heading_link != blank and block_settings.heading != blank %}
+              <a class="details__label accordion-row__link button button--link" href="{{ left_heading_link }}">
+                {{ block_settings.heading }}
+              </a>
+            {% else %}
+              <span class="details__label">{{ block_settings.heading }}</span>
+            {% endif %}
           </span>
           {% if show_right_heading %}
             <span class="details__heading details__heading--right">
-              <span class="details__label">{{ block_settings.right_heading }}</span>
+              {% if header_links_enabled and right_heading_link != blank %}
+                <a class="details__label accordion-row__link button button--link" href="{{ right_heading_link }}">
+                  {{ block_settings.right_heading }}
+                </a>
+              {% else %}
+                <span class="details__label">{{ block_settings.right_heading }}</span>
+              {% endif %}
             </span>
           {% endif %}
         </div>
+        {% if has_reveal_content %}
+          <div
+            class="details-content"
+            {% if content_styles != blank %}
+              style="{{ content_styles | strip }}"
+            {% endif %}
+          >
+            <div
+              class="accordion-social-feed"
+              data-social-feed
+              data-provider="{{ block_settings.provider }}"
+              data-feed-url="{{ block_settings.feed_url | escape }}"
+              data-limit="{{ slide_count }}"
+              data-show-captions="{{ block_settings.show_captions }}"
+              data-open-new-tab="{{ block_settings.open_new_tab }}"
+              data-image-ratio="{{ block_settings.image_ratio }}"
+            >
+              <p class="social-feed__empty" data-social-feed-empty hidden>
+                "Anyone who thinks they're too small to make a difference has never met the honey bee."
+              </p>
+              <div
+                class="resource-list resource-list__carousel force-full-width"
+                data-social-feed-carousel
+                style="
+                  --resource-list-column-gap-desktop: {{ block_settings.columns_gap }}px;
+                  --column-count: {{ block_settings.columns }};
+                  --column-count-mobile: 1;
+                  --mobile-card-size: {{ block_settings.mobile_card_size }};
+                  --slide-width-max: {{ block_settings.slide_width_max }}px;
+                "
+              >
+                {% render 'slideshow',
+                  ref: slideshow_ref,
+                  class: 'resource-list__carousel',
+                  slides: social_slides,
+                  slideshow_arrows: slideshow_arrows,
+                  auto_hide_controls: false,
+                  infinite: false,
+                  initial_slide: 0,
+                  slide_count: slide_count,
+                  slideshow_gutters: slideshow_gutters,
+                  attributes: 'id="' | append: slideshow_id | append: '"'
+                %}
+              </div>
+            </div>
+          </div>
+        {% endif %}
       </div>
     {% endif %}
   </accordion-custom>
@@ -325,29 +497,32 @@
     font-weight: var(--accordion-heading-font-weight, var(--summary-font-weight));
     line-height: var(--accordion-heading-line-height, var(--summary-font-line-height));
     text-transform: var(--accordion-heading-text-case, var(--summary-font-case));
-    font-size: clamp(
-      var(--accordion-heading-min-size, 1rem),
-      calc(
-        var(--accordion-heading-min-size, 1rem) +
-          (
-            var(--accordion-heading-max-size, 3.4rem) -
-            var(--accordion-heading-min-size, 1rem)
-          ) *
-          clamp(
-            0,
+    font-size: var(
+      --accordion-heading-size,
+      clamp(
+        var(--accordion-heading-min-size, 1rem),
+        calc(
+          var(--accordion-heading-min-size, 1rem) +
             (
-              100vw -
-              var(--accordion-heading-min-breakpoint, 20rem)
-            ) /
-              max(
-                0.001rem,
-                var(--accordion-heading-max-breakpoint, 48rem) -
-                  var(--accordion-heading-min-breakpoint, 20rem)
-              ),
-            1
-          )
-      ),
-      var(--accordion-heading-max-size, 3.4rem)
+              var(--accordion-heading-max-size, 3.4rem) -
+              var(--accordion-heading-min-size, 1rem)
+            ) *
+            clamp(
+              0,
+              (
+                100vw -
+                var(--accordion-heading-min-breakpoint, 20rem)
+              ) /
+                max(
+                  0.001rem,
+                  var(--accordion-heading-max-breakpoint, 48rem) -
+                    var(--accordion-heading-min-breakpoint, 20rem)
+                ),
+              1
+            )
+        ),
+        var(--accordion-heading-max-size, 3.4rem)
+      )
     );
   }
 
@@ -396,35 +571,48 @@
     font-weight: var(--accordion-right-heading-font-weight, var(--accordion-heading-font-weight, var(--summary-font-weight)));
     line-height: var(--accordion-right-heading-line-height, var(--accordion-heading-line-height, var(--summary-font-line-height)));
     text-transform: var(--accordion-right-heading-text-case, var(--accordion-heading-text-case, var(--summary-font-case)));
-    font-size: clamp(
-      var(--accordion-heading-min-size, 1rem),
-      calc(
-        var(--accordion-heading-min-size, 1rem) +
-          (
-            var(--accordion-heading-max-size, 3.4rem) -
-            var(--accordion-heading-min-size, 1rem)
-          ) *
-          clamp(
-            0,
-            (
-              100vw -
-              var(--accordion-heading-min-breakpoint, 20rem)
-            ) /
-              max(
-                0.001rem,
-                var(--accordion-heading-max-breakpoint, 48rem) -
+    font-size: var(
+      --accordion-right-heading-size,
+      var(
+        --accordion-heading-size,
+        clamp(
+          var(--accordion-heading-min-size, 1rem),
+          calc(
+            var(--accordion-heading-min-size, 1rem) +
+              (
+                var(--accordion-heading-max-size, 3.4rem) -
+                var(--accordion-heading-min-size, 1rem)
+              ) *
+              clamp(
+                0,
+                (
+                  100vw -
                   var(--accordion-heading-min-breakpoint, 20rem)
-              ),
-            1
-          )
-      ),
-      var(--accordion-heading-max-size, 3.4rem)
+                ) /
+                  max(
+                    0.001rem,
+                    var(--accordion-heading-max-breakpoint, 48rem) -
+                      var(--accordion-heading-min-breakpoint, 20rem)
+                  ),
+                1
+              )
+          ),
+          var(--accordion-heading-max-size, 3.4rem)
+        )
+      )
     );
   }
 
   .details__label {
     display: inline-block;
     color: inherit;
+  }
+
+  .accordion-row__link {
+    font: inherit;
+    color: inherit;
+    text-decoration: none;
+    text-transform: inherit;
   }
 
   .details__caret {
@@ -490,16 +678,106 @@
   .accordion-row__group-hidden {
     display: none !important;
   }
+
+  .accordion-social-feed {
+    --social-feed-aspect-ratio: 1 / 1;
+  }
+
+  .accordion-social-feed slideshow-controls,
+  .accordion-social-feed .slideshow-controls__arrows {
+    mix-blend-mode: difference;
+  }
+
+  .accordion-social-feed slideshow-arrows {
+    padding-inline: 0;
+  }
+
+  .accordion-social-feed slideshow-arrows .slideshow-control {
+    padding-inline: 0;
+  }
+
+  .accordion-social-feed .button-unstyled.slideshow-control.slideshow-control--shape-circle,
+  .accordion-social-feed .button-unstyled.slideshow-control.slideshow-control--shape-square {
+    background-color: transparent;
+    color: currentColor;
+    box-shadow: none;
+  }
+
+  .social-feed__empty {
+    margin: 0;
+    padding: var(--padding-lg);
+    text-align: center;
+    font-size: var(--font-body--size);
+    line-height: var(--font-body--line-height);
+    color: inherit;
+  }
+
+  .accordion-social-feed[data-image-ratio='portrait'] {
+    --social-feed-aspect-ratio: 4 / 5;
+  }
+
+  .accordion-social-feed[data-image-ratio='landscape'] {
+    --social-feed-aspect-ratio: 16 / 9;
+  }
+
+  .accordion-social-feed .resource-list__carousel {
+    width: 100%;
+  }
+
+  .social-feed__item {
+    height: 100%;
+  }
+
+  .social-feed-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--margin-xs);
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .social-feed-card__media {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    aspect-ratio: var(--social-feed-aspect-ratio);
+    background: var(--image-placeholder-color);
+  }
+
+  .social-feed-card__image,
+  .social-feed-card__placeholder {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  .social-feed-card__placeholder {
+    position: absolute;
+    inset: 0;
+    padding: var(--padding-xs);
+  }
+
+  .social-feed__item--loaded .social-feed-card__placeholder {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .social-feed-card__caption {
+    font-size: var(--font-body--size);
+    line-height: var(--font-body--line-height);
+    color: inherit;
+  }
+
+  .accordion-social-feed[data-show-captions='false'] .social-feed-card__caption {
+    display: none;
+  }
 {% endstylesheet %}
 
 {% schema %}
 {
-  "name": "Accordion stack row",
+  "name": "Social feed row",
   "tag": null,
-  "blocks": [
-    { "type": "@theme" },
-    { "type": "@app" }
-  ],
   "settings": [
     {
       "type": "text",
@@ -515,30 +793,173 @@
     },
     {
       "type": "checkbox",
+      "id": "heading_links_enabled",
+      "label": "Enable header links",
+      "default": false
+    },
+    {
+      "type": "url",
+      "id": "heading_link",
+      "label": "Left heading link",
+      "visible_if": "{{ block.settings.heading_links_enabled }}"
+    },
+    {
+      "type": "url",
+      "id": "right_heading_link",
+      "label": "Right heading link",
+      "visible_if": "{{ block.settings.heading_links_enabled }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "collapsible",
+      "label": "Collapsible",
+      "default": true
+    },
+    {
+      "type": "checkbox",
       "id": "open_by_default",
       "label": "Open row by default",
+      "default": false,
+      "visible_if": "{{ block.settings.collapsible == true }}"
+    },
+    {
+      "type": "header",
+      "content": "Social feed"
+    },
+    {
+      "type": "select",
+      "id": "provider",
+      "label": "Provider",
+      "options": [
+        { "value": "instagram", "label": "Instagram" },
+        { "value": "tiktok", "label": "TikTok" }
+      ],
+      "default": "instagram"
+    },
+    {
+      "type": "text",
+      "id": "feed_url",
+      "label": "Feed URL",
+      "info": "Leave blank to use https://social-feed.staygolden.co.nz/app_proxy/{provider}."
+    },
+    {
+      "type": "range",
+      "id": "max_items",
+      "label": "Max items",
+      "min": 3,
+      "max": 20,
+      "step": 1,
+      "default": 12
+    },
+    {
+      "type": "checkbox",
+      "id": "show_captions",
+      "label": "Show captions",
       "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "open_new_tab",
+      "label": "Open posts in new tab",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Image ratio",
+      "options": [
+        { "value": "square", "label": "Square" },
+        { "value": "portrait", "label": "Portrait" },
+        { "value": "landscape", "label": "Landscape" }
+      ],
+      "default": "square"
+    },
+    {
+      "type": "header",
+      "content": "Carousel layout"
+    },
+    {
+      "type": "range",
+      "id": "columns",
+      "label": "Columns",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "columns_gap",
+      "label": "Column gap",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "select",
+      "id": "mobile_card_size",
+      "label": "Mobile card size",
+      "options": [
+        { "value": "50cqw", "label": "Small" },
+        { "value": "60cqw", "label": "Medium" },
+        { "value": "75cqw", "label": "Large" }
+      ],
+      "default": "60cqw"
+    },
+    {
+      "type": "range",
+      "id": "slide_width_max",
+      "label": "Max slide width",
+      "min": 240,
+      "max": 520,
+      "step": 10,
+      "unit": "px",
+      "default": 420
+    },
+    {
+      "type": "select",
+      "id": "icons_style",
+      "label": "Arrow style",
+      "options": [
+        { "value": "arrow", "label": "Arrow" },
+        { "value": "chevron", "label": "Chevron" },
+        { "value": "none", "label": "None" }
+      ],
+      "default": "chevron"
+    },
+    {
+      "type": "select",
+      "id": "icons_shape",
+      "label": "Arrow shape",
+      "options": [
+        { "value": "circle", "label": "Circle" },
+        { "value": "square", "label": "Square" },
+        { "value": "none", "label": "None" }
+      ],
+      "default": "none"
     },
     {
       "type": "color_scheme",
       "id": "color_scheme",
-      "label": "Row color scheme"
+      "label": "Row colour scheme"
     },
     {
       "type": "color_scheme",
       "id": "hover_color_scheme",
-      "label": "Row hover color scheme"
+      "label": "Row hover colour scheme"
     },
     {
       "type": "color_scheme",
       "id": "left_hover_color_scheme",
-      "label": "Left hover color scheme",
+      "label": "Left hover colour scheme",
       "info": "Applies when the left heading is hovered or selected."
     },
     {
       "type": "color_scheme",
       "id": "right_hover_color_scheme",
-      "label": "Right hover color scheme",
+      "label": "Right hover colour scheme",
       "info": "Applies when the right heading is hovered or selected."
     },
     {
@@ -548,7 +969,7 @@
     {
       "type": "range",
       "id": "summary_padding_block_start",
-      "label": "Top",
+      "label": "Top padding",
       "min": 0,
       "max": 80,
       "step": 1,
@@ -558,7 +979,7 @@
     {
       "type": "range",
       "id": "summary_padding_block_end",
-      "label": "Bottom",
+      "label": "Bottom padding",
       "min": 0,
       "max": 80,
       "step": 1,
@@ -568,7 +989,7 @@
     {
       "type": "range",
       "id": "summary_padding_inline_start",
-      "label": "Left",
+      "label": "Left padding",
       "min": 0,
       "max": 80,
       "step": 1,
@@ -578,7 +999,7 @@
     {
       "type": "range",
       "id": "summary_padding_inline_end",
-      "label": "Right",
+      "label": "Right padding",
       "min": 0,
       "max": 80,
       "step": 1,
@@ -592,7 +1013,7 @@
     {
       "type": "range",
       "id": "content_padding_block_start",
-      "label": "Top",
+      "label": "Top padding",
       "min": 0,
       "max": 80,
       "step": 1,
@@ -602,7 +1023,7 @@
     {
       "type": "range",
       "id": "content_padding_block_end",
-      "label": "Bottom",
+      "label": "Bottom padding",
       "min": 0,
       "max": 80,
       "step": 1,
@@ -612,7 +1033,7 @@
     {
       "type": "range",
       "id": "content_padding_inline_start",
-      "label": "Left",
+      "label": "Left padding",
       "min": 0,
       "max": 80,
       "step": 1,
@@ -622,7 +1043,7 @@
     {
       "type": "range",
       "id": "content_padding_inline_end",
-      "label": "Right",
+      "label": "Right padding",
       "min": 0,
       "max": 80,
       "step": 1,
@@ -636,7 +1057,7 @@
     {
       "type": "select",
       "id": "heading_type_preset",
-      "label": "Heading preset",
+      "label": "Heading style",
       "options": [
         { "value": "", "label": "Inherit section settings" },
         { "value": "paragraph", "label": "Paragraph" },
@@ -652,7 +1073,7 @@
     {
       "type": "select",
       "id": "right_heading_type_preset",
-      "label": "Right heading preset",
+      "label": "Right heading style",
       "options": [
         { "value": "match", "label": "Match left heading" },
         { "value": "paragraph", "label": "Paragraph" },
@@ -668,7 +1089,7 @@
     {
       "type": "range",
       "id": "heading_min_size",
-      "label": "Minimum font size",
+      "label": "Minimum text size",
       "min": 0,
       "max": 2.5,
       "step": 0.1,
@@ -678,7 +1099,7 @@
     {
       "type": "range",
       "id": "heading_max_size",
-      "label": "Maximum font size",
+      "label": "Maximum text size",
       "min": 0,
       "max": 3.5,
       "step": 0.1,
@@ -736,12 +1157,12 @@
     {
       "type": "image_picker",
       "id": "image_upload",
-      "label": "Image icon"
+      "label": "Icon image"
     },
     {
       "type": "range",
       "id": "width",
-      "label": "Icon width",
+      "label": "Icon size",
       "min": 12,
       "max": 96,
       "step": 1,
@@ -751,7 +1172,7 @@
   ],
   "presets": [
     {
-      "name": "Accordion row"
+      "name": "Social feed row"
     }
   ]
 }

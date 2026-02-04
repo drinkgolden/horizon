@@ -1,60 +1,18 @@
 {% style %}
 
   {%- liquid
-    assign primary_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
-    assign primary_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
-    assign primary_font_bold_italic = primary_font_bold | font_modify: 'style', 'italic'
-    assign root_font_size = settings.type_root_font_size | default: 16
-    assign root_font_size = root_font_size | times: 1
     assign px_scale = 16.0
-  %}
+  -%}
 
-  {{ settings.type_body_font | font_face: font_display: 'swap' }}
-  {{ primary_font_bold | font_face: font_display: 'swap' }}
-  {{ primary_font_italic | font_face: font_display: 'swap' }}
-  {{ primary_font_bold_italic | font_face: font_display: 'swap' }}
-
-  {% if settings.type_subheading_font != settings.type_body_font %}
-    {%- liquid
-      assign secondary_font_bold = settings.type_subheading_font | font_modify: 'weight', 'bold'
-      assign secondary_font_italic = settings.type_subheading_font | font_modify: 'style', 'italic'
-      assign secondary_font_bold_italic = secondary_font_bold | font_modify: 'style', 'italic'
-    %}
-
-    {{ settings.type_subheading_font | font_face: font_display: 'swap' }}
-    {{ secondary_font_bold | font_face: font_display: 'swap' }}
-    {{ secondary_font_italic | font_face: font_display: 'swap' }}
-    {{ secondary_font_bold_italic | font_face: font_display: 'swap' }}
-  {% endif %}
-
-  {% if settings.type_heading_font != settings.type_body_font and settings.type_heading_font != settings.type_subheading_font %}
-    {%- liquid
-      assign tertiary_font_bold = settings.type_heading_font | font_modify: 'weight', 'bold'
-      assign tertiary_font_italic = settings.type_heading_font | font_modify: 'style', 'italic'
-      assign tertiary_font_bold_italic = tertiary_font_bold | font_modify: 'style', 'italic'
-    %}
-
-    {{ settings.type_heading_font | font_face: font_display: 'swap' }}
-    {{ tertiary_font_bold | font_face: font_display: 'swap' }}
-    {{ tertiary_font_italic | font_face: font_display: 'swap' }}
-    {{ tertiary_font_bold_italic | font_face: font_display: 'swap' }}
-  {% endif %}
-
-  {% if settings.type_accent_font != settings.type_body_font and settings.type_accent_font != settings.type_subheading_font and settings.type_accent_font != settings.type_heading_font %}
-    {%- liquid
-      assign accent_font_bold = settings.type_accent_font | font_modify: 'weight', 'bold'
-      assign accent_font_italic = settings.type_accent_font | font_modify: 'style', 'italic'
-      assign accent_font_bold_italic = accent_font_bold | font_modify: 'style', 'italic'
-    %}
-
-    {{ settings.type_accent_font | font_face: font_display: 'swap' }}
-    {{ accent_font_bold | font_face: font_display: 'swap' }}
-    {{ accent_font_italic | font_face: font_display: 'swap' }}
-    {{ accent_font_bold_italic | font_face: font_display: 'swap' }}
-  {% endif %}
+  @font-face {
+    font-family: "Gangster Grotesk";
+    src: url("{{ 'gangster-grotesk-regular.woff2' | asset_url }}") format("woff2");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+  }
 
   :root {
-    --root-font-size: {{ root_font_size }}px;
     /* Page Layout */
     --sidebar-width: 25rem;
     --narrow-content-width: 36rem;
@@ -89,18 +47,19 @@
     --letter-spacing-md: 0.13em;
 
     /* Font families */
-    --font-body--family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
-    --font-body--style: {{ settings.type_body_font.style }};
-    --font-body--weight: {{ settings.type_body_font.weight }};
-    --font-subheading--family: {{ settings.type_subheading_font.family }}, {{ settings.type_subheading_font.fallback_families }};
-    --font-subheading--style: {{ settings.type_subheading_font.style }};
-    --font-subheading--weight: {{ settings.type_subheading_font.weight }};
-    --font-heading--family: {{ settings.type_heading_font.family }}, {{ settings.type_heading_font.fallback_families }};
-    --font-heading--style: {{ settings.type_heading_font.style }};
-    --font-heading--weight: {{ settings.type_heading_font.weight }};
-    --font-accent--family: {{ settings.type_accent_font.family }}, {{ settings.type_accent_font.fallback_families }};
-    --font-accent--style: {{ settings.type_accent_font.style }};
-    --font-accent--weight: {{ settings.type_accent_font.weight }};
+    --font-body--family: "Gangster Grotesk", "Helvetica Neue", Arial, sans-serif;
+    --font-body--style: normal;
+    --font-body--weight: 400;
+    --font-body--case: {{ settings.type_case_paragraph | default: 'none' }};
+    --font-subheading--family: "Gangster Grotesk", "Helvetica Neue", Arial, sans-serif;
+    --font-subheading--style: normal;
+    --font-subheading--weight: 400;
+    --font-heading--family: "Gangster Grotesk", "Helvetica Neue", Arial, sans-serif;
+    --font-heading--style: normal;
+    --font-heading--weight: 400;
+    --font-accent--family: "Gangster Grotesk", "Helvetica Neue", Arial, sans-serif;
+    --font-accent--style: normal;
+    --font-accent--weight: 400;
 
     /* Margin sizes */
     --font-h1--spacing: 0.25em;
@@ -212,11 +171,13 @@
       endcomment
       for font_size in font_sizes
         assign size_setting = 'type_size_[font_size]' | replace: '[font_size]', font_size
+        assign min_setting = 'type_size_min_[font_size]' | replace: '[font_size]', font_size
         assign size_setting_value_raw = settings[size_setting]
         if size_setting_value_raw == blank
           assign size_setting_value_raw = 16
         endif
         assign font_size_setting_value = size_setting_value_raw | times: 1
+        assign min_setting_value_raw = settings[min_setting]
 
         if font_size_setting_value >= 10
           assign font_size_value_px = font_size_setting_value
@@ -226,37 +187,52 @@
         assign font_size_string = font_size_value_px | times: 1000 | round: 0 | append: ''
         assign index = font_size_values | find_index: font_size_string
 
-        if font_size_value_px >= fluid_size_cutoff
-
-          comment
-            Calculate the minimum size for each font size
-          endcomment
-          assign fluid_font_size_min = font_size_value_px
-
-          if index == 0
-            assign fluid_font_size_min = absolute_font_size_min
+        comment
+          Determine the minimum size. If a min setting exists, use it.
+          Otherwise, fall back to the original auto-min logic.
+        endcomment
+        assign font_size_min_px = font_size_value_px
+        if min_setting_value_raw != blank
+          assign min_setting_value_number = min_setting_value_raw | times: 1
+          if min_setting_value_number >= 10
+            assign font_size_min_px = min_setting_value_number
           else
-            assign next_font_size_index = index | minus: 1
-            assign next_font_size_value = font_size_values[next_font_size_index]
-            assign next_font_size_value_number = next_font_size_value | times: 0.001
-
-            comment
-              If the next bigger font size under the fluid cutoff, we keep a 4px buffer
-            endcomment
-            if next_font_size_value_number < fluid_size_cutoff
-              assign fluid_font_size_min = next_font_size_value_number | plus: 4
-              if font_size_value_px < fluid_font_size_min
-                assign fluid_font_size_min = font_size_value_px
-              endif
-            else
-              assign fluid_font_size_min = next_font_size_value_number
-            endif
+            assign font_size_min_px = min_setting_value_number | times: px_scale
           endif
+        else
+          if font_size_value_px >= fluid_size_cutoff
+            assign fluid_font_size_min = font_size_value_px
 
-          comment
-            Calculate the fluid and maximum size for each font size
-          endcomment
-          assign fluid_size_min_rem = fluid_font_size_min | divided_by: px_scale
+            if index == 0
+              assign fluid_font_size_min = absolute_font_size_min
+            else
+              assign next_font_size_index = index | minus: 1
+              assign next_font_size_value = font_size_values[next_font_size_index]
+              assign next_font_size_value_number = next_font_size_value | times: 0.001
+
+              comment
+                If the next bigger font size under the fluid cutoff, we keep a 4px buffer
+              endcomment
+              if next_font_size_value_number < fluid_size_cutoff
+                assign fluid_font_size_min = next_font_size_value_number | plus: 4
+                if font_size_value_px < fluid_font_size_min
+                  assign fluid_font_size_min = font_size_value_px
+                endif
+              else
+                assign fluid_font_size_min = next_font_size_value_number
+              endif
+            endif
+
+            assign font_size_min_px = fluid_font_size_min
+          endif
+        endif
+
+        if font_size_min_px > font_size_value_px
+          assign font_size_min_px = font_size_value_px
+        endif
+
+        if font_size_value_px >= fluid_size_cutoff or font_size_min_px != font_size_value_px
+          assign fluid_size_min_rem = font_size_min_px | divided_by: px_scale
           assign fluid_size = font_size_value_px | times: 0.1
           assign fluid_size_max_rem = font_size_value_px | divided_by: px_scale
 
@@ -278,15 +254,16 @@
           assign preset_style = '--font-body--style'
           assign preset_weight = '400'
           assign preset_case = '--font-body--case'
-          assign preset_letter_spacing = 'body-normal'
+          assign preset_letter_spacing = settings.type_letter_spacing_paragraph | default: 'body-normal'
 
           echo '--font-[preset_name]--weight: [preset_weight];' | replace: '[preset_name]', preset_name | replace: '[preset_weight]', preset_weight
           echo '--font-[preset_name]--letter-spacing: var(--letter-spacing--[preset_letter_spacing]);' | replace: '[preset_name]', preset_name | replace: '[preset_letter_spacing]', preset_letter_spacing
         else
           assign preset_font_id = 'type_font_[preset_name]' | replace: '[preset_name]', preset_name
-          assign preset_font = '--font-[preset_font]--family' | replace: '[preset_font]', settings[preset_font_id]
-          assign preset_style = '--font-[preset_font]--style' | replace: '[preset_font]', settings[preset_font_id]
-          assign preset_weight = '--font-[preset_font]--weight' | replace: '[preset_font]', settings[preset_font_id]
+          assign preset_font_key = settings[preset_font_id] | default: 'heading'
+          assign preset_font = '--font-[preset_font]--family' | replace: '[preset_font]', preset_font_key
+          assign preset_style = '--font-[preset_font]--style' | replace: '[preset_font]', preset_font_key
+          assign preset_weight = '--font-[preset_font]--weight' | replace: '[preset_font]', preset_font_key
           assign preset_case = 'type_case_[preset_name]' | replace: '[preset_name]', preset_name
           assign preset_letter_spacing = 'type_letter_spacing_[preset_name]' | replace: '[preset_name]', preset_name
 
@@ -371,7 +348,7 @@
     --margin-5xl: 3rem;
     --margin-6xl: 5rem;
 
-    --scroll-margin: 3.125rem;
+    --scroll-margin: 50px;
 
     --padding-3xs: 0.125rem;
     --padding-2xs: 0.25rem;
@@ -401,7 +378,7 @@
     --spacing-scale-default: 1.0;
 
     /* Checkout buttons gap */
-    --checkout-button-gap: 0.625rem;
+    --checkout-button-gap: 10px;
 
     /* Borders */
     --style-border-width: 1px;
@@ -484,7 +461,7 @@
     --input-padding: var(--input-padding-y) var(--input-padding-x);
     --input-box-shadow-width: var(--style-border-width-inputs);
     --input-box-shadow: 0 0 0 var(--input-box-shadow-width) var(--color-input-border);
-    --input-box-shadow-focus: 0 0 0 calc(var(--input-box-shadow-width) + 0.5px) var(--color-input-border);
+    --input-box-shadow-focus: 0 0 0 var(--input-box-shadow-width) var(--color-input-text);
     --input-disabled-background-color: rgb(var(--color-foreground-rgb) / var(--opacity-10));
     --input-disabled-border-color: rgb(var(--color-foreground-rgb) / var(--opacity-5));
     --input-disabled-text-color: rgb(var(--color-foreground-rgb) / var(--opacity-50));

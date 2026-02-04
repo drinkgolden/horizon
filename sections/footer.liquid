@@ -19,11 +19,6 @@
     assign has_isolated_grid_item_desktop = false
     assign has_isolated_grid_item_tablet = false
 
-    capture footer_gap_rem
-      render 'css-rem-value', value: section.settings.gap
-    endcapture
-    assign footer_gap_rem = footer_gap_rem | strip
-
     if total_blocks > 4 and last_row_count == 1
       assign has_isolated_grid_item_desktop = true
     endif
@@ -42,7 +37,7 @@
     "
     style="
       {%  render 'spacing-style', settings: section.settings %}
-      --footer-gap: {{ footer_gap_rem }};
+      --footer-gap: {{ section.settings.gap }}px;
       --grid-columns: {{ grid_columns }};
       --last-row-count: {{ last_row_count }};
       --tablet-last-row-count: {{ tablet_last_row_count }};
@@ -147,7 +142,7 @@
     {
       "type": "select",
       "id": "section_width",
-      "label": "t:settings.width",
+      "label": "Section width",
       "options": [
         {
           "value": "page-width",
@@ -163,7 +158,7 @@
     {
       "type": "range",
       "id": "gap",
-      "label": "t:settings.gap",
+      "label": "Block gap",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -173,7 +168,7 @@
     {
       "type": "color_scheme",
       "id": "color_scheme",
-      "label": "t:settings.color_scheme",
+      "label": "Colour scheme",
       "default": "scheme-1"
     },
     {
@@ -183,7 +178,7 @@
     {
       "type": "range",
       "id": "padding-block-start",
-      "label": "t:settings.top",
+      "label": "Top padding",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -193,7 +188,7 @@
     {
       "type": "range",
       "id": "padding-block-end",
-      "label": "t:settings.bottom",
+      "label": "Bottom padding",
       "min": 0,
       "max": 100,
       "step": 1,

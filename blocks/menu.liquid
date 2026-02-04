@@ -3,7 +3,7 @@
 {% liquid
   assign block_settings = block.settings
   assign menu = block_settings.menu
-  assign heading = block_settings.heading
+  assign heading = block_settings.heading | default: menu.title
   assign color_scheme = block_settings.color_scheme
   assign show_as_accordion = block_settings.show_as_accordion
   if show_as_accordion == true and block_settings.accordion_dividers == true
@@ -138,7 +138,7 @@
     {
       "type": "link_list",
       "id": "menu",
-      "label": "t:settings.menu",
+      "label": "Menu",
       "default": "main-menu"
     },
     {
@@ -153,7 +153,7 @@
     {
       "type": "range",
       "id": "menu_spacing",
-      "label": "t:settings.vertical_gap",
+      "label": "Item gap",
       "min": 0,
       "max": 50,
       "step": 1,
@@ -193,13 +193,13 @@
     {
       "type": "checkbox",
       "id": "inherit_color_scheme",
-      "label": "t:settings.inherit_color_scheme",
+      "label": "Inherit colour scheme",
       "default": true
     },
     {
       "type": "color_scheme",
       "id": "color_scheme",
-      "label": "t:settings.color_scheme",
+      "label": "Colour scheme",
       "default": "scheme-1",
       "visible_if": "{{ block.settings.inherit_color_scheme == false }}"
     },
@@ -210,7 +210,7 @@
     {
       "type": "select",
       "id": "heading_preset",
-      "label": "t:settings.heading_preset",
+      "label": "Heading style",
       "options": [
         {
           "value": "",
@@ -250,7 +250,7 @@
     {
       "type": "select",
       "id": "link_preset",
-      "label": "t:settings.link_preset",
+      "label": "Link style",
       "options": [
         {
           "value": "",

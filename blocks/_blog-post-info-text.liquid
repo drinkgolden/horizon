@@ -60,13 +60,13 @@
     {
       "type": "checkbox",
       "id": "show_date",
-      "label": "t:settings.show_date",
+      "label": "Show date",
       "default": true
     },
     {
       "type": "checkbox",
       "id": "show_author",
-      "label": "t:settings.show_author",
+      "label": "Show author",
       "default": true
     },
     {
@@ -76,7 +76,7 @@
     {
       "type": "select",
       "id": "type_preset",
-      "label": "t:settings.preset",
+      "label": "Text style",
       "options": [
         {
           "value": "",
@@ -117,13 +117,13 @@
     {
       "type": "text_alignment",
       "id": "alignment",
-      "label": "t:settings.alignment",
+      "label": "Text alignment",
       "visible_if": "{{ block.settings.show_alignment != false }}"
     },
     {
       "type": "checkbox",
       "id": "show_alignment",
-      "label": "t:settings.show_alignment",
+      "label": "Show alignment",
       "default": true,
       "visible_if": "{{ false }}"
     },
@@ -134,7 +134,7 @@
     {
       "type": "range",
       "id": "padding-block-start",
-      "label": "t:settings.top",
+      "label": "Top padding",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -144,7 +144,7 @@
     {
       "type": "range",
       "id": "padding-block-end",
-      "label": "t:settings.bottom",
+      "label": "Bottom padding",
       "min": 0,
       "max": 100,
       "step": 1,

@@ -14,7 +14,7 @@
     {
       "type": "select",
       "id": "width",
-      "label": "t:settings.width_desktop",
+      "label": "Width (desktop)",
       "options": [
         {
           "value": "fit-content",
@@ -30,7 +30,7 @@
     {
       "type": "range",
       "id": "custom_width",
-      "label": "t:settings.width",
+      "label": "Custom width",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -41,7 +41,7 @@
     {
       "type": "select",
       "id": "width_mobile",
-      "label": "t:settings.width_mobile",
+      "label": "Width (mobile)",
       "options": [
         {
           "value": "fit-content",
@@ -57,7 +57,7 @@
     {
       "type": "range",
       "id": "custom_width_mobile",
-      "label": "t:settings.width",
+      "label": "Custom width (mobile)",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -66,15 +66,35 @@
       "visible_if": "{{ block.settings.width_mobile == 'custom' }}"
     },
     {
+      "type": "select",
+      "id": "form_variant",
+      "label": "Form type",
+      "options": [
+        {
+          "value": "default",
+          "label": "Default"
+        },
+        {
+          "value": "wholesale",
+          "label": "Wholesale"
+        },
+        {
+          "value": "sponsorship",
+          "label": "Sponsorship"
+        }
+      ],
+      "default": "default"
+    },
+    {
       "type": "checkbox",
       "id": "inherit_color_scheme",
-      "label": "t:settings.inherit_color_scheme",
+      "label": "Inherit colour scheme",
       "default": true
     },
     {
       "type": "color_scheme",
       "id": "color_scheme",
-      "label": "t:settings.color_scheme",
+      "label": "Colour scheme",
       "default": "scheme-1",
       "visible_if": "{{ block.settings.inherit_color_scheme == false }}"
     },

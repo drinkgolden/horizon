@@ -21,7 +21,7 @@
             "width": "100%",
             "max_width": "narrow",
             "alignment": "left",
-            "type_preset": "h2",
+            "type_preset": "h1",
             "font": "var(--font-primary--family)",
             "font_size": "",
             "line_height": "normal",
@@ -59,8 +59,8 @@
           "name": "Featured image",
           "static": true,
           "settings": {
-            "image_ratio": "adapt",
-            "width": "fit-content",
+            "image_ratio": "landscape",
+            "width": "fill",
             "custom_width": 75,
             "width_mobile": "fill",
             "custom_width_mobile": 100,
@@ -85,10 +85,10 @@
       },
       "settings": {
         "content_direction": "column",
-        "gap": 32,
+        "gap": 16,
         "color_scheme": "",
-        "padding-block-start": 40,
-        "padding-block-end": 80
+        "padding-block-start": 44,
+        "padding-block-end": 44
       }
     }
   },

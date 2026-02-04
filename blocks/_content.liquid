@@ -29,7 +29,7 @@
     {
       "type": "select",
       "id": "horizontal_alignment_flex_direction_column",
-      "label": "t:settings.alignment",
+      "label": "Horizontal alignment",
       "options": [
         {
           "value": "flex-start",
@@ -49,7 +49,7 @@
     {
       "type": "select",
       "id": "vertical_alignment_flex_direction_column",
-      "label": "t:settings.position",
+      "label": "Vertical alignment",
       "options": [
         {
           "value": "flex-start",
@@ -73,7 +73,7 @@
     {
       "type": "range",
       "id": "gap",
-      "label": "t:settings.gap",
+      "label": "Block gap",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -87,20 +87,20 @@
     {
       "type": "checkbox",
       "id": "inherit_color_scheme",
-      "label": "t:settings.inherit_color_scheme",
+      "label": "Inherit colour scheme",
       "default": true
     },
     {
       "type": "color_scheme",
       "id": "color_scheme",
-      "label": "t:settings.color_scheme",
+      "label": "Colour scheme",
       "default": "scheme-1",
       "visible_if": "{{ block.settings.inherit_color_scheme == false }}"
     },
     {
       "type": "range",
       "id": "border_radius",
-      "label": "t:settings.border_radius",
+      "label": "Border radius",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -114,7 +114,7 @@
     {
       "type": "range",
       "id": "padding-block-start",
-      "label": "t:settings.top",
+      "label": "Top padding",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -124,7 +124,7 @@
     {
       "type": "range",
       "id": "padding-block-end",
-      "label": "t:settings.bottom",
+      "label": "Bottom padding",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -134,7 +134,7 @@
     {
       "type": "range",
       "id": "padding-inline-start",
-      "label": "t:settings.left",
+      "label": "Left padding",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -144,7 +144,7 @@
     {
       "type": "range",
       "id": "padding-inline-end",
-      "label": "t:settings.right",
+      "label": "Right padding",
       "min": 0,
       "max": 100,
       "step": 1,

@@ -16,7 +16,7 @@
     {
       "type": "select",
       "id": "media_type",
-      "label": "t:settings.type",
+      "label": "Media type",
       "options": [
         {
           "value": "image",
@@ -32,39 +32,39 @@
     {
       "type": "image_picker",
       "id": "image",
-      "label": "t:settings.image",
+      "label": "Image",
       "visible_if": "{{ block.settings.media_type == 'image' }}"
     },
     {
       "type": "url",
       "id": "link",
-      "label": "t:settings.link",
+      "label": "Link",
       "visible_if": "{{ block.settings.media_type == 'image'  }}"
     },
     {
       "type": "video",
       "id": "video",
-      "label": "t:settings.video",
+      "label": "Video",
       "visible_if": "{{ block.settings.media_type == 'video' }}"
     },
     {
       "type": "checkbox",
       "id": "video_loop",
-      "label": "t:settings.loop",
+      "label": "Loop video",
       "default": true,
       "visible_if": "{{ block.settings.media_type == 'video' }}"
     },
     {
       "type": "checkbox",
       "id": "video_autoplay",
-      "label": "t:settings.autoplay",
+      "label": "Autoplay",
       "default": false,
       "visible_if": "{{ block.settings.media_type == 'video' }}"
     },
     {
       "type": "select",
       "id": "image_position",
-      "label": "t:settings.image_position",
+      "label": "Image fit",
       "options": [
         {
           "value": "cover",
@@ -81,7 +81,7 @@
     {
       "type": "select",
       "id": "video_position",
-      "label": "t:settings.video_position",
+      "label": "Video fit",
       "options": [
         {
           "value": "cover",

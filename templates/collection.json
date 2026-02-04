@@ -20,7 +20,7 @@
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
-            "type_preset": "h4",
+            "type_preset": "h3",
             "font": "var(--font-primary--family)",
             "font_size": "",
             "line_height": "normal",
@@ -80,7 +80,7 @@
         "vertical_alignment_flex_direction_column": "flex-end",
         "gap": 12,
         "section_width": "full-width",
-        "section_height": "custom",
+        "section_height": "",
         "section_height_custom": 24,
         "color_scheme": "scheme-1",
         "background_media": "none",
@@ -95,8 +95,8 @@
         "overlay_color": "#00000026",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 24,
-        "padding-block-end": 24
+        "padding-block-start": 64,
+        "padding-block-end": 44
       }
     },
     "main": {
@@ -118,9 +118,9 @@
             "color_scheme": "",
             "padding-block-start": 16,
             "padding-block-end": 16,
-            "padding-inline-start": 24,
-            "padding-inline-end": 24,
-            "facets_margin_bottom": 44,
+            "padding-inline-start": 16,
+            "padding-inline-end": 16,
+            "facets_margin_bottom": 0,
             "facets_margin_right": 20
           },
           "blocks": {}
@@ -165,7 +165,7 @@
                 "width": "100%",
                 "max_width": "narrow",
                 "alignment": "left",
-                "type_preset": "h6",
+                "type_preset": "h5",
                 "font": "var(--font-body--family)",
                 "font_size": "1rem",
                 "line_height": "normal",
@@ -230,19 +230,21 @@
       },
       "settings": {
         "layout_type": "grid",
-        "product_card_size": "medium",
+        "desktop_card_layout": "columns",
+        "desktop_columns": 3,
+        "product_card_size": "large",
         "mobile_product_card_size": "large",
-        "enable_infinite_scroll": true,
-        "products_per_page": 24,
+        "enable_infinite_scroll": false,
+        "products_per_page": 8,
         "product_grid_width": "full-width",
         "full_width_on_mobile": true,
-        "columns_gap_horizontal": 24,
-        "columns_gap_vertical": 24,
+        "columns_gap_horizontal": 0,
+        "columns_gap_vertical": 0,
         "padding-inline-start": 0,
         "padding-inline-end": 0,
         "color_scheme": "scheme-1",
-        "padding-block-start": 24,
-        "padding-block-end": 72
+        "padding-block-start": 0,
+        "padding-block-end": 64
       }
     }
   },
