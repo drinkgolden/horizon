@@ -619,8 +619,8 @@
               "type": "accordion_row",
               "name": "t:names.accordion_row",
               "settings": {
-                "heading": "Low Calorie",
-                "right_heading": "Mānuka honey",
+                "heading": "Low Cal",
+                "right_heading": "Mānuka Honey",
                 "collapsible": true,
                 "open_by_default": false,
                 "group_mode": "split",
