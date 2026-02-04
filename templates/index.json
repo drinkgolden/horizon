@@ -1264,8 +1264,8 @@
               "type": "accordion_row",
               "name": "Accordion row",
               "settings": {
-                "heading": "Read the Latest",
-                "right_heading": "Golden Hour Blog",
+                "heading": "Golden Hour",
+                "right_heading": "Blog",
                 "heading_links_enabled": true,
                 "heading_link": "shopify://blogs/golden-hour",
                 "right_heading_link": "shopify://blogs/golden-hour",
