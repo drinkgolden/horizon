@@ -19,7 +19,11 @@
   #
   # if section has section.settings.columns:
   # assume grid-template repeat(column-count, 1fr) and calculate the sizes attribute based on the number of columns
-  if section.settings.product_card_size
+  if section.settings.desktop_card_layout == 'columns' and section.settings.desktop_columns
+    assign viewport_width = 100.0 | divided_by: section.settings.desktop_columns
+    assign sizes_attribute = '(min-width: 750px) [viewport_width]vw, 100vw' | replace: '[viewport_width]', viewport_width
+    assign image_sizes = sizes_attribute | strip
+  elsif section.settings.product_card_size
     capture card_size
       render 'util-product-grid-card-size', section: section
     endcapture

@@ -175,6 +175,33 @@
     },
     {
       "type": "select",
+      "id": "desktop_card_layout",
+      "label": "Desktop card layout",
+      "options": [
+        {
+          "value": "size",
+          "label": "Card size"
+        },
+        {
+          "value": "columns",
+          "label": "Fixed columns"
+        }
+      ],
+      "default": "size",
+      "visible_if": "{{ section.settings.layout_type == 'grid' }}"
+    },
+    {
+      "type": "range",
+      "id": "desktop_columns",
+      "label": "Items per row (desktop)",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "default": 3,
+      "visible_if": "{{ section.settings.layout_type == 'grid' and section.settings.desktop_card_layout == 'columns' }}"
+    },
+    {
+      "type": "select",
       "id": "product_card_size",
       "label": "Card size (desktop)",
       "options": [
@@ -196,7 +223,7 @@
         }
       ],
       "default": "medium",
-      "visible_if": "{{ section.settings.layout_type == 'grid' }}"
+      "visible_if": "{{ section.settings.layout_type == 'grid' and section.settings.desktop_card_layout != 'columns' }}"
     },
     {
       "type": "select",
