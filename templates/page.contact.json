@@ -19,7 +19,7 @@
             "text": "<h1>{{ closest.page.title }}</h1>",
             "width": "100%",
             "max_width": "normal",
-            "alignment": "center",
+            "alignment": "left",
             "type_preset": "h2",
             "font": "var(--font-primary--family)",
             "font_size": "",
@@ -71,10 +71,10 @@
       ],
       "settings": {
         "content_direction": "column",
-        "gap": 24,
+        "gap": 44,
         "color_scheme": "",
-        "padding-block-start": 24,
-        "padding-block-end": 24
+        "padding-block-start": 44,
+        "padding-block-end": 44
       }
     },
     "form": {
@@ -87,6 +87,7 @@
             "custom_width": 50,
             "width_mobile": "custom",
             "custom_width_mobile": 100,
+            "form_variant": "default",
             "inherit_color_scheme": true,
             "color_scheme": "",
             "padding-block-start": 0,
@@ -142,7 +143,9 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 32,
-        "padding-block-end": 84
+        "padding-block-end": 84,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0
       }
     }
   },
