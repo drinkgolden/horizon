@@ -298,12 +298,13 @@ body.has-side-columns .floating-motif-button__surface {
 }
 
 .floating-motif-button__action {
-  flex: 1 1 140px;
-  min-width: 140px;
+  flex: 0 0 auto;
+  min-width: 0;
 }
 
-.floating-motif-button__action--secondary {
-  color: inherit;
+.floating-motif-button__action.button--link {
+  --link-button-underline-offset: var(--header-link-underline-offset, 0.24em);
+  --link-button-underline-thickness: var(--header-link-underline-thickness, 0.08em);
 }
 
 .floating-motif-button__shape {

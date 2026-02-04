@@ -7,6 +7,8 @@ class FloatingMotifButton {
     this.visibilityThreshold = 0;
     this.scrollRevealPercent = this.readScrollRevealPercent();
     this.dismissed = this.readDismissState();
+    this.defaultMotifColors = this.readDefaultMotifColors();
+    this.colorSyncQueued = false;
 
     this.handleScroll = this.handleScroll.bind(this);
     this.handleResize = this.handleResize.bind(this);
@@ -31,6 +33,7 @@ class FloatingMotifButton {
 
     requestAnimationFrame(() => {
       this.syncVisibility();
+      this.syncColorScheme();
     });
   }
 
@@ -52,11 +55,13 @@ class FloatingMotifButton {
 
   handleScroll() {
     this.syncVisibility();
+    this.queueColorSync();
   }
 
   handleResize() {
     this.updateThreshold();
     this.syncVisibility();
+    this.queueColorSync();
   }
 
   syncVisibility() {
@@ -69,6 +74,115 @@ class FloatingMotifButton {
 
     this.element.classList.toggle('is-visible', shouldShow);
     this.element.setAttribute('aria-hidden', shouldShow ? 'false' : 'true');
+  }
+
+  queueColorSync() {
+    if (this.colorSyncQueued) {
+      return;
+    }
+    this.colorSyncQueued = true;
+    requestAnimationFrame(() => {
+      this.colorSyncQueued = false;
+      this.syncColorScheme();
+    });
+  }
+
+  syncColorScheme() {
+    if (!this.element || this.dismissed) {
+      return;
+    }
+
+    const motifRect = this.element.getBoundingClientRect();
+    if (motifRect.height === 0) {
+      return;
+    }
+
+    let probeY = motifRect.top - 2;
+    if (probeY < 0) {
+      probeY = Math.max(window.innerHeight - 2, 0);
+    }
+    const probeX = Math.min(Math.max(window.innerWidth / 2, 0), window.innerWidth - 1);
+    let target = document.elementFromPoint(probeX, probeY);
+
+    if (target && this.element.contains(target)) {
+      probeY = Math.max(motifRect.top - 8, 0);
+      target = document.elementFromPoint(probeX, probeY);
+    }
+
+    const schemeElement = this.findColorSchemeElement(target);
+    if (!schemeElement) {
+      this.resetMotifColors();
+      return;
+    }
+
+    const styles = window.getComputedStyle(schemeElement);
+    const background = styles.getPropertyValue('--color-background').trim();
+    const foreground = styles.getPropertyValue('--color-foreground').trim();
+
+    if (background) {
+      this.element.style.setProperty('--motif-button-background', background);
+    } else {
+      this.resetMotifColors('background');
+    }
+
+    if (foreground) {
+      this.element.style.setProperty('--motif-button-text-color', foreground);
+    } else {
+      this.resetMotifColors('foreground');
+    }
+  }
+
+  findColorSchemeElement(node) {
+    if (!node) {
+      return null;
+    }
+
+    let current = node;
+    while (current && current !== document.body) {
+      if (current.classList) {
+        for (const className of current.classList) {
+          if (className.startsWith('color-')) {
+            return current;
+          }
+        }
+      }
+      current = current.parentElement;
+    }
+
+    return document.body;
+  }
+
+  readDefaultMotifColors() {
+    if (!this.element) {
+      return {
+        background: '',
+        foreground: ''
+      };
+    }
+
+    const styles = window.getComputedStyle(this.element);
+    return {
+      background: styles.getPropertyValue('--motif-button-background').trim(),
+      foreground: styles.getPropertyValue('--motif-button-text-color').trim()
+    };
+  }
+
+  resetMotifColors(channel) {
+    if (!this.defaultMotifColors) {
+      return;
+    }
+
+    if (!channel || channel === 'background') {
+      if (this.defaultMotifColors.background) {
+        this.element.style.setProperty('--motif-button-background', this.defaultMotifColors.background);
+      }
+    }
+
+    if (!channel || channel === 'foreground') {
+      if (this.defaultMotifColors.foreground) {
+        this.element.style.setProperty('--motif-button-text-color', this.defaultMotifColors.foreground);
+      }
+    }
   }
 
   handleClose(event) {
