@@ -227,27 +227,7 @@
                 "icon": "none",
                 "width": 20
               },
-              "blocks": {
-                "slideshow_block_y7mCBC": {
-                  "type": "slideshow_block",
-                  "name": "Slideshow",
-                  "settings": {
-                    "icons_style": "chevron",
-                    "slideshow_controls_style": "none",
-                    "autoplay": false,
-                    "autoplay_speed": 4,
-                    "slide_height": "auto",
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": [
-                "slideshow_block_y7mCBC"
-              ]
+              "blocks": {}
             }
           },
           "block_order": [
