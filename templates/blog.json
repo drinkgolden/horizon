@@ -18,7 +18,7 @@
           "settings": {
             "text": "<h1>{{ closest.blog.title }}</h1>",
             "width": "100%",
-            "max_width": "narrow",
+            "max_width": "none",
             "alignment": "left",
             "type_preset": "h2",
             "font": "var(--font-primary--family)",
@@ -31,8 +31,8 @@
             "background": false,
             "background_color": "#00000026",
             "corner_radius": 0,
-            "padding-block-start": 48,
-            "padding-block-end": 48,
+            "padding-block-start": 16,
+            "padding-block-end": 16,
             "padding-inline-start": 0,
             "padding-inline-end": 0
           },
@@ -105,7 +105,7 @@
               "type": "_blog-post-image",
               "static": true,
               "settings": {
-                "height": "large",
+                "height": "medium",
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,

@@ -85,10 +85,10 @@
       },
       "settings": {
         "content_direction": "column",
-        "gap": 32,
+        "gap": 16,
         "color_scheme": "",
-        "padding-block-start": 40,
-        "padding-block-end": 80
+        "padding-block-start": 44,
+        "padding-block-end": 44
       }
     }
   },
