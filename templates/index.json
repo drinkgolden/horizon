@@ -44,7 +44,7 @@
         "align_baseline": false,
         "horizontal_alignment_flex_direction_column": "center",
         "vertical_alignment_flex_direction_column": "center",
-        "gap": 16,
+        "gap": 0,
         "section_width": "full-width",
         "section_height": "",
         "section_height_custom": 20,
@@ -61,7 +61,7 @@
         "overlay_color": "#00000026",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 44,
+        "padding-block-start": 16,
         "padding-block-end": 0,
         "padding-inline-start": 0,
         "padding-inline-end": 0
