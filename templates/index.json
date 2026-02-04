@@ -1031,9 +1031,9 @@
                 "collapsible": false,
                 "open_by_default": true,
                 "group_mode": "shared",
-                "color_scheme": "scheme-6",
-                "hover_color_scheme": "scheme-6",
-                "left_hover_color_scheme": "scheme-6",
+                "color_scheme": "scheme-7",
+                "hover_color_scheme": "scheme-7",
+                "left_hover_color_scheme": "scheme-7",
                 "right_hover_color_scheme": "",
                 "summary_padding_block_start": 16,
                 "summary_padding_block_end": 16,
@@ -1206,7 +1206,7 @@
                       "type": "text",
                       "name": "t:names.text",
                       "settings": {
-                        "text": "<p>Our lemons grow right on the pacific coastline of the eastern shores of Hawkes Bay in the small coastal town of Wairoa. </p>",
+                        "text": "<p>Our lemons are grown in Wairoa a small on the pacific coastline of the eastern shores of Hawkes Bay in the small coastal town of Wairoa. </p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -2016,6 +2016,97 @@
         "padding-block-end": 16
       }
     },
+    "section_zk7ykz": {
+      "type": "section",
+      "blocks": {
+        "accordion_pwPF8B": {
+          "type": "accordion",
+          "name": "t:names.accordion",
+          "settings": {
+            "icon": "caret",
+            "dividers": true,
+            "type_preset": "h6",
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "accordion_row_XMeFbG": {
+              "type": "accordion_row",
+              "name": "Accordion row",
+              "settings": {
+                "heading": "Accordion heading",
+                "right_heading": "",
+                "collapsible": true,
+                "open_by_default": false,
+                "group_mode": "split",
+                "color_scheme": "",
+                "hover_color_scheme": "",
+                "left_hover_color_scheme": "",
+                "right_hover_color_scheme": "",
+                "summary_padding_block_start": 0,
+                "summary_padding_block_end": 0,
+                "summary_padding_inline_start": 0,
+                "summary_padding_inline_end": 0,
+                "content_padding_block_start": 12,
+                "content_padding_block_end": 24,
+                "content_padding_inline_start": 24,
+                "content_padding_inline_end": 24,
+                "heading_type_preset": "",
+                "right_heading_type_preset": "match",
+                "heading_min_size": 0,
+                "heading_max_size": 0,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "accordion_row_XMeFbG"
+          ]
+        }
+      },
+      "block_order": [
+        "accordion_pwPF8B"
+      ],
+      "name": "Accordion / Accordian",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 32,
+        "section_width": "full-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "split_divider_color": "#d9d9d9",
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
     "section_REkpVR": {
       "type": "section",
       "blocks": {
@@ -2182,6 +2273,7 @@
     "section_TTRARa",
     "section_z7Mh7j",
     "featured_blog_posts_EgLy9B",
+    "section_zk7ykz",
     "section_REkpVR",
     "section_3hPHCr"
   ]
