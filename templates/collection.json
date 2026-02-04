@@ -230,6 +230,8 @@
       },
       "settings": {
         "layout_type": "grid",
+        "desktop_card_layout": "columns",
+        "desktop_columns": 3,
         "product_card_size": "large",
         "mobile_product_card_size": "large",
         "enable_infinite_scroll": false,

@@ -2061,7 +2061,7 @@
                 "heading_links_enabled": true,
                 "heading_link": "",
                 "right_heading_link": "https://www.instagram.com/drink.golden/",
-                "collapsible": false,
+                "collapsible": true,
                 "open_by_default": true,
                 "provider": "instagram",
                 "feed_url": "",
