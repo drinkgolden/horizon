@@ -52,8 +52,8 @@
             "pixel_height_mobile": 120,
             "padding-block-start": 0,
             "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
+            "padding-inline-start": 16,
+            "padding-inline-end": 16
           },
           "blocks": {}
         }
@@ -1426,7 +1426,7 @@
               "name": "t:names.accordion_row",
               "settings": {
                 "heading": "Product of",
-                "right_heading": "New Zealand",
+                "right_heading": "Aotearoa",
                 "heading_links_enabled": false,
                 "heading_link": "",
                 "right_heading_link": "",
@@ -1852,8 +1852,8 @@
               "type": "accordion_row",
               "name": "Accordion row",
               "settings": {
-                "heading": "Golden Hour",
-                "right_heading": "Blog",
+                "heading": "Read the Latest",
+                "right_heading": "Golden Hour Blog",
                 "heading_links_enabled": true,
                 "heading_link": "shopify://blogs/golden-hour",
                 "right_heading_link": "shopify://blogs/golden-hour",
