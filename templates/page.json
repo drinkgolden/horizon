@@ -91,12 +91,12 @@
               "settings": {
                 "image": "shopify://shop_images/DSCN0444.webp",
                 "link": "",
-                "image_ratio": "adapt",
+                "image_ratio": "landscape",
                 "width": "fill",
                 "custom_width": 100,
                 "width_mobile": "fill",
                 "custom_width_mobile": 100,
-                "height": "fit",
+                "height": "fill",
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
@@ -123,7 +123,7 @@
       "settings": {
         "content_direction": "column",
         "gap": 16,
-        "color_scheme": "",
+        "color_scheme": "scheme-6",
         "padding-block-start": 44,
         "padding-block-end": 44
       }
