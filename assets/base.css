@@ -4741,7 +4741,7 @@ slideshow-arrows .slideshow-control.slideshow-control--style-none {
 }
 
 .media-gallery--carousel slideshow-arrows .slideshow-control {
-  padding-inline: 0 var(--padding-md);
+  padding-inline: var(--padding-md);
 }
 
 .card-gallery slideshow-arrows .slideshow-control {
