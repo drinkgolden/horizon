@@ -232,7 +232,7 @@ html.no-js .floating-motif-button {
 }
 
 body.has-side-columns .floating-motif-button__surface {
-  max-width: calc(100% - (var(--floating-motif-side-offset, 0px) * 2));
+  max-width: 100%;
 }
 
 .floating-motif-button__body {
