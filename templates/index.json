@@ -242,8 +242,8 @@
                   "type": "icon",
                   "name": "t:names.icon",
                   "settings": {
-                    "icon": "price_tag",
-                    "image_upload": "shopify://shop_images/FAVICON_48.png",
+                    "icon": "none",
+                    "image_upload": "shopify://shop_images/Golden_Bee_Icon_White.svg",
                     "width": 16,
                     "link": "",
                     "open_in_new_tab": false
