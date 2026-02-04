@@ -351,7 +351,7 @@
                         "product_card_gallery_e9bC3k": {
                           "type": "_product-card-gallery",
                           "settings": {
-                            "image_ratio": "adapt",
+                            "image_ratio": "portrait",
                             "enable_rotate_toggle": true,
                             "border": "none",
                             "border_width": 1,
@@ -488,7 +488,7 @@
                         "product_card_gallery_gTxQBR": {
                           "type": "_product-card-gallery",
                           "settings": {
-                            "image_ratio": "adapt",
+                            "image_ratio": "portrait",
                             "enable_rotate_toggle": true,
                             "border": "none",
                             "border_width": 1,
@@ -625,7 +625,7 @@
                         "product_card_gallery_tRjrqx": {
                           "type": "_product-card-gallery",
                           "settings": {
-                            "image_ratio": "adapt",
+                            "image_ratio": "portrait",
                             "enable_rotate_toggle": true,
                             "border": "none",
                             "border_width": 1,
@@ -1040,7 +1040,7 @@
                 "summary_padding_inline_start": 16,
                 "summary_padding_inline_end": 16,
                 "content_padding_block_start": 16,
-                "content_padding_block_end": 16,
+                "content_padding_block_end": 44,
                 "content_padding_inline_start": 16,
                 "content_padding_inline_end": 16,
                 "heading_type_preset": "h2",
@@ -1059,7 +1059,7 @@
                     "slideshow_controls_style": "none",
                     "autoplay": false,
                     "autoplay_speed": 4,
-                    "slide_height": "auto",
+                    "slide_height": "large",
                     "padding-block-start": 0,
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
@@ -1237,7 +1237,7 @@
                         "image_ratio": "adapt",
                         "width": "fill",
                         "custom_width": 100,
-                        "width_mobile": "fill",
+                        "width_mobile": "fit-content",
                         "custom_width_mobile": 100,
                         "height": "fit",
                         "border": "none",
@@ -1245,10 +1245,10 @@
                         "border_opacity": 100,
                         "border_radius": 0,
                         "placeholder_color": "",
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
+                        "padding-block-start": 44,
+                        "padding-block-end": 44,
+                        "padding-inline-start": 44,
+                        "padding-inline-end": 44
                       },
                       "blocks": {}
                     }
@@ -1369,18 +1369,18 @@
                         "image_ratio": "adapt",
                         "width": "fill",
                         "custom_width": 50,
-                        "width_mobile": "custom",
+                        "width_mobile": "fill",
                         "custom_width_mobile": 50,
-                        "height": "fit",
+                        "height": "fill",
                         "border": "none",
                         "border_width": 1,
                         "border_opacity": 100,
                         "border_radius": 0,
                         "placeholder_color": "",
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
+                        "padding-block-start": 44,
+                        "padding-block-end": 44,
+                        "padding-inline-start": 44,
+                        "padding-inline-end": 44
                       },
                       "blocks": {}
                     }
