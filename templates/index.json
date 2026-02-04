@@ -364,6 +364,32 @@
                           },
                           "blocks": {}
                         },
+                        "text_wB8C4M": {
+                          "type": "text",
+                          "name": "t:names.text",
+                          "settings": {
+                            "text": "<p><a href=\"/products/golden-lemon-manuka\" title=\"Lemon Mānuka Soda\">Shop Lemon</a></p>",
+                            "width": "100%",
+                            "max_width": "normal",
+                            "alignment": "center",
+                            "type_preset": "h4",
+                            "font": "var(--font-body--family)",
+                            "font_size": "1rem",
+                            "line_height": "normal",
+                            "letter_spacing": "normal",
+                            "case": "none",
+                            "wrap": "pretty",
+                            "color": "var(--color-primary)",
+                            "background": false,
+                            "background_color": "#00000003",
+                            "corner_radius": 0,
+                            "padding-block-start": 0,
+                            "padding-block-end": 0,
+                            "padding-inline-start": 0,
+                            "padding-inline-end": 0
+                          },
+                          "blocks": {}
+                        },
                         "product_card_group_My6a68": {
                           "type": "_product-card-group",
                           "name": "t:names.group",
@@ -437,6 +463,7 @@
                       },
                       "block_order": [
                         "product_card_gallery_e9bC3k",
+                        "text_wB8C4M",
                         "product_card_group_My6a68"
                       ]
                     },
@@ -467,6 +494,32 @@
                             "border_width": 1,
                             "border_opacity": 100,
                             "border_radius": 0,
+                            "padding-block-start": 0,
+                            "padding-block-end": 0,
+                            "padding-inline-start": 0,
+                            "padding-inline-end": 0
+                          },
+                          "blocks": {}
+                        },
+                        "text_namg8Y": {
+                          "type": "text",
+                          "name": "t:names.text",
+                          "settings": {
+                            "text": "<p>Shop Blackcurrant</p>",
+                            "width": "100%",
+                            "max_width": "normal",
+                            "alignment": "center",
+                            "type_preset": "h4",
+                            "font": "var(--font-body--family)",
+                            "font_size": "1rem",
+                            "line_height": "normal",
+                            "letter_spacing": "normal",
+                            "case": "none",
+                            "wrap": "pretty",
+                            "color": "var(--color-primary)",
+                            "background": false,
+                            "background_color": "#00000026",
+                            "corner_radius": 0,
                             "padding-block-start": 0,
                             "padding-block-end": 0,
                             "padding-inline-start": 0,
@@ -547,6 +600,7 @@
                       },
                       "block_order": [
                         "product_card_gallery_gTxQBR",
+                        "text_namg8Y",
                         "product_card_group_djUpXm"
                       ]
                     }
