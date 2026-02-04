@@ -196,65 +196,6 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "group_QDqey8": {
-              "type": "group",
-              "name": "t:names.group",
-              "settings": {
-                "content_direction": "column",
-                "vertical_on_mobile": true,
-                "horizontal_alignment": "flex-end",
-                "vertical_alignment": "flex-end",
-                "align_baseline": false,
-                "horizontal_alignment_flex_direction_column": "flex-end",
-                "vertical_alignment_flex_direction_column": "flex-end",
-                "enable_sticky": false,
-                "sticky_offset": 0,
-                "gap": 0,
-                "width": "fill",
-                "custom_width": 100,
-                "width_mobile": "fill",
-                "custom_width_mobile": 100,
-                "height": "fill",
-                "custom_height": 100,
-                "inherit_color_scheme": true,
-                "color_scheme": "",
-                "background_media": "none",
-                "video_position": "cover",
-                "background_image_position": "cover",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0,
-                "toggle_overlay": false,
-                "overlay_color": "#00000026",
-                "overlay_style": "solid",
-                "gradient_direction": "to top",
-                "link": "",
-                "open_in_new_tab": false,
-                "placeholder": "",
-                "padding-block-start": 6,
-                "padding-block-end": 6,
-                "padding-inline-start": 6,
-                "padding-inline-end": 6
-              },
-              "blocks": {
-                "icon_XkjdtU": {
-                  "type": "icon",
-                  "name": "t:names.icon",
-                  "settings": {
-                    "icon": "none",
-                    "image_upload": "shopify://shop_images/Golden_Bee_Icon_White.svg",
-                    "width": 16,
-                    "link": "",
-                    "open_in_new_tab": false
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": [
-                "icon_XkjdtU"
-              ]
-            },
             "slideshow_block_QBQF4R": {
               "type": "slideshow_block",
               "name": "Slideshow",
@@ -273,7 +214,6 @@
             }
           },
           "block_order": [
-            "group_QDqey8",
             "slideshow_block_QBQF4R"
           ]
         }
