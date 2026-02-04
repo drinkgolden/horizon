@@ -205,6 +205,9 @@
               "settings": {
                 "heading": "For the love of soda, bees and all things sweet",
                 "right_heading": "",
+                "heading_links_enabled": false,
+                "heading_link": "",
+                "right_heading_link": "",
                 "collapsible": false,
                 "open_by_default": true,
                 "group_mode": "shared",
@@ -649,7 +652,10 @@
               "name": "t:names.accordion_row",
               "settings": {
                 "heading": "Low Cal Honey Soda",
-                "right_heading": "",
+                "right_heading": "Shop Golden",
+                "heading_links_enabled": true,
+                "heading_link": "",
+                "right_heading_link": "shopify://collections/all",
                 "collapsible": false,
                 "open_by_default": true,
                 "group_mode": "shared",
@@ -1144,6 +1150,9 @@
               "settings": {
                 "heading": "Low Cal",
                 "right_heading": "Mānuka Honey",
+                "heading_links_enabled": false,
+                "heading_link": "",
+                "right_heading_link": "",
                 "collapsible": false,
                 "open_by_default": false,
                 "group_mode": "split",
@@ -1383,6 +1392,9 @@
               "settings": {
                 "heading": "All Natural",
                 "right_heading": "Vitamin C",
+                "heading_links_enabled": false,
+                "heading_link": "",
+                "right_heading_link": "",
                 "collapsible": true,
                 "open_by_default": false,
                 "group_mode": "split",
@@ -1413,6 +1425,9 @@
               "settings": {
                 "heading": "Product of",
                 "right_heading": "New Zealand",
+                "heading_links_enabled": false,
+                "heading_link": "",
+                "right_heading_link": "",
                 "collapsible": true,
                 "open_by_default": true,
                 "group_mode": "shared",
@@ -1567,6 +1582,9 @@
               "settings": {
                 "heading": "Hawke's Bay",
                 "right_heading": "Lemons",
+                "heading_links_enabled": false,
+                "heading_link": "",
+                "right_heading_link": "",
                 "collapsible": true,
                 "open_by_default": false,
                 "group_mode": "shared",
@@ -1620,7 +1638,7 @@
                     "border_opacity": 100,
                     "border_radius": 0,
                     "toggle_overlay": true,
-                    "overlay_color": "#00000000",
+                    "overlay_color": "rgba(0,0,0,0)",
                     "overlay_style": "solid",
                     "gradient_direction": "to top",
                     "link": "",
@@ -1699,6 +1717,9 @@
               "settings": {
                 "heading": "Otago",
                 "right_heading": "Blackcurrants",
+                "heading_links_enabled": false,
+                "heading_link": "",
+                "right_heading_link": "",
                 "collapsible": true,
                 "open_by_default": false,
                 "group_mode": "shared",
@@ -1824,6 +1845,193 @@
               "block_order": [
                 "group_7mFNTK"
               ]
+            },
+            "accordion_row_dipeVh": {
+              "type": "accordion_row",
+              "name": "Accordion row",
+              "settings": {
+                "heading": "Golden Hour",
+                "right_heading": "Blog",
+                "heading_links_enabled": true,
+                "heading_link": "shopify://blogs/golden-hour",
+                "right_heading_link": "shopify://blogs/golden-hour",
+                "collapsible": false,
+                "open_by_default": true,
+                "group_mode": "shared",
+                "color_scheme": "",
+                "hover_color_scheme": "",
+                "left_hover_color_scheme": "",
+                "right_hover_color_scheme": "",
+                "summary_padding_block_start": 16,
+                "summary_padding_block_end": 16,
+                "summary_padding_inline_start": 16,
+                "summary_padding_inline_end": 16,
+                "content_padding_block_start": 16,
+                "content_padding_block_end": 44,
+                "content_padding_inline_start": 16,
+                "content_padding_inline_end": 16,
+                "heading_type_preset": "",
+                "right_heading_type_preset": "match",
+                "heading_min_size": 1,
+                "heading_max_size": 1.6,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "blog_summary_carousel_eixRQp": {
+                  "type": "blog-summary-carousel",
+                  "name": "Blog summary carousel",
+                  "settings": {
+                    "blog": "golden-hour",
+                    "layout_type": "carousel",
+                    "carousel_on_mobile": true,
+                    "post_limit": 6,
+                    "columns": 3,
+                    "mobile_columns": "2",
+                    "mobile_card_size": "44cqw",
+                    "columns_gap": 16,
+                    "rows_gap": 16,
+                    "icons_style": "chevron",
+                    "icons_shape": "none",
+                    "section_width": "full-width",
+                    "gap": 12,
+                    "color_scheme": "",
+                    "padding-block-start": 16,
+                    "padding-block-end": 16
+                  },
+                  "blocks": {
+                    "static-blog-title": {
+                      "type": "_featured-blog-posts-title",
+                      "disabled": true,
+                      "static": true,
+                      "settings": {
+                        "text": "",
+                        "padding_block_start": 0,
+                        "padding_block_end": 0,
+                        "padding_inline_start": 0,
+                        "padding_inline_end": 0,
+                        "left_heading": "",
+                        "right_heading": "",
+                        "heading_type_preset": "",
+                        "right_heading_type_preset": "match",
+                        "heading_min_size": 0,
+                        "heading_max_size": 0,
+                        "width": "fit-content",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    },
+                    "static-blog-post-card": {
+                      "type": "_featured-blog-posts-card",
+                      "static": true,
+                      "settings": {
+                        "article": "",
+                        "alignment": "left",
+                        "gap": 8,
+                        "inherit_color_scheme": true,
+                        "color_scheme": "",
+                        "border": "none",
+                        "border_width": 1,
+                        "border_opacity": 100,
+                        "border_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {
+                        "image": {
+                          "type": "_featured-blog-posts-image",
+                          "static": true,
+                          "settings": {
+                            "image_ratio": "square",
+                            "border": "none",
+                            "border_width": 1,
+                            "border_opacity": 100,
+                            "border_radius": 0
+                          },
+                          "blocks": {}
+                        },
+                        "title": {
+                          "type": "_heading",
+                          "static": true,
+                          "settings": {
+                            "type_preset": "rte",
+                            "font": "var(--font-body--family)",
+                            "font_size": "1rem",
+                            "line_height": "normal",
+                            "letter_spacing": "normal",
+                            "case": "none",
+                            "wrap": "pretty",
+                            "color": "var(--color-foreground)",
+                            "text": "",
+                            "read_only": false,
+                            "alignment": "left",
+                            "show_alignment": true,
+                            "padding-block-start": 0,
+                            "padding-block-end": 0,
+                            "padding-inline-start": 0,
+                            "padding-inline-end": 0
+                          },
+                          "blocks": {}
+                        },
+                        "blog-post-info-text": {
+                          "type": "_blog-post-info-text",
+                          "static": true,
+                          "settings": {
+                            "show_date": true,
+                            "show_author": true,
+                            "type_preset": "",
+                            "alignment": "left",
+                            "show_alignment": true,
+                            "padding-block-start": 12,
+                            "padding-block-end": 0
+                          },
+                          "blocks": {}
+                        },
+                        "blog-post-description": {
+                          "type": "_blog-post-description",
+                          "static": true,
+                          "settings": {
+                            "type_preset": "rte",
+                            "font": "var(--font-body--family)",
+                            "font_size": "1rem",
+                            "line_height": "normal",
+                            "letter_spacing": "normal",
+                            "case": "none",
+                            "wrap": "pretty",
+                            "color": "var(--color-foreground)",
+                            "padding-block-start": 16,
+                            "padding-block-end": 0
+                          },
+                          "blocks": {}
+                        }
+                      },
+                      "block_order": []
+                    }
+                  },
+                  "block_order": []
+                }
+              },
+              "block_order": [
+                "blog_summary_carousel_eixRQp"
+              ]
             }
           },
           "block_order": [
@@ -1832,7 +2040,8 @@
             "accordion_row_6GXUWf",
             "accordion_row_mrmmNj",
             "accordion_row_3KkWB7",
-            "accordion_row_cwYKwF"
+            "accordion_row_cwYKwF",
+            "accordion_row_dipeVh"
           ]
         }
       },
@@ -2293,159 +2502,6 @@
         "padding-block-end": 44
       }
     },
-    "featured_blog_posts_EgLy9B": {
-      "type": "featured-blog-posts",
-      "blocks": {
-        "static-blog-title": {
-          "type": "_featured-blog-posts-title",
-          "name": "t:names.title",
-          "static": true,
-          "settings": {
-            "text": "",
-            "padding_block_start": 16,
-            "padding_block_end": 16,
-            "padding_inline_start": 16,
-            "padding_inline_end": 16,
-            "left_heading": "The Golden Hour",
-            "right_heading": "Blog",
-            "heading_type_preset": "",
-            "right_heading_type_preset": "match",
-            "heading_min_size": 1.1,
-            "heading_max_size": 1.6,
-            "width": "100%",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "h2",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "tight",
-            "letter_spacing": "tight",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground-heading)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 16,
-            "padding-block-end": 16,
-            "padding-inline-start": 16,
-            "padding-inline-end": 16
-          },
-          "blocks": {}
-        },
-        "static-blog-post-card": {
-          "type": "_featured-blog-posts-card",
-          "name": "t:names.blog_card",
-          "static": true,
-          "settings": {
-            "article": "{{ closest.article }}",
-            "alignment": "left",
-            "gap": 16,
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 16,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "image": {
-              "type": "_featured-blog-posts-image",
-              "static": true,
-              "settings": {
-                "image_ratio": "square",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0
-              },
-              "blocks": {}
-            },
-            "title": {
-              "type": "_heading",
-              "name": "t:names.title",
-              "static": true,
-              "settings": {
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "text": "<h5>{{ closest.article.title }}</h5>",
-                "read_only": false,
-                "alignment": "left",
-                "show_alignment": false,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "blog-post-info-text": {
-              "type": "_blog-post-info-text",
-              "name": "t:names.details",
-              "static": true,
-              "settings": {
-                "show_date": false,
-                "show_author": false,
-                "type_preset": "",
-                "alignment": "left",
-                "show_alignment": false,
-                "padding-block-start": 0,
-                "padding-block-end": 0
-              },
-              "blocks": {}
-            },
-            "blog-post-description": {
-              "type": "_blog-post-description",
-              "name": "t:names.excerpt",
-              "static": true,
-              "settings": {
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "padding-block-start": 8,
-                "padding-block-end": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": []
-        }
-      },
-      "name": "t:names.blog_posts_carousel",
-      "settings": {
-        "blog": "golden-hour",
-        "layout_type": "carousel",
-        "carousel_on_mobile": true,
-        "post_limit": 6,
-        "columns": 3,
-        "mobile_columns": "2",
-        "mobile_card_size": "44cqw",
-        "columns_gap": 0,
-        "rows_gap": 24,
-        "icons_style": "none",
-        "icons_shape": "none",
-        "section_width": "full-width",
-        "gap": 0,
-        "color_scheme": "scheme-1",
-        "padding-block-start": 0,
-        "padding-block-end": 16
-      }
-    },
     "section_zk7ykz": {
       "type": "section",
       "blocks": {
@@ -2587,7 +2643,10 @@
               "name": "Social feed row",
               "settings": {
                 "heading": "Follow Golden",
-                "right_heading": "",
+                "right_heading": "IG",
+                "heading_links_enabled": true,
+                "heading_link": "",
+                "right_heading_link": "https://www.instagram.com/drink.golden/",
                 "collapsible": false,
                 "open_by_default": true,
                 "provider": "instagram",
@@ -2669,7 +2728,6 @@
     "section_HrfhEB",
     "section_TTRARa",
     "section_z7Mh7j",
-    "featured_blog_posts_EgLy9B",
     "section_zk7ykz",
     "section_REkpVR",
     "section_3hPHCr"
