@@ -230,10 +230,10 @@
       },
       "settings": {
         "layout_type": "grid",
-        "product_card_size": "medium",
+        "product_card_size": "large",
         "mobile_product_card_size": "large",
-        "enable_infinite_scroll": true,
-        "products_per_page": 24,
+        "enable_infinite_scroll": false,
+        "products_per_page": 8,
         "product_grid_width": "full-width",
         "full_width_on_mobile": true,
         "columns_gap_horizontal": 16,
