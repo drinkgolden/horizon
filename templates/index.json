@@ -14,6 +14,7 @@
       "blocks": {
         "text_jnywBN": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "<p>Made with care and unconditionally loved by our customers, this signature bestseller exceeds all expectations.</p>",
             "width": "fit-content",
@@ -68,10 +69,10 @@
         "horizontal_alignment": "flex-start",
         "vertical_alignment": "center",
         "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "flex-start",
-        "vertical_alignment_flex_direction_column": "space-between",
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "flex-end",
         "gap": 16,
-        "section_width": "page-width",
+        "section_width": "full-width",
         "section_height": "medium",
         "section_height_custom": 50,
         "color_scheme": "scheme-1",
@@ -87,8 +88,8 @@
         "overlay_color": "#00000026",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 40,
-        "padding-block-end": 40
+        "padding-block-start": 44,
+        "padding-block-end": 44
       }
     },
     "section_KKknCV": {
@@ -202,6 +203,7 @@
             "accordion_row_cYzhrw": {
               "type": "accordion_row",
               "name": "Accordion row",
+              "disabled": true,
               "settings": {
                 "heading": "For the love of soda, bees and all things sweet",
                 "right_heading": "",
