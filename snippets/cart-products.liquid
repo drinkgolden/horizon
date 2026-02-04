@@ -42,7 +42,7 @@
     >
       <div
         class="cart-items spacing-style{% if block_settings.dividers %} cart-items--dividers{% endif %}"
-        style="{%  render 'spacing-style', settings: block_settings %} --cart-items-gap:{% render 'css-rem-value', value: block_settings.gap %};"
+        style="{%  render 'spacing-style', settings: block_settings %} --cart-items-gap:{{ block_settings.gap | append: 'px' }};"
       >
         <table
           class="cart-items__table"

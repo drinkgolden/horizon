@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+:root {
+  --image-placeholder-color: #eed484;
+}
+
 body {
   color: var(--color-foreground);
   background: var(--color-background);
@@ -12,10 +16,31 @@ body {
   font-variation-settings: 'slnt' 0;
 }
 
+html,
+body {
+  overflow-x: clip;
+}
+
+@supports not (overflow: clip) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+}
+
+img:not([data-image-loaded]) {
+  background-color: var(--image-placeholder-color);
+}
+
+img[data-image-loaded],
+img.header-logo__image {
+  background-color: transparent;
+}
+
 body.has-side-columns {
   --side-columns-inline-desktop: var(--side-columns-width-desktop, 2vw);
   --side-columns-inline-mobile: var(--side-columns-width-mobile, var(--side-columns-inline-desktop));
-  --floating-motif-side-offset: var(--side-columns-inline-mobile, var(--side-columns-inline-desktop, 0px));
+  --floating-motif-side-offset: var(--side-columns-inline-desktop, 0px);
   position: relative;
 }
 
@@ -96,6 +121,10 @@ body.has-side-columns.has-section-gridlines-vertical .side-column-border {
 }
 
 @media screen and (max-width: 749px) {
+  body.has-side-columns.has-side-columns--mobile {
+    --floating-motif-side-offset: var(--side-columns-inline-mobile, var(--side-columns-inline-desktop, 0px));
+  }
+
   body.has-side-columns:not(.has-side-columns--mobile) {
     --floating-motif-side-offset: 0px;
   }
@@ -163,6 +192,12 @@ body:has(> #header-group > .header-section) > main > .section-wrapper:first-chil
     opacity var(--duration-sm, 200ms) var(--ease-out-quad);
 }
 
+body.has-side-columns .floating-motif-button {
+  left: var(--floating-motif-side-offset, 0px);
+  right: var(--floating-motif-side-offset, 0px);
+  width: auto;
+}
+
 .floating-motif-button.is-visible {
   transform: translateY(calc(100% - var(--floating-motif-peek-height, 32px)));
   opacity: 1;
@@ -201,7 +236,7 @@ html.no-js .floating-motif-button {
 }
 
 body.has-side-columns .floating-motif-button__surface {
-  max-width: calc(100% - (var(--floating-motif-side-offset, 0px) * 2));
+  max-width: 100%;
 }
 
 .floating-motif-button__body {
@@ -267,12 +302,13 @@ body.has-side-columns .floating-motif-button__surface {
 }
 
 .floating-motif-button__action {
-  flex: 1 1 140px;
-  min-width: 140px;
+  flex: 0 0 auto;
+  min-width: 0;
 }
 
-.floating-motif-button__action--secondary {
-  color: inherit;
+.floating-motif-button__action.button--link {
+  --link-button-underline-offset: var(--header-link-underline-offset, 0.24em);
+  --link-button-underline-thickness: var(--header-link-underline-thickness, 0.08em);
 }
 
 .floating-motif-button__shape {
@@ -1194,10 +1230,15 @@ placeholder-image {
   display: block;
   height: 100%;
   aspect-ratio: var(--ratio);
+  background-color: var(--image-placeholder-color);
+}
+
+.placeholder-image {
+  background-color: var(--image-placeholder-color);
 }
 
 placeholder-image[data-type='product'] {
-  background-color: rgb(var(--color-foreground-rgb) / var(--opacity-15));
+  background-color: var(--image-placeholder-color);
   width: 100%;
 }
 
@@ -1910,7 +1951,7 @@ button.shopify-payment-button__button--unbranded:hover:not([disabled]) {
   text-transform: none;
   letter-spacing: normal;
   position: relative;
-  padding-bottom: var(--link-button-underline-offset, 0.24em);
+  padding-bottom: var(--link-button-underline-offset, var(--header-link-underline-offset, 0.24em));
 }
 
 .button--link::after {
@@ -1919,7 +1960,10 @@ button.shopify-payment-button__button--unbranded:hover:not([disabled]) {
   left: 0;
   bottom: 0;
   width: 100%;
-  height: var(--link-button-underline-thickness, 0.08em);
+  height: var(
+    --link-button-underline-thickness,
+    var(--header-link-underline-thickness, 0.08em)
+  );
   background-color: currentColor;
   transform: scaleX(0);
   transform-origin: left;
@@ -3266,6 +3310,26 @@ slideshow-component[data-split-showcase-carousel] slideshow-slide.split-showcase
   &:autofill {
     background-color: var(--color-input-background);
     color: var(--color-input-text);
+  }
+}
+
+.field__input:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: none;
+  outline-offset: 0;
+  border-color: var(--color-input-text);
+}
+
+@supports not selector(:focus-visible) {
+  .field__input:focus,
+  input:focus,
+  textarea:focus,
+  select:focus {
+    outline: none;
+    outline-offset: 0;
+    border-color: var(--color-input-text);
   }
 }
 
@@ -4677,7 +4741,7 @@ slideshow-arrows .slideshow-control.slideshow-control--style-none {
 }
 
 .media-gallery--carousel slideshow-arrows .slideshow-control {
-  padding-inline: 0 var(--padding-md);
+  padding-inline: var(--padding-md);
 }
 
 .card-gallery slideshow-arrows .slideshow-control {

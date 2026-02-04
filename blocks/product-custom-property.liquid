@@ -219,18 +219,18 @@
     {
       "type": "text",
       "id": "property_heading",
-      "label": "t:settings.product_custom_property.heading",
+      "label": "Heading",
       "default": "t:settings.product_custom_property.default_heading"
     },
     {
       "type": "text",
       "id": "property_description",
-      "label": "t:settings.product_custom_property.description"
+      "label": "Description"
     },
     {
       "type": "text",
       "id": "property_key",
-      "label": "t:settings.product_custom_property.key",
+      "label": "Property key",
       "default": "t:settings.product_custom_property.default_property_key",
       "info": "t:settings.product_custom_property.key_info"
     },
@@ -241,7 +241,7 @@
     {
       "type": "select",
       "id": "input_type",
-      "label": "t:settings.product_custom_property.input_type",
+      "label": "Input type",
       "options": [
         {
           "value": "text",
@@ -257,7 +257,7 @@
     {
       "type": "range",
       "id": "max_length",
-      "label": "t:settings.product_custom_property.max_length",
+      "label": "Maximum length",
       "min": 25,
       "max": 250,
       "step": 5,
@@ -267,27 +267,27 @@
     {
       "type": "text",
       "id": "checkbox_label",
-      "label": "t:settings.product_custom_property.checkbox_label",
+      "label": "Checkbox label",
       "default": "t:settings.product_custom_property.default_checkbox_label",
       "visible_if": "{{ block.settings.input_type == \"checkbox\" }}"
     },
     {
       "type": "checkbox",
       "id": "required",
-      "label": "t:settings.product_custom_property.required",
+      "label": "Required",
       "default": false
     },
     {
       "type": "text",
       "id": "placeholder",
-      "label": "t:settings.product_custom_property.placeholder_text",
+      "label": "Placeholder text",
       "default": "t:settings.product_custom_property.default_placeholder",
       "visible_if": "{{ block.settings.input_type == \"text\" and block.settings.max_length <= 45 }}"
     },
     {
       "type": "textarea",
       "id": "placeholder_textarea",
-      "label": "t:settings.product_custom_property.placeholder_text",
+      "label": "Placeholder text",
       "default": "t:settings.product_custom_property.default_placeholder",
       "visible_if": "{{ block.settings.input_type == \"text\" and block.settings.max_length > 45 }}"
     },

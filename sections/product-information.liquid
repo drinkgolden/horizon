@@ -37,10 +37,7 @@
       assign content_width = 'full-width'
   endcase
 
-  capture product_gap_rem
-    render 'css-rem-value', value: section.settings.gap
-  endcapture
-  assign product_gap_rem = product_gap_rem | strip
+  assign product_gap_px = section.settings.gap | append: 'px'
 %}
 
 <script type="application/ld+json">
@@ -50,7 +47,7 @@
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
 {% capture section_inline_styles %}
   {% render 'spacing-style', settings: section.settings %}
-  --gap: {{ product_gap_rem }};
+  --gap: {{ product_gap_px }};
   {% if content_width == 'full-width' %}
     --page-margin: 0px;
   {% endif %}
@@ -351,7 +348,7 @@
     {
       "type": "select",
       "id": "content_width",
-      "label": "t:settings.width",
+      "label": "Content width",
       "options": [
         {
           "value": "content-center-aligned",
@@ -367,7 +364,7 @@
     {
       "type": "select",
       "id": "desktop_media_position",
-      "label": "t:settings.media_position",
+      "label": "Media position (desktop)",
       "options": [
         {
           "value": "left",
@@ -383,20 +380,20 @@
     {
       "type": "checkbox",
       "id": "equal_columns",
-      "label": "t:settings.equal_columns",
+      "label": "Equal column widths",
       "default": false
     },
     {
       "type": "checkbox",
       "id": "limit_details_width",
-      "label": "t:settings.limit_product_details_width",
+      "label": "Limit product details width",
       "default": false,
       "visible_if": "{{ section.settings.equal_columns }}"
     },
     {
       "type": "range",
       "id": "gap",
-      "label": "t:settings.gap",
+      "label": "Column gap",
       "min": 0,
       "max": 48,
       "step": 4,
@@ -406,7 +403,7 @@
     {
       "type": "color_scheme",
       "id": "color_scheme",
-      "label": "t:settings.color_scheme",
+      "label": "Colour scheme",
       "default": "scheme-1"
     },
     {
@@ -416,7 +413,7 @@
     {
       "type": "range",
       "id": "padding-block-start",
-      "label": "t:settings.top",
+      "label": "Top padding",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -426,7 +423,7 @@
     {
       "type": "range",
       "id": "padding-block-end",
-      "label": "t:settings.bottom",
+      "label": "Bottom padding",
       "min": 0,
       "max": 100,
       "step": 1,

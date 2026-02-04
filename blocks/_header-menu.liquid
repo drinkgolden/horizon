@@ -695,44 +695,44 @@
     {
       "type": "link_list",
       "id": "menu",
-      "label": "t:settings.menu",
+      "label": "Menu",
       "default": "main-menu"
     },
     {
       "type": "color_scheme",
       "id": "color_scheme",
-      "label": "t:settings.color_scheme",
+      "label": "Menu colour scheme",
       "default": "primary"
     },
     {
       "type": "color_scheme",
       "id": "drawer_color_scheme",
-      "label": "Mobile drawer color scheme",
+      "label": "Drawer colour scheme",
       "default": "primary"
     },
     {
       "type": "checkbox",
       "id": "drawer_brand_column_custom_color",
-      "label": "Use different brand column color",
+      "label": "Use a different brand column colour",
       "default": false
     },
     {
       "type": "color_scheme",
       "id": "drawer_brand_column_color_scheme",
-      "label": "Brand column color scheme",
+      "label": "Brand column colour scheme",
       "default": "primary",
       "visible_if": "{{ block.settings.drawer_brand_column_custom_color }}"
     },
     {
       "type": "text",
       "id": "drawer_brand_text",
-      "label": "Mobile drawer brand text",
-      "info": "Used when no mobile drawer logo is provided. Defaults to your store name."
+      "label": "Drawer brand text",
+      "info": "Used when no drawer logo is provided. Defaults to your store name."
     },
     {
       "type": "range",
       "id": "drawer_brand_column_width",
-      "label": "Mobile drawer logo column width",
+      "label": "Brand column width (%)",
       "min": 5,
       "max": 35,
       "step": 1,
@@ -742,7 +742,7 @@
     {
       "type": "range",
       "id": "drawer_brand_column_padding",
-      "label": "Mobile drawer logo column padding (px)",
+      "label": "Brand column padding (px)",
       "min": 0,
       "max": 80,
       "step": 4,
@@ -751,7 +751,7 @@
     {
       "type": "range",
       "id": "drawer_menu_row_padding",
-      "label": "Mobile drawer menu padding (px)",
+      "label": "Menu padding (px)",
       "min": 0,
       "max": 48,
       "step": 2,
@@ -760,7 +760,7 @@
     {
       "type": "image_picker",
       "id": "drawer_logo_image",
-      "label": "Mobile drawer logo"
+      "label": "Drawer logo"
     },
     {
       "type": "text",
@@ -770,12 +770,12 @@
     {
       "type": "image_picker",
       "id": "drawer_logo_top_image",
-      "label": "Mobile drawer top logo"
+      "label": "Drawer top logo"
     },
     {
       "type": "image_picker",
       "id": "drawer_logo_bottom_image",
-      "label": "Mobile drawer bottom logo"
+      "label": "Drawer bottom logo"
     },
     {
       "type": "header",
@@ -784,7 +784,7 @@
     {
       "type": "select",
       "id": "type_font_primary_size",
-      "label": "t:settings.top_level_size",
+      "label": "Top level size",
       "options": [
         {
           "value": "0.625rem",
@@ -812,7 +812,7 @@
     {
       "type": "range",
       "id": "type_font_primary_size_mobile",
-      "label": "Top level mobile size (rem)",
+      "label": "Top level size (mobile, rem)",
       "unit": "rem",
       "min": 0,
       "max": 3,
@@ -823,7 +823,7 @@
     {
       "type": "range",
       "id": "type_font_primary_size_desktop",
-      "label": "Top level desktop size (rem)",
+      "label": "Top level size (desktop, rem)",
       "unit": "rem",
       "min": 0,
       "max": 4,
@@ -834,7 +834,7 @@
     {
       "type": "select",
       "id": "menu_font_style",
-      "label": "t:settings.submenu_text_style",
+      "label": "Menu text style",
       "options": [
         {
           "value": "regular",
@@ -854,13 +854,13 @@
     {
       "type": "range",
       "id": "submenu_parent_font_size_mobile",
-      "label": "Submenu parent mobile size (rem)",
+      "label": "Submenu parent size (mobile, rem)",
       "unit": "rem",
       "min": 0,
       "max": 3,
       "step": 0.1,
       "default": 0,
-      "info": "Set to 0 to use the preset for the selected submenu style."
+      "info": "Set to 0 to use the preset for the selected menu text style."
     },
     {
       "type": "range",
@@ -876,13 +876,13 @@
     {
       "type": "range",
       "id": "submenu_child_font_size_mobile",
-      "label": "Submenu child mobile size (rem)",
+      "label": "Submenu child size (mobile, rem)",
       "unit": "rem",
       "min": 0,
       "max": 3,
       "step": 0.1,
       "default": 0,
-      "info": "Set to 0 to use the preset for the selected submenu style."
+      "info": "Set to 0 to use the preset for the selected menu text style."
     },
     {
       "type": "range",
@@ -898,7 +898,7 @@
     {
       "type": "select",
       "id": "type_font_primary_link",
-      "label": "t:settings.font",
+      "label": "Font family",
       "options": [
         {
           "value": "body",
@@ -922,7 +922,7 @@
     {
       "type": "select",
       "id": "type_case_primary_link",
-      "label": "t:settings.text_case",
+      "label": "Text case",
       "options": [
         {
           "value": "none",
@@ -942,7 +942,7 @@
     {
       "type": "select",
       "id": "menu_style",
-      "label": "t:settings.media_type",
+      "label": "Mega menu content",
       "info": "t:info.media_type_info",
       "options": [
         {
@@ -967,7 +967,7 @@
     {
       "type": "select",
       "id": "featured_products_aspect_ratio",
-      "label": "t:settings.image_ratio",
+      "label": "Product image ratio",
       "options": [
         {
           "value": "adapt",
@@ -988,7 +988,7 @@
     {
       "type": "select",
       "id": "featured_collections_aspect_ratio",
-      "label": "t:settings.image_ratio",
+      "label": "Collection image ratio",
       "options": [
         {
           "value": "adapt",
@@ -1009,7 +1009,7 @@
     {
       "type": "range",
       "id": "image_border_radius",
-      "label": "t:settings.image_border_radius",
+      "label": "Image border radius",
       "min": 0,
       "max": 32,
       "step": 1,
@@ -1024,12 +1024,12 @@
     {
       "type": "image_picker",
       "id": "drawer_brand_logo_image",
-      "label": "Drawer branding logo"
+      "label": "Drawer brand logo"
     },
     {
       "type": "text",
       "id": "drawer_logo_alt_text",
-      "label": "Mobile drawer logo alt text",
+      "label": "Drawer logo alt text",
       "info": "Overrides the image alt text announced to screen readers."
     },
     {
@@ -1109,32 +1109,32 @@
     {
       "type": "checkbox",
       "id": "navigation_bar",
-      "label": "t:settings.navigation_bar"
+      "label": "Show navigation bar"
     },
     {
       "type": "color_scheme",
       "id": "color_scheme_navigation_bar",
-      "label": "t:settings.navigation_bar_color_scheme",
+      "label": "Navigation bar colour scheme",
       "default": "primary",
       "visible_if": "{{ block.settings.navigation_bar }}"
     },
     {
       "type": "checkbox",
       "id": "drawer_accordion",
-      "label": "t:settings.accordion",
+      "label": "Accordion menu",
       "default": false
     },
     {
       "type": "checkbox",
       "id": "drawer_accordion_expand_first",
-      "label": "t:settings.expand_first_group",
+      "label": "Expand first group",
       "default": false,
       "visible_if": "{{ block.settings.drawer_accordion == true }}"
     },
     {
       "type": "checkbox",
       "id": "drawer_dividers",
-      "label": "t:settings.dividers",
+      "label": "Show dividers",
       "default": false
     }
   ]

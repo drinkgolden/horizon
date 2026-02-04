@@ -10,13 +10,13 @@
     {
       "id": "text",
       "type": "textarea",
-      "label": "t:settings.text",
+      "label": "Text",
       "default": "t:text_defaults.be_bold"
     },
     {
       "type": "select",
       "id": "font",
-      "label": "t:settings.font",
+      "label": "Font family",
       "options": [
         {
           "value": "body",
@@ -40,13 +40,13 @@
     {
       "type": "text_alignment",
       "id": "alignment",
-      "label": "t:settings.alignment",
+      "label": "Text alignment",
       "default": "left"
     },
     {
       "type": "select",
       "id": "line_height",
-      "label": "t:settings.line_height",
+      "label": "Line height",
       "options": [
         {
           "value": "0.8",
@@ -66,7 +66,7 @@
     {
       "type": "select",
       "id": "letter_spacing",
-      "label": "t:settings.letter_spacing",
+      "label": "Letter spacing",
       "options": [
         {
           "value": "-0.03em",
@@ -86,7 +86,7 @@
     {
       "type": "select",
       "id": "case",
-      "label": "t:settings.case",
+      "label": "Text case",
       "options": [
         {
           "value": "none",
@@ -102,7 +102,7 @@
     {
       "type": "select",
       "id": "text_effect",
-      "label": "t:settings.animation",
+      "label": "Text animation",
       "options": [
         {
           "value": "none",
@@ -122,7 +122,7 @@
     {
       "type": "checkbox",
       "id": "animation_repeat",
-      "label": "t:settings.animation_repeat",
+      "label": "Repeat animation",
       "default": false,
       "visible_if": "{{ block.settings.text_effect == \"blur\" or block.settings.text_effect == \"reveal\" }}"
     }

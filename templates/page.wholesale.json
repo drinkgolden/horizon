@@ -11,7 +11,6 @@
   "sections": {
     "main": {
       "type": "main-page",
-      "disabled": true,
       "settings": {
         "content_direction": "column",
         "gap": 32,
@@ -23,89 +22,6 @@
     "section_6Ke77e": {
       "type": "section",
       "blocks": {
-        "group_iEqhzJ": {
-          "type": "group",
-          "settings": {
-            "content_direction": "column",
-            "vertical_on_mobile": true,
-            "horizontal_alignment": "flex-start",
-            "vertical_alignment": "center",
-            "align_baseline": false,
-            "horizontal_alignment_flex_direction_column": "center",
-            "vertical_alignment_flex_direction_column": "flex-start",
-            "gap": 32,
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fill",
-            "custom_height": 100,
-            "inherit_color_scheme": false,
-            "color_scheme": "scheme-1",
-            "background_media": "none",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "toggle_overlay": false,
-            "overlay_color": "#00000026",
-            "overlay_style": "solid",
-            "gradient_direction": "to top",
-            "link": "",
-            "open_in_new_tab": false,
-            "placeholder": "hero-apparel-2",
-            "padding-block-start": 40,
-            "padding-block-end": 40,
-            "padding-inline-start": 40,
-            "padding-inline-end": 40
-          },
-          "blocks": {
-            "spacer_VrBciU": {
-              "type": "spacer",
-              "settings": {
-                "size": "pixel",
-                "percent_size": 100,
-                "pixel_size": 16,
-                "custom_mobile_size": false,
-                "size_mobile": "percent",
-                "percent_size_mobile": 100,
-                "pixel_size_mobile": 120
-              },
-              "blocks": {}
-            },
-            "text_Y7ADCd": {
-              "type": "text",
-              "settings": {
-                "text": "<h3>Wholesale</h3>",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "h3",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "spacer_VrBciU",
-            "text_Y7ADCd"
-          ]
-        },
         "group_XgjPE6": {
           "type": "group",
           "settings": {
@@ -114,8 +30,10 @@
             "horizontal_alignment": "flex-start",
             "vertical_alignment": "center",
             "align_baseline": false,
-            "horizontal_alignment_flex_direction_column": "center",
-            "vertical_alignment_flex_direction_column": "space-between",
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "flex-start",
+            "enable_sticky": false,
+            "sticky_offset": 0,
             "gap": 32,
             "width": "fill",
             "custom_width": 100,
@@ -145,14 +63,141 @@
             "padding-inline-end": 40
           },
           "blocks": {
+            "text_Wzrbxm": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "text": "<h3>Wholesale</h3>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h3",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground-heading)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_wholesale_info": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "text": "<p>For wholesale enquiries in New Zealand, contact us via this stockist form, or email us at wholesale@staygolden.co.nz.</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "paragraph",
+                "font": "var(--font-body--family)",
+                "font_size": "",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_wholesale_note": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "text": "<p>We primarily use Upstock for wholesale ordering <a href=\"https://www.upstock.app/wholesalers/golden\" target=\"_blank\" title=\"Golden on Upstock\">here</a>.</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "paragraph",
+                "font": "var(--font-body--family)",
+                "font_size": "",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_Wzrbxm",
+            "text_wholesale_info",
+            "text_wholesale_note"
+          ]
+        },
+        "group_iEqhzJ": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "flex-start",
+            "enable_sticky": false,
+            "sticky_offset": 0,
+            "gap": 32,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fill",
+            "custom_height": 100,
+            "inherit_color_scheme": false,
+            "color_scheme": "scheme-1",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "hero-apparel-2",
+            "padding-block-start": 40,
+            "padding-block-end": 40,
+            "padding-inline-start": 40,
+            "padding-inline-end": 40
+          },
+          "blocks": {
             "contact_form_dYBJUe": {
               "type": "contact-form",
               "name": "t:names.contact_form",
               "settings": {
-                "width": "fit-content",
+                "width": "custom",
                 "custom_width": 100,
-                "width_mobile": "fit-content",
+                "width_mobile": "custom",
                 "custom_width_mobile": 100,
+                "form_variant": "wholesale",
                 "inherit_color_scheme": true,
                 "color_scheme": "",
                 "padding-block-start": 0,
@@ -166,10 +211,10 @@
                   "static": true,
                   "settings": {
                     "label": "Submit",
-                    "style_class": "button",
-                    "width": "fit-content",
+                    "style_class": "button-secondary",
+                    "width": "custom",
                     "custom_width": 100,
-                    "width_mobile": "fit-content",
+                    "width_mobile": "custom",
                     "custom_width_mobile": 100
                   },
                   "blocks": {}
@@ -177,7 +222,7 @@
               },
               "block_order": []
             },
-            "spacer_DBbGMF": {
+            "spacer_VrBciU": {
               "type": "spacer",
               "settings": {
                 "size": "pixel",
@@ -193,13 +238,13 @@
           },
           "block_order": [
             "contact_form_dYBJUe",
-            "spacer_DBbGMF"
+            "spacer_VrBciU"
           ]
         }
       },
       "block_order": [
-        "group_iEqhzJ",
-        "group_XgjPE6"
+        "group_XgjPE6",
+        "group_iEqhzJ"
       ],
       "name": "t:names.split_showcase",
       "settings": {

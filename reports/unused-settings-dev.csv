@@ -1,0 +1,64 @@
+scope,file,owner,setting_id,type,label,default,info,usage_count,usage_paths,performance_impact,seo_impact,ux_clarity,auto_recommendation
+theme,config/settings_schema.json,Typography,type_size_paragraph,text,Size,0.875,Enter rem values such as 1.25. Legacy px values still work.,0,,Medium,Low,Needs work,deprecate
+theme,config/settings_schema.json,Typography,type_line_height_paragraph,select,Line height,body-normal,,0,,Medium,Low,Needs work,deprecate
+theme,config/settings_schema.json,Typography,type_font_h1,select,Font,heading,,0,,Medium,High,Needs work,deprecate
+theme,config/settings_schema.json,Typography,type_size_h1,text,Size,4.5,Enter rem values such as 3.5. Legacy px values still work.,0,,Medium,High,Needs work,deprecate
+theme,config/settings_schema.json,Typography,type_line_height_h1,select,Line height,display-normal,,0,,Medium,High,Needs work,deprecate
+theme,config/settings_schema.json,Typography,type_letter_spacing_h1,select,Letter spacing,heading-normal,,0,,Medium,High,Clear,deprecate
+theme,config/settings_schema.json,Typography,type_case_h1,select,Case,none,,0,,Medium,High,Clear,deprecate
+theme,config/settings_schema.json,Typography,type_font_h2,select,Font,heading,,0,,Medium,High,Needs work,deprecate
+theme,config/settings_schema.json,Typography,type_size_h2,text,Size,3,Enter rem values such as 3.5. Legacy px values still work.,0,,Medium,High,Needs work,deprecate
+theme,config/settings_schema.json,Typography,type_line_height_h2,select,Line height,display-normal,,0,,Medium,High,Needs work,deprecate
+theme,config/settings_schema.json,Typography,type_letter_spacing_h2,select,Letter spacing,heading-normal,,0,,Medium,High,Clear,deprecate
+theme,config/settings_schema.json,Typography,type_case_h2,select,Case,none,,0,,Medium,High,Clear,deprecate
+theme,config/settings_schema.json,Typography,type_font_h3,select,Font,heading,,0,,Medium,High,Needs work,deprecate
+theme,config/settings_schema.json,Typography,type_size_h3,text,Size,2,Enter rem values such as 2.5. Legacy px values still work.,0,,Medium,High,Needs work,deprecate
+theme,config/settings_schema.json,Typography,type_line_height_h3,select,Line height,display-normal,,0,,Medium,High,Needs work,deprecate
+theme,config/settings_schema.json,Typography,type_letter_spacing_h3,select,Letter spacing,heading-normal,,0,,Medium,High,Clear,deprecate
+theme,config/settings_schema.json,Typography,type_case_h3,select,Case,none,,0,,Medium,High,Clear,deprecate
+theme,config/settings_schema.json,Typography,type_font_h4,select,Font,subheading,,0,,Medium,High,Needs work,deprecate
+theme,config/settings_schema.json,Typography,type_size_h4,text,Size,1.5,Enter rem values such as 1.75. Legacy px values still work.,0,,Medium,High,Needs work,deprecate
+theme,config/settings_schema.json,Typography,type_line_height_h4,select,Line height,display-normal,,0,,Medium,High,Needs work,deprecate
+theme,config/settings_schema.json,Typography,type_letter_spacing_h4,select,Letter spacing,heading-normal,,0,,Medium,High,Clear,deprecate
+theme,config/settings_schema.json,Typography,type_case_h4,select,Case,none,,0,,Medium,High,Clear,deprecate
+theme,config/settings_schema.json,Typography,type_font_h5,select,Font,subheading,,0,,Medium,High,Needs work,deprecate
+theme,config/settings_schema.json,Typography,type_size_h5,text,Size,1.125,Enter rem values such as 1.25. Legacy px values still work.,0,,Medium,High,Needs work,deprecate
+theme,config/settings_schema.json,Typography,type_line_height_h5,select,Line height,display-normal,,0,,Medium,High,Needs work,deprecate
+theme,config/settings_schema.json,Typography,type_letter_spacing_h5,select,Letter spacing,heading-normal,,0,,Medium,High,Clear,deprecate
+theme,config/settings_schema.json,Typography,type_case_h5,select,Case,none,,0,,Medium,High,Clear,deprecate
+theme,config/settings_schema.json,Typography,type_font_h6,select,Font,subheading,,0,,Medium,High,Needs work,deprecate
+theme,config/settings_schema.json,Typography,type_size_h6,text,Size,1,Enter rem values such as 1.1. Legacy px values still work.,0,,Medium,High,Needs work,deprecate
+theme,config/settings_schema.json,Typography,type_line_height_h6,select,Line height,display-normal,,0,,Medium,High,Needs work,deprecate
+theme,config/settings_schema.json,Typography,type_letter_spacing_h6,select,Letter spacing,heading-normal,,0,,Medium,High,Clear,deprecate
+theme,config/settings_schema.json,Typography,type_case_h6,select,Case,none,,0,,Medium,High,Clear,deprecate
+section,sections/accordion-stack.liquid,Accordion stack,hide_section_gridline,checkbox,Hide bottom gridline,False,Use when the section already has its own divider.,0,,Low,Low,Clear,deprecate
+section,sections/accordion.liquid,Accordion,hide_section_gridline,checkbox,Hide bottom gridline,False,Use when the section already has its own divider.,0,,Low,Low,Clear,deprecate
+block,blocks/_blog-post-info-text.liquid,Details,show_alignment,checkbox,Show alignment,True,,0,,Low,Low,Clear,deprecate
+block,blocks/_heading.liquid,Heading,read_only,checkbox,Read only,False,,0,,Low,High,Clear,deprecate
+block,blocks/_heading.liquid,Heading,show_alignment,checkbox,Show alignment,True,,0,,Low,High,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_one_image,image_picker,Slide 1 image,,,0,,High,Low,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_one_heading,text,Slide 1 heading,,,0,,High,High,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_one_text,richtext,Slide 1 text,,,0,,High,Medium,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_one_button_label,text,Slide 1 button label,,,0,,High,Medium,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_one_button_link,url,Slide 1 button link,,,0,,High,Medium,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_two_image,image_picker,Slide 2 image,,,0,,High,Low,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_two_heading,text,Slide 2 heading,,,0,,High,High,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_two_text,richtext,Slide 2 text,,,0,,High,Medium,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_two_button_label,text,Slide 2 button label,,,0,,High,Medium,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_two_button_link,url,Slide 2 button link,,,0,,High,Medium,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_three_image,image_picker,Slide 3 image,,,0,,High,Low,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_three_heading,text,Slide 3 heading,,,0,,High,High,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_three_text,richtext,Slide 3 text,,,0,,High,Medium,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_three_button_label,text,Slide 3 button label,,,0,,High,Medium,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_three_button_link,url,Slide 3 button link,,,0,,High,Medium,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_four_image,image_picker,Slide 4 image,,,0,,High,Low,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_four_heading,text,Slide 4 heading,,,0,,High,High,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_four_text,richtext,Slide 4 text,,,0,,High,Medium,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_four_button_label,text,Slide 4 button label,,,0,,High,Medium,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_four_button_link,url,Slide 4 button link,,,0,,High,Medium,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_five_image,image_picker,Slide 5 image,,,0,,High,Low,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_five_heading,text,Slide 5 heading,,,0,,High,High,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_five_text,richtext,Slide 5 text,,,0,,High,Medium,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_five_button_label,text,Slide 5 button label,,,0,,High,Medium,Clear,deprecate
+block,blocks/accordion_slideshow.liquid,Accordion slideshow,slide_five_button_link,url,Slide 5 button link,,,0,,High,Medium,Clear,deprecate
+block,blocks/swatches.liquid,Swatches,hide_padding,checkbox,Hide padding,False,,0,,Low,Low,Clear,deprecate

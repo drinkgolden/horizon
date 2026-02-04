@@ -15,6 +15,8 @@
 
 
 {% liquid
+  assign block_settings = block.settings
+
   if closest.blog != blank
     assign blog_title = closest.blog.title
   elsif section.settings.blog != blank
@@ -22,13 +24,111 @@
   else
     assign blog_title = 'placeholders.blog_posts' | t
   endif
+
+  assign use_split_headings = false
+  if block_settings.left_heading != blank or block_settings.right_heading != blank
+    assign use_split_headings = true
+  endif
+
+  if block_settings.left_heading != blank
+    assign left_heading = block_settings.left_heading
+  else
+    assign left_heading = blog_title
+  endif
+
+  assign right_heading = block_settings.right_heading
+  assign show_left_heading = false
+  if left_heading != blank
+    assign show_left_heading = true
+  endif
+  assign show_right_heading = false
+  if right_heading != blank
+    assign show_right_heading = true
+  endif
+
+  assign header_classes = 'details__header'
+  if show_left_heading
+    assign header_classes = header_classes | append: ' details__header--has-left'
+  else
+    assign header_classes = header_classes | append: ' details__header--no-left'
+  endif
+  if show_right_heading
+    assign header_classes = header_classes | append: ' details__header--has-right'
+  endif
+  if show_right_heading and show_left_heading == false
+    assign header_classes = header_classes | append: ' details__header--right-only'
+  endif
+
+  capture heading_styles
+    if block_settings.padding_block_start != blank
+      echo 'padding-block-start: ' | append: block_settings.padding_block_start | append: 'px;'
+    endif
+    if block_settings.padding_block_end != blank
+      echo 'padding-block-end: ' | append: block_settings.padding_block_end | append: 'px;'
+    endif
+    if block_settings.padding_inline_start != blank
+      echo 'padding-inline-start: ' | append: block_settings.padding_inline_start | append: 'px;'
+    endif
+    if block_settings.padding_inline_end != blank
+      echo 'padding-inline-end: ' | append: block_settings.padding_inline_end | append: 'px;'
+    endif
+    if block_settings.heading_type_preset != blank
+      echo '--accordion-heading-font-family: var(--font-' | append: block_settings.heading_type_preset | append: '--family);'
+      echo '--accordion-heading-font-style: var(--font-' | append: block_settings.heading_type_preset | append: '--style);'
+      echo '--accordion-heading-font-weight: var(--font-' | append: block_settings.heading_type_preset | append: '--weight);'
+      echo '--accordion-heading-text-case: var(--font-' | append: block_settings.heading_type_preset | append: '--case);'
+      echo '--accordion-heading-line-height: var(--font-' | append: block_settings.heading_type_preset | append: '--line-height);'
+      echo '--accordion-heading-base-size: var(--font-' | append: block_settings.heading_type_preset | append: '--size);'
+    endif
+    if block_settings.right_heading_type_preset != blank and block_settings.right_heading_type_preset != 'match'
+      echo '--accordion-right-heading-font-family: var(--font-' | append: block_settings.right_heading_type_preset | append: '--family);'
+      echo '--accordion-right-heading-font-style: var(--font-' | append: block_settings.right_heading_type_preset | append: '--style);'
+      echo '--accordion-right-heading-font-weight: var(--font-' | append: block_settings.right_heading_type_preset | append: '--weight);'
+      echo '--accordion-right-heading-text-case: var(--font-' | append: block_settings.right_heading_type_preset | append: '--case);'
+      echo '--accordion-right-heading-line-height: var(--font-' | append: block_settings.right_heading_type_preset | append: '--line-height);'
+      echo '--accordion-right-heading-base-size: var(--font-' | append: block_settings.right_heading_type_preset | append: '--size);'
+    endif
+
+    assign heading_min_numeric = block_settings.heading_min_size | default: 0 | times: 1
+    assign heading_max_numeric = block_settings.heading_max_size | default: 0 | times: 1
+    if heading_min_numeric > 0
+      echo '--accordion-heading-min-size: ' | append: heading_min_numeric | append: 'rem;'
+    endif
+    if heading_max_numeric > 0
+      echo '--accordion-heading-max-size: ' | append: heading_max_numeric | append: 'rem;'
+    endif
+    if heading_min_numeric == 0 and heading_max_numeric == 0
+      echo '--accordion-heading-size: var(--accordion-heading-base-size, var(--summary-font-size));'
+      echo '--accordion-right-heading-size: var(--accordion-right-heading-base-size, var(--accordion-heading-base-size, var(--summary-font-size)));'
+    endif
+  endcapture
 %}
 
-{% capture blog_title_text %}
-  <h3>{{ blog_title }}</h3>
-{% endcapture %}
+{% if use_split_headings %}
+  <div class="{{ header_classes }}" style="{{ heading_styles | strip }}" {{ block.shopify_attributes }}>
+    <span class="details__heading details__heading--left"{% unless show_left_heading %} aria-hidden="true"{% endunless %}>
+      <span class="details__label">{{ left_heading }}</span>
+    </span>
+    {% if show_right_heading %}
+      <span class="details__heading details__heading--right">
+        <span class="details__label">{{ right_heading }}</span>
+      </span>
+    {% endif %}
+  </div>
+{% else %}
+  {% capture blog_title_text %}
+    <h3>{{ blog_title }}</h3>
+  {% endcapture %}
 
-{% render 'text', fallback_text: blog_title_text, block: block %}
+  {% render 'text',
+    fallback_text: blog_title_text,
+    block: block,
+    padding-block-start: block_settings.padding_block_start,
+    padding-block-end: block_settings.padding_block_end,
+    padding-inline-start: block_settings.padding_inline_start,
+    padding-inline-end: block_settings.padding_inline_end
+  %}
+{% endif %}
 
 {% schema %}
 {
@@ -37,7 +137,119 @@
     {
       "type": "richtext",
       "id": "text",
-      "label": "t:settings.text"
+      "label": "Title"
+    },
+    {
+      "type": "header",
+      "content": "Split heading"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_block_start",
+      "label": "Top padding",
+      "min": 0,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_block_end",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_inline_start",
+      "label": "Left padding",
+      "min": 0,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_inline_end",
+      "label": "Right padding",
+      "min": 0,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "text",
+      "id": "left_heading",
+      "label": "Left heading",
+      "info": "Optional. Uses the blog title when left heading is empty."
+    },
+    {
+      "type": "text",
+      "id": "right_heading",
+      "label": "Right heading",
+      "info": "Optional heading displayed on the right side."
+    },
+    {
+      "type": "select",
+      "id": "heading_type_preset",
+      "label": "Heading style",
+      "options": [
+        { "value": "", "label": "Inherit section settings" },
+        { "value": "paragraph", "label": "Paragraph" },
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" }
+      ],
+      "default": ""
+    },
+    {
+      "type": "select",
+      "id": "right_heading_type_preset",
+      "label": "Right heading style",
+      "options": [
+        { "value": "match", "label": "Match left heading" },
+        { "value": "paragraph", "label": "Paragraph" },
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" }
+      ],
+      "default": "match"
+    },
+    {
+      "type": "range",
+      "id": "heading_min_size",
+      "label": "Minimum text size",
+      "min": 0,
+      "max": 2.5,
+      "step": 0.1,
+      "unit": "rem",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "heading_max_size",
+      "label": "Maximum text size",
+      "min": 0,
+      "max": 3.5,
+      "step": 0.1,
+      "unit": "rem",
+      "default": 0
     },
     {
       "type": "header",
@@ -46,7 +258,7 @@
     {
       "type": "select",
       "id": "width",
-      "label": "t:settings.width",
+      "label": "Width",
       "options": [
         {
           "value": "fit-content",
@@ -62,7 +274,7 @@
     {
       "type": "select",
       "id": "max_width",
-      "label": "t:settings.max_width",
+      "label": "Max width",
       "options": [
         {
           "value": "narrow",
@@ -82,7 +294,7 @@
     {
       "type": "text_alignment",
       "id": "alignment",
-      "label": "t:settings.alignment",
+      "label": "Text alignment",
       "default": "left",
       "visible_if": "{{ block.settings.width == '100%' }}"
     },
@@ -93,7 +305,7 @@
     {
       "type": "select",
       "id": "type_preset",
-      "label": "t:settings.preset",
+      "label": "Text style",
       "options": [
         {
           "value": "rte",
@@ -137,7 +349,7 @@
     {
       "type": "select",
       "id": "font",
-      "label": "t:settings.font",
+      "label": "Font family",
       "options": [
         {
           "value": "var(--font-body--family)",
@@ -162,7 +374,7 @@
     {
       "type": "select",
       "id": "font_size",
-      "label": "t:settings.size",
+      "label": "Text size",
       "options": [
         {
           "value": "",
@@ -239,7 +451,7 @@
     {
       "type": "select",
       "id": "line_height",
-      "label": "t:settings.line_height",
+      "label": "Line height",
       "options": [
         {
           "value": "tight",
@@ -260,7 +472,7 @@
     {
       "type": "select",
       "id": "letter_spacing",
-      "label": "t:settings.letter_spacing",
+      "label": "Letter spacing",
       "options": [
         {
           "value": "tight",
@@ -281,7 +493,7 @@
     {
       "type": "select",
       "id": "case",
-      "label": "t:settings.case",
+      "label": "Text case",
       "options": [
         {
           "value": "none",
@@ -298,7 +510,7 @@
     {
       "type": "select",
       "id": "wrap",
-      "label": "t:settings.wrap",
+      "label": "Text wrapping",
       "options": [
         {
           "value": "pretty",
@@ -318,7 +530,7 @@
     {
       "type": "select",
       "id": "color",
-      "label": "t:settings.color",
+      "label": "Text colour",
       "options": [
         {
           "value": "var(--color-foreground)",
@@ -343,13 +555,13 @@
     {
       "type": "checkbox",
       "id": "background",
-      "label": "t:settings.background",
+      "label": "Background",
       "default": false
     },
     {
       "type": "color",
       "id": "background_color",
-      "label": "t:settings.background_color",
+      "label": "Background colour",
       "alpha": true,
       "default": "#00000026",
       "visible_if": "{{ block.settings.background }}"
@@ -357,7 +569,7 @@
     {
       "type": "range",
       "id": "corner_radius",
-      "label": "t:settings.corner_radius",
+      "label": "Corner radius",
       "default": 0,
       "min": 0,
       "max": 50,
@@ -371,7 +583,7 @@
     {
       "type": "range",
       "id": "padding-block-start",
-      "label": "t:settings.top",
+      "label": "Top padding",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -381,7 +593,7 @@
     {
       "type": "range",
       "id": "padding-block-end",
-      "label": "t:settings.bottom",
+      "label": "Bottom padding",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -391,7 +603,7 @@
     {
       "type": "range",
       "id": "padding-inline-start",
-      "label": "t:settings.left",
+      "label": "Left padding",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -401,7 +613,7 @@
     {
       "type": "range",
       "id": "padding-inline-end",
-      "label": "t:settings.right",
+      "label": "Right padding",
       "min": 0,
       "max": 100,
       "step": 1,

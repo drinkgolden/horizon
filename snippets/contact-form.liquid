@@ -21,6 +21,7 @@
   {{ block.shopify_attributes }}
 >
   {% assign form_id = block.id | default: section.id | prepend: 'ContactForm-' %}
+  {% assign form_variant = settings.form_variant | default: 'default' %}
 
   {%- form 'contact', id: form_id, class: 'contact-form__form' -%}
     {%- if form.errors -%}
@@ -47,80 +48,292 @@
       </div>
     {%- endif -%}
 
-    <div class="contact-form__form-row">
-      <label
-        class="visually-hidden"
-        for="ContactForm-name"
-      >
-        {{- 'blocks.contact_form.name' | t -}}
+    {% if form_variant == 'default' %}
+      <div class="contact-form__form-row">
+        <label class="visually-hidden" for="{{ form_id }}-name">
+          {{- 'blocks.contact_form.name' | t -}}
+        </label>
+        <input
+          type="text"
+          id="{{ form_id }}-name"
+          class="contact-form__input"
+          autocomplete="name"
+          name="contact[name]"
+          value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+          placeholder="{{ 'blocks.contact_form.name' | t }}"
+        >
+
+        <label class="visually-hidden" for="{{ form_id }}-email">
+          {{- 'blocks.contact_form.email' | t -}}
+          <span aria-hidden="true">*</span></label
+        >
+        <input
+          type="email"
+          id="{{ form_id }}-email"
+          class="contact-form__input"
+          autocomplete="email"
+          name="contact[email]"
+          spellcheck="false"
+          autocapitalize="off"
+          value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+          aria-required="true"
+          {% if form.errors contains 'email' %}
+            aria-invalid="true"
+            aria-describedby="{{ form_id }}-email-error"
+          {% endif %}
+          placeholder="{{ 'blocks.contact_form.email' | t }}"
+        >
+      </div>
+
+      <label class="visually-hidden" for="{{ form_id }}-phone">
+        {{- 'blocks.contact_form.phone' | t -}}
       </label>
       <input
-        type="text"
-        id="ContactForm-name"
+        type="tel"
+        id="{{ form_id }}-phone"
         class="contact-form__input"
-        autocomplete="name"
-        name="contact[name]"
-        value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
-        placeholder="{{ 'blocks.contact_form.name' | t }}"
+        autocomplete="tel"
+        name="contact[phone]"
+        pattern="[0-9\-]*"
+        value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+        placeholder="{{ 'blocks.contact_form.phone' | t }}"
       >
 
-      <label
-        class="visually-hidden"
-        for="ContactForm-email"
+      <label class="visually-hidden" for="{{ form_id }}-body">
+        {{- 'blocks.contact_form.comment' | t -}}
+      </label>
+      <textarea
+        rows="10"
+        id="{{ form_id }}-body"
+        class="contact-form__input contact-form__input--textarea"
+        name="contact[body]"
+        placeholder="{{ 'blocks.contact_form.comment' | t }}"
       >
-        {{- 'blocks.contact_form.email' | t -}}
-        <span aria-hidden="true">*</span></label
+        {{- form.body -}}
+      </textarea>
+    {% elsif form_variant == 'wholesale' %}
+      <label class="visually-hidden" for="{{ form_id }}-first-name">First name</label>
+      <input
+        type="text"
+        id="{{ form_id }}-first-name"
+        class="contact-form__input"
+        name="contact[First name]"
+        autocomplete="given-name"
+        placeholder="First name"
       >
+
+      <label class="visually-hidden" for="{{ form_id }}-last-name">Last name</label>
+      <input
+        type="text"
+        id="{{ form_id }}-last-name"
+        class="contact-form__input"
+        name="contact[Last name]"
+        autocomplete="family-name"
+        placeholder="Last name"
+      >
+
+      <label class="visually-hidden" for="{{ form_id }}-email">Email</label>
       <input
         type="email"
-        id="ContactForm-email"
+        id="{{ form_id }}-email"
         class="contact-form__input"
-        autocomplete="email"
         name="contact[email]"
+        autocomplete="email"
         spellcheck="false"
         autocapitalize="off"
-        value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
         aria-required="true"
-        {% if form.errors contains 'email' %}
-          aria-invalid="true"
-          aria-describedby="ContactForm-email-error"
-        {% endif %}
-        placeholder="{{ 'blocks.contact_form.email' | t }}"
+        placeholder="Email"
       >
-    </div>
 
-    <label
-      class="visually-hidden"
-      for="ContactForm-phone"
-    >
-      {{- 'blocks.contact_form.phone' | t -}}
-    </label>
-    <input
-      type="tel"
-      id="ContactForm-phone"
-      class="contact-form__input"
-      autocomplete="tel"
-      name="contact[phone]"
-      pattern="[0-9\-]*"
-      value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
-      placeholder="{{ 'blocks.contact_form.phone' | t }}"
-    >
+      <label class="visually-hidden" for="{{ form_id }}-phone">Phone number</label>
+      <input
+        type="tel"
+        id="{{ form_id }}-phone"
+        class="contact-form__input"
+        name="contact[Phone]"
+        autocomplete="tel"
+        pattern="[0-9\-]*"
+        placeholder="Phone number"
+      >
 
-    <label
-      class="visually-hidden"
-      for="ContactForm-body"
-    >
-      {{- 'blocks.contact_form.comment' | t -}}
-    </label>
-    <textarea
-      rows="10"
-      id="ContactForm-body"
-      class="contact-form__input contact-form__input--textarea"
-      name="contact[body]"
-      placeholder="{{ 'blocks.contact_form.comment' | t }}"
-    >
-      {{- form.body -}}
-    </textarea>
+      <label class="visually-hidden" for="{{ form_id }}-website">Website</label>
+      <input
+        type="url"
+        id="{{ form_id }}-website"
+        class="contact-form__input"
+        name="contact[Website]"
+        autocomplete="url"
+        placeholder="Website"
+      >
+
+      <label class="visually-hidden" for="{{ form_id }}-business-name">Business name</label>
+      <input
+        type="text"
+        id="{{ form_id }}-business-name"
+        class="contact-form__input"
+        name="contact[Business name]"
+        placeholder="Business name"
+      >
+
+      <label class="visually-hidden" for="{{ form_id }}-nzbn">NZBN</label>
+      <input
+        type="text"
+        id="{{ form_id }}-nzbn"
+        class="contact-form__input"
+        name="contact[NZBN]"
+        placeholder="NZBN"
+      >
+
+      <label class="visually-hidden" for="{{ form_id }}-gst">GST #</label>
+      <input
+        type="text"
+        id="{{ form_id }}-gst"
+        class="contact-form__input"
+        name="contact[GST #]"
+        placeholder="GST #"
+      >
+
+      <label class="visually-hidden" for="{{ form_id }}-business-address">Business address</label>
+      <textarea
+        rows="6"
+        id="{{ form_id }}-business-address"
+        class="contact-form__input contact-form__input--textarea"
+        name="contact[Business address]"
+        placeholder="Business address"
+      ></textarea>
+
+      <label class="visually-hidden" for="{{ form_id }}-message">Message</label>
+      <textarea
+        rows="6"
+        id="{{ form_id }}-message"
+        class="contact-form__input contact-form__input--textarea"
+        name="contact[Message]"
+        placeholder="Message"
+      ></textarea>
+    {% elsif form_variant == 'sponsorship' %}
+      <label class="visually-hidden" for="{{ form_id }}-event-name">Event name</label>
+      <input
+        type="text"
+        id="{{ form_id }}-event-name"
+        class="contact-form__input"
+        name="contact[Event name]"
+        placeholder="Event name"
+      >
+
+      <label class="visually-hidden" for="{{ form_id }}-contact-name">Contact name / role</label>
+      <input
+        type="text"
+        id="{{ form_id }}-contact-name"
+        class="contact-form__input"
+        name="contact[Contact name / role]"
+        placeholder="Contact name / role"
+      >
+
+      <label class="visually-hidden" for="{{ form_id }}-email">Email</label>
+      <input
+        type="email"
+        id="{{ form_id }}-email"
+        class="contact-form__input"
+        name="contact[email]"
+        autocomplete="email"
+        spellcheck="false"
+        autocapitalize="off"
+        aria-required="true"
+        placeholder="Email"
+      >
+
+      <label class="visually-hidden" for="{{ form_id }}-phone">Phone number</label>
+      <input
+        type="tel"
+        id="{{ form_id }}-phone"
+        class="contact-form__input"
+        name="contact[Phone]"
+        autocomplete="tel"
+        pattern="[0-9\-]*"
+        placeholder="Phone number"
+      >
+
+      <label class="visually-hidden" for="{{ form_id }}-event-date">Event date</label>
+      <input
+        type="text"
+        id="{{ form_id }}-event-date"
+        class="contact-form__input"
+        name="contact[Event date]"
+        placeholder="Event date"
+      >
+
+      <label class="visually-hidden" for="{{ form_id }}-attendees"># of attendees</label>
+      <input
+        type="text"
+        id="{{ form_id }}-attendees"
+        class="contact-form__input"
+        name="contact[# of attendees]"
+        placeholder="# of attendees"
+      >
+
+      <label class="visually-hidden" for="{{ form_id }}-non-profit">Is the event non-profit? (Y/N)</label>
+      <input
+        type="text"
+        id="{{ form_id }}-non-profit"
+        class="contact-form__input"
+        name="contact[Is the event non-profit?]"
+        placeholder="Is the event non-profit? (Y/N)"
+      >
+
+      <label class="visually-hidden" for="{{ form_id }}-other-sponsors">Are there other beverage sponsors? If so, who?</label>
+      <input
+        type="text"
+        id="{{ form_id }}-other-sponsors"
+        class="contact-form__input"
+        name="contact[Other beverage sponsors]"
+        placeholder="Are there other beverage sponsors? If so, who?"
+      >
+
+      <label class="visually-hidden" for="{{ form_id }}-event-details">Tell us some more about your event...</label>
+      <textarea
+        rows="6"
+        id="{{ form_id }}-event-details"
+        class="contact-form__input contact-form__input--textarea"
+        name="contact[Event details]"
+        placeholder="Tell us some more about your event..."
+      ></textarea>
+
+      <label class="visually-hidden" for="{{ form_id }}-request">What are you after from Golden? (stock contribution, marketing material, or other type of contribution etc.)</label>
+      <textarea
+        rows="6"
+        id="{{ form_id }}-request"
+        class="contact-form__input contact-form__input--textarea"
+        name="contact[What are you after]"
+        placeholder="What are you after from Golden? (stock contribution, marketing material, or other type of contribution etc.)"
+      ></textarea>
+
+      <label class="visually-hidden" for="{{ form_id }}-offer">What can you offer Golden? (Marketing opportunities, product shots at event, shout-outs etc.)</label>
+      <textarea
+        rows="6"
+        id="{{ form_id }}-offer"
+        class="contact-form__input contact-form__input--textarea"
+        name="contact[What can you offer]"
+        placeholder="What can you offer Golden? (Marketing opportunities, product shots at event, shout-outs etc.)"
+      ></textarea>
+
+      <label class="visually-hidden" for="{{ form_id }}-promo-stock">Are you happy to buy stock at a promotional rate? (Y/N)</label>
+      <input
+        type="text"
+        id="{{ form_id }}-promo-stock"
+        class="contact-form__input"
+        name="contact[Promo stock]"
+        placeholder="Are you happy to buy stock at a promotional rate? (Y/N)"
+      >
+
+      <label class="visually-hidden" for="{{ form_id }}-anything-else">Anything else you want to add...</label>
+      <textarea
+        rows="4"
+        id="{{ form_id }}-anything-else"
+        class="contact-form__input contact-form__input--textarea"
+        name="contact[Anything else]"
+        placeholder="Anything else you want to add..."
+      ></textarea>
+    {% endif %}
 
     {{ submit_button }}
   {%- endform -%}

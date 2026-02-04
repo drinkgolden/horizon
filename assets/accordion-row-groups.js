@@ -170,6 +170,33 @@ const initAccordionRow = (row) => {
   if (!detailsContent) return;
 
   const groups = Array.from(detailsContent.querySelectorAll('.group-block'));
+  if (!groups.length) return;
+
+  const groupMode = (row.dataset.groupMode || 'split').toLowerCase();
+
+  const resetGroup = (group) => {
+    group.classList.remove(SLOT_CLASS_LEFT, SLOT_CLASS_RIGHT, 'accordion-row__group-hidden');
+    group.style.removeProperty('margin-inline-start');
+    group.style.removeProperty('margin-inline-end');
+    const content = group.querySelector('.group-block-content');
+    if (content) {
+      content.style.removeProperty('--horizontal-alignment');
+      content.style.removeProperty('--horizontal-alignment-mobile');
+    }
+  };
+
+  groups.forEach(resetGroup);
+
+  if (groupMode === 'shared') {
+    groups.forEach((group, index) => {
+      if (index > 0) {
+        group.classList.add('accordion-row__group-hidden');
+      }
+    });
+    row.dataset.groupsEnhanced = 'true';
+    return;
+  }
+
   if (groups.length < 2) return;
 
   const leftHeading = row.querySelector('.details__heading--left');
@@ -211,17 +238,6 @@ const initAccordionRow = (row) => {
     group.style.setProperty('margin-inline-start', slot === 'right' ? 'auto' : '0');
     group.style.setProperty('margin-inline-end', slot === 'right' ? '0' : 'auto');
   };
-
-  groups.forEach((group) => {
-    group.classList.remove(SLOT_CLASS_LEFT, SLOT_CLASS_RIGHT);
-    group.style.removeProperty('margin-inline-start');
-    group.style.removeProperty('margin-inline-end');
-    const content = group.querySelector('.group-block-content');
-    if (content) {
-      content.style.removeProperty('--horizontal-alignment');
-      content.style.removeProperty('--horizontal-alignment-mobile');
-    }
-  });
 
   markSlot(leftGroup, 'left');
   markSlot(rightGroup, 'right');

@@ -59,7 +59,7 @@
     {
       "type": "select",
       "id": "height",
-      "label": "t:settings.height",
+      "label": "Image height",
       "options": [
         {
           "value": "small",
@@ -79,7 +79,7 @@
     {
       "type": "select",
       "id": "border",
-      "label": "t:settings.border",
+      "label": "Border style",
       "options": [
         {
           "value": "none",
@@ -99,7 +99,7 @@
       "max": 10,
       "step": 0.5,
       "unit": "px",
-      "label": "t:settings.border_width",
+      "label": "Border width",
       "default": 1,
       "visible_if": "{{ block.settings.border != 'none' }}"
     },
@@ -110,14 +110,14 @@
       "max": 100,
       "step": 1,
       "unit": "%",
-      "label": "t:settings.border_opacity",
+      "label": "Border opacity",
       "default": 100,
       "visible_if": "{{ block.settings.border != 'none' }}"
     },
     {
       "type": "range",
       "id": "border_radius",
-      "label": "t:settings.corner_radius",
+      "label": "Border radius",
       "min": 0,
       "max": 100,
       "step": 1,

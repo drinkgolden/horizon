@@ -5,6 +5,7 @@
   @param {string} [icon_style] - { 'arrow' | 'chevron' } The style of the icon, defaults to 'arrow'.
   @param {string} [icon_shape] - { 'none' | 'circle' | 'square' } The shape of the icon background, defaults to 'none'.
   @param {string} [icon_size] - { 'small' | 'medium' | 'large' } The size of the icon, defaults to 'medium'.
+  @param {string} [target] - Optional selector for the slideshow component to control.
 
   @example
   {%- render 'slideshow-arrow', action: 'previous' -%}
@@ -14,9 +15,10 @@
   assign icon_name = 'arrow'
   assign style = icon_style | default: 'arrow'
   assign shape = icon_shape | default: 'none'
+  assign target_selector = target | default: ''
 
   if icon_style contains 'chevron'
-    assign icon_name = 'caret'
+    assign icon_name = 'chevron'
   endif
 
   if icon_style contains 'large'
@@ -31,19 +33,26 @@
     {% if shape != 'none' %} slideshow-control--shape-{{ shape }}{% endif %}
     slideshow-control--style-{{ style }}
     button button-unstyled button-unstyled--transparent
-    {% if action == 'previous' %} flip-x{% endif %}
   "
   {% # theme-check-disable %}
   aria-label="{{ 'accessibility.slideshow_' | append: action | t }}"
   {% # theme-check-enable %}
-  on:click="/{{ action }}"
+  on:click="{% if target_selector != blank %}{{ target_selector }}/{% endif %}{{ action }}"
   ref="{{ action }}"
 >
   <span class="svg-wrapper icon-{{ icon_name }}">
-    {%- if icon_name == 'caret' -%}
-      {{- 'icon-caret.svg' | inline_asset_content -}}
+    {%- if icon_name == 'chevron' -%}
+      {%- if action == 'previous' -%}
+        {{- 'icon-chevron-left.svg' | inline_asset_content -}}
+      {%- else -%}
+        {{- 'icon-chevron-right.svg' | inline_asset_content -}}
+      {%- endif -%}
     {%- else -%}
-      {{- 'icon-arrow.svg' | inline_asset_content -}}
+      {%- if action == 'previous' -%}
+        {{- 'icon-arrow-left.svg' | inline_asset_content -}}
+      {%- else -%}
+        {{- 'icon-arrow.svg' | inline_asset_content -}}
+      {%- endif -%}
     {%- endif -%}
   </span>
 </button>

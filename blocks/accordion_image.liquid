@@ -14,6 +14,9 @@
   {% render 'spacing-style', settings: block_settings %}
   --accordion-image-alignment: {{ block_settings.alignment }};
   --accordion-image-text-align: {{ block_settings.text_alignment }};
+  {% if block_settings.placeholder_color != blank %}
+    --image-placeholder-color: {{ block_settings.placeholder_color }};
+  {% endif %}
   {% if block_settings.max_width != 0 %}
     max-width: {{ block_settings.max_width }}px;
   {% endif %}
@@ -98,7 +101,7 @@
   .accordion-image__placeholder {
     width: 100%;
     aspect-ratio: var(--accordion-image-ratio, 16 / 9);
-    background: rgb(var(--color-foreground-rgb, 0 0 0) / 0.08);
+    background: var(--image-placeholder-color);
   }
 
   .accordion-image__placeholder-svg {
@@ -141,10 +144,22 @@
       "id": "image_ratio",
       "label": "Image ratio",
       "options": [
-        { "value": "adapt", "label": "Adapt to image" },
-        { "value": "landscape", "label": "Landscape" },
-        { "value": "portrait", "label": "Portrait" },
-        { "value": "square", "label": "Square" }
+        {
+          "value": "adapt",
+          "label": "Adapt to image"
+        },
+        {
+          "value": "landscape",
+          "label": "Landscape"
+        },
+        {
+          "value": "portrait",
+          "label": "Portrait"
+        },
+        {
+          "value": "square",
+          "label": "Square"
+        }
       ],
       "default": "adapt"
     },
@@ -153,8 +168,14 @@
       "id": "image_fit",
       "label": "Image fit",
       "options": [
-        { "value": "cover", "label": "Cover" },
-        { "value": "contain", "label": "Contain" }
+        {
+          "value": "cover",
+          "label": "Cover"
+        },
+        {
+          "value": "contain",
+          "label": "Contain"
+        }
       ],
       "default": "cover"
     },
@@ -167,6 +188,13 @@
       "step": 1,
       "unit": "px",
       "default": 0
+    },
+    {
+      "type": "color",
+      "id": "placeholder_color",
+      "label": "Placeholder colour",
+      "info": "Optional: overrides the loading background for this image block.",
+      "alpha": true
     },
     {
       "type": "range",
@@ -184,9 +212,18 @@
       "id": "alignment",
       "label": "Alignment",
       "options": [
-        { "value": "flex-start", "label": "Left" },
-        { "value": "center", "label": "Center" },
-        { "value": "flex-end", "label": "Right" }
+        {
+          "value": "flex-start",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Centre"
+        },
+        {
+          "value": "flex-end",
+          "label": "Right"
+        }
       ],
       "default": "flex-start"
     },
@@ -195,9 +232,18 @@
       "id": "text_alignment",
       "label": "Caption alignment",
       "options": [
-        { "value": "left", "label": "Left" },
-        { "value": "center", "label": "Center" },
-        { "value": "right", "label": "Right" }
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Centre"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
       ],
       "default": "left"
     },

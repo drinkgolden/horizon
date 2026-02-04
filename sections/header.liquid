@@ -753,7 +753,7 @@
     {
       "type": "select",
       "id": "menu_row",
-      "label": "t:settings.row",
+      "label": "Menu row",
       "options": [
         {
           "value": "top",
@@ -795,13 +795,13 @@
     {
       "type": "checkbox",
       "id": "show_search",
-      "label": "t:settings.search_icon",
+      "label": "Show search icon",
       "default": true
     },
     {
       "type": "select",
       "id": "search_position",
-      "label": "t:settings.search_position",
+      "label": "Search position",
       "options": [
         {
           "value": "left",
@@ -818,7 +818,7 @@
     {
       "type": "select",
       "id": "search_row",
-      "label": "t:settings.search_row",
+      "label": "Search row",
       "options": [
         {
           "value": "top",
@@ -839,28 +839,28 @@
     {
       "type": "checkbox",
       "id": "show_country",
-      "label": "t:settings.country_region",
+      "label": "Show country/region selector",
       "info": "t:info.manage_countries_regions",
       "default": true
     },
     {
       "type": "checkbox",
       "id": "country_selector_style",
-      "label": "t:settings.flag",
+      "label": "Show country flag",
       "default": true,
       "visible_if": "{{ section.settings.show_country }}"
     },
     {
       "type": "checkbox",
       "id": "show_language",
-      "label": "t:settings.language_selector",
+      "label": "Show language selector",
       "info": "t:info.manage_languages",
       "default": true
     },
     {
       "type": "select",
       "id": "localization_font",
-      "label": "t:settings.font",
+      "label": "Font family",
       "options": [
         {
           "value": "heading",
@@ -885,7 +885,7 @@
     {
       "type": "select",
       "id": "localization_font_size",
-      "label": "t:settings.size",
+      "label": "Text size",
       "options": [
         {
           "value": "0.625rem",
@@ -913,7 +913,7 @@
     {
       "type": "select",
       "id": "localization_position",
-      "label": "t:settings.position",
+      "label": "Position",
       "options": [
         {
           "value": "left",
@@ -930,7 +930,7 @@
     {
       "type": "select",
       "id": "localization_row",
-      "label": "t:settings.row",
+      "label": "Row",
       "options": [
         {
           "value": "top",
@@ -951,7 +951,7 @@
     {
       "type": "select",
       "id": "section_width",
-      "label": "t:settings.width",
+      "label": "Width",
       "options": [
         {
           "value": "page-width",
@@ -966,7 +966,7 @@
     {
       "type": "select",
       "id": "section_height",
-      "label": "t:settings.height",
+      "label": "Height",
       "options": [
         {
           "value": "compact",
@@ -1002,7 +1002,7 @@
     {
       "type": "range",
       "id": "divider_width",
-      "label": "t:settings.divider_thickness",
+      "label": "Divider thickness",
       "min": 0,
       "max": 5,
       "step": 0.5,
@@ -1013,7 +1013,7 @@
     {
       "type": "select",
       "id": "divider_size",
-      "label": "t:settings.divider_width",
+      "label": "Divider width",
       "options": [
         {
           "value": "page-width",
@@ -1029,7 +1029,7 @@
     {
       "type": "range",
       "id": "border_width",
-      "label": "t:settings.border_width",
+      "label": "Border width",
       "min": 0,
       "max": 5,
       "step": 0.5,
@@ -1043,20 +1043,20 @@
     {
       "type": "color_scheme",
       "id": "color_scheme_top",
-      "label": "t:settings.default",
+      "label": "Top row colour scheme",
       "default": "primary"
     },
     {
       "type": "color_scheme",
       "id": "color_scheme_bottom",
-      "label": "t:settings.bottom_row",
+      "label": "Bottom row colour scheme",
       "default": "primary",
       "visible_if": "{{ section.settings.menu_row == 'bottom' or section.settings.localization_row == 'bottom' or section.settings.search_row == 'bottom' }}"
     },
     {
       "type": "color_scheme",
       "id": "color_scheme_transparent",
-      "label": "t:settings.inverse",
+      "label": "Transparent colour scheme",
       "default": "primary",
       "visible_if": "{{ section.settings.enable_transparent_header_home or section.settings.enable_transparent_header_product or section.settings.enable_transparent_header_collection }}"
     },
@@ -1067,13 +1067,13 @@
     {
       "type": "checkbox",
       "id": "enable_transparent_header_home",
-      "label": "t:settings.transparent_background",
+      "label": "Transparent header",
       "default": false
     },
     {
       "type": "select",
       "id": "home_color_scheme",
-      "label": "t:settings.color_scheme",
+      "label": "Home colour scheme",
       "options": [
         {
           "value": "default",
@@ -1094,13 +1094,13 @@
     {
       "type": "checkbox",
       "id": "enable_transparent_header_product",
-      "label": "t:settings.transparent_background",
+      "label": "Transparent header",
       "default": false
     },
     {
       "type": "select",
       "id": "product_color_scheme",
-      "label": "t:settings.color_scheme",
+      "label": "Product colour scheme",
       "options": [
         {
           "value": "default",
@@ -1121,13 +1121,13 @@
     {
       "type": "checkbox",
       "id": "enable_transparent_header_collection",
-      "label": "t:settings.transparent_background",
+      "label": "Transparent header",
       "default": false
     },
     {
       "type": "select",
       "id": "collection_color_scheme",
-      "label": "t:settings.color_scheme",
+      "label": "Collection colour scheme",
       "options": [
         {
           "value": "default",
