@@ -102,9 +102,9 @@
                 "open_by_default": false,
                 "group_mode": "split",
                 "color_scheme": "scheme-5",
-                "hover_color_scheme": "",
-                "left_hover_color_scheme": "",
-                "right_hover_color_scheme": "",
+                "hover_color_scheme": "scheme-5",
+                "left_hover_color_scheme": "scheme-5",
+                "right_hover_color_scheme": "scheme-5",
                 "summary_padding_block_start": 16,
                 "summary_padding_block_end": 16,
                 "summary_padding_inline_start": 16,
@@ -208,7 +208,7 @@
             "text_fBYKHx": {
               "type": "text",
               "settings": {
-                "text": "<h2>Low-cal sparkling soda from Aotearoa, sweetened with Golden Bay mānuka honey and flavoured with locally grown fruits</h2>",
+                "text": "<h2>Low-cal sparkling soda from Aotearoa, New Zealand sweetened with Golden Bay mānuka honey and flavoured with locally grown fruits</h2>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
@@ -1228,7 +1228,7 @@
                           "type": "text",
                           "name": "t:names.text",
                           "settings": {
-                            "text": "<p>We make things that work better and last longer. Our products solve real problems with clean design and honest materials.</p>",
+                            "text": "<p>Beehives on the way to Wharariki Beach, Cape Farewell. </p>",
                             "width": "fit-content",
                             "max_width": "normal",
                             "alignment": "left",
