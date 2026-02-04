@@ -102,6 +102,7 @@
   {% if settings.show_second_image_on_hover %}
     on:pointerenter="/previewImage"
     on:pointerleave="/resetImage"
+    data-hover-swap="reverse"
   {% endif %}
   {% if settings.transition_to_main_product %}
     data-view-transition-to-main-product
@@ -191,6 +192,11 @@
         endfor
       endcapture
 
+      assign initial_slide = 0
+      if settings.show_second_image_on_hover and visible_slide_count > 1
+        assign initial_slide = 1
+      endif
+
       assign slideshow_attributes = 'data-generic-media-size="[generic_media_size]"' | replace: '[generic_media_size]', generic_media_size
       if settings.product_card_carousel == false
         assign slideshow_attributes = slideshow_attributes | append: ' disabled="true"'
@@ -204,7 +210,7 @@
     >
       {% render 'slideshow',
         ref: 'slideshow',
-        initial_slide: 0,
+        initial_slide: initial_slide,
         slides: slides,
         slide_count: all_media.size,
         show_arrows: show_arrows,

@@ -23,6 +23,10 @@ export class ProductCard extends Component {
     return this.refs.productCardLink.href;
   }
 
+  get hoverSwapReversed() {
+    return this.refs.cardGallery?.dataset?.hoverSwap === 'reverse';
+  }
+
   /**
    * Gets the currently selected variant ID from the product card
    * @returns {string | null} The variant ID or null if none selected
@@ -95,7 +99,9 @@ export class ProductCard extends Component {
 
   #preloadNextPreviewImage() {
     const currentSlide = this.refs.slideshow?.slides?.[this.refs.slideshow?.current];
-    currentSlide?.nextElementSibling?.querySelector('img[loading="lazy"]')?.removeAttribute('loading');
+    if (!currentSlide) return;
+    const targetSlide = this.hoverSwapReversed ? currentSlide.previousElementSibling : currentSlide.nextElementSibling;
+    targetSlide?.querySelector('img[loading="lazy"]')?.removeAttribute('loading');
   }
 
   /**
@@ -323,6 +329,9 @@ export class ProductCard extends Component {
 
     if (this.#previousSlideIndex != null && this.#previousSlideIndex > 0) {
       slideshow.select(this.#previousSlideIndex, undefined, { animate: false });
+    } else if (this.hoverSwapReversed) {
+      slideshow.previous(undefined, { animate: false });
+      setTimeout(() => this.#preloadNextPreviewImage());
     } else {
       slideshow.next(undefined, { animate: false });
       setTimeout(() => this.#preloadNextPreviewImage());
@@ -338,8 +347,18 @@ export class ProductCard extends Component {
 
     const { slideshow } = this.refs;
 
+    if (!slideshow) return;
+
+    if (this.hoverSwapReversed) {
+      const initialSlide = slideshow.initialSlide;
+      const slideId = initialSlide?.getAttribute('slide-id');
+      if (initialSlide && slideshow.slides?.includes(initialSlide) && slideId) {
+        slideshow.select({ id: slideId }, undefined, { animate: false });
+      }
+      return;
+    }
+
     if (!this.variantPicker) {
-      if (!slideshow) return;
       slideshow.previous(undefined, { animate: false });
     } else {
       this.#resetVariant();
