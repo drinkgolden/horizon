@@ -67,7 +67,7 @@
             "drawer_brand_column_color_scheme": "scheme-1",
             "drawer_brand_text": "",
             "drawer_brand_column_width": 16,
-            "drawer_brand_column_padding": 4,
+            "drawer_brand_column_padding": 12,
             "drawer_menu_row_padding": 16,
             "drawer_logo_image": "shopify://shop_images/GOLDEN_SVG_VERTICAL_BLACK.svg",
             "drawer_logo_alt": "Golden Black Wordmark",
