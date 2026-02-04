@@ -1018,108 +1018,26 @@
                 "width": 20
               },
               "blocks": {
-                "accordion_slideshow_gmMUhC": {
-                  "type": "slideshow_block",
-                  "name": "Slideshow",
+                "accordion_image_xapbn6": {
+                  "type": "accordion_image",
+                  "name": "Accordion image",
                   "settings": {
-                    "icons_style": "chevron",
-                    "slideshow_controls_style": "dots",
-                    "autoplay": false,
-                    "autoplay_speed": 4,
-                    "slide_height": "auto",
+                    "image": "shopify://shop_images/iStock-641225382.jpg",
+                    "link": "",
+                    "caption": "",
+                    "image_ratio": "adapt",
+                    "image_fit": "cover",
+                    "border_radius": 0,
+                    "placeholder_color": "",
+                    "max_width": 0,
+                    "alignment": "flex-start",
+                    "text_alignment": "left",
                     "padding-block-start": 0,
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
                     "padding-inline-end": 0
                   },
-                  "blocks": {
-                    "slide_1": {
-                      "type": "_slide",
-                      "settings": {
-                        "media_type_1": "image",
-                        "image_1": "shopify://shop_images/iStock-641225382.jpg",
-                        "content_direction": "column",
-                        "vertical_on_mobile": true,
-                        "horizontal_alignment": "flex-start",
-                        "vertical_alignment": "center",
-                        "align_baseline": false,
-                        "horizontal_alignment_flex_direction_column": "flex-end",
-                        "vertical_alignment_flex_direction_column": "flex-end",
-                        "gap": 12,
-                        "inherit_color_scheme": true,
-                        "color_scheme": "",
-                        "toggle_overlay": false,
-                        "overlay_color": "#00000026",
-                        "overlay_style": "solid",
-                        "gradient_direction": "to top",
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
-                      },
-                      "blocks": {
-                        "text_ccnnjc": {
-                          "type": "text",
-                          "name": "t:names.text",
-                          "settings": {
-                            "text": "<p>We make things that work better and last longer. Our products solve real problems with clean design and honest materials.</p>",
-                            "width": "fit-content",
-                            "max_width": "normal",
-                            "alignment": "left",
-                            "type_preset": "rte",
-                            "font": "var(--font-body--family)",
-                            "font_size": "1rem",
-                            "line_height": "normal",
-                            "letter_spacing": "normal",
-                            "case": "none",
-                            "wrap": "pretty",
-                            "color": "var(--color-foreground)",
-                            "background": false,
-                            "background_color": "#00000026",
-                            "corner_radius": 0,
-                            "padding-block-start": 0,
-                            "padding-block-end": 0,
-                            "padding-inline-start": 0,
-                            "padding-inline-end": 0
-                          },
-                          "blocks": {}
-                        }
-                      },
-                      "block_order": [
-                        "text_ccnnjc"
-                      ]
-                    },
-                    "slide_KYWN84": {
-                      "type": "_slide",
-                      "settings": {
-                        "media_type_1": "image",
-                        "image_1": "shopify://shop_images/shutterstock_1715090482.webp",
-                        "content_direction": "column",
-                        "vertical_on_mobile": true,
-                        "horizontal_alignment": "flex-start",
-                        "vertical_alignment": "center",
-                        "align_baseline": false,
-                        "horizontal_alignment_flex_direction_column": "flex-end",
-                        "vertical_alignment_flex_direction_column": "flex-end",
-                        "gap": 12,
-                        "inherit_color_scheme": true,
-                        "color_scheme": "",
-                        "toggle_overlay": false,
-                        "overlay_color": "#00000026",
-                        "overlay_style": "solid",
-                        "gradient_direction": "to top",
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "slide_1",
-                    "slide_KYWN84"
-                  ]
+                  "blocks": {}
                 },
                 "group_PGerCJ": {
                   "type": "group",
@@ -1239,7 +1157,7 @@
                 }
               },
               "block_order": [
-                "accordion_slideshow_gmMUhC",
+                "accordion_image_xapbn6",
                 "group_PGerCJ",
                 "group_wCWc8w"
               ]
@@ -1253,10 +1171,10 @@
                 "collapsible": true,
                 "open_by_default": false,
                 "group_mode": "shared",
-                "color_scheme": "scheme-1",
-                "hover_color_scheme": "scheme-5",
-                "left_hover_color_scheme": "scheme-5",
-                "right_hover_color_scheme": "scheme-5",
+                "color_scheme": "scheme-5",
+                "hover_color_scheme": "scheme-1",
+                "left_hover_color_scheme": "scheme-1",
+                "right_hover_color_scheme": "scheme-1",
                 "summary_padding_block_start": 16,
                 "summary_padding_block_end": 16,
                 "summary_padding_inline_start": 16,
@@ -1493,10 +1411,10 @@
                 "collapsible": true,
                 "open_by_default": false,
                 "group_mode": "shared",
-                "color_scheme": "scheme-1",
-                "hover_color_scheme": "scheme-2",
-                "left_hover_color_scheme": "scheme-2",
-                "right_hover_color_scheme": "scheme-2",
+                "color_scheme": "scheme-2",
+                "hover_color_scheme": "scheme-1",
+                "left_hover_color_scheme": "scheme-1",
+                "right_hover_color_scheme": "scheme-1",
                 "summary_padding_block_start": 16,
                 "summary_padding_block_end": 16,
                 "summary_padding_inline_start": 16,
