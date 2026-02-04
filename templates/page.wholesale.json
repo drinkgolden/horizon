@@ -211,7 +211,7 @@
                   "static": true,
                   "settings": {
                     "label": "Submit",
-                    "style_class": "button-secondary",
+                    "style_class": "button",
                     "width": "custom",
                     "custom_width": 100,
                     "width_mobile": "custom",
