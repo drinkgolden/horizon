@@ -113,7 +113,7 @@
               "type": "product-description",
               "name": "t:names.product_description",
               "settings": {
-                "text": "<p>My mate James in green, me, Morg the Founder of Golden on the right. </p>",
+                "text": "<p>My mate James in green, me, Morg, founder of Golden, on the right.</p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "right",
