@@ -43,7 +43,11 @@ class FloatingMotifButton {
     if (this.scrollRevealPercent > 0) {
       const scrollHeight = Math.max(
         document.documentElement.scrollHeight || 0,
-        document.body?.scrollHeight || 0
+        document.documentElement.offsetHeight || 0,
+        document.documentElement.clientHeight || 0,
+        document.body?.scrollHeight || 0,
+        document.body?.offsetHeight || 0,
+        document.body?.clientHeight || 0
       );
       const maxScroll = Math.max(scrollHeight - viewportHeight, 0);
       this.visibilityThreshold = (maxScroll * this.scrollRevealPercent) / 100;
@@ -68,6 +72,9 @@ class FloatingMotifButton {
     if (this.dismissed) {
       return;
     }
+
+    // Keep the reveal threshold accurate if page height changes after load.
+    this.updateThreshold();
 
     const scrollPosition = window.scrollY || window.pageYOffset || 0;
     const shouldShow = scrollPosition > this.visibilityThreshold;
