@@ -900,7 +900,7 @@
                         "gap": 12,
                         "inherit_color_scheme": false,
                         "color_scheme": "scheme-6",
-                        "toggle_overlay": true,
+                        "toggle_overlay": false,
                         "overlay_color": "#00000026",
                         "overlay_style": "gradient",
                         "gradient_direction": "to top",
