@@ -62,7 +62,9 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 44,
-        "padding-block-end": 0
+        "padding-block-end": 0,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0
       }
     },
     "section_HrfhEB": {
@@ -249,7 +251,9 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 44,
-        "padding-block-end": 44
+        "padding-block-end": 44,
+        "padding-inline-start": 16,
+        "padding-inline-end": 16
       }
     },
     "section_TTRARa": {
@@ -1504,7 +1508,9 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 0,
-        "padding-block-end": 0
+        "padding-block-end": 0,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0
       }
     },
     "section_z7Mh7j": {
@@ -1928,7 +1934,9 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 44,
-        "padding-block-end": 44
+        "padding-block-end": 44,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0
       }
     },
     "section_zk7ykz": {
@@ -1985,7 +1993,9 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 0,
-        "padding-block-end": 0
+        "padding-block-end": 0,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0
       }
     },
     "section_REkpVR": {
@@ -2042,7 +2052,9 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 0,
-        "padding-block-end": 0
+        "padding-block-end": 0,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0
       }
     },
     "section_3hPHCr": {
@@ -2147,7 +2159,9 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 0,
-        "padding-block-end": 0
+        "padding-block-end": 0,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0
       }
     }
   },
