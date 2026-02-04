@@ -119,7 +119,7 @@
               "settings": {
                 "text": "<h2>Low-cal sparkling soda from Aotearoa, sweetened with Golden Bay mānuka honey and flavoured with locally grown fruits</h2>",
                 "width": "100%",
-                "max_width": "narrow",
+                "max_width": "normal",
                 "alignment": "left",
                 "type_preset": "h2",
                 "font": "var(--font-body--family)",
