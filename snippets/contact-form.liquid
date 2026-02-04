@@ -49,41 +49,48 @@
     {%- endif -%}
 
     {% if form_variant == 'default' %}
-      <div class="contact-form__form-row">
-        <label class="visually-hidden" for="{{ form_id }}-name">
-          {{- 'blocks.contact_form.name' | t -}}
-        </label>
-        <input
-          type="text"
-          id="{{ form_id }}-name"
-          class="contact-form__input"
-          autocomplete="name"
-          name="contact[name]"
-          value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
-          placeholder="{{ 'blocks.contact_form.name' | t }}"
-        >
+      <label class="visually-hidden" for="{{ form_id }}-first-name">First name</label>
+      <input
+        type="text"
+        id="{{ form_id }}-first-name"
+        class="contact-form__input"
+        autocomplete="given-name"
+        name="contact[First name]"
+        value="{% if form.name %}{{ form.name | split: ' ' | first }}{% elsif customer %}{{ customer.first_name }}{% endif %}"
+        placeholder="First name"
+      >
 
-        <label class="visually-hidden" for="{{ form_id }}-email">
-          {{- 'blocks.contact_form.email' | t -}}
-          <span aria-hidden="true">*</span></label
-        >
-        <input
-          type="email"
-          id="{{ form_id }}-email"
-          class="contact-form__input"
-          autocomplete="email"
-          name="contact[email]"
-          spellcheck="false"
-          autocapitalize="off"
-          value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
-          aria-required="true"
-          {% if form.errors contains 'email' %}
-            aria-invalid="true"
-            aria-describedby="{{ form_id }}-email-error"
-          {% endif %}
-          placeholder="{{ 'blocks.contact_form.email' | t }}"
-        >
-      </div>
+      <label class="visually-hidden" for="{{ form_id }}-last-name">Last name</label>
+      <input
+        type="text"
+        id="{{ form_id }}-last-name"
+        class="contact-form__input"
+        autocomplete="family-name"
+        name="contact[Last name]"
+        value="{% if form.name %}{{ form.name | split: ' ' | last }}{% elsif customer %}{{ customer.last_name }}{% endif %}"
+        placeholder="Last name"
+      >
+
+      <label class="visually-hidden" for="{{ form_id }}-email">
+        {{- 'blocks.contact_form.email' | t -}}
+        <span aria-hidden="true">*</span>
+      </label>
+      <input
+        type="email"
+        id="{{ form_id }}-email"
+        class="contact-form__input"
+        autocomplete="email"
+        name="contact[email]"
+        spellcheck="false"
+        autocapitalize="off"
+        value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+        aria-required="true"
+        {% if form.errors contains 'email' %}
+          aria-invalid="true"
+          aria-describedby="{{ form_id }}-email-error"
+        {% endif %}
+        placeholder="{{ 'blocks.contact_form.email' | t }}"
+      >
 
       <label class="visually-hidden" for="{{ form_id }}-phone">
         {{- 'blocks.contact_form.phone' | t -}}
@@ -99,15 +106,13 @@
         placeholder="{{ 'blocks.contact_form.phone' | t }}"
       >
 
-      <label class="visually-hidden" for="{{ form_id }}-body">
-        {{- 'blocks.contact_form.comment' | t -}}
-      </label>
+      <label class="visually-hidden" for="{{ form_id }}-body">Message</label>
       <textarea
         rows="10"
         id="{{ form_id }}-body"
         class="contact-form__input contact-form__input--textarea"
         name="contact[body]"
-        placeholder="{{ 'blocks.contact_form.comment' | t }}"
+        placeholder="Message"
       >
         {{- form.body -}}
       </textarea>
