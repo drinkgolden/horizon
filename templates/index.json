@@ -114,7 +114,7 @@
               "settings": {
                 "text": "<h2>Low-cal sparkling soda from Aotearoa, New Zealand sweetened with Golden Bay mānuka honey and flavoured with locally grown fruits</h2>",
                 "width": "100%",
-                "max_width": "normal",
+                "max_width": "none",
                 "alignment": "left",
                 "type_preset": "h2",
                 "font": "var(--font-body--family)",
@@ -233,7 +233,7 @@
         "vertical_alignment_flex_direction_column": "center",
         "gap": 16,
         "section_width": "full-width",
-        "section_height": "",
+        "section_height": "medium",
         "section_height_custom": 17,
         "color_scheme": "",
         "background_media": "none",
@@ -873,40 +873,13 @@
                     "slideshow_controls_style": "dots",
                     "autoplay": false,
                     "autoplay_speed": 4,
-                    "slide_height": "auto",
+                    "slide_height": "medium",
                     "padding-block-start": 0,
-                    "padding-block-end": 0,
+                    "padding-block-end": 16,
                     "padding-inline-start": 0,
                     "padding-inline-end": 0
                   },
                   "blocks": {
-                    "slide_pPR7bW": {
-                      "type": "_slide",
-                      "name": "t:names.slide",
-                      "settings": {
-                        "media_type_1": "image",
-                        "image_1": "shopify://shop_images/iStock-641225382.jpg",
-                        "content_direction": "column",
-                        "vertical_on_mobile": true,
-                        "horizontal_alignment": "flex-end",
-                        "vertical_alignment": "center",
-                        "align_baseline": false,
-                        "horizontal_alignment_flex_direction_column": "center",
-                        "vertical_alignment_flex_direction_column": "center",
-                        "gap": 12,
-                        "inherit_color_scheme": true,
-                        "color_scheme": "",
-                        "toggle_overlay": false,
-                        "overlay_color": "#00000026",
-                        "overlay_style": "solid",
-                        "gradient_direction": "to top",
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
-                      },
-                      "blocks": {}
-                    },
                     "slide_ty67PV": {
                       "type": "_slide",
                       "name": "t:names.slide",
@@ -933,25 +906,68 @@
                         "padding-inline-end": 16
                       },
                       "blocks": {
-                        "spacer_BMJtzw": {
-                          "type": "spacer",
-                          "name": "t:names.spacer",
-                          "settings": {
-                            "size": "percent",
-                            "percent_size": 100,
-                            "pixel_size": 120,
-                            "custom_mobile_size": true,
-                            "size_mobile": "percent",
-                            "percent_size_mobile": 100,
-                            "pixel_size_mobile": 120
-                          },
-                          "blocks": {}
-                        },
                         "text_aYnLyh": {
                           "type": "text",
                           "name": "t:names.text",
                           "settings": {
-                            "text": "<p>Beehives on the way to Wharariki Beach, Cape Farewell. </p>",
+                            "text": "<h6>Beehives on the way to Wharariki Beach, Cape Farewell. </h6>",
+                            "width": "fit-content",
+                            "max_width": "normal",
+                            "alignment": "left",
+                            "type_preset": "rte",
+                            "font": "var(--font-body--family)",
+                            "font_size": "1rem",
+                            "line_height": "normal",
+                            "letter_spacing": "normal",
+                            "case": "none",
+                            "wrap": "pretty",
+                            "color": "var(--color-foreground)",
+                            "background": false,
+                            "background_color": "#00000026",
+                            "corner_radius": 0,
+                            "padding-block-start": 0,
+                            "padding-block-end": 16,
+                            "padding-inline-start": 0,
+                            "padding-inline-end": 0
+                          },
+                          "blocks": {}
+                        }
+                      },
+                      "block_order": [
+                        "text_aYnLyh"
+                      ]
+                    },
+                    "slide_xxA3Bt": {
+                      "type": "_slide",
+                      "name": "t:names.slide",
+                      "settings": {
+                        "media_type_1": "image",
+                        "image_1": "shopify://shop_images/iStock-641225382.jpg",
+                        "content_direction": "column",
+                        "vertical_on_mobile": true,
+                        "horizontal_alignment": "flex-start",
+                        "vertical_alignment": "flex-end",
+                        "align_baseline": false,
+                        "horizontal_alignment_flex_direction_column": "flex-end",
+                        "vertical_alignment_flex_direction_column": "flex-end",
+                        "gap": 12,
+                        "inherit_color_scheme": false,
+                        "color_scheme": "scheme-6",
+                        "toggle_overlay": true,
+                        "overlay_color": "#00000026",
+                        "overlay_style": "gradient",
+                        "gradient_direction": "to top",
+                        "padding-block-start": 16,
+                        "padding-block-end": 16,
+                        "padding-inline-start": 16,
+                        "padding-inline-end": 16
+                      },
+                      "blocks": {
+                        "text_iAAQQC": {
+                          "type": "text",
+                          "name": "t:names.text",
+                          "settings": {
+                            "text": "<h6>Farewell Spit, Golden bay</h6>",
                             "width": "fit-content",
                             "max_width": "normal",
                             "alignment": "left",
@@ -975,14 +991,13 @@
                         }
                       },
                       "block_order": [
-                        "spacer_BMJtzw",
-                        "text_aYnLyh"
+                        "text_iAAQQC"
                       ]
                     }
                   },
                   "block_order": [
-                    "slide_pPR7bW",
-                    "slide_ty67PV"
+                    "slide_ty67PV",
+                    "slide_xxA3Bt"
                   ]
                 }
               },
@@ -1286,7 +1301,7 @@
                 "content_padding_inline_end": 16,
                 "heading_type_preset": "",
                 "right_heading_type_preset": "match",
-                "heading_min_size": 1,
+                "heading_min_size": 1.1,
                 "heading_max_size": 1.6,
                 "icon": "none",
                 "width": 20
