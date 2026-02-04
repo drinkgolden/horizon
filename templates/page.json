@@ -18,16 +18,16 @@
           "settings": {
             "text": "<h1>{{ closest.page.title }}</h1>",
             "width": "100%",
-            "max_width": "normal",
+            "max_width": "none",
             "alignment": "left",
-            "type_preset": "h2",
+            "type_preset": "h3",
             "font": "var(--font-primary--family)",
             "font_size": "",
             "line_height": "normal",
             "letter_spacing": "normal",
             "case": "none",
             "wrap": "pretty",
-            "color": "",
+            "color": "var(--color-foreground-heading)",
             "background": false,
             "background_color": "#00000026",
             "corner_radius": 0,
@@ -42,38 +42,21 @@
           "type": "page-content",
           "settings": {},
           "blocks": {}
-        }
-      },
-      "block_order": [
-        "heading",
-        "page-content"
-      ],
-      "disabled": true,
-      "settings": {
-        "content_direction": "column",
-        "gap": 32,
-        "color_scheme": "",
-        "padding-block-start": 40,
-        "padding-block-end": 80
-      }
-    },
-    "hero_awffPH": {
-      "type": "hero",
-      "blocks": {
-        "group_PCHa8M": {
+        },
+        "group_B4L8Dp": {
           "type": "group",
           "name": "t:names.group",
           "settings": {
-            "content_direction": "row",
+            "content_direction": "column",
             "vertical_on_mobile": true,
             "horizontal_alignment": "flex-start",
-            "vertical_alignment": "flex-end",
-            "align_baseline": true,
+            "vertical_alignment": "center",
+            "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "flex-start",
             "vertical_alignment_flex_direction_column": "center",
             "enable_sticky": false,
             "sticky_offset": 0,
-            "gap": 18,
+            "gap": 12,
             "width": "fill",
             "custom_width": 100,
             "width_mobile": "fill",
@@ -102,112 +85,47 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "group_zGGymc": {
-              "type": "group",
-              "name": "t:names.group",
+            "image_MMdTDx": {
+              "type": "image",
+              "name": "t:names.image",
               "settings": {
-                "content_direction": "column",
-                "vertical_on_mobile": true,
-                "horizontal_alignment": "flex-start",
-                "vertical_alignment": "center",
-                "align_baseline": false,
-                "horizontal_alignment_flex_direction_column": "flex-start",
-                "vertical_alignment_flex_direction_column": "center",
-                "enable_sticky": false,
-                "sticky_offset": 0,
-                "gap": 6,
-                "width": "custom",
+                "image": "shopify://shop_images/DSCN0444.webp",
+                "link": "",
+                "image_ratio": "adapt",
+                "width": "fill",
                 "custom_width": 100,
                 "width_mobile": "fill",
                 "custom_width_mobile": 100,
                 "height": "fit",
-                "custom_height": 100,
-                "inherit_color_scheme": true,
-                "color_scheme": "",
-                "background_media": "none",
-                "video_position": "cover",
-                "background_image_position": "cover",
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
                 "border_radius": 0,
-                "toggle_overlay": false,
-                "overlay_color": "#00000026",
-                "overlay_style": "solid",
-                "gradient_direction": "to top",
-                "link": "",
-                "open_in_new_tab": false,
-                "placeholder": "",
+                "placeholder_color": "",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
               },
               "blocks": {}
-            },
-            "text_dNBLYt": {
-              "type": "text",
-              "name": "t:names.text",
-              "settings": {
-                "text": "<p><em>Beehives on the way to Wharariki Beach (near Golden Bay).</em></p>",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "right",
-                "type_preset": "paragraph",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 16,
-                "padding-inline-end": 16
-              },
-              "blocks": {}
             }
           },
           "block_order": [
-            "group_zGGymc",
-            "text_dNBLYt"
+            "image_MMdTDx"
           ]
         }
       },
       "block_order": [
-        "group_PCHa8M"
+        "heading",
+        "page-content",
+        "group_B4L8Dp"
       ],
-      "name": "t:names.hero_bottom_aligned",
       "settings": {
-        "media_type_1": "image",
-        "image_1": "shopify://shop_images/shutterstock_1715090482.webp",
-        "media_type_2": "image",
-        "link": "",
-        "open_in_new_tab": false,
         "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "flex-end",
         "gap": 16,
-        "section_width": "full-width",
-        "section_height": "full-screen",
-        "section_height_custom": 50,
-        "color_scheme": "scheme-6",
-        "toggle_overlay": true,
-        "overlay_color": "#00000026",
-        "overlay_style": "gradient",
-        "gradient_direction": "to top",
-        "blurred_reflection": false,
-        "reflection_opacity": 75,
-        "padding-block-start": 24,
-        "padding-block-end": 24
+        "color_scheme": "",
+        "padding-block-start": 44,
+        "padding-block-end": 44
       }
     },
     "section_jq6wGK": {
@@ -218,9 +136,9 @@
           "name": "t:names.heading",
           "settings": {
             "text": "<h2>Starting Golden</h2>",
-            "width": "fit-content",
-            "max_width": "narrow",
-            "alignment": "left",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "center",
             "type_preset": "h4",
             "font": "var(--font-body--family)",
             "font_size": "1rem",
@@ -319,7 +237,6 @@
   },
   "order": [
     "main",
-    "hero_awffPH",
     "section_jq6wGK"
   ]
 }

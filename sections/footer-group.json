@@ -14,17 +14,64 @@
     "migrated_footer_content": {
       "type": "section",
       "blocks": {
-        "icon_dEMfFC": {
-          "type": "icon",
-          "name": "t:names.icon",
+        "group_zRaGfW": {
+          "type": "group",
+          "name": "t:names.group",
           "settings": {
-            "icon": "none",
-            "image_upload": "shopify://shop_images/Golden_Bee_Icon_White.svg",
-            "width": 24,
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-end",
+            "vertical_alignment": "flex-start",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-end",
+            "vertical_alignment_flex_direction_column": "center",
+            "enable_sticky": false,
+            "sticky_offset": 0,
+            "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
             "link": "",
-            "open_in_new_tab": false
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
           },
-          "blocks": {}
+          "blocks": {
+            "icon_aBedxk": {
+              "type": "icon",
+              "name": "t:names.icon",
+              "settings": {
+                "icon": "price_tag",
+                "image_upload": "shopify://shop_images/Golden_Bee_Icon_White.svg",
+                "width": 24,
+                "link": "",
+                "open_in_new_tab": false
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "icon_aBedxk"
+          ]
         },
         "group_tbFfTQ": {
           "type": "group",
@@ -336,7 +383,7 @@
         }
       },
       "block_order": [
-        "icon_dEMfFC",
+        "group_zRaGfW",
         "group_tbFfTQ",
         "group_cGJPxi"
       ],
