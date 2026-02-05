@@ -1170,7 +1170,7 @@
                 "content_padding_inline_end": 16,
                 "heading_type_preset": "h2",
                 "right_heading_type_preset": "match",
-                "heading_min_size": 1.1,
+                "heading_min_size": 1.2,
                 "heading_max_size": 1.6,
                 "icon": "none",
                 "width": 20
@@ -2092,7 +2092,7 @@
                 "open_by_default": true,
                 "provider": "instagram",
                 "feed_url": "",
-                "max_items": 11,
+                "max_items": 10,
                 "show_captions": false,
                 "open_new_tab": true,
                 "image_ratio": "portrait",
