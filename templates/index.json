@@ -24,7 +24,7 @@
             "unit_mobile": "percent",
             "percent_width_mobile": 100,
             "pixel_height_mobile": 120,
-            "padding-block-start": 44,
+            "padding-block-start": 64,
             "padding-block-end": 16,
             "padding-inline-start": 16,
             "padding-inline-end": 16
@@ -107,8 +107,8 @@
             "placeholder": "hero-apparel-2",
             "padding-block-start": 0,
             "padding-block-end": 44,
-            "padding-inline-start": 16,
-            "padding-inline-end": 16
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
           },
           "blocks": {
             "text_fBYKHx": {
@@ -874,7 +874,7 @@
                   "name": "Slideshow",
                   "settings": {
                     "icons_style": "chevron",
-                    "slideshow_controls_style": "dots",
+                    "slideshow_controls_style": "none",
                     "autoplay": false,
                     "autoplay_speed": 4,
                     "slide_height": "large",
@@ -930,7 +930,7 @@
                             "background_color": "#00000026",
                             "corner_radius": 0,
                             "padding-block-start": 0,
-                            "padding-block-end": 16,
+                            "padding-block-end": 0,
                             "padding-inline-start": 0,
                             "padding-inline-end": 0
                           },
@@ -987,7 +987,7 @@
                             "background_color": "#00000026",
                             "corner_radius": 0,
                             "padding-block-start": 0,
-                            "padding-block-end": 16,
+                            "padding-block-end": 0,
                             "padding-inline-start": 0,
                             "padding-inline-end": 0
                           },
@@ -1170,7 +1170,7 @@
                 "content_padding_inline_end": 16,
                 "heading_type_preset": "h2",
                 "right_heading_type_preset": "match",
-                "heading_min_size": 1.1,
+                "heading_min_size": 1.2,
                 "heading_max_size": 1.6,
                 "icon": "none",
                 "width": 20
@@ -2092,7 +2092,7 @@
                 "open_by_default": true,
                 "provider": "instagram",
                 "feed_url": "",
-                "max_items": 11,
+                "max_items": 10,
                 "show_captions": false,
                 "open_new_tab": true,
                 "image_ratio": "portrait",
