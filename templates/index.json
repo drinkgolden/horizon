@@ -24,7 +24,7 @@
             "unit_mobile": "percent",
             "percent_width_mobile": 100,
             "pixel_height_mobile": 120,
-            "padding-block-start": 44,
+            "padding-block-start": 64,
             "padding-block-end": 16,
             "padding-inline-start": 16,
             "padding-inline-end": 16
@@ -874,7 +874,7 @@
                   "name": "Slideshow",
                   "settings": {
                     "icons_style": "chevron",
-                    "slideshow_controls_style": "dots",
+                    "slideshow_controls_style": "none",
                     "autoplay": false,
                     "autoplay_speed": 4,
                     "slide_height": "large",
@@ -930,7 +930,7 @@
                             "background_color": "#00000026",
                             "corner_radius": 0,
                             "padding-block-start": 0,
-                            "padding-block-end": 16,
+                            "padding-block-end": 0,
                             "padding-inline-start": 0,
                             "padding-inline-end": 0
                           },
@@ -987,7 +987,7 @@
                             "background_color": "#00000026",
                             "corner_radius": 0,
                             "padding-block-start": 0,
-                            "padding-block-end": 16,
+                            "padding-block-end": 0,
                             "padding-inline-start": 0,
                             "padding-inline-end": 0
                           },
