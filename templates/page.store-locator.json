@@ -89,7 +89,7 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "image": "shopify://shop_images/me_and_james.jpg",
+                "image": "shopify://shop_images/DSCN0444.webp",
                 "link": "",
                 "image_ratio": "landscape",
                 "width": "fill",
@@ -258,9 +258,7 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 44,
-        "padding-block-end": 24,
-        "padding-inline-start": 0,
-        "padding-inline-end": 0
+        "padding-block-end": 24
       }
     }
   },
