@@ -97,7 +97,7 @@
                 "wrap": "pretty",
                 "color": "var(--color-foreground)",
                 "padding-block-start": 16,
-                "padding-block-end": 16
+                "padding-block-end": 0
               },
               "blocks": {}
             },
