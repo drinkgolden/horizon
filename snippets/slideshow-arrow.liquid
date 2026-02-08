@@ -37,7 +37,7 @@
   {% # theme-check-disable %}
   aria-label="{{ 'accessibility.slideshow_' | append: action | t }}"
   {% # theme-check-enable %}
-  on:click="{% if target_selector != blank %}{{ target_selector }}/{% endif %}{{ action }}"
+  on:click="{% if target_selector != blank %}{{ target_selector }}/{% else %}/{% endif %}{{ action }}"
   ref="{{ action }}"
 >
   <span class="svg-wrapper icon-{{ icon_name }}">
