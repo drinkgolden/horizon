@@ -1,0 +1,411 @@
+{%- liquid
+  assign stockist_blocks = section.blocks | where: 'type', 'stockist'
+-%}
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<div
+  class="
+    section
+    section--{{ section.settings.section_width }}
+    color-{{ section.settings.color_scheme }}
+    spacing-style
+    gap-style
+    stockist-mapbox
+  "
+  style="
+    {% render 'spacing-style', settings: section.settings %}
+    {% render 'gap-style', value: section.settings.gap %}
+    --stockist-map-height: {{ section.settings.map_height }}px;
+    --stockist-map-height-mobile: {{ section.settings.map_height_mobile }}px;
+    --stockist-text-align: {{ section.settings.text_alignment }};
+    --stockist-marker-color: {{ section.settings.marker_color }};
+  "
+>
+  <div class="stockist-mapbox__inner">
+    {% if section.settings.heading != blank or section.settings.subheading != blank %}
+      <div class="stockist-mapbox__header">
+        {% if section.settings.heading != blank %}
+          <h2 class="stockist-mapbox__heading h1">
+            {{ section.settings.heading | escape }}
+          </h2>
+        {% endif %}
+        {% if section.settings.subheading != blank %}
+          <div class="stockist-mapbox__subheading h4">
+            {{ section.settings.subheading }}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <stockist-mapbox
+      class="stockist-mapbox__grid"
+      data-mapbox-token="{{ section.settings.mapbox_token | escape }}"
+      data-map-style="{{ section.settings.map_style | escape }}"
+      data-default-center="{{ section.settings.default_center | escape }}"
+      data-default-zoom="{{ section.settings.default_zoom }}"
+      data-layout="{{ section.settings.layout }}"
+      data-sort-by-distance="{{ section.settings.sort_by_distance }}"
+      data-show-distance="{{ section.settings.show_distance }}"
+      data-empty-text="{{ section.settings.empty_text | escape }}"
+    >
+      {% if section.settings.show_search %}
+        <form class="stockist-mapbox__search" data-search>
+          <label class="visually-hidden" for="stockist-search-{{ section.id }}">
+            {{ section.settings.search_label | escape }}
+          </label>
+          <div class="stockist-mapbox__search-row">
+            <input
+              id="stockist-search-{{ section.id }}"
+              class="stockist-mapbox__search-input"
+              type="search"
+              name="stockist-search"
+              placeholder="{{ section.settings.search_placeholder | escape }}"
+              data-search-input
+            >
+            <button class="button button-secondary" type="submit">
+              {{ section.settings.search_button_label | escape }}
+            </button>
+            {% if section.settings.show_geolocate %}
+              <button class="button button-unstyled" type="button" data-geolocate>
+                {{ section.settings.geolocate_label | escape }}
+              </button>
+            {% endif %}
+          </div>
+        </form>
+      {% endif %}
+
+      <div class="stockist-mapbox__content">
+        <div class="stockist-mapbox__list" data-results></div>
+        <div class="stockist-mapbox__map" data-map></div>
+      </div>
+
+      <script type="application/json" data-stockist-data>
+        [
+          {%- for block in stockist_blocks -%}
+            {
+              "id": {{ block.id | json }},
+              "name": {{ block.settings.name | json }},
+              "address_line_1": {{ block.settings.address_line_1 | json }},
+              "address_line_2": {{ block.settings.address_line_2 | json }},
+              "city": {{ block.settings.city | json }},
+              "region": {{ block.settings.region | json }},
+              "postal_code": {{ block.settings.postal_code | json }},
+              "country": {{ block.settings.country | json }},
+              "lat": {{ block.settings.lat | default: nil | json }},
+              "lng": {{ block.settings.lng | default: nil | json }},
+              "phone": {{ block.settings.phone | json }},
+              "website": {{ block.settings.website | json }},
+              "notes": {{ block.settings.notes | json }}
+            }{%- unless forloop.last -%},{%- endunless -%}
+          {%- endfor -%}
+        ]
+      </script>
+    </stockist-mapbox>
+  </div>
+</div>
+
+<script
+  src="{{ 'stockist-mapbox.js' | asset_url }}"
+  type="module"
+  defer
+></script>
+
+{% schema %}
+{
+  "name": "Stockist map (Mapbox)",
+  "tag": "section",
+  "class": "stockist-mapbox-section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Find Golden near you"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "<p>Search by city or postcode to find stockists nearby.</p>"
+    },
+    {
+      "type": "text",
+      "id": "mapbox_token",
+      "label": "Mapbox access token"
+    },
+    {
+      "type": "text",
+      "id": "map_style",
+      "label": "Mapbox style URL",
+      "default": "mapbox://styles/mapbox/light-v11"
+    },
+    {
+      "type": "text",
+      "id": "default_center",
+      "label": "Default map center (lat,lng)",
+      "default": "-36.8485,174.7633"
+    },
+    {
+      "type": "range",
+      "id": "default_zoom",
+      "label": "Default zoom",
+      "min": 2,
+      "max": 16,
+      "step": 1,
+      "default": 6
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        {
+          "value": "map-right",
+          "label": "Map right"
+        },
+        {
+          "value": "map-left",
+          "label": "Map left"
+        }
+      ],
+      "default": "map-right"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_search",
+      "label": "Show search",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "search_label",
+      "label": "Search label",
+      "default": "Search location"
+    },
+    {
+      "type": "text",
+      "id": "search_placeholder",
+      "label": "Search placeholder",
+      "default": "Search by city or postcode"
+    },
+    {
+      "type": "text",
+      "id": "search_button_label",
+      "label": "Search button label",
+      "default": "Search"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_geolocate",
+      "label": "Show 'Near me' button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "geolocate_label",
+      "label": "Near me label",
+      "default": "Use my location"
+    },
+    {
+      "type": "checkbox",
+      "id": "sort_by_distance",
+      "label": "Sort by distance when searching",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_distance",
+      "label": "Show distance",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "empty_text",
+      "label": "Empty state text",
+      "default": "Add stockists to this section to show them on the map."
+    },
+    {
+      "type": "color",
+      "id": "marker_color",
+      "label": "Marker color",
+      "default": "#1c1c1c"
+    },
+    {
+      "type": "range",
+      "id": "map_height",
+      "label": "Map height (desktop)",
+      "min": 320,
+      "max": 900,
+      "step": 10,
+      "unit": "px",
+      "default": 560
+    },
+    {
+      "type": "range",
+      "id": "map_height_mobile",
+      "label": "Map height (mobile)",
+      "min": 240,
+      "max": 640,
+      "step": 10,
+      "unit": "px",
+      "default": 360
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:options.left"
+        },
+        {
+          "value": "center",
+          "label": "t:options.center"
+        },
+        {
+          "value": "right",
+          "label": "t:options.right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "t:content.layout"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "t:options.page"
+        },
+        {
+          "value": "full-width",
+          "label": "t:options.full"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Block gap",
+      "min": 0,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:content.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top padding",
+      "min": 0,
+      "max": 128,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 128,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stockist",
+      "name": "Stockist",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "address_line_1",
+          "label": "Address line 1"
+        },
+        {
+          "type": "text",
+          "id": "address_line_2",
+          "label": "Address line 2"
+        },
+        {
+          "type": "text",
+          "id": "city",
+          "label": "City"
+        },
+        {
+          "type": "text",
+          "id": "region",
+          "label": "Region"
+        },
+        {
+          "type": "text",
+          "id": "postal_code",
+          "label": "Postcode"
+        },
+        {
+          "type": "text",
+          "id": "country",
+          "label": "Country"
+        },
+        {
+          "type": "text",
+          "id": "lat",
+          "label": "Latitude"
+        },
+        {
+          "type": "text",
+          "id": "lng",
+          "label": "Longitude"
+        },
+        {
+          "type": "text",
+          "id": "phone",
+          "label": "Phone"
+        },
+        {
+          "type": "url",
+          "id": "website",
+          "label": "Website"
+        },
+        {
+          "type": "text",
+          "id": "notes",
+          "label": "Notes"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Stockist map (Mapbox)"
+    }
+  ]
+}
+{% endschema %}
