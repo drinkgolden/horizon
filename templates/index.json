@@ -2133,7 +2133,7 @@
                 "intro_text": "",
                 "mapbox_token": "pk.eyJ1Ijoic3RheWdvbGRlbiIsImEiOiJjbWU4MHR0ZGkwN3VnMmpwdzRhdTk1ZXJwIn0.B_Ut6dgFJ6Bmnl44MbAZ9g",
                 "map_style": "mapbox://styles/staygolden/cmlk28ba200k401sl49f76nhy",
-                "default_center": "-36.8485,174.7633",
+                "default_center": "",
                 "default_zoom": 6,
                 "layout": "map-right",
                 "show_search": true,
