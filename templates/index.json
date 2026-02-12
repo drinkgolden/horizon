@@ -2119,6 +2119,56 @@
             "padding-inline-end": 0
           },
           "blocks": {
+            "accordion_row_stockist_mapbox_B3RxhB": {
+              "type": "accordion_row_stockist_mapbox",
+              "name": "Stockist map row",
+              "settings": {
+                "heading": "Stockists",
+                "right_heading": "",
+                "heading_links_enabled": false,
+                "heading_link": "",
+                "right_heading_link": "",
+                "collapsible": true,
+                "open_by_default": false,
+                "intro_text": "",
+                "mapbox_token": "pk.eyJ1Ijoic3RheWdvbGRlbiIsImEiOiJjbWU4MHR0ZGkwN3VnMmpwdzRhdTk1ZXJwIn0.B_Ut6dgFJ6Bmnl44MbAZ9g",
+                "map_style": "mapbox://styles/staygolden/cmlk28ba200k401sl49f76nhy",
+                "default_center": "-36.8485,174.7633",
+                "default_zoom": 6,
+                "layout": "map-right",
+                "show_search": true,
+                "search_label": "Search location",
+                "search_placeholder": "Search by city or postcode",
+                "search_button_label": "Search",
+                "show_geolocate": true,
+                "geolocate_label": "Use my location",
+                "sort_by_distance": true,
+                "show_distance": true,
+                "empty_text": "Add stockists to this row to show them on the map.",
+                "marker_color": "#1c1c1c",
+                "map_height": 520,
+                "map_height_mobile": 360,
+                "color_scheme": "",
+                "hover_color_scheme": "",
+                "left_hover_color_scheme": "",
+                "right_hover_color_scheme": "",
+                "summary_padding_block_start": 16,
+                "summary_padding_block_end": 16,
+                "summary_padding_inline_start": 16,
+                "summary_padding_inline_end": 16,
+                "content_padding_block_start": 16,
+                "content_padding_block_end": 44,
+                "content_padding_inline_start": 16,
+                "content_padding_inline_end": 16,
+                "heading_type_preset": "h2",
+                "right_heading_type_preset": "match",
+                "heading_min_size": 1.1,
+                "heading_max_size": 1.6,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {}
+            },
             "accordion_row_social_J3z8ak": {
               "type": "accordion_row_social",
               "name": "Social feed row",
@@ -2165,6 +2215,7 @@
             }
           },
           "block_order": [
+            "accordion_row_stockist_mapbox_B3RxhB",
             "accordion_row_social_J3z8ak"
           ]
         }
