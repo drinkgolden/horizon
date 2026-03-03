@@ -5058,12 +5058,6 @@ accordion-custom {
   }
 }
 
-accordion-custom .details__header,
-accordion-custom .details-content {
-  border-block-start: 0;
-  border-block-end: 0;
-}
-
 accordion-custom[data-disable-on-mobile='true'] summary {
   @media screen and (max-width: 749px) {
     cursor: auto;
