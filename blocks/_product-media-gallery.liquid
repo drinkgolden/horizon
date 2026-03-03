@@ -47,16 +47,7 @@
   endif
 
   assign render_slideshow_arrows = false
-
-  if selected_product.media.size <= 1
-    assign slideshow_class = 'product-media-gallery__slideshow--single-media slideshow--single-media'
-  else
-    assign slideshow_class = ''
-
-    if block_settings.media_presentation == 'carousel'
-      assign render_slideshow_arrows = true
-    endif
-  endif
+  assign slideshow_class = ''
 
   if slideshow_controls_style == 'thumbnails'
     assign pagination_position = block_settings.thumbnail_position
@@ -100,6 +91,14 @@
     assign sorted_media = selected_product.media
   endif
   assign has_image_drop = sorted_media | has: 'media_type', 'image'
+
+  # Arrow visibility should match visible slides after variant filtering.
+  if sorted_media.size <= 1
+    assign slideshow_class = 'product-media-gallery__slideshow--single-media slideshow--single-media'
+    assign render_slideshow_arrows = false
+  elsif block_settings.media_presentation == 'carousel'
+    assign render_slideshow_arrows = true
+  endif
 
   # Determine if we're in single column mode (carousel or grid with one column)
   assign is_single_column = false
