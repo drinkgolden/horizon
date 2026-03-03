@@ -16,7 +16,7 @@
           "type": "text",
           "name": "Title",
           "settings": {
-            "text": "<h1>FAQs</h1>",
+            "text": "<h1>Ingredients</h1>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
