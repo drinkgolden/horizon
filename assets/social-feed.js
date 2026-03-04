@@ -88,7 +88,7 @@ class SocialFeed {
       }
 
       if (image) {
-        image.src = data.media_url || data.thumbnail_url || '';
+        image.src = this.resolveImageUrl(data);
         image.alt = data.caption ? data.caption.slice(0, 160) : 'Social post';
         image.addEventListener(
           'load',
@@ -103,6 +103,39 @@ class SocialFeed {
         caption.textContent = this.showCaptions ? data.caption || '' : '';
       }
     });
+  }
+
+  resolveImageUrl(data) {
+    const getStringUrl = (value) => (typeof value === 'string' && value.trim().length > 0 ? value.trim() : '');
+
+    const media = data?.media || {};
+    const images = data?.images || {};
+    const candidates = [
+      // Prefer explicit modern formats from the feed when available.
+      data?.media_url_avif,
+      data?.thumbnail_url_avif,
+      data?.media_url_webp,
+      data?.thumbnail_url_webp,
+      media?.avif?.url,
+      media?.avif,
+      images?.avif?.url,
+      images?.avif,
+      media?.webp?.url,
+      media?.webp,
+      images?.webp?.url,
+      images?.webp,
+      // Fallback to legacy/default image URLs.
+      data?.media_url,
+      data?.thumbnail_url,
+      media?.jpeg?.url,
+      media?.jpg?.url,
+      media?.png?.url,
+      images?.jpeg?.url,
+      images?.jpg?.url,
+      images?.png?.url,
+    ];
+
+    return candidates.map(getStringUrl).find(Boolean) || '';
   }
 }
 
