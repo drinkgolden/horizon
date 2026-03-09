@@ -218,7 +218,7 @@
                     "text_AHwwCk": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Golden is low-calorie, lightly sparkling soda sweetened with New Zealand honey and built with real fruit and juice. Clean, bright flavour with a crisp finish. <strong>Learn more</strong></p>",
+                        "text": "<p>Golden is low-calorie, lightly sparkling soda sweetened with New Zealand honey and built with real fruit and juice. Clean, bright flavour with a crisp finish. <a href=\"/pages/our-story\" target=\"_blank\" title=\"Our Story\"><strong>Learn more</strong></a></p>",
                         "width": "100%",
                         "max_width": "none",
                         "alignment": "left",
@@ -248,7 +248,7 @@
                 "accordion_row_tL6whA": {
                   "type": "accordion_row",
                   "settings": {
-                    "heading": "Shipping",
+                    "heading": "What makes Golden different from normal soda?",
                     "right_heading": "",
                     "heading_links_enabled": true,
                     "heading_link": "",
@@ -279,7 +279,7 @@
                     "text_WVyUeL": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>We will work quickly to ship your order as soon as possible. Once your order has shipped, you will receive an email with further information. Delivery times vary depending on your location.</p>",
+                        "text": "",
                         "width": "100%",
                         "max_width": "none",
                         "alignment": "left",
