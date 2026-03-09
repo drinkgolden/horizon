@@ -248,7 +248,7 @@
                 "accordion_row_tL6whA": {
                   "type": "accordion_row",
                   "settings": {
-                    "heading": "What makes Golden different from normal soda?",
+                    "heading": "",
                     "right_heading": "",
                     "heading_links_enabled": true,
                     "heading_link": "",
@@ -279,7 +279,7 @@
                     "text_WVyUeL": {
                       "type": "text",
                       "settings": {
-                        "text": "",
+                        "text": "<p>We use honey instead of refined sugar and let real fruit and juice do the heavy lifting. It’s full-flavour, without the syrupy finish. Learn more about our <a href=\"/pages/ingredients\" target=\"_blank\" title=\"Ingredients\">Ingredients here</a>.</p>",
                         "width": "100%",
                         "max_width": "none",
                         "alignment": "left",
