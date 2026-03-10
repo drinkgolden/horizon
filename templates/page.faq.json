@@ -847,6 +847,128 @@
                   "block_order": [
                     "text_DR8ELg"
                   ]
+                },
+                "accordion_row_RVaXVd": {
+                  "type": "accordion_row",
+                  "settings": {
+                    "heading": "Is Golden vegan?",
+                    "right_heading": "",
+                    "heading_links_enabled": false,
+                    "heading_link": "",
+                    "right_heading_link": "",
+                    "collapsible": true,
+                    "open_by_default": false,
+                    "group_mode": "split",
+                    "color_scheme": "",
+                    "hover_color_scheme": "",
+                    "left_hover_color_scheme": "",
+                    "right_hover_color_scheme": "",
+                    "summary_padding_block_start": 16,
+                    "summary_padding_block_end": 16,
+                    "summary_padding_inline_start": 16,
+                    "summary_padding_inline_end": 16,
+                    "content_padding_block_start": 16,
+                    "content_padding_block_end": 16,
+                    "content_padding_inline_start": 16,
+                    "content_padding_inline_end": 16,
+                    "heading_type_preset": "",
+                    "right_heading_type_preset": "match",
+                    "heading_min_size": 1.1,
+                    "heading_max_size": 1.6,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_QXqGpn": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Golden contain honey, so it won’t suit everyone who follows a strict vegan diet.</p>",
+                        "width": "100%",
+                        "max_width": "none",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_QXqGpn"
+                  ]
+                },
+                "accordion_row_RB47aL": {
+                  "type": "accordion_row",
+                  "settings": {
+                    "heading": "Is Golden gluten-free?",
+                    "right_heading": "",
+                    "heading_links_enabled": false,
+                    "heading_link": "",
+                    "right_heading_link": "",
+                    "collapsible": true,
+                    "open_by_default": false,
+                    "group_mode": "split",
+                    "color_scheme": "",
+                    "hover_color_scheme": "",
+                    "left_hover_color_scheme": "",
+                    "right_hover_color_scheme": "",
+                    "summary_padding_block_start": 16,
+                    "summary_padding_block_end": 16,
+                    "summary_padding_inline_start": 16,
+                    "summary_padding_inline_end": 16,
+                    "content_padding_block_start": 16,
+                    "content_padding_block_end": 16,
+                    "content_padding_inline_start": 16,
+                    "content_padding_inline_end": 16,
+                    "heading_type_preset": "",
+                    "right_heading_type_preset": "match",
+                    "heading_min_size": 1.1,
+                    "heading_max_size": 1.6,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_yxmzyP": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Our Low Cal sodas are gluten-free. Kānuka Kola is the exception, it contains barley and therefore gluten. Always check the can for the definitive ingredient statement, and contact us if you need extra reassurance. Learn more: <a href=\"/pages/contact\" target=\"_blank\" title=\"Contact\">Contact</a></p>",
+                        "width": "100%",
+                        "max_width": "none",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_yxmzyP"
+                  ]
                 }
               },
               "block_order": [
@@ -854,7 +976,9 @@
                 "accordion_row_qefK3P",
                 "accordion_row_AQ4r9a",
                 "accordion_row_YTk3R7",
-                "accordion_row_zcemUV"
+                "accordion_row_zcemUV",
+                "accordion_row_RVaXVd",
+                "accordion_row_RB47aL"
               ]
             }
           },
