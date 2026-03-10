@@ -668,7 +668,7 @@
                 "accordion_row_AQ4r9a": {
                   "type": "accordion_row",
                   "settings": {
-                    "heading": "Is Golden sparkling?",
+                    "heading": "How many calories are in a can?",
                     "right_heading": "",
                     "heading_links_enabled": false,
                     "heading_link": "",
@@ -699,7 +699,7 @@
                     "text_FJy6J4": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Yes. Golden is lightly carbonated, designed to be refreshing rather than aggressively fizzy. <a href=\"/pages/ingredients\" target=\"_blank\" title=\"Ingredients\">Learn more</a></p>",
+                        "text": "<p>It varies by flavour. Our Low-Cal Soda range sits at <strong>59–63 calories per 330 mL can</strong>. For comparison, a <strong>330 mL</strong> can of classic Coke is about <strong>139 calories</strong>. You’ll find calories clearly listed on the can and on each product page nutrition panel. <strong>Learn more:</strong> <a href=\"/products/golden-lemon-manuka\" target=\"_blank\" title=\"Lemon Mānuka Soda\">Lemon</a> / <a href=\"/products/blackcurrant-manuka-soda\" target=\"_blank\" title=\"Blackcurrant Mānuka Soda\">Blackcurrant</a> / <a href=\"/products/kanuka-kola\" target=\"_blank\" title=\"Kānuka Kola\">Kola</a></p>",
                         "width": "100%",
                         "max_width": "none",
                         "alignment": "left",
