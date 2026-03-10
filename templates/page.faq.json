@@ -102,7 +102,7 @@
         "section_width": "full-width",
         "section_height": "",
         "section_height_custom": 50,
-        "color_scheme": "",
+        "color_scheme": "scheme-1",
         "background_media": "none",
         "video_position": "cover",
         "background_image_position": "cover",
@@ -461,7 +461,7 @@
         "section_width": "full-width",
         "section_height": "",
         "section_height_custom": 50,
-        "color_scheme": "",
+        "color_scheme": "scheme-1",
         "background_media": "none",
         "video_position": "cover",
         "background_image_position": "cover",
@@ -1130,7 +1130,7 @@
         "section_width": "full-width",
         "section_height": "",
         "section_height_custom": 50,
-        "color_scheme": "",
+        "color_scheme": "scheme-1",
         "background_media": "none",
         "video_position": "cover",
         "background_image_position": "cover",
@@ -1246,7 +1246,7 @@
                     "text_yk9XUV": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Honey. We use mānuka and kānuka honey for a softer sweetness and more character than refined sugar. <a href=\"/pages/ingredients\" target=\"_blank\" title=\"Ingredients\">Learn more</a></p>",
+                        "text": "<p>Golden is made in New Zealand. We keep our supply chain as local and traceable as we can. Learn more: <a href=\"/pages/ingredients\" target=\"_blank\" title=\"Ingredients\">Ingredients</a></p>",
                         "width": "100%",
                         "max_width": "none",
                         "alignment": "left",
@@ -1307,7 +1307,7 @@
                     "text_3c9Ypx": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>It varies by flavour. Our Low-Cal Soda range uses <strong>13.3g of honey per serving</strong> (about <strong>one tablespoon</strong>). The exact amount for each flavour is listed on the can and on each product page nutrition panel. <a href=\"/collections/all\" target=\"_blank\" title=\"All products\">All Drinks</a><strong>:</strong> <a href=\"/products/golden-lemon-manuka\" target=\"_blank\" title=\"Lemon Mānuka Soda\">Lemon</a> / <a href=\"/products/blackcurrant-manuka-soda\" target=\"_blank\" title=\"Blackcurrant Mānuka Soda\">Blackcurrant</a> / <a href=\"/products/kanuka-kola\" target=\"_blank\" title=\"Kānuka Kola\">Kola</a></p>",
+                        "text": "<p>Our Meyer lemons are grown on Hawke’s Bay’s eastern edge, near Wairoa, where the Wairoa River meets the Pacific Ocean. <strong>Learn more:</strong> <a href=\"/products/golden-lemon-manuka\" target=\"_blank\" title=\"Lemon Mānuka Soda\">Lemon</a></p>",
                         "width": "100%",
                         "max_width": "none",
                         "alignment": "left",
@@ -1368,7 +1368,7 @@
                     "text_VTxXYq": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>It varies by flavour. Our Low-Cal Soda range sits at <strong>59–63 calories per 330 mL can</strong>. For comparison, a <strong>330 mL</strong> can of classic Coke is about <strong>139 calories</strong>. You’ll find calories clearly listed on the can and on each product page nutrition panel. <strong>Learn more:</strong> <a href=\"/products/golden-lemon-manuka\" target=\"_blank\" title=\"Lemon Mānuka Soda\">Lemon</a> / <a href=\"/products/blackcurrant-manuka-soda\" target=\"_blank\" title=\"Blackcurrant Mānuka Soda\">Blackcurrant</a> / <a href=\"/products/kanuka-kola\" target=\"_blank\" title=\"Kānuka Kola\">Kola</a></p>",
+                        "text": "<p>Our blackcurrants come from Otago in the deep south of Aotearoa, where cool nights help build bold berry intensity. <strong>Learn more:</strong> <a href=\"/products/blackcurrant-manuka-soda\" target=\"_blank\" title=\"Blackcurrant Mānuka Soda\">Blackcurrant</a></p>",
                         "width": "100%",
                         "max_width": "none",
                         "alignment": "left",
@@ -1429,7 +1429,7 @@
                     "text_F7FC4H": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Each flavour has a full ingredient list on-pack and on its product page. That’s the definitive source. Learn more on our <a href=\"/pages/ingredients\" target=\"_blank\" title=\"Ingredients\">Ingredients</a> page or on each product page: <a href=\"/products/golden-lemon-manuka\" target=\"_blank\" title=\"Lemon Mānuka Soda\">Lemon</a> / <a href=\"/products/blackcurrant-manuka-soda\" target=\"_blank\" title=\"Blackcurrant Mānuka Soda\">Blackcurrant</a> / <a href=\"/products/kanuka-kola\" target=\"_blank\" title=\"Kānuka Kola\">Kola</a></p>",
+                        "text": "<p>They’re both New Zealand native honeys, but they’re made from different trees and they taste different. <strong>Mānuka</strong> tends to be darker and more intense, and it’s the one that can be independently graded and certified under the <strong>UMF™</strong> system. <strong>Kānuka</strong> is typically lighter and more floral. We use both for a softer sweetness and more flavour than refined sugar. Learn more: <a href=\"/pages/ingredients\" target=\"_blank\" title=\"Ingredients\">Ingredients</a></p>",
                         "width": "100%",
                         "max_width": "none",
                         "alignment": "left",
@@ -1613,7 +1613,7 @@
         "section_width": "full-width",
         "section_height": "",
         "section_height_custom": 50,
-        "color_scheme": "",
+        "color_scheme": "scheme-1",
         "background_media": "none",
         "video_position": "cover",
         "background_image_position": "cover",
@@ -2455,7 +2455,7 @@
         "section_width": "full-width",
         "section_height": "",
         "section_height_custom": 50,
-        "color_scheme": "",
+        "color_scheme": "scheme-1",
         "background_media": "none",
         "video_position": "cover",
         "background_image_position": "cover",
