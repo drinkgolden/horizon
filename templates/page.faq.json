@@ -1912,7 +1912,7 @@
                     "text_yRETMM": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Each flavour has a full ingredient list on-pack and on its product page. That’s the definitive source. Learn more on our <a href=\"/pages/ingredients\" target=\"_blank\" title=\"Ingredients\">Ingredients</a> page or on each product page: <a href=\"/products/golden-lemon-manuka\" target=\"_blank\" title=\"Lemon Mānuka Soda\">Lemon</a> / <a href=\"/products/blackcurrant-manuka-soda\" target=\"_blank\" title=\"Blackcurrant Mānuka Soda\">Blackcurrant</a> / <a href=\"/products/kanuka-kola\" target=\"_blank\" title=\"Kānuka Kola\">Kola</a></p>",
+                        "text": "<p>Golden is non-alcoholic. For kids, pregnancy, or caffeine sensitivity, check the ingredient panel and choose what fits your needs. <strong>Learn more:</strong> <a href=\"/products/kanuka-kola\" target=\"_blank\" title=\"Kānuka Kola\">Kola</a></p>",
                         "width": "100%",
                         "max_width": "none",
                         "alignment": "left",
