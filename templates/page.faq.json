@@ -218,7 +218,7 @@
                     "text_AHwwCk": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Golden is low-calorie, lightly sparkling soda sweetened with New Zealand honey and built with real fruit and juice. Clean, bright flavour with a crisp finish. <a href=\"/pages/our-story\" target=\"_blank\" title=\"Our Story\">Learn more</a></p>",
+                        "text": "<p>Golden is low-calorie, lightly sparkling soda sweetened with New Zealand honey and built with real fruit and juice. Clean, bright flavour with a crisp finish. <strong>Learn More: </strong><a href=\"/pages/ingredients\" target=\"_blank\" title=\"Ingredients\"><strong>Ingredients</strong></a></p>",
                         "width": "100%",
                         "max_width": "none",
                         "alignment": "left",
