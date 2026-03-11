@@ -148,7 +148,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<h2><em>Introducing</em></h2>",
+                    "text": "<h2><em>Starting Golden</em></h2>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
@@ -270,37 +270,11 @@
     "section_jq6wGK": {
       "type": "section",
       "blocks": {
-        "text_7En9gM": {
-          "type": "text",
-          "name": "t:names.heading",
-          "settings": {
-            "text": "<h2>Starting Golden</h2>",
-            "width": "100%",
-            "max_width": "none",
-            "alignment": "left",
-            "type_preset": "h2",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground-heading)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
         "text_azwx93": {
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<p>Golden began in the galley of a small yacht bound for Kawau Island. A spoon of mānuka honey. A pot of stovetop berry syrup. A SodaStream bottle on its last burp of CO₂. As the wind dropped, I returned to a question I had been mulling for some time: could a soda be light, clean and full-flavoured using only New Zealand honey and fruit?</p><p>New Zealand is world-renowned for its mānuka honey and its world-class orchards, yet no local drinks brand had meaningfully brought those two strengths together. No one has created flavours that genuinely express New Zealand provenance with mānuka honey at the centre, or clearly told the story of where those flavours come from and who grows them.</p><p>Was it just taste? Could honey, fruit and sparkling water make a good soda? I wondered if the honey would drown out the fruit or if the acidity would cut too sharply. It did neither. The soda was bright and refreshing, with a honey note you do not get from refined sugar or other sweeteners. I was hooked. From there the idea was clear: a New Zealand drinks brand built on local honey and fruit, anchored in the supply chains I knew.</p><p>I spent my teenage summers working long days on the coastal orchards around Bay View, Napier. Strawberries before sunrise. Apples and peaches through the heat. Sometimes potatoes pulled from the soil for the orchard store. I packed fruit, thinned trees and learnt how produce moves from tree to shelf through packhouses, cold stores and export dispatch. Work like that gives you a bias for hard-working ingredients and straight processes. No shortcuts. No mystery syrups or sweeteners.</p><p>Following a degree in cultural anthropology and work on commercial film productions between Wellington and Auckland, my appetite to build something of my own grew. The more I worked on other brands’ stories, the more I found myself imagineering the products I would rather champion and the stories I would rather tell. One idea kept surfacing: pair New Zealand honey with fruit, made here with the supply chains I knew first-hand. We grow world-class fruit and mānuka; provenance is rarely front and centre. San Pellegrino announces Italy. Our fruit-growing regions and mānuka forests deserve an equivalent. Golden is my answer.</p><p>That quick galley batch set everything in motion. Over the next three years I kept testing: bench-scale trials, pilot runs, and several rounds of recipe refinement with support from Callaghan Innovation and food scientists at Massey University. It turns out that working with real ingredients is harder to get spot-on than using hyper-processed alternatives, but the result was worth it. I completed an MBA to sharpen the plan, spent a brief spell in tech, then backed myself to launch Golden in 2024: a soda built on New Zealand honey and fruit to answer the gap I had noticed years earlier.</p><p>We sweeten with mānuka and kānuka honey, flavour with real New Zealand fruit, and use no refined sugar. Familiar flavours, reimagined with hard-working ingredients. The result is light, crisp and balanced.</p><p><br/>Made in New Zealand.</p>",
+            "text": "<p>I grew up in Hawke's Bay. I was surrounded by orchards and vineyards, by people whose livelihoods depended on things they could not fully control. Like a lot of people who grew up around those industries, I spent my teenage summers working on the coastal orchards around Bay View. Strawberries before sunrise. Apples and peaches through the heat. Sometimes potatoes pulled from the soil for the orchard store. I packed fruit, thinned trees, and learnt how produce moves from branch to shelf through pack-houses, cold stores, and dispatch. That kind of work shaped me in ways I have carried ever since. Before I had any vocabulary for provenance or supply chains, I understood something far more immediate: that a bottle of wine on the shelf or a bag of apples at the supermarket was the result of weather, timing, labour, judgement, and luck all lining up. A mixture of science and hard work, sunshine and water, all coming together in this beautiful dance every harvest. I understood how fragile that dance was, too. A hailstorm, a late frost, a long dry spell. You could do everything right and still watch a season go sideways. Once you have been part of that work, even briefly, you stop seeing products as things that just appear.</p><p><br/></p><p>Wine reinforced that way of seeing. I had grown up around it, worked in it, watched how a bottle could carry the fingerprint of a particular place and a particular year. Season, soil, sun, all folded into the story. Some of the language around wine is theatre, of course, but it is theatre that still points back to land, season, and labour. If you have ever picked grapes in the bay or worked a season on an orchard, you know that what ends up in someone's hand is the visible end of something much larger. That stayed with me when I left, because for a few seasons at least, I had been part of that chain myself.</p><p>Soda occupied a very different place in my life, and I want to be clear about that, because it matters. I loved soda as a kid, and I love it now. It belonged to trips to the dairy after school with a mate, beach days, road trips, hot afternoons, salty snacks, and cold cans passed around without ceremony. Some of the best memories of growing up have sugar on their breath. I never set out to challenge soda. I wanted to build something that could stand proudly among the brands and flavours I already loved.</p><p>Only later, when I started thinking about building a drinks brand, did I notice how much story soda sold and how little of it pointed back to ingredients, land, or supply chain. They gave you flavour as spectacle, happiness as branding, a lifestyle in aluminium shining your aspirations right back at you. The great soft drink brands were brilliant at selling a mood, a colour, a sense of belonging. They made those worlds feel real. But once I started looking at the category through a founder's eyes rather than a consumer's, that distance between the story and the substance began to look less like an oversight and more like an opportunity.</p><p>That lens did not come from nowhere. I had studied anthropology after high school, then worked in commercial storytelling on film productions, helping other brands say what they meant with conviction. Both left me with a habit of reading products the way you read a text: what is it saying, what is it hiding, who is it for. Over time, though, I found myself less interested in telling other people's stories and more interested in backing one of my own.</p><p>Golden came from two observations I could not shake. Soda sold enormous amounts of story while saying very little about what was actually in the can. Honey, meanwhile, had a remarkable story and real value in overseas markets, but had found its way into surprisingly few everyday products beyond the jar. For all its provenance and flavour, very little innovation had been done to expand the formats honey was sold in. It struck me that honey deserved to be a hero ingredient, not just a pantry staple.</p><p>The honey side took shape gradually. Mānuka had already been through its own gold rush in New Zealand, most of the conversation wrapped up in export pricing, health claims, and the value of the jar itself. But when I started speaking to people in the industry, what stood out was how little anyone had done with honey as an ingredient in other formats. Understandable. Beekeeping is hard enough without trying to invent consumer products on top of it. But it meant honey's story, flavour, and provenance were largely locked in the pantry.</p><p>I kept coming back to fruit, too. I had grown up around orchards and knew first-hand how good New Zealand fruit could be. So the two threads converged. What if a soda went completely the other way? What if it said, plainly and proudly, this is what is in the can? No secret formula. No fog. Just excellent ingredients, clearly named and clearly sourced.</p><p>At first, it was more instinct than plan. The idea became real in the galley of a small yacht bound for Kawau Island. A spoon of mānuka honey. A pot of stovetop berry syrup. A SodaStream bottle on its last burp of CO₂. I had been turning the question over for a while: could a soda be light, clean, and full-flavoured using only New Zealand honey and fruit? I wondered if the honey would drown out the fruit, or if the acidity would cut too sharply. It did neither. The soda was bright and refreshing, with a honey note you simply do not get from refined sugar. The pairing made sense, both in flavour and in story, and once I could taste that for myself, what had seemed unusual began to feel obvious.</p><p><br/></p><p>From there, Golden took shape. Lemons from the East Coast groves of the North Island. Mānuka honey from hives around Golden Bay. Fruit and honey from places with character, in a drink that lets those places show through. Wine has always done this well: told you where something came from, and made you care. I wanted to bring that same openness into soda, a category that had never really bothered.I had no interest in dressing it up as self-improvement. Too much of the drinks market leans on nutritional theatre, diagnosing some problem in your life and presenting a can as the answer. Fix your gut. Fix your focus. Fix your energy. I wanted nothing to do with that. Make something delicious. Use ingredients that are honest and traceable. Let people see what they are drinking.</p><p>Golden is my answer to that.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -339,7 +313,6 @@
         }
       },
       "block_order": [
-        "text_7En9gM",
         "text_azwx93",
         "button_ekeYYJ"
       ],
@@ -353,8 +326,8 @@
         "horizontal_alignment_flex_direction_column": "center",
         "vertical_alignment_flex_direction_column": "center",
         "gap": 25,
-        "section_width": "page-width",
-        "section_height": "small",
+        "section_width": "full-width",
+        "section_height": "",
         "section_height_custom": 50,
         "color_scheme": "",
         "background_media": "none",
