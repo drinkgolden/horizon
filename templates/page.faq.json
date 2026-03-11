@@ -56,6 +56,71 @@
         "padding-block-end": 24
       }
     },
+    "section_inTUGG": {
+      "type": "section",
+      "blocks": {
+        "text_zxEmKe": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<h2>The Basics</h2>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h2",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground-heading)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 16,
+            "padding-inline-end": 16
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_zxEmKe"
+      ],
+      "name": "t:names.rich_text_section",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 0,
+        "section_width": "full-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-1",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "split_divider_color": "#d9d9d9",
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 48,
+        "padding-block-end": 48,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0
+      }
+    },
     "section_jKDfRf": {
       "type": "section",
       "blocks": {
@@ -122,13 +187,13 @@
                 "accordion_row_dKYbRd": {
                   "type": "accordion_row",
                   "settings": {
-                    "heading": "Refund Policy",
+                    "heading": "What is Golden?",
                     "right_heading": "",
                     "heading_links_enabled": false,
                     "heading_link": "shopify://policies/refund-policy",
                     "right_heading_link": "",
                     "collapsible": true,
-                    "open_by_default": false,
+                    "open_by_default": true,
                     "group_mode": "shared",
                     "color_scheme": "",
                     "hover_color_scheme": "",
@@ -153,7 +218,7 @@
                     "text_AHwwCk": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Our goal is for every customer to be totally satisfied with their purchase. If this isn't the case, let us know and we'll do our best to work with you to make it right.</p>",
+                        "text": "<p>Golden is low-calorie, lightly sparkling soda sweetened with New Zealand honey and built with real fruit and juice. Clean, bright flavour with a crisp finish. <strong>Learn More: </strong><a href=\"/pages/ingredients\" target=\"_blank\" title=\"Ingredients\"><strong>Ingredients</strong></a></p>",
                         "width": "100%",
                         "max_width": "none",
                         "alignment": "left",
@@ -183,9 +248,9 @@
                 "accordion_row_tL6whA": {
                   "type": "accordion_row",
                   "settings": {
-                    "heading": "Shipping",
+                    "heading": "What makes Golden different from normal soda?",
                     "right_heading": "",
-                    "heading_links_enabled": false,
+                    "heading_links_enabled": true,
                     "heading_link": "",
                     "right_heading_link": "",
                     "collapsible": true,
@@ -214,9 +279,9 @@
                     "text_WVyUeL": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>We will work quickly to ship your order as soon as possible. Once your order has shipped, you will receive an email with further information. Delivery times vary depending on your location.</p>",
+                        "text": "<p>We use honey instead of refined sugar and let real fruit and juice do the heavy lifting. It’s full-flavour, without the syrupy finish. Learn more about our <a href=\"/pages/ingredients\" target=\"_blank\" title=\"Ingredients\">Ingredients here</a>.</p>",
                         "width": "100%",
-                        "max_width": "normal",
+                        "max_width": "none",
                         "alignment": "left",
                         "type_preset": "rte",
                         "font": "var(--font-body--family)",
@@ -241,10 +306,10 @@
                     "text_WVyUeL"
                   ]
                 },
-                "accordion_row_qEx4kN": {
+                "accordion_row_RE6EF9": {
                   "type": "accordion_row",
                   "settings": {
-                    "heading": "Manufacturing",
+                    "heading": "Is Golden sparkling?",
                     "right_heading": "",
                     "heading_links_enabled": false,
                     "heading_link": "",
@@ -272,12 +337,12 @@
                     "width": 20
                   },
                   "blocks": {
-                    "text_xnNT8G": {
+                    "text_7wmChr": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.</p>",
+                        "text": "<p>Yes. Golden is lightly carbonated, designed to be refreshing rather than aggressively fizzy. <a href=\"/pages/ingredients\" target=\"_blank\" title=\"Ingredients\">Learn more</a></p>",
                         "width": "100%",
-                        "max_width": "normal",
+                        "max_width": "none",
                         "alignment": "left",
                         "type_preset": "rte",
                         "font": "var(--font-body--family)",
@@ -299,14 +364,14 @@
                     }
                   },
                   "block_order": [
-                    "text_xnNT8G"
+                    "text_7wmChr"
                   ]
                 }
               },
               "block_order": [
                 "accordion_row_dKYbRd",
                 "accordion_row_tL6whA",
-                "accordion_row_qEx4kN"
+                "accordion_row_RE6EF9"
               ]
             }
           },
@@ -349,10 +414,2312 @@
         "padding-inline-start": 0,
         "padding-inline-end": 0
       }
+    },
+    "section_FJ98Qz": {
+      "type": "section",
+      "blocks": {
+        "text_bm8BEf": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<h2>Ingredients & Nutrition</h2>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h2",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground-heading)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 16,
+            "padding-inline-end": 16
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_bm8BEf"
+      ],
+      "name": "t:names.rich_text_section",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 0,
+        "section_width": "full-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-1",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "split_divider_color": "#d9d9d9",
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 48,
+        "padding-block-end": 48,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0
+      }
+    },
+    "section_wAbT8L": {
+      "type": "section",
+      "blocks": {
+        "group_PJGqRM": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "space-between",
+            "enable_sticky": false,
+            "sticky_offset": 0,
+            "gap": 32,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fill",
+            "custom_height": 100,
+            "inherit_color_scheme": false,
+            "color_scheme": "scheme-5",
+            "background_media": "image",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "hero-apparel-1",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "accordion_D4ELYq": {
+              "type": "accordion",
+              "name": "t:names.accordion",
+              "settings": {
+                "icon": "caret",
+                "dividers": true,
+                "type_preset": "h6",
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "accordion_row_KKetzA": {
+                  "type": "accordion_row",
+                  "settings": {
+                    "heading": "Is Golden sweetened with honey or sugar?",
+                    "right_heading": "",
+                    "heading_links_enabled": false,
+                    "heading_link": "shopify://policies/refund-policy",
+                    "right_heading_link": "",
+                    "collapsible": true,
+                    "open_by_default": false,
+                    "group_mode": "shared",
+                    "color_scheme": "",
+                    "hover_color_scheme": "",
+                    "left_hover_color_scheme": "",
+                    "right_hover_color_scheme": "",
+                    "summary_padding_block_start": 16,
+                    "summary_padding_block_end": 16,
+                    "summary_padding_inline_start": 16,
+                    "summary_padding_inline_end": 16,
+                    "content_padding_block_start": 16,
+                    "content_padding_block_end": 16,
+                    "content_padding_inline_start": 16,
+                    "content_padding_inline_end": 16,
+                    "heading_type_preset": "",
+                    "right_heading_type_preset": "match",
+                    "heading_min_size": 1.1,
+                    "heading_max_size": 1.6,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_cFQKU3": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Honey. We use mānuka and kānuka honey for a softer sweetness and more character than refined sugar. <a href=\"/pages/ingredients\" target=\"_blank\" title=\"Ingredients\">Learn more</a></p>",
+                        "width": "100%",
+                        "max_width": "none",
+                        "alignment": "left",
+                        "type_preset": "paragraph",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_cFQKU3"
+                  ]
+                },
+                "accordion_row_qefK3P": {
+                  "type": "accordion_row",
+                  "settings": {
+                    "heading": "How much honey is in a can?",
+                    "right_heading": "",
+                    "heading_links_enabled": true,
+                    "heading_link": "",
+                    "right_heading_link": "",
+                    "collapsible": true,
+                    "open_by_default": false,
+                    "group_mode": "split",
+                    "color_scheme": "",
+                    "hover_color_scheme": "",
+                    "left_hover_color_scheme": "",
+                    "right_hover_color_scheme": "",
+                    "summary_padding_block_start": 16,
+                    "summary_padding_block_end": 16,
+                    "summary_padding_inline_start": 16,
+                    "summary_padding_inline_end": 16,
+                    "content_padding_block_start": 16,
+                    "content_padding_block_end": 16,
+                    "content_padding_inline_start": 16,
+                    "content_padding_inline_end": 16,
+                    "heading_type_preset": "",
+                    "right_heading_type_preset": "match",
+                    "heading_min_size": 1.1,
+                    "heading_max_size": 1.6,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_zeNPA7": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>It varies by flavour. Our Low-Cal Soda range uses <strong>13.3g of honey per serving</strong> (about <strong>one tablespoon</strong>). The exact amount for each flavour is listed on the can and on each product page nutrition panel. <strong>Learn more:</strong> <a href=\"/collections/all\" target=\"_blank\" title=\"All products\">All Drinks</a><strong>:</strong> <a href=\"/products/golden-lemon-manuka\" target=\"_blank\" title=\"Lemon Mānuka Soda\">Lemon</a> / <a href=\"/products/blackcurrant-manuka-soda\" target=\"_blank\" title=\"Blackcurrant Mānuka Soda\">Blackcurrant</a> / <a href=\"/products/kanuka-kola\" target=\"_blank\" title=\"Kānuka Kola\">Kola</a></p>",
+                        "width": "100%",
+                        "max_width": "none",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_zeNPA7"
+                  ]
+                },
+                "accordion_row_AQ4r9a": {
+                  "type": "accordion_row",
+                  "settings": {
+                    "heading": "How many calories are in a can?",
+                    "right_heading": "",
+                    "heading_links_enabled": false,
+                    "heading_link": "",
+                    "right_heading_link": "",
+                    "collapsible": true,
+                    "open_by_default": false,
+                    "group_mode": "split",
+                    "color_scheme": "",
+                    "hover_color_scheme": "",
+                    "left_hover_color_scheme": "",
+                    "right_hover_color_scheme": "",
+                    "summary_padding_block_start": 16,
+                    "summary_padding_block_end": 16,
+                    "summary_padding_inline_start": 16,
+                    "summary_padding_inline_end": 16,
+                    "content_padding_block_start": 16,
+                    "content_padding_block_end": 16,
+                    "content_padding_inline_start": 16,
+                    "content_padding_inline_end": 16,
+                    "heading_type_preset": "",
+                    "right_heading_type_preset": "match",
+                    "heading_min_size": 1.1,
+                    "heading_max_size": 1.6,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_FJy6J4": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>It varies by flavour. Our Low-Cal Soda range sits at <strong>59–63 calories per 330 mL can</strong>. For comparison, a <strong>330 mL</strong> can of classic Coke is about <strong>139 calories</strong>. You’ll find calories clearly listed on the can and on each product page nutrition panel. <strong>Learn more:</strong> <a href=\"/products/golden-lemon-manuka\" target=\"_blank\" title=\"Lemon Mānuka Soda\">Lemon</a> / <a href=\"/products/blackcurrant-manuka-soda\" target=\"_blank\" title=\"Blackcurrant Mānuka Soda\">Blackcurrant</a> / <a href=\"/products/kanuka-kola\" target=\"_blank\" title=\"Kānuka Kola\">Kola</a></p>",
+                        "width": "100%",
+                        "max_width": "none",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_FJy6J4"
+                  ]
+                },
+                "accordion_row_YTk3R7": {
+                  "type": "accordion_row",
+                  "settings": {
+                    "heading": "What are the ingredients in each flavour?",
+                    "right_heading": "",
+                    "heading_links_enabled": false,
+                    "heading_link": "",
+                    "right_heading_link": "",
+                    "collapsible": true,
+                    "open_by_default": false,
+                    "group_mode": "split",
+                    "color_scheme": "",
+                    "hover_color_scheme": "",
+                    "left_hover_color_scheme": "",
+                    "right_hover_color_scheme": "",
+                    "summary_padding_block_start": 16,
+                    "summary_padding_block_end": 16,
+                    "summary_padding_inline_start": 16,
+                    "summary_padding_inline_end": 16,
+                    "content_padding_block_start": 16,
+                    "content_padding_block_end": 16,
+                    "content_padding_inline_start": 16,
+                    "content_padding_inline_end": 16,
+                    "heading_type_preset": "",
+                    "right_heading_type_preset": "match",
+                    "heading_min_size": 1.1,
+                    "heading_max_size": 1.6,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_Td4wED": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Each flavour has a full ingredient list on-pack and on its product page. That’s the definitive source. Learn more on our <a href=\"/pages/ingredients\" target=\"_blank\" title=\"Ingredients\">Ingredients</a> page or on each product page: <a href=\"/products/golden-lemon-manuka\" target=\"_blank\" title=\"Lemon Mānuka Soda\">Lemon</a> / <a href=\"/products/blackcurrant-manuka-soda\" target=\"_blank\" title=\"Blackcurrant Mānuka Soda\">Blackcurrant</a> / <a href=\"/products/kanuka-kola\" target=\"_blank\" title=\"Kānuka Kola\">Kola</a></p>",
+                        "width": "100%",
+                        "max_width": "none",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_Td4wED"
+                  ]
+                },
+                "accordion_row_zcemUV": {
+                  "type": "accordion_row",
+                  "settings": {
+                    "heading": "Does Golden contain caffeine?",
+                    "right_heading": "",
+                    "heading_links_enabled": false,
+                    "heading_link": "",
+                    "right_heading_link": "",
+                    "collapsible": true,
+                    "open_by_default": false,
+                    "group_mode": "split",
+                    "color_scheme": "",
+                    "hover_color_scheme": "",
+                    "left_hover_color_scheme": "",
+                    "right_hover_color_scheme": "",
+                    "summary_padding_block_start": 16,
+                    "summary_padding_block_end": 16,
+                    "summary_padding_inline_start": 16,
+                    "summary_padding_inline_end": 16,
+                    "content_padding_block_start": 16,
+                    "content_padding_block_end": 16,
+                    "content_padding_inline_start": 16,
+                    "content_padding_inline_end": 16,
+                    "heading_type_preset": "",
+                    "right_heading_type_preset": "match",
+                    "heading_min_size": 1.1,
+                    "heading_max_size": 1.6,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_DR8ELg": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>No. We use natural kola nut for that classic cola flavour, but our extraction removes the naturally occurring caffeine. We’d rather leave the buzz to coffee and keep Golden crisp, family-friendly, and well out of the energy drink lane. Kānuka Kola is for staying golden, not staying awake.</p>",
+                        "width": "100%",
+                        "max_width": "none",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_DR8ELg"
+                  ]
+                },
+                "accordion_row_RVaXVd": {
+                  "type": "accordion_row",
+                  "settings": {
+                    "heading": "Is Golden vegan?",
+                    "right_heading": "",
+                    "heading_links_enabled": false,
+                    "heading_link": "",
+                    "right_heading_link": "",
+                    "collapsible": true,
+                    "open_by_default": false,
+                    "group_mode": "split",
+                    "color_scheme": "",
+                    "hover_color_scheme": "",
+                    "left_hover_color_scheme": "",
+                    "right_hover_color_scheme": "",
+                    "summary_padding_block_start": 16,
+                    "summary_padding_block_end": 16,
+                    "summary_padding_inline_start": 16,
+                    "summary_padding_inline_end": 16,
+                    "content_padding_block_start": 16,
+                    "content_padding_block_end": 16,
+                    "content_padding_inline_start": 16,
+                    "content_padding_inline_end": 16,
+                    "heading_type_preset": "",
+                    "right_heading_type_preset": "match",
+                    "heading_min_size": 1.1,
+                    "heading_max_size": 1.6,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_QXqGpn": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Golden contain honey, so it won’t suit everyone who follows a strict vegan diet.</p>",
+                        "width": "100%",
+                        "max_width": "none",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_QXqGpn"
+                  ]
+                },
+                "accordion_row_RB47aL": {
+                  "type": "accordion_row",
+                  "settings": {
+                    "heading": "Is Golden gluten-free?",
+                    "right_heading": "",
+                    "heading_links_enabled": false,
+                    "heading_link": "",
+                    "right_heading_link": "",
+                    "collapsible": true,
+                    "open_by_default": false,
+                    "group_mode": "split",
+                    "color_scheme": "",
+                    "hover_color_scheme": "",
+                    "left_hover_color_scheme": "",
+                    "right_hover_color_scheme": "",
+                    "summary_padding_block_start": 16,
+                    "summary_padding_block_end": 16,
+                    "summary_padding_inline_start": 16,
+                    "summary_padding_inline_end": 16,
+                    "content_padding_block_start": 16,
+                    "content_padding_block_end": 16,
+                    "content_padding_inline_start": 16,
+                    "content_padding_inline_end": 16,
+                    "heading_type_preset": "",
+                    "right_heading_type_preset": "match",
+                    "heading_min_size": 1.1,
+                    "heading_max_size": 1.6,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_yxmzyP": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Our Low Cal sodas are gluten-free. Kānuka Kola is the exception, it contains barley and therefore gluten. Always check the can for the definitive ingredient statement, and contact us if you need extra reassurance. Learn more: <a href=\"/pages/contact\" target=\"_blank\" title=\"Contact\">Contact</a></p>",
+                        "width": "100%",
+                        "max_width": "none",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_yxmzyP"
+                  ]
+                },
+                "accordion_row_xrA3p6": {
+                  "type": "accordion_row",
+                  "settings": {
+                    "heading": "Does Golden contain allergens?",
+                    "right_heading": "",
+                    "heading_links_enabled": false,
+                    "heading_link": "",
+                    "right_heading_link": "",
+                    "collapsible": true,
+                    "open_by_default": false,
+                    "group_mode": "split",
+                    "color_scheme": "",
+                    "hover_color_scheme": "",
+                    "left_hover_color_scheme": "",
+                    "right_hover_color_scheme": "",
+                    "summary_padding_block_start": 16,
+                    "summary_padding_block_end": 16,
+                    "summary_padding_inline_start": 16,
+                    "summary_padding_inline_end": 16,
+                    "content_padding_block_start": 16,
+                    "content_padding_block_end": 16,
+                    "content_padding_inline_start": 16,
+                    "content_padding_inline_end": 16,
+                    "heading_type_preset": "",
+                    "right_heading_type_preset": "match",
+                    "heading_min_size": 1.1,
+                    "heading_max_size": 1.6,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_FbEEdt": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>All allergens are listed on the can. Gluten is the only common allergen we declare, and it’s only in our Kānuka Kola (barley). Our other flavours contain honey and fruit. If you’re unsure, reach out. Learn more: <a href=\"/pages/contact\" target=\"_blank\" title=\"Contact\">Contact</a></p>",
+                        "width": "100%",
+                        "max_width": "none",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_FbEEdt"
+                  ]
+                }
+              },
+              "block_order": [
+                "accordion_row_KKetzA",
+                "accordion_row_qefK3P",
+                "accordion_row_AQ4r9a",
+                "accordion_row_YTk3R7",
+                "accordion_row_zcemUV",
+                "accordion_row_RVaXVd",
+                "accordion_row_RB47aL",
+                "accordion_row_xrA3p6"
+              ]
+            }
+          },
+          "block_order": [
+            "accordion_D4ELYq"
+          ]
+        }
+      },
+      "block_order": [
+        "group_PJGqRM"
+      ],
+      "name": "t:names.split_showcase",
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 0,
+        "section_width": "full-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "split_divider_color": "#d9d9d9",
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 0,
+        "padding-block-end": 0,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0
+      }
+    },
+    "section_TxwdbN": {
+      "type": "section",
+      "blocks": {
+        "text_nEACtf": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<p></p><h2>Sourcing & Made Here</h2><p></p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h2",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground-heading)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 16,
+            "padding-inline-end": 16
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_nEACtf"
+      ],
+      "name": "t:names.rich_text_section",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 0,
+        "section_width": "full-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-1",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "split_divider_color": "#d9d9d9",
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 48,
+        "padding-block-end": 48,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0
+      }
+    },
+    "section_MYiJ6Y": {
+      "type": "section",
+      "blocks": {
+        "group_WqGUhY": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "space-between",
+            "enable_sticky": false,
+            "sticky_offset": 0,
+            "gap": 32,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fill",
+            "custom_height": 100,
+            "inherit_color_scheme": false,
+            "color_scheme": "scheme-5",
+            "background_media": "image",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "hero-apparel-1",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "accordion_7XxUGW": {
+              "type": "accordion",
+              "name": "t:names.accordion",
+              "settings": {
+                "icon": "caret",
+                "dividers": true,
+                "type_preset": "h6",
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "accordion_row_DnFp3t": {
+                  "type": "accordion_row",
+                  "settings": {
+                    "heading": "Where is Golden made?",
+                    "right_heading": "",
+                    "heading_links_enabled": false,
+                    "heading_link": "shopify://policies/refund-policy",
+                    "right_heading_link": "",
+                    "collapsible": true,
+                    "open_by_default": false,
+                    "group_mode": "shared",
+                    "color_scheme": "",
+                    "hover_color_scheme": "",
+                    "left_hover_color_scheme": "",
+                    "right_hover_color_scheme": "",
+                    "summary_padding_block_start": 16,
+                    "summary_padding_block_end": 16,
+                    "summary_padding_inline_start": 16,
+                    "summary_padding_inline_end": 16,
+                    "content_padding_block_start": 16,
+                    "content_padding_block_end": 16,
+                    "content_padding_inline_start": 16,
+                    "content_padding_inline_end": 16,
+                    "heading_type_preset": "",
+                    "right_heading_type_preset": "match",
+                    "heading_min_size": 1.1,
+                    "heading_max_size": 1.6,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_yk9XUV": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Golden is made in New Zealand. We build our drinks around local honey and fruit, and we work with trusted local partners to turn those ingredients into something clean, bright, and properly refreshing. We care about traceability because it keeps the product honest, and because good ingredients deserve to be treated like the main event, not a flavouring. Learn more: <a href=\"/pages/ingredients\" target=\"_blank\" title=\"Ingredients\">Ingredients</a></p>",
+                        "width": "100%",
+                        "max_width": "none",
+                        "alignment": "left",
+                        "type_preset": "paragraph",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_yk9XUV"
+                  ]
+                },
+                "accordion_row_YWGzYD": {
+                  "type": "accordion_row",
+                  "settings": {
+                    "heading": "Where do your lemons come from?",
+                    "right_heading": "",
+                    "heading_links_enabled": true,
+                    "heading_link": "",
+                    "right_heading_link": "",
+                    "collapsible": true,
+                    "open_by_default": false,
+                    "group_mode": "split",
+                    "color_scheme": "",
+                    "hover_color_scheme": "",
+                    "left_hover_color_scheme": "",
+                    "right_hover_color_scheme": "",
+                    "summary_padding_block_start": 16,
+                    "summary_padding_block_end": 16,
+                    "summary_padding_inline_start": 16,
+                    "summary_padding_inline_end": 16,
+                    "content_padding_block_start": 16,
+                    "content_padding_block_end": 16,
+                    "content_padding_inline_start": 16,
+                    "content_padding_inline_end": 16,
+                    "heading_type_preset": "",
+                    "right_heading_type_preset": "match",
+                    "heading_min_size": 1.1,
+                    "heading_max_size": 1.6,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_3c9Ypx": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Our Meyer lemons are grown on Hawke’s Bay’s eastern edge, near Wairoa, where the Wairoa River meets the Pacific Ocean. <strong>Learn more:</strong> <a href=\"/products/golden-lemon-manuka\" target=\"_blank\" title=\"Lemon Mānuka Soda\">Lemon</a></p>",
+                        "width": "100%",
+                        "max_width": "none",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_3c9Ypx"
+                  ]
+                },
+                "accordion_row_MjExrH": {
+                  "type": "accordion_row",
+                  "settings": {
+                    "heading": "Where do your blackcurrants come from?",
+                    "right_heading": "",
+                    "heading_links_enabled": false,
+                    "heading_link": "",
+                    "right_heading_link": "",
+                    "collapsible": true,
+                    "open_by_default": false,
+                    "group_mode": "split",
+                    "color_scheme": "",
+                    "hover_color_scheme": "",
+                    "left_hover_color_scheme": "",
+                    "right_hover_color_scheme": "",
+                    "summary_padding_block_start": 16,
+                    "summary_padding_block_end": 16,
+                    "summary_padding_inline_start": 16,
+                    "summary_padding_inline_end": 16,
+                    "content_padding_block_start": 16,
+                    "content_padding_block_end": 16,
+                    "content_padding_inline_start": 16,
+                    "content_padding_inline_end": 16,
+                    "heading_type_preset": "",
+                    "right_heading_type_preset": "match",
+                    "heading_min_size": 1.1,
+                    "heading_max_size": 1.6,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_VTxXYq": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Our blackcurrants come from Otago in the deep south of Aotearoa. The cooler climate and cold nights slow things down, which helps the fruit build real intensity. That’s where you get that deep purple colour, bold berry flavour, and the clean tang that makes blackcurrant so satisfying in a soda. Learn more: <a href=\"/products/blackcurrant-manuka-soda\" target=\"_blank\" title=\"Blackcurrant Mānuka Soda\">Blackcurrant</a></p>",
+                        "width": "100%",
+                        "max_width": "none",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_VTxXYq"
+                  ]
+                },
+                "accordion_row_ttY9eg": {
+                  "type": "accordion_row",
+                  "settings": {
+                    "heading": "What’s the difference between mānuka and kānuka honey?",
+                    "right_heading": "",
+                    "heading_links_enabled": false,
+                    "heading_link": "",
+                    "right_heading_link": "",
+                    "collapsible": true,
+                    "open_by_default": false,
+                    "group_mode": "split",
+                    "color_scheme": "",
+                    "hover_color_scheme": "",
+                    "left_hover_color_scheme": "",
+                    "right_hover_color_scheme": "",
+                    "summary_padding_block_start": 16,
+                    "summary_padding_block_end": 16,
+                    "summary_padding_inline_start": 16,
+                    "summary_padding_inline_end": 16,
+                    "content_padding_block_start": 16,
+                    "content_padding_block_end": 16,
+                    "content_padding_inline_start": 16,
+                    "content_padding_inline_end": 16,
+                    "heading_type_preset": "",
+                    "right_heading_type_preset": "match",
+                    "heading_min_size": 1.1,
+                    "heading_max_size": 1.6,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_F7FC4H": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>They’re both New Zealand native honeys, but they’re made from different trees and they taste different. <strong>Mānuka</strong> tends to be darker and more intense, and it’s the one that can be independently graded and certified under the <strong>UMF™</strong> system. <strong>Kānuka</strong> is typically lighter and more floral. We use both for a softer sweetness and more flavour than refined sugar. Learn more: <a href=\"/pages/ingredients\" target=\"_blank\" title=\"Ingredients\">Ingredients</a></p>",
+                        "width": "100%",
+                        "max_width": "none",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_F7FC4H"
+                  ]
+                },
+                "accordion_row_RdP7Ry": {
+                  "type": "accordion_row",
+                  "settings": {
+                    "heading": "What does “single-strength juice” mean?",
+                    "right_heading": "",
+                    "heading_links_enabled": false,
+                    "heading_link": "",
+                    "right_heading_link": "",
+                    "collapsible": true,
+                    "open_by_default": false,
+                    "group_mode": "split",
+                    "color_scheme": "",
+                    "hover_color_scheme": "",
+                    "left_hover_color_scheme": "",
+                    "right_hover_color_scheme": "",
+                    "summary_padding_block_start": 16,
+                    "summary_padding_block_end": 16,
+                    "summary_padding_inline_start": 16,
+                    "summary_padding_inline_end": 16,
+                    "content_padding_block_start": 16,
+                    "content_padding_block_end": 16,
+                    "content_padding_inline_start": 16,
+                    "content_padding_inline_end": 16,
+                    "heading_type_preset": "",
+                    "right_heading_type_preset": "match",
+                    "heading_min_size": 1.1,
+                    "heading_max_size": 1.6,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_C6JY9B": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Single-strength juice is real juice, pressed and used as juice, not concentrated and rebuilt. It’s one of the reasons Golden tastes clean and natural, and it’s also why the flavour can shift subtly through the year. Fruit has seasons, and we like the fact you can taste that. Learn more: <a href=\"/pages/ingredients\" target=\"_blank\" title=\"Ingredients\">Ingredients</a></p>",
+                        "width": "100%",
+                        "max_width": "none",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_C6JY9B"
+                  ]
+                }
+              },
+              "block_order": [
+                "accordion_row_DnFp3t",
+                "accordion_row_YWGzYD",
+                "accordion_row_MjExrH",
+                "accordion_row_ttY9eg",
+                "accordion_row_RdP7Ry"
+              ]
+            }
+          },
+          "block_order": [
+            "accordion_7XxUGW"
+          ]
+        }
+      },
+      "block_order": [
+        "group_WqGUhY"
+      ],
+      "name": "t:names.split_showcase",
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 0,
+        "section_width": "full-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "split_divider_color": "#d9d9d9",
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 0,
+        "padding-block-end": 0,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0
+      }
+    },
+    "section_WLfRDg": {
+      "type": "section",
+      "blocks": {
+        "text_4nfYcp": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<p></p><h2>Drinking & Storing</h2><p></p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h2",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground-heading)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 16,
+            "padding-inline-end": 16
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_4nfYcp"
+      ],
+      "name": "t:names.rich_text_section",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 0,
+        "section_width": "full-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-1",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "split_divider_color": "#d9d9d9",
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 48,
+        "padding-block-end": 48,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0
+      }
+    },
+    "section_K4qMeC": {
+      "type": "section",
+      "blocks": {
+        "group_PyzmdL": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "space-between",
+            "enable_sticky": false,
+            "sticky_offset": 0,
+            "gap": 32,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fill",
+            "custom_height": 100,
+            "inherit_color_scheme": false,
+            "color_scheme": "scheme-5",
+            "background_media": "image",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "hero-apparel-1",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "accordion_Enx6DJ": {
+              "type": "accordion",
+              "name": "t:names.accordion",
+              "settings": {
+                "icon": "caret",
+                "dividers": true,
+                "type_preset": "h6",
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "accordion_row_yte38r": {
+                  "type": "accordion_row",
+                  "settings": {
+                    "heading": "What does Golden taste like?",
+                    "right_heading": "",
+                    "heading_links_enabled": false,
+                    "heading_link": "shopify://policies/refund-policy",
+                    "right_heading_link": "",
+                    "collapsible": true,
+                    "open_by_default": false,
+                    "group_mode": "shared",
+                    "color_scheme": "",
+                    "hover_color_scheme": "",
+                    "left_hover_color_scheme": "",
+                    "right_hover_color_scheme": "",
+                    "summary_padding_block_start": 16,
+                    "summary_padding_block_end": 16,
+                    "summary_padding_inline_start": 16,
+                    "summary_padding_inline_end": 16,
+                    "content_padding_block_start": 16,
+                    "content_padding_block_end": 16,
+                    "content_padding_inline_start": 16,
+                    "content_padding_inline_end": 16,
+                    "heading_type_preset": "",
+                    "right_heading_type_preset": "match",
+                    "heading_min_size": 1.1,
+                    "heading_max_size": 1.6,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_WJqkUz": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Bright and clean. Honey brings a soft sweetness, fruit adds depth, and acidity keeps the finish crisp rather than syrupy. Learn more: <a href=\"/pages/ingredients\" target=\"_blank\" title=\"Ingredients\">Learn more</a></p>",
+                        "width": "100%",
+                        "max_width": "none",
+                        "alignment": "left",
+                        "type_preset": "paragraph",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_WJqkUz"
+                  ]
+                },
+                "accordion_row_cimyUE": {
+                  "type": "accordion_row",
+                  "settings": {
+                    "heading": "How should I store Golden?",
+                    "right_heading": "",
+                    "heading_links_enabled": true,
+                    "heading_link": "",
+                    "right_heading_link": "",
+                    "collapsible": true,
+                    "open_by_default": false,
+                    "group_mode": "split",
+                    "color_scheme": "",
+                    "hover_color_scheme": "",
+                    "left_hover_color_scheme": "",
+                    "right_hover_color_scheme": "",
+                    "summary_padding_block_start": 16,
+                    "summary_padding_block_end": 16,
+                    "summary_padding_inline_start": 16,
+                    "summary_padding_inline_end": 16,
+                    "content_padding_block_start": 16,
+                    "content_padding_block_end": 16,
+                    "content_padding_inline_start": 16,
+                    "content_padding_inline_end": 16,
+                    "heading_type_preset": "",
+                    "right_heading_type_preset": "match",
+                    "heading_min_size": 1.1,
+                    "heading_max_size": 1.6,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_GpYUdE": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Store unopened cans somewhere cool and dry. Chill before drinking for the cleanest, brightest flavour.</p>",
+                        "width": "100%",
+                        "max_width": "none",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_GpYUdE"
+                  ]
+                },
+                "accordion_row_hB4jzw": {
+                  "type": "accordion_row",
+                  "settings": {
+                    "heading": "What’s the shelf life?",
+                    "right_heading": "",
+                    "heading_links_enabled": false,
+                    "heading_link": "",
+                    "right_heading_link": "",
+                    "collapsible": true,
+                    "open_by_default": false,
+                    "group_mode": "split",
+                    "color_scheme": "",
+                    "hover_color_scheme": "",
+                    "left_hover_color_scheme": "",
+                    "right_hover_color_scheme": "",
+                    "summary_padding_block_start": 16,
+                    "summary_padding_block_end": 16,
+                    "summary_padding_inline_start": 16,
+                    "summary_padding_inline_end": 16,
+                    "content_padding_block_start": 16,
+                    "content_padding_block_end": 16,
+                    "content_padding_inline_start": 16,
+                    "content_padding_inline_end": 16,
+                    "heading_type_preset": "",
+                    "right_heading_type_preset": "match",
+                    "heading_min_size": 1.1,
+                    "heading_max_size": 1.6,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_qjMfDz": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Best-before is printed on the can. We recommend enjoying it cold and fresh for peak flavour.</p>",
+                        "width": "100%",
+                        "max_width": "none",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_qjMfDz"
+                  ]
+                },
+                "accordion_row_m44XDg": {
+                  "type": "accordion_row",
+                  "settings": {
+                    "heading": "Is Golden suitable for kids or during pregnancy?",
+                    "right_heading": "",
+                    "heading_links_enabled": false,
+                    "heading_link": "",
+                    "right_heading_link": "",
+                    "collapsible": true,
+                    "open_by_default": false,
+                    "group_mode": "split",
+                    "color_scheme": "",
+                    "hover_color_scheme": "",
+                    "left_hover_color_scheme": "",
+                    "right_hover_color_scheme": "",
+                    "summary_padding_block_start": 16,
+                    "summary_padding_block_end": 16,
+                    "summary_padding_inline_start": 16,
+                    "summary_padding_inline_end": 16,
+                    "content_padding_block_start": 16,
+                    "content_padding_block_end": 16,
+                    "content_padding_inline_start": 16,
+                    "content_padding_inline_end": 16,
+                    "heading_type_preset": "",
+                    "right_heading_type_preset": "match",
+                    "heading_min_size": 1.1,
+                    "heading_max_size": 1.6,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_yRETMM": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Golden is non-alcoholic. For kids, pregnancy, or caffeine sensitivity, check the ingredient panel and choose what fits your needs. <strong>Learn more:</strong> <a href=\"/products/kanuka-kola\" target=\"_blank\" title=\"Kānuka Kola\">Kola</a></p>",
+                        "width": "100%",
+                        "max_width": "none",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_yRETMM"
+                  ]
+                }
+              },
+              "block_order": [
+                "accordion_row_yte38r",
+                "accordion_row_cimyUE",
+                "accordion_row_hB4jzw",
+                "accordion_row_m44XDg"
+              ]
+            }
+          },
+          "block_order": [
+            "accordion_Enx6DJ"
+          ]
+        }
+      },
+      "block_order": [
+        "group_PyzmdL"
+      ],
+      "name": "t:names.split_showcase",
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 0,
+        "section_width": "full-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "split_divider_color": "#d9d9d9",
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 0,
+        "padding-block-end": 0,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0
+      }
+    },
+    "section_QUUP8R": {
+      "type": "section",
+      "blocks": {
+        "text_gDXQNf": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<p></p><h2>Ordering & Delivery</h2><p></p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h2",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground-heading)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 16,
+            "padding-inline-end": 16
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_gDXQNf"
+      ],
+      "name": "t:names.rich_text_section",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 0,
+        "section_width": "full-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "split_divider_color": "#d9d9d9",
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 48,
+        "padding-block-end": 48,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0
+      }
+    },
+    "section_9apWjb": {
+      "type": "section",
+      "blocks": {
+        "group_V48zLr": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "space-between",
+            "enable_sticky": false,
+            "sticky_offset": 0,
+            "gap": 32,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fill",
+            "custom_height": 100,
+            "inherit_color_scheme": false,
+            "color_scheme": "scheme-5",
+            "background_media": "image",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "hero-apparel-1",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "accordion_c3JbYe": {
+              "type": "accordion",
+              "name": "t:names.accordion",
+              "settings": {
+                "icon": "caret",
+                "dividers": true,
+                "type_preset": "h6",
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "accordion_row_jMDGWg": {
+                  "type": "accordion_row",
+                  "settings": {
+                    "heading": "Where can I buy Golden?",
+                    "right_heading": "",
+                    "heading_links_enabled": false,
+                    "heading_link": "shopify://policies/refund-policy",
+                    "right_heading_link": "",
+                    "collapsible": true,
+                    "open_by_default": false,
+                    "group_mode": "shared",
+                    "color_scheme": "",
+                    "hover_color_scheme": "",
+                    "left_hover_color_scheme": "",
+                    "right_hover_color_scheme": "",
+                    "summary_padding_block_start": 16,
+                    "summary_padding_block_end": 16,
+                    "summary_padding_inline_start": 16,
+                    "summary_padding_inline_end": 16,
+                    "content_padding_block_start": 16,
+                    "content_padding_block_end": 16,
+                    "content_padding_inline_start": 16,
+                    "content_padding_inline_end": 16,
+                    "heading_type_preset": "",
+                    "right_heading_type_preset": "match",
+                    "heading_min_size": 1.1,
+                    "heading_max_size": 1.6,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_XfT8Km": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>You can order online, or pick it up from selected stockists around New Zealand. <strong>Find a store:</strong> <a href=\"/pages/store-location\" title=\"Store Locator\">Store Locator</a></p>",
+                        "width": "100%",
+                        "max_width": "none",
+                        "alignment": "left",
+                        "type_preset": "paragraph",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_XfT8Km"
+                  ]
+                },
+                "accordion_row_9CEpHc": {
+                  "type": "accordion_row",
+                  "settings": {
+                    "heading": "How much is shipping, and is there free shipping?",
+                    "right_heading": "",
+                    "heading_links_enabled": true,
+                    "heading_link": "",
+                    "right_heading_link": "",
+                    "collapsible": true,
+                    "open_by_default": false,
+                    "group_mode": "split",
+                    "color_scheme": "",
+                    "hover_color_scheme": "",
+                    "left_hover_color_scheme": "",
+                    "right_hover_color_scheme": "",
+                    "summary_padding_block_start": 16,
+                    "summary_padding_block_end": 16,
+                    "summary_padding_inline_start": 16,
+                    "summary_padding_inline_end": 16,
+                    "content_padding_block_start": 16,
+                    "content_padding_block_end": 16,
+                    "content_padding_inline_start": 16,
+                    "content_padding_inline_end": 16,
+                    "heading_type_preset": "",
+                    "right_heading_type_preset": "match",
+                    "heading_min_size": 1.1,
+                    "heading_max_size": 1.6,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_YhzN88": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Shipping rates and any free-shipping thresholds are listed in our shipping policy and shown at checkout. <strong>Learn more:</strong> <a href=\"/policies/shipping-policy\" target=\"_blank\" title=\"Shipping Policy\">Shipping</a></p>",
+                        "width": "100%",
+                        "max_width": "none",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_YhzN88"
+                  ]
+                },
+                "accordion_row_XpB99V": {
+                  "type": "accordion_row",
+                  "settings": {
+                    "heading": "How long does delivery take, including rural?",
+                    "right_heading": "",
+                    "heading_links_enabled": false,
+                    "heading_link": "",
+                    "right_heading_link": "",
+                    "collapsible": true,
+                    "open_by_default": false,
+                    "group_mode": "split",
+                    "color_scheme": "",
+                    "hover_color_scheme": "",
+                    "left_hover_color_scheme": "",
+                    "right_hover_color_scheme": "",
+                    "summary_padding_block_start": 16,
+                    "summary_padding_block_end": 16,
+                    "summary_padding_inline_start": 16,
+                    "summary_padding_inline_end": 16,
+                    "content_padding_block_start": 16,
+                    "content_padding_block_end": 16,
+                    "content_padding_inline_start": 16,
+                    "content_padding_inline_end": 16,
+                    "heading_type_preset": "",
+                    "right_heading_type_preset": "match",
+                    "heading_min_size": 1.1,
+                    "heading_max_size": 1.6,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_T8Jrzx": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Timing depends on region and rural routes. We outline typical delivery windows in our shipping policy. <strong>Learn more:</strong> <a href=\"/policies/shipping-policy\" target=\"_blank\" title=\"Shipping Policy\">Shipping policy</a></p>",
+                        "width": "100%",
+                        "max_width": "none",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_T8Jrzx"
+                  ]
+                },
+                "accordion_row_fG9kdN": {
+                  "type": "accordion_row",
+                  "settings": {
+                    "heading": "What if my order arrives damaged or missing?",
+                    "right_heading": "",
+                    "heading_links_enabled": false,
+                    "heading_link": "",
+                    "right_heading_link": "",
+                    "collapsible": true,
+                    "open_by_default": false,
+                    "group_mode": "split",
+                    "color_scheme": "",
+                    "hover_color_scheme": "",
+                    "left_hover_color_scheme": "",
+                    "right_hover_color_scheme": "",
+                    "summary_padding_block_start": 16,
+                    "summary_padding_block_end": 16,
+                    "summary_padding_inline_start": 16,
+                    "summary_padding_inline_end": 16,
+                    "content_padding_block_start": 16,
+                    "content_padding_block_end": 16,
+                    "content_padding_inline_start": 16,
+                    "content_padding_inline_end": 16,
+                    "heading_type_preset": "",
+                    "right_heading_type_preset": "match",
+                    "heading_min_size": 1.1,
+                    "heading_max_size": 1.6,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_KLrdk7": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Email us ASAP with your order number and photos, and we’ll sort it quickly. <strong>Learn more:</strong> <a href=\"/policies/refund-policy\" target=\"_blank\" title=\"Refund Policy\">Returns</a> / <strong>Contact:</strong> <a href=\"/pages/contact\" target=\"_blank\" title=\"Contact\">Contact</a></p>",
+                        "width": "100%",
+                        "max_width": "none",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_KLrdk7"
+                  ]
+                }
+              },
+              "block_order": [
+                "accordion_row_jMDGWg",
+                "accordion_row_9CEpHc",
+                "accordion_row_XpB99V",
+                "accordion_row_fG9kdN"
+              ]
+            }
+          },
+          "block_order": [
+            "accordion_c3JbYe"
+          ]
+        }
+      },
+      "block_order": [
+        "group_V48zLr"
+      ],
+      "name": "t:names.split_showcase",
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 0,
+        "section_width": "full-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "split_divider_color": "#d9d9d9",
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 0,
+        "padding-block-end": 0,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0
+      }
+    },
+    "section_TwHJAy": {
+      "type": "section",
+      "blocks": {
+        "text_kLGHVE": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<p></p><h2>Wholesale</h2><p></p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h2",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground-heading)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 16,
+            "padding-inline-end": 16
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_kLGHVE"
+      ],
+      "name": "t:names.rich_text_section",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 0,
+        "section_width": "full-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-1",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "split_divider_color": "#d9d9d9",
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 48,
+        "padding-block-end": 48,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0
+      }
+    },
+    "section_QpAe7R": {
+      "type": "section",
+      "blocks": {
+        "group_tfrPGy": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "space-between",
+            "enable_sticky": false,
+            "sticky_offset": 0,
+            "gap": 32,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fill",
+            "custom_height": 100,
+            "inherit_color_scheme": false,
+            "color_scheme": "scheme-5",
+            "background_media": "image",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "hero-apparel-1",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "accordion_B4wgkh": {
+              "type": "accordion",
+              "name": "t:names.accordion",
+              "settings": {
+                "icon": "caret",
+                "dividers": true,
+                "type_preset": "h6",
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "accordion_row_zXkeFe": {
+                  "type": "accordion_row",
+                  "settings": {
+                    "heading": "Do you offer wholesale?",
+                    "right_heading": "",
+                    "heading_links_enabled": false,
+                    "heading_link": "shopify://policies/refund-policy",
+                    "right_heading_link": "",
+                    "collapsible": true,
+                    "open_by_default": false,
+                    "group_mode": "shared",
+                    "color_scheme": "",
+                    "hover_color_scheme": "",
+                    "left_hover_color_scheme": "",
+                    "right_hover_color_scheme": "",
+                    "summary_padding_block_start": 16,
+                    "summary_padding_block_end": 16,
+                    "summary_padding_inline_start": 16,
+                    "summary_padding_inline_end": 16,
+                    "content_padding_block_start": 16,
+                    "content_padding_block_end": 16,
+                    "content_padding_inline_start": 16,
+                    "content_padding_inline_end": 16,
+                    "heading_type_preset": "",
+                    "right_heading_type_preset": "match",
+                    "heading_min_size": 1.1,
+                    "heading_max_size": 1.6,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_MmxANc": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Yes. If you’d like to stock Golden, head to our wholesale page and apply there. <strong>Learn more:</strong> <a href=\"/pages/wholesale\" target=\"_blank\" title=\"Wholesale\">Wholesale</a></p>",
+                        "width": "100%",
+                        "max_width": "none",
+                        "alignment": "left",
+                        "type_preset": "paragraph",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_MmxANc"
+                  ]
+                },
+                "accordion_row_RNKeVQ": {
+                  "type": "accordion_row",
+                  "settings": {
+                    "heading": "How do I become a stockist?",
+                    "right_heading": "",
+                    "heading_links_enabled": true,
+                    "heading_link": "",
+                    "right_heading_link": "",
+                    "collapsible": true,
+                    "open_by_default": false,
+                    "group_mode": "split",
+                    "color_scheme": "",
+                    "hover_color_scheme": "",
+                    "left_hover_color_scheme": "",
+                    "right_hover_color_scheme": "",
+                    "summary_padding_block_start": 16,
+                    "summary_padding_block_end": 16,
+                    "summary_padding_inline_start": 16,
+                    "summary_padding_inline_end": 16,
+                    "content_padding_block_start": 16,
+                    "content_padding_block_end": 16,
+                    "content_padding_inline_start": 16,
+                    "content_padding_inline_end": 16,
+                    "heading_type_preset": "",
+                    "right_heading_type_preset": "match",
+                    "heading_min_size": 1.1,
+                    "heading_max_size": 1.6,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_TCiQji": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Apply via our wholesale page and we’ll follow up with pricing, ordering info, and next steps. <strong>Get started:</strong> <a href=\"/pages/wholesale\" target=\"_blank\" title=\"Wholesale\">Wholesale</a></p>",
+                        "width": "100%",
+                        "max_width": "none",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_TCiQji"
+                  ]
+                }
+              },
+              "block_order": [
+                "accordion_row_zXkeFe",
+                "accordion_row_RNKeVQ"
+              ]
+            }
+          },
+          "block_order": [
+            "accordion_B4wgkh"
+          ]
+        }
+      },
+      "block_order": [
+        "group_tfrPGy"
+      ],
+      "name": "t:names.split_showcase",
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 0,
+        "section_width": "full-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "split_divider_color": "#d9d9d9",
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 0,
+        "padding-block-end": 0,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0
+      }
     }
   },
   "order": [
     "main",
-    "section_jKDfRf"
+    "section_inTUGG",
+    "section_jKDfRf",
+    "section_FJ98Qz",
+    "section_wAbT8L",
+    "section_TxwdbN",
+    "section_MYiJ6Y",
+    "section_WLfRDg",
+    "section_K4qMeC",
+    "section_QUUP8R",
+    "section_9apWjb",
+    "section_TwHJAy",
+    "section_QpAe7R"
   ]
 }
