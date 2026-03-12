@@ -32,9 +32,40 @@
   endif
 
   case request.page_type
+    when 'index'
+      if seo_title == shop.name
+        assign seo_title = 'New Zealand Honey Soda & Low-Cal Sparkling Drinks | Golden'
+      endif
+
+      if seo_description == blank or seo_description == shop.description or seo_description == shop.name
+        assign seo_description = 'Golden makes low-cal sparkling drinks in New Zealand, sweetened with mānuka and kānuka honey and flavoured with real local fruit.'
+      endif
+
     when 'product'
       if product.metafields.custom.seo_noindex.value == true
         assign seo_noindex = true
+      endif
+
+      if seo_title == product.title
+        case product.handle
+          when 'golden-lemon-manuka'
+            assign seo_title = 'Lemon Mānuka Soda | New Zealand Honey Soda | Golden'
+          when 'blackcurrant-manuka-soda'
+            assign seo_title = 'Blackcurrant Mānuka Soda | New Zealand Honey Soda | Golden'
+          when 'kanuka-kola'
+            assign seo_title = 'Kānuka Kola | Honey-Sweetened New Zealand Cola | Golden'
+        endcase
+      endif
+
+      if seo_description == blank
+        case product.handle
+          when 'golden-lemon-manuka'
+            assign seo_description = 'Shop Lemon Mānuka Soda, Golden''s low-cal sparkling drink made in New Zealand with real lemon juice and mānuka honey.'
+          when 'blackcurrant-manuka-soda'
+            assign seo_description = 'Shop Blackcurrant Mānuka Soda, a low-cal New Zealand honey soda built with Otago blackcurrants and mānuka honey.'
+          when 'kanuka-kola'
+            assign seo_description = 'Shop Kānuka Kola, Golden''s honey-sweetened New Zealand cola made with kānuka honey, kola nut extract, and lemon juice.'
+        endcase
       endif
 
     when 'article'
@@ -98,10 +129,20 @@
         case page.handle
           when 'ingredients'
             assign seo_title = 'Ingredients, Honey & Fruit Provenance | Golden'
+          when 'honey'
+            assign seo_title = 'New Zealand Honey In Golden | Mānuka, Kānuka & Provenance | Golden'
+          when 'new-zealand-honey'
+            assign seo_title = 'New Zealand Honey In Golden | Mānuka, Kānuka & Provenance | Golden'
+          when 'manuka-vs-kanuka'
+            assign seo_title = 'Mānuka vs Kānuka Honey | What''s the Difference? | Golden'
+          when 'where-our-honey-comes-from'
+            assign seo_title = 'Where Our Honey Comes From | New Zealand Sourcing | Golden'
+          when 'how-golden-is-made'
+            assign seo_title = 'How Golden Is Made | New Zealand Honey Soda Process | Golden'
           when 'our-story'
             assign seo_title = 'Our Story | New Zealand Honey Soda Brand | Golden'
           when 'faq'
-            assign seo_title = 'FAQs | Golden Honey Soda | Golden'
+            assign seo_title = 'FAQs | Ingredients, Orders & Stockists | Golden'
           when 'store-location'
             assign seo_title = 'Where To Buy Golden | Stockists In New Zealand'
           when 'wholesale'
@@ -128,6 +169,16 @@
           case page.handle
             when 'ingredients'
               assign seo_description = 'Learn what goes into Golden: mānuka and kānuka honey, real New Zealand fruit, no refined sugar, and the sourcing standards behind our low-cal honey sodas.'
+            when 'honey'
+              assign seo_description = 'Learn why Golden builds soda around New Zealand honey, how mānuka and kānuka differ, and what provenance means in our drinks.'
+            when 'new-zealand-honey'
+              assign seo_description = 'Learn why Golden builds soda around New Zealand honey, how mānuka and kānuka differ, and what provenance means in our drinks.'
+            when 'manuka-vs-kanuka'
+              assign seo_description = 'A plain-English guide to mānuka vs kānuka honey, covering flavour, provenance, grading, and why Golden uses both.'
+            when 'where-our-honey-comes-from'
+              assign seo_description = 'See how Golden thinks about New Zealand honey sourcing, traceability, seasonal supply, and choosing mānuka and kānuka for flavour.'
+            when 'how-golden-is-made'
+              assign seo_description = 'Follow how Golden turns New Zealand honey, fruit, water, and carbonation into a low-cal sparkling soda made in Aotearoa.'
             when 'our-story'
               assign seo_description = 'Read how Golden started in Aotearoa and why we build low-cal sodas around New Zealand honey, fruit, and traceable local ingredients.'
             when 'faq'

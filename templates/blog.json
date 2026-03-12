@@ -38,6 +38,32 @@
           },
           "blocks": {}
         },
+        "intro": {
+          "type": "text",
+          "name": "Intro",
+          "settings": {
+            "text": "{% case closest.blog.handle %}{% when 'ingredients' %}<p>The Ingredients Journal is where Golden explains New Zealand honey, mānuka vs kānuka, fruit provenance, and how our low-cal sparkling drinks are made.</p>{% when 'golden-hour' %}<p>Golden Hour is where we share product news, collaborations, launches, and the people and places shaping the brand.</p>{% endcase %}",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 24,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
         "static-blog-post-card": {
           "type": "_blog-post-card",
           "static": true,
@@ -118,7 +144,8 @@
         }
       },
       "block_order": [
-        "title"
+        "title",
+        "intro"
       ],
       "settings": {
         "color_scheme": "",

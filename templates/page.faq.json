@@ -218,7 +218,7 @@
                     "text_AHwwCk": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Golden is low-calorie, lightly sparkling soda sweetened with New Zealand honey and built with real fruit and juice. Clean, bright flavour with a crisp finish. <strong>Learn More: </strong><a href=\"/pages/ingredients\" target=\"_blank\" title=\"Ingredients\"><strong>Ingredients</strong></a></p>",
+                        "text": "<p>Golden is low-calorie, lightly sparkling soda sweetened with New Zealand honey and built with real fruit and juice. Clean, bright flavour with a crisp finish. <strong>Learn more:</strong> <a href=\"/pages/ingredients\" target=\"_blank\" title=\"Ingredients\"><strong>Ingredients</strong></a> / <a href=\"/pages/new-zealand-honey\" target=\"_blank\" title=\"New Zealand Honey In Golden\"><strong>New Zealand Honey</strong></a></p>",
                         "width": "100%",
                         "max_width": "none",
                         "alignment": "left",
@@ -279,7 +279,7 @@
                     "text_WVyUeL": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>We use honey instead of refined sugar and let real fruit and juice do the heavy lifting. It’s full-flavour, without the syrupy finish. Learn more about our <a href=\"/pages/ingredients\" target=\"_blank\" title=\"Ingredients\">Ingredients here</a>.</p>",
+                        "text": "<p>We use honey instead of refined sugar and let real fruit and juice do the heavy lifting. It’s full-flavour, without the syrupy finish. Learn more about our <a href=\"/pages/ingredients\" target=\"_blank\" title=\"Ingredients\">ingredients</a> and why New Zealand honey matters in <a href=\"/pages/new-zealand-honey\" target=\"_blank\" title=\"New Zealand Honey In Golden\">this guide</a>.</p>",
                         "width": "100%",
                         "max_width": "none",
                         "alignment": "left",
@@ -577,7 +577,7 @@
                     "text_cFQKU3": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Honey. We use mānuka and kānuka honey for a softer sweetness and more character than refined sugar. <a href=\"/pages/ingredients\" target=\"_blank\" title=\"Ingredients\">Learn more</a></p>",
+                        "text": "<p>Honey. We use mānuka and kānuka honey for a softer sweetness and more character than refined sugar. <a href=\"/pages/new-zealand-honey\" target=\"_blank\" title=\"New Zealand Honey In Golden\">New Zealand Honey</a> / <a href=\"/pages/manuka-vs-kanuka\" target=\"_blank\" title=\"Mānuka vs Kānuka\">Mānuka vs Kānuka</a></p>",
                         "width": "100%",
                         "max_width": "none",
                         "alignment": "left",
@@ -1246,7 +1246,7 @@
                     "text_yk9XUV": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Golden is made in New Zealand. We build our drinks around local honey and fruit, and we work with trusted local partners to turn those ingredients into something clean, bright, and properly refreshing. We care about traceability because it keeps the product honest, and because good ingredients deserve to be treated like the main event, not a flavouring. Learn more: <a href=\"/pages/ingredients\" target=\"_blank\" title=\"Ingredients\">Ingredients</a></p>",
+                        "text": "<p>Golden is made in New Zealand. We build our drinks around local honey and fruit, and we work with trusted local partners to turn those ingredients into something clean, bright, and properly refreshing. We care about traceability because it keeps the product honest, and because good ingredients deserve to be treated like the main event, not a flavouring. Learn more: <a href=\"/pages/how-golden-is-made\" target=\"_blank\" title=\"How Golden Is Made\">How Golden Is Made</a></p>",
                         "width": "100%",
                         "max_width": "none",
                         "alignment": "left",
@@ -1429,7 +1429,7 @@
                     "text_F7FC4H": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>They’re both New Zealand native honeys, but they’re made from different trees and they taste different. <strong>Mānuka</strong> tends to be darker and more intense, and it’s the one that can be independently graded and certified under the <strong>UMF™</strong> system. <strong>Kānuka</strong> is typically lighter and more floral. We use both for a softer sweetness and more flavour than refined sugar. Learn more: <a href=\"/pages/ingredients\" target=\"_blank\" title=\"Ingredients\">Ingredients</a></p>",
+                        "text": "<p>They’re both New Zealand native honeys, but they’re made from different trees and they taste different. <strong>Mānuka</strong> tends to be darker and more intense, and it’s the one that can be independently graded and certified under the <strong>UMF™</strong> system. <strong>Kānuka</strong> is typically lighter and more floral. We use both for a softer sweetness and more flavour than refined sugar. Learn more: <a href=\"/pages/manuka-vs-kanuka\" target=\"_blank\" title=\"Mānuka vs Kānuka\">Mānuka vs Kānuka</a></p>",
                         "width": "100%",
                         "max_width": "none",
                         "alignment": "left",
