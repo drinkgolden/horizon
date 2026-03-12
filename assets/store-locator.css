@@ -1,0 +1,225 @@
+.store-locator-widget {
+  display: grid;
+  gap: 24px;
+}
+
+.store-locator-widget__intro {
+  max-width: 68rem;
+  display: grid;
+  gap: 12px;
+}
+
+.store-locator-widget__heading,
+.store-locator-widget__body {
+  margin: 0;
+}
+
+.store-locator-widget__shell {
+  display: grid;
+  gap: 24px;
+}
+
+.store-locator-widget__panel,
+.store-locator-widget__map-shell {
+  border: 1px solid rgb(var(--color-foreground-rgb) / var(--opacity-10));
+  background: rgb(var(--color-foreground-rgb) / var(--opacity-2, 0.02));
+}
+
+.store-locator-widget__panel {
+  padding: 20px;
+  display: grid;
+  gap: 18px;
+  align-content: start;
+}
+
+.store-locator-widget__toolbar {
+  display: grid;
+  gap: 12px;
+}
+
+.store-locator-widget__search {
+  width: 100%;
+  border: 1px solid rgb(var(--color-foreground-rgb) / var(--opacity-15));
+  background: var(--color-background);
+  color: var(--color-foreground);
+  min-height: 52px;
+  padding: 14px 16px;
+  font: inherit;
+}
+
+.store-locator-widget__search::placeholder {
+  color: rgb(var(--color-foreground-rgb) / var(--opacity-subdued-text));
+}
+
+.store-locator-widget__count,
+.store-locator-widget__status,
+.store-locator-widget__cta-copy {
+  margin: 0;
+  color: rgb(var(--color-foreground-rgb) / var(--opacity-subdued-text));
+}
+
+.store-locator-widget__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.store-locator-widget__filter {
+  border: 1px solid rgb(var(--color-foreground-rgb) / var(--opacity-15));
+  background: transparent;
+  color: var(--color-foreground);
+  border-radius: 999px;
+  padding: 10px 14px;
+  cursor: pointer;
+  font: inherit;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.store-locator-widget__filter:hover,
+.store-locator-widget__filter:focus-visible {
+  border-color: var(--store-locator-accent);
+}
+
+.store-locator-widget__filter.is-active {
+  background: var(--store-locator-accent);
+  border-color: var(--store-locator-accent);
+  color: #111;
+}
+
+.store-locator-widget__results {
+  display: grid;
+  gap: 12px;
+}
+
+.store-locator-widget__card {
+  border: 1px solid rgb(var(--color-foreground-rgb) / var(--opacity-10));
+  background: var(--color-background);
+  padding: 16px;
+  display: grid;
+  gap: 10px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.store-locator-widget__card:hover,
+.store-locator-widget__card:focus-visible {
+  border-color: rgb(var(--color-foreground-rgb) / var(--opacity-30));
+  transform: translateY(-1px);
+}
+
+.store-locator-widget__card.is-active {
+  border-color: var(--store-locator-accent);
+  box-shadow: 0 0 0 1px var(--store-locator-accent);
+}
+
+.store-locator-widget__card-top,
+.store-locator-widget__card-meta,
+.store-locator-widget__card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  align-items: center;
+}
+
+.store-locator-widget__card-name,
+.store-locator-widget__card-address,
+.store-locator-widget__card-notes {
+  margin: 0;
+}
+
+.store-locator-widget__card-name {
+  font-size: 1.05rem;
+}
+
+.store-locator-widget__badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  background: rgb(var(--color-foreground-rgb) / var(--opacity-5));
+  color: rgb(var(--color-foreground-rgb) / var(--opacity-subdued-text));
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  line-height: 1;
+}
+
+.store-locator-widget__card-link {
+  color: var(--color-foreground);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.store-locator-widget__card-link:hover,
+.store-locator-widget__card-link:focus-visible {
+  border-color: currentColor;
+}
+
+.store-locator-widget__cta {
+  border-top: 1px solid rgb(var(--color-foreground-rgb) / var(--opacity-10));
+  padding-top: 16px;
+  display: grid;
+  gap: 12px;
+}
+
+.store-locator-widget__map-shell {
+  position: relative;
+  min-height: var(--store-locator-map-height-mobile);
+  overflow: hidden;
+}
+
+.store-locator-widget__map {
+  width: 100%;
+  height: var(--store-locator-map-height-mobile);
+}
+
+.store-locator-widget__map-shell .mapboxgl-map {
+  width: 100%;
+  height: 100%;
+}
+
+.store-locator-widget__marker {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: var(--store-locator-accent);
+  border: 2px solid var(--color-background);
+  box-shadow: 0 0 0 1px rgb(var(--color-foreground-rgb) / var(--opacity-15));
+}
+
+.store-locator-widget__marker.is-active {
+  transform: scale(1.2);
+}
+
+.store-locator-widget__popup {
+  display: grid;
+  gap: 6px;
+}
+
+.store-locator-widget__popup p {
+  margin: 0;
+}
+
+@media screen and (min-width: 990px) {
+  .store-locator-widget__shell:not(.store-locator-widget__shell--list-only) {
+    grid-template-columns: minmax(0, 0.92fr) minmax(320px, 1.08fr);
+    align-items: start;
+  }
+
+  .store-locator-widget__shell--sticky .store-locator-widget__map-shell {
+    position: sticky;
+    top: calc(var(--header-height, 0px) + 24px);
+  }
+
+  .store-locator-widget__map-shell {
+    min-height: var(--store-locator-map-height-desktop);
+  }
+
+  .store-locator-widget__map {
+    height: var(--store-locator-map-height-desktop);
+  }
+
+  .store-locator-widget__results {
+    max-height: calc(var(--store-locator-map-height-desktop) - 164px);
+    overflow: auto;
+    padding-inline-end: 6px;
+  }
+}

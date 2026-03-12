@@ -110,6 +110,37 @@
         "padding-block-end": 44
       }
     },
+    "store_locator_widget": {
+      "type": "store-locator-map",
+      "settings": {
+        "heading": "Search stockists",
+        "body": "<p>Search by city, suburb, or retailer name to find Golden near you.</p>",
+        "sheet_url": "",
+        "sheet_help_text": "Add a public Google Sheet or CSV URL in the section settings to load stockists.",
+        "enable_map": true,
+        "mapbox_access_token": "",
+        "mapbox_style": "mapbox://styles/mapbox/light-v11",
+        "default_lat": "-41.2865",
+        "default_lng": "174.7762",
+        "default_zoom": "4.6",
+        "map_aria_label": "Map of Golden stockists",
+        "sticky_map_desktop": true,
+        "map_height_mobile": 320,
+        "map_height_desktop": 640,
+        "accent_color": "#d8a93a",
+        "search_placeholder": "Search by city, suburb, or store name",
+        "loading_text": "Loading stockists...",
+        "empty_state_text": "No stockists match that search yet.",
+        "error_text": "We could not load the stockist data right now.",
+        "config_text": "Store data is being updated. Please shop online or contact us in the meantime.",
+        "cta_text": "Cannot find a nearby stockist yet?",
+        "cta_label": "Wholesale enquiries",
+        "cta_url": "/pages/wholesale",
+        "color_scheme": "scheme-1",
+        "padding-block-start": 12,
+        "padding-block-end": 12
+      }
+    },
     "section_buying_path": {
       "type": "section",
       "blocks": {
@@ -564,6 +595,7 @@
   },
   "order": [
     "main",
+    "store_locator_widget",
     "section_buying_path"
   ]
 }

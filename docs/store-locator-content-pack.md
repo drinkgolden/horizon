@@ -60,6 +60,8 @@ Suggested order:
 2. Replace every placeholder before publishing.
 3. Keep the heading levels intact.
 4. Update the `Last updated` line every time the list changes materially.
+5. If you want the map widget to use the same data source, align the Google Sheet to [store-locator-sheet-template.csv](/Users/grom/morgpork/golden/.claude/worktrees/seo-phase1-dev/docs/store-locator-sheet-template.csv).
+6. Follow [store-locator-widget-setup.md](/Users/grom/morgpork/golden/.claude/worktrees/seo-phase1-dev/docs/store-locator-widget-setup.md) to connect the sheet and Mapbox token in the theme editor.
 
 ## Editorial Rules
 

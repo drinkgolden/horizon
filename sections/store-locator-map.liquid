@@ -1,0 +1,334 @@
+{% liquid
+  assign has_map = false
+  if section.settings.enable_map and section.settings.mapbox_access_token != blank
+    assign has_map = true
+  endif
+%}
+
+{{ 'store-locator.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'store-locator.js' | asset_url }}" defer></script>
+
+{% if has_map %}
+  <link
+    rel="stylesheet"
+    href="https://api.mapbox.com/mapbox-gl-js/v3.20.0/mapbox-gl.css"
+  >
+  <script
+    src="https://api.mapbox.com/mapbox-gl-js/v3.20.0/mapbox-gl.js"
+    defer
+  ></script>
+{% endif %}
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<div class="section section--page-width color-{{ section.settings.color_scheme }}">
+  <div
+    class="store-locator-widget spacing-style"
+    style="
+      {% render 'spacing-style', settings: section.settings %}
+      --store-locator-accent: {{ section.settings.accent_color }};
+      --store-locator-map-height-mobile: {{ section.settings.map_height_mobile }}px;
+      --store-locator-map-height-desktop: {{ section.settings.map_height_desktop }}px;
+    "
+  >
+    {% if section.settings.heading != blank or section.settings.body != blank %}
+      <div class="store-locator-widget__intro">
+        {% if section.settings.heading != blank %}
+          <h2 class="store-locator-widget__heading">{{ section.settings.heading }}</h2>
+        {% endif %}
+        {% if section.settings.body != blank %}
+          <div class="store-locator-widget__body rte">{{ section.settings.body }}</div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div
+      class="store-locator-widget__shell{% unless has_map %} store-locator-widget__shell--list-only{% endunless %}{% if has_map and section.settings.sticky_map_desktop %} store-locator-widget__shell--sticky{% endif %}"
+      data-store-locator
+      data-sheet-url="{{ section.settings.sheet_url | escape }}"
+      data-mapbox-token="{{ section.settings.mapbox_access_token | escape }}"
+      data-map-style="{{ section.settings.mapbox_style | escape }}"
+      data-enable-map="{{ has_map }}"
+      data-default-lat="{{ section.settings.default_lat | escape }}"
+      data-default-lng="{{ section.settings.default_lng | escape }}"
+      data-default-zoom="{{ section.settings.default_zoom | escape }}"
+      data-design-mode="{{ request.design_mode }}"
+      data-loading-text="{{ section.settings.loading_text | escape }}"
+      data-empty-text="{{ section.settings.empty_state_text | escape }}"
+      data-error-text="{{ section.settings.error_text | escape }}"
+      data-config-text="{{ section.settings.config_text | escape }}"
+      data-sheet-help-text="{{ section.settings.sheet_help_text | escape }}"
+    >
+      <div class="store-locator-widget__panel">
+        <div class="store-locator-widget__toolbar">
+          <label
+            class="visually-hidden"
+            for="StoreLocatorSearch-{{ section.id }}"
+          >
+            {{ section.settings.search_placeholder }}
+          </label>
+          <input
+            id="StoreLocatorSearch-{{ section.id }}"
+            class="store-locator-widget__search"
+            type="search"
+            name="store-locator-search"
+            placeholder="{{ section.settings.search_placeholder | escape }}"
+            autocomplete="off"
+            data-store-locator-search
+          >
+          <p
+            class="store-locator-widget__count"
+            data-store-locator-count
+          >
+            {{ section.settings.loading_text }}
+          </p>
+        </div>
+
+        <div
+          class="store-locator-widget__filters"
+          data-store-locator-filters
+          hidden
+        ></div>
+
+        <div
+          class="store-locator-widget__status"
+          data-store-locator-status
+        >
+          {{ section.settings.loading_text }}
+        </div>
+
+        <div
+          class="store-locator-widget__results"
+          data-store-locator-results
+        ></div>
+
+        {% if section.settings.cta_label != blank and section.settings.cta_url != blank %}
+          <div class="store-locator-widget__cta">
+            {% if section.settings.cta_text != blank %}
+              <p class="store-locator-widget__cta-copy">{{ section.settings.cta_text }}</p>
+            {% endif %}
+            <a
+              class="button"
+              href="{{ section.settings.cta_url }}"
+            >
+              {{ section.settings.cta_label }}
+            </a>
+          </div>
+        {% endif %}
+      </div>
+
+      {% if has_map %}
+        <div class="store-locator-widget__map-shell">
+          <div
+            class="store-locator-widget__map"
+            data-store-locator-map
+            role="img"
+            aria-label="{{ section.settings.map_aria_label | escape }}"
+          ></div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Store locator map",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Publishes a searchable stockist list from a public Google Sheet or CSV. Recommended columns: name, address, suburb, city, region, latitude, longitude, website, notes, featured, sort."
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Search stockists"
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Intro copy",
+      "default": "<p>Search by city, suburb, or retailer name to find Golden near you.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Data source"
+    },
+    {
+      "type": "text",
+      "id": "sheet_url",
+      "label": "Google Sheet or CSV URL",
+      "info": "Accepts a published CSV URL or a standard Google Sheets share URL."
+    },
+    {
+      "type": "text",
+      "id": "sheet_help_text",
+      "label": "Missing sheet help text",
+      "default": "Add a public Google Sheet or CSV URL in the section settings to load stockists."
+    },
+    {
+      "type": "header",
+      "content": "Map"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_map",
+      "label": "Enable Mapbox map",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "mapbox_access_token",
+      "label": "Mapbox access token"
+    },
+    {
+      "type": "text",
+      "id": "mapbox_style",
+      "label": "Mapbox style",
+      "default": "mapbox://styles/mapbox/light-v11"
+    },
+    {
+      "type": "text",
+      "id": "default_lat",
+      "label": "Default latitude",
+      "default": "-41.2865"
+    },
+    {
+      "type": "text",
+      "id": "default_lng",
+      "label": "Default longitude",
+      "default": "174.7762"
+    },
+    {
+      "type": "text",
+      "id": "default_zoom",
+      "label": "Default zoom",
+      "default": "4.6"
+    },
+    {
+      "type": "text",
+      "id": "map_aria_label",
+      "label": "Map accessibility label",
+      "default": "Map of Golden stockists"
+    },
+    {
+      "type": "checkbox",
+      "id": "sticky_map_desktop",
+      "label": "Sticky map on desktop",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "map_height_mobile",
+      "label": "Map height on mobile",
+      "min": 240,
+      "max": 640,
+      "step": 20,
+      "unit": "px",
+      "default": 320
+    },
+    {
+      "type": "range",
+      "id": "map_height_desktop",
+      "label": "Map height on desktop",
+      "min": 360,
+      "max": 900,
+      "step": 20,
+      "unit": "px",
+      "default": 640
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent colour",
+      "default": "#d8a93a"
+    },
+    {
+      "type": "header",
+      "content": "Text"
+    },
+    {
+      "type": "text",
+      "id": "search_placeholder",
+      "label": "Search placeholder",
+      "default": "Search by city, suburb, or store name"
+    },
+    {
+      "type": "text",
+      "id": "loading_text",
+      "label": "Loading text",
+      "default": "Loading stockists..."
+    },
+    {
+      "type": "text",
+      "id": "empty_state_text",
+      "label": "Empty-state text",
+      "default": "No stockists match that search yet."
+    },
+    {
+      "type": "text",
+      "id": "error_text",
+      "label": "Error text",
+      "default": "We could not load the stockist data right now."
+    },
+    {
+      "type": "text",
+      "id": "config_text",
+      "label": "Missing-config text",
+      "default": "Store data is being updated. Please shop online or contact us in the meantime."
+    },
+    {
+      "type": "header",
+      "content": "Fallback call to action"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA copy",
+      "default": "Cannot find a nearby stockist yet?"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "CTA label",
+      "default": "Wholesale enquiries"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "CTA link"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Colour scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": []
+}
+{% endschema %}
