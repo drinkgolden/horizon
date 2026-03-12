@@ -135,6 +135,17 @@
                   },
                   "blocks": {}
                 },
+                "review_x1PHrA": {
+                  "type": "review",
+                  "settings": {
+                    "stars_style": "shaded",
+                    "show_number": true,
+                    "rating_color": "foreground",
+                    "type_preset": "paragraph",
+                    "alignment": "left"
+                  },
+                  "blocks": {}
+                },
                 "price_tVjtKg": {
                   "type": "price",
                   "settings": {
@@ -160,6 +171,7 @@
               },
               "block_order": [
                 "text_xpVMaM",
+                "review_x1PHrA",
                 "price_tVjtKg"
               ]
             },
@@ -184,6 +196,58 @@
                 "corner_radius": 0,
                 "padding-block-start": 16,
                 "padding-block-end": 16,
+                "padding-inline-start": 16,
+                "padding-inline-end": 16
+              },
+              "blocks": {}
+            },
+            "text_m31sRd": {
+              "type": "text",
+              "name": "Flavour summary",
+              "settings": {
+                "text": "{% case closest.product.handle %}{% when 'golden-lemon-manuka' %}<p>Lemon Mānuka Soda is built around real lemon juice and New Zealand mānuka honey for a bright, rounded finish that lands closer to fresh lemonade than conventional sugary soda.</p>{% when 'blackcurrant-manuka-soda' %}<p>Blackcurrant Mānuka Soda pairs deep New Zealand blackcurrant character with mānuka honey, giving the fruit more depth and a cleaner finish than refined sugar alone.</p>{% when 'kanuka-kola' %}<p>Kānuka Kola is Golden's New Zealand take on cola, blending kānuka honey, kola nut extract, lemon juice, and a nostalgic butterscotch note without refined sugar.</p>{% else %}<p>Golden builds sparkling drinks around New Zealand honey, real fruit, and a lighter, cleaner finish than standard soft drink formulas.</p>{% endcase %}",
+                "width": "100%",
+                "max_width": "none",
+                "alignment": "left",
+                "type_preset": "paragraph",
+                "font": "var(--font-primary--family)",
+                "font_size": "",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 16,
+                "padding-inline-end": 16
+              },
+              "blocks": {}
+            },
+            "text_qD9uCf": {
+              "type": "text",
+              "name": "Trust points",
+              "settings": {
+                "text": "<ul>{% case closest.product.handle %}{% when 'kanuka-kola' %}<li>Sweetened with New Zealand kānuka honey</li>{% when 'golden-lemon-manuka' %}<li>Sweetened with New Zealand mānuka honey and built around real lemon juice</li>{% when 'blackcurrant-manuka-soda' %}<li>Sweetened with New Zealand mānuka honey and built around bold blackcurrant character</li>{% else %}<li>Sweetened with New Zealand honey</li>{% endcase %}<li>Made in New Zealand</li><li>No refined sugar</li><li>Read more about our <a href='/pages/ingredients'>ingredients</a>, <a href='/pages/new-zealand-honey'>honey sourcing</a>, and <a href='/pages/how-golden-is-made'>production process</a>.</li></ul>",
+                "width": "100%",
+                "max_width": "none",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 8,
                 "padding-inline-start": 16,
                 "padding-inline-end": 16
               },
@@ -240,7 +304,6 @@
             "accordion_Yyf6z8": {
               "type": "accordion",
               "name": "t:names.accordion",
-              "disabled": true,
               "settings": {
                 "icon": "caret",
                 "dividers": true,
@@ -260,7 +323,7 @@
                 "accordion_row_tGJFzd": {
                   "type": "accordion_row",
                   "settings": {
-                    "heading": "Return policy",
+                    "heading": "Ingredients & flavour",
                     "right_heading": "",
                     "heading_links_enabled": false,
                     "heading_link": "",
@@ -291,7 +354,7 @@
                     "text_GbNfwY": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Our goal is for every customer to be totally satisfied with their purchase. If this isn't the case, let us know and we'll do our best to work with you to make it right.</p>",
+                        "text": "{% case closest.product.handle %}{% when 'golden-lemon-manuka' %}<p>This flavour combines real lemon juice with New Zealand mānuka honey for a bright, clean finish and a more rounded sweetness than a refined-sugar lemonade.</p>{% when 'blackcurrant-manuka-soda' %}<p>This flavour balances rich blackcurrant intensity with New Zealand mānuka honey, giving it depth and a cleaner finish than a standard blackcurrant soft drink.</p>{% when 'kanuka-kola' %}<p>This flavour uses kānuka honey, kola nut extract, lemon juice, and a butterscotch note to create Golden's New Zealand take on cola.</p>{% else %}<p>This flavour is built around New Zealand honey and real fruit or spice ingredients for a lighter, more balanced sparkling drink.</p>{% endcase %}<p>For the full brand-wide ingredient approach, visit our <a href='/pages/ingredients'>Ingredients page</a>.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -321,7 +384,7 @@
                 "accordion_row_UzUGxH": {
                   "type": "accordion_row",
                   "settings": {
-                    "heading": "Shipping",
+                    "heading": "Honey, provenance & made in New Zealand",
                     "right_heading": "",
                     "heading_links_enabled": false,
                     "heading_link": "",
@@ -352,7 +415,7 @@
                     "text_wJqtkL": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>We will work quickly to ship your order as soon as possible. Once your order has shipped, you will receive an email with further information. Delivery times vary depending on your location.</p>",
+                        "text": "<p>Golden sweetens with New Zealand mānuka and kānuka honey rather than refined sugar, and every flavour is made in Aotearoa. Provenance matters to us because the honey, fruit, and process are part of what makes the final drink taste clean and distinct.</p><p>Read more about our <a href='/pages/new-zealand-honey'>New Zealand honey</a>, <a href='/pages/where-our-honey-comes-from'>how we think about sourcing</a>, and <a href='/pages/manuka-vs-kanuka'>mānuka vs kānuka honey</a>.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -382,7 +445,7 @@
                 "accordion_row_wAtz4b": {
                   "type": "accordion_row",
                   "settings": {
-                    "heading": "Manufacturing",
+                    "heading": "Shipping",
                     "right_heading": "",
                     "heading_links_enabled": false,
                     "heading_link": "",
@@ -413,7 +476,7 @@
                     "text_CnFWer": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.</p>",
+                        "text": "<p>We move quickly to dispatch orders and send tracking details once your order is on the way. Delivery timing depends on your location and the carrier handling your order.</p><p>See the full <a href='/pages/shipping'>Shipping page</a> for delivery information and order updates.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -439,18 +502,82 @@
                   "block_order": [
                     "text_CnFWer"
                   ]
+                },
+                "accordion_row_Rp3JxQ": {
+                  "type": "accordion_row",
+                  "settings": {
+                    "heading": "Returns & support",
+                    "right_heading": "",
+                    "heading_links_enabled": false,
+                    "heading_link": "",
+                    "right_heading_link": "",
+                    "collapsible": true,
+                    "open_by_default": false,
+                    "group_mode": "split",
+                    "color_scheme": "",
+                    "hover_color_scheme": "",
+                    "left_hover_color_scheme": "",
+                    "right_hover_color_scheme": "",
+                    "summary_padding_block_start": 0,
+                    "summary_padding_block_end": 0,
+                    "summary_padding_inline_start": 12,
+                    "summary_padding_inline_end": 12,
+                    "content_padding_block_start": 12,
+                    "content_padding_block_end": 12,
+                    "content_padding_inline_start": 24,
+                    "content_padding_inline_end": 24,
+                    "heading_type_preset": "",
+                    "right_heading_type_preset": "match",
+                    "heading_min_size": 1,
+                    "heading_max_size": 1.4,
+                    "icon": "none",
+                    "width": 24
+                  },
+                  "blocks": {
+                    "text_ML4kYx": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>If there is an issue with your order, let us know and we will work to put it right. Start with our <a href='/pages/returns'>Returns page</a> or <a href='/pages/contact'>contact us</a> directly for support.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_ML4kYx"
+                  ]
                 }
               },
               "block_order": [
                 "accordion_row_tGJFzd",
                 "accordion_row_UzUGxH",
-                "accordion_row_wAtz4b"
+                "accordion_row_wAtz4b",
+                "accordion_row_Rp3JxQ"
               ]
             }
           },
           "block_order": [
             "group_icgrde",
             "text_aEtTtq",
+            "text_m31sRd",
+            "text_qD9uCf",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
             "accordion_Yyf6z8"
