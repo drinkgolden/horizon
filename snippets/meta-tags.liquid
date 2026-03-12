@@ -17,10 +17,11 @@
 >
 
 {%- liquid
-  assign og_title = page_title | default: shop.name
+  assign seo_title = page_title | default: shop.name
+  assign seo_description = page_description | default: shop.description | default: shop.name
   assign og_url = canonical_url | default: request.origin
   assign og_type = 'website'
-  assign og_description = page_description | default: shop.description | default: shop.name
+  assign seo_noindex = false
 
   if request.page_type == 'product'
     assign og_type = 'product'
@@ -29,6 +30,157 @@
   elsif request.page_type == 'password'
     assign og_url = request.origin
   endif
+
+  case request.page_type
+    when 'product'
+      if product.metafields.custom.seo_noindex.value == true
+        assign seo_noindex = true
+      endif
+
+    when 'article'
+      if article.metafields.custom.seo_noindex.value == true
+        assign seo_noindex = true
+      endif
+
+      if seo_description == blank
+        assign seo_description = article.excerpt_or_content | strip_html | strip_newlines | truncatewords: 32
+      endif
+
+    when 'collection'
+      if collection.metafields.custom.seo_noindex.value == true
+        assign seo_noindex = true
+      endif
+
+      if seo_title == collection.title
+        case collection.handle
+          when 'honey-soda'
+            assign seo_title = 'New Zealand Honey Soda Drinks | Golden'
+          when 'low-cal-manuka-soda'
+            assign seo_title = 'Low-Cal Mānuka Soda | Golden'
+          when 'lemon'
+            assign seo_title = 'Lemon Mānuka Soda | Golden'
+          when 'blackcurrant'
+            assign seo_title = 'Blackcurrant Mānuka Soda | Golden'
+          when 'kanuka-kola'
+            assign seo_title = 'Kānuka Kola | Golden'
+          when 'gift-card'
+            assign seo_title = 'Golden Gift Card | Golden'
+        endcase
+      endif
+
+      if seo_description == blank
+        if collection.description != blank
+          assign seo_description = collection.description | strip_html | strip_newlines | truncatewords: 32
+        else
+          case collection.handle
+            when 'honey-soda'
+              assign seo_description = 'Shop Golden honey sodas from New Zealand, sweetened with mānuka and kānuka honey and built around real fruit for a lighter, cleaner finish.'
+            when 'low-cal-manuka-soda'
+              assign seo_description = 'Explore Golden low-cal mānuka sodas from New Zealand, made with real fruit, no refined sugar, and a crisp clean finish.'
+            when 'lemon'
+              assign seo_description = 'Shop Lemon Mānuka Soda, Golden''s low-cal honey-sweetened lemonade made with real lemon juice and New Zealand mānuka honey.'
+            when 'blackcurrant'
+              assign seo_description = 'Shop Blackcurrant Mānuka Soda, a low-cal New Zealand honey soda balancing bold blackcurrant tang with mānuka honey.'
+            when 'kanuka-kola'
+              assign seo_description = 'Shop Kānuka Kola, Golden''s honey-sweetened New Zealand cola made with kānuka honey, kola nut extract, and lemon juice.'
+            when 'gift-card'
+              assign seo_description = 'Give Golden as a gift with a digital gift card for our New Zealand-made honey sodas.'
+          endcase
+        endif
+      endif
+
+    when 'page'
+      if page.metafields.custom.seo_noindex.value == true
+        assign seo_noindex = true
+      endif
+
+      if seo_title == page.title
+        case page.handle
+          when 'ingredients'
+            assign seo_title = 'Ingredients, Honey & Fruit Provenance | Golden'
+          when 'our-story'
+            assign seo_title = 'Our Story | New Zealand Honey Soda Brand | Golden'
+          when 'faq'
+            assign seo_title = 'FAQs | Golden Honey Soda | Golden'
+          when 'store-location'
+            assign seo_title = 'Where To Buy Golden | Stockists In New Zealand'
+          when 'wholesale'
+            assign seo_title = 'Wholesale Honey Soda | Golden'
+          when 'contact'
+            assign seo_title = 'Contact Golden | Customer Support'
+          when 'press'
+            assign seo_title = 'Press | Golden Honey Soda | Golden'
+          when 'save-bees'
+            assign seo_title = 'Bees & Pollination | Golden'
+          when 'careers'
+            assign seo_title = 'Careers | Golden'
+          when 'keepersclub'
+            assign seo_title = 'Keeper Club | Golden'
+          when 'sponsorship'
+            assign seo_title = 'Sponsorship | Golden'
+        endcase
+      endif
+
+      if seo_description == blank
+        if page.content != blank
+          assign seo_description = page.content | strip_html | strip_newlines | truncatewords: 32
+        else
+          case page.handle
+            when 'ingredients'
+              assign seo_description = 'Learn what goes into Golden: mānuka and kānuka honey, real New Zealand fruit, no refined sugar, and the sourcing standards behind our low-cal honey sodas.'
+            when 'our-story'
+              assign seo_description = 'Read how Golden started in Aotearoa and why we build low-cal sodas around New Zealand honey, fruit, and traceable local ingredients.'
+            when 'faq'
+              assign seo_description = 'Answers about Golden''s ingredients, honey, nutrition, sourcing, shipping, wholesale, and where to buy our New Zealand honey sodas.'
+            when 'store-location'
+              assign seo_description = 'Find Golden stockists and stores across New Zealand and discover where to buy our honey-sweetened sodas in person.'
+            when 'wholesale'
+              assign seo_description = 'Stock Golden''s New Zealand-made honey sodas. Wholesale information, ordering, and product details for cafes, retailers, and hospitality.'
+            when 'contact'
+              assign seo_description = 'Get in touch with Golden for customer support, stockist leads, wholesale questions, or general enquiries about our New Zealand honey sodas.'
+            when 'press'
+              assign seo_description = 'Press information, brand background, and assets for Golden, the New Zealand honey soda brand built around mānuka honey and local fruit.'
+            when 'save-bees'
+              assign seo_description = 'See how Golden thinks about bees, pollination, and the ecosystems that sit behind New Zealand honey and local fruit.'
+            when 'careers'
+              assign seo_description = 'Work with Golden, the New Zealand honey soda brand built around mānuka and kānuka honey, local fruit, and bold better-for-you drinks.'
+            when 'keepersclub'
+              assign seo_description = 'Join Keeper Club for early access, product news, and updates from Golden, the New Zealand honey soda brand built around local ingredients.'
+            when 'sponsorship'
+              assign seo_description = 'Talk to Golden about sponsorships, community partnerships, and collaborations aligned with our New Zealand honey soda brand.'
+          endcase
+        endif
+      endif
+
+    when 'blog'
+      if blog.metafields.custom.seo_noindex.value == true
+        assign seo_noindex = true
+      endif
+
+      if seo_title == blog.title
+        case blog.handle
+          when 'ingredients'
+            assign seo_title = 'Ingredients, Honey & Sourcing Notes | Golden'
+          when 'golden-hour'
+            assign seo_title = 'Golden Hour | News, Culture & Launch Updates | Golden'
+        endcase
+      endif
+
+      if seo_description == blank
+        case blog.handle
+          when 'ingredients'
+            assign seo_description = 'Notes on mānuka honey, kānuka honey, fruit sourcing, ingredients, and what goes into Golden''s New Zealand-made honey sodas.'
+          when 'golden-hour'
+            assign seo_description = 'Golden Hour is our space for company news, product developments, cultural collaborations, and behind-the-scenes updates as Golden grows.'
+        endcase
+      endif
+  endcase
+
+  if seo_description == blank
+    assign seo_description = shop.description | default: shop.name
+  endif
+
+  assign seo_description = seo_description | strip_html | strip_newlines | replace: '  ', ' ' | strip
 %}
 
 <meta
@@ -41,7 +193,7 @@
 >
 <meta
   property="og:title"
-  content="{{ og_title | escape }}"
+  content="{{ seo_title | escape }}"
 >
 <meta
   property="og:type"
@@ -49,13 +201,13 @@
 >
 <meta
   property="og:description"
-  content="{{ og_description | escape }}"
+  content="{{ seo_description | escape }}"
 >
 
 {%- if page_image -%}
   <meta
     property="og:image"
-    content="http:{{ page_image | image_url }}"
+    content="https:{{ page_image | image_url }}"
   >
   <meta
     property="og:image:secure_url"
@@ -94,18 +246,18 @@
 >
 <meta
   name="twitter:title"
-  content="{{ og_title | escape }}"
+  content="{{ seo_title | escape }}"
 >
 <meta
   name="twitter:description"
-  content="{{ og_description | escape }}"
+  content="{{ seo_description | escape }}"
 >
 
 <title>
-  {{ page_title }}
+  {{ seo_title }}
   {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
   {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
-  {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+  {%- unless seo_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
 </title>
 
 <link
@@ -113,9 +265,14 @@
   href="{{ canonical_url }}"
 >
 
-{% if page_description %}
+<meta
+  name="description"
+  content="{{ seo_description | escape }}"
+>
+
+{% if seo_noindex %}
   <meta
-    name="description"
-    content="{{ page_description | escape }}"
+    name="robots"
+    content="noindex,follow"
   >
 {% endif %}

@@ -2211,7 +2211,7 @@
                     "text_YhzN88": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Shipping rates and any free-shipping thresholds are listed in our shipping policy and shown at checkout. <strong>Learn more:</strong> <a href=\"/policies/shipping-policy\" target=\"_blank\" title=\"Shipping Policy\">Shipping</a></p>",
+                        "text": "<p>Shipping rates and any free-shipping thresholds are listed on our shipping page and shown at checkout. <strong>Learn more:</strong> <a href=\"/pages/shipping\" target=\"_blank\" title=\"Shipping\">Shipping</a></p>",
                         "width": "100%",
                         "max_width": "none",
                         "alignment": "left",
@@ -2272,7 +2272,7 @@
                     "text_T8Jrzx": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Timing depends on region and rural routes. We outline typical delivery windows in our shipping policy. <strong>Learn more:</strong> <a href=\"/policies/shipping-policy\" target=\"_blank\" title=\"Shipping Policy\">Shipping policy</a></p>",
+                        "text": "<p>Timing depends on region and rural routes. We outline typical delivery windows on our shipping page. <strong>Learn more:</strong> <a href=\"/pages/shipping\" target=\"_blank\" title=\"Shipping\">Shipping</a></p>",
                         "width": "100%",
                         "max_width": "none",
                         "alignment": "left",
@@ -2333,7 +2333,7 @@
                     "text_KLrdk7": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Email us ASAP with your order number and photos, and we’ll sort it quickly. <strong>Learn more:</strong> <a href=\"/policies/refund-policy\" target=\"_blank\" title=\"Refund Policy\">Returns</a> / <strong>Contact:</strong> <a href=\"/pages/contact\" target=\"_blank\" title=\"Contact\">Contact</a></p>",
+                        "text": "<p>Email us ASAP with your order number and photos, and we’ll sort it quickly. <strong>Learn more:</strong> <a href=\"/pages/returns\" target=\"_blank\" title=\"Returns\">Returns</a> / <strong>Contact:</strong> <a href=\"/pages/contact\" target=\"_blank\" title=\"Contact\">Contact</a></p>",
                         "width": "100%",
                         "max_width": "none",
                         "alignment": "left",
