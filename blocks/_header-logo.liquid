@@ -47,7 +47,7 @@
   {% if logo_tag == 'a' %}
     href="{{ routes.root_url }}"
   {% endif %}
-  class="size-style spacing-style header-logo{% if logo_tag == 'a' %} header-logo--interactive{% endif %}"
+  class="size-style spacing-style header-logo{% if logo_tag == 'a' %} header-logo--interactive{% endif %}{% if request.page_type == 'index' %} header-logo--home-animated{% endif %}"
   style="
     {% render 'size-style', settings: block_settings %}
     {% render 'spacing-style', settings: block_settings %}
@@ -163,13 +163,13 @@
   }
 
   @media (hover: hover) and (pointer: fine) {
-    .header-logo:is(:hover, :focus-visible) .header-logo__image-container {
+    .header-logo--home-animated:is(:hover, :focus-visible) .header-logo__image-container {
       transform: rotate(30deg);
     }
   }
 
   @media (hover: none), (pointer: coarse) {
-    .header-logo--interactive:active .header-logo__image-container {
+    .header-logo--home-animated:active .header-logo__image-container {
       transform: rotate(30deg);
     }
   }
