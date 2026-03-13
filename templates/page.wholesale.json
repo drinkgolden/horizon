@@ -16,7 +16,7 @@
           "type": "text",
           "name": "Title",
           "settings": {
-            "text": "<h1>Wholesale Golden</h1>",
+            "text": "<h1>Golden Wholesale </h1>",
             "width": "100%",
             "max_width": "none",
             "alignment": "left",
@@ -42,7 +42,7 @@
           "type": "text",
           "name": "Intro",
           "settings": {
-            "text": "<p>Golden is a New Zealand-made range of honey-sweetened, low-cal sparkling sodas built around mānuka and kānuka honey, real fruit, and no refined sugar. This page is for retailers, cafes, bottle stores, and hospitality venues looking to stock the range.</p>",
+            "text": "",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -155,7 +155,7 @@
             "text_copy": {
               "type": "text",
               "settings": {
-                "text": "<p>Golden gives buyers a different soft drink proposition: New Zealand honey instead of refined sugar, real fruit, and a lighter-bodied profile designed for modern grocery, cafe, and beverage fridges.</p><ul><li>Made in New Zealand</li><li>Sweetened with mānuka and kānuka honey across the range</li><li>No refined sugar</li><li>Clear provenance story for honey and fruit</li></ul><p>If you want to understand the ingredient and sourcing side before ordering, start with our <a href='/pages/ingredients'>Ingredients</a>, <a href='/pages/new-zealand-honey'>New Zealand honey</a>, and <a href='/pages/how-golden-is-made'>How Golden is made</a> pages.</p>",
+                "text": "<p>Golden is a New Zealand-made range of honey-sweetened, low-cal sparkling sodas built around mānuka and kānuka honey, real fruit, and no refined sugar. This page is for retailers, cafes, bottle stores, and hospitality venues looking to stock the range.<br/><br/>Golden gives buyers a different soft drink proposition: New Zealand honey instead of refined sugar, real fruit, and a lighter-bodied profile designed for modern grocery, cafe, and beverage fridges.</p><ul><li>Made in New Zealand</li><li>Sweetened with mānuka and kānuka honey across the range</li><li>No refined sugar</li><li>Clear provenance story for honey and fruit</li></ul><p>If you want to understand the ingredient and sourcing side before ordering, start with our <a href=\"/pages/ingredients\">Ingredients</a>, <a href=\"/pages/new-zealand-honey\">New Zealand honey</a>, and <a href=\"/pages/how-golden-is-made\">How Golden is made</a> pages.</p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
