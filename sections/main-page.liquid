@@ -1,14 +1,63 @@
 
 {% liquid
-  assign page_header_enabled = section.settings.enable_page_header
+  assign suppressed_title_block_id = ''
+  assign suppressed_intro_block_id = ''
+  assign legacy_page_header_title = ''
+  assign legacy_page_header_text = blank
+  assign main_page_visible_block_count = 0
+  assign has_suppressed_legacy_blocks = false
+
+  for block in section.blocks
+    assign suppress_block = false
+
+    if block.type == 'text'
+      if suppressed_title_block_id == blank
+        case block.settings.type_preset
+          when 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'
+            assign suppressed_title_block_id = block.id
+            assign legacy_page_header_title = block.settings.text | strip_html | strip
+            assign suppress_block = true
+        endcase
+      elsif suppressed_intro_block_id == blank
+        case block.settings.type_preset
+          when 'rte', 'paragraph'
+            assign suppressed_intro_block_id = block.id
+            assign legacy_page_header_text = block.settings.text
+            assign suppress_block = true
+        endcase
+      endif
+    endif
+
+    unless suppress_block
+      assign main_page_visible_block_count = main_page_visible_block_count | plus: 1
+    endunless
+  endfor
+
+  if suppressed_title_block_id != blank or suppressed_intro_block_id != blank
+    assign has_suppressed_legacy_blocks = true
+  endif
+
+  assign page_header_enabled = true
   assign page_header_media_enabled = false
-  if page_header_enabled and section.settings.page_header_show_media
-    assign page_header_media_enabled = true
+  if section.settings.page_header_show_media
+    if section.settings.page_header_media_type == 'video' and section.settings.page_header_video != blank
+      assign page_header_media_enabled = true
+    elsif section.settings.page_header_image != blank
+      assign page_header_media_enabled = true
+    endif
   endif
 
   assign page_header_title = section.settings.page_header_title | strip
   if page_header_title == blank
+    assign page_header_title = legacy_page_header_title
+  endif
+  if page_header_title == blank
     assign page_header_title = page.title
+  endif
+
+  assign page_header_body = section.settings.page_header_text
+  if page_header_body == blank and legacy_page_header_text != blank
+    assign page_header_body = legacy_page_header_text
   endif
 
   assign page_header_media_height = 'auto'
@@ -56,41 +105,8 @@
   endif
 
   assign page_header_show_breadcrumbs = false
-  if request.page_type == 'page' and page_header_enabled and section.settings.show_breadcrumbs and settings.enable_page_header_breadcrumbs
+  if request.page_type == 'page' and section.settings.show_breadcrumbs and settings.enable_page_header_breadcrumbs
     assign page_header_show_breadcrumbs = true
-  endif
-
-  assign suppressed_title_block_id = ''
-  assign suppressed_intro_block_id = ''
-  assign main_page_visible_block_count = 0
-  assign has_suppressed_legacy_blocks = false
-
-  for block in section.blocks
-    assign suppress_block = false
-
-    if page_header_enabled and block.type == 'text'
-      if suppressed_title_block_id == blank
-        case block.settings.type_preset
-          when 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'
-            assign suppressed_title_block_id = block.id
-            assign suppress_block = true
-        endcase
-      elsif suppressed_intro_block_id == blank
-        case block.settings.type_preset
-          when 'rte', 'paragraph'
-            assign suppressed_intro_block_id = block.id
-            assign suppress_block = true
-        endcase
-      endif
-    endif
-
-    unless suppress_block
-      assign main_page_visible_block_count = main_page_visible_block_count | plus: 1
-    endunless
-  endfor
-
-  if suppressed_title_block_id != blank or suppressed_intro_block_id != blank
-    assign has_suppressed_legacy_blocks = true
   endif
 %}
 
@@ -167,9 +183,9 @@
                   <h1 class="main-page__header-title">{{ page_header_title }}</h1>
                 {% endif %}
 
-                {% if section.settings.page_header_text != blank %}
+                {% if page_header_body != blank %}
                   <div class="main-page__header-body rte">
-                    {{ section.settings.page_header_text }}
+                    {{ page_header_body }}
                   </div>
                 {% endif %}
               </div>
@@ -435,32 +451,23 @@
     },
     {
       "type": "header",
-      "content": "Page layout"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_page_header",
-      "label": "Use editorial page layout",
-      "default": false
+      "content": "Editorial header"
     },
     {
       "type": "text",
       "id": "page_header_caption",
-      "label": "Eyebrow",
-      "visible_if": "{{ section.settings.enable_page_header }}"
+      "label": "Eyebrow"
     },
     {
       "type": "text",
       "id": "page_header_title",
       "label": "Title override",
-      "info": "Leave blank to use the page title.",
-      "visible_if": "{{ section.settings.enable_page_header }}"
+      "info": "Leave blank to use the first page heading, or the page title."
     },
     {
       "type": "richtext",
       "id": "page_header_text",
-      "label": "Summary",
-      "visible_if": "{{ section.settings.enable_page_header }}"
+      "label": "Summary"
     },
     {
       "type": "select",
@@ -480,8 +487,7 @@
           "label": "t:options.right"
         }
       ],
-      "default": "left",
-      "visible_if": "{{ section.settings.enable_page_header }}"
+      "default": "left"
     },
     {
       "type": "select",
@@ -501,15 +507,13 @@
           "label": "t:options.bottom"
         }
       ],
-      "default": "flex-end",
-      "visible_if": "{{ section.settings.enable_page_header }}"
+      "default": "flex-end"
     },
     {
       "type": "checkbox",
       "id": "page_header_show_media",
       "label": "Show media",
-      "default": true,
-      "visible_if": "{{ section.settings.enable_page_header }}"
+      "default": false
     },
     {
       "type": "select",
@@ -526,13 +530,13 @@
         }
       ],
       "default": "image",
-      "visible_if": "{{ section.settings.enable_page_header and section.settings.page_header_show_media }}"
+      "visible_if": "{{ section.settings.page_header_show_media }}"
     },
     {
       "type": "image_picker",
       "id": "page_header_image",
       "label": "Image",
-      "visible_if": "{{ section.settings.enable_page_header and section.settings.page_header_show_media and section.settings.page_header_media_type == 'image' }}"
+      "visible_if": "{{ section.settings.page_header_show_media and section.settings.page_header_media_type == 'image' }}"
     },
     {
       "type": "select",
@@ -549,27 +553,27 @@
         }
       ],
       "default": "cover",
-      "visible_if": "{{ section.settings.enable_page_header and section.settings.page_header_show_media and section.settings.page_header_media_type == 'image' }}"
+      "visible_if": "{{ section.settings.page_header_show_media and section.settings.page_header_media_type == 'image' }}"
     },
     {
       "type": "video",
       "id": "page_header_video",
       "label": "Video",
-      "visible_if": "{{ section.settings.enable_page_header and section.settings.page_header_show_media and section.settings.page_header_media_type == 'video' }}"
+      "visible_if": "{{ section.settings.page_header_show_media and section.settings.page_header_media_type == 'video' }}"
     },
     {
       "type": "checkbox",
       "id": "page_header_video_loop",
       "label": "Loop video",
       "default": true,
-      "visible_if": "{{ section.settings.enable_page_header and section.settings.page_header_show_media and section.settings.page_header_media_type == 'video' }}"
+      "visible_if": "{{ section.settings.page_header_show_media and section.settings.page_header_media_type == 'video' }}"
     },
     {
       "type": "checkbox",
       "id": "page_header_video_autoplay",
       "label": "Autoplay video",
       "default": false,
-      "visible_if": "{{ section.settings.enable_page_header and section.settings.page_header_show_media and section.settings.page_header_media_type == 'video' }}"
+      "visible_if": "{{ section.settings.page_header_show_media and section.settings.page_header_media_type == 'video' }}"
     },
     {
       "type": "select",
@@ -586,7 +590,7 @@
         }
       ],
       "default": "cover",
-      "visible_if": "{{ section.settings.enable_page_header and section.settings.page_header_show_media and section.settings.page_header_media_type == 'video' }}"
+      "visible_if": "{{ section.settings.page_header_show_media and section.settings.page_header_media_type == 'video' }}"
     },
     {
       "type": "select",
@@ -603,7 +607,7 @@
         }
       ],
       "default": "left",
-      "visible_if": "{{ section.settings.enable_page_header and section.settings.page_header_media_width != 'full' }}"
+      "visible_if": "{{ section.settings.page_header_media_width != 'full' }}"
     },
     {
       "type": "select",
@@ -627,8 +631,7 @@
           "label": "t:options.full"
         }
       ],
-      "default": "full",
-      "visible_if": "{{ section.settings.enable_page_header }}"
+      "default": "full"
     },
     {
       "type": "select",
@@ -656,15 +659,13 @@
           "label": "t:options.full_screen"
         }
       ],
-      "default": "60svh",
-      "visible_if": "{{ section.settings.enable_page_header }}"
+      "default": "60svh"
     },
     {
       "type": "color_scheme",
       "id": "page_header_color_scheme",
       "label": "Header colour scheme",
-      "default": "scheme-1",
-      "visible_if": "{{ section.settings.enable_page_header }}"
+      "default": "scheme-1"
     },
     {
       "type": "header",
@@ -674,32 +675,31 @@
       "type": "checkbox",
       "id": "show_breadcrumbs",
       "label": "Show breadcrumbs in page header",
-      "default": true,
-      "visible_if": "{{ section.settings.enable_page_header }}"
+      "default": true
     },
     {
       "type": "text",
       "id": "page_header_breadcrumb_parent_label",
       "label": "Breadcrumb parent label",
-      "visible_if": "{{ section.settings.enable_page_header and section.settings.show_breadcrumbs }}"
+      "visible_if": "{{ section.settings.show_breadcrumbs }}"
     },
     {
       "type": "url",
       "id": "page_header_breadcrumb_parent_link",
       "label": "Breadcrumb parent link",
-      "visible_if": "{{ section.settings.enable_page_header and section.settings.show_breadcrumbs and section.settings.page_header_breadcrumb_parent_label != blank }}"
+      "visible_if": "{{ section.settings.show_breadcrumbs and section.settings.page_header_breadcrumb_parent_label != blank }}"
     },
     {
       "type": "text",
       "id": "page_header_breadcrumb_parent_2_label",
       "label": "Second breadcrumb parent label",
-      "visible_if": "{{ section.settings.enable_page_header and section.settings.show_breadcrumbs }}"
+      "visible_if": "{{ section.settings.show_breadcrumbs }}"
     },
     {
       "type": "url",
       "id": "page_header_breadcrumb_parent_2_link",
       "label": "Second breadcrumb parent link",
-      "visible_if": "{{ section.settings.enable_page_header and section.settings.show_breadcrumbs and section.settings.page_header_breadcrumb_parent_2_label != blank }}"
+      "visible_if": "{{ section.settings.show_breadcrumbs and section.settings.page_header_breadcrumb_parent_2_label != blank }}"
     },
     {
       "type": "color_scheme",
