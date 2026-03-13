@@ -1939,5 +1939,16 @@
         "default": "equal-width-buttons"
       }
     ]
+  },
+  {
+    "name": "Pages",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_page_header_breadcrumbs",
+        "label": "Show page header breadcrumbs by default",
+        "default": true
+      }
+    ]
   }
 ]

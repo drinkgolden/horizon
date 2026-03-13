@@ -1,0 +1,128 @@
+{%- liquid
+  assign current_title = current_title | default: ''
+  if current_title == blank
+    case request.page_type
+      when 'page'
+        assign current_title = page.title
+      when 'article'
+        assign current_title = article.title
+      when 'collection'
+        assign current_title = collection.title
+      when 'product'
+        assign current_title = product.title
+    endcase
+  endif
+
+  assign crumb_parent_1_label = parent_1_label | default: ''
+  assign crumb_parent_1_link = parent_1_link | default: ''
+  assign crumb_parent_2_label = parent_2_label | default: ''
+  assign crumb_parent_2_link = parent_2_link | default: ''
+-%}
+
+{%- if current_title != blank -%}
+  <nav class="breadcrumbs{% if class != blank %} {{ class }}{% endif %}" aria-label="Breadcrumb">
+    <ol class="breadcrumbs__list" role="list">
+      <li class="breadcrumbs__item">
+        <a class="breadcrumbs__link" href="{{ routes.root_url }}">Home</a>
+      </li>
+
+      {%- if crumb_parent_1_label != blank -%}
+        <li class="breadcrumbs__item">
+          <span class="breadcrumbs__separator" aria-hidden="true">></span>
+          {%- if crumb_parent_1_link != blank -%}
+            <a class="breadcrumbs__link" href="{{ crumb_parent_1_link }}">{{ crumb_parent_1_label }}</a>
+          {%- else -%}
+            <span class="breadcrumbs__current">{{ crumb_parent_1_label }}</span>
+          {%- endif -%}
+        </li>
+      {%- endif -%}
+
+      {%- if crumb_parent_2_label != blank -%}
+        <li class="breadcrumbs__item">
+          <span class="breadcrumbs__separator" aria-hidden="true">></span>
+          {%- if crumb_parent_2_link != blank -%}
+            <a class="breadcrumbs__link" href="{{ crumb_parent_2_link }}">{{ crumb_parent_2_label }}</a>
+          {%- else -%}
+            <span class="breadcrumbs__current">{{ crumb_parent_2_label }}</span>
+          {%- endif -%}
+        </li>
+      {%- endif -%}
+
+      {%- unless request.page_type == 'page' -%}
+        {%- case request.page_type -%}
+          {%- when 'article' -%}
+            {%- if blog.title != blank -%}
+              <li class="breadcrumbs__item">
+                <span class="breadcrumbs__separator" aria-hidden="true">></span>
+                <a class="breadcrumbs__link" href="{{ blog.url }}">{{ blog.title }}</a>
+              </li>
+            {%- endif -%}
+          {%- when 'product' -%}
+            {%- assign breadcrumb_collection = collection -%}
+            {%- if breadcrumb_collection == blank and product.collections.size > 0 -%}
+              {%- assign breadcrumb_collection = product.collections.first -%}
+            {%- endif -%}
+            {%- if breadcrumb_collection != blank -%}
+              <li class="breadcrumbs__item">
+                <span class="breadcrumbs__separator" aria-hidden="true">></span>
+                <a class="breadcrumbs__link" href="{{ breadcrumb_collection.url }}">{{ breadcrumb_collection.title }}</a>
+              </li>
+            {%- endif -%}
+        {%- endcase -%}
+      {%- endunless -%}
+
+      <li class="breadcrumbs__item">
+        <span class="breadcrumbs__separator" aria-hidden="true">></span>
+        <span class="breadcrumbs__current" aria-current="page">{{ current_title }}</span>
+      </li>
+    </ol>
+  </nav>
+{%- endif -%}
+
+{% stylesheet %}
+  .breadcrumbs {
+    width: 100%;
+  }
+
+  .breadcrumbs__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: var(--font-size--sm);
+    line-height: 1.4;
+  }
+
+  .breadcrumbs__item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-width: 0;
+  }
+
+  .breadcrumbs__link,
+  .breadcrumbs__current,
+  .breadcrumbs__separator {
+    color: inherit;
+  }
+
+  .breadcrumbs__link {
+    text-decoration: none;
+  }
+
+  .breadcrumbs__link:hover,
+  .breadcrumbs__link:focus-visible {
+    text-decoration: underline;
+  }
+
+  .breadcrumbs__current {
+    opacity: 0.78;
+  }
+
+  .breadcrumbs__separator {
+    opacity: 0.55;
+  }
+{% endstylesheet %}
