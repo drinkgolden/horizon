@@ -16,7 +16,7 @@
           "type": "text",
           "name": "Eyebrow",
           "settings": {
-            "text": "<p><em>Inside the can</em></p>",
+            "text": "<p><em>Process note</em></p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -42,7 +42,7 @@
           "type": "text",
           "name": "Heading",
           "settings": {
-            "text": "<h1>Ingredients</h1>",
+            "text": "<h1>How Golden Is Made</h1>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -68,7 +68,7 @@
           "type": "text",
           "name": "Intro",
           "settings": {
-            "text": "<p>Golden is built around a simple idea: use New Zealand honey and real fruit to make soda feel lighter, cleaner, and more rooted in place. This page is the public version of what we want customers, retailers, and search engines to understand clearly: what sweetens Golden, what flavours it, and what standards we use when we talk about ingredients.</p>",
+            "text": "<p>Golden is made by starting with ingredients that have real flavour on their own, then balancing them into a sparkling drink that feels clean rather than syrupy. This page is the public process view: enough detail to build trust, without pretending that every manufacturing detail belongs in a consumer-facing SEO page.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -90,11 +90,11 @@
           },
           "blocks": {}
         },
-        "sweetens-heading": {
+        "ingredients-heading": {
           "type": "text",
           "name": "Section heading",
           "settings": {
-            "text": "<h2>What sweetens Golden</h2>",
+            "text": "<h2>It starts with honey, fruit, and water</h2>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -116,11 +116,11 @@
           },
           "blocks": {}
         },
-        "sweetens-copy": {
+        "ingredients-copy": {
           "type": "text",
           "name": "Section copy",
           "settings": {
-            "text": "<p>We use mānuka and kānuka honey instead of refined sugar. Mānuka brings darker, more resinous depth; kānuka is lighter and more floral. We use each where it makes sense for flavour balance rather than treating honey like a background sweetener. For the exact ingredient order and definitive nutrition statement, always check the can and the relevant product page.</p>",
+            "text": "<p>Golden begins with New Zealand honey, real fruit or botanical flavour inputs, water, acidity, and carbonation. That sounds simple, but the hard part is getting the balance right. Honey behaves differently from refined sugar, and fruit behaves differently from a generic flavour system. That is why our process starts with ingredients, not with a marketing brief.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -142,11 +142,11 @@
           },
           "blocks": {}
         },
-        "flavour-heading": {
+        "balance-heading": {
           "type": "text",
           "name": "Section heading",
           "settings": {
-            "text": "<h2>What flavours Golden</h2>",
+            "text": "<h2>Then the flavour balance gets refined</h2>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -168,11 +168,11 @@
           },
           "blocks": {}
         },
-        "flavour-copy": {
+        "balance-copy": {
           "type": "text",
           "name": "Section copy",
           "settings": {
-            "text": "<p>Our core range is built around real New Zealand fruit and botanical ingredients. <a href=\"/products/golden-lemon-manuka\" title=\"Lemon Mānuka Soda\">Lemon Mānuka Soda</a> uses lemon juice. <a href=\"/products/blackcurrant-manuka-soda\" title=\"Blackcurrant Mānuka Soda\">Blackcurrant Mānuka Soda</a> is built around Central Otago blackcurrants. <a href=\"/products/kanuka-kola\" title=\"Kānuka Kola\">Kānuka Kola</a> uses kola nut extract alongside lemon juice for its cola profile. Where we can, we lean on single-strength juice because it tastes closer to the fruit itself.</p>",
+            "text": "<p>Golden is designed to finish crisp, not sticky. That means the honey level, fruit intensity, acidity, and carbonation all have to work together. The process is part formulation and part restraint: enough honey to feel rounded, enough fruit to taste real, enough sparkle to keep the whole thing bright. The final flavour has to feel like a drink you want again, not a proof-of-concept ingredient demo.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -194,11 +194,11 @@
           },
           "blocks": {}
         },
-        "leaveout-heading": {
+        "packing-heading": {
           "type": "text",
           "name": "Section heading",
           "settings": {
-            "text": "<h2>What we leave out</h2>",
+            "text": "<h2>Carbonation, packing, and consistency</h2>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -220,11 +220,11 @@
           },
           "blocks": {}
         },
-        "leaveout-copy": {
+        "packing-copy": {
           "type": "text",
           "name": "Section copy",
           "settings": {
-            "text": "<p>Golden does not use refined sugar to sweeten the range. Our focus is on honey-led sweetness, acidity, fruit, and botanical flavour, with a clean finish rather than a syrupy one. We are careful not to overstate purity claims, so the can and product page remain the definitive source for each SKU.</p>",
+            "text": "<p>Once the recipe is locked, the goal is to protect flavour and keep the result consistent from can to can. That means working with trusted production partners, following food-safety standards, and making sure the finished product actually tastes like the concept promised. Customers should not need to guess whether Golden is a serious drinks brand. The process should make that clear.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -246,11 +246,11 @@
           },
           "blocks": {}
         },
-        "nutrition-heading": {
+        "nz-heading": {
           "type": "text",
           "name": "Section heading",
           "settings": {
-            "text": "<h2>How we talk about nutrition</h2>",
+            "text": "<h2>Why made in New Zealand matters</h2>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -272,11 +272,11 @@
           },
           "blocks": {}
         },
-        "nutrition-copy": {
+        "nz-copy": {
           "type": "text",
           "name": "Section copy",
           "settings": {
-            "text": "<p>Calories and honey content vary by flavour. Our Low-Cal Soda range sits around 59 to 63 calories per 330 mL can, and we call those numbers out clearly on pack and on product pages. If you are shopping for specific dietary needs, the can is the final reference point. Kānuka Kola contains barley and therefore gluten.</p>",
+            "text": "<p>Made in New Zealand is not just a patriotic line on the can. It connects the product to the honey, the fruit, the people, and the standards behind it. For search, that helps Golden compete as a trusted New Zealand honey soda brand rather than just another flavoured drink. For customers, it turns provenance into something concrete.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -298,11 +298,11 @@
           },
           "blocks": {}
         },
-        "made-heading": {
+        "next-heading": {
           "type": "text",
           "name": "Section heading",
           "settings": {
-            "text": "<h2>Made in New Zealand</h2>",
+            "text": "<h2>See the ingredients in context</h2>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -324,63 +324,11 @@
           },
           "blocks": {}
         },
-        "made-copy": {
+        "next-copy": {
           "type": "text",
           "name": "Section copy",
           "settings": {
-            "text": "<p>Golden is made in New Zealand. We work with local honey and fruit, and we care about traceability because provenance is part of the product, not just the marketing. If you want the product-by-product view, start with our three flavours above, then use the <a href=\"/pages/faq\" title=\"FAQs\">FAQ</a> for broader sourcing and nutrition questions.</p>",
-            "width": "100%",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "deeper-heading": {
-          "type": "text",
-          "name": "Section heading",
-          "settings": {
-            "text": "<h2>Go deeper</h2>",
-            "width": "100%",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "h4",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground-heading)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 16,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "deeper-copy": {
-          "type": "text",
-          "name": "Section copy",
-          "settings": {
-            "text": "<p>If you are here for the authority layer rather than just the ingredient label, read our guides to <a href=\"/pages/new-zealand-honey\" title=\"New Zealand Honey In Golden\">New Zealand honey in Golden</a>, <a href=\"/pages/manuka-vs-kanuka\" title=\"Mānuka vs Kānuka\">mānuka vs kānuka</a>, <a href=\"/pages/where-our-honey-comes-from\" title=\"Where Our Honey Comes From\">where our honey comes from</a>, and <a href=\"/pages/how-golden-is-made\" title=\"How Golden Is Made\">how Golden is made</a>.</p>",
+            "text": "<p>Read <a href=\"/pages/ingredients\" title=\"Ingredients\">Ingredients</a> for the ingredient overview, <a href=\"/pages/new-zealand-honey\" title=\"New Zealand Honey In Golden\">New Zealand Honey In Golden</a> for the honey rationale, and <a href=\"/collections/honey-soda\" title=\"New Zealand Honey Sodas\">shop the range</a> to see how the process lands in the finished drinks.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -407,18 +355,16 @@
         "eyebrow",
         "heading",
         "intro",
-        "sweetens-heading",
-        "sweetens-copy",
-        "flavour-heading",
-        "flavour-copy",
-        "leaveout-heading",
-        "leaveout-copy",
-        "nutrition-heading",
-        "nutrition-copy",
-        "made-heading",
-        "made-copy",
-        "deeper-heading",
-        "deeper-copy"
+        "ingredients-heading",
+        "ingredients-copy",
+        "balance-heading",
+        "balance-copy",
+        "packing-heading",
+        "packing-copy",
+        "nz-heading",
+        "nz-copy",
+        "next-heading",
+        "next-copy"
       ],
       "settings": {
         "content_direction": "column",

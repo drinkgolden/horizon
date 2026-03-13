@@ -12,37 +12,11 @@
     "main": {
       "type": "main-page",
       "blocks": {
-        "eyebrow": {
-          "type": "text",
-          "name": "Eyebrow",
-          "settings": {
-            "text": "<p><em>Inside the can</em></p>",
-            "width": "100%",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "h6",
-            "font": "var(--font-accent--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
         "heading": {
           "type": "text",
           "name": "Heading",
           "settings": {
-            "text": "<h1>Ingredients</h1>",
+            "text": "<h1>Shipping</h1>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -68,7 +42,7 @@
           "type": "text",
           "name": "Intro",
           "settings": {
-            "text": "<p>Golden is built around a simple idea: use New Zealand honey and real fruit to make soda feel lighter, cleaner, and more rooted in place. This page is the public version of what we want customers, retailers, and search engines to understand clearly: what sweetens Golden, what flavours it, and what standards we use when we talk about ingredients.</p>",
+            "text": "<p>This page is the crawlable version of our shipping policy for customers and search engines. Checkout remains the live source for exact charges, but this page explains how Golden handles dispatch, delivery timing, rural orders, and what to do if something goes wrong.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -90,11 +64,11 @@
           },
           "blocks": {}
         },
-        "sweetens-heading": {
+        "dispatch-heading": {
           "type": "text",
           "name": "Section heading",
           "settings": {
-            "text": "<h2>What sweetens Golden</h2>",
+            "text": "<h2>Dispatch windows</h2>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -116,11 +90,11 @@
           },
           "blocks": {}
         },
-        "sweetens-copy": {
+        "dispatch-copy": {
           "type": "text",
           "name": "Section copy",
           "settings": {
-            "text": "<p>We use mānuka and kānuka honey instead of refined sugar. Mānuka brings darker, more resinous depth; kānuka is lighter and more floral. We use each where it makes sense for flavour balance rather than treating honey like a background sweetener. For the exact ingredient order and definitive nutrition statement, always check the can and the relevant product page.</p>",
+            "text": "<p>We aim to dispatch orders promptly after they are placed. Processing times can move around public holidays, product launches, and wholesale demand, so checkout timing and email updates remain the live source once an order is placed.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -142,11 +116,11 @@
           },
           "blocks": {}
         },
-        "flavour-heading": {
+        "timing-heading": {
           "type": "text",
           "name": "Section heading",
           "settings": {
-            "text": "<h2>What flavours Golden</h2>",
+            "text": "<h2>Delivery timing</h2>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -168,11 +142,11 @@
           },
           "blocks": {}
         },
-        "flavour-copy": {
+        "timing-copy": {
           "type": "text",
           "name": "Section copy",
           "settings": {
-            "text": "<p>Our core range is built around real New Zealand fruit and botanical ingredients. <a href=\"/products/golden-lemon-manuka\" title=\"Lemon Mānuka Soda\">Lemon Mānuka Soda</a> uses lemon juice. <a href=\"/products/blackcurrant-manuka-soda\" title=\"Blackcurrant Mānuka Soda\">Blackcurrant Mānuka Soda</a> is built around Central Otago blackcurrants. <a href=\"/products/kanuka-kola\" title=\"Kānuka Kola\">Kānuka Kola</a> uses kola nut extract alongside lemon juice for its cola profile. Where we can, we lean on single-strength juice because it tastes closer to the fruit itself.</p>",
+            "text": "<p>Delivery times depend on region and carrier conditions. Urban addresses will generally move faster than rural addresses, and longer-distance routes can take more time than local shipments. We send tracking details once an order is on the move.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -194,11 +168,11 @@
           },
           "blocks": {}
         },
-        "leaveout-heading": {
+        "rates-heading": {
           "type": "text",
           "name": "Section heading",
           "settings": {
-            "text": "<h2>What we leave out</h2>",
+            "text": "<h2>Shipping rates</h2>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -220,11 +194,11 @@
           },
           "blocks": {}
         },
-        "leaveout-copy": {
+        "rates-copy": {
           "type": "text",
           "name": "Section copy",
           "settings": {
-            "text": "<p>Golden does not use refined sugar to sweeten the range. Our focus is on honey-led sweetness, acidity, fruit, and botanical flavour, with a clean finish rather than a syrupy one. We are careful not to overstate purity claims, so the can and product page remain the definitive source for each SKU.</p>",
+            "text": "<p>Shipping rates and any free-shipping thresholds are shown at checkout. That is the live source because rates can change with destination, order size, and promotional offers.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -246,11 +220,11 @@
           },
           "blocks": {}
         },
-        "nutrition-heading": {
+        "issues-heading": {
           "type": "text",
           "name": "Section heading",
           "settings": {
-            "text": "<h2>How we talk about nutrition</h2>",
+            "text": "<h2>Damaged, missing, or delayed orders</h2>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -272,115 +246,11 @@
           },
           "blocks": {}
         },
-        "nutrition-copy": {
+        "issues-copy": {
           "type": "text",
           "name": "Section copy",
           "settings": {
-            "text": "<p>Calories and honey content vary by flavour. Our Low-Cal Soda range sits around 59 to 63 calories per 330 mL can, and we call those numbers out clearly on pack and on product pages. If you are shopping for specific dietary needs, the can is the final reference point. Kānuka Kola contains barley and therefore gluten.</p>",
-            "width": "100%",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "made-heading": {
-          "type": "text",
-          "name": "Section heading",
-          "settings": {
-            "text": "<h2>Made in New Zealand</h2>",
-            "width": "100%",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "h4",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground-heading)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 16,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "made-copy": {
-          "type": "text",
-          "name": "Section copy",
-          "settings": {
-            "text": "<p>Golden is made in New Zealand. We work with local honey and fruit, and we care about traceability because provenance is part of the product, not just the marketing. If you want the product-by-product view, start with our three flavours above, then use the <a href=\"/pages/faq\" title=\"FAQs\">FAQ</a> for broader sourcing and nutrition questions.</p>",
-            "width": "100%",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "deeper-heading": {
-          "type": "text",
-          "name": "Section heading",
-          "settings": {
-            "text": "<h2>Go deeper</h2>",
-            "width": "100%",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "h4",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground-heading)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 16,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "deeper-copy": {
-          "type": "text",
-          "name": "Section copy",
-          "settings": {
-            "text": "<p>If you are here for the authority layer rather than just the ingredient label, read our guides to <a href=\"/pages/new-zealand-honey\" title=\"New Zealand Honey In Golden\">New Zealand honey in Golden</a>, <a href=\"/pages/manuka-vs-kanuka\" title=\"Mānuka vs Kānuka\">mānuka vs kānuka</a>, <a href=\"/pages/where-our-honey-comes-from\" title=\"Where Our Honey Comes From\">where our honey comes from</a>, and <a href=\"/pages/how-golden-is-made\" title=\"How Golden Is Made\">how Golden is made</a>.</p>",
+            "text": "<p>If your order arrives damaged, incomplete, or unusually delayed, email us with your order number and photos if relevant. The fastest way to resolve an issue is to contact us as soon as you spot it. For returns and replacements, use our <a href=\"/pages/returns\" title=\"Returns\">returns page</a> alongside the details in your order confirmation.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -404,21 +274,16 @@
         }
       },
       "block_order": [
-        "eyebrow",
         "heading",
         "intro",
-        "sweetens-heading",
-        "sweetens-copy",
-        "flavour-heading",
-        "flavour-copy",
-        "leaveout-heading",
-        "leaveout-copy",
-        "nutrition-heading",
-        "nutrition-copy",
-        "made-heading",
-        "made-copy",
-        "deeper-heading",
-        "deeper-copy"
+        "dispatch-heading",
+        "dispatch-copy",
+        "timing-heading",
+        "timing-copy",
+        "rates-heading",
+        "rates-copy",
+        "issues-heading",
+        "issues-copy"
       ],
       "settings": {
         "content_direction": "column",
