@@ -110,10 +110,10 @@
               },
               "blocks": {
                 "text_xpVMaM": {
-                  "type": "text",
+                  "type": "dynamic-page-copy",
                   "name": "t:names.title",
                   "settings": {
-                    "text": "<h1>{{ closest.product.title }}</h1>",
+                    "content_key": "product_title",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
@@ -176,10 +176,10 @@
               ]
             },
             "text_aEtTtq": {
-              "type": "text",
+              "type": "dynamic-page-copy",
               "name": "Product description",
               "settings": {
-                "text": "{{ closest.product.description }}",
+                "content_key": "product_description",
                 "width": "100%",
                 "max_width": "none",
                 "alignment": "left",
@@ -202,10 +202,10 @@
               "blocks": {}
             },
             "text_m31sRd": {
-              "type": "text",
+              "type": "dynamic-page-copy",
               "name": "Flavour summary",
               "settings": {
-                "text": "{% case closest.product.handle %}{% when 'golden-lemon-manuka' %}<p>Lemon Mānuka Soda is built around real lemon juice and New Zealand mānuka honey for a bright, rounded finish that lands closer to fresh lemonade than conventional sugary soda.</p>{% when 'blackcurrant-manuka-soda' %}<p>Blackcurrant Mānuka Soda pairs deep New Zealand blackcurrant character with mānuka honey, giving the fruit more depth and a cleaner finish than refined sugar alone.</p>{% when 'kanuka-kola' %}<p>Kānuka Kola is Golden's New Zealand take on cola, blending kānuka honey, kola nut extract, lemon juice, and a nostalgic butterscotch note without refined sugar.</p>{% else %}<p>Golden builds sparkling drinks around New Zealand honey, real fruit, and a lighter, cleaner finish than standard soft drink formulas.</p>{% endcase %}",
+                "content_key": "product_flavour_summary",
                 "width": "100%",
                 "max_width": "none",
                 "alignment": "left",
@@ -228,10 +228,10 @@
               "blocks": {}
             },
             "text_qD9uCf": {
-              "type": "text",
+              "type": "dynamic-page-copy",
               "name": "Trust points",
               "settings": {
-                "text": "<ul>{% case closest.product.handle %}{% when 'kanuka-kola' %}<li>Sweetened with New Zealand kānuka honey</li>{% when 'golden-lemon-manuka' %}<li>Sweetened with New Zealand mānuka honey and built around real lemon juice</li>{% when 'blackcurrant-manuka-soda' %}<li>Sweetened with New Zealand mānuka honey and built around bold blackcurrant character</li>{% else %}<li>Sweetened with New Zealand honey</li>{% endcase %}<li>Made in New Zealand</li><li>No refined sugar</li><li>Read more about our <a href='/pages/ingredients'>ingredients</a>, <a href='/pages/new-zealand-honey'>honey sourcing</a>, and <a href='/pages/how-golden-is-made'>production process</a>.</li></ul>",
+                "content_key": "product_trust_points",
                 "width": "100%",
                 "max_width": "none",
                 "alignment": "left",
@@ -352,9 +352,9 @@
                   },
                   "blocks": {
                     "text_GbNfwY": {
-                      "type": "text",
+                      "type": "dynamic-page-copy",
                       "settings": {
-                        "text": "{% case closest.product.handle %}{% when 'golden-lemon-manuka' %}<p>This flavour combines real lemon juice with New Zealand mānuka honey for a bright, clean finish and a more rounded sweetness than a refined-sugar lemonade.</p>{% when 'blackcurrant-manuka-soda' %}<p>This flavour balances rich blackcurrant intensity with New Zealand mānuka honey, giving it depth and a cleaner finish than a standard blackcurrant soft drink.</p>{% when 'kanuka-kola' %}<p>This flavour uses kānuka honey, kola nut extract, lemon juice, and a butterscotch note to create Golden's New Zealand take on cola.</p>{% else %}<p>This flavour is built around New Zealand honey and real fruit or spice ingredients for a lighter, more balanced sparkling drink.</p>{% endcase %}<p>For the full brand-wide ingredient approach, visit our <a href='/pages/ingredients'>Ingredients page</a>.</p>",
+                        "content_key": "product_flavour_accordion",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
