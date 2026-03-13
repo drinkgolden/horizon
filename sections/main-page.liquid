@@ -59,10 +59,59 @@
   if request.page_type == 'page' and page_header_enabled and section.settings.show_breadcrumbs and settings.enable_page_header_breadcrumbs
     assign page_header_show_breadcrumbs = true
   endif
+
+  assign suppressed_title_block_id = ''
+  assign suppressed_intro_block_id = ''
+  assign main_page_visible_block_count = 0
+  assign has_suppressed_legacy_blocks = false
+
+  for block in section.blocks
+    assign suppress_block = false
+
+    if page_header_enabled and block.type == 'text'
+      if suppressed_title_block_id == blank
+        case block.settings.type_preset
+          when 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'
+            assign suppressed_title_block_id = block.id
+            assign suppress_block = true
+        endcase
+      elsif suppressed_intro_block_id == blank
+        case block.settings.type_preset
+          when 'rte', 'paragraph'
+            assign suppressed_intro_block_id = block.id
+            assign suppress_block = true
+        endcase
+      endif
+    endif
+
+    unless suppress_block
+      assign main_page_visible_block_count = main_page_visible_block_count | plus: 1
+    endunless
+  endfor
+
+  if suppressed_title_block_id != blank or suppressed_intro_block_id != blank
+    assign has_suppressed_legacy_blocks = true
+  endif
 %}
 
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
-<div class="section section--page-width page-width-content main-page color-{{ section.settings.color_scheme }}">
+<div class="section section--page-width page-width-content main-page{% if page_header_enabled %} main-page--editorial-active{% endif %} main-page--{{ section.id }} color-{{ section.settings.color_scheme }}">
+  {% if page_header_enabled and has_suppressed_legacy_blocks %}
+    <style>
+      {% if suppressed_title_block_id != blank %}
+        .main-page--{{ section.id }} .text-block--{{ suppressed_title_block_id }} {
+          display: none;
+        }
+      {% endif %}
+
+      {% if suppressed_intro_block_id != blank %}
+        .main-page--{{ section.id }} .text-block--{{ suppressed_intro_block_id }} {
+          display: none;
+        }
+      {% endif %}
+    </style>
+  {% endif %}
+
   {% if page_header_enabled %}
     <div class="main-page__header force-full-width">
       <div class="main-page__header-hero color-{{ section.settings.page_header_color_scheme }}">
@@ -145,23 +194,25 @@
     </div>
   {% endif %}
 
-  <div class="main-page__content">
-    <div
-      class="
-        spacing-style
-        layout-panel-flex
-        layout-panel-flex--column
-        section-content-wrapper
-        mobile-column
-      "
-      style="
-        {% render 'layout-panel-style', settings: section.settings %}
-        {% render 'spacing-style', settings: section.settings %}
-      "
-    >
-      {% content_for 'blocks' %}
+  {% if main_page_visible_block_count > 0 %}
+    <div class="main-page__content">
+      <div
+        class="
+          spacing-style
+          layout-panel-flex
+          layout-panel-flex--column
+          section-content-wrapper
+          mobile-column
+        "
+        style="
+          {% render 'layout-panel-style', settings: section.settings %}
+          {% render 'spacing-style', settings: section.settings %}
+        "
+      >
+        {% content_for 'blocks' %}
+      </div>
     </div>
-  </div>
+  {% endif %}
 </div>
 
 {% stylesheet %}
@@ -384,12 +435,12 @@
     },
     {
       "type": "header",
-      "content": "Page header"
+      "content": "Page layout"
     },
     {
       "type": "checkbox",
       "id": "enable_page_header",
-      "label": "Enable editorial page header",
+      "label": "Use editorial page layout",
       "default": false
     },
     {
