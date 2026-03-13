@@ -3084,6 +3084,7 @@ product-card:focus-within .card-gallery__rotate-toggle,
   left: calc((var(--gap, 0px) / 2) * -1);
   width: 1px;
   background-color: var(--split-divider-color, var(--split-divider-color-default));
+  z-index: 1;
   pointer-events: none;
 }
 
