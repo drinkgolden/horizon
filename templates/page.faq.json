@@ -218,7 +218,7 @@
                     "text_AHwwCk": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Golden is low-calorie, lightly sparkling soda sweetened with New Zealand honey and built with real fruit and juice. Clean, bright flavour with a crisp finish. <strong>Learn More: </strong><a href=\"/pages/ingredients\" target=\"_blank\" title=\"Ingredients\"><strong>Ingredients</strong></a></p>",
+                        "text": "<p>Golden is low-calorie, lightly sparkling soda sweetened with New Zealand honey and built with real fruit and juice. Clean, bright flavour with a crisp finish. <strong>Learn more:</strong> <a href=\"/pages/ingredients\" target=\"_blank\" title=\"Ingredients\"><strong>Ingredients</strong></a> / <a href=\"/pages/new-zealand-honey\" target=\"_blank\" title=\"New Zealand Honey In Golden\"><strong>New Zealand Honey</strong></a></p>",
                         "width": "100%",
                         "max_width": "none",
                         "alignment": "left",
@@ -279,7 +279,7 @@
                     "text_WVyUeL": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>We use honey instead of refined sugar and let real fruit and juice do the heavy lifting. It’s full-flavour, without the syrupy finish. Learn more about our <a href=\"/pages/ingredients\" target=\"_blank\" title=\"Ingredients\">Ingredients here</a>.</p>",
+                        "text": "<p>We use honey instead of refined sugar and let real fruit and juice do the heavy lifting. It’s full-flavour, without the syrupy finish. Learn more about our <a href=\"/pages/ingredients\" target=\"_blank\" title=\"Ingredients\">ingredients</a> and why New Zealand honey matters in <a href=\"/pages/new-zealand-honey\" target=\"_blank\" title=\"New Zealand Honey In Golden\">this guide</a>.</p>",
                         "width": "100%",
                         "max_width": "none",
                         "alignment": "left",
@@ -577,7 +577,7 @@
                     "text_cFQKU3": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Honey. We use mānuka and kānuka honey for a softer sweetness and more character than refined sugar. <a href=\"/pages/ingredients\" target=\"_blank\" title=\"Ingredients\">Learn more</a></p>",
+                        "text": "<p>Honey. We use mānuka and kānuka honey for a softer sweetness and more character than refined sugar. <a href=\"/pages/new-zealand-honey\" target=\"_blank\" title=\"New Zealand Honey In Golden\">New Zealand Honey</a> / <a href=\"/pages/manuka-vs-kanuka\" target=\"_blank\" title=\"Mānuka vs Kānuka\">Mānuka vs Kānuka</a></p>",
                         "width": "100%",
                         "max_width": "none",
                         "alignment": "left",
@@ -1246,7 +1246,7 @@
                     "text_yk9XUV": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Golden is made in New Zealand. We build our drinks around local honey and fruit, and we work with trusted local partners to turn those ingredients into something clean, bright, and properly refreshing. We care about traceability because it keeps the product honest, and because good ingredients deserve to be treated like the main event, not a flavouring. Learn more: <a href=\"/pages/ingredients\" target=\"_blank\" title=\"Ingredients\">Ingredients</a></p>",
+                        "text": "<p>Golden is made in New Zealand. We build our drinks around local honey and fruit, and we work with trusted local partners to turn those ingredients into something clean, bright, and properly refreshing. We care about traceability because it keeps the product honest, and because good ingredients deserve to be treated like the main event, not a flavouring. Learn more: <a href=\"/pages/how-golden-is-made\" target=\"_blank\" title=\"How Golden Is Made\">How Golden Is Made</a></p>",
                         "width": "100%",
                         "max_width": "none",
                         "alignment": "left",
@@ -1429,7 +1429,7 @@
                     "text_F7FC4H": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>They’re both New Zealand native honeys, but they’re made from different trees and they taste different. <strong>Mānuka</strong> tends to be darker and more intense, and it’s the one that can be independently graded and certified under the <strong>UMF™</strong> system. <strong>Kānuka</strong> is typically lighter and more floral. We use both for a softer sweetness and more flavour than refined sugar. Learn more: <a href=\"/pages/ingredients\" target=\"_blank\" title=\"Ingredients\">Ingredients</a></p>",
+                        "text": "<p>They’re both New Zealand native honeys, but they’re made from different trees and they taste different. <strong>Mānuka</strong> tends to be darker and more intense, and it’s the one that can be independently graded and certified under the <strong>UMF™</strong> system. <strong>Kānuka</strong> is typically lighter and more floral. We use both for a softer sweetness and more flavour than refined sugar. Learn more: <a href=\"/pages/manuka-vs-kanuka\" target=\"_blank\" title=\"Mānuka vs Kānuka\">Mānuka vs Kānuka</a></p>",
                         "width": "100%",
                         "max_width": "none",
                         "alignment": "left",
@@ -2211,7 +2211,7 @@
                     "text_YhzN88": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Shipping rates and any free-shipping thresholds are listed in our shipping policy and shown at checkout. <strong>Learn more:</strong> <a href=\"/policies/shipping-policy\" target=\"_blank\" title=\"Shipping Policy\">Shipping</a></p>",
+                        "text": "<p>Shipping rates and any free-shipping thresholds are listed on our shipping page and shown at checkout. <strong>Learn more:</strong> <a href=\"/pages/shipping\" target=\"_blank\" title=\"Shipping\">Shipping</a></p>",
                         "width": "100%",
                         "max_width": "none",
                         "alignment": "left",
@@ -2272,7 +2272,7 @@
                     "text_T8Jrzx": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Timing depends on region and rural routes. We outline typical delivery windows in our shipping policy. <strong>Learn more:</strong> <a href=\"/policies/shipping-policy\" target=\"_blank\" title=\"Shipping Policy\">Shipping policy</a></p>",
+                        "text": "<p>Timing depends on region and rural routes. We outline typical delivery windows on our shipping page. <strong>Learn more:</strong> <a href=\"/pages/shipping\" target=\"_blank\" title=\"Shipping\">Shipping</a></p>",
                         "width": "100%",
                         "max_width": "none",
                         "alignment": "left",
@@ -2333,7 +2333,7 @@
                     "text_KLrdk7": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Email us ASAP with your order number and photos, and we’ll sort it quickly. <strong>Learn more:</strong> <a href=\"/policies/refund-policy\" target=\"_blank\" title=\"Refund Policy\">Returns</a> / <strong>Contact:</strong> <a href=\"/pages/contact\" target=\"_blank\" title=\"Contact\">Contact</a></p>",
+                        "text": "<p>Email us ASAP with your order number and photos, and we’ll sort it quickly. <strong>Learn more:</strong> <a href=\"/pages/returns\" target=\"_blank\" title=\"Returns\">Returns</a> / <strong>Contact:</strong> <a href=\"/pages/contact\" target=\"_blank\" title=\"Contact\">Contact</a></p>",
                         "width": "100%",
                         "max_width": "none",
                         "alignment": "left",

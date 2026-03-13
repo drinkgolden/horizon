@@ -1,0 +1,15 @@
+{% if request.page_type == 'index' %}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": {{ request.origin | append: '#website' | json }},
+      "name": {{ shop.name | json }},
+      "url": {{ request.origin | json }},
+      {% if shop.description != blank %}
+        "description": {{ shop.description | strip_html | strip_newlines | strip | json }},
+      {% endif %}
+      "inLanguage": {{ request.locale.iso_code | json }}
+    }
+  </script>
+{% endif %}

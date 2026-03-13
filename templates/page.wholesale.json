@@ -11,9 +11,73 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "blocks": {
+        "heading": {
+          "type": "text",
+          "name": "Title",
+          "settings": {
+            "text": "<h1>Wholesale Golden</h1>",
+            "width": "100%",
+            "max_width": "none",
+            "alignment": "left",
+            "type_preset": "h3",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground-heading)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "intro": {
+          "type": "text",
+          "name": "Intro",
+          "settings": {
+            "text": "<p>Golden is a New Zealand-made range of honey-sweetened, low-cal sparkling sodas built around mānuka and kānuka honey, real fruit, and no refined sugar. This page is for retailers, cafes, bottle stores, and hospitality venues looking to stock the range.</p>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 16,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "page-content": {
+          "type": "page-content",
+          "settings": {},
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading",
+        "intro",
+        "page-content"
+      ],
       "settings": {
         "content_direction": "column",
-        "gap": 44,
+        "gap": 16,
         "color_scheme": "",
         "padding-block-start": 44,
         "padding-block-end": 44
@@ -34,7 +98,7 @@
             "vertical_alignment_flex_direction_column": "flex-start",
             "enable_sticky": false,
             "sticky_offset": 0,
-            "gap": 32,
+            "gap": 20,
             "width": "fill",
             "custom_width": 100,
             "width_mobile": "fill",
@@ -63,15 +127,14 @@
             "padding-inline-end": 40
           },
           "blocks": {
-            "text_Wzrbxm": {
+            "text_heading": {
               "type": "text",
-              "name": "t:names.text",
               "settings": {
-                "text": "<h3>Wholesale</h3>",
+                "text": "<h2>For retailers, cafes, and hospitality</h2>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
-                "type_preset": "h3",
+                "type_preset": "h4",
                 "font": "var(--font-body--family)",
                 "font_size": "1rem",
                 "line_height": "normal",
@@ -89,17 +152,16 @@
               },
               "blocks": {}
             },
-            "text_wholesale_info": {
+            "text_copy": {
               "type": "text",
-              "name": "t:names.text",
               "settings": {
-                "text": "<p>For wholesale enquiries in New Zealand, contact us via this stockist form, or email us at wholesale@staygolden.co.nz.</p>",
+                "text": "<p>Golden gives buyers a different soft drink proposition: New Zealand honey instead of refined sugar, real fruit, and a lighter-bodied profile designed for modern grocery, cafe, and beverage fridges.</p><ul><li>Made in New Zealand</li><li>Sweetened with mānuka and kānuka honey across the range</li><li>No refined sugar</li><li>Clear provenance story for honey and fruit</li></ul><p>If you want to understand the ingredient and sourcing side before ordering, start with our <a href='/pages/ingredients'>Ingredients</a>, <a href='/pages/new-zealand-honey'>New Zealand honey</a>, and <a href='/pages/how-golden-is-made'>How Golden is made</a> pages.</p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
-                "type_preset": "paragraph",
+                "type_preset": "rte",
                 "font": "var(--font-body--family)",
-                "font_size": "",
+                "font_size": "1rem",
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
@@ -115,17 +177,30 @@
               },
               "blocks": {}
             },
-            "text_wholesale_note": {
-              "type": "text",
-              "name": "t:names.text",
+            "button_upstock": {
+              "type": "button",
               "settings": {
-                "text": "<p>We primarily use Upstock for wholesale ordering <a href=\"https://www.upstock.app/wholesalers/golden\" target=\"_blank\" title=\"Golden on Upstock\">here</a>.</p>",
+                "label": "Order on Upstock",
+                "link": "https://www.upstock.app/wholesalers/golden",
+                "open_in_new_tab": true,
+                "style_class": "link",
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100
+              },
+              "blocks": {}
+            },
+            "text_note": {
+              "type": "text",
+              "settings": {
+                "text": "<p>For wholesale enquiries in New Zealand, use the form on this page or email <a href='mailto:wholesale@staygolden.co.nz'>wholesale@staygolden.co.nz</a>. If you are looking for a nearby retailer rather than opening an account, head to the <a href='/pages/store-location'>store locator</a>.</p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
                 "type_preset": "paragraph",
                 "font": "var(--font-body--family)",
-                "font_size": "",
+                "font_size": "1rem",
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
@@ -143,9 +218,10 @@
             }
           },
           "block_order": [
-            "text_Wzrbxm",
-            "text_wholesale_info",
-            "text_wholesale_note"
+            "text_heading",
+            "text_copy",
+            "button_upstock",
+            "text_note"
           ]
         },
         "group_iEqhzJ": {

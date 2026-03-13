@@ -1,0 +1,8 @@
+bucket,regex,intent,priority,primary_landing_pages
+branded,"golden|stay golden|drink golden|golden soda",Brand demand,High,"/, /collections/honey-soda"
+commercial_honey_soda,"honey soda|manuka soda|honey soft drink|honey sparkling drink",Bottom and mid funnel,High,"/collections/honey-soda, /products/golden-lemon-manuka, /products/blackcurrant-manuka-soda, /products/kanuka-kola"
+commercial_low_cal,"low cal soda|low calorie soda|low sugar soda nz|better for you soda",Category expansion,High,"/collections/low-cal-manuka-soda, /products/*"
+authority_honey,"what is manuka honey|manuka vs kanuka|new zealand honey|kanuka honey|manuka honey label|mgo|umf",Authority and trust,High,"/pages/new-zealand-honey, /pages/manuka-vs-kanuka, /pages/where-our-honey-comes-from, /blogs/ingredients/*"
+authority_provenance,"where does golden honey come from|where is golden made|new zealand fruit|honey provenance|made in new zealand soda",Trust and brand understanding,Medium,"/pages/how-golden-is-made, /pages/where-our-honey-comes-from, /pages/ingredients"
+local_stockists,"where to buy golden|golden stockists|golden auckland|golden wellington|golden christchurch",Local discovery,Medium,"/pages/store-location, /pages/wholesale, /pages/contact"
+policy_support,"golden shipping|golden returns|golden contact|golden wholesale",Support and trust,Low,"/pages/shipping, /pages/returns, /pages/contact, /pages/wholesale"
