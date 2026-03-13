@@ -1,0 +1,402 @@
+{% liquid
+  assign content_key = block.settings.content_key
+  assign fallback_text = blank
+
+  case content_key
+    when 'product_title'
+      if closest.product != blank
+        capture fallback_text
+          echo '<h1>'
+          echo closest.product.title | escape
+          echo '</h1>'
+        endcapture
+      endif
+    when 'product_description'
+      if closest.product != blank
+        assign fallback_text = closest.product.description
+      endif
+    when 'product_flavour_summary'
+      if closest.product != blank
+        capture fallback_text
+          case closest.product.handle
+            when 'golden-lemon-manuka'
+              echo "<p>Lemon Mānuka Soda is built around real lemon juice and New Zealand mānuka honey for a bright, rounded finish that lands closer to fresh lemonade than conventional sugary soda.</p>"
+            when 'blackcurrant-manuka-soda'
+              echo "<p>Blackcurrant Mānuka Soda pairs deep New Zealand blackcurrant character with mānuka honey, giving the fruit more depth and a cleaner finish than refined sugar alone.</p>"
+            when 'kanuka-kola'
+              echo "<p>Kānuka Kola is Golden's New Zealand take on cola, blending kānuka honey, kola nut extract, lemon juice, and a nostalgic butterscotch note without refined sugar.</p>"
+            else
+              echo "<p>Golden builds sparkling drinks around New Zealand honey, real fruit, and a lighter, cleaner finish than standard soft drink formulas.</p>"
+          endcase
+        endcapture
+      endif
+    when 'product_trust_points'
+      if closest.product != blank
+        capture fallback_text
+          echo '<ul>'
+          case closest.product.handle
+            when 'kanuka-kola'
+              echo '<li>Sweetened with New Zealand kānuka honey</li>'
+            when 'golden-lemon-manuka'
+              echo '<li>Sweetened with New Zealand mānuka honey and built around real lemon juice</li>'
+            when 'blackcurrant-manuka-soda'
+              echo '<li>Sweetened with New Zealand mānuka honey and built around bold blackcurrant character</li>'
+            else
+              echo '<li>Sweetened with New Zealand honey</li>'
+          endcase
+          echo '<li>Made in New Zealand</li>'
+          echo '<li>No refined sugar</li>'
+          echo "<li>Read more about our <a href='/pages/ingredients'>ingredients</a>, <a href='/pages/new-zealand-honey'>honey sourcing</a>, and <a href='/pages/how-golden-is-made'>production process</a>.</li>"
+          echo '</ul>'
+        endcapture
+      endif
+    when 'product_flavour_accordion'
+      if closest.product != blank
+        capture fallback_text
+          case closest.product.handle
+            when 'golden-lemon-manuka'
+              echo '<p>This flavour combines real lemon juice with New Zealand mānuka honey for a bright, clean finish and a more rounded sweetness than a refined-sugar lemonade.</p>'
+            when 'blackcurrant-manuka-soda'
+              echo '<p>This flavour balances rich blackcurrant intensity with New Zealand mānuka honey, giving it depth and a cleaner finish than a standard blackcurrant soft drink.</p>'
+            when 'kanuka-kola'
+              echo "<p>This flavour uses kānuka honey, kola nut extract, lemon juice, and a butterscotch note to create Golden's New Zealand take on cola.</p>"
+            else
+              echo '<p>This flavour is built around New Zealand honey and real fruit or spice ingredients for a lighter, more balanced sparkling drink.</p>'
+          endcase
+          echo "<p>For the full brand-wide ingredient approach, visit our <a href='/pages/ingredients'>Ingredients page</a>.</p>"
+        endcapture
+      endif
+    when 'collection_title'
+      if closest.collection != blank
+        assign collection_title = closest.collection.title
+
+        case closest.collection.handle
+          when 'honey-soda'
+            assign collection_title = 'New Zealand Honey Sodas'
+          when 'low-cal-manuka-soda'
+            assign collection_title = 'Low-Cal Mānuka Sodas'
+          when 'lemon'
+            assign collection_title = 'Lemon Mānuka Soda'
+          when 'blackcurrant'
+            assign collection_title = 'Blackcurrant Mānuka Soda'
+          when 'kanuka-kola'
+            assign collection_title = 'Kānuka Kola'
+        endcase
+
+        capture fallback_text
+          echo '<h1>'
+          echo collection_title | escape
+          echo '</h1>'
+        endcapture
+      endif
+    when 'collection_description'
+      if closest.collection != blank
+        if closest.collection.description != blank
+          assign fallback_text = closest.collection.description
+        else
+          capture fallback_text
+            case closest.collection.handle
+              when 'honey-soda'
+                echo "<p>Golden builds sparkling sodas around New Zealand honey and real fruit. This is the place to shop the full range, from bright mānuka lemon to bold blackcurrant and our honey-led take on kola.</p>"
+              when 'low-cal-manuka-soda'
+                echo "<p>Explore Golden's low-cal mānuka soda range: lighter-bodied sparkling drinks made in New Zealand with real fruit, no refined sugar, and a clean finish.</p>"
+              when 'lemon'
+                echo '<p>Lemon Mānuka Soda pairs fresh lemon juice with New Zealand mānuka honey for a rounded, crisp take on classic lemonade.</p>'
+              when 'blackcurrant'
+                echo '<p>Blackcurrant Mānuka Soda balances deep Otago blackcurrant intensity with the softer sweetness and character of New Zealand mānuka honey.</p>'
+              when 'kanuka-kola'
+                echo "<p>Kānuka Kola is Golden's New Zealand honey-led twist on cola, built with kānuka honey, kola nut extract, lemon juice, and a nostalgic butterscotch finish.</p>"
+            endcase
+          endcapture
+        endif
+      endif
+    when 'collection_authority_heading'
+      if closest.collection != blank
+        assign heading = 'Why Golden tastes different'
+
+        case closest.collection.handle
+          when 'honey-soda'
+            assign heading = 'Why Golden builds soda around New Zealand honey'
+          when 'low-cal-manuka-soda'
+            assign heading = 'Why Golden keeps these sodas low-cal'
+        endcase
+
+        capture fallback_text
+          echo '<h2>'
+          echo heading | escape
+          echo '</h2>'
+        endcapture
+      endif
+    when 'collection_authority_intro'
+      if closest.collection != blank
+        capture fallback_text
+          case closest.collection.handle
+            when 'low-cal-manuka-soda'
+              echo "<p>Golden keeps these sparkling drinks low-cal by building flavour around New Zealand honey, fruit, acidity, and balance instead of chasing a heavy syrupy finish. The result is a lighter-bodied soda with real ingredient character.</p>"
+            else
+              echo "<p>Golden's commercial pages now need to do more than sell cans. They also need to show Google and shoppers why these drinks are distinct: New Zealand honey, real fruit, no refined sugar, and a traceable made-in-Aotearoa process.</p>"
+          endcase
+        endcapture
+      endif
+    when 'blog_title'
+      if closest.blog != blank
+        capture fallback_text
+          echo '<h1>'
+          echo closest.blog.title | escape
+          echo '</h1>'
+        endcapture
+      endif
+    when 'blog_intro'
+      if closest.blog != blank
+        capture fallback_text
+          case closest.blog.handle
+            when 'ingredients'
+              echo "<p>The Ingredients Journal is where Golden explains New Zealand honey, mānuka vs kānuka, fruit provenance, and how our low-cal sparkling drinks are made.</p>"
+            when 'golden-hour'
+              echo '<p>Golden Hour is where we share product news, collaborations, launches, and the people and places shaping the brand.</p>'
+          endcase
+        endcapture
+      endif
+  endcase
+%}
+
+{% render 'text', fallback_text: fallback_text, block: block %}
+
+{% schema %}
+{
+  "name": "Dynamic page copy",
+  "tag": null,
+  "settings": [
+    {
+      "type": "select",
+      "id": "content_key",
+      "label": "Content source",
+      "options": [
+        { "value": "product_title", "label": "Product title" },
+        { "value": "product_description", "label": "Product description" },
+        { "value": "product_flavour_summary", "label": "Product flavour summary" },
+        { "value": "product_trust_points", "label": "Product trust points" },
+        { "value": "product_flavour_accordion", "label": "Product flavour accordion copy" },
+        { "value": "collection_title", "label": "Collection title" },
+        { "value": "collection_description", "label": "Collection description" },
+        { "value": "collection_authority_heading", "label": "Collection authority heading" },
+        { "value": "collection_authority_intro", "label": "Collection authority intro" },
+        { "value": "blog_title", "label": "Blog title" },
+        { "value": "blog_intro", "label": "Blog intro" }
+      ],
+      "default": "product_title"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "width",
+      "label": "Width",
+      "options": [
+        { "value": "fit-content", "label": "Fit" },
+        { "value": "100%", "label": "Fill" }
+      ],
+      "default": "fit-content"
+    },
+    {
+      "type": "select",
+      "id": "max_width",
+      "label": "Max width",
+      "options": [
+        { "value": "narrow", "label": "Narrow" },
+        { "value": "normal", "label": "Normal" },
+        { "value": "none", "label": "None" }
+      ],
+      "default": "normal"
+    },
+    {
+      "type": "text_alignment",
+      "id": "alignment",
+      "label": "Text alignment",
+      "default": "left",
+      "visible_if": "{{ block.settings.width == '100%' }}"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "select",
+      "id": "type_preset",
+      "label": "Text style",
+      "options": [
+        { "value": "rte", "label": "Default" },
+        { "value": "paragraph", "label": "Paragraph" },
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "custom", "label": "Custom" }
+      ],
+      "default": "rte"
+    },
+    {
+      "type": "select",
+      "id": "font",
+      "label": "Font family",
+      "options": [
+        { "value": "var(--font-body--family)", "label": "Body" },
+        { "value": "var(--font-subheading--family)", "label": "Subheading" },
+        { "value": "var(--font-heading--family)", "label": "Heading" },
+        { "value": "var(--font-accent--family)", "label": "Accent" }
+      ],
+      "default": "var(--font-body--family)",
+      "visible_if": "{{ block.settings.type_preset == 'custom' }}"
+    },
+    {
+      "type": "select",
+      "id": "font_size",
+      "label": "Text size",
+      "options": [
+        { "value": "", "label": "Default" },
+        { "value": "0.875rem", "label": "14px" },
+        { "value": "1rem", "label": "16px" },
+        { "value": "1.125rem", "label": "18px" },
+        { "value": "1.25rem", "label": "20px" },
+        { "value": "1.5rem", "label": "24px" },
+        { "value": "2rem", "label": "32px" },
+        { "value": "2.5rem", "label": "40px" },
+        { "value": "3rem", "label": "48px" }
+      ],
+      "default": "",
+      "visible_if": "{{ block.settings.type_preset == 'custom' }}"
+    },
+    {
+      "type": "select",
+      "id": "line_height",
+      "label": "Line height",
+      "options": [
+        { "value": "tight", "label": "Tight" },
+        { "value": "normal", "label": "Normal" },
+        { "value": "loose", "label": "Loose" }
+      ],
+      "default": "normal",
+      "visible_if": "{{ block.settings.type_preset == 'custom' }}"
+    },
+    {
+      "type": "select",
+      "id": "letter_spacing",
+      "label": "Letter spacing",
+      "options": [
+        { "value": "tight", "label": "Tight" },
+        { "value": "normal", "label": "Normal" },
+        { "value": "loose", "label": "Loose" }
+      ],
+      "default": "normal",
+      "visible_if": "{{ block.settings.type_preset == 'custom' }}"
+    },
+    {
+      "type": "select",
+      "id": "case",
+      "label": "Text case",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "uppercase", "label": "Uppercase" },
+        { "value": "lowercase", "label": "Lowercase" }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "select",
+      "id": "wrap",
+      "label": "Text wrap",
+      "options": [
+        { "value": "pretty", "label": "Pretty" },
+        { "value": "balance", "label": "Balance" },
+        { "value": "nowrap", "label": "No wrap" }
+      ],
+      "default": "pretty"
+    },
+    {
+      "type": "select",
+      "id": "color",
+      "label": "Text colour",
+      "options": [
+        { "value": "", "label": "Default" },
+        { "value": "var(--color-foreground)", "label": "Text" },
+        { "value": "var(--color-foreground-heading)", "label": "Heading" },
+        { "value": "var(--color-primary)", "label": "Link" }
+      ],
+      "default": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "background",
+      "label": "Enable background",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background colour",
+      "default": "#00000026",
+      "visible_if": "{{ block.settings.background }}"
+    },
+    {
+      "type": "range",
+      "id": "corner_radius",
+      "label": "Corner radius",
+      "min": 0,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 0,
+      "visible_if": "{{ block.settings.background }}"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "Left padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "Right padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": []
+}
+{% endschema %}

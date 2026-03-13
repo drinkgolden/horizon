@@ -13,10 +13,10 @@
       "type": "section",
       "blocks": {
         "text_tqQTNE": {
-          "type": "text",
+          "type": "dynamic-page-copy",
           "name": "Title",
           "settings": {
-            "text": "<h1>{% case closest.collection.handle %}{% when 'honey-soda' %}New Zealand Honey Sodas{% when 'low-cal-manuka-soda' %}Low-Cal Mānuka Sodas{% when 'lemon' %}Lemon Mānuka Soda{% when 'blackcurrant' %}Blackcurrant Mānuka Soda{% when 'kanuka-kola' %}Kānuka Kola{% else %}{{ closest.collection.title }}{% endcase %}</h1>",
+            "content_key": "collection_title",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -39,10 +39,10 @@
           "blocks": {}
         },
         "text_twGGkJ": {
-          "type": "text",
+          "type": "dynamic-page-copy",
           "name": "Description",
           "settings": {
-            "text": "{% if closest.collection.description != blank %}{{ closest.collection.description }}{% else %}{% case closest.collection.handle %}{% when 'honey-soda' %}<p>Golden builds sparkling sodas around New Zealand honey and real fruit. This is the place to shop the full range, from bright mānuka lemon to bold blackcurrant and our honey-led take on kola.</p>{% when 'low-cal-manuka-soda' %}<p>Explore Golden's low-cal mānuka soda range: lighter-bodied sparkling drinks made in New Zealand with real fruit, no refined sugar, and a clean finish.</p>{% when 'lemon' %}<p>Lemon Mānuka Soda pairs fresh lemon juice with New Zealand mānuka honey for a rounded, crisp take on classic lemonade.</p>{% when 'blackcurrant' %}<p>Blackcurrant Mānuka Soda balances deep Otago blackcurrant intensity with the softer sweetness and character of New Zealand mānuka honey.</p>{% when 'kanuka-kola' %}<p>Kānuka Kola is Golden's New Zealand honey-led twist on cola, built with kānuka honey, kola nut extract, lemon juice, and a nostalgic butterscotch finish.</p>{% endcase %}{% endif %}",
+            "content_key": "collection_description",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -251,10 +251,10 @@
       "type": "section",
       "blocks": {
         "text_HGq4es": {
-          "type": "text",
+          "type": "dynamic-page-copy",
           "name": "Heading",
           "settings": {
-            "text": "<h2>{% case closest.collection.handle %}{% when 'honey-soda' %}Why Golden builds soda around New Zealand honey{% when 'low-cal-manuka-soda' %}Why Golden keeps these sodas low-cal{% else %}Why Golden tastes different{% endcase %}</h2>",
+            "content_key": "collection_authority_heading",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -277,10 +277,10 @@
           "blocks": {}
         },
         "text_Mr2qBv": {
-          "type": "text",
+          "type": "dynamic-page-copy",
           "name": "Intro",
           "settings": {
-            "text": "{% case closest.collection.handle %}{% when 'low-cal-manuka-soda' %}<p>Golden keeps these sparkling drinks low-cal by building flavour around New Zealand honey, fruit, acidity, and balance instead of chasing a heavy syrupy finish. The result is a lighter-bodied soda with real ingredient character.</p>{% else %}<p>Golden's commercial pages now need to do more than sell cans. They also need to show Google and shoppers why these drinks are distinct: New Zealand honey, real fruit, no refined sugar, and a traceable made-in-Aotearoa process.</p>{% endcase %}",
+            "content_key": "collection_authority_intro",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
