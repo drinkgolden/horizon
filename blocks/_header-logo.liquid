@@ -29,16 +29,25 @@
   endif
 %}
 
+{% liquid
+  assign logo_tag = 'a'
+  if request.page_type == 'index'
+    assign logo_tag = 'span'
+  endif
+%}
+
 {% comment %}
   Output all logo variants, use CSS to hide/show the appropriate one
   based on the .header[transparent] selector
 {% endcomment %}
-<a
+<{{ logo_tag }}
   {% if template.name == 'index' and block_settings.hide_logo_on_home_page %}
     data-hidden-on-home-page
   {% endif %}
-  href="{{ routes.root_url }}"
-  class="size-style spacing-style header-logo"
+  {% if logo_tag == 'a' %}
+    href="{{ routes.root_url }}"
+  {% endif %}
+  class="size-style spacing-style header-logo{% if logo_tag == 'a' %} header-logo--interactive{% endif %}"
   style="
     {% render 'size-style', settings: block_settings %}
     {% render 'spacing-style', settings: block_settings %}
@@ -84,7 +93,7 @@
       %}
     </span>
   {% endif %}
-</a>
+</{{ logo_tag }}>
 
 {% stylesheet %}
   .header-logo {
@@ -127,6 +136,13 @@
     }
   }
 
+  .header-logo__image-container {
+    display: inline-flex;
+    transform: rotate(0deg);
+    transform-origin: center center;
+    transition: transform 180ms var(--animation-easing, ease);
+  }
+
   .header-logo__image {
     object-fit: contain;
     height: var(--header-logo-image-height-mobile);
@@ -144,6 +160,18 @@
 
   .header-logo__image-container--inverse {
     display: var(--header-logo-inverse-display, none);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .header-logo:is(:hover, :focus-visible) .header-logo__image-container {
+      transform: rotate(30deg);
+    }
+  }
+
+  @media (hover: none), (pointer: coarse) {
+    .header-logo--interactive:active .header-logo__image-container {
+      transform: rotate(30deg);
+    }
   }
 {% endstylesheet %}
 
