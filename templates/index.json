@@ -375,6 +375,7 @@
                           "settings": {
                             "image_ratio": "portrait",
                             "enable_rotate_toggle": true,
+                            "default_rotated": true,
                             "border": "none",
                             "border_width": 1,
                             "border_opacity": 100,
@@ -482,6 +483,7 @@
                           "settings": {
                             "image_ratio": "portrait",
                             "enable_rotate_toggle": true,
+                            "default_rotated": true,
                             "border": "none",
                             "border_width": 1,
                             "border_opacity": 100,
@@ -548,6 +550,7 @@
                           "settings": {
                             "image_ratio": "portrait",
                             "enable_rotate_toggle": true,
+                            "default_rotated": true,
                             "border": "none",
                             "border_width": 1,
                             "border_opacity": 100,
