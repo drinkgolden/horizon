@@ -336,10 +336,17 @@
       "visible_if": "{{ section.settings.border != 'none' }}"
     },
     {
+      "type": "checkbox",
+      "id": "enable_split_divider",
+      "label": "Show split divider",
+      "info": "Applies to side-by-side sections, including Split Showcase.",
+      "default": true
+    },
+    {
       "type": "color",
       "id": "split_divider_color",
       "label": "Split showcase divider colour",
-      "info": "Only affects Split Showcase sections.",
+      "info": "Only affects side-by-side sections when split dividers are enabled.",
       "default": "#d9d9d9"
     },
     {
