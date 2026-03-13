@@ -317,9 +317,16 @@
       "default": "pretty"
     },
     {
-      "type": "color",
+      "type": "select",
       "id": "color",
-      "label": "Text colour"
+      "label": "Text colour",
+      "options": [
+        { "value": "", "label": "Default" },
+        { "value": "var(--color-foreground)", "label": "Text" },
+        { "value": "var(--color-foreground-heading)", "label": "Heading" },
+        { "value": "var(--color-primary)", "label": "Link" }
+      ],
+      "default": ""
     },
     {
       "type": "checkbox",
