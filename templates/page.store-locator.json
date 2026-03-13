@@ -118,7 +118,7 @@
         "sheet_url": "",
         "sheet_help_text": "Add a public Google Sheet or CSV URL in the section settings to load stockists.",
         "enable_map": true,
-        "mapbox_access_token": "",
+        "mapbox_access_token": "pk.eyJ1Ijoic3RheWdvbGRlbiIsImEiOiJjbW1vNHc0b24wNDM1MnBvZzh1NWF2azFxIn0.UVvTRiiQIrQBOH63d_QH1g",
         "mapbox_style": "mapbox://styles/mapbox/light-v11",
         "default_lat": "-41.2865",
         "default_lng": "174.7762",
