@@ -96,7 +96,7 @@
 
 <div
   ref="cardGallery"
-  class="card-gallery card-gallery-{{ block.id }} spacing-style border-style"
+  class="card-gallery card-gallery-{{ block.id }} spacing-style border-style{% if block_settings.default_rotated %} card-gallery--rotated{% endif %}"
   style="
     {% render 'border-override', settings: block_settings %}
     {% render 'spacing-style', settings: block_settings %}
@@ -252,7 +252,7 @@
     <button
       type="button"
       class="card-gallery__rotate-toggle"
-      aria-pressed="false"
+      aria-pressed="{% if block_settings.default_rotated %}true{% else %}false{% endif %}"
       ref="rotateToggle"
       data-rotate-toggle
     >

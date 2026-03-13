@@ -16,7 +16,7 @@
           "type": "text",
           "name": "Title",
           "settings": {
-            "text": "<h1>Wholesale Golden</h1>",
+            "text": "<h1>Wholesale</h1>",
             "width": "100%",
             "max_width": "none",
             "alignment": "left",
@@ -42,11 +42,11 @@
           "type": "text",
           "name": "Intro",
           "settings": {
-            "text": "<p>Golden is a New Zealand-made range of honey-sweetened, low-cal sparkling sodas built around mānuka and kānuka honey, real fruit, and no refined sugar. This page is for retailers, cafes, bottle stores, and hospitality venues looking to stock the range.</p>",
+            "text": "<p>For retailers, cafes, and hospitality.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
-            "type_preset": "rte",
+            "type_preset": "paragraph",
             "font": "var(--font-body--family)",
             "font_size": "1rem",
             "line_height": "normal",
@@ -58,29 +58,23 @@
             "background_color": "#00000026",
             "corner_radius": 0,
             "padding-block-start": 0,
-            "padding-block-end": 16,
+            "padding-block-end": 0,
             "padding-inline-start": 0,
             "padding-inline-end": 0
           },
-          "blocks": {}
-        },
-        "page-content": {
-          "type": "page-content",
-          "settings": {},
           "blocks": {}
         }
       },
       "block_order": [
         "heading",
-        "intro",
-        "page-content"
+        "intro"
       ],
       "settings": {
         "content_direction": "column",
-        "gap": 16,
+        "gap": 12,
         "color_scheme": "",
         "padding-block-start": 44,
-        "padding-block-end": 44
+        "padding-block-end": 24
       }
     },
     "section_6Ke77e": {
@@ -92,7 +86,7 @@
             "content_direction": "column",
             "vertical_on_mobile": true,
             "horizontal_alignment": "flex-start",
-            "vertical_alignment": "center",
+            "vertical_alignment": "flex-start",
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "flex-start",
             "vertical_alignment_flex_direction_column": "flex-start",
@@ -120,62 +114,220 @@
             "gradient_direction": "to top",
             "link": "",
             "open_in_new_tab": false,
-            "placeholder": "hero-apparel-1",
+            "placeholder": "",
             "padding-block-start": 40,
             "padding-block-end": 40,
             "padding-inline-start": 40,
             "padding-inline-end": 40
           },
           "blocks": {
-            "text_heading": {
-              "type": "text",
+            "accordion_4z4XvE": {
+              "type": "accordion",
               "settings": {
-                "text": "<h2>For retailers, cafes, and hospitality</h2>",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "h4",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground-heading)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
+                "icon": "caret",
+                "dividers": true,
+                "type_preset": "h6",
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
               },
-              "blocks": {}
-            },
-            "text_copy": {
-              "type": "text",
-              "settings": {
-                "text": "<p>Golden gives buyers a different soft drink proposition: New Zealand honey instead of refined sugar, real fruit, and a lighter-bodied profile designed for modern grocery, cafe, and beverage fridges.</p><ul><li>Made in New Zealand</li><li>Sweetened with mānuka and kānuka honey across the range</li><li>No refined sugar</li><li>Clear provenance story for honey and fruit</li></ul><p>If you want to understand the ingredient and sourcing side before ordering, start with our <a href='/pages/ingredients'>Ingredients</a>, <a href='/pages/new-zealand-honey'>New Zealand honey</a>, and <a href='/pages/how-golden-is-made'>How Golden is made</a> pages.</p>",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
+              "blocks": {
+                "accordion_row_drinks": {
+                  "type": "accordion_row",
+                  "settings": {
+                    "heading": "The drinks",
+                    "right_heading": "",
+                    "heading_links_enabled": false,
+                    "heading_link": "",
+                    "right_heading_link": "",
+                    "collapsible": true,
+                    "open_by_default": false,
+                    "group_mode": "shared",
+                    "color_scheme": "",
+                    "hover_color_scheme": "",
+                    "left_hover_color_scheme": "",
+                    "right_hover_color_scheme": "",
+                    "summary_padding_block_start": 16,
+                    "summary_padding_block_end": 16,
+                    "summary_padding_inline_start": 16,
+                    "summary_padding_inline_end": 16,
+                    "content_padding_block_start": 0,
+                    "content_padding_block_end": 16,
+                    "content_padding_inline_start": 16,
+                    "content_padding_inline_end": 16,
+                    "heading_type_preset": "",
+                    "right_heading_type_preset": "match",
+                    "heading_min_size": 1.1,
+                    "heading_max_size": 1.4,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_drinks": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Golden is a New Zealand-made soda range sweetened with mānuka and kānuka honey. Low-cal. No refined sugar. Real fruit where it belongs. Clean, bright flavour built to feel lighter than standard soft drink.</p>",
+                        "width": "100%",
+                        "max_width": "none",
+                        "alignment": "left",
+                        "type_preset": "paragraph",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_drinks"
+                  ]
+                },
+                "accordion_row_fit": {
+                  "type": "accordion_row",
+                  "settings": {
+                    "heading": "Where it fits",
+                    "right_heading": "",
+                    "heading_links_enabled": false,
+                    "heading_link": "",
+                    "right_heading_link": "",
+                    "collapsible": true,
+                    "open_by_default": false,
+                    "group_mode": "shared",
+                    "color_scheme": "",
+                    "hover_color_scheme": "",
+                    "left_hover_color_scheme": "",
+                    "right_hover_color_scheme": "",
+                    "summary_padding_block_start": 16,
+                    "summary_padding_block_end": 16,
+                    "summary_padding_inline_start": 16,
+                    "summary_padding_inline_end": 16,
+                    "content_padding_block_start": 0,
+                    "content_padding_block_end": 16,
+                    "content_padding_inline_start": 16,
+                    "content_padding_inline_end": 16,
+                    "heading_type_preset": "",
+                    "right_heading_type_preset": "match",
+                    "heading_min_size": 1.1,
+                    "heading_max_size": 1.4,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_fit": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Built for modern fridges. Grocery, cafes, bottle stores, and hospitality. Easy to explain, easy to pour, and distinct enough to sit apart from classic soft drinks and zero-sugar options.</p>",
+                        "width": "100%",
+                        "max_width": "none",
+                        "alignment": "left",
+                        "type_preset": "paragraph",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_fit"
+                  ]
+                },
+                "accordion_row_ordering": {
+                  "type": "accordion_row",
+                  "settings": {
+                    "heading": "Ordering",
+                    "right_heading": "",
+                    "heading_links_enabled": false,
+                    "heading_link": "",
+                    "right_heading_link": "",
+                    "collapsible": true,
+                    "open_by_default": false,
+                    "group_mode": "shared",
+                    "color_scheme": "",
+                    "hover_color_scheme": "",
+                    "left_hover_color_scheme": "",
+                    "right_hover_color_scheme": "",
+                    "summary_padding_block_start": 16,
+                    "summary_padding_block_end": 16,
+                    "summary_padding_inline_start": 16,
+                    "summary_padding_inline_end": 16,
+                    "content_padding_block_start": 0,
+                    "content_padding_block_end": 16,
+                    "content_padding_inline_start": 16,
+                    "content_padding_inline_end": 16,
+                    "heading_type_preset": "",
+                    "right_heading_type_preset": "match",
+                    "heading_min_size": 1.1,
+                    "heading_max_size": 1.4,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_ordering": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Order on <a href='https://www.upstock.app/wholesalers/golden' target='_blank' rel='noopener'>Upstock</a>. For account questions, use the form on this page or email <a href='mailto:wholesale@staygolden.co.nz'>wholesale@staygolden.co.nz</a>. Looking for a nearby shop instead? Try the <a href='/pages/store-location'>store locator</a>.</p>",
+                        "width": "100%",
+                        "max_width": "none",
+                        "alignment": "left",
+                        "type_preset": "paragraph",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_ordering"
+                  ]
+                }
               },
-              "blocks": {}
+              "block_order": [
+                "accordion_row_drinks",
+                "accordion_row_fit",
+                "accordion_row_ordering"
+              ]
             },
             "button_upstock": {
               "type": "button",
@@ -190,38 +342,11 @@
                 "custom_width_mobile": 100
               },
               "blocks": {}
-            },
-            "text_note": {
-              "type": "text",
-              "settings": {
-                "text": "<p>For wholesale enquiries in New Zealand, use the form on this page or email <a href='mailto:wholesale@staygolden.co.nz'>wholesale@staygolden.co.nz</a>. If you are looking for a nearby retailer rather than opening an account, head to the <a href='/pages/store-location'>store locator</a>.</p>",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "paragraph",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
             }
           },
           "block_order": [
-            "text_heading",
-            "text_copy",
-            "button_upstock",
-            "text_note"
+            "accordion_4z4XvE",
+            "button_upstock"
           ]
         },
         "group_iEqhzJ": {
@@ -297,24 +422,10 @@
                 }
               },
               "block_order": []
-            },
-            "spacer_VrBciU": {
-              "type": "spacer",
-              "settings": {
-                "size": "pixel",
-                "percent_size": 100,
-                "pixel_size": 16,
-                "custom_mobile_size": false,
-                "size_mobile": "percent",
-                "percent_size_mobile": 100,
-                "pixel_size_mobile": 120
-              },
-              "blocks": {}
             }
           },
           "block_order": [
-            "contact_form_dYBJUe",
-            "spacer_VrBciU"
+            "contact_form_dYBJUe"
           ]
         }
       },
