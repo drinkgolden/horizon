@@ -2,10 +2,10 @@
 
 {% if closest.collection == blank %}
   {% assign text = 'placeholders.collection_title' | t %}
-  {% assign collection_title = '<p>' | append: text | append: '</p>' %}
+  {% assign collection_title = '<h1>' | append: text | append: '</h1>' %}
   {% render 'text', fallback_text: collection_title, block: block %}
 {% elsif closest.collection != blank %}
-  {% assign collection_title = '<p>' | append: closest.collection.title | append: '</p>' %}
+  {% assign collection_title = '<h1>' | append: closest.collection.title | append: '</h1>' %}
   {% render 'text', fallback_text: collection_title, block: block %}
 {% endif %}
 

@@ -61,10 +61,17 @@
 >
   {% if logo_image %}
     <div class="logo-block__image-wrapper">
+      {%- if template.name == 'index' -%}
+        <h1 class="visually-hidden">{{ shop.name }}</h1>
+      {%- endif -%}
       {{ logo_image }}
     </div>
   {% else %}
-    {% render 'jumbo-text', text: shop.name %}
+    {%- if template.name == 'index' -%}
+      <h1 class="logo-block__heading">{% render 'jumbo-text', text: shop.name %}</h1>
+    {%- else -%}
+      {% render 'jumbo-text', text: shop.name %}
+    {%- endif -%}
   {% endif %}
 </div>
 
