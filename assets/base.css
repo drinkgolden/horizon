@@ -1046,7 +1046,7 @@ body.has-section-gridlines-horizontal
 
 .flex {
   display: flex;
-  gap: var(--gap-md);
+  gap: var(--space-4);
 }
 
 .grid {
@@ -1063,7 +1063,7 @@ body.has-section-gridlines-horizontal
   .grid {
     display: grid;
     gap: 0;
-    grid-template-columns: var(--margin-4xl) repeat(var(--centered-column-number), minmax(0, 1fr)) var(--margin-4xl);
+    grid-template-columns: var(--space-8) repeat(var(--centered-column-number), minmax(0, 1fr)) var(--space-8);
     grid-template-areas: 'column-0 column-1 column-2 column-3 column-4 column-5 column-6 column-7 column-8 column-9 column-10 column-11 column-12 column-13';
   }
 }
@@ -1081,7 +1081,7 @@ body.has-section-gridlines-horizontal
 
 .flex {
   display: flex;
-  gap: var(--gap-md);
+  gap: var(--space-4);
 }
 
 .flip-x {
@@ -1112,9 +1112,9 @@ body.has-section-gridlines-horizontal
   overflow: auto;
   width: auto;
   height: auto;
-  padding: var(--padding-lg) var(--padding-4xl);
-  left: var(--margin-lg);
-  top: var(--margin-lg);
+  padding: var(--space-4) var(--space-8);
+  left: var(--space-4);
+  top: var(--space-4);
   box-shadow: 0 0 0 var(--focus-outline-offset) var(--color-background);
 }
 
@@ -1586,7 +1586,7 @@ body:has(.header[transparent]) #header-group > .header-section {
 }
 
 [product-grid-view='zoom-out'] .product-grid__card {
-  row-gap: var(--padding-xs);
+  row-gap: var(--space-2);
 }
 
 [product-grid-view='default'] {
@@ -1663,7 +1663,7 @@ ul[product-grid-view='zoom-out'] .card-gallery > img {
 .product-grid-view-zoom-out--details > div.h6 > product-price {
   display: inline-block;
   line-height: 0;
-  margin-top: var(--margin-2xs);
+  margin-top: var(--space-1);
 }
 
 .product-grid-view-zoom-out--details > span.h6 > *,
@@ -1795,7 +1795,7 @@ results-list[initialized] {
     max-height: 100%;
     height: 100dvh;
     width: 100dvw;
-    padding: var(--padding-md);
+    padding: var(--space-4);
   }
 }
 
@@ -2017,7 +2017,7 @@ button.shopify-payment-button__button--unbranded:hover:not([disabled]) {
 .button-unstyled--with-icon {
   color: var(--color-foreground);
   display: flex;
-  gap: var(--gap-2xs);
+  gap: var(--space-1);
   align-items: center;
 }
 
@@ -2091,7 +2091,7 @@ summary {
   align-items: center;
   cursor: pointer;
   list-style: none;
-  padding-block: var(--padding-sm);
+  padding-block: var(--space-3);
 }
 
 summary:hover {
@@ -2221,7 +2221,7 @@ media-gallery.media-gallery--grid .media-gallery__grid .product-media-container 
 }
 
 .shopify-model-viewer-ui__controls-area {
-  bottom: calc(var(--minimum-touch-target) + var(--padding-sm));
+  bottom: calc(var(--minimum-touch-target) + var(--space-3));
 }
 
 .product-media-container img {
@@ -2284,8 +2284,8 @@ zoom-dialog dialog {
 /* Animate the UI elements in only after the view transition is complete */
 .close-button {
   position: fixed;
-  top: var(--margin-lg);
-  right: var(--margin-lg);
+  top: var(--space-4);
+  right: var(--space-4);
   width: var(--minimum-touch-target);
   height: var(--minimum-touch-target);
   z-index: var(--layer-flat);
@@ -2341,7 +2341,7 @@ zoom-dialog dialog {
   bottom: 0;
   overflow-x: auto;
   opacity: 0;
-  padding: var(--padding-lg);
+  padding: var(--space-4);
   margin-inline: auto;
   scrollbar-width: none;
   animation: thumbnailsSlideInBottom calc(var(--animation-speed) * 0.75) var(--animation-easing) forwards;
@@ -2356,7 +2356,7 @@ zoom-dialog dialog {
   .dialog-thumbnails-list {
     position: fixed;
     flex-direction: column;
-    inset: 50% var(--margin-lg) auto auto;
+    inset: 50% var(--space-4) auto auto;
     right: 0;
     max-height: calc(100vh - 200px);
     overflow-y: auto;
@@ -2442,21 +2442,21 @@ Otherwise, it should be a block to rely on its own size */
 }
 
 slideshow-slide .shopify-model-viewer-ui__controls-area.shopify-model-viewer-ui__controls-area {
-  bottom: var(--padding-sm);
-  right: var(--padding-sm);
+  bottom: var(--space-3);
+  right: var(--space-3);
 }
 
 .dialog-zoomed-gallery .shopify-model-viewer-ui__controls-area.shopify-model-viewer-ui__controls-area {
   /* Move the controls above the thumbnails. Need to calculate the height of the thumbnails list */
-  bottom: calc(var(--thumbnail-width) / calc(var(--media-preview-ratio)) + var(--padding-lg) * 2);
-  right: var(--padding-lg);
+  bottom: calc(var(--thumbnail-width) / calc(var(--media-preview-ratio)) + var(--space-4) * 2);
+  right: var(--space-4);
 }
 
 @media screen and (max-width: 749px) {
   slideshow-component:has(:not(.mobile\:hidden) :is(.slideshow-controls__dots, .slideshow-controls__counter))
     .shopify-model-viewer-ui__controls-area {
     /* Position the controls just above the counter */
-    bottom: calc(var(--minimum-touch-target) + var(--padding-sm));
+    bottom: calc(var(--minimum-touch-target) + var(--space-3));
   }
 }
 
@@ -2464,15 +2464,15 @@ slideshow-slide .shopify-model-viewer-ui__controls-area.shopify-model-viewer-ui_
   slideshow-component:has(:not(.desktop\:hidden) :is(.slideshow-controls__dots, .slideshow-controls__counter))
     .shopify-model-viewer-ui__controls-area {
     /* Position the controls just above the counter */
-    bottom: calc(var(--minimum-touch-target) + var(--padding-sm));
+    bottom: calc(var(--minimum-touch-target) + var(--space-3));
   }
 
   .dialog-zoomed-gallery .shopify-model-viewer-ui__controls-area.shopify-model-viewer-ui__controls-area {
     /* Move the controls up to match the padding on the thumbnails */
-    bottom: var(--padding-lg);
+    bottom: var(--space-4);
 
     /* Move the controls to the left of the thumbnails list on the right */
-    right: calc(var(--thumbnail-width) + var(--padding-lg) * 2);
+    right: calc(var(--thumbnail-width) + var(--space-4) * 2);
   }
 }
 
@@ -2565,14 +2565,14 @@ deferred-media[class] :is(.deferred-media__poster-button img, .deferred-media__p
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: var(--padding-md);
+  padding: var(--space-4);
 }
 
 .button-shopify-xr > svg {
   width: var(--icon-size-sm);
   height: var(--icon-size-sm);
   fill: currentcolor;
-  margin-inline-end: var(--margin-md);
+  margin-inline-end: var(--space-4);
 }
 
 .button-shopify-xr[data-shopify-xr-hidden] {
@@ -2761,7 +2761,7 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
 }
 
 .product-card-gallery__title-placeholder {
-  padding: var(--padding-md);
+  padding: var(--space-4);
   font-size: var(--font-size--2xl);
   line-height: var(--line-height--display-loose);
   word-break: break-word;
@@ -2781,125 +2781,125 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
 
 @media screen and (min-width: 750px) {
   .product-grid[data-product-card-size='extra-large'] .product-card-gallery__title-placeholder {
-    padding: var(--padding-3xl);
+    padding: var(--space-8);
     font-size: var(--font-size--3xl);
   }
 
   .product-grid[data-product-card-size='large'] .product-card-gallery__title-placeholder {
-    padding: var(--padding-2xl);
+    padding: var(--space-6);
     font-size: var(--font-size--2xl);
   }
 
   .product-grid[data-product-card-size='medium'] .product-card-gallery__title-placeholder {
-    padding: var(--padding-xl);
+    padding: var(--space-6);
     font-size: var(--font-size--xl);
   }
 
   .product-grid[data-product-card-size='small'] .product-card-gallery__title-placeholder {
-    padding: var(--padding-sm);
+    padding: var(--space-3);
     font-size: var(--font-size--lg);
   }
 
   .product-grid[data-product-card-size='extra-large']
     .card-gallery:has(.product-badges--top-right .product-badges__badge)
     .product-card-gallery__title-placeholder {
-    padding-right: calc(var(--padding-3xl) + 50px);
+    padding-right: calc(var(--space-8) + 50px);
   }
 
   .product-grid[data-product-card-size='large']
     .card-gallery:has(.product-badges--top-right .product-badges__badge)
     .product-card-gallery__title-placeholder {
-    padding-right: calc(var(--padding-2xl) + 50px);
+    padding-right: calc(var(--space-6) + 50px);
   }
 
   .product-grid[data-product-card-size='medium']
     .card-gallery:has(.product-badges--top-right .product-badges__badge)
     .product-card-gallery__title-placeholder {
-    padding-right: calc(var(--padding-xl) + 50px);
+    padding-right: calc(var(--space-6) + 50px);
   }
 
   .product-grid[data-product-card-size='small']
     .card-gallery:has(.product-badges--top-right .product-badges__badge)
     .product-card-gallery__title-placeholder {
-    padding-right: calc(var(--padding-sm) + 50px);
+    padding-right: calc(var(--space-3) + 50px);
   }
 
   .product-grid[data-product-card-size='extra-large']
     .card-gallery:has(.product-badges--top-left .product-badges__badge)
     .product-card-gallery__title-placeholder {
-    padding-top: calc(var(--padding-3xl) + 40px);
+    padding-top: calc(var(--space-8) + 40px);
   }
 
   .product-grid[data-product-card-size='large']
     .card-gallery:has(.product-badges--top-left .product-badges__badge)
     .product-card-gallery__title-placeholder {
-    padding-top: calc(var(--padding-2xl) + 40px);
+    padding-top: calc(var(--space-6) + 40px);
   }
 
   .product-grid[data-product-card-size='medium']
     .card-gallery:has(.product-badges--top-left .product-badges__badge)
     .product-card-gallery__title-placeholder {
-    padding-top: calc(var(--padding-xl) + 40px);
+    padding-top: calc(var(--space-6) + 40px);
   }
 
   .product-grid[data-product-card-size='small']
     .card-gallery:has(.product-badges--top-left .product-badges__badge)
     .product-card-gallery__title-placeholder {
-    padding-top: calc(var(--padding-sm) + 40px);
+    padding-top: calc(var(--space-3) + 40px);
   }
 
   .product-grid[data-product-card-size='extra-large']
     .card-gallery:has(.product-badges--bottom-left .product-badges__badge)
     .product-card-gallery__title-placeholder {
-    padding-bottom: calc(var(--padding-3xl) + 40px);
+    padding-bottom: calc(var(--space-8) + 40px);
   }
 
   .product-grid[data-product-card-size='large']
     .card-gallery:has(.product-badges--bottom-left .product-badges__badge)
     .product-card-gallery__title-placeholder {
-    padding-bottom: calc(var(--padding-2xl) + 40px);
+    padding-bottom: calc(var(--space-6) + 40px);
   }
 
   .product-grid[data-product-card-size='medium']
     .card-gallery:has(.product-badges--bottom-left .product-badges__badge)
     .product-card-gallery__title-placeholder {
-    padding-bottom: calc(var(--padding-xl) + 40px);
+    padding-bottom: calc(var(--space-6) + 40px);
   }
 
   .product-grid[data-product-card-size='small']
     .card-gallery:has(.product-badges--bottom-left .product-badges__badge)
     .product-card-gallery__title-placeholder {
-    padding-bottom: calc(var(--padding-sm) + 40px);
+    padding-bottom: calc(var(--space-3) + 40px);
   }
 }
 
 @media screen and (max-width: 749px) {
   .product-card-gallery__title-placeholder {
     font-size: var(--font-size--xl);
-    padding: var(--padding-md);
+    padding: var(--space-4);
   }
 
   .product-grid[data-product-card-size]
     .card-gallery:has(.product-badges--top-right .product-badges__badge)
     .product-card-gallery__title-placeholder {
-    padding-right: calc(var(--padding-sm) + 50px);
+    padding-right: calc(var(--space-3) + 50px);
   }
 
   .product-grid[data-product-card-size]
     .card-gallery:has(.product-badges--top-left .product-badges__badge)
     .product-card-gallery__title-placeholder {
-    padding-top: calc(var(--padding-sm) + 40px);
+    padding-top: calc(var(--space-3) + 40px);
   }
 
   .product-grid[data-product-card-size]
     .card-gallery:has(.product-badges--bottom-left .product-badges__badge)
     .product-card-gallery__title-placeholder {
-    padding-bottom: calc(var(--padding-sm) + 40px);
+    padding-bottom: calc(var(--space-3) + 40px);
   }
 }
 
 [product-grid-view='zoom-out'] .card-gallery .product-card-gallery__title-placeholder {
-  padding: var(--padding-xs) !important;
+  padding: var(--space-2) !important;
   font-size: var(--font-size--xs);
 }
 
@@ -2907,11 +2907,11 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   position: absolute;
   left: clamp(0.5rem, 2vw, 1rem);
   bottom: clamp(0.5rem, 2vw, 1rem);
-  width: calc(var(--icon-size-xs) + var(--padding-2xs) * 2);
-  height: calc(var(--icon-size-xs) + var(--padding-2xs) * 2);
+  width: calc(var(--icon-size-xs) + var(--space-1) * 2);
+  height: calc(var(--icon-size-xs) + var(--space-1) * 2);
   border-radius: 100px;
   border: 0;
-  padding: var(--padding-2xs);
+  padding: var(--space-1);
   background-color: transparent;
   color: inherit;
   box-shadow: none;
@@ -3344,7 +3344,7 @@ select:focus-visible {
 }
 
 .field__input--button-padding {
-  padding-inline: var(--padding-3xl);
+  padding-inline: var(--space-8);
 }
 
 .field__label {
@@ -3415,13 +3415,13 @@ select:focus-visible {
   th,
   td {
     text-align: start;
-    padding-inline: var(--padding-md);
-    padding-block: var(--padding-sm);
+    padding-inline: var(--space-4);
+    padding-block: var(--space-3);
   }
 }
 
 .shopify-policy__container {
-  padding-block: var(--padding-xl);
+  padding-block: var(--space-6);
 }
 
 .checkbox {
@@ -3662,7 +3662,7 @@ select:focus-visible {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: var(--gap-sm);
+  gap: var(--space-3);
   min-width: 48px;
   padding: 6px 12px;
   border-radius: var(--style-border-radius-pills);
@@ -3675,7 +3675,7 @@ select:focus-visible {
   }
 
   @media screen and (max-width: 749px) {
-    padding: var(--padding-xs) var(--padding-md);
+    padding: var(--space-2) var(--space-4);
   }
 }
 
@@ -3688,7 +3688,7 @@ select:focus-visible {
 
 .pills__pill--swatch {
   @media screen and (max-width: 749px) {
-    padding-inline-start: var(--padding-sm);
+    padding-inline-start: var(--space-3);
   }
 }
 
@@ -3848,7 +3848,7 @@ fly-to-cart {
 
 @keyframes elementSlideInTop {
   from {
-    margin-top: var(--padding-sm);
+    margin-top: var(--space-3);
     opacity: 0;
   }
 
@@ -3865,14 +3865,14 @@ fly-to-cart {
   }
 
   to {
-    transform: translateY(var(--padding-sm));
+    transform: translateY(var(--space-3));
     opacity: 0;
   }
 }
 
 @keyframes elementSlideInBottom {
   from {
-    transform: translateY(calc(-1 * var(--padding-sm)));
+    transform: translateY(calc(-1 * var(--space-3)));
     opacity: 0;
   }
 
@@ -3889,14 +3889,14 @@ fly-to-cart {
   }
 
   to {
-    transform: translateY(calc(-1 * var(--padding-sm)));
+    transform: translateY(calc(-1 * var(--space-3)));
     opacity: 0;
   }
 }
 
 @keyframes thumbnailsSlideInTop {
   from {
-    transform: translateY(calc(-50% + var(--margin-lg)));
+    transform: translateY(calc(-50% + var(--space-4)));
     opacity: 0;
   }
 
@@ -3913,7 +3913,7 @@ fly-to-cart {
   }
 
   to {
-    transform: translateY(calc(-50% + var(--margin-lg)));
+    transform: translateY(calc(-50% + var(--space-4)));
     opacity: 0;
   }
 }
@@ -4023,7 +4023,7 @@ fly-to-cart {
 
 @keyframes modalSlideInTop {
   from {
-    transform: translateY(var(--padding-sm));
+    transform: translateY(var(--space-3));
     opacity: 0;
   }
 
@@ -4040,7 +4040,7 @@ fly-to-cart {
   }
 
   to {
-    transform: translateY(var(--padding-sm));
+    transform: translateY(var(--space-3));
     opacity: 0;
   }
 }
@@ -4403,7 +4403,7 @@ slideshow-controls:not([controls-on-media])[icons-on-media] {
 
 slideshow-controls:not([controls-on-media]):is([pagination-position='left'], [pagination-position='right'])
   .slideshow-controls__thumbnails {
-  padding-block: var(--padding-2xs);
+  padding-block: var(--space-1);
 }
 
 slideshow-controls:not([controls-on-media]) {
@@ -4464,7 +4464,7 @@ slideshow-controls:is([pagination-position='right'], [pagination-position='left'
   grid-area: arrows;
 
   button {
-    padding: 0 var(--padding-xs);
+    padding: 0 var(--space-2);
   }
 }
 
@@ -4490,7 +4490,7 @@ slideshow-component[autoplay] slideshow-controls {
 
 .slideshow-controls__dots {
   gap: 0.6rem;
-  padding: var(--padding-sm) var(--padding-lg);
+  padding: var(--space-3) var(--space-4);
   border-radius: 3rem;
   overflow: hidden;
 
@@ -4545,15 +4545,15 @@ slideshow-component[autoplay] slideshow-controls {
   background-color: rgb(0 0 0 / 40%);
   width: auto;
   border-radius: 2rem;
-  padding: 0.3rem var(--padding-sm);
-  margin-inline: var(--margin-sm);
+  padding: 0.3rem var(--space-3);
+  margin-inline: var(--space-3);
   backdrop-filter: blur(10px);
   font-variant-numeric: tabular-nums;
   font-size: var(--font-size--xs);
 
   .slash {
     color: rgb(var(--color-foreground-rgb) / var(--opacity-40));
-    padding-inline: var(--padding-2xs);
+    padding-inline: var(--space-1);
     margin-block-start: -0.1rem;
   }
 }
@@ -4613,9 +4613,9 @@ slideshow-component[autoplay] slideshow-controls {
 
 .slideshow-controls__thumbnails {
   display: inline-flex;
-  padding-inline: var(--slideshow-thumbnails-padding-inline, var(--padding-sm));
-  padding-block: var(--slideshow-thumbnails-padding-block, var(--padding-sm));
-  gap: var(--gap-xs);
+  padding-inline: var(--slideshow-thumbnails-padding-inline, var(--space-3));
+  padding-block: var(--slideshow-thumbnails-padding-block, var(--space-3));
+  gap: var(--space-2);
   margin-inline: auto;
   height: fit-content;
 
@@ -4645,8 +4645,8 @@ slideshow-component[autoplay] slideshow-controls {
 
 .slideshow-controls__thumbnail-badge {
   position: absolute;
-  top: var(--padding-2xs);
-  right: var(--padding-2xs);
+  top: var(--space-1);
+  right: var(--space-1);
   width: clamp(16px, 10%, 20px);
   height: clamp(16px, 10%, 20px);
   background-color: var(--color-background);
@@ -4706,12 +4706,12 @@ slideshow-arrows {
 
   &[position='left'] {
     justify-content: flex-start;
-    padding-inline: var(--padding-xs);
+    padding-inline: var(--space-2);
   }
 
   &[position='right'] {
     justify-content: flex-end;
-    padding-inline: var(--padding-xs);
+    padding-inline: var(--space-2);
   }
 
   &[position='center'] {
@@ -4733,7 +4733,7 @@ slideshow-arrows .slideshow-control {
   pointer-events: auto;
   opacity: 0;
   min-height: var(--minimum-touch-target);
-  padding: 0 var(--padding-xs);
+  padding: 0 var(--space-2);
   color: var(--color-white);
 }
 
@@ -4742,15 +4742,15 @@ slideshow-arrows .slideshow-control.slideshow-control--style-none {
 }
 
 .media-gallery--carousel slideshow-arrows .slideshow-control {
-  padding-inline: var(--padding-md);
+  padding-inline: var(--space-4);
 }
 
 .card-gallery slideshow-arrows .slideshow-control {
   /* Align icons with quick-add button */
-  padding-inline: var(--padding-xl);
+  padding-inline: var(--space-6);
 
   @container (max-width: 249px) {
-    padding-inline: 0 var(--padding-sm);
+    padding-inline: 0 var(--space-3);
   }
 }
 
@@ -4768,7 +4768,7 @@ slideshow-arrows .slideshow-control.slideshow-control--style-none {
 
 @keyframes arrowsSlideIn {
   from {
-    transform: translate(var(--padding-sm), 0);
+    transform: translate(var(--space-3), 0);
     opacity: 0;
   }
 
@@ -4810,8 +4810,8 @@ slideshow-arrows .slideshow-control.slideshow-control--style-none {
 
 .section-resource-list.section--full-width product-card-link > .group-block {
   @media screen and (max-width: 749px) {
-    padding-inline: max(var(--padding-xs), var(--padding-inline-start))
-      max(var(--padding-xs), var(--padding-inline-end));
+    padding-inline: max(var(--space-2), var(--padding-inline-start))
+      max(var(--space-2), var(--padding-inline-end));
   }
 }
 
