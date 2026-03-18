@@ -334,44 +334,44 @@
     --shadow-button: 0 2px 3px rgb(0 0 0 / 20%);
     --gradient-image-overlay: linear-gradient(to top, rgb(0 0 0 / 0.5), transparent);
 
-    /* Spacing */
-    --margin-3xs: 0.125rem;
-    --margin-2xs: 0.3rem;
-    --margin-xs: 0.5rem;
-    --margin-sm: 0.7rem;
-    --margin-md: 0.8rem;
-    --margin-lg: 1rem;
-    --margin-xl: 1.25rem;
-    --margin-2xl: 1.5rem;
-    --margin-3xl: 1.75rem;
-    --margin-4xl: 2rem;
-    --margin-5xl: 3rem;
-    --margin-6xl: 5rem;
+    /* Spacing — backward-compat aliases pointing to Worker --space-* scale */
+    --margin-3xs: var(--space-1);    /* was 0.125rem, now 0.25rem */
+    --margin-2xs: var(--space-1);    /* was 0.3rem */
+    --margin-xs: var(--space-2);     /* was 0.5rem ✓ */
+    --margin-sm: var(--space-3);     /* was 0.7rem, now 0.75rem */
+    --margin-md: var(--space-4);     /* was 0.8rem, now 1rem */
+    --margin-lg: var(--space-4);     /* was 1rem ✓ */
+    --margin-xl: var(--space-6);     /* was 1.25rem, now 1.5rem */
+    --margin-2xl: var(--space-6);    /* was 1.5rem ✓ */
+    --margin-3xl: var(--space-8);    /* was 1.75rem, now 2rem */
+    --margin-4xl: var(--space-8);    /* was 2rem ✓ */
+    --margin-5xl: var(--space-12);   /* was 3rem ✓ */
+    --margin-6xl: var(--space-20);   /* was 5rem ✓ */
 
     --scroll-margin: 50px;
 
-    --padding-3xs: 0.125rem;
-    --padding-2xs: 0.25rem;
-    --padding-xs: 0.5rem;
-    --padding-sm: 0.7rem;
-    --padding-md: 0.8rem;
-    --padding-lg: 1rem;
-    --padding-xl: 1.25rem;
-    --padding-2xl: 1.5rem;
-    --padding-3xl: 1.75rem;
-    --padding-4xl: 2rem;
-    --padding-5xl: 3rem;
-    --padding-6xl: 4rem;
+    --padding-3xs: var(--space-1);   /* was 0.125rem, now 0.25rem */
+    --padding-2xs: var(--space-1);   /* was 0.25rem ✓ */
+    --padding-xs: var(--space-2);    /* was 0.5rem ✓ */
+    --padding-sm: var(--space-3);    /* was 0.7rem, now 0.75rem */
+    --padding-md: var(--space-4);    /* was 0.8rem, now 1rem */
+    --padding-lg: var(--space-4);    /* was 1rem ✓ */
+    --padding-xl: var(--space-6);    /* was 1.25rem, now 1.5rem */
+    --padding-2xl: var(--space-6);   /* was 1.5rem ✓ */
+    --padding-3xl: var(--space-8);   /* was 1.75rem, now 2rem */
+    --padding-4xl: var(--space-8);   /* was 2rem ✓ */
+    --padding-5xl: var(--space-12);  /* was 3rem ✓ */
+    --padding-6xl: var(--space-16);  /* was 4rem ✓ */
 
-    --gap-3xs: 0.125rem;
-    --gap-2xs: 0.3rem;
-    --gap-xs: 0.5rem;
-    --gap-sm: 0.7rem;
-    --gap-md: 0.9rem;
-    --gap-lg: 1rem;
-    --gap-xl: 1.25rem;
-    --gap-2xl: 2rem;
-    --gap-3xl: 3rem;
+    --gap-3xs: var(--space-1);       /* was 0.125rem, now 0.25rem */
+    --gap-2xs: var(--space-1);       /* was 0.3rem */
+    --gap-xs: var(--space-2);        /* was 0.5rem ✓ */
+    --gap-sm: var(--space-3);        /* was 0.7rem, now 0.75rem */
+    --gap-md: var(--space-4);        /* was 0.9rem, now 1rem */
+    --gap-lg: var(--space-4);        /* was 1rem ✓ */
+    --gap-xl: var(--space-6);        /* was 1.25rem, now 1.5rem */
+    --gap-2xl: var(--space-8);       /* was 2rem ✓ */
+    --gap-3xl: var(--space-12);      /* was 3rem ✓ */
 
     --spacing-scale-sm: 0.6;
     --spacing-scale-md: 0.7;
