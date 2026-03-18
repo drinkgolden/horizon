@@ -1,0 +1,17 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": {{ shop.name | json }},
+  "url": {{ shop.url | json }},
+  {%- if settings.logo -%}
+  "logo": {{ settings.logo | image_url: width: 600 | json }},
+  {%- endif -%}
+  "sameAs": [
+    "https://www.instagram.com/staygoldennz/",
+    "https://www.tiktok.com/@staygoldennz",
+    "https://www.linkedin.com/company/staygoldennz",
+    "https://www.threads.net/@staygoldennz"
+  ]
+}
+</script>
