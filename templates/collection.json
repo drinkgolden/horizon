@@ -14,7 +14,7 @@
       "blocks": {
         "text_tqQTNE": {
           "type": "dynamic-page-copy",
-          "name": "Title",
+          "name": "Drink Golden",
           "settings": {
             "content_key": "collection_title",
             "width": "100%",
@@ -33,7 +33,7 @@
             "corner_radius": 0,
             "padding-block-start": 0,
             "padding-block-end": 0,
-            "padding-inline-start": 24,
+            "padding-inline-start": 16,
             "padding-inline-end": 24
           },
           "blocks": {}
@@ -59,8 +59,8 @@
             "corner_radius": 0,
             "padding-block-start": 0,
             "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
+            "padding-inline-start": 16,
+            "padding-inline-end": 16
           },
           "blocks": {}
         }
@@ -89,6 +89,7 @@
         "border": "none",
         "border_width": 1,
         "border_opacity": 100,
+        "enable_split_divider": true,
         "split_divider_color": "#d9d9d9",
         "border_radius": 0,
         "toggle_overlay": false,
@@ -96,7 +97,9 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 64,
-        "padding-block-end": 44
+        "padding-block-end": 44,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0
       }
     },
     "main": {
@@ -147,6 +150,7 @@
               "settings": {
                 "image_ratio": "adapt",
                 "enable_rotate_toggle": true,
+                "default_rotated": false,
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
@@ -693,6 +697,7 @@
         "text_Mr2qBv",
         "group_fFCQ6q"
       ],
+      "disabled": true,
       "name": "Collection authority",
       "settings": {
         "content_direction": "column",
@@ -706,13 +711,14 @@
         "section_width": "page-width",
         "section_height": "",
         "section_height_custom": 50,
-        "color_scheme": "scheme-6",
+        "color_scheme": "scheme-1",
         "background_media": "none",
         "video_position": "cover",
         "background_image_position": "cover",
         "border": "none",
         "border_width": 1,
         "border_opacity": 100,
+        "enable_split_divider": true,
         "split_divider_color": "#d9d9d9",
         "border_radius": 0,
         "toggle_overlay": false,
@@ -720,7 +726,9 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 48,
-        "padding-block-end": 64
+        "padding-block-end": 64,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0
       }
     }
   },
