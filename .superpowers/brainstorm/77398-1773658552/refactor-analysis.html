@@ -1,0 +1,155 @@
+<h2>Golden Horizon Theme — Refactor Analysis</h2>
+<p class="subtitle">What to keep, what to strip, what to fix</p>
+
+<div class="section">
+  <h3>1. Dead Weight — Safe to Remove</h3>
+  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-top: 12px;">
+    <div style="background: #1a1a1a; border-radius: 8px; padding: 16px;">
+      <div style="color: #ff6b6b; font-size: 2rem; font-weight: 700;">32</div>
+      <div style="color: #999; font-size: 0.85rem;">Unused blocks</div>
+      <div style="color: #666; font-size: 0.75rem; margin-top: 8px;">video, jumbo-text, marquee, featured-collection, social-links, vertical-text, custom-liquid, etc.</div>
+    </div>
+    <div style="background: #1a1a1a; border-radius: 8px; padding: 16px;">
+      <div style="color: #ff6b6b; font-size: 2rem; font-weight: 700;">18</div>
+      <div style="color: #999; font-size: 0.85rem;">Unused snippets</div>
+      <div style="color: #666; font-size: 0.75rem; margin-top: 8px;">8 special-accordion-presets, slideshow controls, header-menu, filters-toggle, etc.</div>
+    </div>
+    <div style="background: #1a1a1a; border-radius: 8px; padding: 16px;">
+      <div style="color: #ff6b6b; font-size: 2rem; font-weight: 700;">20</div>
+      <div style="color: #999; font-size: 0.85rem;">Unused JS files</div>
+      <div style="color: #666; font-size: 0.75rem; margin-top: 8px;">cart-drawer, jumbo-text, header-drawer, zoom-dialog, facets, etc.</div>
+    </div>
+  </div>
+  <p style="color: #888; margin-top: 12px; font-size: 0.85rem;">That's ~70 files of dead code. You're right — you can build new sections with Claude Code when you need them.</p>
+</div>
+
+<div class="section">
+  <h3>2. Spacing System — The Mess</h3>
+  <div style="background: #1a1a1a; border-radius: 8px; padding: 16px; margin-top: 12px;">
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; font-size: 0.8rem;">
+      <div>
+        <div style="color: #ff9f43; font-weight: 600; margin-bottom: 8px;">--margin-* (13 values)</div>
+        <div style="color: #666;">3xs: 0.125rem</div>
+        <div style="color: #666;">2xs: 0.3rem</div>
+        <div style="color: #666;">xs: 0.5rem</div>
+        <div style="color: #666;">sm: 0.7rem</div>
+        <div style="color: #666;">md: 0.8rem</div>
+        <div style="color: #666;">lg: 1rem</div>
+        <div style="color: #666;">xl: 1.25rem</div>
+        <div style="color: #666;">2xl: 1.5rem</div>
+        <div style="color: #666;">3xl: 1.75rem</div>
+        <div style="color: #666;">4xl: 2rem</div>
+        <div style="color: #666;">5xl: 3rem</div>
+        <div style="color: #666;">6xl: 5rem</div>
+      </div>
+      <div>
+        <div style="color: #ff9f43; font-weight: 600; margin-bottom: 8px;">--padding-* (13 values)</div>
+        <div style="color: #666;">3xs: 0.125rem</div>
+        <div style="color: #666;">2xs: 0.25rem</div>
+        <div style="color: #888; font-weight: 500;">xs: 0.5rem ✓</div>
+        <div style="color: #888; font-weight: 500;">sm: 0.7rem ✓</div>
+        <div style="color: #888; font-weight: 500;">md: 0.8rem ✓</div>
+        <div style="color: #888; font-weight: 500;">lg: 1rem ✓</div>
+        <div style="color: #888; font-weight: 500;">xl: 1.25rem ✓</div>
+        <div style="color: #888; font-weight: 500;">2xl: 1.5rem ✓</div>
+        <div style="color: #666;">3xl: 1.75rem</div>
+        <div style="color: #666;">4xl: 2rem</div>
+        <div style="color: #666;">5xl: 3rem</div>
+        <div style="color: #666;">6xl: 4rem ≠ margin 5rem</div>
+      </div>
+      <div>
+        <div style="color: #ff9f43; font-weight: 600; margin-bottom: 8px;">--gap-* (10 values)</div>
+        <div style="color: #666;">3xs: 0.125rem</div>
+        <div style="color: #ff6b6b; font-weight: 500;">2xs: 0.3rem ≠ padding 0.25</div>
+        <div style="color: #888; font-weight: 500;">xs: 0.5rem ✓</div>
+        <div style="color: #888; font-weight: 500;">sm: 0.7rem ✓</div>
+        <div style="color: #ff6b6b; font-weight: 500;">md: 0.9rem ≠ 0.8rem</div>
+        <div style="color: #888; font-weight: 500;">lg: 1rem ✓</div>
+        <div style="color: #888; font-weight: 500;">xl: 1.25rem ✓</div>
+        <div style="color: #666;">2xl: 2rem ≠ 1.5rem</div>
+        <div style="color: #666;">3xl: 3rem</div>
+        <div style="color: #666; font-style: italic;">missing: 4xl, 5xl, 6xl</div>
+      </div>
+    </div>
+    <div style="margin-top: 16px; padding-top: 12px; border-top: 1px solid #333; color: #ff6b6b; font-size: 0.85rem;">
+      ⚠ Three parallel scales that are <em>almost</em> identical but diverge at 2xs, md, 2xl, and 6xl. Plus a separate dynamic --gap system from section settings that conflicts with the static --gap-* scale.
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>3. SEO — What's Missing</h3>
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px;">
+    <div style="background: #1a1a1a; border-radius: 8px; padding: 16px;">
+      <div style="color: #51cf66; font-weight: 600; margin-bottom: 8px;">Already Good</div>
+      <div style="color: #888; font-size: 0.8rem; line-height: 1.6;">
+        • Meta tags & Open Graph complete<br>
+        • Canonical URLs working<br>
+        • Product schema (Shopify native)<br>
+        • Breadcrumb schema<br>
+        • Alt text on images<br>
+        • Responsive images with lazy loading<br>
+        • Skip-to-content link<br>
+        • ARIA attributes throughout
+      </div>
+    </div>
+    <div style="background: #1a1a1a; border-radius: 8px; padding: 16px;">
+      <div style="color: #ff6b6b; font-weight: 600; margin-bottom: 8px;">Missing / Fix</div>
+      <div style="color: #888; font-size: 0.8rem; line-height: 1.6;">
+        • No FAQPage schema (you have a FAQ page!)<br>
+        • No Organization schema<br>
+        • No LocalBusiness schema<br>
+        • Multiple h1 tags possible per page<br>
+        • Homepage has no explicit h1<br>
+        • 80 JS files, 44 globally loaded<br>
+        • 124KB base.css (not split)<br>
+        • Empty theme-color meta tag<br>
+        • No sitemap link tag
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>4. CSS Naming — The Confusion</h3>
+  <div style="background: #1a1a1a; border-radius: 8px; padding: 16px; margin-top: 12px; font-size: 0.8rem; color: #888; line-height: 1.8;">
+    <div style="color: #ff9f43; font-weight: 600; margin-bottom: 8px;">Three competing spacing systems coexist:</div>
+    <div><code style="color: #51cf66;">spacing-style</code> — Liquid render helper → sets --padding-block-start/end</div>
+    <div><code style="color: #51cf66;">gap-style</code> — Liquid render helper → sets dynamic --gap</div>
+    <div><code style="color: #51cf66;">layout-panel-style</code> — Liquid render helper → sets flex direction + alignment + gap</div>
+    <div style="margin-top: 8px; color: #ff9f43; font-weight: 600;">Plus static scales:</div>
+    <div><code style="color: #888;">--margin-xs</code> / <code style="color: #888;">--padding-xs</code> / <code style="color: #888;">--gap-xs</code> — three families for the same thing</div>
+    <div style="margin-top: 8px; color: #ff9f43; font-weight: 600;">Plus logical properties:</div>
+    <div><code style="color: #888;">--padding-block-start</code> — from section settings, different system entirely</div>
+    <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #333; color: #ccc;">
+      <strong>Worker token replacement:</strong> Collapse all three families into one <code style="color: #51cf66;">--space-*</code> scale. Use it for margin, padding, and gap alike.
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>5. What You Keep — The Design DNA</h3>
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px;">
+    <div style="background: #1a1a1a; border-radius: 8px; padding: 16px; font-size: 0.8rem; color: #888; line-height: 1.8;">
+      <div style="color: #51cf66; font-weight: 600; margin-bottom: 8px;">Visual Identity (preserve exactly)</div>
+      • Gangster Grotesk everywhere<br>
+      • Pink announcement bar<br>
+      • Side columns with gridline borders<br>
+      • Floating bee motif button<br>
+      • Minimal, editorial layout<br>
+      • Accordion-based content sections<br>
+      • Split showcase (text + image)<br>
+      • Large logo hero sections<br>
+      • Rich text story pages<br>
+      • Product carousel with variant picker
+    </div>
+    <div style="background: #1a1a1a; border-radius: 8px; padding: 16px; font-size: 0.8rem; color: #888; line-height: 1.8;">
+      <div style="color: #51cf66; font-weight: 600; margin-bottom: 8px;">Colour Schemes (from settings)</div>
+      • scheme-1: White bg / dark text (default)<br>
+      • scheme-2: Dark bg / light text<br>
+      • scheme-3: Pink bg (footer/announcement)<br>
+      • scheme-4–8: Product-specific colours<br>
+      <div style="margin-top: 8px; color: #ff9f43;">These become your theme.css overrides — extract exact hex values from settings_data.json</div>
+    </div>
+  </div>
+</div>
