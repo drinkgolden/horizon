@@ -39,6 +39,17 @@
   --font-display: "Gangster Grotesk", "Helvetica Neue", Arial, sans-serif;
   --font-body:    "Gangster Grotesk", "Helvetica Neue", Arial, sans-serif;
 
+  /* ── Typography — Butterick's rules for Golden ───────── */
+  --leading-body:      1.45;   /* 145% for storytelling copy */
+  --leading-ui:        1.4;    /* tighter for interface text */
+  --leading-display:   1.1;    /* tight for large headings */
+  --measure-golden:    600px;  /* ~65 chars in Gangster Grotesk */
+  --measure-narrow:    50ch;
+  --measure-normal:    66ch;
+  --tracking-display:  -0.02em;  /* tighten large display text */
+  --tracking-heading:  0em;      /* neutral for standard headings */
+  --tracking-caps:     0.08em;   /* always letterspace uppercase */
+
   /* ── Radius — Golden uses sharp edges ─────────────────── */
   --radius-sm:   0px;
   --radius-md:   0px;
