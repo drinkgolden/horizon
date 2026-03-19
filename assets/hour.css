@@ -1,3 +1,11 @@
+/*
+ * hour.css — Golden's website styles
+ *
+ * Built on Worker design tokens (tokens-base.css + tokens-theme.css).
+ * Forked from Horizon 3.0.1, stripped to only what Golden uses.
+ * All visual values reference tokens — no hardcoded hex, px, or font strings.
+ */
+
 * {
   box-sizing: border-box;
 }
@@ -1789,25 +1797,6 @@ results-list[initialized] {
 :is(.product-grid__item, .resource-list__item) .product-card {
   display: grid;
   height: 100%;
-}
-
-/* Video background */
-.video-background,
-.video-background * {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.video-background--cover * {
-  object-fit: cover;
-}
-
-.video-background--contain * {
-  object-fit: contain;
 }
 
 .text-block {
