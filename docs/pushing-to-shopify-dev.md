@@ -30,20 +30,21 @@ git push --set-upstream origin work
 
 ## 3. Authenticate the Shopify CLI
 
-Log in to the Shopify CLI using your store domain (`morg-224.myshopify.com`). This requires that you have access to the store and that the CLI is installed locally.
+With current Shopify CLI v3 releases, authentication happens when you run a store command in an interactive terminal. If you are using Node v25+, set a local storage file first:
 
 ```bash
-shopify login --store morg-224.myshopify.com
+export NODE_OPTIONS='--localstorage-file=$HOME/.shopify-localstorage'
+shopify theme info --store morg-224.myshopify.com --theme 123456789
 ```
 
-After authentication, the CLI stores your credentials so subsequent commands can run without prompting.
+If you are not authenticated yet, the command opens a browser login flow and stores credentials for later commands.
 
 ## 4. Generate a preview link
 
 From the theme directory, run the theme development server:
 
 ```bash
-shopify theme serve --store morg-224.myshopify.com
+shopify theme serve --store morg-224.myshopify.com --theme 123456789
 ```
 
 The CLI outputs a public preview URL (and a local tunnel URL). Share this link with collaborators to review the latest changes.
@@ -51,6 +52,7 @@ The CLI outputs a public preview URL (and a local tunnel URL). Share this link w
 ### Troubleshooting tips
 
 - If the CLI reports that your account lacks permissions, confirm that the store owner granted you access to the theme.
+- If you see `Command login not found`, use a theme command (`theme info`, `theme serve`, etc.) to trigger authentication.
+- If you see `Cannot initialize local storage`, export `NODE_OPTIONS='--localstorage-file=$HOME/.shopify-localstorage'` before running Shopify commands.
 - When `shopify theme serve` runs, leave the process active; closing it revokes the preview link.
 - Use `shopify theme pull` or `shopify theme push` if you need to sync theme files directly with the store instead of relying on Git.
-
