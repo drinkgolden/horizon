@@ -129,6 +129,16 @@ Three-phase hybrid refactor (Approach C):
 - Do not use wellness or functional drink language
 - Golden is about transparency, provenance, and flavour — not fixing your life
 
+## Performance Budget
+
+- LCP: < 2.5s (current: 4.1s — needs image optimisation)
+- CLS: < 0.1 (current: 0 — passing)
+- TBT: < 200ms (current: 90ms — passing)
+- INP: < 200ms
+- Lighthouse Performance: > 80 (current: 75 — close)
+- CSS total: < 6,000 lines across all files
+- JS files loaded per page: < 10
+
 ## Hard Rules
 
 - Do NOT hardcode hex colours, font families, spacing values, or border-radius in CSS or Liquid — use tokens
