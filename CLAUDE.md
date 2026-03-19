@@ -1,11 +1,11 @@
-# Horizon — Golden Shopify Theme
+# Hour — Golden Shopify Theme
 
-Golden's Shopify storefront at staygolden.co.nz. A customised Horizon 3.0.1 theme for a New Zealand honey soda brand with three products (Manuka Lemon, Manuka Blackcurrant, Kanuka Kola). The site is as much a storytelling platform as a shop — 19 content pages about honey, ingredients, provenance, and the brand story, plus 3 product pages.
+Golden's Shopify storefront at staygolden.co.nz. A custom theme for a New Zealand honey soda brand with three products (Manuka Lemon, Manuka Blackcurrant, Kanuka Kola). Forked from Horizon 3.0.1, stripped to only what Golden uses, and rebuilt on the Worker design token system. The site is as much a storytelling platform as a shop — 19 content pages about honey, ingredients, provenance, and the brand story, plus 3 product pages.
 
 ## Stack
 
 - **Platform:** Shopify (Online Store 2.0, JSON templates)
-- **Theme base:** Horizon 3.0.1 by Shopify
+- **Theme base:** Hour (forked from Horizon 3.0.1)
 - **CSS:** Vanilla CSS with custom properties, no preprocessor
 - **JS:** Web Components (custom elements), ES modules via importmap
 - **Font:** Gangster Grotesk (self-hosted woff2 in assets/)
