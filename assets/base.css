@@ -14,6 +14,10 @@ body {
   margin: 0;
   min-height: 100svh;
   font-variation-settings: 'slnt' 0;
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 html,
@@ -36,6 +40,55 @@ img[data-image-loaded],
 img.header-logo__image {
   background-color: transparent;
 }
+
+/* ── Butterick Typography Baseline ──────────────────────── */
+
+/* Prose measure — cap line length for readability */
+.rte p,
+.rte li,
+.rte blockquote,
+.rte dd {
+  max-width: var(--measure-golden, 600px);
+}
+
+/* Tabular numerals for prices and financial data */
+.price,
+.compare-at-price,
+.unit-price,
+.cart-item__price,
+.cart-item__old-price,
+.totals__total-value,
+[data-price] {
+  font-variant-numeric: tabular-nums;
+}
+
+/* All-caps must always be letterspaced */
+.caps,
+.uppercase {
+  letter-spacing: var(--tracking-caps, 0.08em);
+}
+
+/* Display text — tighten tracking at large sizes */
+.h1,
+h1 {
+  letter-spacing: var(--tracking-display, -0.02em);
+  line-height: var(--leading-display, 1.1);
+}
+
+/* Standard headings — neutral tracking */
+.h2, .h3, .h4, .h5, .h6,
+h2, h3, h4, h5, h6 {
+  letter-spacing: var(--tracking-heading, 0em);
+}
+
+/* Prevent iOS zoom on input focus */
+input,
+textarea,
+select {
+  font-size: max(16px, 1rem);
+}
+
+/* ── End Typography Baseline ────────────────────────────── */
 
 body.has-side-columns {
   --side-columns-inline-desktop: var(--side-columns-width-desktop, 2vw);
