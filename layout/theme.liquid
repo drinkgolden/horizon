@@ -73,24 +73,12 @@
   </head>
 
   {% liquid
-    assign body_classes = 'page-width-' | append: settings.page_width | append: ' card-hover-effect-' | append: settings.card_hover_effect
-    if settings.side_columns_enable
-      assign body_classes = body_classes | append: ' has-side-columns'
-      if settings.side_columns_enable_mobile
-        assign body_classes = body_classes | append: ' has-side-columns--mobile'
-      endif
-    endif
-    if settings.enable_bottom_motif_button and template == 'index'
+    comment
+      Layout classes — hardcoded from Golden Grid settings (stripped from settings_schema.json)
+    endcomment
+    assign body_classes = 'page-width-normal card-hover-effect-none has-side-columns has-section-gridlines has-section-gridlines-horizontal has-section-gridlines-vertical'
+    if template == 'index'
       assign body_classes = body_classes | append: ' has-floating-motif-button'
-    endif
-    if settings.section_gridlines_enable
-      assign body_classes = body_classes | append: ' has-section-gridlines'
-      if settings.section_gridlines_horizontal
-        assign body_classes = body_classes | append: ' has-section-gridlines-horizontal'
-      endif
-      if settings.section_gridlines_vertical
-        assign body_classes = body_classes | append: ' has-section-gridlines-vertical'
-      endif
     endif
     assign side_columns_background = 'transparent'
     if settings.side_columns_color_scheme == blank
