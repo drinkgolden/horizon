@@ -356,6 +356,221 @@
     ]
   },
   {
+    "name": "t:names.page_layout",
+    "settings": [
+      {
+        "type": "select",
+        "id": "page_width",
+        "label": "t:settings.page_width",
+        "options": [
+          {
+            "value": "narrow",
+            "label": "t:options.narrow"
+          },
+          {
+            "value": "normal",
+            "label": "t:options.normal"
+          },
+          {
+            "value": "wide",
+            "label": "t:options.wide"
+          }
+        ],
+        "default": "narrow"
+      }
+    ]
+  },
+  {
+    "name": "Golden Grid",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Borders"
+      },
+      {
+        "type": "checkbox",
+        "id": "side_columns_enable",
+        "label": "Enable borders",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "side_columns_enable_mobile",
+        "label": "Show on mobile",
+        "default": true,
+        "visible_if": "{{ settings.side_columns_enable }}"
+      },
+      {
+        "type": "range",
+        "id": "side_columns_width_desktop",
+        "label": "Desktop width",
+        "min": 0,
+        "max": 5,
+        "step": 0.1,
+        "unit": "rem",
+        "default": 1.5,
+        "visible_if": "{{ settings.side_columns_enable }}"
+      },
+      {
+        "type": "range",
+        "id": "side_columns_width_mobile",
+        "label": "Mobile width",
+        "min": 0,
+        "max": 5,
+        "step": 0.1,
+        "unit": "rem",
+        "default": 1,
+        "visible_if": "{{ settings.side_columns_enable }}"
+      },
+      {
+        "type": "color_scheme",
+        "id": "side_columns_color_scheme",
+        "label": "Color scheme",
+        "default": "scheme-1",
+        "visible_if": "{{ settings.side_columns_enable }}"
+      },
+      {
+        "type": "header",
+        "content": "Grid"
+      },
+      {
+        "type": "checkbox",
+        "id": "section_gridlines_enable",
+        "label": "Enable grid",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "section_gridlines_vertical",
+        "label": "Show vertical gridlines",
+        "default": true,
+        "visible_if": "{{ settings.section_gridlines_enable }}"
+      },
+      {
+        "type": "checkbox",
+        "id": "section_gridlines_horizontal",
+        "label": "Show horizontal gridlines",
+        "default": true,
+        "visible_if": "{{ settings.section_gridlines_enable }}"
+      },
+      {
+        "type": "paragraph",
+        "content": "Adds fine 1px dividers above and below each content section, and optional vertical rails inside the global borders.",
+        "visible_if": "{{ settings.section_gridlines_enable }}"
+      },
+      {
+        "type": "color",
+        "id": "section_gridline_color",
+        "label": "Gridline color",
+        "default": "#e5e5e5",
+        "alpha": true,
+        "visible_if": "{{ settings.section_gridlines_enable }}"
+      },
+      {
+        "type": "color",
+        "id": "section_gridline_color_dark",
+        "label": "Gridline color on dark backgrounds",
+        "default": "rgba(255,255,255,0.12)",
+        "alpha": true,
+        "visible_if": "{{ settings.section_gridlines_enable }}"
+      },
+      {
+        "type": "color",
+        "id": "vertical_divider_color",
+        "label": "Vertical gridline color",
+        "default": "#d9d9d9",
+        "visible_if": "{{ settings.section_gridlines_enable }}"
+      },
+      {
+        "type": "header",
+        "content": "Floating button"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_bottom_motif_button",
+        "label": "Enable floating motif button",
+        "default": false
+      },
+      {
+        "type": "select",
+        "id": "bottom_motif_button_color_scheme",
+        "label": "Color scheme",
+        "options": [
+          {
+            "value": "scheme-1",
+            "label": "Scheme 1"
+          },
+          {
+            "value": "scheme-2",
+            "label": "Scheme 2"
+          },
+          {
+            "value": "scheme-3",
+            "label": "Scheme 3"
+          },
+          {
+            "value": "scheme-4",
+            "label": "Scheme 4"
+          }
+        ],
+        "default": "scheme-1",
+        "visible_if": "{{ settings.enable_bottom_motif_button }}"
+      },
+      {
+        "type": "range",
+        "id": "bottom_motif_button_scroll_percent",
+        "label": "Show after scroll (%)",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "%",
+        "default": 0,
+        "info": "0 uses the default (one viewport height).",
+        "visible_if": "{{ settings.enable_bottom_motif_button }}"
+      },
+      {
+        "type": "text",
+        "id": "bottom_motif_button_heading",
+        "label": "Heading",
+        "default": "Explore the collection",
+        "visible_if": "{{ settings.enable_bottom_motif_button }}"
+      },
+      {
+        "type": "richtext",
+        "id": "bottom_motif_button_copy",
+        "label": "Supporting text",
+        "default": "<p>Add a short supporting line here.</p>",
+        "visible_if": "{{ settings.enable_bottom_motif_button }}"
+      },
+      {
+        "type": "text",
+        "id": "bottom_motif_button_label",
+        "label": "Primary button label",
+        "default": "Explore",
+        "visible_if": "{{ settings.enable_bottom_motif_button }}"
+      },
+      {
+        "type": "url",
+        "id": "bottom_motif_button_link",
+        "label": "Primary button link",
+        "visible_if": "{{ settings.enable_bottom_motif_button }}"
+      },
+      {
+        "type": "text",
+        "id": "bottom_motif_secondary_button_label",
+        "label": "Secondary button label",
+        "default": "Learn more",
+        "visible_if": "{{ settings.enable_bottom_motif_button }}"
+      },
+      {
+        "type": "url",
+        "id": "bottom_motif_secondary_button_link",
+        "label": "Secondary button link",
+        "visible_if": "{{ settings.enable_bottom_motif_button }}"
+      }
+    ]
+  },
+  {
     "name": "t:names.cart",
     "settings": [
       {
