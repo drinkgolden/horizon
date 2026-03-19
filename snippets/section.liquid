@@ -6,10 +6,6 @@
 {%- enddoc -%}
 
 {%- assign split_divider_color = section.settings.split_divider_color | default: settings.section_gridline_color | default: '#d9d9d9' -%}
-{%- assign split_divider_enabled = section.settings.enable_split_divider -%}
-{%- if split_divider_enabled == blank -%}
-  {%- assign split_divider_enabled = true -%}
-{%- endif -%}
 {%- assign group_block_count = 0 -%}
 {%- assign has_only_group_blocks = true -%}
 {%- for block in section.blocks -%}
@@ -21,7 +17,7 @@
 {%- endfor -%}
 
 {%- assign show_split_divider = false -%}
-{%- if split_divider_enabled and group_block_count > 1 and section.settings.content_direction == 'row' -%}
+{%- if section.settings.enable_split_divider and group_block_count > 1 and section.settings.content_direction == 'row' -%}
   {%- assign show_split_divider = true -%}
 {%- endif -%}
 
